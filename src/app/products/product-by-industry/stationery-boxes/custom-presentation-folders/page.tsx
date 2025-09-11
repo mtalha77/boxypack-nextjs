@@ -1,0 +1,25 @@
+import React from 'react';
+import { navigationData } from '../../../../data/navigationData';
+import ProductPageTemplate from '../../../../components/product-page/page';
+
+const CustomPresentationFoldersPage = () => {
+  const section = navigationData.find(s => s.slug === 'product-by-industry');
+  const category = section?.categories?.find(c => c.slug === 'stationery-boxes');
+  const subcategory = category?.subcategories.find(sc => sc.slug === 'custom-presentation-folders');
+  
+  if (!section || !category || !subcategory) {
+    return <div>Subcategory not found</div>;
+  }
+
+  return (
+    <ProductPageTemplate
+      section={section}
+      category={category}
+      subcategory={subcategory}
+      slug="custom-presentation-folders"
+      pageType="subcategory"
+    />
+  );
+};
+
+export default CustomPresentationFoldersPage;

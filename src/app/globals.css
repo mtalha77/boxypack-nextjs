@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* Logo Colors */
+  --color-brown-dark: #b27534;   /* Dark Brown */
+  --color-brown-light: #dc984f;  /* Light Brown */
+  --color-teal-blue: #46959c;    /* Teal Blue */
+
+  /* Box Colors */
+  --color-turquoise-bright: #0ca6c2; /* Bright Turquoise */
+  --color-teal-deep: #0c6b76;       /* Deep Teal */
+  --color-brown-golden: #b27635;    /* Golden Brown */
+  --color-brown-dark2: #714622;     /* Dark Brown */
+  --color-brown-rustic: #97602f;    /* Rustic Brown */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Fonts */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Logo Colors */
+  --color-brown-dark: var(--color-brown-dark);
+  --color-brown-light: var(--color-brown-light);
+  --color-teal-blue: var(--color-teal-blue);
+
+  /* Box Colors */
+  --color-turquoise-bright: var(--color-turquoise-bright);
+  --color-teal-deep: var(--color-teal-deep);
+  --color-brown-golden: var(--color-brown-golden);
+  --color-brown-dark2: var(--color-brown-dark2);
+  --color-brown-rustic: var(--color-brown-rustic);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced smooth scrolling for better performance */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Smooth transitions for all elements */
+* {
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+/* Smooth ScrollTrigger Animations */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Accordion Animation Styles */
+.wrapper {
+  height: 100vh;
+}
+
+.accordion {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-header {
+  background: linear-gradient(135deg, #0c6b76, #0ca6c2);
+  padding: 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.accordion-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.accordion-header:hover::before {
+  left: 100%;
+}
+
+.accordion-body {
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  height: 0;
+  transition: height 0.3s ease;
+}
+
+.accordion-content {
+  padding: 32px;
+  overflow: hidden;
+}
+
+.horizontal-center {
+  width: 100%;
+  height: 320px; /* h-80 = 320px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cards-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 24px;
+  padding: 0 16px;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.card-center {
+  height: 280px;
+  flex: 0 0 300px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-center:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-center::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(12, 107, 118, 0.1), rgba(12, 166, 194, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.card-center:hover::before {
+  opacity: 1;
+}
+
+.card-center img {
+  transition: transform 0.3s ease;
+}
+
+.card-center:hover img {
+  transform: scale(1.1);
+}
+
+/* Smooth ScrollTrigger pinning */
+[data-scroll-trigger] {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Smooth section transitions */
+section {
+  will-change: transform;
+  backface-visibility: hidden;
+}
