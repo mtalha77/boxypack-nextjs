@@ -1,6 +1,6 @@
 import React from 'react';
 import { navigationData } from '../../../data/navigationData';
-import ProductPageTemplate from '../../../components/product-page/page';
+import CategoryPage from '../../../components/product-page/CategoryPage';
 
 const KraftBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');
@@ -11,11 +11,10 @@ const KraftBoxesPage = () => {
   }
 
   return (
-    <ProductPageTemplate
+    <CategoryPage
       section={section}
       category={category}
       slug="kraft-boxes"
-      pageType="category"
     />
   );
 };

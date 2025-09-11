@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -20,25 +21,29 @@ const AllProducts: React.FC = () => {
       title: "Standard Mailer Boxes", 
       image: "/img/mailer-box.jpg", 
       category: "Mailer Boxes",
-      description: "Perfect for e-commerce shipping with secure closure and professional appearance"
+      description: "Perfect for e-commerce shipping with secure closure and professional appearance",
+      url: "/products/mailer-boxes"
     },
     { 
       title: "Custom Mailer Boxes", 
       image: "/img/mailer-box.jpg", 
       category: "Mailer Boxes",
-      description: "Branded packaging solutions tailored to your specific product dimensions"
+      description: "Branded packaging solutions tailored to your specific product dimensions",
+      url: "/products/mailer-boxes"
     },
     { 
       title: "Eco-Friendly Mailers", 
       image: "/img/mailer-box.jpg", 
       category: "Mailer Boxes",
-      description: "Sustainable packaging made from recycled materials for environmentally conscious brands"
+      description: "Sustainable packaging made from recycled materials for environmentally conscious brands",
+      url: "/products/mailer-boxes"
     },
     { 
       title: "Kraft Mailer Boxes", 
       image: "/img/mailer-box.jpg", 
       category: "Mailer Boxes",
-      description: "Natural brown kraft paper boxes with rustic appeal and excellent durability"
+      description: "Natural brown kraft paper boxes with rustic appeal and excellent durability",
+      url: "/products/mailer-boxes"
     },
     
     // Product Boxes
@@ -46,25 +51,29 @@ const AllProducts: React.FC = () => {
       title: "Product Display Boxes", 
       image: "/img/product-box-2.jpg", 
       category: "Product Boxes",
-      description: "Showcase your products with window cutouts and premium finishing options"
+      description: "Showcase your products with window cutouts and premium finishing options",
+      url: "/products/product-boxes"
     },
     { 
       title: "Custom Product Boxes", 
       image: "/img/product-box-2.jpg", 
       category: "Product Boxes",
-      description: "Fully customized boxes designed to perfectly fit your product specifications"
+      description: "Fully customized boxes designed to perfectly fit your product specifications",
+      url: "/products/product-boxes"
     },
     { 
       title: "Luxury Product Boxes", 
       image: "/img/product-box-2.jpg", 
       category: "Product Boxes",
-      description: "Premium packaging with foiling, embossing, and high-end materials for luxury brands"
+      description: "Premium packaging with foiling, embossing, and high-end materials for luxury brands",
+      url: "/products/product-boxes"
     },
     { 
       title: "Gift Product Boxes", 
       image: "/img/product-box-2.jpg", 
       category: "Product Boxes",
-      description: "Elegant gift packaging with ribbons, inserts, and special finishing touches"
+      description: "Elegant gift packaging with ribbons, inserts, and special finishing touches",
+      url: "/products/product-boxes"
     },
     
     // Rigid Boxes
@@ -72,25 +81,29 @@ const AllProducts: React.FC = () => {
       title: "Premium Rigid Boxes", 
       image: "/img/Product-Packaging-Boxes.webp", 
       category: "Rigid Boxes",
-      description: "High-quality rigid construction with premium materials for maximum protection"
+      description: "High-quality rigid construction with premium materials for maximum protection",
+      url: "/products/product-by-material/rigid-boxes"
     },
     { 
       title: "Custom Rigid Boxes", 
       image: "/img/Product-Packaging-Boxes.webp", 
       category: "Rigid Boxes",
-      description: "Tailored rigid boxes with custom dimensions, colors, and printing options"
+      description: "Tailored rigid boxes with custom dimensions, colors, and printing options",
+      url: "/products/product-by-material/rigid-boxes"
     },
     { 
       title: "Luxury Rigid Boxes", 
       image: "/img/Product-Packaging-Boxes.webp", 
       category: "Rigid Boxes",
-      description: "Ultra-premium rigid boxes with velvet lining, magnetic closure, and gold foiling"
+      description: "Ultra-premium rigid boxes with velvet lining, magnetic closure, and gold foiling",
+      url: "/products/product-by-material/rigid-boxes"
     },
     { 
       title: "Gift Rigid Boxes", 
       image: "/img/Product-Packaging-Boxes.webp", 
       category: "Rigid Boxes",
-      description: "Sophisticated gift boxes with compartments, inserts, and luxury finishing"
+      description: "Sophisticated gift boxes with compartments, inserts, and luxury finishing",
+      url: "/products/product-by-material/rigid-boxes"
     },
     
     // Shipping Boxes
@@ -98,25 +111,29 @@ const AllProducts: React.FC = () => {
       title: "Standard Shipping Boxes", 
       image: "/img/shipping-box.jpg", 
       category: "Shipping Boxes",
-      description: "Durable corrugated boxes designed for safe transportation of various products"
+      description: "Durable corrugated boxes designed for safe transportation of various products",
+      url: "/products/shipping-boxes"
     },
     { 
       title: "Custom Shipping Boxes", 
       image: "/img/shipping-box.jpg", 
       category: "Shipping Boxes",
-      description: "Branded shipping boxes with your logo and custom dimensions for optimal fit"
+      description: "Branded shipping boxes with your logo and custom dimensions for optimal fit",
+      url: "/products/shipping-boxes"
     },
     { 
       title: "Eco-Friendly Shipping", 
       image: "/img/shipping-box.jpg", 
       category: "Shipping Boxes",
-      description: "Sustainable shipping solutions made from recycled and biodegradable materials"
+      description: "Sustainable shipping solutions made from recycled and biodegradable materials",
+      url: "/products/shipping-boxes"
     },
     { 
       title: "Heavy Duty Shipping", 
       image: "/img/shipping-box.jpg", 
       category: "Shipping Boxes",
-      description: "Extra-strength boxes with reinforced corners for heavy and fragile items"
+      description: "Extra-strength boxes with reinforced corners for heavy and fragile items",
+      url: "/products/shipping-boxes"
     },
     
     // Pouches
@@ -124,25 +141,29 @@ const AllProducts: React.FC = () => {
       title: "Stand-up Pouches", 
       image: "/img/products-box-img.png", 
       category: "Pouches",
-      description: "Self-standing pouches with zipper closure for easy access and product visibility"
+      description: "Self-standing pouches with zipper closure for easy access and product visibility",
+      url: "/products/pouches"
     },
     { 
       title: "Flat Pouches", 
       image: "/img/products-box-img.png", 
       category: "Pouches",
-      description: "Space-efficient flat pouches perfect for retail display and storage"
+      description: "Space-efficient flat pouches perfect for retail display and storage",
+      url: "/products/pouches"
     },
     { 
       title: "Custom Pouches", 
       image: "/img/products-box-img.png", 
       category: "Pouches",
-      description: "Personalized pouches with custom printing, sizes, and closure options"
+      description: "Personalized pouches with custom printing, sizes, and closure options",
+      url: "/products/pouches"
     },
     { 
       title: "Resealable Pouches", 
       image: "/img/products-box-img.png", 
       category: "Pouches",
-      description: "Convenient resealable pouches to maintain freshness and extend product life"
+      description: "Convenient resealable pouches to maintain freshness and extend product life",
+      url: "/products/pouches"
     },
     
     // Shopping Bags
@@ -150,25 +171,29 @@ const AllProducts: React.FC = () => {
       title: "Paper Shopping Bags", 
       image: "/img/2.png", 
       category: "Shopping Bags",
-      description: "Eco-friendly paper bags with handles, perfect for retail and promotional use"
+      description: "Eco-friendly paper bags with handles, perfect for retail and promotional use",
+      url: "/products/shopping-bags"
     },
     { 
       title: "Plastic Shopping Bags", 
       image: "/img/2.png", 
       category: "Shopping Bags",
-      description: "Durable plastic bags with custom printing for branding and marketing"
+      description: "Durable plastic bags with custom printing for branding and marketing",
+      url: "/products/shopping-bags"
     },
     { 
       title: "Canvas Shopping Bags", 
       image: "/img/2.png", 
       category: "Shopping Bags",
-      description: "Reusable canvas bags with custom designs for sustainable retail solutions"
+      description: "Reusable canvas bags with custom designs for sustainable retail solutions",
+      url: "/products/shopping-bags"
     },
     { 
       title: "Custom Shopping Bags", 
       image: "/img/2.png", 
       category: "Shopping Bags",
-      description: "Fully customized bags with your brand colors, logo, and unique design elements"
+      description: "Fully customized bags with your brand colors, logo, and unique design elements",
+      url: "/products/shopping-bags"
     },
     
     // Packaging Accessories
@@ -176,25 +201,29 @@ const AllProducts: React.FC = () => {
       title: "Tissue Paper", 
       image: "/img/3.png", 
       category: "Packaging Accessories",
-      description: "Premium tissue paper in various colors for elegant product wrapping and protection"
+      description: "Premium tissue paper in various colors for elegant product wrapping and protection",
+      url: "/products/packaging-accessories"
     },
     { 
       title: "Bubble Wrap", 
       image: "/img/3.png", 
       category: "Packaging Accessories",
-      description: "Protective bubble wrap in multiple sizes for safe shipping of fragile items"
+      description: "Protective bubble wrap in multiple sizes for safe shipping of fragile items",
+      url: "/products/packaging-accessories"
     },
     { 
       title: "Packing Tape", 
       image: "/img/3.png", 
       category: "Packaging Accessories",
-      description: "High-quality packing tape with custom printing for secure box sealing"
+      description: "High-quality packing tape with custom printing for secure box sealing",
+      url: "/products/packaging-accessories"
     },
     { 
       title: "Labels & Stickers", 
       image: "/img/3.png", 
       category: "Packaging Accessories",
-      description: "Custom labels and stickers for branding, instructions, and product identification"
+      description: "Custom labels and stickers for branding, instructions, and product identification",
+      url: "/products/packaging-accessories"
     }
   ];
 
@@ -253,7 +282,7 @@ const AllProducts: React.FC = () => {
             Complete Product Range
           </h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Browse our comprehensive collection of packaging solutions including mailer boxes, product boxes, rigid boxes, shipping boxes, pouches, shopping bags, and packaging accessories.
+            Browse our comprehensive collection of individual packaging products including mailer boxes, product boxes, rigid boxes, shipping boxes, pouches, shopping bags, and packaging accessories.
           </p>
         </div>
 
@@ -264,9 +293,10 @@ const AllProducts: React.FC = () => {
               className="cards-container w-full flex flex-nowrap gap-6"
             >
               {cards.map((card, cardIndex) => (
-                <div 
+                <Link
                   key={cardIndex}
-                  className="card-center bg-white rounded-2xl border border-gray-200 flex-shrink-0 overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                  href={card.url}
+                  className="card-center bg-white rounded-2xl border border-gray-200 flex-shrink-0 overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 block"
                   style={{ width: "300px", height: "400px" }}
                 >
                   <div className="relative h-48 overflow-hidden">
@@ -290,7 +320,7 @@ const AllProducts: React.FC = () => {
                       {card.description}
                     </p>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
         </div>

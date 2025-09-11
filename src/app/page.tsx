@@ -7,7 +7,7 @@ import VideoSection from './components/homepage/successed-with-custom';
 import MoreThanPackage from './components/homepage/more-than-package';
 import FAQ from './components/homepage/faq';
 import RequestQuote from './components/homepage/request-quote';
-import ProductGallery from './components/product-design-page/ProductGallery';
+import ProductGallery from './components/all-industries-carasoul';
 
 const ParallaxHero = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -263,10 +263,13 @@ const ParallaxHero = () => {
       
 
       {/* <HowItWorks /> */}
-      <ProductGallery/>
       <VideoSection />
       <BoxDesignGallery />
       <MoreThanPackage />
+      
+      {/* Carousels after Why Choose Us section */}
+      <ProductGallery/>
+      
       <FAQ />     
       <RequestQuote />
       

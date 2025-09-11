@@ -5,11 +5,10 @@ import { NavigationSection, MainCategory, SubCategory } from '../../data/navigat
 import { productData } from '../../data/productData';
 import HeroSection, { BreadcrumbItem } from '../product-design-page/HeroSection';
 import FeaturesSection from '../product-design-page/FeaturesSection';
-import Model3D from '../product-design-page/Model3D';
-import SpecificationsSection from '../product-design-page/SpecificationsSection';
-import ProductGallery from '../product-design-page/ProductGallery';
+import ProductGallery from '../all-industries-carasoul';
 import ClientTestamonials from '../product-design-page/ClientTestamonials';
 import CTASection from '../product-design-page/CTASection';
+import SubcategoryCards from './SubcategoryCards';
 import ErrorBoundary from '../ErrorBoundary';
 
 interface ProductPageTemplateProps {
@@ -33,6 +32,7 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
   React.useEffect(() => {
     setIsMounted(true);
   }, []);
+
   // Get product data if it exists in the legacy data structure
   const legacyProductData = productData[slug as keyof typeof productData];
 
@@ -154,42 +154,42 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
   return (
     <ErrorBoundary>
       <main className="min-h-screen">
-          {/* Hero Section with Integrated Breadcrumb */}
-          <HeroSection productData={productInfo} breadcrumbs={breadcrumbs} />
+        {/* Hero Section with Integrated Breadcrumb */}
+        <HeroSection productData={productInfo} breadcrumbs={breadcrumbs} />
 
-          {/* 3D Model Section */}
-          <ErrorBoundary fallback={<div className="py-16 bg-gray-50"><div className="max-w-7xl mx-auto px-4 text-center"><p>3D Model temporarily unavailable</p></div></div>}>
-            <div className="py-16 bg-gray-50">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-12">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                    Interactive 3D Preview
-                  </h2>
-                  <p className="text-lg text-gray-600">
-                    Explore your packaging in 3D
-                  </p>
-                </div>
-                <Model3D modelPath={productInfo.modelPath} />
-              </div>
+        {/* Features Section */}
+        <FeaturesSection productData={productInfo} />
+
+        {/* Subcategory Cards Section - Show subcategories for category pages */}
+        {pageType === 'category' && category?.subcategories && section && (
+          <SubcategoryCards
+            subcategories={category.subcategories}
+            parentCategoryName={category.name}
+            parentCategorySlug={category.slug}
+            sectionSlug={section.slug}
+          />
+        )}
+
+        {/* Carousels Section - Show after subcategories */}
+        <ErrorBoundary fallback={<div className="py-16 bg-white"><div className="max-w-7xl mx-auto px-4 text-center"><p>Carousels temporarily unavailable</p></div></div>}>
+          <ProductGallery />
+        </ErrorBoundary>
+
+        {/* Gallery Section */}
+        <ErrorBoundary fallback={<div className="py-16 bg-white"><div className="max-w-7xl mx-auto px-4 text-center"><p>Gallery temporarily unavailable</p></div></div>}>
+          <div className="py-16 bg-gray-50">
+            <div className="max-w-7xl mx-auto px-4 text-center">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Product Gallery</h2>
+              <p className="text-lg text-gray-600">Additional product images and showcases</p>
             </div>
-          </ErrorBoundary>
+          </div>
+        </ErrorBoundary>
 
-          {/* Features Section */}
-          <FeaturesSection productData={productInfo} />
+        {/* Testimonials Section */}
+        <ClientTestamonials productData={productInfo} />
 
-          {/* Specifications Section */}
-          <SpecificationsSection productData={productInfo} />
-
-          {/* Gallery Section */}
-          <ErrorBoundary fallback={<div className="py-16 bg-white"><div className="max-w-7xl mx-auto px-4 text-center"><p>Gallery temporarily unavailable</p></div></div>}>
-            <ProductGallery />
-          </ErrorBoundary>
-
-          {/* Testimonials Section */}
-          <ClientTestamonials productData={productInfo} />
-
-          {/* CTA Section */}
-          <CTASection productData={productInfo} />
+        {/* CTA Section */}
+        <CTASection productData={productInfo} />
 
         {/* Related Products Section - Show subcategories or categories based on page type */}
         {(section?.categories || section?.subcategories) && (

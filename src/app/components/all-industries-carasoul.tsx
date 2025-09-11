@@ -2,8 +2,10 @@
 
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { navigationData } from '../data/navigationData';
 
 // Register ScrollTrigger plugin
 if (typeof window !== 'undefined') {
@@ -14,26 +16,46 @@ const ProductGallery: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const cardsContainerRef = useRef<HTMLDivElement>(null);
 
-  const cards = [
-    { title: "Shipping Boxes", image: "/img/shipping-box.jpg" },
-    { title: "Product Boxes", image: "/img/product-box-2.jpg" },
-    { title: "Mailer Boxes", image: "/img/mailer-box.jpg" },
-    { title: "Rigid Boxes", image: "/img/Product-Packaging-Boxes.webp" },
-    { title: "Pouches", image: "/img/products-box-img.png" },
-    { title: "Shopping Bags", image: "/img/2.png" },
-    { title: "Luxury Boxes", image: "/img/Product-Packaging-Boxes.webp" },
-    { title: "Gift Boxes", image: "/img/product-box-2.jpg" },
-    { title: "Shoe Boxes", image: "/img/shipping-box.jpg" },
-    { title: "Jewelry Boxes", image: "/img/mailer-box.jpg" },
-    { title: "Handbag Boxes", image: "/img/products-box-img.png" },
-    { title: "Accessory Boxes", image: "/img/3.png" },
-    { title: "Makeup Boxes", image: "/img/product-box-2.jpg" },
-    { title: "Skincare Boxes", image: "/img/Product-Packaging-Boxes.webp" },
-    { title: "Perfume Boxes", image: "/img/shipping-box.jpg" },
-    { title: "Gift Sets", image: "/img/mailer-box.jpg" },
-    { title: "Sample Boxes", image: "/img/products-box-img.png" },
-    { title: "Display Boxes", image: "/img/4.png" }
-  ];
+  // Get industry categories from navigation data
+  const industrySection = navigationData.find(section => section.slug === 'product-by-industry');
+  const industryCategories = industrySection?.categories || [];
+
+  // Create cards from industry categories
+  const cards = industryCategories.map(category => ({
+    title: category.name,
+    description: category.description || `Premium ${category.name.toLowerCase()} packaging solutions designed for optimal protection and presentation.`,
+    category: "Industry Category",
+    image: getCategoryImage(category.slug),
+    slug: category.slug,
+    subcategoriesCount: category.subcategories?.length || 0
+  }));
+
+  // Helper function to get appropriate image for each category
+  function getCategoryImage(slug: string): string {
+    const imageMap: { [key: string]: string } = {
+      'bakery-boxes': '/img/product-box-2.jpg',
+      'cosmetic-boxes': '/img/products-box-img.png',
+      'food-boxes': '/img/mailer-box.jpg',
+      'gift-boxes': '/img/Product-Packaging-Boxes.webp',
+      'jewelry-boxes': '/img/products-box-img.png',
+      'retail-boxes': '/img/product-box-2.jpg',
+      'candle-boxes': '/img/Product-Packaging-Boxes.webp',
+      'shipping-boxes-industry': '/img/shipping-box.jpg',
+      'soap-boxes-industry': '/img/products-box-img.png',
+      'apparel-boxes': '/img/product-box-2.jpg',
+      'sports-boxes': '/img/shipping-box.jpg',
+      'cigarette-boxes-industry': '/img/mailer-box.jpg',
+      'cbd-boxes': '/img/products-box-img.png',
+      'e-liquid-boxes': '/img/product-box-2.jpg',
+      'stationery-boxes': '/img/3.png',
+      'christmas-boxes': '/img/Product-Packaging-Boxes.webp',
+      'chocolate-boxes': '/img/product-box-2.jpg',
+      'cereal-boxes': '/img/products-box-img.png',
+      'pre-roll-boxes-industry': '/img/mailer-box.jpg',
+      'pizza-boxes': '/img/shipping-box.jpg'
+    };
+    return imageMap[slug] || '/img/products-box-img.png';
+  }
 
   useEffect(() => {
     if (typeof window === 'undefined' || !sectionRef.current || !cardsContainerRef.current) return;
@@ -99,16 +121,16 @@ const ProductGallery: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 min-h-screen flex flex-col justify-start pt-16">
         {/* Header Section */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-20">
           <div className="inline-flex items-center border-2 border-brown-dark2 px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full text-brown-dark2 font-bold text-sm font-semibold mb-6 shadow-lg">
             <div className="w-2 h-2 bg-brown-dark2 rounded-full mr-3"></div>
-            INDUSTRIES
+            INDUSTRY CATEGORIES
           </div>
-          <h2 className="text-4xl font-bold text-[#0c6b76] mb-4 leading-tight">
-            Explore Our Packaging Solutions
+          <h2 className="text-4xl font-bold text-[#0c6b76] mb-6 leading-tight">
+            Browse by Industry
           </h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Scroll to discover our wide range of custom packaging options designed for every need.
+            Explore our comprehensive range of packaging solutions organized by industry. Each category contains specialized packaging options tailored to specific business needs.
           </p>
         </div>
 
@@ -119,10 +141,11 @@ const ProductGallery: React.FC = () => {
               className="cards-container w-full flex flex-nowrap gap-6"
             >
               {cards.map((card, cardIndex) => (
-                <div 
+                <Link
                   key={cardIndex}
-                  className="card-center bg-white rounded-2xl border border-gray-200 flex-shrink-0 overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-                  style={{ width: "300px", height: "320px" }}
+                  href={`/products/product-by-industry/${card.slug}`}
+                  className="card-center bg-white rounded-2xl border border-gray-200 flex-shrink-0 overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 block"
+                  style={{ width: "300px", height: "400px" }}
                 >
                   <div className="relative h-48 overflow-hidden">
                     <Image
@@ -133,14 +156,22 @@ const ProductGallery: React.FC = () => {
                     />
                   </div>
                   <div className="p-6">
-                    <h4 className="text-lg font-bold text-[#0c6b76] mb-2 group-hover:text-[#0ca6c2] transition-colors duration-300">
+                    <div className="mb-3">
+                      <span className="inline-block px-2 py-1 bg-[#0c6b76]/10 text-[#0c6b76] text-xs font-semibold rounded-full">
+                        {card.category}
+                      </span>
+                      <span className="inline-block px-2 py-1 bg-[#0ca6c2]/10 text-[#0ca6c2] text-xs font-semibold rounded-full ml-2">
+                        {card.subcategoriesCount} Products
+                      </span>
+                    </div>
+                    <h4 className="text-lg font-bold text-[#0c6b76] mb-3 group-hover:text-[#0ca6c2] transition-colors duration-300">
                       {card.title}
                     </h4>
-                    <p className="text-gray-600 text-sm">
-                      Custom packaging solution for {card.title.toLowerCase()}
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {card.description}
                     </p>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
         </div>

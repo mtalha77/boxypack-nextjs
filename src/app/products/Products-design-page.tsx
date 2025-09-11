@@ -2,11 +2,10 @@
 
 import React from 'react';
 import HeroSection from '../components/product-design-page/HeroSection';
-import ProductGallery from '../components/product-design-page/ProductGallery';
 import FeaturesSection from '../components/product-design-page/FeaturesSection';
 import CTASection from '../components/product-design-page/CTASection';
 import ClientTestimonials from '../components/product-design-page/ClientTestamonials';
-import AllProducts from '../components/product-design-page/all-products-cards';
+import AllProducts from '../components/all-products-carasoul';
 
 interface ProductPageProps {
   productData: {
