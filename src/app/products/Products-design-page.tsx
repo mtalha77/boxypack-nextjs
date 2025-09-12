@@ -5,7 +5,6 @@ import HeroSection from '../components/product-design-page/HeroSection';
 import FeaturesSection from '../components/product-design-page/FeaturesSection';
 import CTASection from '../components/product-design-page/CTASection';
 import ClientTestimonials from '../components/product-design-page/ClientTestamonials';
-import AllProducts from '../components/all-products-carasoul';
 
 interface ProductPageProps {
   productData: {
@@ -39,7 +38,6 @@ const ProductsDesignPage: React.FC<ProductPageProps> = ({ productData }) => {
     <div className="">
       <HeroSection productData={productData} />
       {/* <ProductGallery /> */}
-      <AllProducts/>
       <FeaturesSection productData={productData} />
       <ClientTestimonials productData={productData} />
       {/* <SpecificationsSection productData={productData} /> */}

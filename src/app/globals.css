@@ -51,6 +51,79 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
+/* Hide scrollbars for auto-scrolling carousels */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+/* Parallax Gallery Styles */
+.perspective-1 {
+  perspective: 1px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Custom viewport height units */
+.min-h-40vh {
+  min-height: 40vh;
+}
+
+.min-h-65vh {
+  min-height: 65vh;
+}
+
+.w-45vh {
+  width: 45vh;
+}
+
+.h-50vh {
+  height: 50vh;
+}
+
+/* Parallax transform utilities */
+.translateZ-0\.1px {
+  transform: translateZ(0.1px);
+}
+
+.scale-90 {
+  transform: scale(0.9);
+}
+
+.translate-x-0 {
+  transform: translateX(0);
+}
+
+.translate-y-\[-3vh\] {
+  transform: translateY(-3vh);
+}
+
+/* Additional parallax utilities */
+.origin-center {
+  transform-origin: center;
+}
+
+.origin-right-top {
+  transform-origin: right top;
+}
+
+.-rotate-90 {
+  transform: rotate(-90deg);
+}
+
+.rotate-90 {
+  transform: rotate(90deg);
+}
+
+.pb-40 {
+  padding-bottom: 10rem;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

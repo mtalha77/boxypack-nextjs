@@ -1,3 +1,9 @@
+import { productByMaterialData } from './productByMaterialData';
+import { productByIndustryData } from './productByIndustryData';
+import { pouchesData } from './pouchesData';
+import { shoppingBagsData } from './shoppingBagsData';
+import { otherData } from './otherData';
+
 export const productData = {
   'mailer-boxes': {
     name: 'Mailer Boxes',
@@ -448,3 +454,313 @@ export const productData = {
     ctaDescription: 'Get a custom quote for your packaging accessories today. Complete your packaging solution with our premium accessories.'
   }
 };
+
+// Helper function to get product data by slug from centralized data
+export const getProductDataBySlug = (slug: string) => {
+  // Check material categories
+  const materialCategory = productByMaterialData.find(cat => cat.slug === slug);
+  if (materialCategory) {
+    return {
+      name: materialCategory.name,
+      description: materialCategory.description,
+      heroImage: materialCategory.image,
+      modelPath: '/models/amazon_prime_shipping_box.glb',
+      features: [
+        {
+          icon: 'shield',
+          title: 'Premium Quality',
+          description: 'High-grade materials ensure superior protection for your products'
+        },
+        {
+          icon: 'palette',
+          title: 'Custom Design',
+          description: 'Full color printing and custom branding options available'
+        },
+        {
+          icon: 'truck',
+          title: 'Durable Construction',
+          description: 'Built to last with reinforced materials and quality construction'
+        },
+        {
+          icon: 'check',
+          title: 'Versatile Use',
+          description: 'Suitable for various industries and product types'
+        }
+      ],
+      specifications: [
+        { label: 'Material', value: 'Premium Cardboard' },
+        { label: 'Thickness', value: '300-500 GSM' },
+        { label: 'Printing', value: 'High-Resolution CMYK' },
+        { label: 'Finish', value: 'Matte/Glossy Available' },
+        { label: 'Assembly', value: 'Self-Locking' },
+        { label: 'Customization', value: 'Full Brand Integration' }
+      ],
+      sizes: [
+        { name: 'Small', dimensions: '4×3×2 inches', price: '$0.55' },
+        { name: 'Medium', dimensions: '8×6×3 inches', price: '$0.75' },
+        { name: 'Large', dimensions: '12×9×4 inches', price: '$0.95' },
+        { name: 'X-Large', dimensions: '16×12×6 inches', price: '$1.35' }
+      ],
+      galleryImages: [
+        materialCategory.image,
+        '/img/product-box-2.jpg',
+        '/img/Product-Packaging-Boxes.webp',
+        '/img/shipping-box-2.webp'
+      ],
+      customizationOptions: [
+        'High-resolution printing',
+        'Custom branding',
+        'Premium finishes',
+        'Various sizes available'
+      ],
+      ctaTitle: 'Ready to Get Started?',
+      ctaDescription: `Get a custom quote for your ${materialCategory.name.toLowerCase()} today. Our team is ready to help you create the perfect packaging solution.`
+    };
+  }
+
+  // Check industry categories
+  const industryCategory = productByIndustryData.find(cat => cat.slug === slug);
+  if (industryCategory) {
+    return {
+      name: industryCategory.name,
+      description: industryCategory.description,
+      heroImage: industryCategory.image,
+      modelPath: '/models/amazon_prime_shipping_box.glb',
+      features: [
+        {
+          icon: 'shield',
+          title: 'Industry Specific',
+          description: 'Specialized packaging designed for your specific industry needs'
+        },
+        {
+          icon: 'palette',
+          title: 'Custom Design',
+          description: 'Tailored designs that meet industry standards and requirements'
+        },
+        {
+          icon: 'truck',
+          title: 'Professional Quality',
+          description: 'High-quality materials and construction for professional use'
+        },
+        {
+          icon: 'check',
+          title: 'Compliance Ready',
+          description: 'Designed to meet industry regulations and standards'
+        }
+      ],
+      specifications: [
+        { label: 'Material', value: 'Industry-Grade Cardboard' },
+        { label: 'Thickness', value: '300-500 GSM' },
+        { label: 'Printing', value: 'High-Resolution CMYK' },
+        { label: 'Finish', value: 'Matte/Glossy Available' },
+        { label: 'Assembly', value: 'Professional Assembly' },
+        { label: 'Customization', value: 'Industry-Specific Branding' }
+      ],
+      sizes: [
+        { name: 'Small', dimensions: '4×3×2 inches', price: '$0.55' },
+        { name: 'Medium', dimensions: '8×6×3 inches', price: '$0.75' },
+        { name: 'Large', dimensions: '12×9×4 inches', price: '$0.95' },
+        { name: 'X-Large', dimensions: '16×12×6 inches', price: '$1.35' }
+      ],
+      galleryImages: [
+        industryCategory.image,
+        '/img/product-box-2.jpg',
+        '/img/Product-Packaging-Boxes.webp',
+        '/img/shipping-box-2.webp'
+      ],
+      customizationOptions: [
+        'Industry-specific design',
+        'Custom branding',
+        'Compliance features',
+        'Professional finishes'
+      ],
+      ctaTitle: 'Ready for Industry-Specific Packaging?',
+      ctaDescription: `Get a custom quote for your ${industryCategory.name.toLowerCase()} today. Let us help you create packaging that meets your industry's specific requirements.`
+    };
+  }
+
+  // Check pouches
+  if (slug === pouchesData.slug) {
+    return {
+      name: pouchesData.name,
+      description: pouchesData.description,
+      heroImage: pouchesData.image,
+      modelPath: '/models/amazon_prime_shipping_box.glb',
+      features: [
+        {
+          icon: 'shield',
+          title: 'Flexible Protection',
+          description: 'Lightweight and flexible packaging for various product types'
+        },
+        {
+          icon: 'palette',
+          title: 'Custom Design',
+          description: 'Full color printing and custom graphics for brand visibility'
+        },
+        {
+          icon: 'truck',
+          title: 'Space Efficient',
+          description: 'Compact design reduces shipping costs and storage space'
+        },
+        {
+          icon: 'check',
+          title: 'Versatile Use',
+          description: 'Perfect for food, cosmetics, electronics, and more'
+        }
+      ],
+      specifications: [
+        { label: 'Material', value: 'Flexible Plastic/Foil' },
+        { label: 'Thickness', value: '50-200 Microns' },
+        { label: 'Printing', value: 'Full Color Flexographic' },
+        { label: 'Finish', value: 'Matte/Glossy Available' },
+        { label: 'Sealing', value: 'Heat Seal/Zipper' },
+        { label: 'Customization', value: 'Custom Shapes & Sizes' }
+      ],
+      sizes: [
+        { name: 'Small', dimensions: '3×4 inches', price: '$0.15' },
+        { name: 'Medium', dimensions: '5×7 inches', price: '$0.25' },
+        { name: 'Large', dimensions: '8×10 inches', price: '$0.35' },
+        { name: 'X-Large', dimensions: '10×12 inches', price: '$0.45' }
+      ],
+      galleryImages: [
+        pouchesData.image,
+        '/img/product-box-2.jpg',
+        '/img/Product-Packaging-Boxes.webp',
+        '/img/shipping-box-2.webp'
+      ],
+      customizationOptions: [
+        'Resealable zipper options',
+        'Barrier protection',
+        'Custom shapes available',
+        'Food-grade materials'
+      ],
+      ctaTitle: 'Ready for Flexible Packaging?',
+      ctaDescription: 'Get a custom quote for your pouches today. Discover the perfect flexible packaging solution for your products.'
+    };
+  }
+
+  // Check shopping bags
+  if (slug === shoppingBagsData.slug) {
+    return {
+      name: shoppingBagsData.name,
+      description: shoppingBagsData.description,
+      heroImage: shoppingBagsData.image,
+      modelPath: '/models/amazon_prime_shipping_box.glb',
+      features: [
+        {
+          icon: 'shield',
+          title: 'Eco-Friendly',
+          description: 'Sustainable and environmentally conscious shopping bag solutions'
+        },
+        {
+          icon: 'palette',
+          title: 'Brand Promotion',
+          description: 'Walking advertisement for your brand with custom designs'
+        },
+        {
+          icon: 'truck',
+          title: 'Durable Design',
+          description: 'Strong handles and reinforced construction for heavy items'
+        },
+        {
+          icon: 'check',
+          title: 'Versatile Use',
+          description: 'Perfect for retail, events, and promotional activities'
+        }
+      ],
+      specifications: [
+        { label: 'Material', value: 'Recycled Paper/Cotton' },
+        { label: 'Thickness', value: '200-400 GSM' },
+        { label: 'Printing', value: 'Full Color CMYK' },
+        { label: 'Finish', value: 'Matte/Glossy Available' },
+        { label: 'Handles', value: 'Reinforced Paper/Cotton' },
+        { label: 'Customization', value: 'Full Brand Integration' }
+      ],
+      sizes: [
+        { name: 'Small', dimensions: '8×10×4 inches', price: '$0.85' },
+        { name: 'Medium', dimensions: '12×14×6 inches', price: '$1.15' },
+        { name: 'Large', dimensions: '16×18×8 inches', price: '$1.45' },
+        { name: 'X-Large', dimensions: '20×22×10 inches', price: '$1.85' }
+      ],
+      galleryImages: [
+        shoppingBagsData.image,
+        '/img/product-box-2.jpg',
+        '/img/Product-Packaging-Boxes.webp',
+        '/img/shipping-box-2.webp'
+      ],
+      customizationOptions: [
+        'Reinforced handles',
+        'Eco-friendly materials',
+        'Custom branding',
+        'Reusable design'
+      ],
+      ctaTitle: 'Ready for Eco-Friendly Shopping?',
+      ctaDescription: 'Get a custom quote for your shopping bags today. Promote your brand while protecting the environment.'
+    };
+  }
+
+  // Check other
+  if (slug === otherData.slug) {
+    return {
+      name: otherData.name,
+      description: otherData.description,
+      heroImage: otherData.image,
+      modelPath: '/models/amazon_prime_shipping_box.glb',
+      features: [
+        {
+          icon: 'shield',
+          title: 'Complete Solutions',
+          description: 'Additional packaging accessories and printing services for complete solutions'
+        },
+        {
+          icon: 'palette',
+          title: 'Custom Design',
+          description: 'Professional design services for all your packaging needs'
+        },
+        {
+          icon: 'truck',
+          title: 'Quality Materials',
+          description: 'Premium materials ensure durability and professional appearance'
+        },
+        {
+          icon: 'check',
+          title: 'Versatile Options',
+          description: 'Wide range of accessories and services to complete your packaging'
+        }
+      ],
+      specifications: [
+        { label: 'Material', value: 'Various Premium Materials' },
+        { label: 'Thickness', value: 'Custom Specifications' },
+        { label: 'Printing', value: 'Full Color Available' },
+        { label: 'Finish', value: 'Multiple Options' },
+        { label: 'Assembly', value: 'Easy Integration' },
+        { label: 'Customization', value: 'Full Custom Design' }
+      ],
+      sizes: [
+        { name: 'Booklets', dimensions: 'Custom sizes', price: '$0.25' },
+        { name: 'Business Cards', dimensions: 'Standard 3.5×2 inches', price: '$0.15' },
+        { name: 'Labels', dimensions: 'Various sizes', price: '$0.05' },
+        { name: 'Tape', dimensions: 'Custom width', price: '$0.10' }
+      ],
+      galleryImages: [
+        otherData.image,
+        '/img/product-box-2.jpg',
+        '/img/Product-Packaging-Boxes.webp',
+        '/img/shipping-box-2.webp'
+      ],
+      customizationOptions: [
+        'Professional printing',
+        'Custom designs',
+        'Various materials',
+        'Complete solutions'
+      ],
+      ctaTitle: 'Ready for Complete Packaging Solutions?',
+      ctaDescription: 'Get a custom quote for your packaging accessories today. Complete your packaging solution with our premium services.'
+    };
+  }
+
+  // Fallback to static data if not found in centralized data
+  return productData[slug as keyof typeof productData];
+};
+
+export default productData;

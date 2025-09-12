@@ -168,6 +168,7 @@ const Header: React.FC = () => {
   const [hoveredMainSection, setHoveredMainSection] = useState<string | null>(null);
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
   const [hoveredSubcategory, setHoveredSubcategory] = useState<string | null>(null);
+  const [isClosing, setIsClosing] = useState(false);
 
   // Close dropdown on scroll
   React.useEffect(() => {
@@ -176,6 +177,7 @@ const Header: React.FC = () => {
         setHoveredMainSection(null);
         setHoveredCategory(null);
         setHoveredSubcategory(null);
+        setIsClosing(false);
       }
     };
 
@@ -184,6 +186,17 @@ const Header: React.FC = () => {
       return () => window.removeEventListener('scroll', handleScroll);
     }
   }, [hoveredMainSection, hoveredCategory]);
+
+  // Function to handle smooth closing with delay
+  const handleSmoothClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setHoveredMainSection(null);
+      setHoveredCategory(null);
+      setHoveredSubcategory(null);
+      setIsClosing(false);
+    }, 1000); // 1000ms delay for smooth transition
+  };
 
   // Helper function to get navigation section by slug
   const getNavSection = (slug: string): NavigationSection | undefined => {
@@ -379,10 +392,10 @@ const Header: React.FC = () => {
                     ></div>
                   </Link>
                   
-                                     {/* Hover Dropdown Menu */}
-                  {hoveredMainSection === section.slug && (
+          {/* Hover Dropdown Menu */}
+                  {hoveredMainSection === section.slug && !isClosing && (
                                            <div 
-                      className="fixed left-0 top-40 w-screen h-[60vh] z-50 bg-white shadow-lg border-t border-gray-200"
+                      className="fixed left-0 top-40 w-screen h-[50vh] z-50 bg-white shadow-lg border-t border-gray-200 transition-all duration-1000 ease-in-out"
                       onMouseEnter={() => setHoveredMainSection(section.slug)}
                         onMouseLeave={() => {
                           // Only close when user actually leaves the dropdown area
@@ -399,7 +412,7 @@ const Header: React.FC = () => {
                               <div className="w-1/4 pr-6 border-r border-gray-200 relative">
                                 {/* Top gradient fade indicator */}
                                 <div className="absolute top-0 left-0 right-0 h-4 bg-gradient-to-b from-white to-transparent pointer-events-none z-10"></div>
-                                <div className="space-y-1 max-h-96 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 hover:scrollbar-thumb-gray-400 pt-4 pb-4">
+                                <div className="space-y-1 max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 hover:scrollbar-thumb-gray-400 pt-4 pb-4">
                                   {section.categories.map((category) => (
                                     <div
                                       key={category.slug}
@@ -408,6 +421,7 @@ const Header: React.FC = () => {
                                     >
                                       <Link
                                         href={`/products/${section.slug}/${category.slug}`}
+                                        onClick={handleSmoothClose}
                                         className={`flex items-center justify-between px-2 py-2 rounded-lg transition-colors ${
                                           hoveredCategory === category.slug 
                                             ? 'bg-[#0c6b76]/10 text-[#0c6b76]' 
@@ -437,11 +451,12 @@ const Header: React.FC = () => {
                                       const activeCategory = section.categories?.find(cat => cat.slug === hoveredCategory);
                                       return activeCategory ? (
                                         <div>
-                                          <div className="grid grid-cols-3 gap-2 max-h-96 overflow-y-auto">
+                                          <div className="grid grid-cols-3 gap-2 max-h-80 overflow-y-auto">
                                             {activeCategory.subcategories.map((subcategory) => (
                                               <Link
                                                 key={subcategory.slug}
                                                 href={`/products/${section.slug}/${activeCategory.slug}/${subcategory.slug}`}
+                                                onClick={handleSmoothClose}
                                                 className="flex items-center px-2 py-1.5 text-sm text-gray-600 hover:text-[#0c6b76] hover:bg-[#0c6b76]/5 rounded-md transition-colors"
                                               >
                                                 {React.createElement(getSubcategoryIcon(subcategory.name), { 
@@ -487,11 +502,12 @@ const Header: React.FC = () => {
                               
                               {/* Right Side - Subcategories */}
                               <div className="w-3/4 pl-6">
-                                <div className="grid grid-cols-3 gap-2 max-h-96 overflow-y-auto">
+                                <div className="grid grid-cols-3 gap-2 max-h-80 overflow-y-auto">
                                   {section.subcategories?.map((subcategory) => (
                                     <Link
                                       key={subcategory.slug}
                                       href={`/products/${section.slug}/${subcategory.slug}`}
+                                      onClick={handleSmoothClose}
                                       className="flex items-center px-3 py-2 text-sm text-gray-600 hover:text-[#0c6b76] hover:bg-[#0c6b76]/5 rounded-md transition-colors"
                                     >
                                       {React.createElement(getSubcategoryIcon(subcategory.name), { 

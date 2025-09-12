@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Model3D from './Model3D';
+import GradientBackground from '../GradientBackground';
 
 export interface BreadcrumbItem {
   name: string;
@@ -22,7 +23,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({ productData, breadcrumbs = []
   const [isModelReady, setIsModelReady] = useState(false);
 
   return (
-    <section className="pt-10 relative overflow-hidden min-h-[95vh] bg-gradient-to-r from-[#0c6b76] via-[#0ca6c2] to-[#46959c]">
+    <section className="pt-10 relative overflow-hidden min-h-[95vh]">
+      <GradientBackground 
+        className="absolute inset-0"
+        fromColor="#0f9db7"
+        toColor="#a8f0ff"
+        direction="to-r"
+      />
 
       <div className="max-w-7xl mx-auto px-6 relative" style={{ zIndex: 10 }}>
         {/* Dynamic Breadcrumb */}

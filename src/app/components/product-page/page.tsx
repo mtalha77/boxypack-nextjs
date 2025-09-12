@@ -5,11 +5,13 @@ import { NavigationSection, MainCategory, SubCategory } from '../../data/navigat
 import { productData } from '../../data/productData';
 import HeroSection, { BreadcrumbItem } from '../product-design-page/HeroSection';
 import FeaturesSection from '../product-design-page/FeaturesSection';
-import ProductGallery from '../all-industries-carasoul';
 import ClientTestamonials from '../product-design-page/ClientTestamonials';
 import CTASection from '../product-design-page/CTASection';
 import SubcategoryCards from './SubcategoryCards';
 import ErrorBoundary from '../ErrorBoundary';
+import GradientBackground from '../GradientBackground';
+import ProductByMaterialCarousel from '../ProductByMaterialCarousel';
+import ProductByIndustryCarousel from '../ProductByIndustryCarousel';
 
 interface ProductPageTemplateProps {
   section?: NavigationSection;
@@ -142,8 +144,14 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
   // Show loading state during hydration to prevent mismatch
   if (!isMounted) {
     return (
-      <main className="min-h-screen bg-gradient-to-r from-[#0c6b76] via-[#0ca6c2] to-[#46959c] flex items-center justify-center">
-        <div className="text-white text-center">
+      <main className="min-h-screen flex items-center justify-center">
+        <GradientBackground 
+          className="absolute inset-0"
+          fromColor="#0f9db7"
+          toColor="#a8f0ff"
+          direction="to-r"
+        />
+        <div className="text-white text-center relative z-10">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
           <p className="text-lg">Loading...</p>
         </div>
@@ -170,20 +178,15 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
           />
         )}
 
-        {/* Carousels Section - Show after subcategories */}
-        <ErrorBoundary fallback={<div className="py-16 bg-white"><div className="max-w-7xl mx-auto px-4 text-center"><p>Carousels temporarily unavailable</p></div></div>}>
-          <ProductGallery />
-        </ErrorBoundary>
+        {/* Material Carousel - Show on product-by-material pages */}
+        {section?.slug === 'product-by-material' && (
+          <ProductByMaterialCarousel />
+        )}
 
-        {/* Gallery Section */}
-        <ErrorBoundary fallback={<div className="py-16 bg-white"><div className="max-w-7xl mx-auto px-4 text-center"><p>Gallery temporarily unavailable</p></div></div>}>
-          <div className="py-16 bg-gray-50">
-            <div className="max-w-7xl mx-auto px-4 text-center">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Product Gallery</h2>
-              <p className="text-lg text-gray-600">Additional product images and showcases</p>
-            </div>
-          </div>
-        </ErrorBoundary>
+        {/* Industry Carousel - Show on product-by-industry pages */}
+        {section?.slug === 'product-by-industry' && (
+          <ProductByIndustryCarousel />
+        )}
 
         {/* Testimonials Section */}
         <ClientTestamonials productData={productInfo} />

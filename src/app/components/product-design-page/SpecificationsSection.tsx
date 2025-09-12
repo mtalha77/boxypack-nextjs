@@ -95,3 +95,4 @@ const SpecificationsSection: React.FC<SpecificationsSectionProps> = ({ productDa
 export default SpecificationsSection;
 
 
+
