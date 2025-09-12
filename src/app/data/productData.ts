@@ -9,7 +9,7 @@ export const productData = {
     name: 'Mailer Boxes',
     description: 'Durable and stylish mailer boxes perfect for subscription boxes, gift boxes, and e-commerce packaging. Custom designed to protect and showcase your products.',
     heroImage: '/img/products-box-img.png',
-    modelPath: '/models/amazon_prime_shipping_box.glb',
+    modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [
       {
         icon: 'shield',
@@ -65,7 +65,7 @@ export const productData = {
     name: 'Product Boxes',
     description: 'Premium packaging solutions for retail and e-commerce products. Designed to showcase your brand and protect your valuable items with style.',
     heroImage: '/img/products-box-img.png',
-    modelPath: '/models/amazon_prime_shipping_box.glb',
+    modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [
       {
         icon: 'shield',
@@ -177,7 +177,7 @@ export const productData = {
     name: 'Shipping Boxes',
     description: 'Reliable shipping solutions for safe product delivery. Durable, cost-effective boxes designed to protect your products during transit.',
     heroImage: '/img/products-box-img.png',
-    modelPath: '/models/amazon_prime_shipping_box.glb',
+    modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [
       {
         icon: 'shield',
@@ -233,7 +233,7 @@ export const productData = {
     name: 'Pouches',
     description: 'Flexible and lightweight packaging for various products. Custom designed pouches that protect your products while maximizing brand visibility.',
     heroImage: '/img/products-box-img.png',
-    modelPath: '/models/amazon_prime_shipping_box.glb',
+    modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [
       {
         icon: 'shield',
@@ -289,7 +289,7 @@ export const productData = {
     name: 'Mailers',
     description: 'Efficient mail packaging for documents and small items. Professional, secure, and cost-effective solutions for all your mailing needs.',
     heroImage: '/img/products-box-img.png',
-    modelPath: '/models/amazon_prime_shipping_box.glb',
+    modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [
       {
         icon: 'shield',
@@ -345,7 +345,7 @@ export const productData = {
     name: 'Shopping Bags',
     description: 'Eco-friendly and stylish shopping bag solutions. Promote your brand while providing customers with durable, reusable bags.',
     heroImage: '/img/products-box-img.png',
-    modelPath: '/models/amazon_prime_shipping_box.glb',
+    modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [
       {
         icon: 'shield',
@@ -401,7 +401,7 @@ export const productData = {
     name: 'Packaging Accessories',
     description: 'Essential accessories to complete your packaging needs. From protective materials to decorative elements, we have everything you need.',
     heroImage: '/img/products-box-img.png',
-    modelPath: '/models/amazon_prime_shipping_box.glb',
+    modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [
       {
         icon: 'shield',
@@ -464,7 +464,7 @@ export const getProductDataBySlug = (slug: string) => {
       name: materialCategory.name,
       description: materialCategory.description,
       heroImage: materialCategory.image,
-      modelPath: '/models/amazon_prime_shipping_box.glb',
+      modelPath: '/models/Tuck End Auto Bottom1.glb',
       features: [
         {
           icon: 'shield',
@@ -525,7 +525,7 @@ export const getProductDataBySlug = (slug: string) => {
       name: industryCategory.name,
       description: industryCategory.description,
       heroImage: industryCategory.image,
-      modelPath: '/models/amazon_prime_shipping_box.glb',
+      modelPath: '/models/Tuck End Auto Bottom1.glb',
       features: [
         {
           icon: 'shield',
@@ -585,7 +585,7 @@ export const getProductDataBySlug = (slug: string) => {
       name: pouchesData.name,
       description: pouchesData.description,
       heroImage: pouchesData.image,
-      modelPath: '/models/amazon_prime_shipping_box.glb',
+      modelPath: '/models/Tuck End Auto Bottom1.glb',
       features: [
         {
           icon: 'shield',
@@ -645,7 +645,7 @@ export const getProductDataBySlug = (slug: string) => {
       name: shoppingBagsData.name,
       description: shoppingBagsData.description,
       heroImage: shoppingBagsData.image,
-      modelPath: '/models/amazon_prime_shipping_box.glb',
+      modelPath: '/models/Tuck End Auto Bottom1.glb',
       features: [
         {
           icon: 'shield',
@@ -705,7 +705,7 @@ export const getProductDataBySlug = (slug: string) => {
       name: otherData.name,
       description: otherData.description,
       heroImage: otherData.image,
-      modelPath: '/models/amazon_prime_shipping_box.glb',
+      modelPath: '/models/Tuck End Auto Bottom1.glb',
       features: [
         {
           icon: 'shield',

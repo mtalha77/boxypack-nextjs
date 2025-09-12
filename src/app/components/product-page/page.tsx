@@ -52,7 +52,7 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
       name,
       description,
       heroImage: '/img/products-box-img.png',
-      modelPath: '/models/amazon_prime_shipping_box.glb',
+      modelPath: '/models/Tuck End Auto Bottom1.glb',
       features: [
         {
           icon: 'shield',

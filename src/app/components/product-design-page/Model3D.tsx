@@ -31,9 +31,9 @@ function Model({ modelPath }: { modelPath: string }) {
       // Center the model
       scene.position.sub(center);
       
-      // Scale the model to fit nicely in the view
+      // Scale the model to be very small and fully visible in container
       const maxDimension = Math.max(size.x, size.y, size.z);
-      const scale = 1 / maxDimension;
+      const scale = 0.1 / maxDimension;
       scene.scale.setScalar(scale);
       
       setIsLoaded(true);
@@ -43,7 +43,7 @@ function Model({ modelPath }: { modelPath: string }) {
   useFrame((state) => {
     if (meshRef.current && isLoaded) {
       meshRef.current.rotation.y = state.clock.elapsedTime * 0.2;
-      meshRef.current.scale.setScalar(hovered ? 1.1 : 1);
+      meshRef.current.scale.setScalar(hovered ? 1.02 : 1);
     }
   });
 
@@ -88,7 +88,7 @@ const Model3D: React.FC<Model3DProps> = ({ modelPath, className = "", onModelRea
   return (
     <div className={`w-full h-full ${className}`}>
       <Canvas
-        camera={{ position: [0, 0, 5], fov: 50 }}
+        camera={{ position: [0, 0, 8], fov: 45 }}
         style={{ background: 'transparent' }}
         gl={{ antialias: true, alpha: true }}
         onCreated={handleModelReady}
@@ -104,8 +104,8 @@ const Model3D: React.FC<Model3DProps> = ({ modelPath, className = "", onModelRea
           enableRotate={true}
           minPolarAngle={Math.PI / 6}
           maxPolarAngle={Math.PI - Math.PI / 6}
-          minDistance={2}
-          maxDistance={12}
+          minDistance={3}
+          maxDistance={3}
         />
       </Canvas>
     </div>

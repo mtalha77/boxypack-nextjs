@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Model3D from './Model3D';
 import GradientBackground from '../GradientBackground';
+import ClientOnly from '../ClientOnly';
 
 export interface BreadcrumbItem {
   name: string;
@@ -88,6 +89,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ productData, breadcrumbs = []
           </div>
           <div className="relative flex justify-center items-center">
             <div className="w-[600px] h-[500px]">
+              <ClientOnly>
               {!isModelReady && (
                 <div className="w-full h-full bg-white/10 rounded-lg flex items-center justify-center">
                   <div className="text-white/70 text-lg">Loading 3D Model...</div>
@@ -95,9 +97,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ productData, breadcrumbs = []
               )}
               <Model3D 
                 modelPath={productData.modelPath} 
-                className="w-full h-full"
+                className="w-1/2 h-full"
                 onModelReady={() => setIsModelReady(true)}
               />
+              </ClientOnly>
             </div>
           </div>
         </div>
