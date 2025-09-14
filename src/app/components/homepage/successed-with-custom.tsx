@@ -1,15 +1,12 @@
 'use client';
 
 import React from 'react';
+import LightBlueBackground from '../LightBlueBackground';
 
 const VideoSection: React.FC = () => {
   return (
-         <section className="relative py-16 px-4" style={{
-           background: 'linear-gradient(135deg, rgba(12, 166, 194, 0.1) 0%, rgba(12, 107, 118, 0.1) 100%)',
-           backgroundColor: '#f8fafc' // fallback background
-         }}>
-
-      <div className="max-w-6xl mx-auto relative z-10">
+    <LightBlueBackground className="relative py-16 px-4">
+      <div className="max-w-6xl mx-auto">
         {/* Video section */}
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-[#0c6b76] mb-6">See how to succeed with custom packaging</h2>
@@ -38,15 +35,11 @@ const VideoSection: React.FC = () => {
                 <div className="w-0 h-0 border-l-[12px] border-l-purple-600 border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent ml-1"></div>
               </div>
             </div>
-            
-            {/* Video overlay text */}
-            <div className="absolute bottom-4 left-4 bg-white border-2 border-[#0c6b76] px-3 py-1 rounded">
-              <span className="text-[#0c6b76] font-semibold text-sm">Taylor & Kara West</span>
-            </div>
+           
           </div>
         </div>
       </div>
-    </section>
+    </LightBlueBackground>
   );
 };
 

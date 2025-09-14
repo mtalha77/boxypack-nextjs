@@ -44,7 +44,7 @@ function Model({ modelPath }: { modelPath: string }) {
       // Scale the model to fit nicely in the container (target size of 2 units)
       const maxDimension = Math.max(size.x, size.y, size.z);
       const targetSize = 2;
-      const scale = targetSize / maxDimension;
+      const scale = targetSize / maxDimension * 1;
       clonedScene.scale.setScalar(scale);
       baseScaleRef.current = scale;
       

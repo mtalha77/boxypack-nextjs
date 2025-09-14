@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Model3D from './Model3D';
-import GradientBackground from '../GradientBackground';
+import GradientBackground from '../../UI/GradientBackground';
 import ClientOnly from '../ClientOnly';
 
 export interface BreadcrumbItem {
@@ -27,9 +27,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ productData, breadcrumbs = []
     <section className="pt-10 relative overflow-hidden min-h-[95vh]">
       <GradientBackground 
         className="absolute inset-0"
-        fromColor="#0f9db7"
-        toColor="#a8f0ff"
-        direction="to-r"
       />
 
       <div className="max-w-7xl mx-auto px-6 relative" style={{ zIndex: 10 }}>
@@ -74,8 +71,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ productData, breadcrumbs = []
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="text-white">
-            <h1 className="text-5xl font-bold mb-4">{productData.name}</h1>
-            <p className="text-xl text-white/90 mb-6 leading-relaxed">
+            <h1 className="text-h1 text-white mb-4">{productData.name}</h1>
+            <p className="text-body-large text-white/90 mb-6">
               {productData.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -92,12 +89,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ productData, breadcrumbs = []
               <ClientOnly>
               {!isModelReady && (
                 <div className="w-full h-full bg-white/10 rounded-lg flex items-center justify-center">
-                  <div className="text-white/70 text-lg">Loading 3D Model...</div>
+                  <div className="text-white/70 text-body">Loading 3D Model...</div>
                 </div>
               )}
               <Model3D 
                 modelPath={productData.modelPath} 
-                className="w-1/2 h-full"
+                className="w-full h-full"
                 onModelReady={() => setIsModelReady(true)}
               />
               </ClientOnly>

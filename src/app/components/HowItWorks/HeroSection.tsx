@@ -4,29 +4,29 @@ import React from 'react';
 import Image from 'next/image';
 import LightBlueBackground from '../LightBlueBackground';
 
-const ContactHero: React.FC = () => {
+const HowItWorksHero: React.FC = () => {
   return (
     <LightBlueBackground className="relative min-h-screen overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-0 py-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
           {/* Left Content */}
           <div className="space-y-8">
-            <div className="space-y-6">
+            <div className="space-y-2">
               <h1 className="text-h1 leading-tight">
-              Ready to Think Outside the Box? <span className="text-heading-secondary">Let&apos;s Get Started.</span>
-        
+                How Boxy Pack Brings Your <span className="text-heading-secondary">Packaging Design Ideas</span> to Life
               </h1>
               
               <div className="space-y-4 text-body-large text-body-primary max-w-lg">
                 <p>
-                  It&apos;s <span className="font-semibold text-[var(--color-teal-deep)]">simple</span>, 
-                  <span className="font-semibold text-[var(--color-teal-deep)]"> speedy</span> and 
-                  <span className="font-semibold text-[var(--color-teal-deep)]"> free</span> to request a quote from us - just let us know what you&apos;re looking for, and our experienced team will come back to you within 24 hours or less.
+                  Peek behind the curtain to see how we transform your custom packaging concept into a 
+                  <span className="font-semibold text-[var(--color-teal-deep)]"> powerhouse piece</span> that 
+                  <span className="font-semibold text-[var(--color-teal-deep)]"> skyrockets your brand</span>.
                 </p>
                 
                 <p>
-                  If you&apos;re not sure what packaging solution is best for your brand, or you need a little guidance, contact our 
-                  <span className="font-semibold text-[var(--color-turquoise-bright)]"> packaging wizards</span> below - we&apos;re just a call or click away!
+                  From initial concept to final delivery, our 
+                  <span className="font-semibold text-[var(--color-turquoise-bright)]"> packaging wizards</span> work 
+                  tirelessly to bring your vision to life with precision and creativity.
                 </p>
               </div>
             </div>
@@ -38,20 +38,29 @@ const ContactHero: React.FC = () => {
               </button>
               
               <button className="inline-flex items-center justify-center px-8 py-4 border-2 border-teal-deep text-teal-deep hover:bg-teal-deep hover:text-white font-semibold rounded-full transition-colors duration-300 cursor-pointer">
-                Call Us: 1-800-725-9660
+                View Our Process
               </button>
             </div>
           </div>
 
-          {/* Right Content - Image */}
+          {/* Right Content - Image with Circular Design Element */}
           <div className="relative flex justify-center items-center">
-            {/* Professional woman image with integrated background elements */}
-            <div className="relative w-full">
+            {/* Circular Design Element */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-96 h-96 border-8 border-brown-rustic/20 rounded-full flex items-center justify-center">
+                <div className="w-80 h-80 border-4 border-brown-rustic/30 rounded-full flex items-center justify-center">
+                  <div className="w-64 h-64 border-2 border-brown-rustic/40 rounded-full"></div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Main Image */}
+            <div className="relative w-full z-10">
               <Image
-                src="/img/contact-us-banner.png"
-                alt="Professional woman with crossed arms smiling"
+                src="/img/products-box-img.png"
+                alt="Packaging design process illustration"
                 width={500}
-                height={700}
+                height={500}
                 className="w-full h-auto object-contain relative z-20"
                 priority
               />
@@ -70,4 +79,4 @@ const ContactHero: React.FC = () => {
   );
 };
 
-export default ContactHero;
+export default HowItWorksHero;

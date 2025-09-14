@@ -22,16 +22,8 @@ const ProductByMaterialCarousel: React.FC = () => {
   };
 
   return (
-    <section className="relative overflow-hidden py-16" style={{
-      background: 'linear-gradient(135deg, rgba(12, 166, 194, 0.1) 0%, rgba(12, 166, 194, 0.08) 50%, rgba(12, 166, 194, 0.05) 100%)',
-      backgroundColor: '#f8fafc' // fallback background
-    }}>
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-40" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230ca6c2' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-      }}></div>
-
-      <div className=" px-6 relative z-10">
+    <section className="relative bg-white py-16">
+      <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center border-2 border-brown-dark2 px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full text-brown-dark2 font-bold text-sm font-semibold mb-6 shadow-lg">
@@ -39,7 +31,7 @@ const ProductByMaterialCarousel: React.FC = () => {
             PRODUCT BY MATERIAL
           </div>
           <h2 className="text-4xl font-bold text-[#0c6b76] mb-6 leading-tight">
-            Explore by Material Type
+          Select your Box by your Material Type
           </h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
             Discover our comprehensive range of packaging solutions organized by material type. Each category offers specialized packaging options tailored to different product needs and industry requirements.
@@ -47,7 +39,7 @@ const ProductByMaterialCarousel: React.FC = () => {
         </div>
 
         {/* Cards Container */}
-        <div className="overflow-hidden mx-16 mb-8">
+        <div className=" mx-16 mb-8">
           <div 
             ref={cardsContainerRef}
             className="flex gap-6 transition-transform duration-500 ease-in-out"

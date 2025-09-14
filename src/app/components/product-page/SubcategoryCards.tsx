@@ -29,11 +29,11 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
         <div className="text-center mb-12">
           <h2 
             id="subcategories-heading"
-            className="text-3xl font-bold text-gray-900 mb-4"
+            className="text-h2 text-body-primary mb-4"
           >
-            {parentCategoryName} Categories
+           Our Range of {parentCategoryName}
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-body-large text-body-secondary max-w-3xl mx-auto">
             Explore our comprehensive range of {parentCategoryName.toLowerCase()} packaging solutions. 
             Each category is designed to meet specific industry needs and requirements.
           </p>
@@ -58,14 +58,14 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
               </div>
               
               <div className="space-y-2">
-                <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#0c6b76] transition-colors duration-300 line-clamp-2">
+                <h3 className="text-h4 font-semibold text-body-primary group-hover:text-heading-primary transition-colors duration-300 min-h-[3.5rem] flex items-center">
                   {subcategory.name}
                 </h3>
-                <p className="text-gray-600 text-sm line-clamp-3">
+                <p className="text-body-small text-body-secondary min-h-[4.5rem] flex items-start line-clamp-2">
                   {subcategory.description || `Premium ${subcategory.name.toLowerCase()} packaging solutions designed for optimal protection and presentation.`}
                 </p>
                 
-                <div className="flex items-center text-[#0c6b76] text-sm font-medium group-hover:text-[#0ca6c2] transition-colors duration-300">
+                <div className="flex items-center text-heading-primary text-body-small font-medium group-hover:text-[#0ca6c2] transition-colors duration-300">
                   <span>Explore Products</span>
                   <svg 
                     className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" 
@@ -84,7 +84,7 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
         
         {subcategories.length > 12 && (
           <div className="text-center mt-8">
-            <p className="text-gray-500 text-sm">
+            <p className="text-body-muted text-body-small">
               Showing {subcategories.length} {parentCategoryName.toLowerCase()} categories
             </p>
           </div>

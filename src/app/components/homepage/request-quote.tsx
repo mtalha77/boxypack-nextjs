@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import LightBlueBackground from '../LightBlueBackground';
 
 const RequestQuote: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -30,10 +31,7 @@ const RequestQuote: React.FC = () => {
   };
 
   return (
-    <section className="relative py-20 px-4" style={{
-      background: 'linear-gradient(135deg, rgba(12, 166, 194, 0.1) 0%, rgba(12, 107, 118, 0.1) 100%)',
-      backgroundColor: '#f8fafc' // fallback background
-    }}>
+    <LightBlueBackground className="relative py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           
@@ -264,7 +262,7 @@ const RequestQuote: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
+    </LightBlueBackground>
   );
 };
 

@@ -54,11 +54,8 @@ const ByIndustryCarasoul: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className=" bg-white relative overflow-hidden min-h-screen">
+    <section ref={sectionRef} className="bg-gradient-to-br from-blue-50 to-cyan-50 relative overflow-hidden min-h-screen">
       {/* Background decoration */}
-      <div className="absolute inset-0 opacity-40" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230ca6c2' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-      }}></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 min-h-screen flex flex-col justify-start pt-16">
         {/* Header Section */}
@@ -67,10 +64,10 @@ const ByIndustryCarasoul: React.FC = () => {
             <div className="w-2 h-2 bg-brown-dark2 rounded-full mr-3"></div>
             PRODUCT BY INDUSTRY
           </div>
-          <h2 className="text-4xl font-bold text-[#0c6b76] mb-4 leading-tight">
-            Browse by Industry
+          <h2 className="text-h2 text-heading-primary mb-6 leading-tight">
+           Select your Box by your Industry Type
           </h2>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-body-large text-body-primary max-w-3xl mx-auto">
             Scroll to discover our comprehensive range of packaging solutions organized by industry.
           </p>
         </div>
@@ -108,10 +105,10 @@ const ByIndustryCarasoul: React.FC = () => {
                     {category.subcategoriesCount} Products
                   </span>
                 </div>
-                    <h4 className="text-lg font-bold text-[#0c6b76] mb-2 group-hover:text-[#0ca6c2] transition-colors duration-300">
+                    <h4 className="text-h4 text-heading-primary mb-2 group-hover:text-[#0ca6c2] transition-colors duration-300">
                   {category.name}
                 </h4>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-body-small text-body-secondary">
                       Custom packaging solution for {category.name.toLowerCase()}
                     </p>
               </div>
@@ -120,7 +117,7 @@ const ByIndustryCarasoul: React.FC = () => {
             </div>
         </div>
       </div>
-    </section>
+      </section>
   );
 };
 

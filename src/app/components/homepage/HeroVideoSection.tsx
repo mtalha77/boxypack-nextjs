@@ -1,7 +1,7 @@
 "use client"
 import React, { useRef, useEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
-import GradientBackground from '../GradientBackground';
+import GradientBackground from '../../UI/GradientBackground';
 
 const HeroVideoSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -19,9 +19,9 @@ const HeroVideoSection = () => {
     <section className="relative h-[80vh] w-full overflow-hidden">
       <GradientBackground 
         className="absolute inset-0"
-        fromColor="#0f9db7"
-        toColor="#a8f0ff"
-        direction="to-r"
+        // fromColor="#0f9db7"
+        // toColor="#a8f0ff"
+        // direction="to-r"
       />
 
       {/* Dark Overlay for better text readability */}

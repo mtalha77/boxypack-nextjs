@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-gray-100 text-gray-800">
+    <footer className="bg-white text-gray-800">
       <div className="max-w-7xl mx-auto px-6 py-16">
         
         {/* Top Section - Navigation Links + Newsletter Signup */}
@@ -23,43 +23,43 @@ const Footer: React.FC = () => {
           
                      {/* Custom Packaging Column */}
            <div>
-             <h3 className="text-lg md:text-xl font-bold text-[#0c6b76] mb-6">Custom Packaging</h3>
+             <h3 className="text-h4 text-heading-primary mb-6">Custom Packaging</h3>
              <ul className="space-y-3">
-               <li><a href="#" className="text-gray-600 hover:text-black transition-colors font-semibold duration-200">Mailer Boxes</a></li>
-               <li><a href="#" className="text-gray-600 hover:text-black transition-colors font-semibold duration-200">Product Boxes</a></li>
-               <li><a href="#" className="text-gray-600 hover:text-black transition-colors font-semibold duration-200">Standard Shipping Boxes</a></li>
-               <li><a href="#" className="text-gray-600 hover:text-black transition-colors font-semibold duration-200">Econoflex Shipping Boxes</a></li>
+               <li><a href="#" className="text-body-small text-body-secondary hover:text-body-primary transition-colors font-semibold duration-200">Mailer Boxes</a></li>
+               <li><a href="#" className="text-body-small text-body-secondary hover:text-body-primary transition-colors font-semibold duration-200">Product Boxes</a></li>
+               <li><a href="#" className="text-body-small text-body-secondary hover:text-body-primary transition-colors font-semibold duration-200">Standard Shipping Boxes</a></li>
+               <li><a href="#" className="text-body-small text-body-secondary hover:text-body-primary transition-colors font-semibold duration-200">Econoflex Shipping Boxes</a></li>
              </ul>
            </div>
 
            {/* Company Column */}
            <div>
-             <h3 className="text-lg md:text-xl font-bold text-[#0c6b76] mb-6">Company</h3>
+             <h3 className="text-h4 text-heading-primary mb-6">Company</h3>
              <ul className="space-y-3">
-               <li><a href="#" className="text-gray-600 hover:text-black transition-colors font-semibold duration-200">About Us</a></li>
-               <li><a href="#" className="text-gray-600 hover:text-black transition-colors font-semibold duration-200">Terms & Conditions</a></li>
-               <li><a href="#" className="text-gray-600 hover:text-black transition-colors font-semibold duration-200">CA Transparency Act</a></li>
-               <li><a href="#" className="text-gray-600 hover:text-black transition-colors font-semibold duration-200">Legal Matters</a></li>
-               <li><a href="#" className="text-gray-600 hover:text-black transition-colors font-semibold duration-200">Privacy Policy</a></li>
-               <li><a href="#" className="text-gray-600 hover:text-black transition-colors font-semibold duration-200">Accessibility Statement</a></li>
-               <li><a href="#" className="text-gray-600 hover:text-black transition-colors font-semibold duration-200">Blog</a></li>
+               <li><a href="#" className="text-body-small text-body-secondary hover:text-body-primary transition-colors font-semibold duration-200">About Us</a></li>
+               <li><a href="#" className="text-body-small text-body-secondary hover:text-body-primary transition-colors font-semibold duration-200">Terms & Conditions</a></li>
+               <li><a href="#" className="text-body-small text-body-secondary hover:text-body-primary transition-colors font-semibold duration-200">CA Transparency Act</a></li>
+               <li><a href="#" className="text-body-small text-body-secondary hover:text-body-primary transition-colors font-semibold duration-200">Legal Matters</a></li>
+               <li><a href="#" className="text-body-small text-body-secondary hover:text-body-primary transition-colors font-semibold duration-200">Privacy Policy</a></li>
+               <li><a href="#" className="text-body-small text-body-secondary hover:text-body-primary transition-colors font-semibold duration-200">Accessibility Statement</a></li>
+               <li><a href="#" className="text-body-small text-body-secondary hover:text-body-primary transition-colors font-semibold duration-200">Blog</a></li>
              </ul>
            </div>
 
            {/* Help Column */}
            <div>
-             <h3 className="text-lg md:text-xl font-bold text-[#0c6b76] mb-6">Help</h3>
+             <h3 className="text-h4 text-heading-primary mb-6">Help</h3>
              <ul className="space-y-3">
-                <li><a href="#" className="text-gray-600 hover:text-black transition-colors font-semibold duration-200">Support Portal</a></li>
-               <li><a href="#" className="text-gray-600 hover:text-black transition-colors font-semibold duration-200">Artwork Tips and Tricks</a></li>
-               <li><a href="#" className="text-gray-600 hover:text-black transition-colors font-semibold duration-200">Request a Quote</a></li>
-               <li><a href="#" className="text-gray-600 hover:text-black transition-colors font-semibold duration-200">FAQs</a></li>
+                <li><a href="#" className="text-body-small text-body-secondary hover:text-body-primary transition-colors font-semibold duration-200">Support Portal</a></li>
+               <li><a href="#" className="text-body-small text-body-secondary hover:text-body-primary transition-colors font-semibold duration-200">Artwork Tips and Tricks</a></li>
+               <li><a href="#" className="text-body-small text-body-secondary hover:text-body-primary transition-colors font-semibold duration-200">Request a Quote</a></li>
+               <li><a href="#" className="text-body-small text-body-secondary hover:text-body-primary transition-colors font-semibold duration-200">FAQs</a></li>
              </ul>
            </div>
 
            {/* Newsletter Signup Column */}
            <div>
-             <h3 className="text-lg md:text-xl font-bold text-[#0c6b76] mb-6">Sign up for exclusive offers</h3>
+             <h3 className="text-h4 text-heading-primary mb-6">Sign up for exclusive offers</h3>
             <form onSubmit={handleSubscribe} className="space-y-4">
               <div className="relative">
                 <input
@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
             
             {/* Social Media Icons */}
             <div className="mt-12">
-            <h4 className="text-lg md:text-xl font-bold text-[#0c6b76] mb-6">Follow us on:</h4>
+            <h4 className="text-h4 text-heading-primary mb-6">Follow us on:</h4>
               <div className="flex items-center space-x-4">
                 {/* Facebook */}
                 <a 
@@ -156,8 +156,8 @@ const Footer: React.FC = () => {
 
         {/* Lower Middle Section - Payment Methods */}
         <div className="text-center mb-16">
-          <h3 className="text-xl font-bold text-[#0c6b76] mb-4">Payment Methods</h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+          <h3 className="text-h3 text-heading-primary mb-4">Payment Methods</h3>
+          <p className="text-body text-body-secondary mb-6 max-w-2xl mx-auto">
             Our website is compatible with many popular payment methods. SSL 100% Secure Transactions.
           </p>
           
@@ -170,7 +170,7 @@ const Footer: React.FC = () => {
             </div>
             
             {/* Visa */}
-            <div className="text-[#0c6b76] font-bold text-lg">VISA</div>
+            <div className="text-heading-primary font-bold text-body">VISA</div>
             
             {/* American Express */}
             <div className="w-12 h-8 bg-[#0c6b76] rounded flex items-center justify-center">
@@ -190,7 +190,7 @@ const Footer: React.FC = () => {
 
           
           {/* Copyright Text */}
-          <div className="text-sm text-[#0c6b76]">
+          <div className="text-caption text-heading-primary">
             All rights reserved
           </div>
           

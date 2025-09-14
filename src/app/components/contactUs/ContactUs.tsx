@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
+import LightBlueBackground from '../LightBlueBackground';
 
 const ContactUs: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -34,10 +35,10 @@ const ContactUs: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-[var(--color-teal-deep)] mb-6">
+          <h2 className="text-h2 text-heading-secondary mb-6">
             Let&apos;s Create Something Amazing Together
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-body-large text-body-secondary max-w-3xl mx-auto">
             Get in touch with our packaging experts. We&apos;re here to help bring your vision to life with custom packaging solutions.
           </p>
         </div>
@@ -46,10 +47,10 @@ const ContactUs: React.FC = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-[var(--color-teal-deep)] mb-6">
+              <h3 className="text-h3 text-heading-secondary mb-6">
                 Get in Touch
               </h3>
-              <p className="text-gray-600 text-lg mb-8">
+              <p className="text-body text-body-secondary mb-8">
                 Ready to start your packaging project? Our team of experts is standing by to help you create the perfect packaging solution for your brand.
               </p>
             </div>
@@ -62,7 +63,7 @@ const ContactUs: React.FC = () => {
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-[var(--color-teal-deep)] text-lg mb-1">Call Us</h4>
+                  <h4 className="font-semibold text-heading-secondary text-h5 mb-1">Call Us</h4>
                   <p className="text-gray-600 mb-2">Speak directly with our packaging specialists</p>
                   <a href="tel:1-800-725-9660" className="text-[var(--color-turquoise-bright)] font-semibold hover:text-[var(--color-teal-deep)] transition-colors">
                     1-800-725-9660
@@ -76,7 +77,7 @@ const ContactUs: React.FC = () => {
                   <Mail className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-[var(--color-teal-deep)] text-lg mb-1">Email Us</h4>
+                  <h4 className="font-semibold text-heading-secondary text-h5 mb-1">Email Us</h4>
                   <p className="text-gray-600 mb-2">Send us your project details and requirements</p>
                   <a href="mailto:hello@boxypack.com" className="text-[var(--color-turquoise-bright)] font-semibold hover:text-[var(--color-teal-deep)] transition-colors">
                     hello@boxypack.com
@@ -90,7 +91,7 @@ const ContactUs: React.FC = () => {
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-[var(--color-teal-deep)] text-lg mb-1">Visit Us</h4>
+                  <h4 className="font-semibold text-heading-secondary text-h5 mb-1">Visit Us</h4>
                   <p className="text-gray-600 mb-2">Come see our facility and capabilities</p>
                   <p className="text-gray-700">
                     123 Packaging Street<br />
@@ -105,7 +106,7 @@ const ContactUs: React.FC = () => {
                   <Clock className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-[var(--color-teal-deep)] text-lg mb-1">Business Hours</h4>
+                  <h4 className="font-semibold text-heading-secondary text-h5 mb-1">Business Hours</h4>
                   <p className="text-gray-600 mb-2">We&apos;re here when you need us</p>
                   <div className="text-gray-700 space-y-1">
                     <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
@@ -119,21 +120,21 @@ const ContactUs: React.FC = () => {
 
           {/* Contact Form */}
           <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-3xl shadow-xl">
-            <h3 className="text-2xl font-bold text-[var(--color-teal-deep)] mb-6">
+            <h3 className="text-h3 text-heading-secondary mb-6">
               Request a Free Quote
             </h3>
             
             {isSubmitted ? (
               <div className="text-center py-12">
                 <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                <h4 className="text-xl font-semibold text-green-600 mb-2">Thank You!</h4>
+                <h4 className="text-h4 font-semibold text-green-600 mb-2">Thank You!</h4>
                 <p className="text-gray-600">Your message has been sent. We&apos;ll get back to you within 24 hours.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="name" className="block text-caption font-semibold text-body-primary mb-2">
                       Full Name *
                     </label>
                     <input
@@ -149,7 +150,7 @@ const ContactUs: React.FC = () => {
                   </div>
                   
                   <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="email" className="block text-caption font-semibold text-body-primary mb-2">
                       Email Address *
                     </label>
                     <input
@@ -167,7 +168,7 @@ const ContactUs: React.FC = () => {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="phone" className="block text-caption font-semibold text-body-primary mb-2">
                       Phone Number
                     </label>
                     <input
@@ -182,7 +183,7 @@ const ContactUs: React.FC = () => {
                   </div>
                   
                   <div>
-                    <label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label htmlFor="company" className="block text-caption font-semibold text-body-primary mb-2">
                       Company Name
                     </label>
                     <input
@@ -198,7 +199,7 @@ const ContactUs: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="projectType" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="projectType" className="block text-caption font-semibold text-body-primary mb-2">
                     Project Type
                   </label>
                   <select
@@ -220,7 +221,7 @@ const ContactUs: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-caption font-semibold text-body-primary mb-2">
                     Project Details *
                   </label>
                   <textarea
@@ -243,7 +244,7 @@ const ContactUs: React.FC = () => {
                   <span>Send Free Quote Request</span>
                 </button>
 
-                <p className="text-sm text-gray-500 text-center">
+                <p className="text-caption text-body-muted text-center">
                     * Required fields. We&apos;ll respond within 24 hours with your custom quote.
                 </p>
               </form>
@@ -252,14 +253,12 @@ const ContactUs: React.FC = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-20 text-center rounded-3xl p-12" style={{
-          background: 'linear-gradient(135deg, rgba(12, 166, 194, 0.1) 0%, rgba(12, 107, 118, 0.1) 100%)',
-          backgroundColor: '#f8fafc'
-        }}>
-          <h3 className="text-3xl font-bold text-[var(--color-teal-deep)] mb-4">
+        <div className="mt-20 text-center rounded-3xl p-12">
+          <LightBlueBackground className="rounded-3xl">
+          <h3 className="text-h2 text-heading-secondary mb-4">
             Need Help Choosing?
           </h3>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-body-large text-body-secondary mb-8 max-w-2xl mx-auto">
             Our packaging experts are here to guide you through the process and help you find the perfect solution for your brand.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -278,6 +277,7 @@ const ContactUs: React.FC = () => {
               Email Us
             </a>
           </div>
+          </LightBlueBackground>
         </div>
       </div>
     </section>

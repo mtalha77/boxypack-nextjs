@@ -5,6 +5,7 @@ import HeroSection from '../components/product-design-page/HeroSection';
 import FeaturesSection from '../components/product-design-page/FeaturesSection';
 import CTASection from '../components/product-design-page/CTASection';
 import ClientTestimonials from '../components/product-design-page/ClientTestamonials';
+import RelatedProducts from '../components/RelatedProducts';
 
 interface ProductPageProps {
   productData: {
@@ -39,10 +40,22 @@ const ProductsDesignPage: React.FC<ProductPageProps> = ({ productData }) => {
       <HeroSection productData={productData} />
       {/* <ProductGallery /> */}
       <FeaturesSection productData={productData} />
-      <ClientTestimonials productData={productData} />
-      {/* <SpecificationsSection productData={productData} /> */}
-      <CTASection productData={productData} />
+      {/* <SpecificationsSection productData={productData} */} 
       
+      {/* Related Products Section */}
+      <RelatedProducts
+        currentSection={undefined}
+        currentCategory={undefined}
+        currentSubcategory={undefined}
+        pageType="section"
+        maxItems={6}
+      />
+      
+      {/* Testimonials Section */}
+      <ClientTestimonials productData={productData} />
+      
+      {/* CTA Section - Ready to Get Started */}
+      <CTASection productData={productData} />
     </div>
   );
 };

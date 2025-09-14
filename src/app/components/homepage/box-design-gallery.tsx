@@ -45,10 +45,10 @@ const BoxDesignGallery: React.FC = () => {
         {/* Header Section */}
         <div className="text-center mb-16">
           
-          <h2 className="text-5xl font-bold text-[#0c6b76] mb-6">
+          <h2 className="text-h2 text-heading-primary mb-6">
             Box design that inspires
           </h2>
-          <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-body-large text-body-primary max-w-4xl mx-auto">
             We&apos;re here to help with packaging solutions that make sense for
             businesses of any kind. Whether you&apos;re designing custom retail
             packaging with your logo or need corrugated cardboard mailers for
@@ -74,8 +74,8 @@ const BoxDesignGallery: React.FC = () => {
 
                   {/* Hover overlay with text */}
                   <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-6">
-                    <h3 className="text-2xl font-bold mb-3">{featuredProducts[0].product.name}</h3>
-                    <p className="text-center text-sm leading-relaxed">
+                    <h3 className="text-h3 text-white mb-3">{featuredProducts[0].product.name}</h3>
+                    <p className="text-center text-body-small">
                       {featuredProducts[0].product.description.substring(0, 120)}...
                     </p>
                   </div>
@@ -93,8 +93,8 @@ const BoxDesignGallery: React.FC = () => {
 
                   {/* Hover overlay with text */}
                   <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-6">
-                    <h3 className="text-2xl font-bold mb-3">{featuredProducts[1].product.name}</h3>
-                    <p className="text-center text-sm leading-relaxed">
+                    <h3 className="text-h3 text-white mb-3">{featuredProducts[1].product.name}</h3>
+                    <p className="text-center text-body-small">
                       {featuredProducts[1].product.description.substring(0, 120)}...
                     </p>
                   </div>
@@ -113,8 +113,8 @@ const BoxDesignGallery: React.FC = () => {
 
                 {/* Hover overlay with text */}
                 <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-6">
-                  <h3 className="text-3xl font-bold mb-4">{featuredProducts[2].product.name}</h3>
-                  <p className="text-center text-base leading-relaxed">
+                  <h3 className="text-h2 text-white mb-4">{featuredProducts[2].product.name}</h3>
+                  <p className="text-center text-body">
                     {featuredProducts[2].product.description.substring(0, 150)}...
                   </p>
                 </div>
@@ -135,8 +135,8 @@ const BoxDesignGallery: React.FC = () => {
 
                 {/* Hover overlay with text */}
                 <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-6">
-                  <h3 className="text-2xl font-bold mb-3">{featuredProducts[3].product.name}</h3>
-                  <p className="text-center text-sm leading-relaxed">
+                  <h3 className="text-h3 text-white mb-3">{featuredProducts[3].product.name}</h3>
+                  <p className="text-center text-body-small">
                     {featuredProducts[3].product.description.substring(0, 120)}...
                   </p>
                 </div>
@@ -156,8 +156,8 @@ const BoxDesignGallery: React.FC = () => {
 
                   {/* Hover overlay with text */}
                   <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-4">
-                    <h3 className="text-lg font-bold mb-2">{featuredProducts[4].product.name}</h3>
-                    <p className="text-center text-xs leading-relaxed">
+                    <h3 className="text-h5 text-white mb-2">{featuredProducts[4].product.name}</h3>
+                    <p className="text-center text-caption">
                       {featuredProducts[4].product.description.substring(0, 80)}...
                     </p>
                   </div>
@@ -175,8 +175,8 @@ const BoxDesignGallery: React.FC = () => {
 
                   {/* Hover overlay with text */}
                   <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-4">
-                    <h3 className="text-lg font-bold mb-2">{featuredProducts[5].product.name}</h3>
-                    <p className="text-center text-xs leading-relaxed">
+                    <h3 className="text-h5 text-white mb-2">{featuredProducts[5].product.name}</h3>
+                    <p className="text-center text-caption">
                       {featuredProducts[5].product.description.substring(0, 80)}...
                     </p>
                   </div>

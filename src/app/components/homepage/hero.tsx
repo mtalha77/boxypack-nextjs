@@ -156,11 +156,11 @@ const Hero = () => {
               opacity: textOpacity
             }}
           >
-            <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+            <h1 className="text-display text-white">
             Custom boxes <br /> made easy <br />
             for retail
             </h1>
-            <p className="text-lg lg:text-xl text-white/80 max-w-2xl mx-auto">
+            <p className="text-body-large text-white/80 max-w-2xl mx-auto">
               Showcase your brand with our high-quality made-to-order printed packaging 
               and leave a lasting unboxing impression.
             </p>
@@ -211,8 +211,8 @@ const Hero = () => {
                           transition: 'opacity 0.5s ease-out, transform 0.5s ease-out'
                         }}
                       >
-                        <h3 className="text-2xl font-bold">{box.title}</h3>
-                        <p className="text-white/80 text-sm mt-2">
+                        <h3 className="text-h3 text-white">{box.title}</h3>
+                        <p className="text-body-small text-white/80 mt-2">
                           {box.description}
                         </p>
                         <button className="bg-brown-rustic hover:bg-[#97602f] text-white px-6 py-3 rounded-full font-semibold transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer mt-4">
@@ -245,8 +245,8 @@ const Hero = () => {
         {/* Additional Content Section */}
         <section className="py-24 ">
           <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-            <h2 className="text-4xl font-bold text-white mb-6">Ready to Create Your Custom Box?</h2>
-            <p className="text-xl text-white/80 mb-8">Start designing your perfect packaging solution today</p>
+            <h2 className="text-h2 text-white mb-6">Ready to Create Your Custom Box?</h2>
+            <p className="text-body-large text-white/80 mb-8">Start designing your perfect packaging solution today</p>
             <button className="bg-brown-rustic hover:bg-[#97602f] text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer">
               Get Started Now
             </button>

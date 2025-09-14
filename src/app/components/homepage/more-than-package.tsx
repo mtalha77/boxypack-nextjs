@@ -1,11 +1,13 @@
 'use client';
 
 import React from 'react';
+import LightBlueBackground from '../LightBlueBackground';
 
 const MoreThanPackage: React.FC = () => {
   return (
-    <section className="relative bg-white py-20 px-4">
-      <div className="max-w-7xl mx-auto">
+    <LightBlueBackground>
+      <section className="relative py-8 px-4">
+        <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
           {/* Left Side - Custom Packaging Image */}
@@ -30,12 +32,12 @@ const MoreThanPackage: React.FC = () => {
           {/* Right Side - Text and Buttons */}
           <div className="space-y-8">
             {/* Headline */}
-            <h2 className="text-4xl lg:text-5xl font-bold text-[#0c6b76] leading-tight">
+            <h2 className="text-h2 text-heading-primary leading-tight">
               More than just a pretty package
             </h2>
             
             {/* Body Text */}
-            <p className="text-lg text-gray-800 leading-relaxed">
+            <p className="text-body text-body-primary">
               Customizable from the inside out, every custom printed box we create is made just for you – and with your customers in mind. Make a statement in the mail or on display with an unboxing experience unlike any other. Your products deserve custom packaging boxes crafted with sustainable materials, impeccable print quality, and picture-perfect design. Create packaging that wows no matter your use-case, business, or industry.
             </p>
             
@@ -49,7 +51,8 @@ const MoreThanPackage: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
+      </section>
+    </LightBlueBackground>
   );
 };
 

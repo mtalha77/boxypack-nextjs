@@ -67,10 +67,10 @@ const ByMaterialCarasoul: React.FC = () => {
             <div className="w-2 h-2 bg-brown-dark2 rounded-full mr-3"></div>
             PRODUCT BY MATERIAL
           </div>
-          <h2 className="text-4xl font-bold text-[#0c6b76] mb-4 leading-tight">
-            Explore by Material Type
+          <h2 className="text-h2 text-heading-primary mb-6 leading-tight">
+          Select your Box by your Material Type
           </h2>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-body-large text-body-primary max-w-3xl mx-auto">
             Scroll to discover our comprehensive range of packaging solutions organized by material type.
           </p>
         </div>
@@ -108,10 +108,10 @@ const ByMaterialCarasoul: React.FC = () => {
                     {category.subcategoriesCount} Products
                   </span>
                 </div>
-                <h4 className="text-lg font-bold text-[#0c6b76] mb-3 group-hover:text-[#0ca6c2] transition-colors duration-300">
+                <h4 className="text-h4 text-heading-primary mb-3 group-hover:text-[#0ca6c2] transition-colors duration-300">
                   {category.name}
                 </h4>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-body-small text-body-secondary">
                       Custom packaging solution for {category.name.toLowerCase()}
                     </p>
               </div>

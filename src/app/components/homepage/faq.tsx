@@ -64,8 +64,8 @@ const FAQ: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-[#0c6b76] mb-6">Frequently Asked Questions</h2>
-          <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+          <h2 className="text-h2 text-heading-primary mb-6">Frequently Asked Questions</h2>
+          <p className="text-body-large text-body-primary max-w-4xl mx-auto">
             Below you&apos;ll find answers to some common questions around creating a custom box. Every order is little different though, so don&apos;t hesitate to reach out with anything else you might be wondering.
           </p>
         </div>
@@ -80,7 +80,7 @@ const FAQ: React.FC = () => {
                   onClick={() => toggleFAQ(index)}
                   className="w-full text-left flex items-center justify-between group"
                 >
-                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#0c6b76] transition-colors duration-200">
+                  <h3 className="text-h4 text-body-primary group-hover:text-heading-primary transition-colors duration-200">
                     {faq.question}
                   </h3>
                   {activeFAQs.includes(index) ? (
@@ -95,7 +95,7 @@ const FAQ: React.FC = () => {
                     ? 'max-h-96 opacity-100' 
                     : 'max-h-0 opacity-0 overflow-hidden'
                 }`}>
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-body text-body-primary">
                     {faq.answer}
                   </p>
                 </div>
@@ -111,7 +111,7 @@ const FAQ: React.FC = () => {
                   onClick={() => toggleFAQ(index + 5)}
                   className="w-full text-left flex items-center justify-between group"
                 >
-                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#0c6b76] transition-colors duration-200">
+                  <h3 className="text-h4 text-body-primary group-hover:text-heading-primary transition-colors duration-200">
                     {faq.question}
                   </h3>
                   {activeFAQs.includes(index + 5) ? (
@@ -126,7 +126,7 @@ const FAQ: React.FC = () => {
                     ? 'max-h-96 opacity-100' 
                     : 'max-h-0 opacity-0 overflow-hidden'
                 }`}>
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-body text-body-primary">
                     {faq.answer}
                   </p>
                 </div>

@@ -9,9 +9,10 @@ import ClientTestamonials from '../product-design-page/ClientTestamonials';
 import CTASection from '../product-design-page/CTASection';
 import SubcategoryCards from './SubcategoryCards';
 import ErrorBoundary from '../ErrorBoundary';
-import GradientBackground from '../GradientBackground';
+import GradientBackground from '../../UI/GradientBackground';
 import ProductByMaterialCarousel from '../ProductByMaterialCarousel';
 import ProductByIndustryCarousel from '../ProductByIndustryCarousel';
+import RelatedProducts from '../RelatedProducts';
 
 interface ProductPageTemplateProps {
   section?: NavigationSection;
@@ -147,13 +148,10 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
       <main className="min-h-screen flex items-center justify-center">
         <GradientBackground 
           className="absolute inset-0"
-          fromColor="#0f9db7"
-          toColor="#a8f0ff"
-          direction="to-r"
         />
         <div className="text-white text-center relative z-10">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
-          <p className="text-lg">Loading...</p>
+          <p className="text-body-large">Loading...</p>
         </div>
       </main>
     );
@@ -188,101 +186,20 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
           <ProductByIndustryCarousel />
         )}
 
+        {/* Related Products Section */}
+        <RelatedProducts
+          currentSection={section}
+          currentCategory={category}
+          currentSubcategory={subcategory}
+          pageType={pageType}
+          maxItems={6}
+        />
+
         {/* Testimonials Section */}
         <ClientTestamonials productData={productInfo} />
 
-        {/* CTA Section */}
+        {/* CTA Section - Ready to Get Started */}
         <CTASection productData={productInfo} />
-
-        {/* Related Products Section - Show subcategories or categories based on page type */}
-        {(section?.categories || section?.subcategories) && (
-          <div className="py-16 bg-gray-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  Related Products
-                </h2>
-                <p className="text-lg text-gray-600">
-                  Explore more options in our {section?.name.toLowerCase()} collection
-                </p>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {pageType === 'section' && section?.categories && 
-                  section.categories.slice(0, 6).map((cat) => (
-                    <a
-                      key={cat.slug}
-                      href={`/products/${section.slug}/${cat.slug}`}
-                      className="group bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6"
-                    >
-                      <div className="aspect-w-16 aspect-h-9 mb-4">
-                        <img
-                          src="/img/products-box-img.png"
-                          alt={cat.name}
-                          className="w-full h-32 object-cover rounded-lg"
-                        />
-                      </div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-[#0c6b76]">
-                        {cat.name}
-                      </h3>
-                      <p className="text-gray-600 text-sm">
-                        {cat.description || `Premium ${cat.name.toLowerCase()} packaging solutions`}
-                      </p>
-                    </a>
-                  ))
-                }
-                
-                {pageType === 'category' && category?.subcategories &&
-                  category.subcategories.slice(0, 6).map((subcat) => (
-                    <a
-                      key={subcat.slug}
-                      href={`/products/${section?.slug}/${category.slug}/${subcat.slug}`}
-                      className="group bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6"
-                    >
-                      <div className="aspect-w-16 aspect-h-9 mb-4">
-                        <img
-                          src="/img/products-box-img.png"
-                          alt={subcat.name}
-                          className="w-full h-32 object-cover rounded-lg"
-                        />
-                      </div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-[#0c6b76]">
-                        {subcat.name}
-                      </h3>
-                      <p className="text-gray-600 text-sm">
-                        {subcat.description || `Premium ${subcat.name.toLowerCase()} packaging solutions`}
-                      </p>
-                    </a>
-                  ))
-                }
-
-                {pageType === 'section' && section?.subcategories && !section.categories &&
-                  section.subcategories.slice(0, 6).map((subcat) => (
-                    <a
-                      key={subcat.slug}
-                      href={`/products/${section.slug}/${subcat.slug}`}
-                      className="group bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6"
-                    >
-                      <div className="aspect-w-16 aspect-h-9 mb-4">
-                        <img
-                          src="/img/products-box-img.png"
-                          alt={subcat.name}
-                          className="w-full h-32 object-cover rounded-lg"
-                        />
-                      </div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-[#0c6b76]">
-                        {subcat.name}
-                      </h3>
-                      <p className="text-gray-600 text-sm">
-                        {subcat.description || `Premium ${subcat.name.toLowerCase()} packaging solutions`}
-                      </p>
-                    </a>
-                  ))
-                }
-              </div>
-            </div>
-          </div>
-        )}
       </main>
     </ErrorBoundary>
   );

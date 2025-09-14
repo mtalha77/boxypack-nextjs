@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Download } from "lucide-react";
+import { Phone } from "lucide-react";
 
 interface CTASectionProps {
   productData: {
@@ -14,10 +14,10 @@ const CTASection: React.FC<CTASectionProps> = ({ productData }) => {
   return (
     <section className="py-20 bg-gradient-to-r from-[#0c6b76] to-[#0ca6c2]">
       <div className="max-w-4xl mx-auto px-6 text-center">
-        <h2 className="text-4xl font-bold text-white mb-6">
+        <h2 className="text-h2 text-white mb-6">
           {productData.ctaTitle}
         </h2>
-        <p className="text-xl text-white/90 mb-8">
+        <p className="text-body-large text-white/90 mb-8">
           {productData.ctaDescription}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -25,8 +25,8 @@ const CTASection: React.FC<CTASectionProps> = ({ productData }) => {
             Request Quote
           </button>
           <button className="border-2 cursor-pointer border-white text-white hover:bg-white hover:text-[#0c6b76] px-8 py-4 rounded-full font-semibold transition-colors duration-300 flex items-center justify-center">
-            <Download className="w-5 h-5 mr-2" />
-            Download Catalog
+            <Phone className="w-5 h-5 mr-2" />
+            Call Us
           </button>
         </div>
       </div>

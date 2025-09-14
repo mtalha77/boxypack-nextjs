@@ -163,7 +163,6 @@ const getSubcategoryIcon = (subcategoryName: string) => {
 };
 
 const Header: React.FC = () => {
-  const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hoveredMainSection, setHoveredMainSection] = useState<string | null>(null);
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
@@ -227,38 +226,10 @@ const Header: React.FC = () => {
 
           {/* Right Side - Navigation - Hidden on mobile */}
           <div className="hidden md:flex items-center space-x-6">
-            {/* Products Dropdown */}
-            <div className="relative">
-              <button
-                onMouseEnter={() => {
-                  setIsProductsOpen(true);
-                }}
-                className="flex items-center space-x-1 text-[#0c6b76] hover:text-[#0ca6c2] transition-colors"
-              >
-                <span className="font-medium">Products</span>
-                <ChevronDown className="w-4 h-4" />
-              </button>
-              {isProductsOpen && (
-                <div 
-                  className="absolute top-full right-0 mt-2 w-72 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-60"
-                  onMouseEnter={() => setIsProductsOpen(true)}
-                  onMouseLeave={() => setIsProductsOpen(false)}
-                >
-                  {navigationData.map((section) => (
-                    <div key={section.slug} className="relative">
-                      <div className="flex items-center justify-between px-4 py-2 text-gray-700 hover:bg-gray-50 cursor-pointer">
-                        <Link href={`/products/${section.slug}`} className="flex-1">
-                          {section.name}
-                        </Link>
-                        {section.hasSubcategories && (
-                          <ChevronRight className="w-4 h-4 text-gray-400" />
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
+            {/* How It Works - No Dropdown */}
+            <Link href="/how-it-works" className="text-gray-700 hover:text-[#0c6b76] transition-colors font-medium">
+              How It Works
+            </Link>
 
             {/* About Us - No Dropdown */}
             <Link href="/about-us" className="text-gray-700 hover:text-[#0c6b76] transition-colors font-medium">
@@ -328,29 +299,10 @@ const Header: React.FC = () => {
                
                {/* Mobile Navigation Items */}
                <div className="space-y-4">
-                 {/* Products Section */}
-                 <div className="relative">
-                   <button
-                    onClick={() => setIsProductsOpen(!isProductsOpen)}
-                     className="flex items-center justify-between w-full text-left py-3 px-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                   >
-                     <span className="font-semibold text-gray-900">Products</span>
-                    <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform ${isProductsOpen ? 'rotate-180' : ''}`} />
-                   </button>
-                  {isProductsOpen && (
-                     <div className="mt-2 ml-4 space-y-2">
-                      {navigationData.map((section) => (
-                        <Link 
-                          key={section.slug}
-                          href={`/products/${section.slug}`} 
-                          className="block py-2 px-4 text-gray-700 hover:text-[#0c6b76] hover:bg-[#0ca6c2]/10 rounded"
-                        >
-                          {section.name}
-                        </Link>
-                      ))}
-                     </div>
-                   )}
-                 </div>
+                 {/* How It Works - No Dropdown */}
+                 <Link href="/how-it-works" className="block py-3 px-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                   <span className="font-semibold text-gray-900">How It Works</span>
+                 </Link>
 
                  {/* About Us - No Dropdown */}
                  <Link href="/about-us" className="block py-3 px-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
@@ -374,9 +326,8 @@ const Header: React.FC = () => {
             <div className="flex items-center space-x-12 md:space-x-16 lg:space-x-20">
               {navigationData.map((section) => (
                 <div key={section.slug} className="relative">
-                    <Link
-                    href={`/products/${section.slug}`}
-                     className="text-black hover:text-black font-medium transition-colors pb-2 relative group"
+                    <div
+                     className="text-black hover:text-black font-medium transition-colors pb-2 relative group cursor-pointer"
                     onMouseEnter={() => setHoveredMainSection(section.slug)}
                      onMouseLeave={() => {
                       // Don't close immediately when leaving the section text
@@ -390,7 +341,7 @@ const Header: React.FC = () => {
                         hoveredMainSection === section.slug ? 'w-full' : 'w-0'
                       }`}
                     ></div>
-                  </Link>
+                  </div>
                   
           {/* Hover Dropdown Menu */}
                   {hoveredMainSection === section.slug && !isClosing && (
@@ -404,6 +355,14 @@ const Header: React.FC = () => {
                         setHoveredSubcategory(null);
                       }}
                     >
+                      {/* Decorative Shape - Top Right Corner Background */}
+                      <div className="absolute top-0 right-0 w-64 h-40 pointer-events-none" style={{ zIndex: 10 }}>
+                        <img
+                          src="/img/cs_slider_shape.svg"
+                          alt="Decorative shape"
+                          className="w-full h-full object-contain opacity-80 transform scale-200"
+                        />
+                      </div>
                       <div className="w-full h-full flex">
                         <div className="max-w-7xl w-full mx-auto px-6 py-6 h-full">
                           {section.hasSubcategories && section.categories ? (

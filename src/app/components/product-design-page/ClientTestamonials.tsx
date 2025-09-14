@@ -129,10 +129,10 @@ const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({ productData }) 
             <div className="w-2 h-2 bg-brown-dark2 rounded-full mr-3"></div>
             Client Reviews
           </div>
-          <h2 className="text-5xl font-bold text-[#0c6b76] mb-6 leading-tight">
+          <h2 className="text-h2 text-heading-primary mb-6 leading-tight">
             What Our Clients Say
           </h2>
-          <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-body-large text-body-primary max-w-4xl mx-auto">
             Don&apos;t just take our word for it. Hear from our satisfied clients who have transformed their packaging with our premium solutions.
           </p>
         </div>
@@ -160,7 +160,7 @@ const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({ productData }) 
               </div>
 
               {/* Testimonial Text */}
-              <blockquote className="text-2xl text-gray-800 text-center leading-relaxed mb-8 font-medium transition-all duration-500 ease-in-out">
+              <blockquote className="text-h3 text-body-primary text-center mb-8 font-medium transition-all duration-500 ease-in-out">
                 &quot;{testimonials[currentIndex].content}&quot;
               </blockquote>
 
@@ -177,7 +177,7 @@ const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({ productData }) 
 
                 {/* Client Details */}
                 <div className="text-center transition-all duration-500 ease-in-out">
-                  <h4 className="text-xl font-bold text-[#0c6b76] mb-1">
+                  <h4 className="text-h4 text-heading-primary mb-1">
                     {testimonials[currentIndex].name}
                   </h4>
                   <p className="text-gray-600 font-medium">
@@ -239,15 +239,15 @@ const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({ productData }) 
         {/* Stats Section */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="text-center bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-lg border-2 border-teal-deep">
-            <div className="text-4xl font-bold text-[#0c6b76] mb-2">500+</div>
+            <div className="text-h1 text-heading-primary mb-2">500+</div>
             <div className="text-gray-700 font-medium">Happy Clients</div>
           </div>
           <div className="text-center bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-lg border-2 border-teal-deep">
-            <div className="text-4xl font-bold text-[#0c6b76] mb-2">4.9/5</div>
+            <div className="text-h1 text-heading-primary mb-2">4.9/5</div>
             <div className="text-gray-700 font-medium">Average Rating</div>
           </div>
           <div className="text-center bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-lg border-2 border-teal-deep">
-            <div className="text-4xl font-bold text-[#0c6b76] mb-2">1000+</div>
+            <div className="text-h1 text-heading-primary mb-2">1000+</div>
             <div className="text-gray-700 font-medium">Projects Completed</div>
           </div>
         </div>

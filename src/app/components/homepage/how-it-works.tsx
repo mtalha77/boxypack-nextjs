@@ -32,8 +32,8 @@ const HowItWorks: React.FC = () => {
       <div className="max-w-6xl mx-auto relative z-10">s
                           {/* How it works section */}
          <div className="text-center mb-16">
-           <h2 className="text-5xl font-bold text-[#0c6b76] mb-6">How it works</h2>
-           <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+           <h2 className="text-h2 text-heading-primary mb-6">How it works</h2>
+           <p className="text-body-large text-body-primary max-w-4xl mx-auto">
              Select a packaging style, quantity, and choose from custom or stock sizes - then start designing your custom boxes. Add customization options like images, text, and any color your brand requires. As you design you&apos;ll see an instant quote so you know exactly what your final order will come to.
            </p>
          </div>
@@ -77,8 +77,8 @@ const HowItWorks: React.FC = () => {
                   </svg>
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-[#714622] mb-4 group-hover:text-[#b27635] transition-colors duration-300">Tiny minimums. No maximums.</h3>
-              <p className="text-gray-700 leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
+              <h3 className="text-h3 text-[#714622] mb-4 group-hover:text-[#b27635] transition-colors duration-300">Tiny minimums. No maximums.</h3>
+              <p className="text-body text-body-primary group-hover:text-gray-800 transition-colors duration-300">
                 No matter the size of your custom packaging order, you&apos;ll get the best boxes at prices to match.
               </p>
             </div>
@@ -95,8 +95,8 @@ const HowItWorks: React.FC = () => {
                   </svg>
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-[#714622] mb-4 group-hover:text-[#b27635] transition-colors duration-300">Instant quotes</h3>
-              <p className="text-gray-700 leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
+              <h3 className="text-h3 text-[#714622] mb-4 group-hover:text-[#b27635] transition-colors duration-300">Instant quotes</h3>
+              <p className="text-body text-body-primary group-hover:text-gray-800 transition-colors duration-300">
                 Pick your style, design your boxes, and get an instant quote.
               </p>
             </div>
@@ -113,8 +113,8 @@ const HowItWorks: React.FC = () => {
                   </svg>
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-[#714622] mb-4 group-hover:text-[#b27635] transition-colors duration-300">Fast turnarounds</h3>
-              <p className="text-gray-700 leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
+              <h3 className="text-h3 text-[#714622] mb-4 group-hover:text-[#b27635] transition-colors duration-300">Fast turnarounds</h3>
+              <p className="text-body text-body-primary group-hover:text-gray-800 transition-colors duration-300">
                 Eligible orders may ship within 10 days or less with priority turnaround options.
               </p>
             </div>
