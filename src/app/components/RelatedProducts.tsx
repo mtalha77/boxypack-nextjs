@@ -112,8 +112,8 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({
       relatedProducts = relatedProducts.concat(popularProducts.map(product => ({
         name: product.name,
         description: product.description,
-        href: product.href,
-        image: product.image
+        href: `/products/${product.name.toLowerCase().replace(/\s+/g, '-')}`,
+        image: product.heroImage
       })));
     }
 
