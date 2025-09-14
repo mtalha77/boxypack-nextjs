@@ -11,14 +11,16 @@ export interface ShoppingBagCategory {
   subcategories: ShoppingBagSubCategory[];
   image: string;
   subcategoriesCount: number;
+  modelPath: string;
 }
 
 export const shoppingBagsData: ShoppingBagCategory = {
   name: "Shopping Bags",
   slug: "shopping-bags",
   description: "Eco-friendly and branded shopping bag solutions for retail and promotional use",
-  image: "/img/2.png",
+  image: "/img/products-box-img.png",
   subcategoriesCount: 3,
+  modelPath: "/models/Tuck End Auto Bottom1.glb",
   subcategories: [
     { 
       name: "Kraft Shopping Bag", 

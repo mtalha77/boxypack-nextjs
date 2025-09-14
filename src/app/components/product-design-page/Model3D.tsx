@@ -16,25 +16,41 @@ function Model({ modelPath }: { modelPath: string }) {
   const meshRef = useRef<THREE.Group>(null);
   const [hovered, setHovered] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const baseScaleRef = useRef<number>(1);
 
   // Preload the model to ensure it's available
   useGLTF.preload(modelPath);
 
+  // Reset state when modelPath changes
+  React.useEffect(() => {
+    setIsLoaded(false);
+    setHovered(false);
+  }, [modelPath]);
+
   // Center and scale the model when it loads
   React.useEffect(() => {
     if (scene && !isLoaded) {
+      // Clone the scene to avoid modifying the original
+      const clonedScene = scene.clone();
+      
       // Calculate bounding box
-      const box = new THREE.Box3().setFromObject(scene);
+      const box = new THREE.Box3().setFromObject(clonedScene);
       const size = box.getSize(new THREE.Vector3());
       const center = box.getCenter(new THREE.Vector3());
       
       // Center the model
-      scene.position.sub(center);
+      clonedScene.position.sub(center);
       
-      // Scale the model to be very small and fully visible in container
+      // Scale the model to fit nicely in the container (target size of 2 units)
       const maxDimension = Math.max(size.x, size.y, size.z);
-      const scale = 0.1 / maxDimension;
-      scene.scale.setScalar(scale);
+      const targetSize = 2;
+      const scale = targetSize / maxDimension;
+      clonedScene.scale.setScalar(scale);
+      baseScaleRef.current = scale;
+      
+      // Update the original scene
+      scene.position.copy(clonedScene.position);
+      scene.scale.copy(clonedScene.scale);
       
       setIsLoaded(true);
     }
@@ -43,7 +59,9 @@ function Model({ modelPath }: { modelPath: string }) {
   useFrame((state) => {
     if (meshRef.current && isLoaded) {
       meshRef.current.rotation.y = state.clock.elapsedTime * 0.2;
-      meshRef.current.scale.setScalar(hovered ? 1.02 : 1);
+      // Apply hover effect on top of the base scale
+      const hoverScale = hovered ? 1.02 : 1;
+      meshRef.current.scale.setScalar(baseScaleRef.current * hoverScale);
     }
   });
 
@@ -88,7 +106,7 @@ const Model3D: React.FC<Model3DProps> = ({ modelPath, className = "", onModelRea
   return (
     <div className={`w-full h-full ${className}`}>
       <Canvas
-        camera={{ position: [0, 0, 8], fov: 45 }}
+        camera={{ position: [0, 0, 5], fov: 50 }}
         style={{ background: 'transparent' }}
         gl={{ antialias: true, alpha: true }}
         onCreated={handleModelReady}
@@ -97,15 +115,15 @@ const Model3D: React.FC<Model3DProps> = ({ modelPath, className = "", onModelRea
         <directionalLight position={[10, 10, 5]} intensity={1} />
         <pointLight position={[-10, -10, -5]} intensity={0.5} />
         <hemisphereLight intensity={0.4} />
-        {isModelReady && <Model modelPath={modelPath} />}
+        {isModelReady && <Model key={modelPath} modelPath={modelPath} />}
         <OrbitControls
           enablePan={false}
           enableZoom={true}
           enableRotate={true}
           minPolarAngle={Math.PI / 6}
           maxPolarAngle={Math.PI - Math.PI / 6}
-          minDistance={3}
-          maxDistance={3}
+          minDistance={4}
+          maxDistance={6}
         />
       </Canvas>
     </div>

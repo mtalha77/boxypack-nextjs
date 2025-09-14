@@ -237,7 +237,7 @@ const ContactUs: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-[var(--color-brown-rustic)] hover:bg-[#97602f] text-white font-semibold py-4 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer flex items-center justify-center space-x-2"
+                  className="w-full bg-brown-rustic hover:bg-[#97602f] text-white font-semibold py-4 px-6 rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer flex items-center justify-center space-x-2"
                 >
                   <Send className="w-5 h-5" />
                   <span>Send Free Quote Request</span>

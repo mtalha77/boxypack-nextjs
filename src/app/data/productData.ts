@@ -121,7 +121,7 @@ export const productData = {
     name: 'Rigid Boxes',
     description: 'High-end luxury packaging with superior strength and finish. Perfect for premium products that demand the finest presentation.',
     heroImage: '/img/products-box-img.png',
-    modelPath: '/models/cardboard.glb',
+    modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [
       {
         icon: 'shield',

@@ -251,7 +251,7 @@ const RequestQuote: React.FC = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-gray-200 hover:bg-[#0c6b76] text-[#0c6b76] hover:text-white cursor-pointer font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
+                className="w-full bg-brown-rustic hover:bg-[#97602f] text-white cursor-pointer font-semibold py-4 px-8 rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center space-x-2"
               >
                 <Send className="w-5 h-5" />
                 <span>Request Quote</span>

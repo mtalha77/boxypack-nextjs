@@ -41,11 +41,11 @@ const HeroVideoSection = () => {
               and leave a lasting unboxing impression.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-stretch">
-              <button className="group bg-brown-rustic hover:bg-[#714622] text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-300 shadow-lg hover:shadow-xl cursor-pointer flex items-center justify-center min-h-[56px]">
+              <button className="group bg-brown-rustic hover:bg-[#97602f] text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer flex items-center justify-center min-h-[56px]">
                 Customize your Box
                 <ChevronRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 flex items-center justify-center min-h-[56px]">
+              <button className="border-2 border-white text-white hover:bg-white hover:text-[#0c6b76] px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-300 cursor-pointer flex items-center justify-center min-h-[56px]">
                 View Products
               </button>
             </div>

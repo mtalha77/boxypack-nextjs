@@ -164,7 +164,7 @@ const Hero = () => {
               Showcase your brand with our high-quality made-to-order printed packaging 
               and leave a lasting unboxing impression.
             </p>
-            <button className="group bg-[#b27635] hover:bg-[#97602f] text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105">
+            <button className="group bg-brown-rustic hover:bg-[#97602f] text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer">
               Customize your Box
               <ChevronRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -215,7 +215,7 @@ const Hero = () => {
                         <p className="text-white/80 text-sm mt-2">
                           {box.description}
                         </p>
-                        <button className="bg-[#b27635] hover:bg-[#97602f] text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 mt-4">
+                        <button className="bg-brown-rustic hover:bg-[#97602f] text-white px-6 py-3 rounded-full font-semibold transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer mt-4">
                           Customize it
                         </button>
                         <a href="#" className="block text-white/70 hover:text-white text-sm transition-colors mt-3">
@@ -247,7 +247,7 @@ const Hero = () => {
           <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
             <h2 className="text-4xl font-bold text-white mb-6">Ready to Create Your Custom Box?</h2>
             <p className="text-xl text-white/80 mb-8">Start designing your perfect packaging solution today</p>
-            <button className="bg-[#b27635] hover:bg-[#97602f] text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105">
+            <button className="bg-brown-rustic hover:bg-[#97602f] text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer">
               Get Started Now
             </button>
           </div>

@@ -22,7 +22,7 @@ const ProductByIndustryCarousel: React.FC = () => {
   };
 
   return (
-    <section className="relative overflow-hidden py-16" style={{
+    <section className="relative py-16" style={{
       background: 'linear-gradient(135deg, rgba(12, 166, 194, 0.1) 0%, rgba(12, 166, 194, 0.08) 50%, rgba(12, 166, 194, 0.05) 100%)',
       backgroundColor: '#f8fafc' // fallback background
     }}>

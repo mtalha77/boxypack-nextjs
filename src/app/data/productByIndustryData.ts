@@ -11,6 +11,7 @@ export interface IndustryCategory {
   subcategories: IndustrySubCategory[];
   image: string;
   subcategoriesCount: number;
+  modelPath: string;
 }
 
 export const productByIndustryData: IndustryCategory[] = [
@@ -18,8 +19,9 @@ export const productByIndustryData: IndustryCategory[] = [
     name: "Bakery Boxes",
     slug: "bakery-boxes",
     description: "Specialized packaging for bakery and confectionery items with food-safe materials",
-    image: "/img/product-box-2.jpg",
+    image: "/img/products-box-img.png",
     subcategoriesCount: 14,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "Custom Donut Boxes", slug: "custom-donut-boxes" },
       { name: "Custom Pastry Boxes", slug: "custom-pastry-boxes" },
@@ -43,6 +45,7 @@ export const productByIndustryData: IndustryCategory[] = [
     description: "Premium packaging for beauty and cosmetic products with elegant designs",
     image: "/img/products-box-img.png",
     subcategoriesCount: 20,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "Cosmetic Display Boxes", slug: "cosmetic-display-boxes" },
       { name: "Custom Perfume Boxes", slug: "custom-perfume-boxes" },
@@ -71,8 +74,9 @@ export const productByIndustryData: IndustryCategory[] = [
     name: "Food Boxes",
     slug: "food-boxes",
     description: "Food-safe packaging for restaurants and food businesses with proper insulation",
-    image: "/img/mailer-box.jpg",
+    image: "/img/products-box-img.png",
     subcategoriesCount: 11,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "Custom French Fry Boxes", slug: "custom-french-fry-boxes" },
       { name: "Custom Coffee Boxes", slug: "custom-coffee-boxes" },
@@ -91,8 +95,9 @@ export const productByIndustryData: IndustryCategory[] = [
     name: "Gift Boxes",
     slug: "gift-boxes",
     description: "Elegant gift packaging for special occasions with premium finishing",
-    image: "/img/Product-Packaging-Boxes.webp",
+    image: "/img/products-box-img.png",
     subcategoriesCount: 10,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "Gift Pillow Boxes", slug: "gift-pillow-boxes" },
       { name: "Birthday Gift Boxes", slug: "birthday-gift-boxes" },
@@ -112,6 +117,7 @@ export const productByIndustryData: IndustryCategory[] = [
     description: "Elegant packaging for jewelry and accessories with luxury materials",
     image: "/img/products-box-img.png",
     subcategoriesCount: 15,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "Anklet Boxes", slug: "anklet-boxes" },
       { name: "Velvet Bags", slug: "velvet-bags" },
@@ -133,8 +139,9 @@ export const productByIndustryData: IndustryCategory[] = [
     name: "Retail Boxes",
     slug: "retail-boxes",
     description: "Professional retail packaging solutions for various product categories",
-    image: "/img/product-box-2.jpg",
+    image: "/img/products-box-img.png",
     subcategoriesCount: 5,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "Custom Die Cut Boxes", slug: "custom-die-cut-boxes" },
       { name: "Custom Toy Boxes", slug: "custom-toy-boxes" },
@@ -147,8 +154,9 @@ export const productByIndustryData: IndustryCategory[] = [
     name: "Candle Boxes",
     slug: "candle-boxes",
     description: "Protective and attractive candle packaging with specialized inserts",
-    image: "/img/Product-Packaging-Boxes.webp",
+    image: "/img/products-box-img.png",
     subcategoriesCount: 9,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "Candle Gift Boxes", slug: "candle-gift-boxes" },
       { name: "Luxury Candle Boxes", slug: "luxury-candle-boxes" },
@@ -165,8 +173,9 @@ export const productByIndustryData: IndustryCategory[] = [
     name: "Shipping Boxes",
     slug: "shipping-boxes-industry",
     description: "Reliable shipping solutions for e-commerce with durable construction",
-    image: "/img/shipping-box.jpg",
+    image: "/img/products-box-img.png",
     subcategoriesCount: 4,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "Black Shipping Boxes", slug: "black-shipping-boxes" },
       { name: "Candle Shipping Boxes", slug: "candle-shipping-boxes-industry" },
@@ -180,6 +189,7 @@ export const productByIndustryData: IndustryCategory[] = [
     description: "Specialized packaging for soap and bath products with moisture protection",
     image: "/img/products-box-img.png",
     subcategoriesCount: 10,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "Soap Sleeve Packaging", slug: "soap-sleeve-packaging" },
       { name: "Custom Bath Bomb Boxes", slug: "custom-bath-bomb-boxes" },
@@ -197,8 +207,9 @@ export const productByIndustryData: IndustryCategory[] = [
     name: "Apparel Boxes",
     slug: "apparel-boxes",
     description: "Professional packaging for clothing and accessories with premium presentation",
-    image: "/img/product-box-2.jpg",
+    image: "/img/products-box-img.png",
     subcategoriesCount: 8,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "Cufflink Boxes", slug: "cufflink-boxes" },
       { name: "Tie Boxes", slug: "tie-boxes" },
@@ -214,8 +225,9 @@ export const productByIndustryData: IndustryCategory[] = [
     name: "Sports Boxes",
     slug: "sports-boxes",
     description: "Packaging solutions for sports and athletic products with durability focus",
-    image: "/img/shipping-box.jpg",
+    image: "/img/products-box-img.png",
     subcategoriesCount: 6,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "Cardboard Shoe Boxes", slug: "cardboard-shoe-boxes" },
       { name: "Shoe Shipping Boxes", slug: "shoe-shipping-boxes" },
@@ -229,8 +241,9 @@ export const productByIndustryData: IndustryCategory[] = [
     name: "Cigarette Boxes",
     slug: "cigarette-boxes-industry",
     description: "Specialized packaging for tobacco products with regulatory compliance",
-    image: "/img/mailer-box.jpg",
+    image: "/img/products-box-img.png",
     subcategoriesCount: 6,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "Paper Cigarette Boxes", slug: "paper-cigarette-boxes" },
       { name: "Custom Cigarette Boxes", slug: "custom-cigarette-boxes" },
@@ -246,6 +259,7 @@ export const productByIndustryData: IndustryCategory[] = [
     description: "Compliant packaging for CBD and cannabis products with child-resistant features",
     image: "/img/products-box-img.png",
     subcategoriesCount: 7,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "CBD Gift Boxes", slug: "cbd-gift-boxes" },
       { name: "CBD Gummies Boxes", slug: "cbd-gummies-boxes" },
@@ -260,8 +274,9 @@ export const productByIndustryData: IndustryCategory[] = [
     name: "E-liquid Boxes",
     slug: "e-liquid-boxes",
     description: "Specialized packaging for vaping products with leak-proof designs",
-    image: "/img/product-box-2.jpg",
+    image: "/img/products-box-img.png",
     subcategoriesCount: 5,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "Vape Boxes", slug: "vape-boxes" },
       { name: "Empty Vape Cartridge Packaging", slug: "empty-vape-cartridge-packaging" },
@@ -274,8 +289,9 @@ export const productByIndustryData: IndustryCategory[] = [
     name: "Stationery Boxes",
     slug: "stationery-boxes",
     description: "Professional packaging for office and school supplies with organization focus",
-    image: "/img/3.png",
+    image: "/img/products-box-img.png",
     subcategoriesCount: 7,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "Custom Pencil Boxes", slug: "custom-pencil-boxes" },
       { name: "Cardboard Pen Boxes", slug: "cardboard-pen-boxes" },
@@ -290,8 +306,9 @@ export const productByIndustryData: IndustryCategory[] = [
     name: "Christmas Boxes",
     slug: "christmas-boxes",
     description: "Festive packaging for holiday celebrations with seasonal designs",
-    image: "/img/Product-Packaging-Boxes.webp",
+    image: "/img/products-box-img.png",
     subcategoriesCount: 12,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "Christmas Boxes with Lids", slug: "christmas-boxes-with-lids" },
       { name: "Christmas Cupcake Boxes", slug: "christmas-cupcake-boxes" },
@@ -311,8 +328,9 @@ export const productByIndustryData: IndustryCategory[] = [
     name: "Chocolate Boxes",
     slug: "chocolate-boxes",
     description: "Premium packaging for chocolate and confectionery with luxury appeal",
-    image: "/img/product-box-2.jpg",
+    image: "/img/products-box-img.png",
     subcategoriesCount: 9,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "Chocolate Packaging", slug: "chocolate-packaging" },
       { name: "Small Chocolate Boxes", slug: "small-chocolate-boxes" },
@@ -331,6 +349,7 @@ export const productByIndustryData: IndustryCategory[] = [
     description: "Custom packaging for breakfast cereals and grains with retail appeal",
     image: "/img/products-box-img.png",
     subcategoriesCount: 12,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "Cereal Boxes Wholesale", slug: "cereal-boxes-wholesale" },
       { name: "Mini Cereal Boxes", slug: "mini-cereal-boxes" },
@@ -350,8 +369,9 @@ export const productByIndustryData: IndustryCategory[] = [
     name: "Pre Roll Boxes",
     slug: "pre-roll-boxes-industry",
     description: "Specialized packaging for pre-rolled cannabis products with compliance focus",
-    image: "/img/mailer-box.jpg",
+    image: "/img/products-box-img.png",
     subcategoriesCount: 6,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "Cannabis Pre Roll Packaging", slug: "cannabis-pre-roll-packaging" },
       { name: "Pre Roll Display Boxes", slug: "pre-roll-display-boxes" },
@@ -365,8 +385,9 @@ export const productByIndustryData: IndustryCategory[] = [
     name: "Pizza Boxes",
     slug: "pizza-boxes",
     description: "Food-safe packaging for pizza and Italian cuisine with ventilation features",
-    image: "/img/shipping-box.jpg",
+    image: "/img/products-box-img.png",
     subcategoriesCount: 8,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "White Pizza Boxes", slug: "white-pizza-boxes" },
       { name: "Pizza Slice Boxes", slug: "pizza-slice-boxes" },

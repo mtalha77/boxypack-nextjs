@@ -11,6 +11,7 @@ export interface MaterialCategory {
   subcategories: MaterialSubCategory[];
   image: string;
   subcategoriesCount: number;
+  modelPath: string;
 }
 
 export const productByMaterialData: MaterialCategory[] = [
@@ -18,8 +19,9 @@ export const productByMaterialData: MaterialCategory[] = [
     name: "Rigid Boxes",
     slug: "rigid-boxes",
     description: "Premium luxury packaging with superior strength and durability for high-end products",
-    image: "/img/Product-Packaging-Boxes.webp",
+    image: "/img/products-box-img.png",
     subcategoriesCount: 12,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "Magnetic Closure Rigid Boxes", slug: "magnetic-closure-rigid-boxes" },
       { name: "Two Piece Rigid Boxes", slug: "two-piece-rigid-boxes" },
@@ -39,8 +41,9 @@ export const productByMaterialData: MaterialCategory[] = [
     name: "Kraft Boxes",
     slug: "kraft-boxes",
     description: "Eco-friendly kraft paper packaging solutions with natural appeal and sustainability",
-    image: "/img/mailer-box.jpg",
+    image: "/img/products-box-img.png",
     subcategoriesCount: 19,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "Kraft Mailer Boxes", slug: "kraft-mailer-boxes" },
       { name: "Kraft Boxes with Lids", slug: "kraft-boxes-with-lids" },
@@ -68,8 +71,9 @@ export const productByMaterialData: MaterialCategory[] = [
     name: "Cardboard Boxes",
     slug: "cardboard-boxes",
     description: "Versatile cardboard packaging for all industries with excellent customization options",
-    image: "/img/product-box-2.jpg",
+    image: "/img/products-box-img.png",
     subcategoriesCount: 17,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "Display Boxes", slug: "display-boxes" },
       { name: "Tuck Boxes (Reverse Tuck, Straight Tuck, Auto Lock, 1-2-3 Bottom)", slug: "tuck-boxes" },
@@ -94,8 +98,9 @@ export const productByMaterialData: MaterialCategory[] = [
     name: "Corrugated Boxes",
     slug: "corrugated-boxes",
     description: "Strong corrugated packaging for shipping and storage with maximum protection",
-    image: "/img/shipping-box.jpg",
+    image: "/img/products-box-img.png",
     subcategoriesCount: 12,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
       { name: "Mailer Boxes", slug: "corrugated-mailer-boxes" },
       { name: "Gable Boxes", slug: "corrugated-gable-boxes" },

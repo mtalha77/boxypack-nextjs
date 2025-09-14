@@ -11,6 +11,7 @@ export interface PouchCategory {
   subcategories: PouchSubCategory[];
   image: string;
   subcategoriesCount: number;
+  modelPath: string;
 }
 
 export const pouchesData: PouchCategory = {
@@ -19,6 +20,7 @@ export const pouchesData: PouchCategory = {
   description: "Flexible packaging solutions for various products with resealable and stand-up options",
   image: "/img/products-box-img.png",
   subcategoriesCount: 2,
+  modelPath: "/models/Tuck End Auto Bottom1.glb",
   subcategories: [
     { 
       name: "Stand Up Zip Lock Mylar Bags", 

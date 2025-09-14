@@ -17,7 +17,7 @@ const MoreThanPackage: React.FC = () => {
             
               <div className="relative h-full w-auto">
                 <img 
-                  src="/img/product-box-2.webp" 
+                  src="/img/products-box-img.png" 
                   alt="Custom Packaging Boxes"
                   className="w-auto h-full object-cover shadow-2xl"
                 />
@@ -42,7 +42,7 @@ const MoreThanPackage: React.FC = () => {
             {/* Call-to-Action Button */}
             <div className="space-y-4">
               {/* Primary CTA Button */}
-              <button className="w-full lg:w-auto font-semibold bg-gray-200 hover:bg-[#0c6b76] text-[#0c6b76] hover:text-white py-4 px-8 cursor-pointer rounded-lg transition-colors duration-300">
+              <button className="w-full lg:w-auto font-semibold bg-brown-rustic hover:bg-[#97602f] text-white py-4 px-8 cursor-pointer rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
                 FIND OUT WHAT MAKES OUR BOXES SPECIAL
               </button>
             </div>
