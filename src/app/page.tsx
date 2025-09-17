@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import BoxDesignGallery from './components/homepage/box-design-gallery';
 import VideoSection from './components/homepage/successed-with-custom';
 import MoreThanPackage from './components/homepage/more-than-package';
@@ -8,24 +8,34 @@ import RequestQuote from './components/homepage/request-quote';
 import HeroVideoSection from './components/homepage/HeroVideoSection';
 import ByMaterialCarasoul from './components/homepage/ByMaterialCarasoul';
 import ByIndustryCarasoul from './components/homepage/ByIndustryCarasoul';
+import ErrorBoundary from './components/ErrorBoundary';
 
 const HomePage = () => {
+  const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
+    // Ensure we're on the client side
+    setIsClient(true);
+    
     // Handle hash navigation for smooth scrolling
     const handleHashScroll = () => {
-      const hash = window.location.hash;
-      if (hash) {
-        // Add a small delay to ensure the page is fully rendered
-        setTimeout(() => {
-          const element = document.querySelector(hash);
-          if (element) {
-            element.scrollIntoView({ 
-              behavior: 'smooth',
-              block: 'start',
-              inline: 'nearest'
-            });
-          }
-        }, 100);
+      try {
+        const hash = window.location.hash;
+        if (hash) {
+          // Add a small delay to ensure the page is fully rendered
+          setTimeout(() => {
+            const element = document.querySelector(hash);
+            if (element) {
+              element.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start',
+                inline: 'nearest'
+              });
+            }
+          }, 100);
+        }
+      } catch (error) {
+        console.warn('Hash scroll error:', error);
       }
     };
 
@@ -40,18 +50,45 @@ const HomePage = () => {
     };
   }, []);
 
+  // Prevent hydration mismatch by only rendering on client
+  if (!isClient) {
+    return (
+      <div className="relative min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0c6b76]"></div>
+      </div>
+    );
+  }
+
   return (
-    <div className="relative">
-      {/* <Hero /> */}
-      <HeroVideoSection />
-      <VideoSection />
-      <ByMaterialCarasoul />
-      <ByIndustryCarasoul />
-      <BoxDesignGallery />
-      <MoreThanPackage />
-      <FAQ />     
-      <RequestQuote />
-    </div>
+    <ErrorBoundary>
+      <div className="relative">
+        {/* <Hero /> */}
+        <ErrorBoundary>
+          <HeroVideoSection />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <VideoSection />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <ByMaterialCarasoul />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <ByIndustryCarasoul />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <BoxDesignGallery />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <MoreThanPackage />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <FAQ />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <RequestQuote />
+        </ErrorBoundary>
+      </div>
+    </ErrorBoundary>
   );
 };
 

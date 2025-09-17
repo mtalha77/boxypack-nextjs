@@ -22,34 +22,69 @@ const ByMaterialCarasoul: React.FC = () => {
     // Set initial state to prevent jerky start
     gsap.set(cardsContainerRef.current, { x: 0 });
 
+    // Calculate the total scroll distance needed
+    const cardWidth = 320 + 24; // card width + gap
+    const totalCardsWidth = cardWidth * 5; // 5 cards
+    const containerWidth = cardsContainerRef.current.clientWidth;
+    const maxScrollDistance = Math.max(0, totalCardsWidth - containerWidth);
+
+    // Create a smooth animation timeline
     const tl = gsap
       .timeline({
         defaults: {
-          ease: "none",
+          ease: "power2.out",
           duration: 1
         },
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: "+=500%",
+          end: `+=${Math.max(400, maxScrollDistance * 2.5)}px`, // Increased scroll distance for smoother experience
           pin: true,
-          scrub: 1,
+          scrub: 1.5, // Even smoother response to scroll
           markers: false,
           anticipatePin: 1,
           refreshPriority: -1,
           onUpdate: (self) => {
-            // Smooth progress calculation
+            // Ultra-smooth progress calculation with custom easing
             if (!cardsContainerRef.current) return;
             const progress = self.progress;
-            const maxScroll = cardsContainerRef.current.clientWidth - cardsContainerRef.current.scrollWidth;
-            const currentX = progress * maxScroll;
-            gsap.set(cardsContainerRef.current, { x: currentX });
+            
+            // Custom smooth easing curve
+            const easedProgress = gsap.parseEase("power2.out")(progress);
+            const currentX = easedProgress * maxScrollDistance;
+            
+            // Use requestAnimationFrame for 60fps smooth animation
+            requestAnimationFrame(() => {
+              gsap.to(cardsContainerRef.current, {
+                x: currentX,
+                duration: 0.05,
+                ease: "power2.out",
+                overwrite: true
+              });
+            });
+          },
+          onRefresh: () => {
+            // Recalculate on refresh for responsive behavior
+            const newCardWidth = 320 + 24;
+            const newTotalCardsWidth = newCardWidth * 5;
+            const newContainerWidth = cardsContainerRef.current?.clientWidth || 0;
+            const newMaxScrollDistance = Math.max(0, newTotalCardsWidth - newContainerWidth);
           }
         }
       });
+
+    // Add smooth scroll behavior for better section transitions
+    const handleScroll = () => {
+      if (cardsContainerRef.current) {
+        cardsContainerRef.current.style.transform = `translate3d(${cardsContainerRef.current.style.transform || '0px'}, 0, 0)`;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -79,9 +114,9 @@ const ByMaterialCarasoul: React.FC = () => {
         <div className="horizontal-center w-full h-80 flex items-center justify-center pt-16">
             <div 
               ref={cardsContainerRef}
-              className="cards-container w-full flex flex-nowrap gap-6"
+              className="cards-container w-full flex flex-nowrap gap-6 hardware-accelerated"
             >
-          {[...productByMaterialData, ...productByMaterialData].map((category, cardIndex) => (
+          {productByMaterialData.slice(0, 5).map((category, cardIndex) => (
             <Link
               key={`${category.slug}-${cardIndex}`}
               href={`/products/product-by-material/${category.slug}`}
