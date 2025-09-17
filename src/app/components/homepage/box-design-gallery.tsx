@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { productData } from "../../data/productData";
 
 // Featured products for the gallery - using actual product data
@@ -66,9 +67,11 @@ const BoxDesignGallery: React.FC = () => {
               {/* Card 1: Mailer Boxes */}
               <Link href={`/products/${featuredProducts[0].key}`} className="group block">
                 <div className="relative h-80 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
-                  <img
+                  <Image
                     src={featuredProducts[0].image}
                     alt={featuredProducts[0].product.name}
+                    width={400}
+                    height={320}
                     className="w-full h-full object-cover"
                   />
 
@@ -85,9 +88,11 @@ const BoxDesignGallery: React.FC = () => {
               {/* Card 2: Product Boxes */}
               <Link href={`/products/${featuredProducts[1].key}`} className="group block">
                 <div className="relative h-80 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
-                  <img
+                  <Image
                     src={featuredProducts[1].image}
                     alt={featuredProducts[1].product.name}
+                    width={400}
+                    height={320}
                     className="w-full h-full object-cover"
                   />
 
@@ -105,9 +110,11 @@ const BoxDesignGallery: React.FC = () => {
             {/* Bottom Row - 1 wide image */}
             <Link href={`/products/${featuredProducts[2].key}`} className="group block">
               <div className="relative h-160 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
-                <img
+                <Image
                   src={featuredProducts[2].image}
                   alt={featuredProducts[2].product.name}
+                  width={600}
+                  height={400}
                   className="w-full h-full object-cover"
                 />
 
@@ -127,9 +134,11 @@ const BoxDesignGallery: React.FC = () => {
             {/* Top - 1 tall image */}
             <Link href={`/products/${featuredProducts[3].key}`} className="group block">
               <div className="relative h-160 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
-                <img
+                <Image
                   src={featuredProducts[3].image}
                   alt={featuredProducts[3].product.name}
+                  width={600}
+                  height={400}
                   className="w-full h-full object-cover"
                 />
 
@@ -148,9 +157,11 @@ const BoxDesignGallery: React.FC = () => {
               {/* Card 5: Pouches */}
               <Link href={`/products/${featuredProducts[4].key}`} className="group block">
                 <div className="relative h-80 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
-                  <img
+                  <Image
                     src={featuredProducts[4].image}
                     alt={featuredProducts[4].product.name}
+                    width={300}
+                    height={320}
                     className="w-full h-full object-cover"
                   />
 
@@ -167,9 +178,11 @@ const BoxDesignGallery: React.FC = () => {
               {/* Card 6: Shopping Bags */}
               <Link href={`/products/${featuredProducts[5].key}`} className="group block">
                 <div className="relative h-80 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
-                  <img
+                  <Image
                     src={featuredProducts[5].image}
                     alt={featuredProducts[5].product.name}
+                    width={300}
+                    height={320}
                     className="w-full h-full object-cover"
                   />
 

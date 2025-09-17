@@ -5,14 +5,17 @@ import React from 'react';
 interface LightBlueBackgroundProps {
   children: React.ReactNode;
   className?: string;
+  id?: string;
 }
 
 const LightBlueBackground: React.FC<LightBlueBackgroundProps> = ({ 
   children, 
-  className = '' 
+  className = '',
+  id
 }) => {
   return (
     <section 
+      id={id}
       className={`py-24 relative overflow-hidden ${className}`}
       style={{
         background: 'linear-gradient(135deg, rgba(12, 166, 194, 0.1) 0%, rgba(12, 166, 194, 0.08) 50%, rgba(12, 166, 194, 0.05) 100%)',

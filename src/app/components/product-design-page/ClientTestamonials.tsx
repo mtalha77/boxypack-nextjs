@@ -168,9 +168,11 @@ const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({ productData }) 
               <div className="flex items-center justify-center space-x-6">
                 {/* Avatar */}
                 <div className="w-16 h-16 rounded-full overflow-hidden shadow-lg ring-2 ring-white/50">
-                  <img
+                  <Image
                     src={testimonials[currentIndex].avatar}
                     alt={testimonials[currentIndex].name}
+                    width={64}
+                    height={64}
                     className="w-full h-full object-cover"
                   />
                 </div>

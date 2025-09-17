@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { NavigationSection, MainCategory, SubCategory } from '../data/navigationData';
 import { productData } from '../data/productData';
 import LightBlueBackground from './LightBlueBackground';
@@ -163,9 +164,11 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({
               className="group bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 p-6 hover:-translate-y-1 flex flex-col h-full"
             >
               <div className="aspect-w-16 aspect-h-9 mb-4 relative overflow-hidden rounded-lg">
-                <img
+                <Image
                   src={product.image}
                   alt={product.name}
+                  width={400}
+                  height={300}
                   className="w-full h-48 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>

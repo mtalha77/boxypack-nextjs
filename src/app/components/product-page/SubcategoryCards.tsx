@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { SubCategory } from '../../data/navigationData';
 
 interface SubcategoryCardsProps {
@@ -48,9 +49,11 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
               aria-label={`View ${subcategory.name} products`}
             >
               <div className="aspect-w-16 aspect-h-9 mb-4 relative overflow-hidden rounded-lg">
-                <img
+                <Image
                   src="/img/products-box-img.png"
                   alt={`${subcategory.name} packaging example`}
+                  width={400}
+                  height={300}
                   className="w-full h-32 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />

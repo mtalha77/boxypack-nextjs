@@ -1,0 +1,656 @@
+'use client';
+
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { ChevronDown, Info, Share2, Check } from 'lucide-react';
+import { navigationData, NavigationSection, MainCategory, SubCategory } from '../../data/navigationData';
+import LightBlueBackground from '../LightBlueBackground';
+import { useRouter } from 'next/navigation';
+
+interface CustomDimensionsFormProps {
+  onDesignNow?: () => void;
+  onGetCustomQuote?: () => void;
+}
+
+const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
+  onDesignNow,
+  onGetCustomQuote
+}) => {
+  const router = useRouter();
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedSubcategory, setSelectedSubcategory] = useState('');
+  const [printColor, setPrintColor] = useState('Full Color');
+  const [sizeType, setSizeType] = useState('STANDARD SIZES');
+  const [selectedSize, setSelectedSize] = useState('9.5" x 7.75" x 4"');
+  const [customLength, setCustomLength] = useState(9.5);
+  const [customWidth, setCustomWidth] = useState(7.75);
+  const [customDepth, setCustomDepth] = useState(4);
+  const [material, setMaterial] = useState('White');
+  const [printFinish, setPrintFinish] = useState('HDPrint Stain');
+  const [printedSides, setPrintedSides] = useState('Outside');
+  const [quantity, setQuantity] = useState(250);
+  const [productionSpeed, setProductionSpeed] = useState('Standard (8 Business Days)');
+  const [showDropdowns, setShowDropdowns] = useState<{[key: string]: boolean}>({});
+
+  const unitPrice = 3.92;
+  const subtotal = unitPrice * quantity;
+
+  const toggleDropdown = (field: string) => {
+    setShowDropdowns(prev => ({
+      ...prev,
+      [field]: !prev[field]
+    }));
+  };
+
+  const printColorOptions = ['Full Color', 'Black'];
+  const printFinishOptions = ['HDPrint Stain'];
+  const printedSidesOptions = ['Outside', 'Inside', 'Both Sides', 'Blank'];
+
+  // Get all categories from navigation data
+  const getAllCategories = (): MainCategory[] => {
+    const allCategories: MainCategory[] = [];
+    navigationData.forEach(section => {
+      if (section.categories) {
+        allCategories.push(...section.categories);
+      }
+    });
+    return allCategories;
+  };
+
+  // Get subcategories for selected category
+  const getSubcategoriesForCategory = (categorySlug: string): SubCategory[] => {
+    const allCategories = getAllCategories();
+    const category = allCategories.find(cat => cat.slug === categorySlug);
+    return category?.subcategories || [];
+  };
+
+  // Handle category change
+  const handleCategoryChange = (categorySlug: string) => {
+    setSelectedCategory(categorySlug);
+    setSelectedSubcategory(''); // Reset subcategory when category changes
+  };
+  
+  // Material options based on print color
+  const fullColorMaterials = ['White', 'Dreamcoat', 'Kraft'];
+  const blackColorMaterials = ['White', 'Kraft'];
+  
+  // Size options based on print color
+  const fullColorSizes = [
+    '5" x 3" x 1.5"',
+    '6" x 4" x 3"',
+    '6" x 5" x 2.25"',
+    '7" x 5" x 3"',
+    '8" x 6" x 3"',
+    '9" x 6" x 4"',
+    '9" x 7" x 2.25"',
+    '9.5" x 7.75" x 4"',
+    '10" x 8" x 4"',
+    '11.25" x 9" x 3"',
+    '12" x 9" x 2"',
+    '12" x 10" x 4"',
+    '14" x 10" x 4"',
+    '13" x 10" x 5"'
+  ];
+
+  const blackColorSizes = [
+    '3" x 3" x 1"',
+    '4" x 4" x 2"',
+    '5" x 3" x 1.5"',
+    '6" x 4" x 3"',
+    '6" x 6" x 2"',
+    '7" x 5" x 3"',
+    '8" x 6" x 3"',
+    '8" x 8" x 3"',
+    '9" x 6" x 2"',
+    '9.5" x 7.75" x 4"',
+    '10" x 8" x 4"',
+    '12" x 9" x 2"'
+  ];
+
+  // Get current size options based on print color
+  const getCurrentSizeOptions = () => {
+    return printColor === 'Full Color' ? fullColorSizes : blackColorSizes;
+  };
+
+  // Get current material options based on print color
+  const getCurrentMaterialOptions = () => {
+    return printColor === 'Full Color' ? fullColorMaterials : blackColorMaterials;
+  };
+
+  // Update selected size and material when print color changes
+  const handlePrintColorChange = (color: string) => {
+    setPrintColor(color);
+    const newSizes = color === 'Full Color' ? fullColorSizes : blackColorSizes;
+    const newMaterials = color === 'Full Color' ? fullColorMaterials : blackColorMaterials;
+    
+    // Set to first available size if current size is not available in new options
+    if (!newSizes.includes(selectedSize)) {
+      setSelectedSize(newSizes[0]);
+    }
+    
+    // Set to first available material if current material is not available in new options
+    if (!newMaterials.includes(material)) {
+      setMaterial(newMaterials[0]);
+    }
+  };
+
+  // Helper functions for custom dimensions
+  const incrementDimension = (dimension: 'length' | 'width' | 'depth') => {
+    const step = 0.25;
+    switch (dimension) {
+      case 'length':
+        setCustomLength(prev => Math.round((prev + step) * 100) / 100);
+        break;
+      case 'width':
+        setCustomWidth(prev => Math.round((prev + step) * 100) / 100);
+        break;
+      case 'depth':
+        setCustomDepth(prev => Math.round((prev + step) * 100) / 100);
+        break;
+    }
+  };
+
+  const decrementDimension = (dimension: 'length' | 'width' | 'depth') => {
+    const step = 0.25;
+    switch (dimension) {
+      case 'length':
+        setCustomLength(prev => Math.max(0.25, Math.round((prev - step) * 100) / 100));
+        break;
+      case 'width':
+        setCustomWidth(prev => Math.max(0.25, Math.round((prev - step) * 100) / 100));
+        break;
+      case 'depth':
+        setCustomDepth(prev => Math.max(0.25, Math.round((prev - step) * 100) / 100));
+        break;
+    }
+  };
+
+  return (
+    <LightBlueBackground className="min-h-screen">
+      {/* Header */}
+      <div className="px-6 py-4 max-w-7xl mx-auto">
+        
+          <h1 className="text-h1 text-[#0c6b76]">Select your Box and Dimensions and Order</h1>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Left Column - Box Image */}
+          <div className="lg:col-span-1">
+            <div className="sticky top-8">
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-lg p-8 h-96 flex items-center justify-center shadow-lg">
+                <div className="text-center">
+                  <div className="w-56 h-56 mx-auto mb-4 relative">
+                    <Image 
+                      src="/img/products-box-img.png" 
+                      alt="Custom Box"
+                      width={224}
+                      height={224}
+                      className="w-full h-full object-contain rounded-lg shadow-md"
+                    />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2">Custom Box Design</h3>
+                  <p className="text-sm text-gray-600">Visualize your perfect packaging solution</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column - Form (2/3 width) */}
+          <div className="lg:col-span-2">
+            <div className="space-y-6">
+            {/* Category Selection */}
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <label className="text-sm font-medium text-[#0c6b76]">Category</label>
+                <Info className="w-4 h-4 text-[#0ca6c2]" />
+              </div>
+              <div className="relative">
+                <button
+                  onClick={() => toggleDropdown('category')}
+                  className="w-full flex items-center justify-between px-4 py-3 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
+                >
+                  <span className="text-gray-900">
+                    {selectedCategory ? getAllCategories().find(cat => cat.slug === selectedCategory)?.name || 'Select Category' : 'Select Category'}
+                  </span>
+                  <ChevronDown className="w-5 h-5 text-[#0ca6c2]" />
+                </button>
+                {showDropdowns.category && (
+                  <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                    {getAllCategories().map((category) => (
+                      <button
+                        key={category.slug}
+                        onClick={() => {
+                          handleCategoryChange(category.slug);
+                          toggleDropdown('category');
+                        }}
+                        className="w-full text-left px-4 py-3 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg"
+                      >
+                        {category.name}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Subcategory Selection */}
+            {selectedCategory && (
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <label className="text-sm font-medium text-[#0c6b76]">Subcategory</label>
+                  <Info className="w-4 h-4 text-[#0ca6c2]" />
+                </div>
+                <div className="relative">
+                  <button
+                    onClick={() => toggleDropdown('subcategory')}
+                    className="w-full flex items-center justify-between px-4 py-3 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
+                  >
+                    <span className="text-gray-900">
+                      {selectedSubcategory ? getSubcategoriesForCategory(selectedCategory).find(sub => sub.slug === selectedSubcategory)?.name || 'Select Subcategory' : 'Select Subcategory'}
+                    </span>
+                    <ChevronDown className="w-5 h-5 text-[#0ca6c2]" />
+                  </button>
+                  {showDropdowns.subcategory && (
+                    <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                      {getSubcategoriesForCategory(selectedCategory).map((subcategory) => (
+                        <button
+                          key={subcategory.slug}
+                          onClick={() => {
+                            setSelectedSubcategory(subcategory.slug);
+                            toggleDropdown('subcategory');
+                          }}
+                          className="w-full text-left px-4 py-3 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg"
+                        >
+                          {subcategory.name}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Print Color */}
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <label className="text-sm font-medium text-[#0c6b76]">Print Color</label>
+              </div>
+              <div className="relative">
+                <button
+                  onClick={() => toggleDropdown('printColor')}
+                  className="w-full flex items-center justify-between px-4 py-3 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
+                >
+                  <span className="text-gray-900">{printColor}</span>
+                  <ChevronDown className="w-5 h-5 text-[#0ca6c2]" />
+                </button>
+                {showDropdowns.printColor && (
+                  <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
+                    {printColorOptions.map((option) => (
+                      <button
+                        key={option}
+                        onClick={() => {
+                          handlePrintColorChange(option);
+                          toggleDropdown('printColor');
+                        }}
+                        className="w-full text-left px-4 py-3 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg"
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Size */}
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <label className="text-sm font-medium text-[#0c6b76]">Size (L x W x D)</label>
+                <Info className="w-4 h-4 text-[#0ca6c2]" />
+              </div>
+              <div className="space-y-3">
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setSizeType('STANDARD SIZES')}
+                    className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg border-2 font-medium transition-colors ${
+                      sizeType === 'STANDARD SIZES'
+                        ? 'border-[#0ca6c2] bg-[#0ca6c2]/10 text-[#0c6b76]'
+                        : 'border-[#0c6b76]/30 bg-white text-[#0c6b76] hover:border-[#0ca6c2]'
+                    }`}
+                  >
+                    {sizeType === 'STANDARD SIZES' && <Check className="w-4 h-4" />}
+                    STANDARD SIZES
+                  </button>
+                  <button
+                    onClick={() => setSizeType('CUSTOM SIZES')}
+                    className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg border-2 font-medium transition-colors ${
+                      sizeType === 'CUSTOM SIZES'
+                        ? 'border-[#0ca6c2] bg-[#0ca6c2]/10 text-[#0c6b76]'
+                        : 'border-[#0c6b76]/30 bg-white text-[#0c6b76] hover:border-[#0ca6c2]'
+                    }`}
+                  >
+                    {sizeType === 'CUSTOM SIZES' && <Check className="w-4 h-4" />}
+                    CUSTOM SIZES
+                  </button>
+                </div>
+                {sizeType === 'STANDARD SIZES' && (
+                  <div className="relative">
+                    <button
+                      onClick={() => toggleDropdown('size')}
+                      className="w-full flex items-center justify-between px-4 py-3 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
+                    >
+                      <span className="text-gray-900">{selectedSize}</span>
+                      <ChevronDown className="w-5 h-5 text-[#0ca6c2]" />
+                    </button>
+                    {showDropdowns.size && (
+                      <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
+                        {getCurrentSizeOptions().map((size: string) => (
+                          <button
+                            key={size}
+                            onClick={() => {
+                              setSelectedSize(size);
+                              toggleDropdown('size');
+                            }}
+                            className="w-full text-left px-4 py-3 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg"
+                          >
+                            {size}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+                
+                {sizeType === 'CUSTOM SIZES' && (
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-3 gap-4">
+                      {/* Length Input */}
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-[#0c6b76]">Length (in):</label>
+                        <div className="flex items-center">
+                          <button
+                            onClick={() => decrementDimension('length')}
+                            className="px-3 py-2 border border-gray-300 rounded-l-lg bg-white hover:bg-gray-50 transition-colors"
+                          >
+                            <span className="text-gray-600">−</span>
+                          </button>
+                          <input
+                            type="number"
+                            value={customLength}
+                            onChange={(e) => setCustomLength(Math.max(0.25, parseFloat(e.target.value) || 0.25))}
+                            step="0.25"
+                            min="0.25"
+                            className="flex-1 px-3 py-2 border-t border-b border-gray-300 text-center focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                          />
+                          <button
+                            onClick={() => incrementDimension('length')}
+                            className="px-3 py-2 border border-gray-300 rounded-r-lg bg-white hover:bg-gray-50 transition-colors"
+                          >
+                            <span className="text-gray-600">+</span>
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Width Input */}
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-[#0c6b76]">Width (in):</label>
+                        <div className="flex items-center">
+                          <button
+                            onClick={() => decrementDimension('width')}
+                            className="px-3 py-2 border border-gray-300 rounded-l-lg bg-white hover:bg-gray-50 transition-colors"
+                          >
+                            <span className="text-gray-600">−</span>
+                          </button>
+                          <input
+                            type="number"
+                            value={customWidth}
+                            onChange={(e) => setCustomWidth(Math.max(0.25, parseFloat(e.target.value) || 0.25))}
+                            step="0.25"
+                            min="0.25"
+                            className="flex-1 px-3 py-2 border-t border-b border-gray-300 text-center focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                          />
+                          <button
+                            onClick={() => incrementDimension('width')}
+                            className="px-3 py-2 border border-gray-300 rounded-r-lg bg-white hover:bg-gray-50 transition-colors"
+                          >
+                            <span className="text-gray-600">+</span>
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Depth Input */}
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-[#0c6b76]">Depth (in):</label>
+                        <div className="flex items-center">
+                          <button
+                            onClick={() => decrementDimension('depth')}
+                            className="px-3 py-2 border border-gray-300 rounded-l-lg bg-white hover:bg-gray-50 transition-colors"
+                          >
+                            <span className="text-gray-600">−</span>
+                          </button>
+                          <input
+                            type="number"
+                            value={customDepth}
+                            onChange={(e) => setCustomDepth(Math.max(0.25, parseFloat(e.target.value) || 0.25))}
+                            step="0.25"
+                            min="0.25"
+                            className="flex-1 px-3 py-2 border-t border-b border-gray-300 text-center focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                          />
+                          <button
+                            onClick={() => incrementDimension('depth')}
+                            className="px-3 py-2 border border-gray-300 rounded-r-lg bg-white hover:bg-gray-50 transition-colors"
+                          >
+                            <span className="text-gray-600">+</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Material */}
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <label className="text-sm font-medium text-[#0c6b76]">Material</label>
+                <Info className="w-4 h-4 text-[#0ca6c2]" />
+              </div>
+              <div className="relative">
+                <button
+                  onClick={() => toggleDropdown('material')}
+                  className="w-full flex items-center justify-between px-4 py-3 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
+                >
+                  <span className="text-gray-900">{material}</span>
+                  <ChevronDown className="w-5 h-5 text-[#0ca6c2]" />
+                </button>
+                {showDropdowns.material && (
+                  <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
+                    {getCurrentMaterialOptions().map((option: string) => (
+                      <button
+                        key={option}
+                        onClick={() => {
+                          setMaterial(option);
+                          toggleDropdown('material');
+                        }}
+                        className="w-full text-left px-4 py-3 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg"
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Print Finish */}
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <label className="text-sm font-medium text-[#0c6b76]">Print finish</label>
+                <Info className="w-4 h-4 text-[#0ca6c2]" />
+              </div>
+              <div className="relative">
+                <button
+                  onClick={() => toggleDropdown('printFinish')}
+                  className="w-full flex items-center justify-between px-4 py-3 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
+                >
+                  <span className="text-gray-900">{printFinish}</span>
+                  <ChevronDown className="w-5 h-5 text-[#0ca6c2]" />
+                </button>
+                {showDropdowns.printFinish && (
+                  <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
+                    {printFinishOptions.map((option) => (
+                      <button
+                        key={option}
+                        onClick={() => {
+                          setPrintFinish(option);
+                          toggleDropdown('printFinish');
+                        }}
+                        className="w-full text-left px-4 py-3 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg"
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Printed Sides */}
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <label className="text-sm font-medium text-[#0c6b76]">Printed sides</label>
+              </div>
+              <div className="relative">
+                <button
+                  onClick={() => toggleDropdown('printedSides')}
+                  className="w-full flex items-center justify-between px-4 py-3 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
+                >
+                  <span className="text-gray-900">{printedSides}</span>
+                  <ChevronDown className="w-5 h-5 text-[#0ca6c2]" />
+                </button>
+                {showDropdowns.printedSides && (
+                  <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
+                    {printedSidesOptions.map((option) => (
+                      <button
+                        key={option}
+                        onClick={() => {
+                          setPrintedSides(option);
+                          toggleDropdown('printedSides');
+                        }}
+                        className="w-full text-left px-4 py-3 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg"
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Quantity */}
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <label className="text-sm font-medium text-[#0c6b76]">Quantity</label>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="flex-1">
+                  <input
+                    type="number"
+                    value={quantity}
+                    onChange={(e) => setQuantity(Number(e.target.value))}
+                    className="w-full px-4 py-3 border border-[#0c6b76]/30 rounded-lg focus:ring-2 focus:ring-[#0ca6c2] focus:border-[#0ca6c2]"
+                    min="1"
+                  />
+                </div>
+                <div className="text-right">
+                  <div className="text-sm text-gray-600">${unitPrice.toFixed(2)} each</div>
+                  <div className="flex items-center gap-1 text-xs text-green-600">
+                    <span>Save 84%</span>
+                    <ChevronDown className="w-3 h-3" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Production Speed and Pricing Row */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Production Speed */}
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <label className="text-sm font-medium text-[#0c6b76]">Production speed</label>
+                </div>
+                <div className="space-y-2">
+                  <label className="flex items-center gap-3 p-3 border border-[#0c6b76]/30 rounded-lg cursor-pointer hover:bg-[#0ca6c2]/5">
+                    <input
+                      type="radio"
+                      name="productionSpeed"
+                      value="Standard (8 Business Days)"
+                      checked={productionSpeed === 'Standard (8 Business Days)'}
+                      onChange={(e) => setProductionSpeed(e.target.value)}
+                      className="w-4 h-4 text-[#0ca6c2]"
+                    />
+                    <span className="text-gray-900">Standard (8 Business Days)</span>
+                  </label>
+                  <label className="flex items-center gap-3 p-3 border border-[#0c6b76]/30 rounded-lg cursor-pointer hover:bg-[#0ca6c2]/5">
+                    <input
+                      type="radio"
+                      name="productionSpeed"
+                      value="Rush (5 Business Days)"
+                      checked={productionSpeed === 'Rush (5 Business Days)'}
+                      onChange={(e) => setProductionSpeed(e.target.value)}
+                      className="w-4 h-4 text-[#0ca6c2]"
+                    />
+                    <span className="text-gray-900">Rush (5 Business Days)</span>
+                  </label>
+                </div>
+              </div>
+
+              {/* Pricing Summary */}
+              <div className="bg-[#0ca6c2]/5 rounded-lg p-6 space-y-4">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-green-600 mb-2">${unitPrice.toFixed(2)} each</div>
+                  <div className="text-lg text-gray-700">Subtotal: ${subtotal.toFixed(2)}</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Design Options */}
+            <div className="space-y-6">
+              {/* Design Now */}
+              <div className="text-center">
+                <button
+                  onClick={onDesignNow}
+                  className="w-full bg-[#0c6b76] cursor-pointer hover:bg-[#0ca6c2] text-white font-semibold py-4 px-6 rounded-lg transition-colors"
+                >
+                  ORDER NOW
+                </button>
+              </div>
+
+            </div>
+          </div>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="mt-12 text-center">
+          <p className="text-[#0c6b76]">
+            Can&apos;t find what you&apos;re looking for?{' '}
+            <button
+              onClick={() => {
+                // Redirect to home page and scroll to request quote section
+                router.push('/#request-quote-section');
+              }}
+              className="text-[#0ca6c2] hover:text-[#0c6b76] underline font-medium cursor-pointer"
+            >
+              Get a Custom Quote
+            </button>
+          </p>
+        </div>
+      </div>
+    </LightBlueBackground>
+  );
+};
+
+export default CustomDimensionsForm;

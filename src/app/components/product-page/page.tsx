@@ -4,6 +4,7 @@ import React from 'react';
 import { NavigationSection, MainCategory, SubCategory } from '../../data/navigationData';
 import { productData } from '../../data/productData';
 import HeroSection, { BreadcrumbItem } from '../product-design-page/HeroSection';
+import CustomDimensionsForm from '../product-design-page/CustomDimensionsForm';
 import FeaturesSection from '../product-design-page/FeaturesSection';
 import ClientTestamonials from '../product-design-page/ClientTestamonials';
 import CTASection from '../product-design-page/CTASection';
@@ -162,6 +163,9 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
       <main className="min-h-screen">
         {/* Hero Section with Integrated Breadcrumb */}
         <HeroSection productData={productInfo} breadcrumbs={breadcrumbs} />
+
+        {/* Custom Dimensions Form */}
+        <CustomDimensionsForm />
 
         {/* Features Section */}
         <FeaturesSection productData={productInfo} />

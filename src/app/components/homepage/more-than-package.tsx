@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import LightBlueBackground from '../LightBlueBackground';
 
 const MoreThanPackage: React.FC = () => {
@@ -18,9 +19,11 @@ const MoreThanPackage: React.FC = () => {
             {/* Main content area with image */}
             
               <div className="relative h-full w-auto">
-                <img 
+                <Image 
                   src="/img/products-box-img.png" 
                   alt="Custom Packaging Boxes"
+                  width={600}
+                  height={400}
                   className="w-auto h-full object-cover shadow-2xl"
                 />
                 {/* Overlay for better text readability */}

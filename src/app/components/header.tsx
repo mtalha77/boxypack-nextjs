@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { 
   ChevronDown, 
   Search, 
@@ -61,7 +62,6 @@ import {
   Tent
 } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { navigationData, NavigationSection, MainCategory } from '../data/navigationData';
 
 // Icon mapping functions
@@ -357,9 +357,11 @@ const Header: React.FC = () => {
                     >
                       {/* Decorative Shape - Top Right Corner Background */}
                       <div className="absolute top-0 right-0 w-64 h-40 pointer-events-none" style={{ zIndex: 10 }}>
-                        <img
+                        <Image
                           src="/img/cs_slider_shape.svg"
                           alt="Decorative shape"
+                          width={256}
+                          height={160}
                           className="w-full h-full object-contain opacity-80 transform scale-200"
                         />
                       </div>
