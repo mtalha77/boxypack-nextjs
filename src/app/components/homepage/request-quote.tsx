@@ -39,10 +39,10 @@ const RequestQuote: React.FC = () => {
           <div className="space-y-8">
             <div>
               <h2 className="text-4xl lg:text-5xl font-bold text-[#0c6b76] mb-6">
-                Request Your Custom Quote
+                Request Your Custom Box Quote
               </h2>
               <p className="text-xl text-gray-700 leading-relaxed">
-                Get a personalized quote for your custom packaging needs. Our team will review your requirements and provide you with competitive pricing and expert recommendations.
+                Get a clear quote for your custom box needs. Our team reviews your details carefully and shares fair pricing with helpful guidance. We are here to support you at every step.
               </p>
             </div>
 
@@ -85,19 +85,19 @@ const RequestQuote: React.FC = () => {
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-[#0c6b76] rounded-full"></div>
-                  <span>Fast turnaround times</span>
+                  <span>Fast delivery you can trust</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-[#0c6b76] rounded-full"></div>
-                  <span>Competitive pricing</span>
+                  <span>Flexible custom box options</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-[#0c6b76] rounded-full"></div>
-                  <span>Expert consultation</span>
+                  <span>Helpful support for brands</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-[#0c6b76] rounded-full"></div>
-                  <span>Quality guaranteed</span>
+                  <span>Strong quality every time</span>
                 </li>
               </ul>
             </div>

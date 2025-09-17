@@ -30,11 +30,12 @@ const ProductByMaterialCarousel: React.FC = () => {
             <div className="w-2 h-2 bg-brown-dark2 rounded-full mr-3"></div>
             PRODUCT BY MATERIAL
           </div>
-          <h2 className="text-4xl font-bold text-[#0c6b76] mb-6 leading-tight">
-          Select your Box by your Material Type
+          <h2 className="text-h2 text-heading-primary mb-6 leading-tight">
+          Find The Right Box By Your Material Choice
+
           </h2>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Discover our comprehensive range of packaging solutions organized by material type. Each category offers specialized packaging options tailored to different product needs and industry requirements.
+          <p className="text-body-large text-body-primary max-w-3xl mx-auto leading-relaxed">
+          Browse premium boxes selected by material, each built to deliver strength, style, and brand impact.
           </p>
         </div>
 

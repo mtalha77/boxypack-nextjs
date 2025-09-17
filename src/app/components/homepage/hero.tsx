@@ -157,7 +157,7 @@ const Hero = () => {
             }}
           >
             <h1 className="text-display text-white">
-            Custom boxes <br /> made easy <br />
+           <br /> made easy <br />
             for retail
             </h1>
             <p className="text-body-large text-white/80 max-w-2xl mx-auto">

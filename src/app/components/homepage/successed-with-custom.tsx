@@ -48,9 +48,9 @@ const VideoSection: React.FC = () => {
       <div className="max-w-6xl mx-auto">
         {/* Video section */}
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-[#0c6b76] mb-6">See how to succeed with custom packaging</h2>
+          <h2 className="text-5xl font-bold text-[#0c6b76] mb-6">See How Boxes Protect And Build Brand Value</h2>
           <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-            Watch how Father Time Bread is slicing up the competition by delivering the ultimate unboxing experience with fresh bread shipped directly to customers in custom printed boxes.
+            See how our custom boxes turn products into experiences customers remember. From store shelves to doorstep delivery, each design gives strength and details that build trust.
           </p>
         </div>
 

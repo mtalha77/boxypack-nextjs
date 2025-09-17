@@ -33,12 +33,11 @@ const HeroVideoSection = () => {
           {/* Left Content */}
           <div className="text-left text-white">
             <h1 className="text-5xl lg:text-7xl font-bold leading-tight mb-6">
-              Custom Boxes <br />
-              Made Easy
+            Custom Boxes That Build Brands
             </h1>
             <p className="text-xl lg:text-2xl text-white/90 mb-8 max-w-2xl">
-              Showcase your brand with our high-quality made-to-order printed packaging 
-              and leave a lasting unboxing impression.
+            Custom boxes built with care, giving your brand presence and reliable boxes that protect products while creating lasting impressions.
+
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-stretch">
               <button className="group bg-brown-rustic hover:bg-[#97602f] text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer flex items-center justify-center min-h-[56px]">
@@ -53,7 +52,7 @@ const HeroVideoSection = () => {
           
           {/* Right Video */}
           <div className="flex justify-center items-center">
-            <div className="w-full max-w-lg h-auto relative">
+            <div className="w-full max-w-xl h-auto relative">
               <video
                 ref={videoRef}
                 className="w-full h-full object-cover"

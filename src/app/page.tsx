@@ -6,9 +6,8 @@ import MoreThanPackage from './components/homepage/more-than-package';
 import FAQ from './components/homepage/faq';
 import RequestQuote from './components/homepage/request-quote';
 import HeroVideoSection from './components/homepage/HeroVideoSection';
-import ByMaterialCarasoul from './components/homepage/ByMaterialCarasoul';
-import ByIndustryCarasoul from './components/homepage/ByIndustryCarasoul';
-import ErrorBoundary from './components/ErrorBoundary';
+import ProductByMaterialCarousel from './components/ProductByMaterialCarousel';
+import ProductByIndustryCarousel from './components/ProductByIndustryCarousel';
 
 const HomePage = () => {
   const [isClient, setIsClient] = useState(false);
@@ -60,35 +59,17 @@ const HomePage = () => {
   }
 
   return (
-    <ErrorBoundary>
-      <div className="relative">
-        {/* <Hero /> */}
-        <ErrorBoundary>
-          <HeroVideoSection />
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <VideoSection />
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <ByMaterialCarasoul />
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <ByIndustryCarasoul />
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <BoxDesignGallery />
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <MoreThanPackage />
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <FAQ />
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <RequestQuote />
-        </ErrorBoundary>
-      </div>
-    </ErrorBoundary>
+    <div className="relative">
+      {/* <Hero /> */}
+      <HeroVideoSection />
+      <VideoSection />
+      <ProductByMaterialCarousel/>
+      <ProductByIndustryCarousel/>
+      <BoxDesignGallery />
+      <MoreThanPackage />
+      <FAQ />
+      <RequestQuote />
+    </div>
   );
 };
 

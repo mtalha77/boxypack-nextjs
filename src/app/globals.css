@@ -509,4 +509,77 @@ video[autoplay] {
   contain: layout style paint;
   /* Prevent layout thrashing */
   isolation: isolate;
+  /* Prevent affecting other sections */
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+}
+
+/* Prevent carousel sections from affecting other sections */
+section[class*="carousel"] {
+  contain: layout style paint;
+  isolation: isolate;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+}
+
+/* Ultra-smooth carousel container optimizations */
+.horizontal-center {
+  contain: layout style paint;
+  isolation: isolate;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+}
+
+/* Prevent scroll interference between sections */
+section {
+  contain: layout style paint;
+  isolation: isolate;
+  will-change: auto;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+}
+
+/* Ultra-smooth scroll optimizations for the entire page */
+html {
+  scroll-behavior: smooth;
+  -webkit-scroll-behavior: smooth;
+  -moz-scroll-behavior: smooth;
+  -ms-scroll-behavior: smooth;
+  -o-scroll-behavior: smooth;
+  /* Prevent scroll interference */
+  overflow-x: hidden;
+  /* Optimize for smooth scrolling */
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  /* Prevent scroll interference */
+  overflow-x: hidden;
+  /* Optimize for smooth scrolling */
+  -webkit-overflow-scrolling: touch;
+  /* Hardware acceleration */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
 }

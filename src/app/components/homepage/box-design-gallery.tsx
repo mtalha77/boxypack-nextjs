@@ -8,35 +8,35 @@ import { productData } from "../../data/productData";
 // Featured products for the gallery - using actual product data
 const featuredProducts = [
   {
-    key: 'mailer-boxes',
-    product: productData['mailer-boxes'],
-    image: '/img/mailer-box.jpg'
+    key: "mailer-boxes",
+    product: productData["mailer-boxes"],
+    image: "/img/mailer-box.jpg",
   },
   {
-    key: 'product-boxes',
-    product: productData['product-boxes'],
-    image: '/img/product-box-2.webp'
+    key: "product-boxes",
+    product: productData["product-boxes"],
+    image: "/img/product-box-2.webp",
   },
   {
-    key: 'rigid-boxes',
-    product: productData['rigid-boxes'],
-    image: '/img/shipping-box.jpg'
+    key: "rigid-boxes",
+    product: productData["rigid-boxes"],
+    image: "/img/shipping-box.jpg",
   },
   {
-    key: 'shipping-boxes',
-    product: productData['shipping-boxes'],
-    image: '/img/product-box-2.jpg'
+    key: "shipping-boxes",
+    product: productData["shipping-boxes"],
+    image: "/img/product-box-2.jpg",
   },
   {
-    key: 'pouches',
-    product: productData['pouches'],
-    image: '/img/product-box-2.webp'
+    key: "pouches",
+    product: productData["pouches"],
+    image: "/img/product-box-2.webp",
   },
   {
-    key: 'shopping-bags',
-    product: productData['shopping-bags'],
-    image: '/img/shipping-box-2.webp'
-  }
+    key: "shopping-bags",
+    product: productData["shopping-bags"],
+    image: "/img/shipping-box-2.webp",
+  },
 ];
 
 const BoxDesignGallery: React.FC = () => {
@@ -45,16 +45,17 @@ const BoxDesignGallery: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-16">
-          
           <h2 className="text-h2 text-heading-primary mb-6">
-            Box design that inspires
+            Boxes Designed To Inspire Trust
           </h2>
           <p className="text-body-large text-body-primary max-w-4xl mx-auto">
-            We&apos;re here to help with packaging solutions that make sense for
-            businesses of any kind. Whether you&apos;re designing custom retail
-            packaging with your logo or need corrugated cardboard mailers for
-            your ecommerce biz, there&apos;s lots of inspiration to be found for
-            your custom product packaging.
+            First moments matter most. Custom boxes shape first impressions and
+            lasting memories. At BoxyPack, we design boxes that go beyond
+            packaging, turning them into clear brand statements. Boxes can be
+            chosen by material for strength or by industry for unique needs.
+            Each design is made to inspire and build trust. From product boxes
+            to shipping choices, we provide presence and protection. Explore
+            below and find the box that matches your product needs.
           </p>
         </div>
 
@@ -65,7 +66,10 @@ const BoxDesignGallery: React.FC = () => {
             {/* Top Row - 2 images side by side */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Card 1: Mailer Boxes */}
-              <Link href={`/products/${featuredProducts[0].key}`} className="group block">
+              <Link
+                href={`/products/${featuredProducts[0].key}`}
+                className="group block"
+              >
                 <div className="relative h-80 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
                   <Image
                     src={featuredProducts[0].image}
@@ -77,16 +81,25 @@ const BoxDesignGallery: React.FC = () => {
 
                   {/* Hover overlay with text */}
                   <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-6">
-                    <h3 className="text-h3 text-white mb-3">{featuredProducts[0].product.name}</h3>
+                    <h3 className="text-h3 text-white mb-3">
+                      {featuredProducts[0].product.name}
+                    </h3>
                     <p className="text-center text-body-small">
-                      {featuredProducts[0].product.description.substring(0, 120)}...
+                      {featuredProducts[0].product.description.substring(
+                        0,
+                        120
+                      )}
+                      ...
                     </p>
                   </div>
                 </div>
               </Link>
 
               {/* Card 2: Product Boxes */}
-              <Link href={`/products/${featuredProducts[1].key}`} className="group block">
+              <Link
+                href={`/products/${featuredProducts[1].key}`}
+                className="group block"
+              >
                 <div className="relative h-80 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
                   <Image
                     src={featuredProducts[1].image}
@@ -98,9 +111,15 @@ const BoxDesignGallery: React.FC = () => {
 
                   {/* Hover overlay with text */}
                   <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-6">
-                    <h3 className="text-h3 text-white mb-3">{featuredProducts[1].product.name}</h3>
+                    <h3 className="text-h3 text-white mb-3">
+                      {featuredProducts[1].product.name}
+                    </h3>
                     <p className="text-center text-body-small">
-                      {featuredProducts[1].product.description.substring(0, 120)}...
+                      {featuredProducts[1].product.description.substring(
+                        0,
+                        120
+                      )}
+                      ...
                     </p>
                   </div>
                 </div>
@@ -108,7 +127,10 @@ const BoxDesignGallery: React.FC = () => {
             </div>
 
             {/* Bottom Row - 1 wide image */}
-            <Link href={`/products/${featuredProducts[2].key}`} className="group block">
+            <Link
+              href={`/products/${featuredProducts[2].key}`}
+              className="group block"
+            >
               <div className="relative h-160 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
                 <Image
                   src={featuredProducts[2].image}
@@ -120,9 +142,12 @@ const BoxDesignGallery: React.FC = () => {
 
                 {/* Hover overlay with text */}
                 <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-6">
-                  <h3 className="text-h2 text-white mb-4">{featuredProducts[2].product.name}</h3>
+                  <h3 className="text-h2 text-white mb-4">
+                    {featuredProducts[2].product.name}
+                  </h3>
                   <p className="text-center text-body">
-                    {featuredProducts[2].product.description.substring(0, 150)}...
+                    {featuredProducts[2].product.description.substring(0, 150)}
+                    ...
                   </p>
                 </div>
               </div>
@@ -132,7 +157,10 @@ const BoxDesignGallery: React.FC = () => {
           {/* Right Side - 1 tall image on top, 2 below */}
           <div className="space-y-6">
             {/* Top - 1 tall image */}
-            <Link href={`/products/${featuredProducts[3].key}`} className="group block">
+            <Link
+              href={`/products/${featuredProducts[3].key}`}
+              className="group block"
+            >
               <div className="relative h-160 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
                 <Image
                   src={featuredProducts[3].image}
@@ -144,9 +172,12 @@ const BoxDesignGallery: React.FC = () => {
 
                 {/* Hover overlay with text */}
                 <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-6">
-                  <h3 className="text-h3 text-white mb-3">{featuredProducts[3].product.name}</h3>
+                  <h3 className="text-h3 text-white mb-3">
+                    {featuredProducts[3].product.name}
+                  </h3>
                   <p className="text-center text-body-small">
-                    {featuredProducts[3].product.description.substring(0, 120)}...
+                    {featuredProducts[3].product.description.substring(0, 120)}
+                    ...
                   </p>
                 </div>
               </div>
@@ -155,7 +186,10 @@ const BoxDesignGallery: React.FC = () => {
             {/* Bottom - 2 images side by side */}
             <div className="grid grid-cols-2 gap-6">
               {/* Card 5: Pouches */}
-              <Link href={`/products/${featuredProducts[4].key}`} className="group block">
+              <Link
+                href={`/products/${featuredProducts[4].key}`}
+                className="group block"
+              >
                 <div className="relative h-80 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
                   <Image
                     src={featuredProducts[4].image}
@@ -167,16 +201,22 @@ const BoxDesignGallery: React.FC = () => {
 
                   {/* Hover overlay with text */}
                   <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-4">
-                    <h3 className="text-h5 text-white mb-2">{featuredProducts[4].product.name}</h3>
+                    <h3 className="text-h5 text-white mb-2">
+                      {featuredProducts[4].product.name}
+                    </h3>
                     <p className="text-center text-caption">
-                      {featuredProducts[4].product.description.substring(0, 80)}...
+                      {featuredProducts[4].product.description.substring(0, 80)}
+                      ...
                     </p>
                   </div>
                 </div>
               </Link>
 
               {/* Card 6: Shopping Bags */}
-              <Link href={`/products/${featuredProducts[5].key}`} className="group block">
+              <Link
+                href={`/products/${featuredProducts[5].key}`}
+                className="group block"
+              >
                 <div className="relative h-80 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
                   <Image
                     src={featuredProducts[5].image}
@@ -188,9 +228,12 @@ const BoxDesignGallery: React.FC = () => {
 
                   {/* Hover overlay with text */}
                   <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-4">
-                    <h3 className="text-h5 text-white mb-2">{featuredProducts[5].product.name}</h3>
+                    <h3 className="text-h5 text-white mb-2">
+                      {featuredProducts[5].product.name}
+                    </h3>
                     <p className="text-center text-caption">
-                      {featuredProducts[5].product.description.substring(0, 80)}...
+                      {featuredProducts[5].product.description.substring(0, 80)}
+                      ...
                     </p>
                   </div>
                 </div>

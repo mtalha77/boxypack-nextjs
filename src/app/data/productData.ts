@@ -7,7 +7,7 @@ import { otherData } from './otherData';
 export const productData = {
   'mailer-boxes': {
     name: 'Mailer Boxes',
-    description: 'Durable and stylish mailer boxes perfect for subscription boxes, gift boxes, and e-commerce packaging. Custom designed to protect and showcase your products.',
+    description: 'Our mailer boxes bring strength and style together, ideal for gifts and subscription packs. Each box protects products while giving a clean look that strengthens brand identity.',
     heroImage: '/img/products-box-img.png',
     modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [
@@ -63,7 +63,7 @@ export const productData = {
   },
   'product-boxes': {
     name: 'Product Boxes',
-    description: 'Premium packaging solutions for retail and e-commerce products. Designed to showcase your brand and protect your valuable items with style.',
+    description: 'Premium boxes crafted to showcase retail and online products with care. Product designs add visibility, highlight your branding, and provide trusted protection for every item.',
     heroImage: '/img/products-box-img.png',
     modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [
@@ -119,7 +119,7 @@ export const productData = {
   },
   'rigid-boxes': {
     name: 'Rigid Boxes',
-    description: 'High-end luxury packaging with superior strength and finish. Perfect for premium products that demand the finest presentation.',
+    description: 'Luxury rigid boxes designed for products that need more. Combining strength with style, they create memorable unboxing moments. It lifts your brand with a refined presentation.',
     heroImage: '/img/products-box-img.png',
     modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [
@@ -175,7 +175,7 @@ export const productData = {
   },
   'shipping-boxes': {
     name: 'Shipping Boxes',
-    description: 'Reliable shipping solutions for safe product delivery. Durable, cost-effective boxes designed to protect your products during transit.',
+    description: 'Strong and reliable, our shipping boxes ensure products travel safely across any distance. Built for value and strength, they provide trusted protection and a perfect look.',
     heroImage: '/img/products-box-img.png',
     modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [
@@ -231,7 +231,7 @@ export const productData = {
   },
   'pouches': {
     name: 'Pouches',
-    description: 'Flexible and lightweight packaging for various products. Custom designed pouches that protect your products while maximizing brand visibility.',
+    description: 'Lightweight pouches are made for a wide range of products. They are easy to use, keep content safe, and give your brand clear visibility.',
     heroImage: '/img/products-box-img.png',
     modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [
@@ -343,7 +343,7 @@ export const productData = {
   },
   'shopping-bags': {
     name: 'Shopping Bags',
-    description: 'Eco-friendly and stylish shopping bag solutions. Promote your brand while providing customers with durable, reusable bags.',
+    description: 'Our stylish shopping bags combine strength with modern appeal. They extend your brand presence and keep customers engaged well beyond purchase.',
     heroImage: '/img/products-box-img.png',
     modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [

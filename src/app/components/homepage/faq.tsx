@@ -17,45 +17,45 @@ const FAQ: React.FC = () => {
   const faqData = [
     // Left Column
     {
-      question: "Can I get an instant quote for my order?",
-      answer: "Yes! Our 3D design tool gives you real-time unit price updates as you customize your box. You can adjust artwork, text, and colors to see exactly how they affect your pricing before placing your order."
+      question: "What types of boxes can I order?",
+      answer: "We provide mailers, shipping, product, and rigid boxes. We also create pouches and shopping bags. Each option is designed for different business needs. You can choose by material or by industry type."
     },
     {
-      question: "What packaging products can I order from Packlane?",
-      answer: "We offer Shipping Boxes, Mailer Boxes, and Product Boxes. All come in stock and custom sizes, suitable for both retail and e-commerce use. Our box designer tool helps you customize each type to your needs."
+      question: "Can I fully customize my box?",
+      answer: "Yes, every box can be customized. Select the size, material, and finish you prefer. Add your own design to reflect your brand identity. Inside and outside printing is also available for extra impact."
     },
     {
-      question: "What if I'm designing in Adobe Illustrator?",
-      answer: "You can submit your files through our Dieline Upload tool, or email us your dielines for quotes. You can also get rough quotes by using solid colors on our 3D design tool while working on your final artwork."
+      question: "Do you offer sustainable box options?",
+      answer: "Yes, we provide boxes made from recyclable materials. These options give strength and style while showing care for the environment. Many brands use them to connect with responsible customers."
     },
     {
-      question: "How does your 3D box designer work?",
-      answer: "Our 3D designer lets you customize all specifications and see real-time price updates. You can proceed to checkout, save your design for later, or share it with your team for feedback before ordering."
+      question: "How long does production take?",
+      answer: "Production time depends on order size and design details. We keep processes simple and steady to deliver on time. Urgent orders may qualify for faster completion options if needed."
     },
     {
-      question: "What is the turnaround time on my order?",
-      answer: "Standard turnaround is 10 business days, with rush options available at 7 business days. Transit time varies by location. Special finishes and bulk orders may have additional delays. We recommend ordering early for time-sensitive projects."
+      question: "Can I print inside and outside the box?",
+      answer: "Yes, both sides can be printed. This creates a more memorable unboxing moment. Your design will stand out clearly from every angle."
     },
     // Right Column
     {
-      question: "What happens after I place my order? Do I get a proof?",
-      answer: "Yes! Our Prepress team reviews your design within 24 hours and sends you a 2D digital proof. They'll help finalize any design details and ensure everything is ready for production."
+      question: "Can I review my design before production begins?",
+      answer: "Yes, each order includes a digital proof. You can review artwork, confirm details, and request changes. Printing starts only after you approve the proof."
     },
     {
-      question: "Will I see a proof for my order?",
-      answer: "Absolutely. You'll receive a digital proof within 24 hours of checkout, giving you time to review and approve before we begin printing."
+      question: "What printing quality can I expect?",
+      answer: "We provide clear, sharp, and lasting results. Our methods ensure strong colors and smooth lines. Each project is reviewed to maintain steady and trusted quality."
     },
     {
-      question: "How do I know if my art is printable?",
-      answer: "Our Prepress team reviews all artwork for technical concerns like resolution, blurriness, splits, lines, and bleeds. They'll note any issues that need attention and help you fix them. Note: They don't check spelling/grammar or provide subjective design feedback."
+      question: "Is there a minimum order quantity?",
+      answer: "Order minimums vary by product type. We keep them fair for small and large businesses. Our team can guide you toward the most cost-effective quantity."
     },
     {
-      question: "Can you print inside the boxes?",
-      answer: "Yes! We can print on the inside of corrugated box styles including Mailers, Shipping Boxes, and Tuck Tops. Product Boxes are exterior-only. Use our online designer or submit 2D dieline templates for custom interior/exterior designs."
+      question: "Do you provide design support?",
+      answer: "Yes, our team provides design help. We guide artwork preparation and offer layout advice. This support is available for both new and experienced customers."
     },
     {
-      question: "What choices affect my pricing?",
-      answer: "Pricing is influenced by dimensions, box style, ink coverage, box material, and quantity. We offer volume discounts for orders of 5,000+. Our customer support team can help answer any specific pricing questions you have."
+      question: "How can I place my first order?",
+      answer: "Getting started is simple. Choose your box style, add design details, and review. Confirm your order, and our team will guide you through every step."
     }
   ];
 
@@ -66,7 +66,7 @@ const FAQ: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="text-h2 text-heading-primary mb-6">Frequently Asked Questions</h2>
           <p className="text-body-large text-body-primary max-w-4xl mx-auto">
-            Below you&apos;ll find answers to some common questions around creating a custom box. Every order is little different though, so don&apos;t hesitate to reach out with anything else you might be wondering.
+            Below are answers to common questions about custom boxes. Each project is unique, so feel free to contact our team anytime for more details or personal support.
           </p>
         </div>
 
