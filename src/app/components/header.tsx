@@ -6,7 +6,6 @@ import {
   ChevronDown, 
   Search, 
   HelpCircle, 
-  ShoppingCart, 
   Menu, 
   X, 
   ChevronRight,
@@ -241,27 +240,10 @@ const Header: React.FC = () => {
               Contact Us
             </Link>
 
-            {/* Shopping Cart */}
-            <div className="relative">
-                <Link href="/cart" className="flex items-center text-gray-700 hover:text-[#0c6b76] transition-colors">
-                <ShoppingCart className="w-6 h-6" />
-                <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
-                  0
-                </span>
-              </Link>
-            </div>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-4">
-            {/* Mobile Cart */}
-            <Link href="/cart" className="relative text-gray-700 hover:text-[#0c6b76] transition-colors">
-              <ShoppingCart className="w-6 h-6" />
-              <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
-                0
-              </span>
-            </Link>
-
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
