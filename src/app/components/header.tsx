@@ -58,7 +58,92 @@ import {
   Slice,
   Tags,
   Table,
-  Tent
+  Tent,
+  // Box-related icons only
+  HardHat,
+  Recycle,
+  Shield,
+  Award,
+  Snowflake,
+  Sun,
+  Moon,
+  TreePine,
+  Flower,
+  Fish,
+  Carrot,
+  Apple,
+  Cherry,
+  IceCream,
+  Cake,
+  Wine,
+  Beer,
+  Syringe,
+  Stethoscope,
+  Microscope,
+  TestTube,
+  Beaker,
+  Atom,
+  Dna,
+  Activity,
+  Footprints,
+  Dumbbell,
+  Trophy,
+  Medal,
+  Target,
+  Crosshair,
+  Key,
+  Unlock,
+  EyeOff,
+  Camera,
+  Video,
+  Headphones,
+  Speaker,
+  Mic,
+  Radio,
+  Tv,
+  Monitor,
+  Smartphone,
+  Laptop,
+  Tablet,
+  Mouse,
+  Keyboard,
+  HardDrive,
+  Database,
+  Server,
+  Cloud,
+  Wifi,
+  Bluetooth,
+  Battery,
+  Plug,
+  Lightbulb,
+  Flashlight,
+  Diamond,
+  Octagon,
+  Pentagon,
+  RectangleHorizontal,
+  RectangleVertical,
+  Ellipsis,
+  Plus,
+  Minus,
+  Check,
+  AlertCircle,
+  AlertTriangle,
+  Info,
+  Ban,
+  CheckCircle,
+  XCircle,
+  Clock,
+  Timer,
+  Hourglass,
+  CalendarDays,
+  CalendarCheck,
+  CalendarX,
+  CalendarPlus,
+  CalendarMinus,
+  CalendarRange,
+  CalendarSearch,
+  CalendarClock,
+  CalendarHeart
 } from 'lucide-react';
 import Link from 'next/link';
 import { navigationData, NavigationSection, MainCategory } from '../data/navigationData';
@@ -67,98 +152,251 @@ import { navigationData, NavigationSection, MainCategory } from '../data/navigat
 const getCategoryIcon = (categoryName: string) => {
   const name = categoryName.toLowerCase();
   
-  // Material categories
-  if (name.includes('rigid')) return Package;
-  if (name.includes('kraft')) return Leaf;
-  if (name.includes('cardboard')) return Box;
-  if (name.includes('corrugated')) return Layers;
+  // Main navigation sections - all use box-related icons
+  if (name.includes('product by material')) return Layers; // Layered materials
+  if (name.includes('product by industry')) return Package; // Industry packaging
+  if (name.includes('pouches')) return Archive; // Flexible packaging
+  if (name.includes('shopping bags')) return ShoppingBag; // Shopping containers
+  if (name.includes('other')) return Tag; // Miscellaneous packaging
   
-  // Industry categories
-  if (name.includes('bakery')) return Cookie;
-  if (name.includes('cosmetic')) return Sparkles;
-  if (name.includes('retail')) return ShoppingBag;
-  if (name.includes('candle')) return Flame;
-  if (name.includes('gift')) return Gift;
-  if (name.includes('shipping')) return Truck;
-  if (name.includes('soap')) return Droplets;
-  if (name.includes('food')) return Utensils;
-  if (name.includes('apparel')) return Shirt;
-  if (name.includes('jewelry')) return Gem;
-  if (name.includes('sports')) return Gamepad2;
-  if (name.includes('cigarette')) return Cigarette;
-  if (name.includes('cbd')) return Leaf;
-  if (name.includes('stationery')) return Pen;
-  if (name.includes('christmas')) return Gift;
-  if (name.includes('chocolate')) return Heart;
-  if (name.includes('cereal')) return Wheat;
-  if (name.includes('pre roll')) return Leaf;
-  if (name.includes('pizza')) return Pizza;
+  // Material categories - all use box-related icons
+  if (name.includes('rigid')) return Shield; // Strong, protective boxes
+  if (name.includes('kraft')) return Recycle; // Eco-friendly boxes
+  if (name.includes('cardboard')) return Box; // Basic cardboard boxes
+  if (name.includes('corrugated')) return Layers; // Layered structure boxes
   
-  // Simple categories
-  if (name.includes('pouches')) return Archive;
-  if (name.includes('shopping bags')) return ShoppingBag;
-  if (name.includes('other')) return Tag;
+  // Industry categories - all use box-related icons
+  if (name.includes('bakery')) return Package; // Bakery boxes
+  if (name.includes('cosmetic')) return Package; // Cosmetic boxes
+  if (name.includes('food')) return Package; // Food boxes
+  if (name.includes('gift')) return Gift; // Gift boxes
+  if (name.includes('jewelry')) return Package; // Jewelry boxes
+  if (name.includes('retail')) return ShoppingBag; // Retail boxes
+  if (name.includes('candle')) return Package; // Candle boxes
+  if (name.includes('shipping')) return Truck; // Shipping boxes
+  if (name.includes('soap')) return Package; // Soap boxes
+  if (name.includes('apparel')) return Package; // Apparel boxes
+  if (name.includes('sports')) return Package; // Sports boxes
+  if (name.includes('cigarette')) return Package; // Cigarette boxes
+  if (name.includes('cbd')) return Package; // CBD boxes
+  if (name.includes('e-liquid')) return Package; // E-liquid boxes
+  if (name.includes('stationery')) return Package; // Stationery boxes
+  if (name.includes('christmas')) return Package; // Christmas boxes
+  if (name.includes('chocolate')) return Package; // Chocolate boxes
+  if (name.includes('cereal')) return Package; // Cereal boxes
+  if (name.includes('pre roll')) return Package; // Pre-roll boxes
+  if (name.includes('pizza')) return Package; // Pizza boxes
   
-  return Package; // Default icon
+  return Package; // Default box icon
 };
 
 const getSubcategoryIcon = (subcategoryName: string) => {
   const name = subcategoryName.toLowerCase();
   
-  // Box types
-  if (name.includes('magnetic')) return Lock;
-  if (name.includes('two piece')) return Square;
-  if (name.includes('collapsible') || name.includes('foldable')) return Archive;
-  if (name.includes('sliding') || name.includes('sleeve')) return Layers;
-  if (name.includes('child resistant')) return Lock;
-  if (name.includes('brief case')) return Briefcase;
-  if (name.includes('book style')) return Book;
-  if (name.includes('hexagon')) return Hexagon;
-  if (name.includes('round')) return Circle;
-  if (name.includes('shoulder')) return Package;
+  // Box construction types - all use box-related icons
+  if (name.includes('magnetic')) return Lock; // Magnetic closure boxes
+  if (name.includes('two piece')) return Square; // Two-piece boxes
+  if (name.includes('collapsible') || name.includes('foldable')) return Archive; // Foldable boxes
+  if (name.includes('sliding') || name.includes('sleeve')) return Layers; // Sliding boxes
+  if (name.includes('child resistant')) return Shield; // Child-resistant boxes
+  if (name.includes('brief case')) return Briefcase; // Briefcase boxes
+  if (name.includes('book style')) return Book; // Book-style boxes
+  if (name.includes('hexagon')) return Hexagon; // Hexagonal boxes
+  if (name.includes('round')) return Circle; // Round boxes
+  if (name.includes('shoulder')) return Package; // Shoulder boxes
+  if (name.includes('pillow')) return Package; // Pillow boxes
+  if (name.includes('gable')) return Triangle; // Gable boxes
+  if (name.includes('tuck')) return Square; // Tuck boxes
+  if (name.includes('window')) return Eye; // Window boxes
+  if (name.includes('display')) return Eye; // Display boxes
+  if (name.includes('dispenser')) return Package; // Dispenser boxes
+  if (name.includes('hanger')) return Package; // Hanger boxes
+  if (name.includes('inserts')) return Layers; // Box inserts
+  if (name.includes('auto bottom')) return Package; // Auto bottom boxes
+  if (name.includes('seal end')) return Lock; // Seal end boxes
+  if (name.includes('blister')) return Package; // Blister boxes
+  if (name.includes('full flap')) return Package; // Full flap boxes
   
-  // Specific products
-  if (name.includes('mailer')) return Mail;
-  if (name.includes('gable')) return Triangle;
-  if (name.includes('tuck')) return Square;
-  if (name.includes('window')) return Eye;
-  if (name.includes('display')) return Eye;
-  if (name.includes('dispenser')) return Package;
-  if (name.includes('hanger')) return Package;
-  if (name.includes('inserts')) return Layers;
-  if (name.includes('auto bottom')) return Package;
-  if (name.includes('seal end')) return Lock;
-  if (name.includes('blister')) return Package;
-  if (name.includes('shipping')) return Truck;
-  if (name.includes('full flap')) return Package;
+  // Specific product types - all use box-related icons
+  if (name.includes('mailer')) return Mail; // Mailer boxes
+  if (name.includes('shipping')) return Truck; // Shipping boxes
   
-  // Industry specific
-  if (name.includes('donut') || name.includes('pastry') || name.includes('cake') || name.includes('cookie') || name.includes('candy') || name.includes('cupcake') || name.includes('truffle')) return Cookie;
-  if (name.includes('perfume') || name.includes('makeup') || name.includes('lipstick') || name.includes('mascara') || name.includes('nail polish') || name.includes('lip balm') || name.includes('foundation') || name.includes('lotion') || name.includes('eyelash')) return Sparkles;
-  if (name.includes('toy') || name.includes('dispenser') || name.includes('mailer')) return Gamepad2;
-  if (name.includes('candle')) return Flame;
-  if (name.includes('gift') || name.includes('pillow') || name.includes('birthday') || name.includes('party') || name.includes('favor')) return Gift;
-  if (name.includes('shipping')) return Truck;
-  if (name.includes('soap')) return Droplets;
-  if (name.includes('french fry') || name.includes('coffee') || name.includes('noodle') || name.includes('popcorn') || name.includes('snack') || name.includes('tea') || name.includes('burger') || name.includes('sandwich')) return Utensils;
-  if (name.includes('cufflink') || name.includes('tie') || name.includes('belt') || name.includes('clothing') || name.includes('lingerie') || name.includes('underwear') || name.includes('tshirt') || name.includes('socks')) return Shirt;
-  if (name.includes('anklet') || name.includes('velvet') || name.includes('jewelry') || name.includes('pendant') || name.includes('bracelet') || name.includes('ring') || name.includes('earring') || name.includes('necklace')) return Gem;
-  if (name.includes('shoe') || name.includes('golf') || name.includes('football')) return Package;
-  if (name.includes('cigarette')) return Cigarette;
-  if (name.includes('cbd') || name.includes('cannabis') || name.includes('gummies') || name.includes('oil') || name.includes('hemp') || name.includes('pre roll') || name.includes('tincture')) return Leaf;
-  if (name.includes('vape') || name.includes('cartridge') || name.includes('disposable') || name.includes('e liquid')) return Package;
-  if (name.includes('pencil') || name.includes('pen') || name.includes('book') || name.includes('presentation')) return Pen;
-  if (name.includes('christmas')) return Gift;
-  if (name.includes('chocolate')) return Heart;
-  if (name.includes('cereal')) return Wheat;
-  if (name.includes('pizza')) return Pizza;
+  // All product categories use box-related icons
+  if (name.includes('donut')) return Package; // Donut boxes
+  if (name.includes('pastry')) return Package; // Pastry boxes
+  if (name.includes('cake')) return Package; // Cake boxes
+  if (name.includes('cookie')) return Package; // Cookie boxes
+  if (name.includes('candy')) return Package; // Candy boxes
+  if (name.includes('cupcake')) return Package; // Cupcake boxes
+  if (name.includes('truffle')) return Package; // Truffle boxes
+  if (name.includes('sweet')) return Package; // Sweet boxes
   
-  // Simple categories
-  if (name.includes('stand up') || name.includes('ziplock') || name.includes('mylar')) return Archive;
-  if (name.includes('kraft') || name.includes('paper') || name.includes('pvc')) return Leaf;
-  if (name.includes('booklet') || name.includes('brochure') || name.includes('tags') || name.includes('business') || name.includes('tissue') || name.includes('butter') || name.includes('labels') || name.includes('table') || name.includes('tent') || name.includes('packing')) return FileText;
+  // Cosmetic boxes
+  if (name.includes('perfume')) return Package; // Perfume boxes
+  if (name.includes('makeup')) return Package; // Makeup boxes
+  if (name.includes('lipstick')) return Package; // Lipstick boxes
+  if (name.includes('mascara')) return Package; // Mascara boxes
+  if (name.includes('nail polish')) return Package; // Nail polish boxes
+  if (name.includes('lip balm')) return Package; // Lip balm boxes
+  if (name.includes('foundation')) return Package; // Foundation boxes
+  if (name.includes('lotion')) return Package; // Lotion boxes
+  if (name.includes('eyelash')) return Package; // Eyelash boxes
+  if (name.includes('cream')) return Package; // Cream boxes
+  if (name.includes('oil')) return Package; // Oil boxes
+  if (name.includes('serum')) return Package; // Serum boxes
+  if (name.includes('hair')) return Package; // Hair boxes
+  if (name.includes('eye shadow')) return Package; // Eye shadow boxes
+  if (name.includes('eyeliner')) return Package; // Eyeliner boxes
   
-  return Package; // Default icon
+  // Food boxes
+  if (name.includes('french fry')) return Package; // French fry boxes
+  if (name.includes('coffee')) return Package; // Coffee boxes
+  if (name.includes('noodle')) return Package; // Noodle boxes
+  if (name.includes('popcorn')) return Package; // Popcorn boxes
+  if (name.includes('snack')) return Package; // Snack boxes
+  if (name.includes('tea')) return Package; // Tea boxes
+  if (name.includes('burger')) return Package; // Burger boxes
+  if (name.includes('sandwich')) return Package; // Sandwich boxes
+  if (name.includes('chinese takeout')) return Package; // Chinese takeout boxes
+  if (name.includes('pizza')) return Package; // Pizza boxes
+  
+  // Gift boxes
+  if (name.includes('gift')) return Gift; // Gift boxes
+  if (name.includes('birthday')) return Gift; // Birthday boxes
+  if (name.includes('party')) return Gift; // Party boxes
+  if (name.includes('favor')) return Gift; // Favor boxes
+  if (name.includes('deluxe')) return Package; // Deluxe boxes
+  if (name.includes('luxury')) return Package; // Luxury boxes
+  if (name.includes('small')) return Package; // Small boxes
+  if (name.includes('large')) return Package; // Large boxes
+  
+  // Jewelry boxes
+  if (name.includes('anklet')) return Package; // Anklet boxes
+  if (name.includes('velvet')) return Package; // Velvet boxes
+  if (name.includes('jewelry')) return Package; // Jewelry boxes
+  if (name.includes('pendant')) return Package; // Pendant boxes
+  if (name.includes('bracelet')) return Package; // Bracelet boxes
+  if (name.includes('ring')) return Package; // Ring boxes
+  if (name.includes('earring')) return Package; // Earring boxes
+  if (name.includes('necklace')) return Package; // Necklace boxes
+  if (name.includes('subscription')) return Package; // Subscription boxes
+  if (name.includes('bags')) return Package; // Jewelry bags
+  if (name.includes('cards')) return Package; // Jewelry cards
+  
+  // Apparel boxes
+  if (name.includes('cufflink')) return Package; // Cufflink boxes
+  if (name.includes('tie')) return Package; // Tie boxes
+  if (name.includes('belt')) return Package; // Belt boxes
+  if (name.includes('clothing')) return Package; // Clothing boxes
+  if (name.includes('lingerie')) return Package; // Lingerie boxes
+  if (name.includes('underwear')) return Package; // Underwear boxes
+  if (name.includes('tshirt')) return Package; // T-shirt boxes
+  if (name.includes('socks')) return Package; // Socks boxes
+  
+  // Sports boxes
+  if (name.includes('shoe')) return Package; // Shoe boxes
+  if (name.includes('golf')) return Package; // Golf boxes
+  if (name.includes('football')) return Package; // Football boxes
+  if (name.includes('ball')) return Package; // Ball boxes
+  
+  // Tobacco boxes
+  if (name.includes('cigarette')) return Package; // Cigarette boxes
+  if (name.includes('empty')) return Package; // Empty boxes
+  if (name.includes('blank')) return Package; // Blank boxes
+  if (name.includes('flip top')) return Package; // Flip top boxes
+  if (name.includes('paper')) return Package; // Paper boxes
+  
+  // CBD/Cannabis boxes
+  if (name.includes('cbd')) return Package; // CBD boxes
+  if (name.includes('cannabis')) return Package; // Cannabis boxes
+  if (name.includes('gummies')) return Package; // Gummies boxes
+  if (name.includes('hemp')) return Package; // Hemp boxes
+  if (name.includes('pre roll')) return Package; // Pre-roll boxes
+  if (name.includes('tincture')) return Package; // Tincture boxes
+  if (name.includes('delta')) return Package; // Delta boxes
+  
+  // Vape boxes
+  if (name.includes('vape')) return Package; // Vape boxes
+  if (name.includes('cartridge')) return Package; // Cartridge boxes
+  if (name.includes('disposable')) return Package; // Disposable boxes
+  if (name.includes('e liquid')) return Package; // E-liquid boxes
+  
+  // Stationery boxes
+  if (name.includes('pencil')) return Package; // Pencil boxes
+  if (name.includes('pen')) return Package; // Pen boxes
+  if (name.includes('book')) return Package; // Book boxes
+  if (name.includes('presentation')) return Package; // Presentation boxes
+  if (name.includes('folder')) return Package; // Folder boxes
+  
+  // Holiday boxes
+  if (name.includes('christmas')) return Package; // Christmas boxes
+  if (name.includes('eve')) return Package; // Eve boxes
+  if (name.includes('present')) return Package; // Present boxes
+  if (name.includes('treat')) return Package; // Treat boxes
+  
+  // Chocolate boxes
+  if (name.includes('chocolate')) return Package; // Chocolate boxes
+  if (name.includes('milk')) return Package; // Milk boxes
+  if (name.includes('bomb')) return Package; // Bomb boxes
+  if (name.includes('bar')) return Package; // Bar boxes
+  
+  // Cereal boxes
+  if (name.includes('cereal')) return Package; // Cereal boxes
+  if (name.includes('corn flakes')) return Package; // Corn flakes boxes
+  if (name.includes('breakfast')) return Package; // Breakfast boxes
+  if (name.includes('mini')) return Package; // Mini boxes
+  if (name.includes('wholesale')) return Package; // Wholesale boxes
+  if (name.includes('vintage')) return Package; // Vintage boxes
+  if (name.includes('retro')) return Package; // Retro boxes
+  if (name.includes('90s')) return Package; // 90s boxes
+  if (name.includes('80s')) return Package; // 80s boxes
+  if (name.includes('funny')) return Package; // Funny boxes
+  if (name.includes('unique')) return Package; // Unique boxes
+  if (name.includes('colorful')) return Package; // Colorful boxes
+  
+  // Candle boxes
+  if (name.includes('candle')) return Package; // Candle boxes
+  if (name.includes('taper')) return Package; // Taper boxes
+  if (name.includes('jar')) return Package; // Jar boxes
+  if (name.includes('wax melt')) return Package; // Wax melt boxes
+  if (name.includes('subscription')) return Package; // Subscription boxes
+  
+  // Soap boxes
+  if (name.includes('soap')) return Package; // Soap boxes
+  if (name.includes('bath bomb')) return Package; // Bath bomb boxes
+  if (name.includes('wrapping paper')) return Package; // Wrapping paper boxes
+  if (name.includes('handmade')) return Package; // Handmade boxes
+  if (name.includes('bar')) return Package; // Bar boxes
+  
+  // Retail boxes
+  if (name.includes('toy')) return Package; // Toy boxes
+  if (name.includes('die cut')) return Package; // Die cut boxes
+  if (name.includes('business card')) return Package; // Business card boxes
+  
+  // Pouch products
+  if (name.includes('stand up')) return Archive; // Stand-up pouches
+  if (name.includes('ziplock')) return Archive; // Ziplock pouches
+  if (name.includes('mylar')) return Archive; // Mylar pouches
+  
+  // Shopping bag products
+  if (name.includes('kraft')) return Recycle; // Kraft bags
+  if (name.includes('paper')) return Recycle; // Paper bags
+  if (name.includes('pvc')) return Recycle; // PVC bags
+  
+  // Other products
+  if (name.includes('booklet')) return Package; // Booklet boxes
+  if (name.includes('brochure')) return Package; // Brochure boxes
+  if (name.includes('tags')) return Tag; // Tag boxes
+  if (name.includes('business')) return Package; // Business boxes
+  if (name.includes('tissue')) return Package; // Tissue boxes
+  if (name.includes('butter')) return Package; // Butter boxes
+  if (name.includes('labels')) return Tag; // Label boxes
+  if (name.includes('table')) return Package; // Table boxes
+  if (name.includes('tent')) return Package; // Tent boxes
+  if (name.includes('packing')) return Package; // Packing boxes
+  if (name.includes('tape')) return Package; // Tape boxes
+  
+  return Package; // Default box icon
 };
 
 const Header: React.FC = () => {
