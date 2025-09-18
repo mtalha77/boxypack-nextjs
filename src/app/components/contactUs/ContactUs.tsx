@@ -34,7 +34,7 @@ const ContactUs: React.FC = () => {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div id="contact-header" className="text-center mb-16">
           <h2 className="text-h2 text-heading-secondary mb-6">
             Let&apos;s Create Something Amazing Together
           </h2>
@@ -45,7 +45,7 @@ const ContactUs: React.FC = () => {
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div id="contact-info" className="space-y-8">
             <div>
               <h3 className="text-h3 text-heading-secondary mb-6">
                 Get in Touch
@@ -119,7 +119,7 @@ const ContactUs: React.FC = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-3xl shadow-xl">
+          <div id="contact-form" className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-3xl shadow-xl">
             <h3 className="text-h3 text-heading-secondary mb-6">
               Request a Free Quote
             </h3>
@@ -253,7 +253,7 @@ const ContactUs: React.FC = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-20 text-center rounded-3xl p-12">
+        <div id="contact-cta" className="mt-20 text-center rounded-3xl p-12">
           <LightBlueBackground className="rounded-3xl">
           <h3 className="text-h2 text-heading-secondary mb-4">
             Need Help Choosing?
