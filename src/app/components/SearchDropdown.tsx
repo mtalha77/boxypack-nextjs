@@ -12,7 +12,7 @@ interface SearchDropdownProps {
   results: SearchResult[];
   isLoading: boolean;
   query: string;
-  onResultClick: () => void;
+  onResultClick: (resultTitle?: string) => void;
 }
 
 const SearchDropdown: React.FC<SearchDropdownProps> = ({
@@ -49,7 +49,7 @@ const SearchDropdown: React.FC<SearchDropdownProps> = ({
         case 'Enter':
           e.preventDefault();
           if (results[selectedIndex]) {
-            onResultClick();
+            onResultClick(results[selectedIndex].title);
             router.push(results[selectedIndex].url);
           }
           break;
@@ -131,9 +131,11 @@ const SearchDropdown: React.FC<SearchDropdownProps> = ({
           </div>
         ) : results.length === 0 ? (
           <div className="px-4 py-8 text-center">
-            <div className="text-gray-500 mb-2">No results found</div>
+            <div className="text-gray-500 mb-2">
+              {query.trim() ? 'No results found' : 'Start typing to search...'}
+            </div>
             <div className="text-sm text-gray-400">
-              Try searching for customboxes or packaging
+              {query.trim() ? 'Try searching for custom boxes or packaging' : 'Search for products, categories, or anything...'}
             </div>
           </div>
         ) : (
@@ -153,8 +155,8 @@ const SearchDropdown: React.FC<SearchDropdownProps> = ({
                   console.log('URL:', result.url);
                   console.log('Event:', e);
                   
-                  // Call the onResultClick callback to close search
-                  onResultClick();
+                  // Call the onResultClick callback with the result title
+                  onResultClick(result.title);
                   
                   // Add a small delay to show the click feedback before navigation
                   setTimeout(() => {

@@ -63,8 +63,12 @@ export default function TestPage() {
     setIsOpen(false);
   };
 
-  const handleResultClick = () => {
-    console.log('Result clicked - navigating...');
+  const handleResultClick = (resultTitle?: string) => {
+    console.log('Result clicked - navigating to:', resultTitle);
+    // Update the search query to show the selected result
+    if (resultTitle) {
+      setQuery(resultTitle);
+    }
   };
 
   return (

@@ -149,7 +149,9 @@ import {
 import Link from 'next/link';
 import { navigationData, NavigationSection, MainCategory } from '../data/navigationData';
 import SearchDropdown from './SearchDropdown';
+import EnhancedSearchDropdown from './EnhancedSearchDropdown';
 import { getAllSearchData, searchData, SearchResult } from '../utils/searchData';
+import { getAllEnhancedSearchData, enhancedSearch, getSearchSuggestions, EnhancedSearchResult, SearchSuggestion } from '../utils/enhancedSearchData';
 
 // Icon mapping functions
 const getCategoryIcon = (categoryName: string) => {
@@ -412,9 +414,13 @@ const Header: React.FC = () => {
   // Search state
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+  const [enhancedSearchResults, setEnhancedSearchResults] = useState<EnhancedSearchResult[]>([]);
+  const [searchSuggestions, setSearchSuggestions] = useState<SearchSuggestion[]>([]);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isSearchLoading, setIsSearchLoading] = useState(false);
   const [allSearchData, setAllSearchData] = useState<SearchResult[]>([]);
+  const [allEnhancedSearchData, setAllEnhancedSearchData] = useState<EnhancedSearchResult[]>([]);
+  const [useEnhancedSearch, setUseEnhancedSearch] = useState(true);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const router = useRouter();
@@ -422,8 +428,11 @@ const Header: React.FC = () => {
   // Initialize search data
   useEffect(() => {
     const searchData = getAllSearchData();
+    const enhancedData = getAllEnhancedSearchData();
     console.log('Initializing search data:', searchData.length, 'items');
+    console.log('Initializing enhanced search data:', enhancedData.length, 'items');
     setAllSearchData(searchData);
+    setAllEnhancedSearchData(enhancedData);
   }, []);
 
   // Search functionality
@@ -433,16 +442,28 @@ const Header: React.FC = () => {
     }
 
     if (searchQuery.trim()) {
+      // Open dropdown immediately when user starts typing
+      setIsSearchOpen(true);
       setIsSearchLoading(true);
+      
       searchTimeoutRef.current = setTimeout(() => {
-        const results = searchData(searchQuery, allSearchData);
-        setSearchResults(results);
+        if (useEnhancedSearch) {
+          const results = enhancedSearch(searchQuery, allEnhancedSearchData);
+          const suggestions = getSearchSuggestions(searchQuery, allEnhancedSearchData);
+          setEnhancedSearchResults(results);
+          setSearchSuggestions(suggestions);
+          console.log('Enhanced search completed:', { query: searchQuery, resultsCount: results.length, suggestionsCount: suggestions.length });
+        } else {
+          const results = searchData(searchQuery, allSearchData);
+          setSearchResults(results);
+          console.log('Search completed:', { query: searchQuery, resultsCount: results.length });
+        }
         setIsSearchLoading(false);
-        setIsSearchOpen(true);
-        console.log('Search completed:', { query: searchQuery, resultsCount: results.length, isOpen: true });
-      }, 300); // Debounce search by 300ms
+      }, 200); // Reduced debounce for better responsiveness
     } else {
       setSearchResults([]);
+      setEnhancedSearchResults([]);
+      setSearchSuggestions([]);
       setIsSearchOpen(false);
       setIsSearchLoading(false);
     }
@@ -452,7 +473,7 @@ const Header: React.FC = () => {
         clearTimeout(searchTimeoutRef.current);
       }
     };
-  }, [searchQuery, allSearchData]);
+  }, [searchQuery, allSearchData, allEnhancedSearchData, useEnhancedSearch]);
 
   // Close search when clicking outside
   useEffect(() => {
@@ -514,22 +535,44 @@ const Header: React.FC = () => {
 
   // Search handlers
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
-  };
-
-  const handleSearchFocus = () => {
-    if (searchQuery.trim()) {
+    const value = e.target.value;
+    setSearchQuery(value);
+    
+    // Open dropdown immediately when user starts typing
+    if (value.trim()) {
       setIsSearchOpen(true);
     }
   };
 
-  const handleSearchResultClick = () => {
-    console.log('Closing search dropdown and clearing query');
+  const handleSearchFocus = () => {
+    // Always open search dropdown when focused, even if no query yet
+    setIsSearchOpen(true);
+  };
+
+  const handleSearchResultClick = (resultTitle?: string) => {
+    console.log('Search result clicked:', resultTitle);
+    
+    // If a result title is provided, show it in the search bar
+    if (resultTitle) {
+      setSearchQuery(resultTitle);
+    }
+    
+    // Close the dropdown
     setIsSearchOpen(false);
-    setSearchQuery('');
-    // Clear search input focus
+    
+    // Clear search input focus after a short delay to show the selected text
+    setTimeout(() => {
+      if (searchInputRef.current) {
+        searchInputRef.current.blur();
+      }
+    }, 100);
+  };
+
+  const handleQueryChange = (newQuery: string) => {
+    setSearchQuery(newQuery);
+    // Focus the input to show the dropdown
     if (searchInputRef.current) {
-      searchInputRef.current.blur();
+      searchInputRef.current.focus();
     }
   };
 
@@ -573,14 +616,28 @@ const Header: React.FC = () => {
               <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#0c6b76]" />
               
               {/* Search Dropdown */}
-              <SearchDropdown
-                isOpen={isSearchOpen}
-                onClose={() => setIsSearchOpen(false)}
-                results={searchResults}
-                isLoading={isSearchLoading}
-                query={searchQuery}
-                onResultClick={handleSearchResultClick}
-              />
+              {useEnhancedSearch ? (
+                <EnhancedSearchDropdown
+                  isOpen={isSearchOpen}
+                  onClose={() => setIsSearchOpen(false)}
+                  results={enhancedSearchResults}
+                  suggestions={searchSuggestions}
+                  isLoading={isSearchLoading}
+                  query={searchQuery}
+                  onResultClick={handleSearchResultClick}
+                  onQueryChange={handleQueryChange}
+                  showFilters={true}
+                />
+              ) : (
+                <SearchDropdown
+                  isOpen={isSearchOpen}
+                  onClose={() => setIsSearchOpen(false)}
+                  results={searchResults}
+                  isLoading={isSearchLoading}
+                  query={searchQuery}
+                  onResultClick={handleSearchResultClick}
+                />
+              )}
             </div>
           </div>
 
@@ -594,6 +651,16 @@ const Header: React.FC = () => {
             {/* About Us - No Dropdown */}
             <Link href="/about-us" className="text-gray-700 hover:text-[#0c6b76] transition-colors font-medium">
               About Us
+            </Link>
+
+            {/* Privacy Policy */}
+            <Link href="/privacy-policy" className="text-gray-700 hover:text-[#0c6b76] transition-colors font-medium">
+              Privacy Policy
+            </Link>
+
+            {/* Terms of Use */}
+            <Link href="/terms-of-use" className="text-gray-700 hover:text-[#0c6b76] transition-colors font-medium">
+              Terms of Use
             </Link>
 
             {/* Contact Us - No Dropdown */}
@@ -664,15 +731,15 @@ const Header: React.FC = () => {
                              Searching...
                            </div>
                          </div>
-                       ) : searchResults.length === 0 ? (
+                       ) : (useEnhancedSearch ? enhancedSearchResults : searchResults).length === 0 ? (
                          <div className="px-4 py-8 text-center">
                            <div className="text-gray-500 mb-2">No results found</div>
                            <div className="text-sm text-gray-400">
-                             Try searching for customboxes or packaging
+                             Try searching for custom boxes or packaging
                            </div>
                          </div>
                        ) : (
-                         searchResults.map((result) => (
+                         (useEnhancedSearch ? enhancedSearchResults : searchResults).map((result) => (
                            <Link
                              key={result.id}
                              href={result.url}
@@ -681,7 +748,7 @@ const Header: React.FC = () => {
                                console.log('Mobile link clicked for:', result.title);
                                console.log('URL:', result.url);
                                console.log('Event:', e);
-                               handleSearchResultClick();
+                               handleSearchResultClick(result.title);
                                setIsMobileMenuOpen(false);
                              }}
                              className="w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0 block"
@@ -718,6 +785,16 @@ const Header: React.FC = () => {
                  {/* About Us - No Dropdown */}
                  <Link href="/about-us" className="block py-3 px-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
                    <span className="font-semibold text-gray-900">About Us</span>
+                 </Link>
+
+                 {/* Privacy Policy */}
+                 <Link href="/privacy-policy" className="block py-3 px-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                   <span className="font-semibold text-gray-900">Privacy Policy</span>
+                 </Link>
+
+                 {/* Terms of Use */}
+                 <Link href="/terms-of-use" className="block py-3 px-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                   <span className="font-semibold text-gray-900">Terms of Use</span>
                  </Link>
 
                  {/* Contact Us - No Dropdown */}
