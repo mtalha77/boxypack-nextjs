@@ -7,6 +7,7 @@ import FeaturesSection from '../components/product-design-page/FeaturesSection';
 import CTASection from '../components/product-design-page/CTASection';
 import ClientTestimonials from '../components/product-design-page/ClientTestamonials';
 import RelatedProducts from '../components/RelatedProducts';
+import ContactUs from '../components/contactUs/ContactUs';
 
 interface ProductPageProps {
   productData: {
@@ -14,6 +15,7 @@ interface ProductPageProps {
     description: string;
     heroImage: string;
     modelPath: string;
+    slug?: string; // Add slug for product identification
     features: Array<{
       icon: string;
       title: string;
@@ -39,7 +41,7 @@ const ProductsDesignPage: React.FC<ProductPageProps> = ({ productData }) => {
   return (
     <div className="">
       <HeroSection productData={productData} />
-      <CustomDimensionsForm />
+      <CustomDimensionsForm initialProductSlug={productData.slug} />
       {/* <ProductGallery /> */}
       <FeaturesSection productData={productData} />
       {/* <SpecificationsSection productData={productData} */} 
@@ -58,6 +60,9 @@ const ProductsDesignPage: React.FC<ProductPageProps> = ({ productData }) => {
       
       {/* CTA Section - Ready to Get Started */}
       <CTASection productData={productData} />
+      
+      {/* Contact Us Section */}
+      <ContactUs />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 import LightBlueBackground from '../LightBlueBackground';
 
@@ -15,6 +15,18 @@ const ContactUs: React.FC = () => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // Handle hash scrolling when component mounts
+  useEffect(() => {
+    if (window.location.hash === '#contact-section') {
+      setTimeout(() => {
+        const element = document.getElementById('contact-section');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,7 +43,7 @@ const ContactUs: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section id="contact-section" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div id="contact-header" className="text-center mb-16 scroll-perfect">

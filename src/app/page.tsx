@@ -4,10 +4,10 @@ import BoxDesignGallery from './components/homepage/box-design-gallery';
 import VideoSection from './components/homepage/successed-with-custom';
 import MoreThanPackage from './components/homepage/more-than-package';
 import FAQ from './components/homepage/faq';
-import RequestQuote from './components/homepage/request-quote';
 import HeroVideoSection from './components/homepage/HeroVideoSection';
 import ProductByMaterialCarousel from './components/ProductByMaterialCarousel';
 import ProductByIndustryCarousel from './components/ProductByIndustryCarousel';
+import CTASection from './components/product-design-page/CTASection';
 
 const HomePage = () => {
   const [isClient, setIsClient] = useState(false);
@@ -68,7 +68,12 @@ const HomePage = () => {
       <BoxDesignGallery />
       <MoreThanPackage />
       <FAQ />
-      <RequestQuote />
+      <CTASection 
+        productData={{
+          ctaTitle: "Ready to Get Started?",
+          ctaDescription: "Let's create the perfect packaging solution for your brand. Our team is ready to help you every step of the way."
+        }}
+      />
     </div>
   );
 };

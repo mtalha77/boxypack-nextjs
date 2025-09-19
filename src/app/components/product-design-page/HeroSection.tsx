@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Model3D from './Model3D';
 import GradientBackground from '../../UI/GradientBackground';
 import ClientOnly from '../ClientOnly';
@@ -16,12 +17,35 @@ interface HeroSectionProps {
     description: string;
     heroImage: string;
     modelPath: string;
+    slug?: string; // Add slug for product identification
   };
   breadcrumbs?: BreadcrumbItem[];
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({ productData, breadcrumbs = [] }) => {
   const [isModelReady, setIsModelReady] = useState(false);
+  const router = useRouter();
+
+  // Handle Order Now button click
+  const handleOrderNow = () => {
+    if (productData.slug) {
+      // Store the selected product in sessionStorage for the custom dimensions form
+      sessionStorage.setItem('selectedProduct', productData.slug);
+    }
+    // Scroll to the custom dimensions form section on the same page
+    setTimeout(() => {
+      const element = document.getElementById('custom-dimensions-form');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
+  };
+
+  // Handle Get Free Quote button click
+  const handleGetFreeQuote = () => {
+    // Navigate to contact us page and scroll to contact section
+    router.push('/contact-us#contact-section');
+  };
 
   return (
     <section className="pt-10 relative overflow-hidden min-h-[95vh]">
@@ -76,11 +100,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({ productData, breadcrumbs = []
               {productData.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-brown-rustic hover:bg-[#97602f] text-white px-8 py-4 rounded-full font-semibold transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer">
-                Get Quote Now
+              <button 
+                onClick={handleOrderNow}
+                className="bg-brown-rustic hover:bg-[#97602f] text-white px-8 py-4 rounded-full font-semibold transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer"
+              >
+                Order Now
               </button>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-[#0c6b76] px-8 py-4 rounded-full font-semibold transition-colors duration-300 cursor-pointer">
-                View All Products
+              <button 
+                onClick={handleGetFreeQuote}
+                className="border-2 border-white text-white hover:bg-white hover:text-[#0c6b76] px-8 py-4 rounded-full font-semibold transition-colors duration-300 cursor-pointer"
+              >
+                Get Free Quote
               </button>
             </div>
           </div>

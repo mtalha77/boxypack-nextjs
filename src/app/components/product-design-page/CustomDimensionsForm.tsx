@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { ChevronDown, Info, Share2, Check } from 'lucide-react';
 import { navigationData, NavigationSection, MainCategory, SubCategory } from '../../data/navigationData';
@@ -10,15 +10,17 @@ import { useRouter } from 'next/navigation';
 interface CustomDimensionsFormProps {
   onDesignNow?: () => void;
   onGetCustomQuote?: () => void;
+  initialProductSlug?: string; // Add prop for initial product selection
 }
 
 const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   onDesignNow,
-  onGetCustomQuote
+  onGetCustomQuote,
+  initialProductSlug
 }) => {
   const router = useRouter();
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [selectedSubcategory, setSelectedSubcategory] = useState('');
+  const [selectedProduct, setSelectedProduct] = useState('');
+  const [productSearchQuery, setProductSearchQuery] = useState('');
   const [printColor, setPrintColor] = useState('Full Color');
   const [sizeType, setSizeType] = useState('STANDARD SIZES');
   const [selectedSize, setSelectedSize] = useState('9.5" x 7.75" x 4"');
@@ -35,6 +37,18 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   const unitPrice = 3.92;
   const subtotal = unitPrice * quantity;
 
+  // Handle pre-selection from sessionStorage or initialProductSlug
+  useEffect(() => {
+    const storedProduct = sessionStorage.getItem('selectedProduct');
+    if (storedProduct) {
+      setSelectedProduct(storedProduct);
+      // Clear the stored product after using it
+      sessionStorage.removeItem('selectedProduct');
+    } else if (initialProductSlug) {
+      setSelectedProduct(initialProductSlug);
+    }
+  }, [initialProductSlug]);
+
   const toggleDropdown = (field: string) => {
     setShowDropdowns(prev => ({
       ...prev,
@@ -46,28 +60,38 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   const printFinishOptions = ['HDPrint Stain'];
   const printedSidesOptions = ['Outside', 'Inside', 'Both Sides', 'Blank'];
 
-  // Get all categories from navigation data
-  const getAllCategories = (): MainCategory[] => {
-    const allCategories: MainCategory[] = [];
+  // Get all products from navigation data
+  const getAllProducts = () => {
+    const allProducts: Array<{name: string, slug: string, category: string}> = [];
     navigationData.forEach(section => {
       if (section.categories) {
-        allCategories.push(...section.categories);
+        section.categories.forEach(category => {
+          if (category.subcategories) {
+            category.subcategories.forEach(subcategory => {
+              allProducts.push({
+                name: subcategory.name,
+                slug: subcategory.slug,
+                category: category.name
+              });
+            });
+          }
+        });
       }
     });
-    return allCategories;
+    return allProducts;
   };
 
-  // Get subcategories for selected category
-  const getSubcategoriesForCategory = (categorySlug: string): SubCategory[] => {
-    const allCategories = getAllCategories();
-    const category = allCategories.find(cat => cat.slug === categorySlug);
-    return category?.subcategories || [];
-  };
-
-  // Handle category change
-  const handleCategoryChange = (categorySlug: string) => {
-    setSelectedCategory(categorySlug);
-    setSelectedSubcategory(''); // Reset subcategory when category changes
+  // Get filtered products based on search query
+  const getFilteredProducts = () => {
+    const allProducts = getAllProducts();
+    if (!productSearchQuery.trim()) {
+      return allProducts;
+    }
+    
+    return allProducts.filter(product => 
+      product.name.toLowerCase().includes(productSearchQuery.toLowerCase()) ||
+      product.category.toLowerCase().includes(productSearchQuery.toLowerCase())
+    );
   };
   
   // Material options based on print color
@@ -173,7 +197,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
           <h1 className="text-h1 text-[#0c6b76]">Select your Box and Dimensions and Order</h1>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div id="custom-dimensions-form" className="max-w-7xl mx-auto px-6 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left Column - Box Image */}
           <div className="lg:col-span-1">
@@ -199,77 +223,64 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
           {/* Right Column - Form (2/3 width) */}
           <div className="lg:col-span-2">
             <div className="space-y-6">
-            {/* Category Selection */}
+            {/* Product Selection */}
             <div className="space-y-2">
               <div className="flex items-center gap-2">
-                <label className="text-sm font-medium text-[#0c6b76]">Category</label>
+                <label className="text-sm font-medium text-[#0c6b76]">Product</label>
                 <Info className="w-4 h-4 text-[#0ca6c2]" />
               </div>
               <div className="relative">
                 <button
-                  onClick={() => toggleDropdown('category')}
+                  onClick={() => toggleDropdown('product')}
                   className="w-full flex items-center justify-between px-4 py-3 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
                 >
                   <span className="text-gray-900">
-                    {selectedCategory ? getAllCategories().find(cat => cat.slug === selectedCategory)?.name || 'Select Category' : 'Select Category'}
+                    {selectedProduct ? getAllProducts().find(product => product.slug === selectedProduct)?.name || 'Select Product' : 'Select Product'}
                   </span>
                   <ChevronDown className="w-5 h-5 text-[#0ca6c2]" />
                 </button>
-                {showDropdowns.category && (
-                  <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
-                    {getAllCategories().map((category) => (
-                      <button
-                        key={category.slug}
-                        onClick={() => {
-                          handleCategoryChange(category.slug);
-                          toggleDropdown('category');
-                        }}
-                        className="w-full text-left px-4 py-3 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg"
-                      >
-                        {category.name}
-                      </button>
-                    ))}
+                {showDropdowns.product && (
+                  <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-hidden">
+                    {/* Search Input */}
+                    <div className="p-3 border-b border-gray-200">
+                      <input
+                        type="text"
+                        placeholder="Search products..."
+                        value={productSearchQuery}
+                        onChange={(e) => setProductSearchQuery(e.target.value)}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0ca6c2] focus:border-transparent text-sm"
+                        onClick={(e) => e.stopPropagation()}
+                      />
+                    </div>
+                    {/* Product List */}
+                    <div className="max-h-48 overflow-y-auto">
+                      {getFilteredProducts().length > 0 ? (
+                        getFilteredProducts().map((product) => (
+                          <button
+                            key={product.slug}
+                            onClick={() => {
+                              setSelectedProduct(product.slug);
+                              setProductSearchQuery('');
+                              toggleDropdown('product');
+                            }}
+                            className="w-full text-left px-4 py-3 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg"
+                          >
+                            <div className="flex flex-col">
+                              <span className="font-medium text-gray-900">{product.name}</span>
+                              <span className="text-sm text-gray-500">{product.category}</span>
+                            </div>
+                          </button>
+                        ))
+                      ) : (
+                        <div className="px-4 py-3 text-gray-500 text-sm text-center">
+                          No products found matching &quot;{productSearchQuery}&quot;
+                        </div>
+                      )}
+                    </div>
                   </div>
                 )}
               </div>
             </div>
-
-            {/* Subcategory Selection */}
-            {selectedCategory && (
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <label className="text-sm font-medium text-[#0c6b76]">Subcategory</label>
-                  <Info className="w-4 h-4 text-[#0ca6c2]" />
-                </div>
-                <div className="relative">
-                  <button
-                    onClick={() => toggleDropdown('subcategory')}
-                    className="w-full flex items-center justify-between px-4 py-3 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
-                  >
-                    <span className="text-gray-900">
-                      {selectedSubcategory ? getSubcategoriesForCategory(selectedCategory).find(sub => sub.slug === selectedSubcategory)?.name || 'Select Subcategory' : 'Select Subcategory'}
-                    </span>
-                    <ChevronDown className="w-5 h-5 text-[#0ca6c2]" />
-                  </button>
-                  {showDropdowns.subcategory && (
-                    <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
-                      {getSubcategoriesForCategory(selectedCategory).map((subcategory) => (
-                        <button
-                          key={subcategory.slug}
-                          onClick={() => {
-                            setSelectedSubcategory(subcategory.slug);
-                            toggleDropdown('subcategory');
-                          }}
-                          className="w-full text-left px-4 py-3 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg"
-                        >
-                          {subcategory.name}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-            )}
 
             {/* Print Color */}
             <div className="space-y-2">
