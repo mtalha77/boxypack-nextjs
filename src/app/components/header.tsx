@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { 
   ChevronDown, 
   Search, 
@@ -467,19 +467,20 @@ const Header: React.FC = () => {
   }, []);
 
   // Close search when URL changes (navigation occurs)
+  const pathname = usePathname();
   useEffect(() => {
     const handleRouteChange = () => {
       setIsSearchOpen(false);
       setSearchQuery('');
+      // Clear search input focus
+      if (searchInputRef.current) {
+        searchInputRef.current.blur();
+      }
     };
 
-    // Listen for route changes
-    window.addEventListener('popstate', handleRouteChange);
-    
-    return () => {
-      window.removeEventListener('popstate', handleRouteChange);
-    };
-  }, []);
+    // Close search on pathname change
+    handleRouteChange();
+  }, [pathname]);
 
   // Close dropdown on scroll
   React.useEffect(() => {
@@ -526,6 +527,10 @@ const Header: React.FC = () => {
     console.log('Closing search dropdown and clearing query');
     setIsSearchOpen(false);
     setSearchQuery('');
+    // Clear search input focus
+    if (searchInputRef.current) {
+      searchInputRef.current.blur();
+    }
   };
 
 

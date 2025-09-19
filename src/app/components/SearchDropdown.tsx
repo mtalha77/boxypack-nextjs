@@ -50,7 +50,7 @@ const SearchDropdown: React.FC<SearchDropdownProps> = ({
           e.preventDefault();
           if (results[selectedIndex]) {
             onResultClick();
-            window.location.href = results[selectedIndex].url;
+            router.push(results[selectedIndex].url);
           }
           break;
         case 'Escape':
@@ -152,9 +152,18 @@ const SearchDropdown: React.FC<SearchDropdownProps> = ({
                   console.log('Link clicked for:', result.title);
                   console.log('URL:', result.url);
                   console.log('Event:', e);
+                  
+                  // Call the onResultClick callback to close search
                   onResultClick();
+                  
+                  // Add a small delay to show the click feedback before navigation
+                  setTimeout(() => {
+                    console.log('Navigating to:', result.url);
+                  }, 100);
+                  
+                  // Navigation will be handled by Next.js Link component
                 }}
-                className={`w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors block ${
+                className={`w-full text-left px-4 py-3 hover:bg-gray-50 transition-all duration-200 block group ${
                   isSelected ? 'bg-[#0c6b76]/5 border-r-4 border-[#0c6b76]' : ''
                 }`}
                 style={{ pointerEvents: 'auto', cursor: 'pointer' }}
@@ -173,12 +182,15 @@ const SearchDropdown: React.FC<SearchDropdownProps> = ({
                   
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-sm font-medium text-gray-900 truncate">
+                      <h3 className="text-sm font-medium text-gray-900 truncate group-hover:text-[#0c6b76] transition-colors">
                         {result.title}
                       </h3>
-                      <span className="text-xs text-gray-500 ml-2 flex-shrink-0">
-                        {getTypeLabel(result.type)}
-                      </span>
+                      <div className="flex items-center ml-2 flex-shrink-0">
+                        <span className="text-xs text-gray-500">
+                          {getTypeLabel(result.type)}
+                        </span>
+                        <ChevronRight className="w-3 h-3 ml-1 text-gray-400 group-hover:text-[#0c6b76] transition-colors" />
+                      </div>
                     </div>
                     
                     <p className="text-xs text-gray-600 mt-1 line-clamp-2">

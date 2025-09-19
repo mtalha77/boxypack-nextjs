@@ -7,13 +7,8 @@ const ComingSoon: React.FC = () => {
   const [showComingSoon, setShowComingSoon] = useState(false);
 
   useEffect(() => {
-    // Check if we're on localhost or production
-    const isLocalhost = window.location.hostname === 'localhost' || 
-                       window.location.hostname === '127.0.0.1' ||
-                       window.location.hostname.includes('localhost');
-    
-    // Only show coming soon on production (not localhost)
-    setShowComingSoon(!isLocalhost);
+    // Temporarily disabled - don't show coming soon for now
+    setShowComingSoon(false);
   }, []);
 
   if (!showComingSoon) {
