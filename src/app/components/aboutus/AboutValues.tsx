@@ -168,9 +168,12 @@ const AboutValues: React.FC = () => {
               >
                 Get Free Quote
               </Link>
-              <button className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-teal-deep text-teal-deep hover:bg-teal-deep hover:text-white font-semibold rounded-full transition-all duration-300 cursor-pointer">
-                Learn More
-              </button>
+              <Link 
+                href="/#product-by-material"
+                className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-teal-deep text-teal-deep hover:bg-teal-deep hover:text-white font-semibold rounded-full transition-all duration-300 cursor-pointer"
+              >
+                View Our Products
+              </Link>
             </div>
           </div>
         </div>

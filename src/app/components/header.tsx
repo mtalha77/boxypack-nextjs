@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { 
   ChevronDown, 
   Search, 
@@ -147,6 +148,8 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { navigationData, NavigationSection, MainCategory } from '../data/navigationData';
+import SearchDropdown from './SearchDropdown';
+import { getAllSearchData, searchData, SearchResult } from '../utils/searchData';
 
 // Icon mapping functions
 const getCategoryIcon = (categoryName: string) => {
@@ -405,6 +408,78 @@ const Header: React.FC = () => {
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
   const [hoveredSubcategory, setHoveredSubcategory] = useState<string | null>(null);
   const [isClosing, setIsClosing] = useState(false);
+  
+  // Search state
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isSearchLoading, setIsSearchLoading] = useState(false);
+  const [allSearchData, setAllSearchData] = useState<SearchResult[]>([]);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const router = useRouter();
+
+  // Initialize search data
+  useEffect(() => {
+    const searchData = getAllSearchData();
+    console.log('Initializing search data:', searchData.length, 'items');
+    setAllSearchData(searchData);
+  }, []);
+
+  // Search functionality
+  useEffect(() => {
+    if (searchTimeoutRef.current) {
+      clearTimeout(searchTimeoutRef.current);
+    }
+
+    if (searchQuery.trim()) {
+      setIsSearchLoading(true);
+      searchTimeoutRef.current = setTimeout(() => {
+        const results = searchData(searchQuery, allSearchData);
+        setSearchResults(results);
+        setIsSearchLoading(false);
+        setIsSearchOpen(true);
+        console.log('Search completed:', { query: searchQuery, resultsCount: results.length, isOpen: true });
+      }, 300); // Debounce search by 300ms
+    } else {
+      setSearchResults([]);
+      setIsSearchOpen(false);
+      setIsSearchLoading(false);
+    }
+
+    return () => {
+      if (searchTimeoutRef.current) {
+        clearTimeout(searchTimeoutRef.current);
+      }
+    };
+  }, [searchQuery, allSearchData]);
+
+  // Close search when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchInputRef.current && !searchInputRef.current.contains(event.target as Node)) {
+        setIsSearchOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Close search when URL changes (navigation occurs)
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setIsSearchOpen(false);
+      setSearchQuery('');
+    };
+
+    // Listen for route changes
+    window.addEventListener('popstate', handleRouteChange);
+    
+    return () => {
+      window.removeEventListener('popstate', handleRouteChange);
+    };
+  }, []);
 
   // Close dropdown on scroll
   React.useEffect(() => {
@@ -415,6 +490,8 @@ const Header: React.FC = () => {
         setHoveredSubcategory(null);
         setIsClosing(false);
       }
+      // Also close search on scroll
+      setIsSearchOpen(false);
     };
 
     if (typeof window !== 'undefined') {
@@ -434,6 +511,32 @@ const Header: React.FC = () => {
     }, 1000); // 1000ms delay for smooth transition
   };
 
+  // Search handlers
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleSearchFocus = () => {
+    if (searchQuery.trim()) {
+      setIsSearchOpen(true);
+    }
+  };
+
+  const handleSearchResultClick = () => {
+    console.log('Closing search dropdown and clearing query');
+    setIsSearchOpen(false);
+    setSearchQuery('');
+  };
+
+
+  const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Escape') {
+      setIsSearchOpen(false);
+      setSearchQuery('');
+      searchInputRef.current?.blur();
+    }
+  };
+
   // Helper function to get navigation section by slug
   const getNavSection = (slug: string): NavigationSection | undefined => {
     return navigationData.find(section => section.slug === slug);
@@ -451,13 +554,28 @@ const Header: React.FC = () => {
 
           {/* Center - Search Bar - Hidden on mobile */}
           <div className="hidden md:flex flex-1 max-w-lg mx-8">
-            <div className="relative">
+            <div className="relative w-full">
               <input
+                ref={searchInputRef}
                 type="text"
-                placeholder="Search for products |"
-                className="w-full px-4 py-3 bg-gray-100 rounded-full text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0c6b76] focus:bg-white"
+                placeholder="Search for products, categories, or anything..."
+                value={searchQuery}
+                onChange={handleSearchChange}
+                onFocus={handleSearchFocus}
+                onKeyDown={handleSearchKeyDown}
+                className="w-full px-4 py-3 bg-gray-100 rounded-full text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0c6b76] focus:bg-white transition-all duration-200"
               />
               <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#0c6b76]" />
+              
+              {/* Search Dropdown */}
+              <SearchDropdown
+                isOpen={isSearchOpen}
+                onClose={() => setIsSearchOpen(false)}
+                results={searchResults}
+                isLoading={isSearchLoading}
+                query={searchQuery}
+                onResultClick={handleSearchResultClick}
+              />
             </div>
           </div>
 
@@ -515,6 +633,74 @@ const Header: React.FC = () => {
                  >
                    <X className="w-6 h-6" />
                  </button>
+               </div>
+               
+               {/* Mobile Search Bar */}
+               <div className="mb-6">
+                 <div className="relative">
+                   <input
+                     type="text"
+                     placeholder="Search for products..."
+                     value={searchQuery}
+                     onChange={handleSearchChange}
+                     onFocus={handleSearchFocus}
+                     onKeyDown={handleSearchKeyDown}
+                     className="w-full px-4 py-3 bg-gray-100 rounded-full text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0c6b76] focus:bg-white transition-all duration-200"
+                   />
+                   <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#0c6b76]" />
+                   
+                   {/* Mobile Search Dropdown */}
+                   {isSearchOpen && (
+                     <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 max-h-64 overflow-y-auto">
+                       {isSearchLoading ? (
+                         <div className="px-4 py-8 text-center">
+                           <div className="inline-flex items-center text-gray-500">
+                             <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-[#0c6b76] mr-2"></div>
+                             Searching...
+                           </div>
+                         </div>
+                       ) : searchResults.length === 0 ? (
+                         <div className="px-4 py-8 text-center">
+                           <div className="text-gray-500 mb-2">No results found</div>
+                           <div className="text-sm text-gray-400">
+                             Try searching for customboxes or packaging
+                           </div>
+                         </div>
+                       ) : (
+                         searchResults.map((result) => (
+                           <Link
+                             key={result.id}
+                             href={result.url}
+                             onClick={(e) => {
+                               console.log('=== MOBILE LINK CLICK EVENT ===');
+                               console.log('Mobile link clicked for:', result.title);
+                               console.log('URL:', result.url);
+                               console.log('Event:', e);
+                               handleSearchResultClick();
+                               setIsMobileMenuOpen(false);
+                             }}
+                             className="w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0 block"
+                             style={{ cursor: 'pointer' }}
+                           >
+                             <div className="flex items-center">
+                               <div className="w-8 h-8 rounded-lg bg-[#0c6b76]/10 text-[#0c6b76] flex items-center justify-center mr-3 flex-shrink-0">
+                                 <Package className="w-4 h-4" />
+                               </div>
+                               <div className="flex-1 min-w-0">
+                                 <h3 className="text-sm font-medium text-gray-900 truncate">
+                                   {result.title}
+                                 </h3>
+                                 <p className="text-xs text-gray-600 truncate">
+                                   {result.description}
+                                 </p>
+                               </div>
+                             </div>
+                           </Link>
+                         ))
+                       )}
+                     </div>
+                   )}
+                 </div>
                </div>
                
                {/* Mobile Navigation Items */}

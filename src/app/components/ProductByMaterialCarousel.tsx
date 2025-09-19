@@ -22,7 +22,7 @@ const ProductByMaterialCarousel: React.FC = () => {
   };
 
   return (
-    <section className="relative bg-white py-16">
+    <section id="product-by-material" className="relative bg-white py-16 scroll-perfect">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12">

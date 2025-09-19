@@ -73,7 +73,7 @@ const AboutHero: React.FC = () => {
             <div className="relative w-full">
               <Image
                 src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=700&fit=crop&crop=center&auto=format&q=80&bg=transparent"
-                alt="Professional packaging team working on custom boxes"
+                alt="Eco-friendly kraft boxes and sustainable packaging solutions"
                 width={600}
                 height={700}
                 className="w-full h-auto object-contain relative z-20 rounded-2xl shadow-2xl"
