@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import LightBlueBackground from '../LightBlueBackground';
+import ComingSoon from '../ComingSoon';
 import { Award, Users, Clock, Heart } from 'lucide-react';
 
 const AboutHero: React.FC = () => {
@@ -14,69 +15,41 @@ const AboutHero: React.FC = () => {
           <div className="space-y-6">
             <div className="space-y-6">
               <h1 className="text-h1 leading-tight">
-                We&apos;re More Than Just <span className="text-heading-secondary">Packaging Experts</span>
+                Boxes Built To <span className="text-heading-secondary">Grow Your Brand</span>
               </h1>
               
               <div className="space-y-4 text-body-large text-body-primary max-w-lg">
                 <p>
-                  At <span className="font-semibold text-[var(--color-teal-deep)]">Boxypack</span>, we believe that 
-                  <span className="font-semibold text-[var(--color-teal-deep)]"> every product deserves packaging that tells its story</span> - 
-                  packaging that protects, impresses, and creates lasting connections with your customers.
+                  <span className="font-semibold text-[var(--color-teal-deep)]">BoxyPack</span> is where box and packaging meet passion. We make boxes that protect, present, and promote your products. Select a box by material or industry type, set quantity, and design with colors. Our instant quotes bring clarity while our finishing choices add uniqueness.
                 </p>
                 
                 <p>
-                  Founded with a passion for <span className="font-semibold text-[var(--color-turquoise-bright)]">innovation and sustainability</span>, 
-                  we&apos;ve grown from a small team of packaging enthusiasts to industry leaders, helping thousands of brands 
-                  create memorable unboxing experiences.
+                  Every box is made to match your brand needs and create lasting impressions that customers remember.
                 </p>
               </div>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 gap-6 pt-6">
-              <div className="text-center p-4 bg-white/50 rounded-2xl backdrop-blur-sm">
-                <div className="w-12 h-12 bg-[var(--color-turquoise-bright)] rounded-full flex items-center justify-center mx-auto mb-3">
-                  <Award className="w-6 h-6 text-white" />
-                </div>
-                <div className="text-h3 font-bold text-heading-secondary">10+</div>
-                <div className="text-caption text-body-secondary">Years Experience</div>
-              </div>
-              
-              <div className="text-center p-4 bg-white/50 rounded-2xl backdrop-blur-sm">
-                <div className="w-12 h-12 bg-[var(--color-teal-deep)] rounded-full flex items-center justify-center mx-auto mb-3">
-                  <Users className="w-6 h-6 text-white" />
-                </div>
-                <div className="text-h3 font-bold text-heading-secondary">5K+</div>
-                <div className="text-caption text-body-secondary">Happy Clients</div>
-              </div>
-              
-              <div className="text-center p-4 bg-white/50 rounded-2xl backdrop-blur-sm">
-                <div className="w-12 h-12 bg-[var(--color-brown-golden)] rounded-full flex items-center justify-center mx-auto mb-3">
-                  <Clock className="w-6 h-6 text-white" />
-                </div>
-                <div className="text-h3 font-bold text-heading-secondary">24hr</div>
-                <div className="text-caption text-body-secondary">Quote Response</div>
-              </div>
-              
-              <div className="text-center p-4 bg-white/50 rounded-2xl backdrop-blur-sm">
-                <div className="w-12 h-12 bg-[var(--color-brown-rustic)] rounded-full flex items-center justify-center mx-auto mb-3">
-                  <Heart className="w-6 h-6 text-white" />
-                </div>
-                <div className="text-h3 font-bold text-heading-secondary">100%</div>
-                <div className="text-caption text-body-secondary">Satisfaction</div>
-              </div>
+            {/* Design Made Simple Section */}
+            <div className="mt-8 p-6 bg-white/50 rounded-2xl backdrop-blur-sm border border-white/20">
+              <h3 className="text-h4 font-bold text-heading-secondary mb-3">
+                Design Made Simple For Everyone
+              </h3>
+              <p className="text-body text-body-secondary">
+                Choose your box type, select quantity, and start designing. Add colors or text, then view instant pricing. BoxyPack makes custom packaging simple, creative, and easy.
+              </p>
             </div>
+
           </div>
 
           {/* Right Content - Image */}
-          <div className="relative flex justify-center items-center">
-            <div className="relative w-full">
+          <div className="relative flex justify-center items-center h-full">
+            <div className="relative w-full h-full max-h-[600px]">
               <Image
-                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=700&fit=crop&crop=center&auto=format&q=80&bg=transparent"
+                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=600&fit=crop&crop=center&auto=format&q=80&bg=transparent"
                 alt="Eco-friendly kraft boxes and sustainable packaging solutions"
                 width={600}
-                height={700}
-                className="w-full h-auto object-contain relative z-20 rounded-2xl shadow-2xl"
+                height={600}
+                className="w-full h-full object-cover relative z-20 rounded-2xl shadow-2xl"
                 priority
               />
               {/* Decorative elements */}
@@ -86,6 +59,9 @@ const AboutHero: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Coming Soon Modal */}
+      <ComingSoon />
     </LightBlueBackground>
   );
 };

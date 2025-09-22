@@ -48,10 +48,10 @@ const ContactUs: React.FC = () => {
         {/* Header */}
         <div id="contact-header" className="text-center mb-16 scroll-perfect">
           <h2 className="text-h2 text-heading-secondary mb-6">
-            Let&apos;s Create Something Amazing Together
+            Custom Boxes That Build Trust And Growth
           </h2>
           <p className="text-body-large text-body-secondary max-w-3xl mx-auto">
-            Get in touch with our packaging experts. We&apos;re here to help bring your vision to life with custom packaging solutions.
+            Our boxes give strength, style, and clear branding. Each box design supports your products while helping your business grow with lasting customer trust and recognition.
           </p>
         </div>
 
@@ -60,10 +60,10 @@ const ContactUs: React.FC = () => {
           <div id="contact-info" className="space-y-8 scroll-perfect">
             <div>
               <h3 className="text-h3 text-heading-secondary mb-6">
-                Get in Touch
+                Get In Touch
               </h3>
               <p className="text-body text-body-secondary mb-8">
-                Ready to start your packaging project? Our team of experts is standing by to help you create the perfect packaging solution for your brand.
+                Reach out today for quick answers. Our friendly team guides every step, making custom box orders simple and stress-free.
               </p>
             </div>
 
@@ -268,10 +268,10 @@ const ContactUs: React.FC = () => {
         <div id="contact-cta" className="mt-20 text-center rounded-3xl p-12 scroll-perfect">
           <LightBlueBackground className="rounded-3xl">
           <h3 className="text-h2 text-heading-secondary mb-4">
-            Need Help Choosing?
+            Get In Touch
           </h3>
           <p className="text-body-large text-body-secondary mb-8 max-w-2xl mx-auto">
-            Our packaging experts are here to guide you through the process and help you find the perfect solution for your brand.
+            Reach out today for quick answers. Our friendly team guides every step, making custom box orders simple and stress-free.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

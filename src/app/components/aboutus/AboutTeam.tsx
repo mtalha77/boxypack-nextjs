@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Linkedin, Mail, Award, Users, Clock, Star } from 'lucide-react';
+import { Linkedin, Mail, Award, Users, Clock, Star, CheckCircle } from 'lucide-react';
 
 const AboutTeam: React.FC = () => {
   const teamMembers = [
@@ -89,11 +89,10 @@ const AboutTeam: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-h2 text-heading-secondary mb-6">
-            Meet the People Behind Boxypack
+            Focused On Your Growth
           </h2>
           <p className="text-body-large text-body-secondary max-w-3xl mx-auto">
-            Our diverse team of passionate professionals brings together decades of experience in packaging, 
-            design, sustainability, and customer service. We&apos;re united by our shared commitment to excellence.
+            At BoxyPack, commitment means supporting your brand with solutions you trust. From design to delivery, our team ensures a smooth process. We promise reliability, creativity, and guidance, giving you a box that reflects care and strength. Your growth is our focus, and every order is handled with pride.
           </p>
         </div>
 
@@ -110,99 +109,40 @@ const AboutTeam: React.FC = () => {
           ))}
         </div>
 
-        {/* Team Members Grid */}
+        {/* Commitments List */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {teamMembers.map((member, index) => (
+          {[
+            "Smooth ordering from the first step to delivery",
+            "Clear answers offered at every stage", 
+            "Designs that highlight your brand strongly",
+            "Durable boxes built for lasting protection",
+            "Packaging that leaves lasting customer impressions"
+          ].map((commitment, index) => (
             <div 
               key={index}
-              className="group bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100"
+              className="group bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 p-8 border border-gray-100"
             >
-              {/* Member Image */}
-              <div className="relative h-80 overflow-hidden">
-                <Image
-                  src={member.image}
-                  alt={`${member.name} - ${member.role}`}
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                {/* Social Links */}
-                <div className="absolute bottom-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <a 
-                    href={member.linkedin}
-                    className="w-10 h-10 bg-[var(--color-turquoise-bright)] rounded-full flex items-center justify-center hover:bg-[var(--color-teal-deep)] transition-colors"
-                  >
-                    <Linkedin className="w-5 h-5 text-white" />
-                  </a>
-                  <a 
-                    href={`mailto:${member.email}`}
-                    className="w-10 h-10 bg-[var(--color-teal-deep)] rounded-full flex items-center justify-center hover:bg-[var(--color-turquoise-bright)] transition-colors"
-                  >
-                    <Mail className="w-5 h-5 text-white" />
-                  </a>
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-[var(--color-turquoise-bright)] rounded-full flex items-center justify-center flex-shrink-0">
+                  <CheckCircle className="w-6 h-6 text-white" />
                 </div>
-              </div>
-
-              {/* Member Info */}
-              <div className="p-6">
-                <h3 className="text-h4 font-bold text-heading-secondary mb-2">
-                  {member.name}
-                </h3>
-                <p className="text-[var(--color-turquoise-bright)] font-semibold mb-3">
-                  {member.role}
-                </p>
                 <p className="text-body text-body-secondary leading-relaxed">
-                  {member.bio}
+                  {commitment}
                 </p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Team Culture Section */}
+        {/* Our Promise Section */}
         <div className="bg-gradient-to-br from-[var(--color-turquoise-bright)]/5 to-[var(--color-teal-deep)]/5 rounded-3xl p-12">
-          <div className="text-center mb-12">
+          <div className="text-center">
             <h3 className="text-h3 text-heading-secondary mb-6">
-              Our Team Culture
+              Our Promise
             </h3>
             <p className="text-body-large text-body-secondary max-w-3xl mx-auto">
-              We believe that great products come from great people. Our culture is built on collaboration, 
-              innovation, and mutual respect - creating an environment where everyone can thrive and contribute their best work.
+              We promise to deliver boxes that protect products and highlight brands. Boxypack creates unboxing moments that customers enjoy, remember, and trust every single time.
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-[var(--color-turquoise-bright)] rounded-full flex items-center justify-center mx-auto mb-6">
-                <Users className="w-10 h-10 text-white" />
-              </div>
-              <h4 className="text-h5 font-bold text-heading-secondary mb-4">Collaborative</h4>
-              <p className="text-body text-body-secondary">
-                We work together as one team, sharing knowledge and supporting each other&apos;s growth.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-20 h-20 bg-[var(--color-teal-deep)] rounded-full flex items-center justify-center mx-auto mb-6">
-                <Award className="w-10 h-10 text-white" />
-              </div>
-              <h4 className="text-h5 font-bold text-heading-secondary mb-4">Excellence-Driven</h4>
-              <p className="text-body text-body-secondary">
-                We&apos;re committed to delivering the highest quality in everything we do, from design to delivery.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-20 h-20 bg-[var(--color-brown-golden)] rounded-full flex items-center justify-center mx-auto mb-6">
-                <Star className="w-10 h-10 text-white" />
-              </div>
-              <h4 className="text-h5 font-bold text-heading-secondary mb-4">Innovative</h4>
-              <p className="text-body text-body-secondary">
-                We encourage creative thinking and embrace new ideas that push the boundaries of packaging.
-              </p>
-            </div>
           </div>
         </div>
 

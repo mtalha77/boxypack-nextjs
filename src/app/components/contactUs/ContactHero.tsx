@@ -13,20 +13,16 @@ const ContactHero: React.FC = () => {
           <div className="space-y-6">
             <div className="space-y-6">
               <h1 className="text-h1 leading-tight">
-              Ready to Think Outside the Box? <span className="text-heading-secondary">Let&apos;s Get Started.</span>
-        
+              Ready For Your Custom Box Journey? <span className="text-heading-secondary">Let&apos;s Get Started</span>
               </h1>
               
-              <div className="space-y-0 text-body-large text-body-primary max-w-lg">
+              <div className="space-y-4 text-body-large text-body-primary max-w-lg">
                 <p>
-                  It&apos;s <span className="font-semibold text-[var(--color-teal-deep)]">simple</span>, 
-                  <span className="font-semibold text-[var(--color-teal-deep)]"> speedy</span> and 
-                  <span className="font-semibold text-[var(--color-teal-deep)]"> free</span> to request a quote from us - just let us know what you&apos;re looking for, and our experienced team will come back to you within 24 hours or less.
+                  Reach out to Boxyack for all your custom box needs. Our team is ready to provide clear answers, helpful advice, and the right solutions for your brand. Whether you are starting small or planning large runs, we make the process simple and smooth.
                 </p>
                 
                 <p>
-                  If you&apos;re not sure what packaging solution is best for your brand, or you need a little guidance, contact our 
-                  <span className="font-semibold text-[var(--color-turquoise-bright)]"> packaging wizards</span> below - we&apos;re just a call or click away!
+                  We also assist with pricing inquiries, placing orders, and addressing questions, supporting you from first idea to final delivery.
                 </p>
               </div>
             </div>

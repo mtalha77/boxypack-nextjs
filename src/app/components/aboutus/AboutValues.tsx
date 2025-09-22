@@ -19,50 +19,49 @@ import LightBlueBackground from '../LightBlueBackground';
 const AboutValues: React.FC = () => {
   const values = [
     {
-      icon: Heart,
-      title: "Customer-Centric",
-      description: "Every decision we make is guided by what's best for our customers and their success.",
+      icon: Award,
+      title: "Quality",
+      description: "Boxes made with care, ensuring products stay safe and look polished.",
       color: "bg-[var(--color-turquoise-bright)]"
     },
     {
-      icon: Leaf,
-      title: "Sustainability",
-      description: "We're committed to eco-friendly practices and sustainable packaging solutions.",
+      icon: Zap,
+      title: "Simplicity",
+      description: "Our easy process makes custom orders quick, clear, and stress-free.",
       color: "bg-[var(--color-teal-deep)]"
     },
     {
       icon: Users,
-      title: "Collaboration",
-      description: "We believe in the power of teamwork, both internally and with our partners.",
+      title: "Variety",
+      description: "Choose from many styles designed to match your product perfectly.",
       color: "bg-[var(--color-brown-golden)]"
     },
     {
-      icon: Award,
-      title: "Excellence",
-      description: "We strive for the highest quality standards in everything we do.",
+      icon: Lightbulb,
+      title: "Design",
+      description: "Creative design choices highlight branding, adding uniqueness to every product.",
       color: "bg-[var(--color-brown-rustic)]"
     },
     {
-      icon: Zap,
-      title: "Innovation",
-      description: "We continuously push boundaries and embrace new technologies and ideas.",
+      icon: Heart,
+      title: "Support",
+      description: "Our helpful team guides you step by step with clear answers.",
       color: "bg-[var(--color-turquoise-bright)]"
     },
     {
-      icon: Shield,
-      title: "Reliability",
-      description: "Our customers can count on us for consistent, dependable service and quality.",
+      icon: Target,
+      title: "Value",
+      description: "Fair pricing paired with durability ensures your box investment lasts.",
       color: "bg-[var(--color-teal-deep)]"
     }
   ];
 
   const commitments = [
-    "100% satisfaction guarantee on all our products",
-    "24-hour response time for all inquiries",
-    "Sustainable and eco-friendly packaging options",
-    "Custom design services for unique requirements",
-    "Fast turnaround times without compromising quality",
-    "Transparent pricing with no hidden fees"
+    "Smooth ordering from the first step to delivery",
+    "Clear answers offered at every stage",
+    "Designs that highlight your brand strongly",
+    "Durable boxes built for lasting protection",
+    "Packaging that leaves lasting customer impressions"
   ];
 
   return (
@@ -71,11 +70,10 @@ const AboutValues: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-h2 text-heading-secondary mb-6">
-            Our Core Values & Commitments
+            Strong Reasons To Choose BoxyPack
           </h2>
           <p className="text-body-large text-body-secondary max-w-3xl mx-auto">
-            These values guide everything we do, from the way we work with our team to how we serve our customers. 
-            They&apos;re not just words on a wall - they&apos;re the foundation of our company culture.
+            BoxyPack stands out with packaging that goes beyond protection. Each service is designed with your brand in mind, offering value, care, and solutions that inspire customer trust.
           </p>
         </div>
 
@@ -105,11 +103,10 @@ const AboutValues: React.FC = () => {
           <div className="space-y-8">
             <div>
               <h3 className="text-h3 text-heading-secondary mb-6">
-                Our Commitments to You
+                Focused On Your Growth
               </h3>
               <p className="text-body text-body-secondary mb-8">
-                We don&apos;t just make promises - we make commitments. These are the standards we hold ourselves to 
-                every single day, ensuring you get the best possible experience when working with Boxypack.
+                At BoxyPack, commitment means supporting your brand with solutions you trust. From design to delivery, our team ensures a smooth process. We promise reliability, creativity, and guidance, giving you a box that reflects care and strength. Your growth is our focus, and every order is handled with pride.
               </p>
             </div>
 
@@ -138,8 +135,7 @@ const AboutValues: React.FC = () => {
                     Our Promise
                   </h4>
                   <p className="text-body text-body-secondary leading-relaxed">
-                    When you choose Boxypack, you&apos;re not just getting packaging - you&apos;re getting a partner 
-                    committed to your success, your brand&apos;s growth, and the planet&apos;s future.
+                    We promise to deliver boxes that protect products and highlight brands. Boxypack creates unboxing moments that customers enjoy, remember, and trust every single time.
                   </p>
                 </div>
               </div>
