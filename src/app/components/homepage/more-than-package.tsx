@@ -9,13 +9,13 @@ const MoreThanPackage: React.FC = () => {
     <LightBlueBackground>
       <section className="relative py-8 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center">
             {/* Left Side - Custom Packaging Image */}
             <div className="relative">
               <div className="relative h-full w-auto">
                 <Image
-                  src="/img/products-box-img.png"
-                  alt="Custom Packaging Boxes"
+                  src="/img/Box-6.jpg"
+                  alt="Custom Packaging Boxes - BoxyPack kraft boxes with professional design"
                   width={600}
                   height={400}
                   className="w-auto h-full object-cover shadow-2xl"

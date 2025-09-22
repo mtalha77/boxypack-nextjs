@@ -6,17 +6,17 @@ import LightBlueBackground from '../../UI/LightBlueBackground';
 
 const HowItWorksHero: React.FC = () => {
   return (
-    <LightBlueBackground className="relative min-h-[80vh] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-0 py-4">
-        <div className="grid lg:grid-cols-2 gap-6 items-center">
+    <LightBlueBackground className="relative min-h-[60vh] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 md:px-0 py-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-4">
-            <div className="space-y-2">
+          <div className="space-y-6">
+            <div className="space-y-4">
               <h1 className="text-h1 leading-tight">
                 How BoxyPack Turns Ideas Into <span className="text-heading-secondary">Custom Box Solutions</span>
               </h1>
               
-              <div className="space-y-0 text-body-large text-body-primary ">
+              <div className="space-y-3 text-body-large text-body-primary">
                 <p>
                   BoxyPack creating custom boxes is simple. We guide you with clear steps that combine 
                   <span className="font-semibold text-[var(--color-teal-deep)]"> creativity, choice, and reliable support</span>.
@@ -42,7 +42,7 @@ const HowItWorksHero: React.FC = () => {
           </div>
 
           {/* Right Content - Image with Circular Design Element */}
-          <div className="relative flex justify-center items-center">
+          <div className="relative flex justify-end items-center">
             {/* Circular Design Element */}
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-96 h-96 border-8 border-brown-rustic/20 rounded-full flex items-center justify-center">
@@ -53,12 +53,12 @@ const HowItWorksHero: React.FC = () => {
             </div>
             
             {/* Main Image */}
-            <div className="relative w-full z-10">
+            <div className="relative w-full max-w-lg z-10">
               <Image
-                src="/img/products-box-img.png"
-                alt="Packaging design process illustration"
-                width={500}
-                height={500}
+                src="/img/how-it-works-img.png"
+                alt="BoxyPack process illustration - shipping box with checklist showing completed steps"
+                width={300}
+                height={300}
                 className="w-full h-auto object-contain relative z-20"
                 priority
               />

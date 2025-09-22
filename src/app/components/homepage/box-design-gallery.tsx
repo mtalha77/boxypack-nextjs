@@ -10,32 +10,32 @@ const featuredProducts = [
   {
     key: "mailer-boxes",
     product: productData["mailer-boxes"],
-    image: "/img/mailer-box.jpg",
+    image: "/img/Box-4.jpg",
   },
   {
     key: "product-boxes",
     product: productData["product-boxes"],
-    image: "/img/product-box-2.webp",
+    image: "/img/Box-5.jpg",
   },
   {
     key: "rigid-boxes",
     product: productData["rigid-boxes"],
-    image: "/img/shipping-box.jpg",
+    image: "/img/Box-6.jpg",
   },
   {
     key: "shipping-boxes",
     product: productData["shipping-boxes"],
-    image: "/img/product-box-2.jpg",
+    image: "/img/Box-7.jpg",
   },
   {
     key: "pouches",
     product: productData["pouches"],
-    image: "/img/product-box-2.webp",
+    image: "/img/Box-4.jpg",
   },
   {
     key: "shopping-bags",
     product: productData["shopping-bags"],
-    image: "/img/shipping-box-2.webp",
+    image: "/img/Box-5.jpg",
   },
 ];
 

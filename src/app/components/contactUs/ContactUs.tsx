@@ -15,17 +15,40 @@ const ContactUs: React.FC = () => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isHighlighted, setIsHighlighted] = useState(false);
 
   // Handle hash scrolling when component mounts
   useEffect(() => {
-    if (window.location.hash === '#contact-section') {
-      setTimeout(() => {
-        const element = document.getElementById('contact-section');
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 100);
-    }
+    const handleHashScroll = () => {
+      if (window.location.hash === '#contact-section') {
+        setTimeout(() => {
+          const element = document.getElementById('contact-section');
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Highlight the form section
+            setIsHighlighted(true);
+            setTimeout(() => setIsHighlighted(false), 3000);
+            // Focus on the form after scrolling
+            setTimeout(() => {
+              const nameInput = document.getElementById('name');
+              if (nameInput) {
+                nameInput.focus();
+              }
+            }, 1000);
+          }
+        }, 100);
+      }
+    };
+
+    // Handle initial load
+    handleHashScroll();
+
+    // Handle hash changes
+    window.addEventListener('hashchange', handleHashScroll);
+    
+    return () => {
+      window.removeEventListener('hashchange', handleHashScroll);
+    };
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -131,7 +154,12 @@ const ContactUs: React.FC = () => {
           </div>
 
           {/* Contact Form */}
-          <div id="contact-form" className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-3xl shadow-xl scroll-perfect">
+          <div 
+            id="contact-form" 
+            className={`bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-3xl shadow-xl scroll-perfect transition-all duration-1000 ${
+              isHighlighted ? 'ring-4 ring-[#0c6b76] ring-opacity-50 shadow-2xl' : ''
+            }`}
+          >
             <h3 className="text-h3 text-heading-secondary mb-6">
               Request a Free Quote
             </h3>

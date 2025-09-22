@@ -44,8 +44,8 @@ const AboutHero: React.FC = () => {
           <div className="relative flex justify-center items-center h-full">
             <div className="relative w-full h-full max-h-[600px]">
               <Image
-                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=600&fit=crop&crop=center&auto=format&q=80&bg=transparent"
-                alt="Eco-friendly kraft boxes and sustainable packaging solutions"
+                src="/img/Product-Packaging-Boxes.webp"
+                alt="Custom packaging boxes that build brands - BoxyPack product showcase"
                 width={600}
                 height={600}
                 className="w-full h-full object-cover relative z-20 rounded-2xl shadow-2xl"

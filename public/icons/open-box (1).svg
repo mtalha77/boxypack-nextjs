@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 492 492" viewBox="0 0 492 492" id="open-box">
+  <polygon fill="#d3a06c" fill-rule="evenodd" points="381.26 193.458 381.26 349.339 246.26 427.284 246.26 271.4 381.257 193.458" clip-rule="evenodd"></polygon>
+  <polygon fill="#e2ad7d" fill-rule="evenodd" points="246.26 271.4 246.26 427.284 111.261 349.339 111.261 193.458 111.263 193.458" clip-rule="evenodd"></polygon>
+  <polygon fill="#c98955" fill-rule="evenodd" points="246.26 271.4 196.94 320.72 61.94 242.778 111.261 193.461 111.263 193.458" clip-rule="evenodd"></polygon>
+  <polygon fill="#c98955" fill-rule="evenodd" points="430.58 242.778 295.581 320.72 246.26 271.4 381.257 193.458 381.26 193.461" clip-rule="evenodd"></polygon>
+  <polygon fill="#a36b3d" fill-rule="evenodd" points="381.257 193.458 246.26 271.4 111.263 193.458 246.26 115.516" clip-rule="evenodd"></polygon>
+  <g>
+    <polygon fill="#c98955" fill-rule="evenodd" points="430.58 144.137 381.26 193.458 381.26 193.461 381.257 193.458 246.26 115.516 295.581 66.195" clip-rule="evenodd"></polygon>
+    <polygon fill="#c98955" fill-rule="evenodd" points="246.26 115.516 111.263 193.458 111.261 193.461 111.261 193.458 61.94 144.137 196.94 66.195" clip-rule="evenodd"></polygon>
+  </g>
+</svg>

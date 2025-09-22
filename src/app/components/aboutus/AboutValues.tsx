@@ -125,8 +125,19 @@ const AboutValues: React.FC = () => {
 
           {/* Right Content - Visual */}
           <div className="relative">
-            <div className="bg-gradient-to-br from-[var(--color-turquoise-bright)]/10 to-[var(--color-teal-deep)]/10 rounded-3xl p-12 text-center">
-              <div className="space-y-8">
+            <div 
+              className="relative bg-gradient-to-br from-[var(--color-turquoise-bright)]/10 to-[var(--color-teal-deep)]/10 rounded-3xl p-12 text-center overflow-hidden"
+              style={{
+                backgroundImage: 'url(/img/mailer-box.jpg)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundBlendMode: 'overlay'
+              }}
+            >
+              {/* Overlay for better text readability */}
+              <div className="absolute inset-0 bg-white/80 rounded-3xl"></div>
+              
+              <div className="relative z-10 space-y-8">
                 <div className="w-24 h-24 bg-[var(--color-turquoise-bright)] rounded-full flex items-center justify-center mx-auto">
                   <Target className="w-12 h-12 text-white" />
                 </div>

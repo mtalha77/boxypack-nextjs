@@ -81,8 +81,8 @@ const AboutStory: React.FC = () => {
           {/* Right Content - Image */}
           <div className="relative">
             <Image
-              src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=500&fit=crop&crop=center&auto=format&q=80&bg=transparent"
-              alt="Modern packaging facility with quality control"
+              src="/img/Box-4.jpg"
+              alt="BoxyPack mission - custom boxes that support every business with quality and care"
               width={600}
               height={500}
               className="w-full h-auto object-cover rounded-2xl shadow-xl"
@@ -96,8 +96,8 @@ const AboutStory: React.FC = () => {
           {/* Left Content - Image */}
           <div className="relative">
             <Image
-              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=500&fit=crop&crop=center&auto=format&q=80&bg=transparent"
-              alt="Sustainable packaging materials and eco-friendly solutions"
+              src="/img/product-box-2.webp"
+              alt="BoxyPack vision - innovative packaging solutions that inspire and create lasting customer experiences"
               width={600}
               height={500}
               className="w-full h-auto object-cover rounded-2xl shadow-xl"

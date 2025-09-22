@@ -135,8 +135,19 @@ const AboutTeam: React.FC = () => {
         </div>
 
         {/* Our Promise Section */}
-        <div className="bg-gradient-to-br from-[var(--color-turquoise-bright)]/5 to-[var(--color-teal-deep)]/5 rounded-3xl p-12">
-          <div className="text-center">
+        <div 
+          className="relative bg-gradient-to-br from-[var(--color-turquoise-bright)]/5 to-[var(--color-teal-deep)]/5 rounded-3xl p-12 overflow-hidden"
+          style={{
+            backgroundImage: 'url(/img/shipping-box-2.webp)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundBlendMode: 'overlay'
+          }}
+        >
+          {/* Overlay for better text readability */}
+          <div className="absolute inset-0 bg-white/90 rounded-3xl"></div>
+          
+          <div className="relative z-10 text-center">
             <h3 className="text-h3 text-heading-secondary mb-6">
               Our Promise
             </h3>

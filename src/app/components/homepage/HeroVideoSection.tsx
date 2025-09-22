@@ -40,13 +40,35 @@ const HeroVideoSection = () => {
 
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-stretch">
-              <button className="group bg-brown-rustic hover:bg-[#97602f] text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer flex items-center justify-center min-h-[56px]">
-                Customize your Box
+              <button 
+                onClick={() => window.location.href = '/products/product-boxes'}
+                className="group bg-[#0c6b76] hover:bg-[#0a5a63] text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer flex items-center justify-center min-h-[56px]"
+              >
+                Start Designing Now
                 <ChevronRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-[#0c6b76] px-8 py-4 rounded-full font-semibold text-lg transition-colors duration-300 cursor-pointer flex items-center justify-center min-h-[56px]">
-                View Products
+              <button 
+                onClick={() => window.location.href = '/contact-us#contact-section'}
+                className="border-2 border-white text-white hover:bg-white hover:text-[#0c6b76] px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 cursor-pointer flex items-center justify-center min-h-[56px]"
+              >
+                Get Free Quote
               </button>
+            </div>
+            
+            {/* Additional Value Proposition */}
+            <div className="mt-8 flex flex-wrap gap-6 text-white/80 text-sm">
+              <div className="flex items-center">
+                <div className="w-2 h-2 bg-[#0ca6c2] rounded-full mr-2"></div>
+                <span>Free Design Support</span>
+              </div>
+              <div className="flex items-center">
+                <div className="w-2 h-2 bg-[#0ca6c2] rounded-full mr-2"></div>
+                <span>24hr Quote Response</span>
+              </div>
+              <div className="flex items-center">
+                <div className="w-2 h-2 bg-[#0ca6c2] rounded-full mr-2"></div>
+                <span>No Minimum Order</span>
+              </div>
             </div>
           </div>
           
