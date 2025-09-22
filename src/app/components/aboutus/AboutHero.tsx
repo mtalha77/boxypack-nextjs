@@ -3,7 +3,6 @@
 import React from 'react';
 import Image from 'next/image';
 import LightBlueBackground from '../LightBlueBackground';
-import ComingSoon from '../ComingSoon';
 import { Award, Users, Clock, Heart } from 'lucide-react';
 
 const AboutHero: React.FC = () => {
@@ -60,8 +59,6 @@ const AboutHero: React.FC = () => {
         </div>
       </div>
 
-      {/* Coming Soon Modal */}
-      <ComingSoon />
     </LightBlueBackground>
   );
 };

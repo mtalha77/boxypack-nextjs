@@ -8,9 +8,11 @@ import HeroVideoSection from './components/homepage/HeroVideoSection';
 import ProductByMaterialCarousel from './components/ProductByMaterialCarousel';
 import ProductByIndustryCarousel from './components/ProductByIndustryCarousel';
 import CTASection from './components/product-design-page/CTASection';
+import ComingSoon from './components/ComingSoon';
 
 const HomePage = () => {
   const [isClient, setIsClient] = useState(false);
+  const [showComingSoon, setShowComingSoon] = useState(true); // Set to true to show coming soon, false to show normal homepage
 
   useEffect(() => {
     // Ensure we're on the client side
@@ -48,6 +50,11 @@ const HomePage = () => {
       window.removeEventListener('hashchange', handleHashScroll);
     };
   }, []);
+
+  // Show coming soon page if enabled
+  if (showComingSoon) {
+    return <ComingSoon />;
+  }
 
   // Prevent hydration mismatch by only rendering on client
   if (!isClient) {
