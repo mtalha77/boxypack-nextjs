@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import LightBlueBackground from '../LightBlueBackground';
+import LightBlueBackground from '../../UI/LightBlueBackground';
 import { Shield, Eye, Lock, FileText } from 'lucide-react';
 
 const PrivacyHero: React.FC = () => {

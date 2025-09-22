@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import LightBlueBackground from '../LightBlueBackground';
+import LightBlueBackground from '../../UI/LightBlueBackground';
 import { Award, Users, Clock, Heart } from 'lucide-react';
 
 const AboutHero: React.FC = () => {

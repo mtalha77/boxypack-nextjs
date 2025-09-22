@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import LightBlueBackground from '../LightBlueBackground';
+import LightBlueBackground from '../../UI/LightBlueBackground';
 
 const RequestQuote: React.FC = () => {
   const [formData, setFormData] = useState({

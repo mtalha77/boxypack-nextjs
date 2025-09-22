@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { ChevronDown, Info, Share2, Check } from 'lucide-react';
 import { navigationData, NavigationSection, MainCategory, SubCategory } from '../../data/navigationData';
-import LightBlueBackground from '../LightBlueBackground';
+import LightBlueBackground from '../../UI/LightBlueBackground';
 import { useRouter } from 'next/navigation';
 
 interface CustomDimensionsFormProps {

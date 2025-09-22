@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import LightBlueBackground from '../LightBlueBackground';
+import LightBlueBackground from '../../UI/LightBlueBackground';
 
 const HowItWorksHero: React.FC = () => {
   return (
@@ -13,20 +13,18 @@ const HowItWorksHero: React.FC = () => {
           <div className="space-y-4">
             <div className="space-y-2">
               <h1 className="text-h1 leading-tight">
-                How Boxy Pack Brings Your <span className="text-heading-secondary">Packaging Design Ideas</span> to Life
+                How BoxyPack Turns Ideas Into <span className="text-heading-secondary">Custom Box Solutions</span>
               </h1>
               
               <div className="space-y-0 text-body-large text-body-primary ">
                 <p>
-                  Peek behind the curtain to see how we transform your custom packaging concept into a 
-                  <span className="font-semibold text-[var(--color-teal-deep)]"> powerhouse piece</span> that 
-                  <span className="font-semibold text-[var(--color-teal-deep)]"> skyrockets your brand</span>.
+                  BoxyPack creating custom boxes is simple. We guide you with clear steps that combine 
+                  <span className="font-semibold text-[var(--color-teal-deep)]"> creativity, choice, and reliable support</span>.
                 </p>
                 
                 <p>
-                  From initial concept to final delivery, our 
-                  <span className="font-semibold text-[var(--color-turquoise-bright)]"> packaging wizards</span> work 
-                  tirelessly to bring your vision to life with precision and creativity.
+                  Our process helps every brand move smoothly from concept to completion. The result is packaging that 
+                  <span className="font-semibold text-[var(--color-turquoise-bright)]"> protects products and strengthens identity</span>.
                 </p>
               </div>
             </div>

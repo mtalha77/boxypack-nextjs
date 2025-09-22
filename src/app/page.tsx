@@ -18,6 +18,12 @@ const HomePage = () => {
     // Ensure we're on the client side
     setIsClient(true);
     
+    // Set coming soon state from environment variable (defaults to true if not set)
+    const comingSoonEnv = process.env.NEXT_PUBLIC_SHOW_COMING_SOON;
+    if (comingSoonEnv !== undefined) {
+      setShowComingSoon(comingSoonEnv === 'true');
+    }
+    
     // Handle hash navigation for smooth scrolling
     const handleHashScroll = () => {
       try {

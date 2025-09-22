@@ -172,11 +172,11 @@ const BoxDesignGallery: React.FC = () => {
 
                 {/* Hover overlay with text */}
                 <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-6">
-                  <h3 className="text-h3 text-white mb-3">
+                  <h3 className="text-h2 text-white mb-4">
                     {featuredProducts[3].product.name}
                   </h3>
-                  <p className="text-center text-body-small">
-                    {featuredProducts[3].product.description.substring(0, 120)}
+                  <p className="text-center text-body">
+                    {featuredProducts[3].product.description.substring(0, 150)}
                     ...
                   </p>
                 </div>

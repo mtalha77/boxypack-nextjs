@@ -7,50 +7,50 @@ const ProgressSteps: React.FC = () => {
   const steps = [
     {
       number: 1,
-      title: "Choose Your Custom Shipping Boxes",
-      description: "Explore our range of curated printed packaging boxes to discover the packaging solution that's right for your business. If you have any questions about available custom boxes as you browse, our dedicated team is here to help. Simply click on the Live Chat Support function, which can be found in the bottom right-hand corner of your screen.",
+      title: "Pick Your Box Style",
+      description: "Start by selecting the box style that matches your product. Options include mailer, product, rigid, shipping, pouches, or shopping bags. Each serves different needs, from online sales to retail shelves. Picking the correct style makes sure your product is packed properly, looks polished, and arrives safely to customers.",
       image: "/img/products-box-img.png",
       bgColor: "bg-[#0c6b76]"
     },
     {
       number: 2,
-      title: "Request a Free Instant Quote",
-      description: "Get your personalized quote in minutes! Simply provide us with your box dimensions, custom printing options, quantity requirements, and any special specifications. Our experienced team will guide you through the process and ensure you get the best pricing.",
+      title: "Choose Box By Material Or Industry",
+      description: "BoxyPack allows you to select by material type or by industry focus. Pick sturdy corrugated boards for shipping or premium rigid boards for luxury items. Choose by industry needs such as food, fashion, or retail. This ensures packaging matches product demands and highlights your brand effectively.",
       image: "/img/products-box-img.png",
       bgColor: "bg-[#0c6b76]"
     },
     {
       number: 3,
-      title: "Finalize Your Order",
-      description: "Review your detailed quotation and make any necessary adjustments. Once you're satisfied with the specifications and pricing, complete your order through our secure payment portal. We accept all major payment methods for your convenience.",
+      title: "Select Size And Fit",
+      description: "Your product size decides the box fit. We offer ready sizes or custom dimensions to match exact needs. Choosing the right fit avoids damage, saves space, and improves presentation. Accurate sizing ensures every box works well for both small and large product orders.",
       image: "/img/products-box-img.png",
       bgColor: "bg-[#0c6b76]"
     },
     {
       number: 4,
-      title: "Time to Make a Custom Dieline",
-      description: "Our design team creates a custom dieline - an artwork template that ensures your packaging will be laid out correctly before production. This template shows exactly where folds and cut lines should be, guaranteeing perfect results.",
+      title: "Set Quantity And Get a Quote",
+      description: "Decide the quantity of boxes you need for production. Entering quantity gives instant pricing details that match your choices. This step helps plan budgets, compare options, and confirm costs before moving ahead. Clear pricing ensures you make informed decisions with no hidden surprises.",
       image: "/img/products-box-img.png",
       bgColor: "bg-[#0c6b76]"
     },
     {
       number: 5,
-      title: "Get Creative with Artwork",
-      description: "Add your artwork to the dieline template following our comprehensive guidelines. We'll help you with file formats, color specifications, font requirements, and image quality. Our designers will proof your artwork to ensure print-ready perfection.",
+      title: "Design Your Custom Box",
+      description: "Add your brand identity with easy design options. Upload logos, artwork, colors, or text. You can print inside and outside for a stronger impression. Custom design turns every box into more than packaging. It builds customer connection, makes unboxing memorable, and shows care for every detail.",
       image: "/img/products-box-img.png",
       bgColor: "bg-[#0c6b76]"
     },
     {
       number: 6,
-      title: "Visualize Your Packaging with Mockups",
-      description: "See your packaging come to life! We create detailed 3D renderings and physical samples so you can visualize the final product. This allows you to proofread text, check materials, and make any final adjustments before production begins.",
+      title: "Review And Approve Order",
+      description: "Check all order details before we begin production. You will see proof to confirm design, size, and material. This step prevents mistakes and ensures accuracy. If changes are needed, our team will guide you. Approval guarantees the final product matches your vision and brand needs.",
       image: "/img/products-box-img.png",
       bgColor: "bg-[#0c6b76]"
     },
     {
       number: 7,
-      title: "Roll-on Production!",
-      description: "Once everything is approved, we kick off production! Our state-of-the-art facilities get to work creating your custom packaging. You'll receive regular updates throughout the manufacturing and shipping process, keeping you informed every step of the way.",
+      title: "Confirm Order And Receive Boxes",
+      description: "After approval, production begins with a focus on quality and precision. Once completed, boxes are shipped directly to your chosen location. They arrive safely, ready for use. Every box reflects your brand, protects your product, and creates a presentation that builds trust and strengthens customer relationships immediately.",
       image: "/img/products-box-img.png",
       bgColor: "bg-[#0c6b76]"
     }
@@ -109,10 +109,10 @@ const ProgressSteps: React.FC = () => {
         <div className="text-center mt-16">
           <div className="bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
             <h3 className="text-h2 text-body-primary mb-4">
-              Ready to Start Your Custom Packaging Journey?
+              Ready To Build Your Custom Box Journey AI BoxyPack?
             </h3>
             <p className="text-body-large text-body-secondary mb-8">
-              Join thousands of satisfied customers who trust us with their packaging needs
+              Join growing brands that trust BoxyPack with every packaging need.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="px-8 py-4 bg-brown-rustic hover:bg-[#97602f] text-white font-semibold rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">

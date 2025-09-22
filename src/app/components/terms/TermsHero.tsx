@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import LightBlueBackground from '../LightBlueBackground';
+import LightBlueBackground from '../../UI/LightBlueBackground';
 import { FileText, Scale, Shield, CheckCircle } from 'lucide-react';
 
 const TermsHero: React.FC = () => {

@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { NavigationSection, MainCategory, SubCategory } from '../data/navigationData';
 import { productData } from '../data/productData';
-import LightBlueBackground from './LightBlueBackground';
+import LightBlueBackground from '../UI/LightBlueBackground';
 
 interface RelatedProductsProps {
   currentSection?: NavigationSection;

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
-import LightBlueBackground from '../LightBlueBackground';
+import LightBlueBackground from '../../UI/LightBlueBackground';
 
 const ContactUs: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -264,33 +264,6 @@ const ContactUs: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom CTA */}
-        <div id="contact-cta" className="mt-20 text-center rounded-3xl p-12 scroll-perfect">
-          <LightBlueBackground className="rounded-3xl">
-          <h3 className="text-h2 text-heading-secondary mb-4">
-            Get In Touch
-          </h3>
-          <p className="text-body-large text-body-secondary mb-8 max-w-2xl mx-auto">
-            Reach out today for quick answers. Our friendly team guides every step, making custom box orders simple and stress-free.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="tel:1-800-725-9660"
-              className="inline-flex items-center justify-center px-8 py-4 bg-[var(--color-brown-rustic)] hover:bg-[#97602f] text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer"
-            >
-              <Phone className="w-5 h-5 mr-2" />
-              Call Now: 1-800-725-9660
-            </a>
-            <a
-              href="mailto:hello@boxypack.com"
-              className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-teal-deep text-teal-deep hover:bg-teal-deep hover:text-white font-semibold rounded-full transition-all duration-300 cursor-pointer"
-            >
-              <Mail className="w-5 h-5 mr-2" />
-              Email Us
-            </a>
-          </div>
-          </LightBlueBackground>
-        </div>
       </div>
     </section>
   );

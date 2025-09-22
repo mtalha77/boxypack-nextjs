@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { productByIndustryData } from '../data/productByIndustryData';
-import LightBlueBackground from './LightBlueBackground';
+import LightBlueBackground from '../UI/LightBlueBackground';
 
 const ProductByIndustryCarousel: React.FC = () => {
   const cardsContainerRef = useRef<HTMLDivElement>(null);

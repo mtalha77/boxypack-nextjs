@@ -14,7 +14,7 @@ import {
   Globe,
   CheckCircle
 } from 'lucide-react';
-import LightBlueBackground from '../LightBlueBackground';
+import LightBlueBackground from '../../UI/LightBlueBackground';
 
 const AboutValues: React.FC = () => {
   const values = [
