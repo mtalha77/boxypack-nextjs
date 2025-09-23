@@ -164,33 +164,33 @@ const getCategoryIcon = (categoryName: string) => {
   if (name.includes('shopping bags')) return '/icons/paper-bag-with-round-window.svg'; // Shopping containers
   if (name.includes('other')) return '/icons/empty-box.svg'; // Miscellaneous packaging
   
-  // Material categories - using custom box icons
-  if (name.includes('rigid')) return '/icons/box (1).svg'; // Strong, protective boxes
-  if (name.includes('kraft')) return '/icons/cardboard.svg'; // Eco-friendly boxes
-  if (name.includes('cardboard')) return '/icons/cardboard.svg'; // Basic cardboard boxes
-  if (name.includes('corrugated')) return '/icons/box (3).svg'; // Layered structure boxes
+  // Material categories - using custom PNG icons
+  if (name.includes('rigid')) return '/icons/rigid.png'; // Strong, protective boxes
+  if (name.includes('kraft')) return '/icons/kraft.png'; // Eco-friendly boxes
+  if (name.includes('cardboard')) return '/icons/cardboard.png'; // Basic cardboard boxes
+  if (name.includes('corrugated')) return '/icons/corrugated.png'; // Layered structure boxes
   
-  // Industry categories - using custom box icons
-  if (name.includes('bakery')) return '/icons/tuck-top-box.svg'; // Bakery boxes
-  if (name.includes('cosmetic')) return '/icons/open-lid-box.svg'; // Cosmetic boxes
-  if (name.includes('food')) return '/icons/flat-paper-box.svg'; // Food boxes
-  if (name.includes('gift')) return '/icons/colored-foldable-box.svg'; // Gift boxes
-  if (name.includes('jewelry')) return '/icons/box-upside.svg'; // Jewelry boxes
-  if (name.includes('retail')) return '/icons/rectangular-folding-box.svg'; // Retail boxes
-  if (name.includes('candle')) return '/icons/box (4).svg'; // Candle boxes
-  if (name.includes('shipping')) return '/icons/wide-open-box.svg'; // Shipping boxes
-  if (name.includes('soap')) return '/icons/tear-top-container.svg'; // Soap boxes
-  if (name.includes('apparel')) return '/icons/box.svg'; // Apparel boxes
-  if (name.includes('sports')) return '/icons/box (1).svg'; // Sports boxes
-  if (name.includes('cigarette')) return '/icons/box (3).svg'; // Cigarette boxes
-  if (name.includes('cbd')) return '/icons/box (4).svg'; // CBD boxes
-  if (name.includes('e-liquid')) return '/icons/box (1).svg'; // E-liquid boxes
-  if (name.includes('stationery')) return '/icons/rectangular-folding-box.svg'; // Stationery boxes
-  if (name.includes('christmas')) return '/icons/colored-foldable-box.svg'; // Christmas boxes
-  if (name.includes('chocolate')) return '/icons/tuck-top-box.svg'; // Chocolate boxes
-  if (name.includes('cereal')) return '/icons/wide-open-box.svg'; // Cereal boxes
-  if (name.includes('pre roll')) return '/icons/box (3).svg'; // Pre-roll boxes
-  if (name.includes('pizza')) return '/icons/flat-paper-box.svg'; // Pizza boxes
+  // Industry categories - using available PNG icons with fallback
+  if (name.includes('bakery')) return '/icons/rigid.png'; // Bakery boxes - using rigid for sturdy food packaging
+  if (name.includes('cosmetic')) return '/icons/rigid.png'; // Cosmetic boxes - using rigid for luxury packaging
+  if (name.includes('food')) return '/icons/cardboard.png'; // Food boxes - using cardboard for food packaging
+  if (name.includes('gift')) return '/icons/kraft.png'; // Gift boxes - using kraft for eco-friendly gifts
+  if (name.includes('jewelry')) return '/icons/rigid.png'; // Jewelry boxes - using rigid for luxury jewelry
+  if (name.includes('retail')) return '/icons/corrugated.png'; // Retail boxes - using corrugated for retail packaging
+  if (name.includes('candle')) return '/icons/kraft.png'; // Candle boxes - using kraft for natural candles
+  if (name.includes('shipping')) return '/icons/corrugated.png'; // Shipping boxes - using corrugated for shipping
+  if (name.includes('soap')) return '/icons/kraft.png'; // Soap boxes - using kraft for natural soap
+  if (name.includes('apparel')) return '/icons/cardboard.png'; // Apparel boxes - using cardboard for clothing
+  if (name.includes('sports')) return '/icons/corrugated.png'; // Sports boxes - using corrugated for sports equipment
+  if (name.includes('cigarette')) return '/icons/cardboard.png'; // Cigarette boxes - using cardboard for tobacco
+  if (name.includes('cbd')) return '/icons/kraft.png'; // CBD boxes - using kraft for natural products
+  if (name.includes('e-liquid')) return '/icons/rigid.png'; // E-liquid boxes - using rigid for vape products
+  if (name.includes('stationery')) return '/icons/cardboard.png'; // Stationery boxes - using cardboard for office supplies
+  if (name.includes('christmas')) return '/icons/kraft.png'; // Christmas boxes - using kraft for holiday packaging
+  if (name.includes('chocolate')) return '/icons/rigid.png'; // Chocolate boxes - using rigid for premium chocolate
+  if (name.includes('cereal')) return '/icons/corrugated.png'; // Cereal boxes - using corrugated for breakfast cereal
+  if (name.includes('pre roll')) return '/icons/kraft.png'; // Pre-roll boxes - using kraft for natural products
+  if (name.includes('pizza')) return '/icons/cardboard.png'; // Pizza boxes - using cardboard for food delivery
   
   return '/icons/box.svg'; // Default box icon
 };
@@ -882,9 +882,9 @@ const Header: React.FC = () => {
                                           <Image
                                             src={getCategoryIcon(category.name)}
                                             alt={category.name}
-                                            width={20}
-                                            height={20}
-                                            className="w-5 h-5 mr-2 flex-shrink-0"
+                                            width={32}
+                                            height={32}
+                                            className="w-8 h-8 mr-3 flex-shrink-0"
                                           />
                                           <span className="font-medium text-sm">{category.name}</span>
                                         </div>
@@ -913,13 +913,6 @@ const Header: React.FC = () => {
                                                 onClick={handleSmoothClose}
                                                 className="flex items-center px-2 py-1.5 text-sm text-gray-600 hover:text-[#0c6b76] hover:bg-[#0c6b76]/5 rounded-md transition-colors"
                                               >
-                                                <Image
-                                                  src={getSubcategoryIcon(subcategory.name)}
-                                                  alt={subcategory.name}
-                                                  width={20}
-                                                  height={20}
-                                                  className="w-5 h-5 mr-2 flex-shrink-0"
-                                                />
                                                 <span className="truncate">{subcategory.name}</span>
                                               </Link>
                                             ))}
@@ -947,9 +940,9 @@ const Header: React.FC = () => {
                                       <Image
                                         src={getCategoryIcon(section.name)}
                                         alt={section.name}
-                                        width={40}
-                                        height={40}
-                                        className="w-10 h-10 mr-3"
+                                        width={48}
+                                        height={48}
+                                        className="w-12 h-12 mr-4"
                                       />
                                       <h2 className="text-xl font-bold text-[#0c6b76]">
                                         {section.name}
@@ -972,13 +965,6 @@ const Header: React.FC = () => {
                                       onClick={handleSmoothClose}
                                       className="flex items-center px-3 py-2 text-sm text-gray-600 hover:text-[#0c6b76] hover:bg-[#0c6b76]/5 rounded-md transition-colors"
                                     >
-                                      <Image
-                                        src={getSubcategoryIcon(subcategory.name)}
-                                        alt={subcategory.name}
-                                        width={40}
-                                        height={40}
-                                        className="w-6 h-6 mr-2 flex-shrink-0"
-                                      />
                                       <span className="truncate">{subcategory.name}</span>
                                     </Link>
                                   ))}

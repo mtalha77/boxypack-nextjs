@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { productData } from "../../data/productData";
+import LightBlueBackground from "../../UI/LightBlueBackground";
 
 // Featured products for the gallery - using actual product data
 const featuredProducts = [
@@ -41,8 +42,8 @@ const featuredProducts = [
 
 const BoxDesignGallery: React.FC = () => {
   return (
-    <section className="relative bg-white py-16 px-4">
-      <div className="max-w-7xl mx-auto">
+    <LightBlueBackground>
+      <div className="max-w-7xl mx-auto px-4">
         {/* Header Section */}
         <div className="text-center mb-16">
           <h2 className="text-h2 text-heading-primary mb-6">
@@ -242,7 +243,7 @@ const BoxDesignGallery: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
+    </LightBlueBackground>
   );
 };
 

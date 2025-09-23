@@ -33,18 +33,27 @@ const HeroVideoSection = () => {
           {/* Left Content */}
           <div className="text-left text-white">
             <h1 className="text-5xl lg:text-7xl font-bold leading-tight mb-6">
-            Custom Boxes That Build Brands
+            Buy Custom Boxes That Build Brands
             </h1>
             <p className="text-xl lg:text-2xl text-white/90 mb-8 max-w-2xl">
-            Custom boxes built with care, giving your brand presence and reliable boxes that protect products while creating lasting impressions.
+            Order custom boxes built with care, giving your brand presence and reliable boxes that protect products while creating lasting impressions.
 
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-stretch">
               <button 
-                onClick={() => window.location.href = '/products/product-boxes'}
+                onClick={() => {
+                  // Scroll to the CustomDimensionsForm section on the homepage
+                  const formSection = document.querySelector('.custom-dimensions-form');
+                  if (formSection) {
+                    formSection.scrollIntoView({ 
+                      behavior: 'smooth', 
+                      block: 'start' 
+                    });
+                  }
+                }}
                 className="group bg-[#0c6b76] hover:bg-[#0a5a63] text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer flex items-center justify-center min-h-[56px]"
               >
-                Start Designing Now
+                Order Custom Packaging
                 <ChevronRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
               <button 
@@ -59,11 +68,11 @@ const HeroVideoSection = () => {
             <div className="mt-8 flex flex-wrap gap-6 text-white/80 text-sm">
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-[#0ca6c2] rounded-full mr-2"></div>
-                <span>Free Design Support</span>
+                <span>Instant Pricing & Ordering</span>
               </div>
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-[#0ca6c2] rounded-full mr-2"></div>
-                <span>24hr Quote Response</span>
+                <span>Fast 8-Day Production</span>
               </div>
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-[#0ca6c2] rounded-full mr-2"></div>

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import HeroSection from '../components/product-design-page/HeroSection';
-import CustomDimensionsForm from '../components/product-design-page/CustomDimensionsForm';
+import CustomDimensionsForm from '../components/CustomDimensionsForm';
 import FeaturesSection from '../components/product-design-page/FeaturesSection';
 import CTASection from '../components/product-design-page/CTASection';
 import ClientTestimonials from '../components/product-design-page/ClientTestamonials';

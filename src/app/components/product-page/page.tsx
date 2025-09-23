@@ -4,7 +4,7 @@ import React from 'react';
 import { NavigationSection, MainCategory, SubCategory } from '../../data/navigationData';
 import { productData } from '../../data/productData';
 import HeroSection, { BreadcrumbItem } from '../product-design-page/HeroSection';
-import CustomDimensionsForm from '../product-design-page/CustomDimensionsForm';
+import CustomDimensionsForm from '../CustomDimensionsForm';
 import FeaturesSection from '../product-design-page/FeaturesSection';
 import ClientTestamonials from '../product-design-page/ClientTestamonials';
 import CTASection from '../product-design-page/CTASection';
