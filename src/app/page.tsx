@@ -9,6 +9,8 @@ import ProductByMaterialCarousel from './components/ProductByMaterialCarousel';
 import ProductByIndustryCarousel from './components/ProductByIndustryCarousel';
 import CTASection from './components/product-design-page/CTASection';
 import ComingSoon from './components/ComingSoon';
+import ScrollVideoSection from './components/homepage/box-sequence-images';
+import CustomDimensionsForm from './components/CustomDimensionsForm';
 
 const HomePage = () => {
   const [isClient, setIsClient] = useState(false);
@@ -75,10 +77,13 @@ const HomePage = () => {
     <div className="relative">
       {/* <Hero /> */}
       <HeroVideoSection />
-      <VideoSection />
+      <CustomDimensionsForm/>
+      <ScrollVideoSection/>
+      <BoxDesignGallery />
+      {/* <VideoSection /> */}
       <ProductByMaterialCarousel/>
       <ProductByIndustryCarousel/>
-      <BoxDesignGallery />
+      
       <MoreThanPackage />
       <FAQ />
       <CTASection 
