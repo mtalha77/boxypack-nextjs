@@ -170,27 +170,27 @@ const getCategoryIcon = (categoryName: string) => {
   if (name.includes('cardboard')) return '/icons/cardboard.png'; // Basic cardboard boxes
   if (name.includes('corrugated')) return '/icons/corrugated.png'; // Layered structure boxes
   
-  // Industry categories - using available PNG icons with fallback
-  if (name.includes('bakery')) return '/icons/rigid.png'; // Bakery boxes - using rigid for sturdy food packaging
-  if (name.includes('cosmetic')) return '/icons/rigid.png'; // Cosmetic boxes - using rigid for luxury packaging
-  if (name.includes('food')) return '/icons/cardboard.png'; // Food boxes - using cardboard for food packaging
-  if (name.includes('gift')) return '/icons/kraft.png'; // Gift boxes - using kraft for eco-friendly gifts
-  if (name.includes('jewelry')) return '/icons/rigid.png'; // Jewelry boxes - using rigid for luxury jewelry
-  if (name.includes('retail')) return '/icons/corrugated.png'; // Retail boxes - using corrugated for retail packaging
-  if (name.includes('candle')) return '/icons/kraft.png'; // Candle boxes - using kraft for natural candles
-  if (name.includes('shipping')) return '/icons/corrugated.png'; // Shipping boxes - using corrugated for shipping
-  if (name.includes('soap')) return '/icons/kraft.png'; // Soap boxes - using kraft for natural soap
-  if (name.includes('apparel')) return '/icons/cardboard.png'; // Apparel boxes - using cardboard for clothing
-  if (name.includes('sports')) return '/icons/corrugated.png'; // Sports boxes - using corrugated for sports equipment
-  if (name.includes('cigarette')) return '/icons/cardboard.png'; // Cigarette boxes - using cardboard for tobacco
-  if (name.includes('cbd')) return '/icons/kraft.png'; // CBD boxes - using kraft for natural products
-  if (name.includes('e-liquid')) return '/icons/rigid.png'; // E-liquid boxes - using rigid for vape products
-  if (name.includes('stationery')) return '/icons/cardboard.png'; // Stationery boxes - using cardboard for office supplies
-  if (name.includes('christmas')) return '/icons/kraft.png'; // Christmas boxes - using kraft for holiday packaging
-  if (name.includes('chocolate')) return '/icons/rigid.png'; // Chocolate boxes - using rigid for premium chocolate
-  if (name.includes('cereal')) return '/icons/corrugated.png'; // Cereal boxes - using corrugated for breakfast cereal
-  if (name.includes('pre roll')) return '/icons/kraft.png'; // Pre-roll boxes - using kraft for natural products
-  if (name.includes('pizza')) return '/icons/cardboard.png'; // Pizza boxes - using cardboard for food delivery
+  // Industry categories - using specific PNG icons from icons folder
+  if (name.includes('bakery')) return '/icons/bakeryBox.png'; // Bakery boxes
+  if (name.includes('cosmetic')) return '/icons/cosmaticsBox.png'; // Cosmetic boxes
+  if (name.includes('food')) return '/icons/foodBox.png'; // Food boxes
+  if (name.includes('gift')) return '/icons/giftBox.png'; // Gift boxes
+  if (name.includes('jewelry')) return '/icons/jwelryBox.png'; // Jewelry boxes
+  if (name.includes('retail')) return '/icons/retailBox.png'; // Retail boxes
+  if (name.includes('candle')) return '/icons/candelBox.png'; // Candle boxes
+  if (name.includes('shipping')) return '/icons/shippingBox.png'; // Shipping boxes
+  if (name.includes('soap')) return '/icons/soapBox.png'; // Soap boxes
+  if (name.includes('apparel')) return '/icons/apparelBox.png'; // Apparel boxes
+  if (name.includes('sports')) return '/icons/sportsBox.png'; // Sports boxes
+  if (name.includes('cigarette')) return '/icons/cigratteeBox.png'; // Cigarette boxes
+  if (name.includes('cbd')) return '/icons/CBDBox.png'; // CBD boxes
+  if (name.includes('e-liquid')) return '/icons/eliquidBox.png'; // E-liquid boxes
+  if (name.includes('stationery')) return '/icons/stationaryBox.png'; // Stationery boxes
+  if (name.includes('christmas')) return '/icons/christmasBox.png'; // Christmas boxes
+  if (name.includes('chocolate')) return '/icons/chocolateBox.png'; // Chocolate boxes
+  if (name.includes('cereal')) return '/icons/carealBox.png'; // Cereal boxes
+  if (name.includes('pre roll')) return '/icons/preRollBox.png'; // Pre-roll boxes
+  if (name.includes('pizza')) return '/icons/pizzaBox.png'; // Pizza boxes
   
   return '/icons/box.svg'; // Default box icon
 };
@@ -858,75 +858,27 @@ const Header: React.FC = () => {
                         <div className="max-w-7xl w-full mx-auto px-6 py-6 h-full">
                           {section.hasSubcategories && section.categories ? (
                             <div className="flex h-full">
-                              {/* Left Side - Main Categories */}
-                              <div className="w-1/4 pr-6 border-r border-gray-200 relative">
-                                {/* Top gradient fade indicator */}
-                                <div className="absolute top-0 left-0 right-0 h-4 bg-gradient-to-b from-white to-transparent pointer-events-none z-10"></div>
-                                <div className="space-y-1 max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 hover:scrollbar-thumb-gray-400 pt-4 pb-4">
+                              {/* Full Width - Main Categories Only */}
+                              <div className="w-full px-6">
+                                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 hover:scrollbar-thumb-gray-400 pt-4 pb-4">
                                   {section.categories.map((category) => (
-                                    <div
+                                    <Link
                                       key={category.slug}
-                                      className="relative"
-                                      onMouseEnter={() => setHoveredCategory(category.slug)}
+                                      href={`/products/${section.slug}/${category.slug}`}
+                                      onClick={handleSmoothClose}
+                                      className="flex items-center px-4 py-3 rounded-lg transition-colors text-gray-700 hover:bg-[#0c6b76]/10 hover:text-[#0c6b76] group"
                                     >
-                                      <Link
-                                        href={`/products/${section.slug}/${category.slug}`}
-                                        onClick={handleSmoothClose}
-                                        className={`flex items-center justify-between px-2 py-2 rounded-lg transition-colors ${
-                                          hoveredCategory === category.slug 
-                                            ? 'bg-[#0c6b76]/10 text-[#0c6b76]' 
-                                            : 'text-gray-700 hover:bg-gray-50'
-                                        }`}
-                                      >
-                                        <div className="flex items-center flex-1">
-                                          <Image
-                                            src={getCategoryIcon(category.name)}
-                                            alt={category.name}
-                                            width={32}
-                                            height={32}
-                                            className="w-8 h-8 mr-3 flex-shrink-0"
-                                          />
-                                          <span className="font-medium text-sm">{category.name}</span>
-                                        </div>
-                                        <ChevronRight className="w-3 h-3 ml-2 flex-shrink-0" />
-                                      </Link>
-                                    </div>
+                                      <Image
+                                        src={getCategoryIcon(category.name)}
+                                        alt={category.name}
+                                        width={32}
+                                        height={32}
+                                        className="w-8 h-8 mr-3 flex-shrink-0"
+                                      />
+                                      <span className="font-medium text-sm">{category.name}</span>
+                                    </Link>
                                   ))}
-                               </div>
-                                {/* Gradient fade indicator */}
-                                <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
-                             </div>
-                             
-                              {/* Right Side - Subcategories */}
-                              <div className="w-3/4 pl-6">
-                                {hoveredCategory && (
-                                  <div>
-                                    {(() => {
-                                      const activeCategory = section.categories?.find(cat => cat.slug === hoveredCategory);
-                                      return activeCategory ? (
-                                        <div>
-                                          <div className="grid grid-cols-3 gap-2 max-h-80 overflow-y-auto">
-                                            {activeCategory.subcategories.map((subcategory) => (
-                                              <Link
-                                                key={subcategory.slug}
-                                                href={`/products/${section.slug}/${activeCategory.slug}/${subcategory.slug}`}
-                                                onClick={handleSmoothClose}
-                                                className="flex items-center px-2 py-1.5 text-sm text-gray-600 hover:text-[#0c6b76] hover:bg-[#0c6b76]/5 rounded-md transition-colors"
-                                              >
-                                                <span className="truncate">{subcategory.name}</span>
-                                              </Link>
-                                            ))}
-                                          </div>
-                                        </div>
-                                      ) : null;
-                                    })()}
-                                  </div>
-                                )}
-                                {!hoveredCategory && (
-                                  <div className="flex items-center justify-center h-full text-gray-400">
-                                    <p>Hover over a category to see subcategories</p>
-                                  </div>
-                                )}
+                                </div>
                               </div>
                             </div>
                           ) : (
