@@ -38,19 +38,43 @@ export const createSlug = (name: string): string => {
 
 export const navigationData: NavigationSection[] = [
   {
-    name: 'Product By Material',
+    name: 'Products',
     slug: 'product-by-material',
     hasSubcategories: true,
     description: 'Explore our products organized by material type',
-    categories: productByMaterialData.map(category => ({
-      name: category.name,
-      slug: category.slug,
-      description: category.description,
-      subcategories: category.subcategories
-    }))
+    categories: [
+      // Material categories
+      ...productByMaterialData.map(category => ({
+        name: category.name,
+        slug: category.slug,
+        description: category.description,
+        subcategories: category.subcategories
+      })),
+      // Pouches category
+      {
+        name: 'Pouches',
+        slug: 'pouches',
+        description: 'Flexible packaging solutions for various products',
+        subcategories: pouchesData.subcategories
+      },
+      // Shopping Bags category
+      {
+        name: 'Shopping Bags',
+        slug: 'shopping-bags',
+        description: 'Eco-friendly and branded shopping bag solutions',
+        subcategories: shoppingBagsData.subcategories
+      },
+      // Other category
+      {
+        name: 'Others',
+        slug: 'other',
+        description: 'Additional packaging accessories and printing services',
+        subcategories: otherData.subcategories
+      }
+    ]
   },
   {
-    name: 'Product By Industry',
+    name: 'Industries',
     slug: 'product-by-industry',
     hasSubcategories: true,
     description: 'Browse products by industry and application',
@@ -61,27 +85,6 @@ export const navigationData: NavigationSection[] = [
       subcategories: category.subcategories
     }))
   },
-  {
-    name: 'Pouches',
-    slug: 'pouches',
-    hasSubcategories: true,
-    description: 'Flexible packaging solutions for various products',
-    subcategories: pouchesData.subcategories
-  },
-  {
-    name: 'Shopping Bags',
-    slug: 'shopping-bags',
-    hasSubcategories: true,
-    description: 'Eco-friendly and branded shopping bag solutions',
-    subcategories: shoppingBagsData.subcategories
-  },
-  {
-    name: 'Other',
-    slug: 'other',
-    hasSubcategories: true,
-    description: 'Additional packaging accessories and printing services',
-    subcategories: otherData.subcategories
-  }
 ];
 
 export default navigationData;

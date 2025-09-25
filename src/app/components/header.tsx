@@ -198,6 +198,9 @@ const getCategoryIcon = (categoryName: string) => {
 const getSubcategoryIcon = (subcategoryName: string) => {
   const name = subcategoryName.toLowerCase();
   
+  // Debug logging for all subcategories
+  console.log('Getting icon for:', subcategoryName, 'processed name:', name);
+  
   // Box construction types - using custom box icons
   if (name.includes('magnetic')) return '/icons/box-upside.svg'; // Magnetic closure boxes
   if (name.includes('two piece')) return '/icons/box (1).svg'; // Two-piece boxes
@@ -383,23 +386,48 @@ const getSubcategoryIcon = (subcategoryName: string) => {
   if (name.includes('ziplock')) return '/icons/paper-bag-with-round-window.svg'; // Ziplock pouches
   if (name.includes('mylar')) return '/icons/paper-bag-with-round-window.svg'; // Mylar pouches
   
-  // Shopping bag products
-  if (name.includes('kraft')) return '/icons/paper-bag-with-round-window.svg'; // Kraft bags
-  if (name.includes('paper')) return '/icons/paper-bag-with-round-window.svg'; // Paper bags
-  if (name.includes('pvc')) return '/icons/paper-bag-with-round-window.svg'; // PVC bags
+  // Shopping bag products - using specific PNG icons
+  if (name.includes('kraft shopping bag') || name === 'kraft shopping bag' || name.toLowerCase().includes('kraft shopping bag')) return '/icons/kraft-shopping-bag.png'; // Kraft Shopping Bag
+  if (name.includes('paper bag') || name === 'paper bag' || name.toLowerCase().includes('paper bag')) return '/icons/paper-bag.png'; // Paper Bag
+  if (name.includes('pvc bag') || name === 'pvc bag' || name.toLowerCase().includes('pvc bag')) return '/icons/pvc-bag.png'; // PVC Bag
   
-  // Other products
-  if (name.includes('booklet')) return '/icons/flat-paper-box.svg'; // Booklet boxes
-  if (name.includes('brochure')) return '/icons/flat-paper-box.svg'; // Brochure boxes
-  if (name.includes('tags')) return '/icons/box (1).svg'; // Tag boxes
-  if (name.includes('business')) return '/icons/flat-paper-box.svg'; // Business boxes
-  if (name.includes('tissue')) return '/icons/box (3).svg'; // Tissue boxes
-  if (name.includes('butter')) return '/icons/box (4).svg'; // Butter boxes
-  if (name.includes('labels')) return '/icons/box (1).svg'; // Label boxes
-  if (name.includes('table')) return '/icons/box (3).svg'; // Table boxes
-  if (name.includes('tent')) return '/icons/box (4).svg'; // Tent boxes
-  if (name.includes('packing')) return '/icons/box.svg'; // Packing boxes
-  if (name.includes('tape')) return '/icons/box (1).svg'; // Tape boxes
+  // Other products - using specific PNG icons
+  if (name.includes('booklets') || name === 'booklets') {
+    console.log('Matched Booklets:', name, '/icons/booklets.png');
+    return '/icons/booklets.png';
+  }
+  if (name.includes('brochures') || name === 'brochures') {
+    console.log('Matched Brochures:', name, '/icons/brochures.png');
+    return '/icons/brochures.png';
+  }
+  if (name.includes('business cards') || name === 'business cards') {
+    console.log('Matched Business Cards:', name, '/icons/business-cards.png');
+    return '/icons/business-cards.png';
+  }
+  if (name.includes('custom tissue paper') || name === 'custom tissue paper') {
+    console.log('Matched Custom Tissue Paper:', name, '/icons/custom-tissue-paper.png');
+    return '/icons/custom-tissue-paper.png';
+  }
+  if (name.includes('butter paper') || name === 'butter paper') {
+    console.log('Matched Butter Paper:', name, '/icons/butter-paper.png');
+    return '/icons/butter-paper.png';
+  }
+  if (name.includes('product labels') || name.includes('bottle labels') || name === 'product labels & bottle labels') {
+    console.log('Matched Product Labels:', name, '/icons/product-label.png');
+    return '/icons/product-label.png';
+  }
+  if (name.includes('table tents') || name === 'table tents') {
+    console.log('Matched Table Tents:', name, '/icons/table-tents.png');
+    return '/icons/table-tents.png';
+  }
+  if (name.includes('tags printing') || name === 'tags printing') {
+    console.log('Matched Tags Printing:', name, '/icons/tag-printing.png');
+    return '/icons/tag-printing.png';
+  }
+  if (name.includes('packing tape') || name === 'packing tape') {
+    console.log('Matched Packing Tape:', name, '/icons/packing-tape.png');
+    return '/icons/packing-tape.png';
+  }
   
   return '/icons/box.svg'; // Default box icon
 };
@@ -809,7 +837,7 @@ const Header: React.FC = () => {
 
       {/* Category Navigation Bar - Hidden on mobile */}
       <div className="hidden md:block white border-t border-gray-200 relative">
-        <div className="md:px-20 lg:px-24 px-6 py-4">
+        <div className="md:px-20 px-6 py-4">
           <nav className="flex items-center justify-between py-3">
             <div className="flex items-center space-x-12 md:space-x-16 lg:space-x-20">
               {navigationData.map((section) => (
@@ -835,7 +863,8 @@ const Header: React.FC = () => {
           {/* Hover Dropdown Menu */}
                   {hoveredMainSection === section.slug && !isClosing && (
                                            <div 
-                      className="fixed left-0 top-40 w-screen h-[50vh] z-50 bg-white shadow-lg border-t border-gray-200 transition-all duration-1000 ease-in-out"
+                      className="absolute left-0 w-7xl h-[70vh] z-50 bg-white shadow-lg  transition-all duration-1000 ease-in-out"
+                      style={section.slug === 'product-by-industry' ? { left: '-165px' } : { left: '0px' }}
                       onMouseEnter={() => setHoveredMainSection(section.slug)}
                         onMouseLeave={() => {
                           // Only close when user actually leaves the dropdown area
@@ -845,41 +874,226 @@ const Header: React.FC = () => {
                       }}
                     >
                       {/* Decorative Shape - Top Right Corner Background */}
-                      <div className="absolute top-0 right-0 w-64 h-40 pointer-events-none" style={{ zIndex: 10 }}>
+                      <div className="absolute top-0 right-0 w-96 h-60 pointer-events-none" style={{ zIndex: 10 }}>
                         <Image
                           src="/img/cs_slider_shape.svg"
                           alt="Decorative shape"
-                          width={256}
-                          height={160}
-                          className="w-full h-full object-contain opacity-80 transform scale-200"
+                          width={384}
+                          height={240}
+                          className="w-full h-full object-cover opacity-60"
                         />
                       </div>
                       <div className="w-full h-full flex">
-                        <div className="max-w-7xl w-full mx-auto px-6 py-6 h-full">
+                        <div className="w-full px-0 py-6 h-full">
                           {section.hasSubcategories && section.categories ? (
                             <div className="flex h-full">
-                              {/* Full Width - Main Categories Only */}
-                              <div className="w-full px-6">
-                                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 hover:scrollbar-thumb-gray-400 pt-4 pb-4">
-                                  {section.categories.map((category) => (
-                                    <Link
-                                      key={category.slug}
-                                      href={`/products/${section.slug}/${category.slug}`}
-                                      onClick={handleSmoothClose}
-                                      className="flex items-center px-4 py-3 rounded-lg transition-colors text-gray-700 hover:bg-[#0c6b76]/10 hover:text-[#0c6b76] group"
-                                    >
-                                      <Image
-                                        src={getCategoryIcon(category.name)}
-                                        alt={category.name}
-                                        width={32}
-                                        height={32}
-                                        className="w-8 h-8 mr-3 flex-shrink-0"
-                                      />
-                                      <span className="font-medium text-sm">{category.name}</span>
-                                    </Link>
+                              {section.slug === 'product-by-material' ? (
+                                // Special layout for Products only
+                                 <div className="w-full px-6 py-2">
+                                   <div className="grid grid-cols-4 gap-0 max-h-80">
+                                  {/* Column 1: PRODUCTS (Materials) */}
+                                  <div>
+                                    {/* <h3 className="text-lg font-bold text-gray-800 mb-4 uppercase tracking-wide">PRODUCTS</h3> */}
+                                    <div className="space-y-3">
+                                      {section.categories.filter(cat => 
+                                        ['rigid', 'kraft', 'cardboard', 'corrugated'].some(material => 
+                                          cat.name.toLowerCase().includes(material)
+                                        )
+                                      ).map((category) => (
+                                        <Link
+                                          key={category.slug}
+                                          href={`/products/${section.slug}/${category.slug}`}
+                                          onClick={handleSmoothClose}
+                                          className="flex items-center px-3 py-2 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] group"
+                                        >
+                                          <Image
+                                            src={getCategoryIcon(category.name)}
+                                            alt={category.name}
+                                            width={40}
+                                            height={40}
+                                            className="w-10 h-10 mr-3 flex-shrink-0 rounded-lg"
+                                          />
+                                          <div>
+                                            <div className="font-medium text-sm">{category.name}</div>
+                                            <div className="text-xs text-gray-500">
+                                              {category.name.includes('rigid') ? 'Premium and luxurious packaging' :
+                                               category.name.includes('kraft') ? 'Eco-friendly natural packaging' :
+                                               category.name.includes('cardboard') ? 'Versatile all-round packaging' :
+                                               category.name.includes('corrugated') ? 'Sturdy and durable packaging' :
+                                               'Custom packaging solutions'}
+                                        </div>
+                                    </div>
+                                        </Link>
                                   ))}
-                                </div>
+                               </div>
+                             </div>
+                             
+                                  {/* Column 2: POUCHES & SHOPPING BAGS */}
+                                  <div>
+                                    <h3 className="text-lg font-bold text-gray-800 mb-4 uppercase tracking-wide">POUCHES</h3>
+                                    <div className="space-y-3 mb-6">
+                                      {section.categories.filter(cat => 
+                                        cat.name.toLowerCase().includes('pouches')
+                                      ).map((category) => (
+                                        <div key={category.slug}>
+                                          {category.subcategories.map((subcategory) => (
+                                            <Link
+                                              key={subcategory.slug}
+                                              href={`/products/${category.slug}/${subcategory.slug}`}
+                                              onClick={handleSmoothClose}
+                                              className="flex items-center px-3 py-2 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] group"
+                                            >
+                                              <Image
+                                                src={getSubcategoryIcon(subcategory.name)}
+                                                alt={subcategory.name}
+                                                width={40}
+                                                height={40}
+                                                className="w-10 h-10 mr-3 flex-shrink-0 rounded-lg"
+                                              />
+                                              <div>
+                                                <div className="font-medium text-sm">{subcategory.name}</div>
+                                                <div className="text-xs text-gray-500">Flexible packaging solutions</div>
+                                              </div>
+                                            </Link>
+                                          ))}
+                                        </div>
+                                      ))}
+                                    </div>
+                                    
+                                    <h3 className="text-lg font-bold text-gray-800 mb-4 uppercase tracking-wide">SHOPPING BAGS</h3>
+                                    <div className="space-y-3">
+                                      {section.categories.filter(cat => 
+                                        cat.name.toLowerCase().includes('shopping bags')
+                                      ).map((category) => (
+                                        <div key={category.slug}>
+                                          {category.subcategories.map((subcategory) => (
+                                            <Link
+                                              key={subcategory.slug}
+                                              href={`/products/${category.slug}/${subcategory.slug}`}
+                                              onClick={handleSmoothClose}
+                                              className="flex items-center px-3 py-2 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] group"
+                                            >
+                                              <Image
+                                                src={getSubcategoryIcon(subcategory.name)}
+                                                alt={subcategory.name}
+                                                width={40}
+                                                height={40}
+                                                className="w-10 h-10 mr-3 flex-shrink-0 rounded-lg"
+                                              />
+                                              <div>
+                                                <div className="font-medium text-sm">{subcategory.name}</div>
+                                                <div className="text-xs text-gray-500">Eco-friendly bag solutions</div>
+                                              </div>
+                                            </Link>
+                                          ))}
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+
+                                  {/* Column 3: OTHERS (Part 1) */}
+                                  <div>
+                                    <h3 className="text-lg font-bold text-gray-800 mb-4 uppercase tracking-wide">OTHERS</h3>
+                                    <div className="space-y-3">
+                                      {section.categories.filter(cat => 
+                                        cat.name.toLowerCase().includes('other')
+                                      ).map((category) => (
+                                        <div key={category.slug}>
+                                          {category.subcategories.slice(0, Math.ceil(category.subcategories.length / 2)).map((subcategory) => (
+                                              <Link
+                                                key={subcategory.slug}
+                                              href={`/products/${category.slug}/${subcategory.slug}`}
+                                                onClick={handleSmoothClose}
+                                              className="flex items-center px-3 py-2 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] group"
+                                            >
+                                              <Image
+                                                src={getSubcategoryIcon(subcategory.name)}
+                                                alt={subcategory.name}
+                                                width={40}
+                                                height={40}
+                                                className="w-10 h-10 mr-3 flex-shrink-0 rounded-lg"
+                                                onError={(e) => {
+                                                  console.error('Image failed to load:', getSubcategoryIcon(subcategory.name), 'for:', subcategory.name);
+                                                }}
+                                                onLoad={() => {
+                                                  console.log('Image loaded successfully:', getSubcategoryIcon(subcategory.name), 'for:', subcategory.name);
+                                                }}
+                                              />
+                                              <div>
+                                                <div className="font-medium text-sm">{subcategory.name}</div>
+                                                <div className="text-xs text-gray-500">Additional packaging accessories</div>
+                                              </div>
+                                              </Link>
+                                            ))}
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+
+                                  {/* Column 4: OTHERS (Part 2) */}
+                                  <div>
+                                    <h3 className="text-lg font-bold text-gray-800 mb-4 uppercase tracking-wide">&nbsp;</h3>
+                                    <div className="space-y-3">
+                                      {section.categories.filter(cat => 
+                                        cat.name.toLowerCase().includes('other')
+                                      ).map((category) => (
+                                        <div key={category.slug}>
+                                          {category.subcategories.slice(Math.ceil(category.subcategories.length / 2)).map((subcategory) => (
+                                            <Link
+                                              key={subcategory.slug}
+                                              href={`/products/${category.slug}/${subcategory.slug}`}
+                                              onClick={handleSmoothClose}
+                                              className="flex items-center px-3 py-2 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] group"
+                                            >
+                                              <Image
+                                                src={getSubcategoryIcon(subcategory.name)}
+                                                alt={subcategory.name}
+                                                width={40}
+                                                height={40}
+                                                className="w-10 h-10 mr-3 flex-shrink-0 rounded-lg"
+                                                onError={(e) => {
+                                                  console.error('Image failed to load:', getSubcategoryIcon(subcategory.name), 'for:', subcategory.name);
+                                                }}
+                                                onLoad={() => {
+                                                  console.log('Image loaded successfully:', getSubcategoryIcon(subcategory.name), 'for:', subcategory.name);
+                                                }}
+                                              />
+                                              <div>
+                                                <div className="font-medium text-sm">{subcategory.name}</div>
+                                                <div className="text-xs text-gray-500">Additional packaging accessories</div>
                               </div>
+                                            </Link>
+                                          ))}
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                  </div>
+                              </div>
+                              ) : (
+                                // Simple grid layout for Industries and other sections
+                                <div className="w-full px-6">
+                                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-h-80 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 hover:scrollbar-thumb-gray-400 pt-4 pb-4">
+                                    {section.categories.map((category) => (
+                                      <Link
+                                        key={category.slug}
+                                        href={`/products/${section.slug}/${category.slug}`}
+                                        onClick={handleSmoothClose}
+                                        className="flex items-center px-4 py-3 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] group"
+                                      >
+                                        <Image
+                                          src={getCategoryIcon(category.name)}
+                                          alt={category.name}
+                                          width={32}
+                                          height={32}
+                                          className="w-8 h-8 mr-3 flex-shrink-0"
+                                        />
+                                        <span className="font-medium text-sm">{category.name}</span>
+                                      </Link>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
                             </div>
                           ) : (
                             // Simple dropdown for sections without subcategories - using same layout as complex dropdowns

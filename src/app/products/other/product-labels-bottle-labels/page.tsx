@@ -3,16 +3,18 @@ import { navigationData } from '../../../data/navigationData';
 import ProductPageTemplate from '../../../components/product-page/page';
 
 const ProductLabelsBottleLabelsPage = () => {
-  const section = navigationData.find(s => s.slug === 'other');
-  const subcategory = section?.subcategories?.find(sc => sc.slug === 'product-labels-bottle-labels');
+  const section = navigationData.find(s => s.slug === 'product-by-material');
+  const category = section?.categories?.find(c => c.slug === 'other');
+  const subcategory = category?.subcategories?.find(sc => sc.slug === 'product-labels-bottle-labels');
   
-  if (!section || !subcategory) {
+  if (!section || !category || !subcategory) {
     return <div>Subcategory not found</div>;
   }
 
   return (
     <ProductPageTemplate
       section={section}
+      category={category}
       subcategory={subcategory}
       slug="product-labels-bottle-labels"
       pageType="subcategory"
