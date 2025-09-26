@@ -125,7 +125,7 @@ const ScrollVideoSection = () => {
       style={{ 
         height: '500vh', // Increased height to make animation slower
         position: 'relative',
-        zIndex: animationCompleted ? 'auto' : 10 // Higher z-index when animation is not complete
+        zIndex: animationCompleted ? 'auto' : 10
       }}
     >
       <div className="w-full mx-auto h-full">
