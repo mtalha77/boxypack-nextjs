@@ -1,9 +1,10 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { SubCategory } from '../../data/navigationData';
+import LightBlueBackground from '../../UI/LightBlueBackground';
 
 interface SubcategoryCardsProps {
   subcategories: SubCategory[];
@@ -20,13 +21,37 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
   sectionSlug,
   className = ''
 }) => {
+  const [showAll, setShowAll] = useState(false);
+  
   if (!subcategories || subcategories.length === 0) {
     return null;
   }
 
+  // Show only first 4 cards initially, or all if showAll is true
+  const displayedSubcategories = showAll ? subcategories : subcategories.slice(0, 4);
+  const hasMoreCards = subcategories.length > 4;
+
+  const handleToggleShowAll = () => {
+    setShowAll(!showAll);
+    
+    // If showing less (collapsing), scroll to the subcategory section
+    if (showAll) {
+      setTimeout(() => {
+        const element = document.getElementById('subcategories-heading');
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start',
+            inline: 'nearest'
+          });
+        }
+      }, 100); // Small delay to allow state update to complete
+    }
+  };
+
   return (
-    <section className={`py-16 bg-gray-50 ${className}`} aria-labelledby="subcategories-heading">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <LightBlueBackground className={className}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-labelledby="subcategories-heading">
         <div className="text-center mb-12">
           <h2 
             id="subcategories-heading"
@@ -41,59 +66,61 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {subcategories.map((subcategory, index) => (
+          {displayedSubcategories.map((subcategory, index) => (
             <Link
               key={subcategory.slug}
               href={`/products/${sectionSlug}/${parentCategorySlug}/${subcategory.slug}`}
-              className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 hover:border-[#0c6b76] hover:-translate-y-1"
+              className="group w-72 h-80 bg-[var(--color-teal-deep)] p-3 flex flex-col gap-1 rounded-br-3xl hover:shadow-2xl transition-all duration-500"
               aria-label={`View ${subcategory.name} products`}
             >
-              <div className="aspect-w-16 aspect-h-9 mb-4 relative overflow-hidden rounded-lg">
+              <div className="duration-500 contrast-50 h-48 bg-gradient-to-bl from-[var(--color-brown-dark2)] via-[var(--color-brown-golden)] to-[var(--color-turquoise-bright)] hover:contrast-100 relative overflow-hidden rounded-lg">
                 <Image
                   src="/img/products-box-img.png"
                   alt={`${subcategory.name} packaging example`}
                   width={400}
                   height={300}
-                  className="w-full h-32 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover opacity-100 group-hover:opacity-60 transition-opacity duration-500"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
               </div>
               
-              <div className="space-y-2">
-                <h3 className="text-h4 font-semibold text-body-primary group-hover:text-heading-primary transition-colors duration-300 min-h-[3.5rem] flex items-center">
-                  {subcategory.name}
-                </h3>
-                <p className="text-body-small text-body-secondary min-h-[4.5rem] flex items-start line-clamp-2">
-                  {subcategory.description || `Premium ${subcategory.name.toLowerCase()} packaging solutions designed for optimal protection and presentation.`}
-                </p>
-                
-                <div className="flex items-center text-heading-primary text-body-small font-medium group-hover:text-[#0ca6c2] transition-colors duration-300">
-                  <span>Explore Products</span>
-                  <svg 
-                    className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col">
+                  <span className="text-xl text-gray-50 font-bold">{subcategory.name}</span>
+                  <p className="text-xs text-gray-400 line-clamp-1">
+                    {subcategory.description || `Premium ${subcategory.name.toLowerCase()} packaging solutions designed for optimal protection and presentation.`}
+                  </p>
                 </div>
+                <button className="hover:bg-[var(--color-teal-blue)] text-gray-50 bg-[var(--color-turquoise-bright)] py-2 rounded-br-xl transition-colors duration-200">
+                  Add to cart
+                </button>
               </div>
             </Link>
           ))}
         </div>
         
-        {subcategories.length > 12 && (
+        {/* Show All / Show Less Button */}
+        {hasMoreCards && (
           <div className="text-center mt-8">
-            <p className="text-body-muted text-body-small">
-              Showing {subcategories.length} {parentCategoryName.toLowerCase()} categories
-            </p>
+            <button
+              onClick={handleToggleShowAll}
+              className="inline-flex items-center px-6 py-3 bg-[#0c6b76] text-white font-medium rounded-lg hover:bg-[#0a5a65] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#0c6b76] focus:ring-offset-2"
+            >
+              {showAll ? 'Show Less' : `Show All ${subcategories.length} Categories`}
+              <svg 
+                className={`ml-2 w-4 h-4 transform transition-transform duration-200 ${showAll ? 'rotate-180' : ''}`}
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
           </div>
         )}
       </div>
-    </section>
+    </LightBlueBackground>
   );
 };
 

@@ -271,9 +271,9 @@ export const productByIndustryData: IndustryCategory[] = [
     ]
   },
   {
-    name: "E-liquid Boxes",
-    slug: "e-liquid-boxes",
-    description: "Specialized packaging for vaping products with leak-proof designs",
+    name: "Vape Boxes",
+    slug: "vape-boxes",
+    description: "Specialized packaging for vaping products with leak-proof designs and compliance features",
     image: "/img/products-box-img.png",
     subcategoriesCount: 5,
     modelPath: "/models/Tuck End Auto Bottom1.glb",
@@ -283,6 +283,19 @@ export const productByIndustryData: IndustryCategory[] = [
       { name: "Vape Cartridge Packaging", slug: "vape-cartridge-packaging" },
       { name: "Custom Vape Boxes", slug: "custom-vape-boxes" },
       { name: "Disposable Vape Packaging", slug: "disposable-vape-packaging" }
+    ]
+  },
+  {
+    name: "E-liquid Boxes",
+    slug: "e-liquid-boxes",
+    description: "Specialized packaging for e-liquid products with leak-proof designs",
+    image: "/img/products-box-img.png",
+    subcategoriesCount: 3,
+    modelPath: "/models/Tuck End Auto Bottom1.glb",
+    subcategories: [
+      { name: "E-liquid Bottle Boxes", slug: "e-liquid-bottle-boxes" },
+      { name: "E-liquid Display Boxes", slug: "e-liquid-display-boxes" },
+      { name: "E-liquid Gift Boxes", slug: "e-liquid-gift-boxes" }
     ]
   },
   {

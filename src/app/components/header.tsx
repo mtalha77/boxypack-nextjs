@@ -184,6 +184,7 @@ const getCategoryIcon = (categoryName: string) => {
   if (name.includes('sports')) return '/icons/sportsBox.png'; // Sports boxes
   if (name.includes('cigarette')) return '/icons/cigratteeBox.png'; // Cigarette boxes
   if (name.includes('cbd')) return '/icons/CBDBox.png'; // CBD boxes
+  if (name.includes('vape')) return '/icons/eliquidBox.png'; // Vape boxes
   if (name.includes('e-liquid')) return '/icons/eliquidBox.png'; // E-liquid boxes
   if (name.includes('stationery')) return '/icons/stationaryBox.png'; // Stationery boxes
   if (name.includes('christmas')) return '/icons/christmasBox.png'; // Christmas boxes
@@ -328,6 +329,10 @@ const getSubcategoryIcon = (subcategoryName: string) => {
   if (name.includes('cartridge')) return '/icons/box (3).svg'; // Cartridge boxes
   if (name.includes('disposable')) return '/icons/box (4).svg'; // Disposable boxes
   if (name.includes('e liquid')) return '/icons/box (1).svg'; // E-liquid boxes
+  if (name.includes('empty vape')) return '/icons/empty-box.svg'; // Empty vape boxes
+  if (name.includes('vape cartridge packaging')) return '/icons/box (3).svg'; // Vape cartridge packaging
+  if (name.includes('custom vape')) return '/icons/box (1).svg'; // Custom vape boxes
+  if (name.includes('disposable vape')) return '/icons/box (4).svg'; // Disposable vape packaging
   
   // Stationery boxes
   if (name.includes('pencil')) return '/icons/box (3).svg'; // Pencil boxes

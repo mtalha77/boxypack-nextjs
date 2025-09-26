@@ -167,11 +167,8 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
         {/* Custom Dimensions Form */}
         <CustomDimensionsForm />
 
-        {/* Features Section */}
-        <FeaturesSection productData={productInfo} />
-
-        {/* Subcategory Cards Section - Show subcategories for category pages */}
-        {pageType === 'category' && category?.subcategories && section && (
+        {/* Subcategory Cards Section - Show subcategories for category and subcategory pages */}
+        {(pageType === 'category' || pageType === 'subcategory') && category?.subcategories && section && (
           <SubcategoryCards
             subcategories={category.subcategories}
             parentCategoryName={category.name}
@@ -179,6 +176,9 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
             sectionSlug={section.slug}
           />
         )}
+
+        {/* Features Section */}
+        <FeaturesSection productData={productInfo} />
 
         {/* Material Carousel - Show on product-by-material pages */}
         {section?.slug === 'product-by-material' && (

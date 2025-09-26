@@ -61,10 +61,34 @@ const ScrollVideoSection = () => {
       if (images[index - 1] && canvasRef.current) {
         const ctx = canvasRef.current.getContext('2d');
         if (ctx) {
+          const canvas = canvasRef.current;
+          const img = images[index - 1];
+          
           // Clear canvas
-          ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
-          // Draw the current image
-          ctx.drawImage(images[index - 1], 0, 0, canvasRef.current.width, canvasRef.current.height);
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          
+          // Calculate aspect ratios
+          const canvasAspect = canvas.width / canvas.height;
+          const imgAspect = img.width / img.height;
+          
+          let drawWidth, drawHeight, offsetX, offsetY;
+          
+          if (imgAspect > canvasAspect) {
+            // Image is wider than canvas - fit to height, center horizontally
+            drawHeight = canvas.height;
+            drawWidth = drawHeight * imgAspect;
+            offsetX = (canvas.width - drawWidth) / 2;
+            offsetY = 0;
+          } else {
+            // Image is taller than canvas - fit to width, center vertically
+            drawWidth = canvas.width;
+            drawHeight = drawWidth / imgAspect;
+            offsetX = 0;
+            offsetY = (canvas.height - drawHeight) / 2;
+          }
+          
+          // Draw the image centered and maintaining aspect ratio
+          ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
         }
       }
     },
@@ -105,12 +129,15 @@ const ScrollVideoSection = () => {
       }}
     >
       <div className="w-full mx-auto h-full">
-        <div className="sticky top-0 h-screen flex items-center justify-center">
+        <div className="sticky top-0 w-full h-screen">
           <canvas
             ref={canvasRef}
-            width={800}
+            width={1000}
             height={500}
-            className="w-full h-full object-fit"
+            className="w-full h-full"
+            style={{
+              display: 'block'
+            }}
           />   
         </div>
       </div>
