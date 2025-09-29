@@ -4,7 +4,6 @@ import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { productByIndustryData } from '../data/productByIndustryData';
-import LightBlueBackground from '../UI/LightBlueBackground';
 
 const ProductByIndustryCarousel: React.FC = () => {
   const cardsContainerRef = useRef<HTMLDivElement>(null);
@@ -23,7 +22,7 @@ const ProductByIndustryCarousel: React.FC = () => {
   };
 
   return (
-    <LightBlueBackground className="relative py-16 overflow-hidden">
+    <section className="relative bg-white py-16 overflow-hidden">
       <div className="w-full">
         {/* Header Section */}
         <div className="text-center mb-12">
@@ -131,7 +130,7 @@ const ProductByIndustryCarousel: React.FC = () => {
           </button>
         </div>
       </div>
-    </LightBlueBackground>
+    </section>
   );
 };
 

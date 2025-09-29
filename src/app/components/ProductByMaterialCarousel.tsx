@@ -4,6 +4,7 @@ import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { productByMaterialData } from '../data/productByMaterialData';
+import LightBlueBackground from '../UI/LightBlueBackground';
 
 const ProductByMaterialCarousel: React.FC = () => {
   const cardsContainerRef = useRef<HTMLDivElement>(null);
@@ -22,7 +23,7 @@ const ProductByMaterialCarousel: React.FC = () => {
   };
 
   return (
-    <section id="product-by-material" className="relative bg-white py-16 scroll-perfect">
+    <LightBlueBackground id="product-by-material">
       <div className="w-full">
         {/* Header Section */}
         <div className="text-center mb-12">
@@ -130,7 +131,7 @@ const ProductByMaterialCarousel: React.FC = () => {
           </button>
         </div>
       </div>
-    </section>
+    </LightBlueBackground>
   );
 };
 

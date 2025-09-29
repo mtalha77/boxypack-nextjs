@@ -329,6 +329,17 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
 
           {/* Right Column - Product Details and Form */}
           <div className="space-y-4">
+            {/* Header Section */}
+            <div className="text-left">
+              <h1 className="text-3xl md:text-4xl font-bold text-[#0c6b76] mb-4">
+                Customize Your Packaging
+              </h1>
+              <p className="text-lg text-gray-600">
+                Design and order custom packaging boxes tailored to your exact specifications. 
+                Choose from our wide range of materials, sizes, and finishes.
+              </p>
+            </div>
+            
             {/* Product Selection */}
             <div className="space-y-1">
               <div className="flex items-center gap-2">
@@ -721,7 +732,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="mt-12 text-center">
+        <div className="mt-12 text-right">
           <p className="text-[#0c6b76]">
             Can&apos;t find what you&apos;re looking for?{' '}
             <button

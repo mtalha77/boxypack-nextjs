@@ -120,7 +120,9 @@ const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({ productData }) 
   };
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden" style={{ backgroundImage: 'url(/img/spray-paint.png)', backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+      {/* Background Overlay */}
+      <div className="absolute inset-0 bg-white/80"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header Section */}
