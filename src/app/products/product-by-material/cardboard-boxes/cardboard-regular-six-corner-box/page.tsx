@@ -24,3 +24,5 @@ const CardboardRegularSixCornerBoxPage = () => {
 
 export default CardboardRegularSixCornerBoxPage;
 
+
+

@@ -24,3 +24,5 @@ const CardboardAutoBottomTrayPage = () => {
 
 export default CardboardAutoBottomTrayPage;
 
+
+

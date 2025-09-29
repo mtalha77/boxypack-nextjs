@@ -24,3 +24,5 @@ const CardboardTwoPieceBoxPage = () => {
 
 export default CardboardTwoPieceBoxPage;
 
+
+

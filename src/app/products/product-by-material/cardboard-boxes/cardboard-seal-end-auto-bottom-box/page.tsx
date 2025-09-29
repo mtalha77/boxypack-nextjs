@@ -24,3 +24,5 @@ const CardboardSealEndAutoBottomBoxPage = () => {
 
 export default CardboardSealEndAutoBottomBoxPage;
 
+
+

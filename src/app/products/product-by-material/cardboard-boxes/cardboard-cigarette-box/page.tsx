@@ -24,3 +24,5 @@ const CardboardCigaretteBoxPage = () => {
 
 export default CardboardCigaretteBoxPage;
 
+
+

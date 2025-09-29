@@ -24,3 +24,5 @@ const CardboardDoubleLockedWallLidBoxPage = () => {
 
 export default CardboardDoubleLockedWallLidBoxPage;
 
+
+

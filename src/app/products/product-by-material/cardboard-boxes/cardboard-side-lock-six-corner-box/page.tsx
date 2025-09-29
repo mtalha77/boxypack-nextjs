@@ -24,3 +24,5 @@ const CardboardSideLockSixCornerBoxPage = () => {
 
 export default CardboardSideLockSixCornerBoxPage;
 
+
+

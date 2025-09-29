@@ -24,3 +24,5 @@ const CardboardBookendBoxPage = () => {
 
 export default CardboardBookendBoxPage;
 
+
+
