@@ -160,7 +160,7 @@ const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({ productData }) 
               </div>
 
               {/* Testimonial Text */}
-              <blockquote className="text-h3 text-body-primary text-center mb-8 font-medium transition-all duration-500 ease-in-out">
+              <blockquote className="md:text-2xl text-xl text-black  text-center mb-8 transition-all duration-500 ease-in-out">
                 &quot;{testimonials[currentIndex].content}&quot;
               </blockquote>
 
@@ -240,16 +240,16 @@ const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({ productData }) 
 
         {/* Stats Section */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-lg border-2 border-teal-deep">
-            <div className="text-h1 text-heading-primary mb-2">500+</div>
+          <div className="text-center bg-white/60 backdrop-blur-sm rounded-2xl p-8 border-r border-gray-200 md:border-r-2">
+            <div className="text-5xl text-black font-semibold mb-2">500+</div>
             <div className="text-gray-700 font-medium">Happy Clients</div>
           </div>
-          <div className="text-center bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-lg border-2 border-teal-deep">
-            <div className="text-h1 text-heading-primary mb-2">4.9/5</div>
+          <div className="text-center bg-white/60 backdrop-blur-sm rounded-2xl p-8 border-r border-gray-200 md:border-r-2">
+            <div className="text-5xl text-black font-semibold mb-2">4.9/5</div>
             <div className="text-gray-700 font-medium">Average Rating</div>
           </div>
-          <div className="text-center bg-white/60 backdrop-blur-sm rounded-2xl p-8 shadow-lg border-2 border-teal-deep">
-            <div className="text-h1 text-heading-primary mb-2">1000+</div>
+          <div className="text-center bg-white/60 backdrop-blur-sm rounded-2xl p-8">
+            <div className="text-5xl text-black font-semibold mb-2">1000+</div>
             <div className="text-gray-700 font-medium">Projects Completed</div>
           </div>
         </div>

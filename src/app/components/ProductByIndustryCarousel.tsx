@@ -24,7 +24,7 @@ const ProductByIndustryCarousel: React.FC = () => {
 
   return (
     <LightBlueBackground className="relative py-16 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="w-full">
         {/* Header Section */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center border-2 border-brown-dark2 px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full text-brown-dark2 font-bold text-sm font-semibold mb-6 shadow-lg">
@@ -41,10 +41,10 @@ const ProductByIndustryCarousel: React.FC = () => {
         </div>
 
         {/* Cards Container */}
-        <div className=" mx-16 mb-8">
+        <div className="w-full mb-8">
           <div 
             ref={cardsContainerRef}
-            className="flex gap-6 transition-transform duration-500 ease-in-out"
+            className="flex gap-6 transition-transform duration-500 ease-in-out justify-center"
             style={{ transform: `translateX(-${currentIndex * (300 + 24)}px)` }}
           >
           {productByIndustryData.map((category, cardIndex) => (
