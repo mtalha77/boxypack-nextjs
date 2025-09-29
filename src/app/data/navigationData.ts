@@ -1,6 +1,6 @@
 import { productByMaterialData } from './productByMaterialData';
 import { productByIndustryData } from './productByIndustryData';
-import { pouchesData } from './pouchesData';
+import { mylarBoxesData } from './mylarBoxesData';
 import { shoppingBagsData } from './shoppingBagsData';
 import { otherData } from './otherData';
 
@@ -50,12 +50,12 @@ export const navigationData: NavigationSection[] = [
         description: category.description,
         subcategories: category.subcategories
       })),
-      // Pouches category
+      // Mylar Boxes category
       {
-        name: 'Pouches',
-        slug: 'pouches',
-        description: 'Flexible packaging solutions for various products',
-        subcategories: pouchesData.subcategories
+        name: 'Mylar Boxes',
+        slug: 'mylar-boxes',
+        description: 'Premium mylar packaging solutions with excellent barrier properties',
+        subcategories: mylarBoxesData.subcategories
       },
       // Shopping Bags category
       {

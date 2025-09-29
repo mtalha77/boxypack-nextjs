@@ -48,9 +48,9 @@ export const categoryIconMappings: IconMapping[] = [
     description: 'Industry packaging'
   },
   {
-    pattern: 'pouches',
-    iconPath: '/icons/myler-ziplock-bag.png',
-    description: 'Flexible packaging'
+    pattern: 'mylar-boxes',
+    iconPath: '/icons/standup-zip-lock-myler-box.png',
+    description: 'Mylar Boxes'
   },
   {
     pattern: 'shopping bags',
@@ -899,45 +899,25 @@ export const subcategoryIconMappings: IconMapping[] = [
     description: 'Shipping boxes'
   },
   
-  // Pouch products - using specific PNG icons
+  // Mylar boxes products
+
   {
-    pattern: 'stand up zip lock mylar bags',
+    pattern: 'stand up pouche',
     iconPath: '/icons/standup-zip-lock-myler-box.png',
-    description: 'Stand-up zip lock mylar bags',
+    description: 'Stand Up Pouche',
     exactMatch: true
   },
   {
-    pattern: 'mylar ziplock bags',
+    pattern: 'zipper bag',
     iconPath: '/icons/myler-ziplock-bag.png',
-    description: 'Mylar ziplock bags',
+    description: 'Zipper Bag',
     exactMatch: true
   },
   {
-    pattern: 'stand up zip lock myler box',
-    iconPath: '/icons/standup-zip-lock-myler-box.png',
-    description: 'Stand-up zip lock myler box',
+    pattern: 'window bag',
+    iconPath: '/icons/window-bag.png',
+    description: 'Window Bag',
     exactMatch: true
-  },
-  {
-    pattern: 'myler ziplock bag',
-    iconPath: '/icons/myler-ziplock-bag.png',
-    description: 'Mylar ziplock bag',
-    exactMatch: true
-  },
-  {
-    pattern: 'stand up',
-    iconPath: '/icons/standup-zip-lock-myler-box.png',
-    description: 'Stand-up pouches'
-  },
-  {
-    pattern: 'ziplock',
-    iconPath: '/icons/myler-ziplock-bag.png',
-    description: 'Ziplock pouches'
-  },
-  {
-    pattern: 'mylar',
-    iconPath: '/icons/myler-ziplock-bag.png',
-    description: 'Mylar pouches'
   },
   
   // Shopping bag products

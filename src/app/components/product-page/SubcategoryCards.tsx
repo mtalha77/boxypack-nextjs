@@ -23,6 +23,28 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
 }) => {
   const [showAll, setShowAll] = useState(false);
   
+  // Helper function to generate correct URL based on section
+  const getSubcategoryUrl = (subcategorySlug: string) => {
+    let url: string;
+    
+    if (sectionSlug === 'product-by-industry') {
+      url = `/products/${sectionSlug}/${parentCategorySlug}/${subcategorySlug}`;
+    } else if (sectionSlug === 'product-by-material') {
+      // Check if this is a direct category or a material category
+      const directCategories = ['mylar-boxes', 'shopping-bags', 'other'];
+      if (directCategories.includes(parentCategorySlug)) {
+        url = `/products/${parentCategorySlug}/${subcategorySlug}`;
+      } else {
+        // Material categories (cardboard-boxes, corrugated-boxes, kraft-boxes, rigid-boxes)
+        url = `/products/${sectionSlug}/${parentCategorySlug}/${subcategorySlug}`;
+      }
+    } else {
+      url = `/products/${parentCategorySlug}/${subcategorySlug}`;
+    }
+    
+    return url;
+  };
+  
   if (!subcategories || subcategories.length === 0) {
     return null;
   }
@@ -67,33 +89,27 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {displayedSubcategories.map((subcategory, index) => (
-            <div
+            <Link 
               key={subcategory.slug}
-              className="group max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300"
+              href={getSubcategoryUrl(subcategory.slug)}
+              className="group max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 block"
             >
-              <Link href={`/products/${sectionSlug}/${parentCategorySlug}/${subcategory.slug}`}>
-                <Image
-                  src="/img/products-box-img.png"
-                  alt={`${subcategory.name} packaging example`}
-                  width={400}
-                  height={300}
-                  className="w-full h-48 object-cover rounded-t-lg"
-                  loading="lazy"
-                />
-              </Link>
+              <Image
+                src="/img/products-box-img.png"
+                alt={`${subcategory.name} packaging example`}
+                width={400}
+                height={300}
+                className="w-full h-48 object-cover rounded-t-lg"
+                loading="lazy"
+              />
               <div className="p-5">
-                  <Link href={`/products/${sectionSlug}/${parentCategorySlug}/${subcategory.slug}`}>
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 group-hover:text-[var(--color-teal-deep)] line-clamp-2 min-h-[3.5rem] flex items-start transition-colors duration-200">
-                      {subcategory.name}
-                    </h5>
-                  </Link>
-                <p className="mb-3 font-normal text-gray-700 line-clamp-2">
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 group-hover:text-[var(--color-teal-deep)] line-clamp-2 transition-colors duration-200">
+                  {subcategory.name}
+                </h5>
+                <p className="mb-3 font-normal text-gray-700 line-clamp-2 min-h-[3rem]">
                   {subcategory.description || `Premium ${subcategory.name.toLowerCase()} packaging solutions designed for optimal protection and presentation.`}
                 </p>
-                <Link
-                  href={`/products/${sectionSlug}/${parentCategorySlug}/${subcategory.slug}`}
-                  className="inline-flex justify-end items-center text-sm font-semibold text-[var(--color-teal-deep)] hover:text-[var(--color-turquoise-bright)] transition-colors duration-200 group-hover:text-[var(--color-teal-deep)]"
-                >
+                <div className="inline-flex justify-end items-center text-sm font-semibold text-[var(--color-teal-deep)] hover:text-[var(--color-turquoise-bright)] transition-colors duration-200 group-hover:text-[var(--color-teal-deep)]">
                   View Product
                   <svg 
                     className="w-4 h-4 ml-2" 
@@ -110,9 +126,9 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
                       d="m9 18 6-6-6-6"
                     />
                   </svg>
-                </Link>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
         

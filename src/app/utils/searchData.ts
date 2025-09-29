@@ -1,7 +1,7 @@
 import { navigationData } from '../data/navigationData';
 import { productByMaterialData } from '../data/productByMaterialData';
 import { productByIndustryData } from '../data/productByIndustryData';
-import { pouchesData } from '../data/pouchesData';
+import { mylarBoxesData } from '../data/mylarBoxesData';
 import { shoppingBagsData } from '../data/shoppingBagsData';
 import { otherData } from '../data/otherData';
 
@@ -171,25 +171,25 @@ export const getAllSearchData = (): SearchResult[] => {
     });
   });
 
-  // Add pouches data
+  // Add mylar boxes data
   searchData.push({
-    id: 'pouches-main',
-    title: pouchesData.name,
-    description: pouchesData.description,
-    url: '/products/pouches',
+    id: 'mylar-boxes-main',
+    title: mylarBoxesData.name,
+    description: mylarBoxesData.description,
+    url: '/products/mylar-boxes',
     type: 'main-section',
-    section: pouchesData.name,
+    section: mylarBoxesData.name,
     priority: 8,
   });
 
-  pouchesData.subcategories.forEach((subcategory) => {
+  mylarBoxesData.subcategories.forEach((subcategory) => {
     searchData.push({
-      id: `pouches-subcategory-${subcategory.slug}`,
+      id: `mylar-boxes-subcategory-${subcategory.slug}`,
       title: subcategory.name,
       description: subcategory.description || `Custom ${subcategory.name.toLowerCase()}`,
-      url: `/products/pouches/${subcategory.slug}`,
+      url: `/products/mylar-boxes/${subcategory.slug}`,
       type: 'subcategory',
-      section: pouchesData.name,
+      section: mylarBoxesData.name,
       priority: 6,
     });
   });

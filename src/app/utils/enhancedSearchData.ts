@@ -1,7 +1,6 @@
 import { navigationData } from '../data/navigationData';
 import { productByMaterialData } from '../data/productByMaterialData';
 import { productByIndustryData } from '../data/productByIndustryData';
-import { pouchesData } from '../data/pouchesData';
 import { shoppingBagsData } from '../data/shoppingBagsData';
 import { otherData } from '../data/otherData';
 

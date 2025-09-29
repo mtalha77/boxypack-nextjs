@@ -97,21 +97,17 @@ export const productByMaterialData: MaterialCategory[] = [
     slug: "corrugated-boxes",
     description: "Strong corrugated packaging for shipping and storage with maximum protection",
     image: "/img/products-box-img.png",
-    subcategoriesCount: 12,
+    subcategoriesCount: 8,
     modelPath: "/models/Tuck End Auto Bottom1.glb",
     subcategories: [
-      { name: "Mailer Boxes", slug: "corrugated-mailer-boxes" },
-      { name: "Gable Boxes", slug: "corrugated-gable-boxes" },
-      { name: "Inserts / Double Locked Wall Lid", slug: "corrugated-inserts-double-locked-wall-lid" },
-      { name: "Hexagon Boxes", slug: "corrugated-hexagon-boxes" },
-      { name: "Seal End Auto Bottom", slug: "corrugated-seal-end-auto-bottom" },
-      { name: "Auto Bottom Tray", slug: "corrugated-auto-bottom-tray" },
-      { name: "Two Piece Boxes", slug: "corrugated-two-piece-boxes" },
-      { name: "Window Boxes", slug: "corrugated-window-boxes" },
-      { name: "Kraft CBD / Cigarette Boxes", slug: "corrugated-kraft-cbd-cigarette-boxes" },
-      { name: "Brief Case Style", slug: "corrugated-brief-case-style" },
-      { name: "Full Flap Shipping Box", slug: "full-flap-shipping-box" },
-      { name: "Custom Blister Packaging", slug: "corrugated-custom-blister-packaging" }
+      { name: "Corrugated Mailer Box", slug: "corrugated-mailer-box" },
+      { name: "Corrugated Gable Box", slug: "corrugated-gable-box" },
+      { name: "Corrugated Double Locked Wall Lid Box", slug: "corrugated-double-locked-wall-lid-box" },
+      { name: "Corrugated Seal End Auto Bottom Box", slug: "corrugated-seal-end-auto-bottom-box" },
+      { name: "Corrugated Auto Bottom Tray", slug: "corrugated-auto-bottom-tray" },
+      { name: "Corrugated Two Piece Box", slug: "corrugated-two-piece-box" },
+      { name: "Corrugated Brief Case Style Box", slug: "corrugated-brief-case-style-box" },
+      { name: "Corrugated Full Flap Shipping Box", slug: "corrugated-full-flap-shipping-box" }
     ]
   }
 ];

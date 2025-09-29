@@ -1,6 +1,6 @@
 import { productByMaterialData } from './productByMaterialData';
 import { productByIndustryData } from './productByIndustryData';
-import { pouchesData } from './pouchesData';
+import { mylarBoxesData } from './mylarBoxesData';
 import { shoppingBagsData } from './shoppingBagsData';
 import { otherData } from './otherData';
 
@@ -229,16 +229,16 @@ export const productData = {
     ctaTitle: 'Ready to Ship with Confidence?',
     ctaDescription: 'Get a custom quote for your shipping boxes today. Ensure your products arrive safely every time.'
   },
-  'pouches': {
-    name: 'Pouches',
-    description: 'Lightweight pouches are made for a wide range of products. They are easy to use, keep content safe, and give your brand clear visibility.',
+  'mylar-boxes': {
+    name: 'Mylar Boxes',
+    description: 'Premium mylar packaging solutions with excellent barrier properties and durability for various products.',
     heroImage: '/img/products-box-img.png',
     modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [
       {
         icon: 'shield',
-        title: 'Flexible Protection',
-        description: 'Lightweight and flexible packaging for various product types'
+        title: 'Barrier Protection',
+        description: 'Excellent barrier properties protect products from moisture, oxygen, and light'
       },
       {
         icon: 'palette',
@@ -247,17 +247,17 @@ export const productData = {
       },
       {
         icon: 'truck',
-        title: 'Space Efficient',
-        description: 'Compact design reduces shipping costs and storage space'
+        title: 'Durable Material',
+        description: 'Strong mylar material ensures long-lasting protection and durability'
       },
       {
         icon: 'check',
         title: 'Versatile Use',
-        description: 'Perfect for food, cosmetics, electronics, and more'
+        description: 'Perfect for food, electronics, pharmaceuticals, and more'
       }
     ],
     specifications: [
-      { label: 'Material', value: 'Flexible Plastic/Foil' },
+      { label: 'Material', value: 'Mylar Film' },
       { label: 'Thickness', value: '50-200 Microns' },
       { label: 'Printing', value: 'Full Color Flexographic' },
       { label: 'Finish', value: 'Matte/Glossy Available' },
@@ -282,8 +282,8 @@ export const productData = {
       'Custom shapes available',
       'Food-grade materials'
     ],
-    ctaTitle: 'Ready for Flexible Packaging?',
-    ctaDescription: 'Get a custom quote for your pouches today. Discover the perfect flexible packaging solution for your products.'
+    ctaTitle: 'Ready for Mylar Packaging?',
+    ctaDescription: 'Get a custom quote for your mylar boxes today. Discover the perfect barrier packaging solution for your products.'
   },
   'mailers': {
     name: 'Mailers',
@@ -579,18 +579,18 @@ export const getProductDataBySlug = (slug: string) => {
     };
   }
 
-  // Check pouches
-  if (slug === pouchesData.slug) {
+  // Check mylar boxes
+  if (slug === mylarBoxesData.slug) {
     return {
-      name: pouchesData.name,
-      description: pouchesData.description,
-      heroImage: pouchesData.image,
+      name: mylarBoxesData.name,
+      description: mylarBoxesData.description,
+      heroImage: mylarBoxesData.image,
       modelPath: '/models/Tuck End Auto Bottom1.glb',
       features: [
         {
           icon: 'shield',
-          title: 'Flexible Protection',
-          description: 'Lightweight and flexible packaging for various product types'
+          title: 'Barrier Protection',
+          description: 'Excellent barrier properties protect products from moisture, oxygen, and light'
         },
         {
           icon: 'palette',
@@ -599,17 +599,17 @@ export const getProductDataBySlug = (slug: string) => {
         },
         {
           icon: 'truck',
-          title: 'Space Efficient',
-          description: 'Compact design reduces shipping costs and storage space'
+          title: 'Durable Material',
+          description: 'Strong mylar material ensures long-lasting protection and durability'
         },
         {
           icon: 'check',
           title: 'Versatile Use',
-          description: 'Perfect for food, cosmetics, electronics, and more'
+          description: 'Perfect for food, electronics, pharmaceuticals, and more'
         }
       ],
       specifications: [
-        { label: 'Material', value: 'Flexible Plastic/Foil' },
+        { label: 'Material', value: 'Mylar Film' },
         { label: 'Thickness', value: '50-200 Microns' },
         { label: 'Printing', value: 'Full Color Flexographic' },
         { label: 'Finish', value: 'Matte/Glossy Available' },
@@ -623,7 +623,7 @@ export const getProductDataBySlug = (slug: string) => {
         { name: 'X-Large', dimensions: '10×12 inches', price: '$0.45' }
       ],
       galleryImages: [
-        pouchesData.image,
+        mylarBoxesData.image,
         '/img/product-box-2.jpg',
         '/img/Product-Packaging-Boxes.webp',
         '/img/shipping-box-2.webp'
@@ -634,8 +634,8 @@ export const getProductDataBySlug = (slug: string) => {
         'Custom shapes available',
         'Food-grade materials'
       ],
-      ctaTitle: 'Ready for Flexible Packaging?',
-      ctaDescription: 'Get a custom quote for your pouches today. Discover the perfect flexible packaging solution for your products.'
+      ctaTitle: 'Ready for Mylar Packaging?',
+      ctaDescription: 'Get a custom quote for your mylar boxes today. Discover the perfect barrier packaging solution for your products.'
     };
   }
 

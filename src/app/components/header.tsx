@@ -490,13 +490,13 @@ const Header: React.FC = () => {
                                </div>
                              </div>
                              
-                                  {/* Column 2: POUCHES & SHOPPING BAGS */}
+                                  {/* Column 2: MYLAR BOXES & SHOPPING BAGS */}
                                   <div>
-                                    <h3 className="text-lg font-bold text-gray-800 mb-4 uppercase tracking-wide">POUCHES</h3>
-                                    <div className="space-y-3 mb-6">
-                                      {section.categories.filter(cat => 
-                                        cat.name.toLowerCase().includes('pouches')
-                                      ).map((category) => (
+                                     <h3 className="text-lg font-bold text-gray-800 mb-4 uppercase tracking-wide">MYLAR BOXES</h3>
+                                     <div className="space-y-3 mb-6">
+                                       {section.categories.filter(cat => 
+                                         cat.name.toLowerCase().includes('mylar')
+                                       ).map((category) => (
                                         <div key={category.slug}>
                                           {category.subcategories.map((subcategory) => (
                                             <Link
@@ -514,7 +514,7 @@ const Header: React.FC = () => {
                                               />
                                               <div>
                                                 <div className="font-medium text-sm">{subcategory.name}</div>
-                                                <div className="text-xs text-gray-500">Flexible packaging solutions</div>
+                                                <div className="text-xs text-gray-500">Self-locking packaging solutions</div>
                                               </div>
                                             </Link>
                                           ))}

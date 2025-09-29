@@ -28,8 +28,8 @@ const featuredProducts = [
     image: "/img/Box-7.jpg",
   },
   {
-    key: "pouches",
-    product: productData["pouches"],
+    key: "mylar-boxes",
+    product: productData["mylar-boxes"],
     image: "/img/Box-4.jpg",
   },
   {
