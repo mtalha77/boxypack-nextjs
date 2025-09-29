@@ -6,436 +6,19 @@ import { useRouter, usePathname } from 'next/navigation';
 import { 
   ChevronDown, 
   Search, 
-  HelpCircle, 
   Menu, 
   X, 
-  ChevronRight,
-  Package,
-  Box,
-  Archive,
-  Layers,
-  ShoppingBag,
-  Gift,
-  Heart,
-  Star,
-  Coffee,
-  Shirt,
-  Gem,
-  Zap,
-  Cigarette,
-  Leaf,
-  Droplets,
-  Flame,
-  BookOpen,
-  Calendar,
-  Tag,
-  FileText,
-  Printer,
-  Briefcase,
-  Car,
-  Home,
-  Utensils,
-  Gamepad2,
-  Crown,
-  Sparkles,
-  Truck,
-  Mail,
-  Lock,
-  Eye,
-  Square,
-  Circle,
-  Triangle,
-  Hexagon,
-  Pill,
-  Pen,
-  Cookie,
-  Pizza,
-  Wheat,
-  Watch,
-  Book,
-  Presentation,
-  Candy,
-  Milk,
-  Slice,
-  Tags,
-  Table,
-  Tent,
-  // Box-related icons only
-  HardHat,
-  Recycle,
-  Shield,
-  Award,
-  Snowflake,
-  Sun,
-  Moon,
-  TreePine,
-  Flower,
-  Fish,
-  Carrot,
-  Apple,
-  Cherry,
-  IceCream,
-  Cake,
-  Wine,
-  Beer,
-  Syringe,
-  Stethoscope,
-  Microscope,
-  TestTube,
-  Beaker,
-  Atom,
-  Dna,
-  Activity,
-  Footprints,
-  Dumbbell,
-  Trophy,
-  Medal,
-  Target,
-  Crosshair,
-  Key,
-  Unlock,
-  EyeOff,
-  Camera,
-  Video,
-  Headphones,
-  Speaker,
-  Mic,
-  Radio,
-  Tv,
-  Monitor,
-  Smartphone,
-  Laptop,
-  Tablet,
-  Mouse,
-  Keyboard,
-  HardDrive,
-  Database,
-  Server,
-  Cloud,
-  Wifi,
-  Bluetooth,
-  Battery,
-  Plug,
-  Lightbulb,
-  Flashlight,
-  Diamond,
-  Octagon,
-  Pentagon,
-  RectangleHorizontal,
-  RectangleVertical,
-  Ellipsis,
-  Plus,
-  Minus,
-  Check,
-  AlertCircle,
-  AlertTriangle,
-  Info,
-  Ban,
-  CheckCircle,
-  XCircle,
-  Clock,
-  Timer,
-  Hourglass,
-  CalendarDays,
-  CalendarCheck,
-  CalendarX,
-  CalendarPlus,
-  CalendarMinus,
-  CalendarRange,
-  CalendarSearch,
-  CalendarClock,
-  CalendarHeart
+  Package
 } from 'lucide-react';
 import Link from 'next/link';
 import { navigationData, NavigationSection, MainCategory } from '../data/navigationData';
+import { headerConfig, getCategoryIcon, getSubcategoryIcon } from '../data/headerData';
 import SearchDropdown from './SearchDropdown';
 import EnhancedSearchDropdown from './EnhancedSearchDropdown';
 import { getAllSearchData, searchData, SearchResult } from '../utils/searchData';
 import { getAllEnhancedSearchData, enhancedSearch, getSearchSuggestions, EnhancedSearchResult, SearchSuggestion } from '../utils/enhancedSearchData';
 
-// Icon mapping functions using custom box icons
-const getCategoryIcon = (categoryName: string) => {
-  const name = categoryName.toLowerCase();
-  
-  // Main navigation sections - using custom box icons
-  if (name.includes('product by material')) return '/icons/box.svg'; // Layered materials
-  if (name.includes('product by industry')) return '/icons/colored-foldable-box.svg'; // Industry packaging
-  if (name.includes('pouches')) return '/icons/paper-bag-with-round-window.svg'; // Flexible packaging
-  if (name.includes('shopping bags')) return '/icons/paper-bag-with-round-window.svg'; // Shopping containers
-  if (name.includes('other')) return '/icons/empty-box.svg'; // Miscellaneous packaging
-  
-  // Material categories - using custom PNG icons
-  if (name.includes('rigid')) return '/icons/rigid.png'; // Strong, protective boxes
-  if (name.includes('kraft')) return '/icons/kraft.png'; // Eco-friendly boxes
-  if (name.includes('cardboard')) return '/icons/cardboard.png'; // Basic cardboard boxes
-  if (name.includes('corrugated')) return '/icons/corrugated.png'; // Layered structure boxes
-  
-  // Industry categories - using specific PNG icons from icons folder
-  if (name.includes('bakery')) return '/icons/bakeryBox.png'; // Bakery boxes
-  if (name.includes('cosmetic')) return '/icons/cosmaticsBox.png'; // Cosmetic boxes
-  if (name.includes('food')) return '/icons/foodBox.png'; // Food boxes
-  if (name.includes('gift')) return '/icons/giftBox.png'; // Gift boxes
-  if (name.includes('jewelry')) return '/icons/jwelryBox.png'; // Jewelry boxes
-  if (name.includes('retail')) return '/icons/retailBox.png'; // Retail boxes
-  if (name.includes('candle')) return '/icons/candelBox.png'; // Candle boxes
-  if (name.includes('shipping')) return '/icons/shippingBox.png'; // Shipping boxes
-  if (name.includes('soap')) return '/icons/soapBox.png'; // Soap boxes
-  if (name.includes('apparel')) return '/icons/apparelBox.png'; // Apparel boxes
-  if (name.includes('sports')) return '/icons/sportsBox.png'; // Sports boxes
-  if (name.includes('cigarette')) return '/icons/cigratteeBox.png'; // Cigarette boxes
-  if (name.includes('cbd')) return '/icons/CBDBox.png'; // CBD boxes
-  if (name.includes('vape')) return '/icons/eliquidBox.png'; // Vape boxes
-  if (name.includes('e-liquid')) return '/icons/eliquidBox.png'; // E-liquid boxes
-  if (name.includes('stationery')) return '/icons/stationaryBox.png'; // Stationery boxes
-  if (name.includes('christmas')) return '/icons/christmasBox.png'; // Christmas boxes
-  if (name.includes('chocolate')) return '/icons/chocolateBox.png'; // Chocolate boxes
-  if (name.includes('cereal')) return '/icons/carealBox.png'; // Cereal boxes
-  if (name.includes('pre roll')) return '/icons/preRollBox.png'; // Pre-roll boxes
-  if (name.includes('pizza')) return '/icons/pizzaBox.png'; // Pizza boxes
-  
-  return '/icons/box.svg'; // Default box icon
-};
-
-const getSubcategoryIcon = (subcategoryName: string) => {
-  const name = subcategoryName.toLowerCase();
-  
-  // Debug logging for all subcategories
-  console.log('Getting icon for:', subcategoryName, 'processed name:', name);
-  
-  // Box construction types - using custom box icons
-  if (name.includes('magnetic')) return '/icons/box-upside.svg'; // Magnetic closure boxes
-  if (name.includes('two piece')) return '/icons/box (1).svg'; // Two-piece boxes
-  if (name.includes('collapsible') || name.includes('foldable')) return '/icons/colored-foldable-box.svg'; // Foldable boxes
-  if (name.includes('sliding') || name.includes('sleeve')) return '/icons/box (3).svg'; // Sliding boxes
-  if (name.includes('child resistant')) return '/icons/box (4).svg'; // Child-resistant boxes
-  if (name.includes('brief case')) return '/icons/rectangular-folding-box.svg'; // Briefcase boxes
-  if (name.includes('book style')) return '/icons/flat-paper-box.svg'; // Book-style boxes
-  if (name.includes('hexagon')) return '/icons/box.svg'; // Hexagonal boxes
-  if (name.includes('round')) return '/icons/box (1).svg'; // Round boxes
-  if (name.includes('shoulder')) return '/icons/box (3).svg'; // Shoulder boxes
-  if (name.includes('pillow')) return '/icons/box (4).svg'; // Pillow boxes
-  if (name.includes('gable')) return '/icons/tuck-top-box.svg'; // Gable boxes
-  if (name.includes('tuck')) return '/icons/tuck-top-box.svg'; // Tuck boxes
-  if (name.includes('window')) return '/icons/paper-bag-with-round-window.svg'; // Window boxes
-  if (name.includes('display')) return '/icons/open-box.svg'; // Display boxes
-  if (name.includes('dispenser')) return '/icons/tear-top-container.svg'; // Dispenser boxes
-  if (name.includes('hanger')) return '/icons/box.svg'; // Hanger boxes
-  if (name.includes('inserts')) return '/icons/box (3).svg'; // Box inserts
-  if (name.includes('auto bottom')) return '/icons/box (1).svg'; // Auto bottom boxes
-  if (name.includes('seal end')) return '/icons/box-upside.svg'; // Seal end boxes
-  if (name.includes('blister')) return '/icons/box (4).svg'; // Blister boxes
-  if (name.includes('full flap')) return '/icons/wide-open-box.svg'; // Full flap boxes
-  
-  // Specific product types - using custom box icons
-  if (name.includes('mailer')) return '/icons/box.svg'; // Mailer boxes
-  if (name.includes('shipping')) return '/icons/wide-open-box.svg'; // Shipping boxes
-  
-  // All product categories use custom box icons
-  if (name.includes('donut')) return '/icons/tuck-top-box.svg'; // Donut boxes
-  if (name.includes('pastry')) return '/icons/flat-paper-box.svg'; // Pastry boxes
-  if (name.includes('cake')) return '/icons/colored-foldable-box.svg'; // Cake boxes
-  if (name.includes('cookie')) return '/icons/box (1).svg'; // Cookie boxes
-  if (name.includes('candy')) return '/icons/box (3).svg'; // Candy boxes
-  if (name.includes('cupcake')) return '/icons/tuck-top-box.svg'; // Cupcake boxes
-  if (name.includes('truffle')) return '/icons/box (4).svg'; // Truffle boxes
-  if (name.includes('sweet')) return '/icons/box.svg'; // Sweet boxes
-  
-  // Cosmetic boxes
-  if (name.includes('perfume')) return '/icons/open-lid-box.svg'; // Perfume boxes
-  if (name.includes('makeup')) return '/icons/box-upside.svg'; // Makeup boxes
-  if (name.includes('lipstick')) return '/icons/box (1).svg'; // Lipstick boxes
-  if (name.includes('mascara')) return '/icons/box (3).svg'; // Mascara boxes
-  if (name.includes('nail polish')) return '/icons/box (4).svg'; // Nail polish boxes
-  if (name.includes('lip balm')) return '/icons/box.svg'; // Lip balm boxes
-  if (name.includes('foundation')) return '/icons/rectangular-folding-box.svg'; // Foundation boxes
-  if (name.includes('lotion')) return '/icons/box (1).svg'; // Lotion boxes
-  if (name.includes('eyelash')) return '/icons/box (3).svg'; // Eyelash boxes
-  if (name.includes('cream')) return '/icons/box (4).svg'; // Cream boxes
-  if (name.includes('oil')) return '/icons/box.svg'; // Oil boxes
-  if (name.includes('serum')) return '/icons/box (1).svg'; // Serum boxes
-  if (name.includes('hair')) return '/icons/box (3).svg'; // Hair boxes
-  if (name.includes('eye shadow')) return '/icons/box (4).svg'; // Eye shadow boxes
-  if (name.includes('eyeliner')) return '/icons/box.svg'; // Eyeliner boxes
-  
-  // Food boxes
-  if (name.includes('french fry')) return '/icons/flat-paper-box.svg'; // French fry boxes
-  if (name.includes('coffee')) return '/icons/box (1).svg'; // Coffee boxes
-  if (name.includes('noodle')) return '/icons/box (3).svg'; // Noodle boxes
-  if (name.includes('popcorn')) return '/icons/box (4).svg'; // Popcorn boxes
-  if (name.includes('snack')) return '/icons/box.svg'; // Snack boxes
-  if (name.includes('tea')) return '/icons/box (1).svg'; // Tea boxes
-  if (name.includes('burger')) return '/icons/box (3).svg'; // Burger boxes
-  if (name.includes('sandwich')) return '/icons/box (4).svg'; // Sandwich boxes
-  if (name.includes('chinese takeout')) return '/icons/flat-paper-box.svg'; // Chinese takeout boxes
-  if (name.includes('pizza')) return '/icons/flat-paper-box.svg'; // Pizza boxes
-  
-  // Gift boxes
-  if (name.includes('gift')) return '/icons/colored-foldable-box.svg'; // Gift boxes
-  if (name.includes('birthday')) return '/icons/colored-foldable-box.svg'; // Birthday boxes
-  if (name.includes('party')) return '/icons/colored-foldable-box.svg'; // Party boxes
-  if (name.includes('favor')) return '/icons/colored-foldable-box.svg'; // Favor boxes
-  if (name.includes('deluxe')) return '/icons/box-upside.svg'; // Deluxe boxes
-  if (name.includes('luxury')) return '/icons/box-upside.svg'; // Luxury boxes
-  if (name.includes('small')) return '/icons/box (1).svg'; // Small boxes
-  if (name.includes('large')) return '/icons/wide-open-box.svg'; // Large boxes
-  
-  // Jewelry boxes
-  if (name.includes('anklet')) return '/icons/box-upside.svg'; // Anklet boxes
-  if (name.includes('velvet')) return '/icons/box-upside.svg'; // Velvet boxes
-  if (name.includes('jewelry')) return '/icons/box-upside.svg'; // Jewelry boxes
-  if (name.includes('pendant')) return '/icons/box (1).svg'; // Pendant boxes
-  if (name.includes('bracelet')) return '/icons/box (3).svg'; // Bracelet boxes
-  if (name.includes('ring')) return '/icons/box (4).svg'; // Ring boxes
-  if (name.includes('earring')) return '/icons/box.svg'; // Earring boxes
-  if (name.includes('necklace')) return '/icons/box (1).svg'; // Necklace boxes
-  if (name.includes('subscription')) return '/icons/box (3).svg'; // Subscription boxes
-  if (name.includes('bags')) return '/icons/paper-bag-with-round-window.svg'; // Jewelry bags
-  if (name.includes('cards')) return '/icons/flat-paper-box.svg'; // Jewelry cards
-  
-  // Apparel boxes
-  if (name.includes('cufflink')) return '/icons/box (4).svg'; // Cufflink boxes
-  if (name.includes('tie')) return '/icons/box.svg'; // Tie boxes
-  if (name.includes('belt')) return '/icons/box (1).svg'; // Belt boxes
-  if (name.includes('clothing')) return '/icons/box (3).svg'; // Clothing boxes
-  if (name.includes('lingerie')) return '/icons/box (4).svg'; // Lingerie boxes
-  if (name.includes('underwear')) return '/icons/box.svg'; // Underwear boxes
-  if (name.includes('tshirt')) return '/icons/box (1).svg'; // T-shirt boxes
-  if (name.includes('socks')) return '/icons/box (3).svg'; // Socks boxes
-  
-  // Sports boxes
-  if (name.includes('shoe')) return '/icons/wide-open-box.svg'; // Shoe boxes
-  if (name.includes('golf')) return '/icons/box (4).svg'; // Golf boxes
-  if (name.includes('football')) return '/icons/box.svg'; // Football boxes
-  if (name.includes('ball')) return '/icons/box (1).svg'; // Ball boxes
-  
-  // Tobacco boxes
-  if (name.includes('cigarette')) return '/icons/box (3).svg'; // Cigarette boxes
-  if (name.includes('empty')) return '/icons/empty-box.svg'; // Empty boxes
-  if (name.includes('blank')) return '/icons/empty-box.svg'; // Blank boxes
-  if (name.includes('flip top')) return '/icons/tuck-top-box.svg'; // Flip top boxes
-  if (name.includes('paper')) return '/icons/flat-paper-box.svg'; // Paper boxes
-  
-  // CBD/Cannabis boxes
-  if (name.includes('cbd')) return '/icons/box (4).svg'; // CBD boxes
-  if (name.includes('cannabis')) return '/icons/box.svg'; // Cannabis boxes
-  if (name.includes('gummies')) return '/icons/box (1).svg'; // Gummies boxes
-  if (name.includes('hemp')) return '/icons/box (3).svg'; // Hemp boxes
-  if (name.includes('pre roll')) return '/icons/box (3).svg'; // Pre-roll boxes
-  if (name.includes('tincture')) return '/icons/box (4).svg'; // Tincture boxes
-  if (name.includes('delta')) return '/icons/box.svg'; // Delta boxes
-  
-  // Vape boxes
-  if (name.includes('vape')) return '/icons/box (1).svg'; // Vape boxes
-  if (name.includes('cartridge')) return '/icons/box (3).svg'; // Cartridge boxes
-  if (name.includes('disposable')) return '/icons/box (4).svg'; // Disposable boxes
-  if (name.includes('e liquid')) return '/icons/box (1).svg'; // E-liquid boxes
-  if (name.includes('empty vape')) return '/icons/empty-box.svg'; // Empty vape boxes
-  if (name.includes('vape cartridge packaging')) return '/icons/box (3).svg'; // Vape cartridge packaging
-  if (name.includes('custom vape')) return '/icons/box (1).svg'; // Custom vape boxes
-  if (name.includes('disposable vape')) return '/icons/box (4).svg'; // Disposable vape packaging
-  
-  // Stationery boxes
-  if (name.includes('pencil')) return '/icons/box (3).svg'; // Pencil boxes
-  if (name.includes('pen')) return '/icons/box (4).svg'; // Pen boxes
-  if (name.includes('book')) return '/icons/flat-paper-box.svg'; // Book boxes
-  if (name.includes('presentation')) return '/icons/rectangular-folding-box.svg'; // Presentation boxes
-  if (name.includes('folder')) return '/icons/flat-paper-box.svg'; // Folder boxes
-  
-  // Holiday boxes
-  if (name.includes('christmas')) return '/icons/colored-foldable-box.svg'; // Christmas boxes
-  if (name.includes('eve')) return '/icons/colored-foldable-box.svg'; // Eve boxes
-  if (name.includes('present')) return '/icons/colored-foldable-box.svg'; // Present boxes
-  if (name.includes('treat')) return '/icons/colored-foldable-box.svg'; // Treat boxes
-  
-  // Chocolate boxes
-  if (name.includes('chocolate')) return '/icons/tuck-top-box.svg'; // Chocolate boxes
-  if (name.includes('milk')) return '/icons/box (1).svg'; // Milk boxes
-  if (name.includes('bomb')) return '/icons/box (3).svg'; // Bomb boxes
-  if (name.includes('bar')) return '/icons/box (4).svg'; // Bar boxes
-  
-  // Cereal boxes
-  if (name.includes('cereal')) return '/icons/wide-open-box.svg'; // Cereal boxes
-  if (name.includes('corn flakes')) return '/icons/wide-open-box.svg'; // Corn flakes boxes
-  if (name.includes('breakfast')) return '/icons/wide-open-box.svg'; // Breakfast boxes
-  if (name.includes('mini')) return '/icons/box (1).svg'; // Mini boxes
-  if (name.includes('wholesale')) return '/icons/box (3).svg'; // Wholesale boxes
-  if (name.includes('vintage')) return '/icons/box (4).svg'; // Vintage boxes
-  if (name.includes('retro')) return '/icons/box.svg'; // Retro boxes
-  if (name.includes('90s')) return '/icons/box (1).svg'; // 90s boxes
-  if (name.includes('80s')) return '/icons/box (3).svg'; // 80s boxes
-  if (name.includes('funny')) return '/icons/box (4).svg'; // Funny boxes
-  if (name.includes('unique')) return '/icons/box.svg'; // Unique boxes
-  if (name.includes('colorful')) return '/icons/colored-foldable-box.svg'; // Colorful boxes
-  
-  // Candle boxes
-  if (name.includes('candle')) return '/icons/box (4).svg'; // Candle boxes
-  if (name.includes('taper')) return '/icons/box.svg'; // Taper boxes
-  if (name.includes('jar')) return '/icons/box (1).svg'; // Jar boxes
-  if (name.includes('wax melt')) return '/icons/box (3).svg'; // Wax melt boxes
-  if (name.includes('subscription')) return '/icons/box (3).svg'; // Subscription boxes
-  
-  // Soap boxes
-  if (name.includes('soap')) return '/icons/tear-top-container.svg'; // Soap boxes
-  if (name.includes('bath bomb')) return '/icons/box (4).svg'; // Bath bomb boxes
-  if (name.includes('wrapping paper')) return '/icons/flat-paper-box.svg'; // Wrapping paper boxes
-  if (name.includes('handmade')) return '/icons/box.svg'; // Handmade boxes
-  if (name.includes('bar')) return '/icons/box (1).svg'; // Bar boxes
-  
-  // Retail boxes
-  if (name.includes('toy')) return '/icons/box (3).svg'; // Toy boxes
-  if (name.includes('die cut')) return '/icons/box (4).svg'; // Die cut boxes
-  if (name.includes('business card')) return '/icons/flat-paper-box.svg'; // Business card boxes
-  
-  // Pouch products
-  if (name.includes('stand up')) return '/icons/paper-bag-with-round-window.svg'; // Stand-up pouches
-  if (name.includes('ziplock')) return '/icons/paper-bag-with-round-window.svg'; // Ziplock pouches
-  if (name.includes('mylar')) return '/icons/paper-bag-with-round-window.svg'; // Mylar pouches
-  
-  // Shopping bag products - using specific PNG icons
-  if (name.includes('kraft shopping bag') || name === 'kraft shopping bag' || name.toLowerCase().includes('kraft shopping bag')) return '/icons/kraft-shopping-bag.png'; // Kraft Shopping Bag
-  if (name.includes('paper bag') || name === 'paper bag' || name.toLowerCase().includes('paper bag')) return '/icons/paper-bag.png'; // Paper Bag
-  if (name.includes('pvc bag') || name === 'pvc bag' || name.toLowerCase().includes('pvc bag')) return '/icons/pvc-bag.png'; // PVC Bag
-  
-  // Other products - using specific PNG icons
-  if (name.includes('booklets') || name === 'booklets') {
-    console.log('Matched Booklets:', name, '/icons/booklets.png');
-    return '/icons/booklets.png';
-  }
-  if (name.includes('brochures') || name === 'brochures') {
-    console.log('Matched Brochures:', name, '/icons/brochures.png');
-    return '/icons/brochures.png';
-  }
-  if (name.includes('business cards') || name === 'business cards') {
-    console.log('Matched Business Cards:', name, '/icons/business-cards.png');
-    return '/icons/business-cards.png';
-  }
-  if (name.includes('custom tissue paper') || name === 'custom tissue paper') {
-    console.log('Matched Custom Tissue Paper:', name, '/icons/custom-tissue-paper.png');
-    return '/icons/custom-tissue-paper.png';
-  }
-  if (name.includes('butter paper') || name === 'butter paper') {
-    console.log('Matched Butter Paper:', name, '/icons/butter-paper.png');
-    return '/icons/butter-paper.png';
-  }
-  if (name.includes('product labels') || name.includes('bottle labels') || name === 'product labels & bottle labels') {
-    console.log('Matched Product Labels:', name, '/icons/product-label.png');
-    return '/icons/product-label.png';
-  }
-  if (name.includes('table tents') || name === 'table tents') {
-    console.log('Matched Table Tents:', name, '/icons/table-tents.png');
-    return '/icons/table-tents.png';
-  }
-  if (name.includes('tags printing') || name === 'tags printing') {
-    console.log('Matched Tags Printing:', name, '/icons/tag-printing.png');
-    return '/icons/tag-printing.png';
-  }
-  if (name.includes('packing tape') || name === 'packing tape') {
-    console.log('Matched Packing Tape:', name, '/icons/packing-tape.png');
-    return '/icons/packing-tape.png';
-  }
-  
-  return '/icons/box.svg'; // Default box icon
-};
+// Icon mapping functions are now imported from headerData.ts
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -492,7 +75,7 @@ const Header: React.FC = () => {
           console.log('Search completed:', { query: searchQuery, resultsCount: results.length });
         }
         setIsSearchLoading(false);
-      }, 200); // Reduced debounce for better responsiveness
+      }, headerConfig.search.debounceDelay);
     } else {
       setSearchResults([]);
       setEnhancedSearchResults([]);
@@ -630,7 +213,12 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between">
           {/* Left Side - Logo */}
           <Link href="/" className="flex items-center">
-            <Image src="/img/logo-vertical.png" alt="Boxypack" width={200} height={100} />
+            <Image 
+              src={headerConfig.logo.src} 
+              alt={headerConfig.logo.alt} 
+              width={headerConfig.logo.width} 
+              height={headerConfig.logo.height} 
+            />
           </ Link>
 
           {/* Center - Search Bar - Hidden on mobile */}
@@ -639,7 +227,7 @@ const Header: React.FC = () => {
               <input
                 ref={searchInputRef}
                 type="text"
-                placeholder="Search for products, categories, or anything..."
+                placeholder={headerConfig.search.placeholder}
                 value={searchQuery}
                 onChange={handleSearchChange}
                 onFocus={handleSearchFocus}
@@ -676,31 +264,15 @@ const Header: React.FC = () => {
 
           {/* Right Side - Navigation - Hidden on mobile */}
           <div className="hidden md:flex items-center space-x-6">
-            {/* How It Works - No Dropdown */}
-            <Link href="/how-it-works" className="text-gray-700 hover:text-[#0c6b76] transition-colors font-medium">
-              How It Works
-            </Link>
-
-            {/* About Us - No Dropdown */}
-            <Link href="/about-us" className="text-gray-700 hover:text-[#0c6b76] transition-colors font-medium">
-              About Us
-            </Link>
-
-            {/* Privacy Policy */}
-            <Link href="/privacy-policy" className="text-gray-700 hover:text-[#0c6b76] transition-colors font-medium">
-              Privacy Policy
-            </Link>
-
-            {/* Terms of Use */}
-            <Link href="/terms-of-use" className="text-gray-700 hover:text-[#0c6b76] transition-colors font-medium">
-              Terms of Use
-            </Link>
-
-            {/* Contact Us - No Dropdown */}
-            <Link href="/contact-us" className="text-gray-700 hover:text-[#0c6b76] transition-colors font-medium">
-              Contact Us
-            </Link>
-
+            {headerConfig.navigation.items.map((item) => (
+              <Link 
+                key={item.href}
+                href={item.href} 
+                className="text-gray-700 hover:text-[#0c6b76] transition-colors font-medium"
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
 
           {/* Mobile Menu Button */}
@@ -718,8 +290,8 @@ const Header: React.FC = () => {
 
              {/* Mobile Menu Overlay */}
        {isMobileMenuOpen && (
-         <div className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-50" onClick={() => setIsMobileMenuOpen(false)}>
-           <div className="absolute top-0 right-0 w-80 h-full bg-white shadow-lg" onClick={(e) => e.stopPropagation()}>
+         <div className={`md:hidden fixed inset-0 bg-black ${headerConfig.mobile.overlayOpacity} z-50`} onClick={() => setIsMobileMenuOpen(false)}>
+           <div className={`absolute top-0 right-0 ${headerConfig.mobile.menuWidth} h-full bg-white shadow-lg`} onClick={(e) => e.stopPropagation()}>
              <div className="p-6">
                <div className="flex items-center justify-between mb-6">
                  {/* Logo instead of "Menu" text */}
@@ -745,7 +317,7 @@ const Header: React.FC = () => {
                  <div className="relative">
                    <input
                      type="text"
-                     placeholder="Search for products..."
+                     placeholder={headerConfig.search.placeholder}
                      value={searchQuery}
                      onChange={handleSearchChange}
                      onFocus={handleSearchFocus}
@@ -810,30 +382,15 @@ const Header: React.FC = () => {
                
                {/* Mobile Navigation Items */}
                <div className="space-y-4">
-                 {/* How It Works - No Dropdown */}
-                 <Link href="/how-it-works" className="block py-3 px-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                   <span className="font-semibold text-gray-900">How It Works</span>
-                 </Link>
-
-                 {/* About Us - No Dropdown */}
-                 <Link href="/about-us" className="block py-3 px-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                   <span className="font-semibold text-gray-900">About Us</span>
-                 </Link>
-
-                 {/* Privacy Policy */}
-                 <Link href="/privacy-policy" className="block py-3 px-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                   <span className="font-semibold text-gray-900">Privacy Policy</span>
-                 </Link>
-
-                 {/* Terms of Use */}
-                 <Link href="/terms-of-use" className="block py-3 px-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                   <span className="font-semibold text-gray-900">Terms of Use</span>
-                 </Link>
-
-                 {/* Contact Us - No Dropdown */}
-                 <Link href="/contact" className="block py-3 px-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                   <span className="font-semibold text-gray-900">Contact Us</span>
-                 </Link>
+                 {headerConfig.navigation.items.map((item) => (
+                   <Link 
+                     key={item.href}
+                     href={item.href} 
+                     className="block py-3 px-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                   >
+                     <span className="font-semibold text-gray-900">{item.name}</span>
+                   </Link>
+                 ))}
                </div>
              </div>
            </div>

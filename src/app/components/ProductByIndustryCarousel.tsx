@@ -48,42 +48,52 @@ const ProductByIndustryCarousel: React.FC = () => {
             style={{ transform: `translateX(-${currentIndex * (300 + 24)}px)` }}
           >
           {productByIndustryData.map((category, cardIndex) => (
-            <Link
+            <div
               key={cardIndex}
-              href={`/products/product-by-industry/${category.slug}`}
-              className="card-center bg-white rounded-2xl border border-gray-200 flex-shrink-0 overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300 block"
-              style={{ width: "300px", height: "360px" }}
+              className="group max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 flex-shrink-0"
+              style={{ width: "300px" }}
             >
-              <div className="relative h-40 overflow-hidden">
+              <Link href={`/products/product-by-industry/${category.slug}`}>
                 <Image
                   src={category.image}
                   alt={category.name}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  width={400}
+                  height={300}
+                  className="w-full h-48 object-cover rounded-t-lg"
                 />
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0c6b76]/20 to-transparent"></div>
-              </div>
-              <div className="p-4">
-                <div className="mb-3">
-                  <span className="inline-block px-2 py-1 bg-[#0c6b76]/10 text-[#0c6b76] text-xs font-semibold rounded-full">
-                    Industry Category
-                  </span>
-                  <span className="inline-block px-2 py-1 bg-[#0ca6c2]/10 text-[#0ca6c2] text-xs font-semibold rounded-full ml-2">
-                    {category.subcategoriesCount} Products
-                  </span>
-                </div>
-                <h4 className="text-base font-bold text-[#0c6b76] mb-2 group-hover:text-[#0ca6c2] transition-colors duration-300">
-                  {category.name}
-                </h4>
-                <div className="flex items-center text-[#0c6b76] group-hover:text-[#0ca6c2] transition-colors">
-                  <span className="text-sm font-medium mr-2">Explore Products</span>
-                  <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </Link>
+              <div className="p-5">
+                <Link href={`/products/product-by-industry/${category.slug}`}>
+                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 group-hover:text-[var(--color-teal-deep)] line-clamp-2 min-h-[3.5rem] flex items-start transition-colors duration-200">
+                    {category.name}
+                  </h5>
+                </Link>
+                <p className="mb-3 font-normal text-gray-700 line-clamp-2">
+                  {category.description || `Premium ${category.name.toLowerCase()} packaging solutions designed for optimal protection and presentation.`}
+                </p>
+                <Link
+                  href={`/products/product-by-industry/${category.slug}`}
+                  className="inline-flex justify-end items-center text-sm font-semibold text-[var(--color-teal-deep)] hover:text-[var(--color-turquoise-bright)] transition-colors duration-200 group-hover:text-[var(--color-teal-deep)]"
+                >
+                  View Product
+                  <svg 
+                    className="w-4 h-4 ml-2" 
+                    aria-hidden="true" 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    fill="none" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      stroke="currentColor" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth="2" 
+                      d="m9 18 6-6-6-6"
+                    />
                   </svg>
-                </div>
+                </Link>
               </div>
-            </Link>
+            </div>
           ))}
           </div>
         </div>

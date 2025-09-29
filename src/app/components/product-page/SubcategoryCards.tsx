@@ -67,35 +67,52 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {displayedSubcategories.map((subcategory, index) => (
-            <Link
+            <div
               key={subcategory.slug}
-              href={`/products/${sectionSlug}/${parentCategorySlug}/${subcategory.slug}`}
-              className="group w-72 h-80 bg-[var(--color-teal-deep)] p-3 flex flex-col gap-1 rounded-br-3xl hover:shadow-2xl transition-all duration-500"
-              aria-label={`View ${subcategory.name} products`}
+              className="group max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300"
             >
-              <div className="duration-500 contrast-50 h-48 bg-gradient-to-bl from-[var(--color-brown-dark2)] via-[var(--color-brown-golden)] to-[var(--color-turquoise-bright)] hover:contrast-100 relative overflow-hidden rounded-lg">
+              <Link href={`/products/${sectionSlug}/${parentCategorySlug}/${subcategory.slug}`}>
                 <Image
                   src="/img/products-box-img.png"
                   alt={`${subcategory.name} packaging example`}
                   width={400}
                   height={300}
-                  className="w-full h-full object-cover opacity-100 group-hover:opacity-60 transition-opacity duration-500"
+                  className="w-full h-48 object-cover rounded-t-lg"
                   loading="lazy"
                 />
+              </Link>
+              <div className="p-5">
+                  <Link href={`/products/${sectionSlug}/${parentCategorySlug}/${subcategory.slug}`}>
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 group-hover:text-[var(--color-teal-deep)] line-clamp-2 min-h-[3.5rem] flex items-start transition-colors duration-200">
+                      {subcategory.name}
+                    </h5>
+                  </Link>
+                <p className="mb-3 font-normal text-gray-700 line-clamp-2">
+                  {subcategory.description || `Premium ${subcategory.name.toLowerCase()} packaging solutions designed for optimal protection and presentation.`}
+                </p>
+                <Link
+                  href={`/products/${sectionSlug}/${parentCategorySlug}/${subcategory.slug}`}
+                  className="inline-flex justify-end items-center text-sm font-semibold text-[var(--color-teal-deep)] hover:text-[var(--color-turquoise-bright)] transition-colors duration-200 group-hover:text-[var(--color-teal-deep)]"
+                >
+                  View Product
+                  <svg 
+                    className="w-4 h-4 ml-2" 
+                    aria-hidden="true" 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    fill="none" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      stroke="currentColor" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth="2" 
+                      d="m9 18 6-6-6-6"
+                    />
+                  </svg>
+                </Link>
               </div>
-              
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-col">
-                  <span className="text-xl text-gray-50 font-bold">{subcategory.name}</span>
-                  <p className="text-xs text-gray-400 line-clamp-1">
-                    {subcategory.description || `Premium ${subcategory.name.toLowerCase()} packaging solutions designed for optimal protection and presentation.`}
-                  </p>
-                </div>
-                <button className="hover:bg-[var(--color-teal-blue)] text-gray-50 bg-[var(--color-turquoise-bright)] py-2 rounded-br-xl transition-colors duration-200">
-                  Add to cart
-                </button>
-              </div>
-            </Link>
+            </div>
           ))}
         </div>
         
