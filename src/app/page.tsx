@@ -1,24 +1,19 @@
 "use client"
-import React, { useEffect, useState, lazy } from 'react';
+import React, { useEffect, useState } from 'react';
+import BoxDesignGallery from './components/homepage/box-design-gallery';
+import VideoSection from './components/homepage/successed-with-custom';
+import MoreThanPackage from './components/homepage/more-than-package';
+import FAQ from './components/homepage/faq';
 import HeroVideoSection from './components/homepage/HeroVideoSection';
-import CustomDimensionsForm from './components/CustomDimensionsForm';
+import ProductByMaterialCarousel from './components/ProductByMaterialCarousel';
+import ProductByIndustryCarousel from './components/ProductByIndustryCarousel';
+import CTASection from './components/product-design-page/CTASection';
 import ComingSoon from './components/ComingSoon';
-import LazyLoadWrapper from './components/LazyLoadWrapper';
-import PerformanceMonitor from './components/PerformanceMonitor';
-import HomepageShimmer from './components/HomepageShimmer';
-
-// Lazy load non-critical components
-const BoxDesignGallery = lazy(() => import('./components/homepage/box-design-gallery'));
-const MoreThanPackage = lazy(() => import('./components/homepage/more-than-package'));
-const FAQ = lazy(() => import('./components/homepage/faq'));
-const ProductByMaterialCarousel = lazy(() => import('./components/ProductByMaterialCarousel'));
-const ProductByIndustryCarousel = lazy(() => import('./components/ProductByIndustryCarousel'));
-const CTASection = lazy(() => import('./components/product-design-page/CTASection'));
-const ScrollVideoSection = lazy(() => import('./components/homepage/box-sequence-images'));
+import ScrollVideoSection from './components/homepage/box-sequence-images';
+import CustomDimensionsForm from './components/CustomDimensionsForm';
 
 const HomePage = () => {
-  const [showComingSoon, setShowComingSoon] = useState(true);
-  const [isLoading, setIsLoading] = useState(true);
+  const [showComingSoon, setShowComingSoon] = useState(true); // Set to true to show coming soon, false to show normal homepage
 
   useEffect(() => {
     // Set coming soon state from environment variable (defaults to true if not set)
@@ -26,19 +21,7 @@ const HomePage = () => {
     if (comingSoonEnv !== undefined) {
       setShowComingSoon(comingSoonEnv === 'true');
     }
-    
-    // Simulate initial loading time for better UX
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
-    
-    return () => clearTimeout(timer);
   }, []);
-
-  // Show loading shimmer while components are loading
-  if (isLoading) {
-    return <HomepageShimmer />;
-  }
 
   // Show coming soon page if enabled
   if (showComingSoon) {
@@ -47,44 +30,23 @@ const HomePage = () => {
 
   return (
     <div className="relative">
-      <PerformanceMonitor />
-      {/* Critical above-the-fold content loads immediately */}
+      {/* <Hero /> */}
       <HeroVideoSection />
       <CustomDimensionsForm/>
+      <ScrollVideoSection/>
+      <BoxDesignGallery />
+      {/* <VideoSection /> */}
+      <ProductByMaterialCarousel/>
+      <ProductByIndustryCarousel/>
       
-      {/* Non-critical components load lazily with intersection observer */}
-      <LazyLoadWrapper rootMargin="200px">
-        <ScrollVideoSection/>
-      </LazyLoadWrapper>
-      
-      <LazyLoadWrapper rootMargin="150px">
-        <BoxDesignGallery />
-      </LazyLoadWrapper>
-      
-      <LazyLoadWrapper rootMargin="150px">
-        <ProductByMaterialCarousel/>
-      </LazyLoadWrapper>
-      
-      <LazyLoadWrapper rootMargin="150px">
-        <ProductByIndustryCarousel/>
-      </LazyLoadWrapper>
-      
-      <LazyLoadWrapper rootMargin="100px">
-        <MoreThanPackage />
-      </LazyLoadWrapper>
-      
-      <LazyLoadWrapper rootMargin="100px">
-        <FAQ />
-      </LazyLoadWrapper>
-      
-      <LazyLoadWrapper rootMargin="100px">
-        <CTASection 
-          productData={{
-            ctaTitle: "Ready to Get Started?",
-            ctaDescription: "Let's create the perfect packaging solution for your brand. Our team is ready to help you every step of the way."
-          }}
-        />
-      </LazyLoadWrapper>
+      <MoreThanPackage />
+      <FAQ />
+      <CTASection 
+        productData={{
+          ctaTitle: "Ready to Get Started?",
+          ctaDescription: "Let's create the perfect packaging solution for your brand. Our team is ready to help you every step of the way."
+        }}
+      />
     </div>
   );
 };
