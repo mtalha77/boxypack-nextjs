@@ -25,7 +25,7 @@ const MoreThanPackage: React.FC = () => {
             </div>
 
             {/* Right Side - Text and Buttons */}
-            <div className="space-y-8">
+            <div className="space-y-8 lg:pl-4">
               {/* Headline */}
               <h2 className="text-h2 text-heading-primary leading-tight">
                 More Than Just Custom Boxes
