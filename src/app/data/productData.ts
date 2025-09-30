@@ -455,8 +455,22 @@ export const productData = {
   }
 };
 
-// Helper function to get product data by slug from centralized data
-export const getProductDataBySlug = (slug: string) => {
+// Helper function to get product data by slug from database or fallback to static data
+export const getProductDataBySlug = async (slug: string) => {
+  try {
+    // Try to fetch from database first
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/products/${slug}`);
+    if (response.ok) {
+      const data = await response.json();
+      if (data.success) {
+        return data.data;
+      }
+    }
+  } catch (error) {
+    console.warn('Failed to fetch from database, falling back to static data:', error);
+  }
+
+  // Fallback to static data
   // Check material categories
   const materialCategory = productByMaterialData.find(cat => cat.slug === slug);
   if (materialCategory) {
@@ -761,6 +775,28 @@ export const getProductDataBySlug = (slug: string) => {
 
   // Fallback to static data if not found in centralized data
   return productData[slug as keyof typeof productData];
+};
+
+// Helper function to get all products from database or fallback to static data
+export const getAllProducts = async () => {
+  try {
+    // Try to fetch from database first
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/products`);
+    if (response.ok) {
+      const data = await response.json();
+      if (data.success) {
+        return data.data;
+      }
+    }
+  } catch (error) {
+    console.warn('Failed to fetch from database, falling back to static data:', error);
+  }
+
+  // Fallback to static data - convert object to array
+  return Object.entries(productData).map(([slug, product]) => ({
+    slug,
+    ...product
+  }));
 };
 
 export default productData;

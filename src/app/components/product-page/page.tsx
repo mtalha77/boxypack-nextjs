@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { NavigationSection, MainCategory, SubCategory } from '../../data/navigationData';
-import { productData } from '../../data/productData';
+import { productData, getProductDataBySlug } from '../../data/productData';
+import { useProduct, Product } from '@/lib/hooks/useProducts';
 import HeroSection, { BreadcrumbItem } from '../product-design-page/HeroSection';
 import CustomDimensionsForm from '../CustomDimensionsForm';
 import FeaturesSection from '../product-design-page/FeaturesSection';
@@ -31,17 +32,46 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
   pageType
 }) => {
   const [isMounted, setIsMounted] = React.useState(false);
+  const [dbProduct, setDbProduct] = React.useState<Product | null>(null);
+  const [dbLoading, setDbLoading] = React.useState(true);
 
   // Ensure component only renders properly on client side
   React.useEffect(() => {
     setIsMounted(true);
   }, []);
 
+  // Try to fetch product from database
+  React.useEffect(() => {
+    const fetchProductFromDB = async () => {
+      try {
+        setDbLoading(true);
+        const product = await getProductDataBySlug(slug);
+        if (product) {
+          setDbProduct(product);
+        }
+      } catch (error) {
+        console.warn('Failed to fetch product from database:', error);
+      } finally {
+        setDbLoading(false);
+      }
+    };
+
+    if (isMounted) {
+      fetchProductFromDB();
+    }
+  }, [slug, isMounted]);
+
   // Get product data if it exists in the legacy data structure
   const legacyProductData = productData[slug as keyof typeof productData];
 
   // Create dynamic product data based on the navigation structure
   const getProductData = () => {
+    // Use database product if available
+    if (dbProduct) {
+      return dbProduct;
+    }
+
+    // Fallback to legacy data
     if (legacyProductData) {
       return legacyProductData;
     }
@@ -143,8 +173,8 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
 
   const breadcrumbs = getBreadcrumbs();
 
-  // Show loading state during hydration to prevent mismatch
-  if (!isMounted) {
+  // Show loading state during hydration or database fetch to prevent mismatch
+  if (!isMounted || dbLoading) {
     return (
       <main className="min-h-screen flex items-center justify-center">
         <GradientBackground 
@@ -152,7 +182,9 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
         />
         <div className="text-white text-center relative z-10">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
-          <p className="text-body-large">Loading...</p>
+          <p className="text-body-large">
+            {!isMounted ? 'Loading...' : 'Fetching product data...'}
+          </p>
         </div>
       </main>
     );
