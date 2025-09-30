@@ -21,10 +21,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Boxypack - Create Custom Packaging and Boxes",
+  title: "BoxyPack",
   description: "Custom packaging and boxes can turn your brand into the total package with full customization, instant quoting, and fast turnarounds.",
   icons: {
-    icon: '/favicon.svg',
+    icon: '/favicon.png',
   },
 };
 

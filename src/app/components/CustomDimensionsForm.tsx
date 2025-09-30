@@ -45,7 +45,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   };
 
   const handleZoomOut = () => {
-    setZoomLevel(prev => Math.max(prev - 0.1, 0.1)); // Min zoom 0.1x
+    setZoomLevel(prev => Math.max(prev - 0.1, 0.7)); // Min zoom 0.7x (70%)
   };
 
   const handleResetZoom = () => {
@@ -257,7 +257,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                   {/* Zoom Out Button */}
                   <button 
                     onClick={handleZoomOut}
-                    disabled={zoomLevel <= 0.1}
+                    disabled={zoomLevel <= 0.7}
                     className="bg-white/90 hover:bg-white text-gray-700 p-2 rounded-lg shadow-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     title="Zoom Out"
                   >
