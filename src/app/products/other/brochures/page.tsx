@@ -3,7 +3,7 @@ import { navigationData } from '../../../data/navigationData';
 import ProductPageTemplate from '../../../components/product-page/page';
 
 const BrochuresPage = () => {
-  const section = navigationData.find(s => s.slug === 'product-by-material');
+  const section = navigationData.find(s => s.slug === 'other');
   const category = section?.categories?.find(c => c.slug === 'other');
   const subcategory = category?.subcategories?.find(sc => sc.slug === 'brochures');
   

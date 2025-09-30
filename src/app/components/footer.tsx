@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
           {/* Logo and About Column */}
           <div>
             <div className="mb-6">
-              <Image src="/img/logo-vertical.png" alt="Boxypack" width={180} height={90} className="mb-4" />
+              <Image src="/img/logo-vertical.png" alt="Boxypack" width={180} height={90} className="mb-4" priority />
               <p className="text-body-small text-body-secondary leading-relaxed">
                 BoxyPack is where box and packaging meet passion. We make boxes that protect, present, and promote your products with creativity, choice, and reliable support.
               </p>

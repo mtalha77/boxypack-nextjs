@@ -110,31 +110,38 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
 
   const productInfo = getProductData();
 
-  // Generate breadcrumb data
+  // Generate breadcrumb data - show full hierarchy
   const getBreadcrumbs = (): BreadcrumbItem[] => {
     const breadcrumbs = [
-      { name: 'Home', href: '/' },
-      { name: 'Products', href: '/products' }
+      { name: 'Home', href: '/' }
     ];
 
-    if (section) {
+    // For subcategory pages (like /products/mylar-boxes/stand-up-pouche)
+    if (subcategory && category && section) {
+      // Show: Home > Category > Subcategory
+      breadcrumbs.push({
+        name: category.name,
+        href: `/products/${section.slug}/${category.slug}`
+      });
+      breadcrumbs.push({
+        name: subcategory.name,
+        href: `/products/${section.slug}/${subcategory.slug}`
+      });
+    }
+    // For category pages (like /products/product-by-material/rigid-boxes)
+    else if (category && section) {
+      // Show: Home > Category
+      breadcrumbs.push({
+        name: category.name,
+        href: `/products/${section.slug}/${category.slug}`
+      });
+    }
+    // For section pages (like /products/mylar-boxes, /products/shopping-bags, /products/other)
+    else if (section && ['mylar-boxes', 'shopping-bags', 'other'].includes(section.slug)) {
+      // Show: Home > Section
       breadcrumbs.push({
         name: section.name,
         href: `/products/${section.slug}`
-      });
-    }
-
-    if (category) {
-      breadcrumbs.push({
-        name: category.name,
-        href: `/products/${section?.slug}/${category.slug}`
-      });
-    }
-
-    if (subcategory) {
-      breadcrumbs.push({
-        name: subcategory.name,
-        href: `/products/${section?.slug}/${category?.slug}/${subcategory.slug}`
       });
     }
 

@@ -26,6 +26,7 @@ const Header: React.FC = () => {
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
   const [hoveredSubcategory, setHoveredSubcategory] = useState<string | null>(null);
   const [isClosing, setIsClosing] = useState(false);
+  const [mobileExpandedSections, setMobileExpandedSections] = useState<Set<string>>(new Set());
   
   // Search state
   const [searchQuery, setSearchQuery] = useState('');
@@ -149,6 +150,19 @@ const Header: React.FC = () => {
     }, 1000); // 1000ms delay for smooth transition
   };
 
+  // Function to toggle mobile section expansion
+  const toggleMobileSection = (sectionSlug: string) => {
+    setMobileExpandedSections(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(sectionSlug)) {
+        newSet.delete(sectionSlug);
+      } else {
+        newSet.add(sectionSlug);
+      }
+      return newSet;
+    });
+  };
+
   // Search handlers
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -217,7 +231,8 @@ const Header: React.FC = () => {
               src={headerConfig.logo.src} 
               alt={headerConfig.logo.alt} 
               width={headerConfig.logo.width} 
-              height={headerConfig.logo.height} 
+              height={headerConfig.logo.height}
+              priority
             />
           </ Link>
 
@@ -232,7 +247,7 @@ const Header: React.FC = () => {
                 onChange={handleSearchChange}
                 onFocus={handleSearchFocus}
                 onKeyDown={handleSearchKeyDown}
-                className="w-full px-4 py-3 bg-gray-100 rounded-full text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0c6b76] focus:bg-white transition-all duration-200"
+                className="w-full px-4 py-3 pr-12 bg-gray-100 rounded-full text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0c6b76] focus:bg-white transition-all duration-200"
               />
               <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#0c6b76]" />
               
@@ -291,8 +306,8 @@ const Header: React.FC = () => {
              {/* Mobile Menu Overlay */}
        {isMobileMenuOpen && (
          <div className={`md:hidden fixed inset-0 bg-black ${headerConfig.mobile.overlayOpacity} z-50`} onClick={() => setIsMobileMenuOpen(false)}>
-           <div className={`absolute top-0 right-0 ${headerConfig.mobile.menuWidth} h-full bg-white shadow-lg`} onClick={(e) => e.stopPropagation()}>
-             <div className="p-6">
+           <div className={`absolute top-0 right-0 ${headerConfig.mobile.menuWidth} h-full bg-white shadow-lg overflow-y-auto`} onClick={(e) => e.stopPropagation()}>
+             <div className="p-6 pb-20">
                <div className="flex items-center justify-between mb-6">
                  {/* Logo instead of "Menu" text */}
                  <div className="flex items-center space-x-3">
@@ -317,12 +332,12 @@ const Header: React.FC = () => {
                  <div className="relative">
                    <input
                      type="text"
-                     placeholder={headerConfig.search.placeholder}
+                     placeholder="Search products..."
                      value={searchQuery}
                      onChange={handleSearchChange}
                      onFocus={handleSearchFocus}
                      onKeyDown={handleSearchKeyDown}
-                     className="w-full px-4 py-3 bg-gray-100 rounded-full text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0c6b76] focus:bg-white transition-all duration-200"
+                     className="w-full px-4 py-3 pr-12 bg-gray-100 rounded-full text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0c6b76] focus:bg-white transition-all duration-200"
                    />
                    <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#0c6b76]" />
                    
@@ -380,13 +395,87 @@ const Header: React.FC = () => {
                  </div>
                </div>
                
+               {/* Mobile Category Navigation */}
+               <div className="mb-6">
+                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Categories</h3>
+                 <div className="space-y-2">
+                   {navigationData.map((section) => {
+                     const isExpanded = mobileExpandedSections.has(section.slug);
+                     return (
+                       <div key={section.slug} className="border-b border-gray-200">
+                         <button
+                           onClick={() => toggleMobileSection(section.slug)}
+                           className="w-full p-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                         >
+                           <h4 className="font-medium text-gray-900">{section.name}</h4>
+                           <ChevronDown 
+                             className={`w-5 h-5 text-gray-500 transition-transform duration-200 ${
+                               isExpanded ? 'rotate-180' : ''
+                             }`} 
+                           />
+                         </button>
+                         {isExpanded && (
+                           <div className="px-4 pb-4">
+                             <div className="pt-3 space-y-2">
+                               {section.categories ? (
+                                 section.categories.flatMap((category) => {
+                                   // For Mylar Boxes, Shopping Bags, and Others, show subcategories directly
+                                   if (['mylar-boxes', 'shopping-bags', 'other'].includes(section.slug)) {
+                                     return category.subcategories?.map((subcategory) => (
+                                       <Link
+                                         key={subcategory.slug}
+                                         href={`/products/${section.slug}/${subcategory.slug}`}
+                                         onClick={() => setIsMobileMenuOpen(false)}
+                                         className="block py-2 px-3 text-sm text-gray-600 hover:text-[#0c6b76] hover:bg-gray-50 rounded-md transition-colors"
+                                       >
+                                         {subcategory.name}
+                                       </Link>
+                                     )) || [];
+                                   } else {
+                                     // For Materials and Industries, show categories
+                                     return (
+                                       <Link
+                                         key={category.slug}
+                                         href={`/products/${section.slug}/${category.slug}`}
+                                         onClick={() => setIsMobileMenuOpen(false)}
+                                         className="block py-2 px-3 text-sm text-gray-600 hover:text-[#0c6b76] hover:bg-gray-50 rounded-md transition-colors"
+                                       >
+                                         {category.name}
+                                       </Link>
+                                     );
+                                   }
+                                 })
+                               ) : (
+                                 // Fallback for sections with direct subcategories
+                                 section.subcategories?.map((subcategory) => (
+                                   <Link
+                                     key={subcategory.slug}
+                                     href={`/products/${section.slug}/${subcategory.slug}`}
+                                     onClick={() => setIsMobileMenuOpen(false)}
+                                     className="block py-2 px-3 text-sm text-gray-600 hover:text-[#0c6b76] hover:bg-gray-50 rounded-md transition-colors"
+                                   >
+                                     {subcategory.name}
+                                   </Link>
+                                 ))
+                               )}
+                             </div>
+                           </div>
+                         )}
+                       </div>
+                     );
+                   })}
+                 </div>
+               </div>
+               
                {/* Mobile Navigation Items */}
                <div className="space-y-4">
+                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Pages</h3>
                  {headerConfig.navigation.items.map((item) => (
                    <Link 
                      key={item.href}
                      href={item.href} 
                      className="block py-3 px-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                     onClick={() => setIsMobileMenuOpen(false)}
                    >
                      <span className="font-semibold text-gray-900">{item.name}</span>
                    </Link>
@@ -425,8 +514,14 @@ const Header: React.FC = () => {
           {/* Hover Dropdown Menu */}
                   {hoveredMainSection === section.slug && !isClosing && (
                                            <div 
-                      className="absolute left-0 w-7xl h-[70vh] z-50 bg-white shadow-lg  transition-all duration-1000 ease-in-out"
-                      style={section.slug === 'product-by-industry' ? { left: '-165px' } : { left: '0px' }}
+                      className={`absolute left-0 w-auto h-[70vh] z-50 bg-white shadow-lg transition-all duration-1000 ease-in-out ${
+                        section.slug === 'product-by-industry' 
+                          ? 'min-w-[48rem] max-w-7xl' 
+                          : section.slug === 'other'
+                          ? 'min-w-[32rem] max-w-6xl'
+                          : 'min-w-96 max-w-4xl'
+                      }`}
+                      style={section.slug === 'product-by-industry' ? { left: '0px' } : { left: '0px' }}
                       onMouseEnter={() => setHoveredMainSection(section.slug)}
                         onMouseLeave={() => {
                           // Only close when user actually leaves the dropdown area
@@ -447,196 +542,41 @@ const Header: React.FC = () => {
                       </div>
                       <div className="w-full h-full flex">
                         <div className="w-full px-0 py-6 h-full">
-                          {section.hasSubcategories && section.categories ? (
+                          {section.hasSubcategories ? (
                             <div className="flex h-full">
-                              {section.slug === 'product-by-material' ? (
-                                // Special layout for Products only
-                                 <div className="w-full px-6 py-2">
-                                   <div className="grid grid-cols-4 gap-0 max-h-80">
-                                  {/* Column 1: PRODUCTS (Materials) */}
-                                  <div>
-                                    {/* <h3 className="text-lg font-bold text-gray-800 mb-4 uppercase tracking-wide">PRODUCTS</h3> */}
-                                    <div className="space-y-3">
-                                      {section.categories.filter(cat => 
-                                        ['rigid', 'kraft', 'cardboard', 'corrugated'].some(material => 
-                                          cat.name.toLowerCase().includes(material)
-                                        )
-                                      ).map((category) => (
-                                        <Link
-                                          key={category.slug}
-                                          href={`/products/${section.slug}/${category.slug}`}
-                                          onClick={handleSmoothClose}
-                                          className="flex items-center px-3 py-2 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] group"
-                                        >
-                                          <Image
-                                            src={getCategoryIcon(category.name)}
-                                            alt={category.name}
-                                            width={40}
-                                            height={40}
-                                            className="w-10 h-10 mr-3 flex-shrink-0 rounded-lg"
-                                          />
-                                          <div>
-                                            <div className="font-medium text-sm">{category.name}</div>
-                                            <div className="text-xs text-gray-500">
-                                              {category.name.includes('rigid') ? 'Premium and luxurious packaging' :
-                                               category.name.includes('kraft') ? 'Eco-friendly natural packaging' :
-                                               category.name.includes('cardboard') ? 'Versatile all-round packaging' :
-                                               category.name.includes('corrugated') ? 'Sturdy and durable packaging' :
-                                               'Custom packaging solutions'}
-                                        </div>
-                                    </div>
-                                        </Link>
-                                  ))}
-                               </div>
-                             </div>
-                             
-                                  {/* Column 2: MYLAR BOXES & SHOPPING BAGS */}
-                                  <div>
-                                     <h3 className="text-lg font-bold text-gray-800 mb-4 uppercase tracking-wide">MYLAR BOXES</h3>
-                                     <div className="space-y-3 mb-6">
-                                       {section.categories.filter(cat => 
-                                         cat.name.toLowerCase().includes('mylar')
-                                       ).map((category) => (
-                                        <div key={category.slug}>
-                                          {category.subcategories.map((subcategory) => (
-                                            <Link
-                                              key={subcategory.slug}
-                                              href={`/products/${category.slug}/${subcategory.slug}`}
-                                              onClick={handleSmoothClose}
-                                              className="flex items-center px-3 py-2 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] group"
-                                            >
-                                              <Image
-                                                src={getSubcategoryIcon(subcategory.name)}
-                                                alt={subcategory.name}
-                                                width={40}
-                                                height={40}
-                                                className="w-10 h-10 mr-3 flex-shrink-0 rounded-lg"
-                                              />
-                                              <div>
-                                                <div className="font-medium text-sm">{subcategory.name}</div>
-                                                <div className="text-xs text-gray-500">Self-locking packaging solutions</div>
-                                              </div>
-                                            </Link>
-                                          ))}
-                                        </div>
-                                      ))}
-                                    </div>
-                                    
-                                    <h3 className="text-lg font-bold text-gray-800 mb-4 uppercase tracking-wide">SHOPPING BAGS</h3>
-                                    <div className="space-y-3">
-                                      {section.categories.filter(cat => 
-                                        cat.name.toLowerCase().includes('shopping bags')
-                                      ).map((category) => (
-                                        <div key={category.slug}>
-                                          {category.subcategories.map((subcategory) => (
-                                            <Link
-                                              key={subcategory.slug}
-                                              href={`/products/${category.slug}/${subcategory.slug}`}
-                                              onClick={handleSmoothClose}
-                                              className="flex items-center px-3 py-2 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] group"
-                                            >
-                                              <Image
-                                                src={getSubcategoryIcon(subcategory.name)}
-                                                alt={subcategory.name}
-                                                width={40}
-                                                height={40}
-                                                className="w-10 h-10 mr-3 flex-shrink-0 rounded-lg"
-                                              />
-                                              <div>
-                                                <div className="font-medium text-sm">{subcategory.name}</div>
-                                                <div className="text-xs text-gray-500">Eco-friendly bag solutions</div>
-                                              </div>
-                                            </Link>
-                                          ))}
-                                        </div>
-                                      ))}
-                                    </div>
-                                  </div>
-
-                                  {/* Column 3: OTHERS (Part 1) */}
-                                  <div>
-                                    <h3 className="text-lg font-bold text-gray-800 mb-4 uppercase tracking-wide">OTHERS</h3>
-                                    <div className="space-y-3">
-                                      {section.categories.filter(cat => 
-                                        cat.name.toLowerCase().includes('other')
-                                      ).map((category) => (
-                                        <div key={category.slug}>
-                                          {category.subcategories.slice(0, Math.ceil(category.subcategories.length / 2)).map((subcategory) => (
-                                              <Link
-                                                key={subcategory.slug}
-                                              href={`/products/${category.slug}/${subcategory.slug}`}
-                                                onClick={handleSmoothClose}
-                                              className="flex items-center px-3 py-2 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] group"
-                                            >
-                                              <Image
-                                                src={getSubcategoryIcon(subcategory.name)}
-                                                alt={subcategory.name}
-                                                width={40}
-                                                height={40}
-                                                className="w-10 h-10 mr-3 flex-shrink-0 rounded-lg"
-                                                onError={(e) => {
-                                                  console.error('Image failed to load:', getSubcategoryIcon(subcategory.name), 'for:', subcategory.name);
-                                                }}
-                                                onLoad={() => {
-                                                  console.log('Image loaded successfully:', getSubcategoryIcon(subcategory.name), 'for:', subcategory.name);
-                                                }}
-                                              />
-                                              <div>
-                                                <div className="font-medium text-sm">{subcategory.name}</div>
-                                                <div className="text-xs text-gray-500">Additional packaging accessories</div>
-                                              </div>
-                                              </Link>
-                                            ))}
-                                        </div>
-                                      ))}
-                                    </div>
-                                  </div>
-
-                                  {/* Column 4: OTHERS (Part 2) */}
-                                  <div>
-                                    <h3 className="text-lg font-bold text-gray-800 mb-4 uppercase tracking-wide">&nbsp;</h3>
-                                    <div className="space-y-3">
-                                      {section.categories.filter(cat => 
-                                        cat.name.toLowerCase().includes('other')
-                                      ).map((category) => (
-                                        <div key={category.slug}>
-                                          {category.subcategories.slice(Math.ceil(category.subcategories.length / 2)).map((subcategory) => (
-                                            <Link
-                                              key={subcategory.slug}
-                                              href={`/products/${category.slug}/${subcategory.slug}`}
-                                              onClick={handleSmoothClose}
-                                              className="flex items-center px-3 py-2 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] group"
-                                            >
-                                              <Image
-                                                src={getSubcategoryIcon(subcategory.name)}
-                                                alt={subcategory.name}
-                                                width={40}
-                                                height={40}
-                                                className="w-10 h-10 mr-3 flex-shrink-0 rounded-lg"
-                                                onError={(e) => {
-                                                  console.error('Image failed to load:', getSubcategoryIcon(subcategory.name), 'for:', subcategory.name);
-                                                }}
-                                                onLoad={() => {
-                                                  console.log('Image loaded successfully:', getSubcategoryIcon(subcategory.name), 'for:', subcategory.name);
-                                                }}
-                                              />
-                                              <div>
-                                                <div className="font-medium text-sm">{subcategory.name}</div>
-                                                <div className="text-xs text-gray-500">Additional packaging accessories</div>
-                              </div>
-                                            </Link>
-                                          ))}
-                                        </div>
-                                      ))}
-                                    </div>
-                                  </div>
-                                  </div>
-                              </div>
-                              ) : (
-                                // Simple grid layout for Industries and other sections
+                              {section.categories ? (
+                                // Layout for sections with categories
                                 <div className="w-full px-6">
-                                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-h-80 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 hover:scrollbar-thumb-gray-400 pt-4 pb-4">
-                                    {section.categories.map((category) => (
+                                  <div className={`grid gap-4 max-h-80 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 hover:scrollbar-thumb-gray-400 pt-4 pb-4 ${
+                                    section.slug === 'product-by-industry' 
+                                      ? 'grid-cols-2 lg:grid-cols-4' 
+                                      : section.slug === 'other'
+                                      ? 'grid-cols-2'
+                                      : 'grid-cols-1'
+                                  }`}>
+                                    {section.categories.flatMap((category) => {
+                                      // For Mylar Boxes, Shopping Bags, and Others, show subcategories directly
+                                      if (['mylar-boxes', 'shopping-bags', 'other'].includes(section.slug)) {
+                                        return category.subcategories?.map((subcategory) => (
+                                            <Link
+                                              key={subcategory.slug}
+                                            href={`/products/${section.slug}/${subcategory.slug}`}
+                                              onClick={handleSmoothClose}
+                                            className="flex items-center px-4 py-3 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] group"
+                                            >
+                                              <Image
+                                                src={getSubcategoryIcon(subcategory.name)}
+                                                alt={subcategory.name}
+                                              width={32}
+                                              height={32}
+                                              className="w-8 h-8 mr-3 flex-shrink-0"
+                                            />
+                                            <span className="font-medium text-sm">{subcategory.name}</span>
+                                            </Link>
+                                        )) || [];
+                                      } else {
+                                        // For Materials and Industries, show categories
+                                        return (
                                       <Link
                                         key={category.slug}
                                         href={`/products/${section.slug}/${category.slug}`}
@@ -651,6 +591,31 @@ const Header: React.FC = () => {
                                           className="w-8 h-8 mr-3 flex-shrink-0"
                                         />
                                         <span className="font-medium text-sm">{category.name}</span>
+                                          </Link>
+                                        );
+                                      }
+                                    })}
+                                  </div>
+                                </div>
+                              ) : (
+                                // Layout for sections with direct subcategories (fallback)
+                                <div className="w-full px-6">
+                                  <div className="grid grid-cols-1 gap-4 max-h-80 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 hover:scrollbar-thumb-gray-400 pt-4 pb-4">
+                                    {section.subcategories?.map((subcategory) => (
+                                      <Link
+                                        key={subcategory.slug}
+                                        href={`/products/${section.slug}/${subcategory.slug}`}
+                                        onClick={handleSmoothClose}
+                                        className="flex items-center px-4 py-3 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] group"
+                                      >
+                                        <Image
+                                          src={getSubcategoryIcon(subcategory.name)}
+                                          alt={subcategory.name}
+                                          width={32}
+                                          height={32}
+                                          className="w-8 h-8 mr-3 flex-shrink-0"
+                                        />
+                                        <span className="font-medium text-sm">{subcategory.name}</span>
                                       </Link>
                                     ))}
                                   </div>
@@ -685,7 +650,7 @@ const Header: React.FC = () => {
                               
                               {/* Right Side - Subcategories */}
                               <div className="w-3/4 pl-6">
-                                <div className="grid grid-cols-3 gap-2 max-h-80 overflow-y-auto">
+                                <div className="grid grid-cols-1 gap-2 max-h-80 overflow-y-auto">
                                   {section.subcategories?.map((subcategory) => (
                                     <Link
                                       key={subcategory.slug}

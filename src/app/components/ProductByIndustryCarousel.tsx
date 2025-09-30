@@ -31,11 +31,10 @@ const ProductByIndustryCarousel: React.FC = () => {
             PRODUCT BY INDUSTRY
           </div>
           <h2 className="text-h2 text-heading-primary mb-6 leading-tight">
-          Choose The Right Box By Your Industry Type
-
+            Choose The Right Box By Your Industry Type
           </h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Explore our comprehensive range of packaging solutions organized by industry. Each category contai
+            Explore our comprehensive range of packaging solutions organized by industry. Each category contains specialized packaging designed for optimal protection and presentation.
           </p>
         </div>
 

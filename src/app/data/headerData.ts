@@ -38,14 +38,9 @@ export interface NavigationItem {
 export const categoryIconMappings: IconMapping[] = [
   // Main navigation sections - using available PNG icons
   {
-    pattern: 'product by material',
+    pattern: 'product-by-material',
     iconPath: '/icons/rigid.png',
-    description: 'Layered materials'
-  },
-  {
-    pattern: 'product by industry',
-    iconPath: '/icons/retailBox.png',
-    description: 'Industry packaging'
+    description: 'Material-based packaging'
   },
   {
     pattern: 'mylar-boxes',
@@ -53,14 +48,19 @@ export const categoryIconMappings: IconMapping[] = [
     description: 'Mylar Boxes'
   },
   {
-    pattern: 'shopping bags',
+    pattern: 'shopping-bags',
     iconPath: '/icons/kraft-shopping-bag.png',
-    description: 'Shopping containers'
+    description: 'Shopping Bags'
   },
   {
     pattern: 'other',
     iconPath: '/icons/packing-tape.png',
-    description: 'Miscellaneous packaging'
+    description: 'Other Products'
+  },
+  {
+    pattern: 'product-by-industry',
+    iconPath: '/icons/retailBox.png',
+    description: 'Industry-specific packaging'
   },
   
   // Material categories - exact matches for data file names

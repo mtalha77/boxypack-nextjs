@@ -1,8 +1,9 @@
 import ProductsDesignPage from '../Products-design-page';
-import { productData } from '../../data/productData';
+import { getProductDataBySlug } from '../../data/productData';
 
 const ShoppingBagsPage = () => {
-  return <ProductsDesignPage productData={productData['shopping-bags']} />;
+  const productData = getProductDataBySlug('shopping-bags');
+  return <ProductsDesignPage productData={productData} />;
 };
 
 export default ShoppingBagsPage;

@@ -38,40 +38,52 @@ export const createSlug = (name: string): string => {
 
 export const navigationData: NavigationSection[] = [
   {
-    name: 'Products',
+    name: 'Materials',
     slug: 'product-by-material',
     hasSubcategories: true,
     description: 'Explore our products organized by material type',
-    categories: [
-      // Material categories
-      ...productByMaterialData.map(category => ({
-        name: category.name,
-        slug: category.slug,
-        description: category.description,
-        subcategories: category.subcategories
-      })),
-      // Mylar Boxes category
-      {
-        name: 'Mylar Boxes',
-        slug: 'mylar-boxes',
-        description: 'Premium mylar packaging solutions with excellent barrier properties',
-        subcategories: mylarBoxesData.subcategories
-      },
-      // Shopping Bags category
-      {
-        name: 'Shopping Bags',
-        slug: 'shopping-bags',
-        description: 'Eco-friendly and branded shopping bag solutions',
-        subcategories: shoppingBagsData.subcategories
-      },
-      // Other category
-      {
-        name: 'Others',
-        slug: 'other',
-        description: 'Additional packaging accessories and printing services',
-        subcategories: otherData.subcategories
-      }
-    ]
+    categories: productByMaterialData.map(category => ({
+      name: category.name,
+      slug: category.slug,
+      description: category.description,
+      subcategories: category.subcategories
+    }))
+  },
+  {
+    name: 'Mylar Boxes',
+    slug: 'mylar-boxes',
+    hasSubcategories: true,
+    description: 'Premium mylar packaging solutions with excellent barrier properties',
+    categories: [{
+      name: mylarBoxesData.name,
+      slug: mylarBoxesData.slug,
+      description: mylarBoxesData.description,
+      subcategories: mylarBoxesData.subcategories
+    }]
+  },
+  {
+    name: 'Shopping Bags',
+    slug: 'shopping-bags',
+    hasSubcategories: true,
+    description: 'Eco-friendly and branded shopping bag solutions',
+    categories: [{
+      name: shoppingBagsData.name,
+      slug: shoppingBagsData.slug,
+      description: shoppingBagsData.description,
+      subcategories: shoppingBagsData.subcategories
+    }]
+  },
+  {
+    name: 'Others',
+    slug: 'other',
+    hasSubcategories: true,
+    description: 'Additional packaging accessories and printing services',
+    categories: [{
+      name: otherData.name,
+      slug: otherData.slug,
+      description: otherData.description,
+      subcategories: otherData.subcategories
+    }]
   },
   {
     name: 'Industries',

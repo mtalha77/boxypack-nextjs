@@ -33,7 +33,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   const [quantity, setQuantity] = useState(250);
   const [productionSpeed, setProductionSpeed] = useState('Standard (8 Business Days)');
   const [showDropdowns, setShowDropdowns] = useState<{[key: string]: boolean}>({});
-  const [selectedImage, setSelectedImage] = useState('/img/products-box-img.png');
+  const [selectedImage, setSelectedImage] = useState('/img/Mailer-Box-3.jpg');
   const [zoomLevel, setZoomLevel] = useState(1);
 
   const unitPrice = 3.92;
@@ -222,7 +222,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
               <div className="w-full aspect-square flex items-center justify-center relative overflow-hidden">
                 <Image 
                   src={selectedImage}
-                  alt="Tuck End Sleeve"
+                  alt="Custom Mailer Box"
                   width={400}
                   height={400}
                   className="w-full h-full object-cover transition-transform duration-300"
@@ -278,15 +278,15 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
             <div className="flex gap-4 justify-center">
               <div 
                 className={`w-16 h-16 rounded border cursor-pointer transition-all duration-300 ${
-                  selectedImage === '/img/products-box-img.png' 
+                  selectedImage === '/img/Mailer-Box-3.jpg' 
                     ? 'border-blue-500 ring-2 ring-blue-200' 
                     : 'border-gray-200 hover:border-blue-300'
                 }`}
-                onClick={() => handleImageChange('/img/products-box-img.png')}
+                onClick={() => handleImageChange('/img/Mailer-Box-3.jpg')}
               >
                     <Image 
-                      src="/img/products-box-img.png" 
-                  alt="Thumbnail 1"
+                      src="/img/Mailer-Box-3.jpg" 
+                  alt="Mailer Box 3"
                   width={64}
                   height={64}
                   className="w-full h-full object-cover rounded"
@@ -294,15 +294,15 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                   </div>
               <div 
                 className={`w-16 h-16 rounded border cursor-pointer transition-all duration-300 ${
-                  selectedImage === '/img/Box-4.jpg' 
+                  selectedImage === '/img/Mailer-Box-2.jpg' 
                     ? 'border-blue-500 ring-2 ring-blue-200' 
                     : 'border-gray-200 hover:border-blue-300'
                 }`}
-                onClick={() => handleImageChange('/img/Box-4.jpg')}
+                onClick={() => handleImageChange('/img/Mailer-Box-2.jpg')}
               >
                 <Image 
-                  src="/img/Box-4.jpg" 
-                  alt="Thumbnail 2"
+                  src="/img/Mailer-Box-2.jpg" 
+                  alt="Mailer Box 2"
                   width={64}
                   height={64}
                   className="w-full h-full object-cover rounded"
@@ -310,15 +310,15 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                 </div>
               <div 
                 className={`w-16 h-16 rounded border cursor-pointer transition-all duration-300 ${
-                  selectedImage === '/img/Box-5.jpg' 
+                  selectedImage === '/img/Mailer-Box (1).jpg' 
                     ? 'border-blue-500 ring-2 ring-blue-200' 
                     : 'border-gray-200 hover:border-blue-300'
                 }`}
-                onClick={() => handleImageChange('/img/Box-5.jpg')}
+                onClick={() => handleImageChange('/img/Mailer-Box (1).jpg')}
               >
                 <Image 
-                  src="/img/Box-5.jpg" 
-                  alt="Thumbnail 3"
+                  src="/img/Mailer-Box (1).jpg" 
+                  alt="Mailer Box 1"
                   width={64}
                   height={64}
                   className="w-full h-full object-cover rounded"

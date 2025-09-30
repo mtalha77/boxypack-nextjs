@@ -19,6 +19,7 @@ const MoreThanPackage: React.FC = () => {
                   width={600}
                   height={400}
                   className="w-auto h-full object-cover shadow-2xl"
+                  priority
                 />
               </div>
             </div>

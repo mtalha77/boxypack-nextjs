@@ -1,9 +1,9 @@
 import ProductsDesignPage from '../Products-design-page';
 import { getProductDataBySlug } from '../../data/productData';
 
-const MylarBoxesPage = () => {
-  const productData = getProductDataBySlug('mylar-boxes');
+const OtherPage = () => {
+  const productData = getProductDataBySlug('other');
   return <ProductsDesignPage productData={productData} />;
 };
 
-export default MylarBoxesPage;
+export default OtherPage;
