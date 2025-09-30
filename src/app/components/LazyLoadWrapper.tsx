@@ -2,6 +2,7 @@
 
 import React, { Suspense } from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import ShimmerLoader from './ShimmerLoader';
 
 interface LazyLoadWrapperProps {
   children: React.ReactNode;
@@ -12,8 +13,13 @@ interface LazyLoadWrapperProps {
 }
 
 const DefaultFallback = () => (
-  <div className="flex items-center justify-center py-20">
-    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0c6b76]"></div>
+  <div className="space-y-4 p-6">
+    <ShimmerLoader height="300px" className="rounded-lg" />
+    <div className="space-y-2">
+      <ShimmerLoader height="24px" width="80%" className="rounded" />
+      <ShimmerLoader height="20px" width="60%" className="rounded" />
+      <ShimmerLoader height="20px" width="70%" className="rounded" />
+    </div>
   </div>
 );
 
@@ -37,11 +43,7 @@ const LazyLoadWrapper: React.FC<LazyLoadWrapperProps> = ({
           {children}
         </Suspense>
       ) : (
-        <div className="min-h-[200px] flex items-center justify-center">
-          <div className="text-center text-gray-500">
-            <div className="animate-pulse">Loading...</div>
-          </div>
-        </div>
+        <DefaultFallback />
       )}
     </div>
   );

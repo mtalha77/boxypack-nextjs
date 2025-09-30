@@ -5,6 +5,7 @@ import CustomDimensionsForm from './components/CustomDimensionsForm';
 import ComingSoon from './components/ComingSoon';
 import LazyLoadWrapper from './components/LazyLoadWrapper';
 import PerformanceMonitor from './components/PerformanceMonitor';
+import HomepageShimmer from './components/HomepageShimmer';
 
 // Lazy load non-critical components
 const BoxDesignGallery = lazy(() => import('./components/homepage/box-design-gallery'));
@@ -17,6 +18,7 @@ const ScrollVideoSection = lazy(() => import('./components/homepage/box-sequence
 
 const HomePage = () => {
   const [showComingSoon, setShowComingSoon] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Set coming soon state from environment variable (defaults to true if not set)
@@ -24,7 +26,19 @@ const HomePage = () => {
     if (comingSoonEnv !== undefined) {
       setShowComingSoon(comingSoonEnv === 'true');
     }
+    
+    // Simulate initial loading time for better UX
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+    
+    return () => clearTimeout(timer);
   }, []);
+
+  // Show loading shimmer while components are loading
+  if (isLoading) {
+    return <HomepageShimmer />;
+  }
 
   // Show coming soon page if enabled
   if (showComingSoon) {

@@ -18,52 +18,76 @@ const ScrollVideoSection = () => {
   const [loadedImageCount, setLoadedImageCount] = useState(0);
   const imagesLoadedRef = useRef<HTMLImageElement[]>([]);
 
-  // Load images in batches for better performance
+  // Preload critical images immediately and load others progressively
   useEffect(() => {
-    const loadImagesInBatches = async () => {
-      const batchSize = 10; // Load 10 images at a time
-      const totalImages = 150;
+    const preloadCriticalImages = async () => {
+      // Preload first 20 images immediately for smooth start
+      const criticalImages = [];
+      const criticalPromises = [];
       
-      for (let batch = 0; batch < Math.ceil(totalImages / batchSize); batch++) {
-        const startIndex = batch * batchSize + 1;
-        const endIndex = Math.min(startIndex + batchSize - 1, totalImages);
+      for (let i = 1; i <= 20; i++) {
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
         
-        const batchPromises = [];
-        for (let i = startIndex; i <= endIndex; i++) {
-          const img = new Image();
-          img.crossOrigin = 'anonymous';
+        const loadPromise = new Promise<HTMLImageElement>((resolve) => {
+          img.onload = () => resolve(img);
+          img.onerror = () => {
+            console.warn(`Failed to load critical image ${i}`);
+            resolve(img);
+          };
+          img.src = `/box-sequence/${i}.png`;
+        });
+        
+        criticalPromises.push(loadPromise);
+      }
+      
+      // Load critical images immediately
+      const criticalLoaded = await Promise.all(criticalPromises);
+      imagesLoadedRef.current = criticalLoaded;
+      setLoadedImageCount(20);
+      
+      // Now load remaining images in larger batches for speed
+      const remainingImages = [];
+      const batchSize = 25; // Increased batch size for faster loading
+      
+      for (let i = 21; i <= 150; i++) {
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        
+        const loadPromise = new Promise<HTMLImageElement>((resolve) => {
+          img.onload = () => resolve(img);
+          img.onerror = () => {
+            console.warn(`Failed to load image ${i}`);
+            resolve(img);
+          };
+          img.src = `/box-sequence/${i}.png`;
+        });
+        
+        remainingImages.push(loadPromise);
+        
+        // Load in batches of 25
+        if (remainingImages.length >= batchSize || i === 150) {
+          const batchLoaded = await Promise.all(remainingImages);
+          imagesLoadedRef.current = [...imagesLoadedRef.current, ...batchLoaded];
+          setLoadedImageCount(imagesLoadedRef.current.length);
           
-          const loadPromise = new Promise<HTMLImageElement>((resolve) => {
-            img.onload = () => {
-              resolve(img);
-            };
-            img.onerror = () => {
-              console.warn(`Failed to load image ${i}`);
-              resolve(img); // Continue even if one image fails
-            };
-            img.src = `/box-sequence/${i}.png`;
-          });
+          // Clear the batch
+          remainingImages.length = 0;
           
-          batchPromises.push(loadPromise);
+          // Very small delay to prevent blocking
+          await new Promise(resolve => setTimeout(resolve, 10));
         }
-        
-        const batchImages = await Promise.all(batchPromises);
-        imagesLoadedRef.current = [...imagesLoadedRef.current, ...batchImages];
-        setLoadedImageCount(imagesLoadedRef.current.length);
-        
-        // Small delay between batches to prevent blocking
-        await new Promise(resolve => setTimeout(resolve, 50));
       }
       
       setImages(imagesLoadedRef.current);
     };
 
     if (isInView) {
-      loadImagesInBatches();
+      preloadCriticalImages();
     }
   }, [isInView]);
 
-  // Intersection Observer to detect when section is in view
+  // Intersection Observer to detect when section is in view - start loading early
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -74,8 +98,8 @@ const ScrollVideoSection = () => {
         }
       },
       {
-        threshold: 0.8, // Trigger when 80% of the section is visible
-        rootMargin: '0px 0px -10% 0px', // Start slightly before fully in view
+        threshold: 0.1, // Trigger when 10% of the section is visible
+        rootMargin: '200px 0px 200px 0px', // Start loading 200px before section comes into view
       }
     );
 
@@ -163,15 +187,30 @@ const ScrollVideoSection = () => {
     >
       <div className="w-full mx-auto h-full">
         <div className="sticky top-0 w-full h-screen">
-          {/* Loading indicator */}
+          {/* Loading indicator with progress */}
           {loadedImageCount < 150 && (
-            <div className="absolute top-4 left-4 z-20 bg-white/90 px-4 py-2 rounded-lg shadow-lg">
-              <div className="flex items-center space-x-2">
-                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-[#0c6b76]"></div>
-                <span className="text-sm text-gray-700">
-                  Loading images... ({loadedImageCount}/150)
-                </span>
+            <div className="absolute top-4 left-4 z-20 bg-white/95 px-6 py-4 rounded-xl shadow-xl border border-gray-200">
+              <div className="flex items-center space-x-3">
+                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-[#0c6b76]"></div>
+                <div className="flex flex-col">
+                  <span className="text-sm font-medium text-gray-800">
+                    Loading Animation... ({loadedImageCount}/150)
+                  </span>
+                  <div className="w-32 h-2 bg-gray-200 rounded-full overflow-hidden mt-1">
+                    <div 
+                      className="h-full bg-gradient-to-r from-[#0c6b76] to-[#0ca6c2] rounded-full transition-all duration-300"
+                      style={{ width: `${(loadedImageCount / 150) * 100}%` }}
+                    ></div>
+                  </div>
+                </div>
               </div>
+            </div>
+          )}
+          
+          {/* Shimmer overlay while loading */}
+          {loadedImageCount < 20 && (
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 animate-pulse">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer"></div>
             </div>
           )}
           
