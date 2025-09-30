@@ -9,9 +9,19 @@ const HeroVideoSection = () => {
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
-      video.play().catch(error => {
-        console.log('Video autoplay failed:', error);
-      });
+      // Set video attributes for better performance
+      video.preload = 'metadata'; // Only load metadata initially
+      video.muted = true; // Ensure muted for autoplay
+      video.playsInline = true; // Prevent fullscreen on mobile
+      
+      // Play video with error handling
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.log('Video autoplay failed:', error);
+          // Fallback: show poster image or placeholder
+        });
+      }
     }
   }, []);
 
@@ -91,9 +101,12 @@ const HeroVideoSection = () => {
                 muted
                 loop
                 playsInline
+                preload="metadata"
+                poster="/img/products-box-img.png" // Fallback poster image
                 style={{ mixBlendMode: 'multiply' }}
               >
                 <source src="/video/Box.webm" type="video/webm" />
+                <source src="/video/box-video.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>

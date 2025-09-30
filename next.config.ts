@@ -17,7 +17,7 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
-    // Optimize image loading
+    // Optimize image loading for better performance
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
@@ -33,10 +33,6 @@ const nextConfig: NextConfig = {
   },
   // Handle static assets properly
   assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
-  // Improve hydration performance
-  swcMinify: true,
-  // Font optimization
-  optimizeFonts: true,
   // Handle font loading errors gracefully
   onDemandEntries: {
     // period (in ms) where the server will keep pages in the buffer

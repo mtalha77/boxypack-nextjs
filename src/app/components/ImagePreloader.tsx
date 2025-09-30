@@ -4,19 +4,17 @@ import { useEffect } from 'react';
 
 // Critical images that should be preloaded for faster initial page load
 const CRITICAL_IMAGES = [
-  // Homepage hero images
-  '/img/logo-vertical.png',
+  // Homepage hero images (highest priority)
   '/img/logo-horizontal.png',
   '/img/products-box-img.png',
+  
+  // Hero section images
   '/img/Box-4.jpg',
   '/img/Box-5.jpg',
   '/img/Box-6.jpg',
   '/img/Box-7.jpg',
-  '/img/Product-Packaging-Boxes.webp',
-  '/img/product-box-2.webp',
-  '/img/shipping-box-2.webp',
   
-  // Navigation icons
+  // Navigation icons (medium priority)
   '/icons/rigid.png',
   '/icons/kraft.png',
   '/icons/cardboard.png',
@@ -44,6 +42,14 @@ const CRITICAL_IMAGES = [
   
   // Background and decorative elements
   '/img/cs_slider_shape.svg',
+];
+
+// Secondary images that can be loaded after critical ones
+const SECONDARY_IMAGES = [
+  '/img/logo-vertical.png',
+  '/img/Product-Packaging-Boxes.webp',
+  '/img/product-box-2.webp',
+  '/img/shipping-box-2.webp',
   '/img/contact-hero-img.png',
   '/img/how-it-works-img.png',
 ];
@@ -77,17 +83,27 @@ interface ImagePreloaderProps {
 }
 
 const ImagePreloader: React.FC<ImagePreloaderProps> = ({ 
-  images = CRITICAL_IMAGES, 
   children 
 }) => {
   useEffect(() => {
-    // Preload images when component mounts
+    // Preload critical images immediately
     const preloadCriticalImages = async () => {
       try {
-        await preloadImages(images);
+        await preloadImages(CRITICAL_IMAGES);
         console.log('✅ Critical images preloaded successfully');
+        
+        // Preload secondary images after critical ones are done
+        setTimeout(async () => {
+          try {
+            await preloadImages(SECONDARY_IMAGES);
+            console.log('✅ Secondary images preloaded successfully');
+          } catch (error) {
+            console.warn('⚠️ Some secondary images failed to preload:', error);
+          }
+        }, 500); // Small delay to ensure critical images load first
+        
       } catch (error) {
-        console.warn('⚠️ Some images failed to preload:', error);
+        console.warn('⚠️ Some critical images failed to preload:', error);
       }
     };
 
@@ -100,7 +116,7 @@ const ImagePreloader: React.FC<ImagePreloaderProps> = ({
         preloadCriticalImages();
       });
     }
-  }, [images]);
+  }, []);
 
   return <>{children}</>;
 };

@@ -1,32 +1,67 @@
 "use client"
 import { useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
  
 const ScrollVideoSection = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
-  const [animationStarted, setAnimationStarted] = useState(false);
   const [animationCompleted, setAnimationCompleted] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(1);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end end'],
   });
  
-  // Load all 150 images
-  const images = useMemo(() => {
-    const loadedImages: HTMLImageElement[] = [];
+  // Load images progressively and cache them
+  const [images, setImages] = useState<HTMLImageElement[]>([]);
+  const [loadedImageCount, setLoadedImageCount] = useState(0);
+  const imagesLoadedRef = useRef<HTMLImageElement[]>([]);
 
-    for (let i = 1; i <= 150; i++) {
-      const img = new Image();
-      img.src = `/box-sequence/${i}.png`;
-      loadedImages.push(img);
+  // Load images in batches for better performance
+  useEffect(() => {
+    const loadImagesInBatches = async () => {
+      const batchSize = 10; // Load 10 images at a time
+      const totalImages = 150;
+      
+      for (let batch = 0; batch < Math.ceil(totalImages / batchSize); batch++) {
+        const startIndex = batch * batchSize + 1;
+        const endIndex = Math.min(startIndex + batchSize - 1, totalImages);
+        
+        const batchPromises = [];
+        for (let i = startIndex; i <= endIndex; i++) {
+          const img = new Image();
+          img.crossOrigin = 'anonymous';
+          
+          const loadPromise = new Promise<HTMLImageElement>((resolve) => {
+            img.onload = () => {
+              resolve(img);
+            };
+            img.onerror = () => {
+              console.warn(`Failed to load image ${i}`);
+              resolve(img); // Continue even if one image fails
+            };
+            img.src = `/box-sequence/${i}.png`;
+          });
+          
+          batchPromises.push(loadPromise);
+        }
+        
+        const batchImages = await Promise.all(batchPromises);
+        imagesLoadedRef.current = [...imagesLoadedRef.current, ...batchImages];
+        setLoadedImageCount(imagesLoadedRef.current.length);
+        
+        // Small delay between batches to prevent blocking
+        await new Promise(resolve => setTimeout(resolve, 50));
+      }
+      
+      setImages(imagesLoadedRef.current);
+    };
+
+    if (isInView) {
+      loadImagesInBatches();
     }
-
-    return loadedImages;
-  }, []);
+  }, [isInView]);
 
   // Intersection Observer to detect when section is in view
   useEffect(() => {
@@ -34,7 +69,6 @@ const ScrollVideoSection = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsInView(true);
-          setAnimationStarted(true);
         } else {
           setIsInView(false);
         }
@@ -58,7 +92,7 @@ const ScrollVideoSection = () => {
  
   const render = useCallback(
     (index: number) => {
-      if (images[index - 1] && canvasRef.current) {
+      if (images[index - 1] && canvasRef.current && images[index - 1].complete) {
         const ctx = canvasRef.current.getContext('2d');
         if (ctx) {
           const canvas = canvasRef.current;
@@ -101,7 +135,6 @@ const ScrollVideoSection = () => {
   // Update image when scroll changes
   useMotionValueEvent(currentIndex, 'change', (latest) => {
     const imageIndex = Number(latest.toFixed());
-    setCurrentImageIndex(imageIndex);
     
     // Check if animation is completed
     if (imageIndex >= 150) {
@@ -130,6 +163,18 @@ const ScrollVideoSection = () => {
     >
       <div className="w-full mx-auto h-full">
         <div className="sticky top-0 w-full h-screen">
+          {/* Loading indicator */}
+          {loadedImageCount < 150 && (
+            <div className="absolute top-4 left-4 z-20 bg-white/90 px-4 py-2 rounded-lg shadow-lg">
+              <div className="flex items-center space-x-2">
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-[#0c6b76]"></div>
+                <span className="text-sm text-gray-700">
+                  Loading images... ({loadedImageCount}/150)
+                </span>
+              </div>
+            </div>
+          )}
+          
           <canvas
             ref={canvasRef}
             width={1000}
