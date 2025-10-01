@@ -13,7 +13,7 @@ import ScrollVideoSection from './components/homepage/box-sequence-images';
 import CustomDimensionsForm from './components/CustomDimensionsForm';
 
 const HomePage = () => {
-  const [showComingSoon, setShowComingSoon] = useState(true); // Set to true to show coming soon, false to show normal homepage
+  const [showComingSoon, setShowComingSoon] = useState(false); // Set to true to show coming soon, false to show normal homepage
 
   useEffect(() => {
     // Set coming soon state from environment variable (defaults to true if not set)
