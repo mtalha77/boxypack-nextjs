@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import { ArrowRight, Package } from 'lucide-react';
 import { FaFacebook, FaYoutube, FaPinterest, FaTwitter, FaTiktok, FaReddit } from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";   
@@ -19,8 +19,8 @@ const Footer: React.FC = () => {
     <footer className="bg-white text-gray-800 relative">
       {/* Decorative Shape - Top Right Corner Background */}
       <div className="absolute top-40 right-0 w-80 h-60 pointer-events-none" style={{ zIndex: 1 }}>
-        <Image
-          src="/img/cs_slider_shape.svg"
+        <CldImage
+          src="cs_slider_shape_yszisl"
           alt="Decorative shape"
           width={256}
           height={160}
@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
           {/* Logo and About Column */}
           <div>
             <div className="mb-6">
-              <Image src="/img/logo-vertical.png" alt="Boxypack" width={180} height={90} className="mb-4" priority />
+              <CldImage src="logo-vertical_zkxna0" alt="Boxypack" width={180} height={90} className="mb-4" priority />
               <p className="text-body-small text-body-secondary leading-relaxed">
                 BoxyPack is where box and packaging meet passion. We make boxes that protect, present, and promote your products with creativity, choice, and reliable support.
               </p>

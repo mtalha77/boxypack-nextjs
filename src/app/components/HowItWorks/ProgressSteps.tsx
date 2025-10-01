@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 
 const ProgressSteps: React.FC = () => {
   const steps = [
@@ -9,49 +9,49 @@ const ProgressSteps: React.FC = () => {
       number: 1,
       title: "Pick Your Box Style",
       description: "Start by selecting the box style that matches your product. Options include mailer, product, rigid, shipping, pouches, or shopping bags. Each serves different needs, from online sales to retail shelves. Picking the correct style makes sure your product is packed properly, looks polished, and arrives safely to customers.",
-      image: "/img/products-box-img.png",
+      image: "products-box-img_x8vu4b",
       bgColor: "bg-[#0c6b76]"
     },
     {
       number: 2,
       title: "Choose Box By Material Or Industry",
       description: "BoxyPack allows you to select by material type or by industry focus. Pick sturdy corrugated boards for shipping or premium rigid boards for luxury items. Choose by industry needs such as food, fashion, or retail. This ensures packaging matches product demands and highlights your brand effectively.",
-      image: "/img/products-box-img.png",
+      image: "products-box-img_x8vu4b",
       bgColor: "bg-[#0c6b76]"
     },
     {
       number: 3,
       title: "Select Size And Fit",
       description: "Your product size decides the box fit. We offer ready sizes or custom dimensions to match exact needs. Choosing the right fit avoids damage, saves space, and improves presentation. Accurate sizing ensures every box works well for both small and large product orders.",
-      image: "/img/products-box-img.png",
+      image: "products-box-img_x8vu4b",
       bgColor: "bg-[#0c6b76]"
     },
     {
       number: 4,
       title: "Set Quantity And Get a Quote",
       description: "Decide the quantity of boxes you need for production. Entering quantity gives instant pricing details that match your choices. This step helps plan budgets, compare options, and confirm costs before moving ahead. Clear pricing ensures you make informed decisions with no hidden surprises.",
-      image: "/img/products-box-img.png",
+      image: "products-box-img_x8vu4b",
       bgColor: "bg-[#0c6b76]"
     },
     {
       number: 5,
       title: "Design Your Custom Box",
       description: "Add your brand identity with easy design options. Upload logos, artwork, colors, or text. You can print inside and outside for a stronger impression. Custom design turns every box into more than packaging. It builds customer connection, makes unboxing memorable, and shows care for every detail.",
-      image: "/img/products-box-img.png",
+      image: "products-box-img_x8vu4b",
       bgColor: "bg-[#0c6b76]"
     },
     {
       number: 6,
       title: "Review And Approve Order",
       description: "Check all order details before we begin production. You will see proof to confirm design, size, and material. This step prevents mistakes and ensures accuracy. If changes are needed, our team will guide you. Approval guarantees the final product matches your vision and brand needs.",
-      image: "/img/products-box-img.png",
+      image: "products-box-img_x8vu4b",
       bgColor: "bg-[#0c6b76]"
     },
     {
       number: 7,
       title: "Confirm Order And Receive Boxes",
       description: "After approval, production begins with a focus on quality and precision. Once completed, boxes are shipped directly to your chosen location. They arrive safely, ready for use. Every box reflects your brand, protects your product, and creates a presentation that builds trust and strengthens customer relationships immediately.",
-      image: "/img/products-box-img.png",
+      image: "products-box-img_x8vu4b",
       bgColor: "bg-[#0c6b76]"
     }
   ];
@@ -91,7 +91,7 @@ const ProgressSteps: React.FC = () => {
                   {/* Right Side - Image */}
                   <div className="lg:w-80 w-full">
                     <div className="relative h-64 rounded-xl overflow-hidden shadow-xl bg-gray-800">
-                      <Image
+                      <CldImage
                         src={step.image}
                         alt={step.title}
                         fill

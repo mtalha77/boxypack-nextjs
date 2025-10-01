@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Testimonial {
@@ -120,7 +120,7 @@ const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({ productData }) 
   };
 
   return (
-    <section className="py-24 relative overflow-hidden" style={{ backgroundImage: 'url(/img/spray-paint.png)', backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+    <section className="py-24 relative overflow-hidden" style={{ backgroundImage: 'url(https://res.cloudinary.com/du5lyrqvz/image/upload/spray-paint_bwq0bs)', backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
       {/* Background Overlay */}
       <div className="absolute inset-0 bg-white/80"></div>
 
@@ -170,7 +170,7 @@ const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({ productData }) 
               <div className="flex items-center justify-center space-x-6">
                 {/* Avatar */}
                 <div className="w-16 h-16 rounded-full overflow-hidden shadow-lg ring-2 ring-white/50">
-                  <Image
+                  <CldImage
                     src={testimonials[currentIndex].avatar}
                     alt={testimonials[currentIndex].name}
                     width={64}

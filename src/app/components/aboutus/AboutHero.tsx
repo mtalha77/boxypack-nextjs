@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import LightBlueBackground from '../../UI/LightBlueBackground';
 import { Award, Users, Clock, Heart } from 'lucide-react';
 
@@ -43,8 +43,8 @@ const AboutHero: React.FC = () => {
           {/* Right Content - Image */}
           <div className="relative flex justify-center items-center h-full">
             <div className="relative w-full h-full max-h-[600px]">
-              <Image
-                src="/img/Product-Packaging-Boxes.webp"
+              <CldImage
+                src="Product-Packaging-Boxes"
                 alt="Custom packaging boxes that build brands - BoxyPack product showcase"
                 width={600}
                 height={600}

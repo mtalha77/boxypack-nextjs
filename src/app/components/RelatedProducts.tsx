@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import { NavigationSection, MainCategory, SubCategory } from '../data/navigationData';
 import { productData } from '../data/productData';
 import LightBlueBackground from '../UI/LightBlueBackground';
@@ -40,7 +40,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({
         name: sub.name,
         description: sub.description || `Premium ${sub.name.toLowerCase()} packaging solutions`,
         href: `/products/${currentSection.slug}/${currentCategory.slug}/${sub.slug}`,
-        image: '/img/products-box-img.png'
+        image: 'products-box-img_x8vu4b'
       }));
 
       // If not enough subcategories, add other categories from the same section
@@ -53,7 +53,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({
           name: cat.name,
           description: cat.description || `Premium ${cat.name.toLowerCase()} packaging solutions`,
           href: `/products/${currentSection.slug}/${cat.slug}`,
-          image: '/img/products-box-img.png'
+          image: 'products-box-img_x8vu4b'
         })));
       }
     } else if (pageType === 'category' && currentSection && currentCategory) {
@@ -64,7 +64,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({
         name: sub.name,
         description: sub.description || `Premium ${sub.name.toLowerCase()} packaging solutions`,
         href: `/products/${currentSection.slug}/${currentCategory.slug}/${sub.slug}`,
-        image: '/img/products-box-img.png'
+        image: 'products-box-img_x8vu4b'
       }));
 
       // If not enough subcategories, add other categories from the same section
@@ -77,7 +77,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({
           name: cat.name,
           description: cat.description || `Premium ${cat.name.toLowerCase()} packaging solutions`,
           href: `/products/${currentSection.slug}/${cat.slug}`,
-          image: '/img/products-box-img.png'
+          image: 'products-box-img_x8vu4b'
         })));
       }
     } else if (pageType === 'section' && currentSection) {
@@ -88,7 +88,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({
           name: cat.name,
           description: cat.description || `Premium ${cat.name.toLowerCase()} packaging solutions`,
           href: `/products/${currentSection.slug}/${cat.slug}`,
-          image: '/img/products-box-img.png'
+          image: 'products-box-img_x8vu4b'
         }));
       } else if (currentSection.subcategories) {
         const subcategories = currentSection.subcategories.slice(0, maxItems);
@@ -96,7 +96,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({
           name: sub.name,
           description: sub.description || `Premium ${sub.name.toLowerCase()} packaging solutions`,
           href: `/products/${currentSection.slug}/${sub.slug}`,
-          image: '/img/products-box-img.png'
+          image: 'products-box-img_x8vu4b'
         }));
       }
     }
@@ -130,7 +130,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({
       
       relatedProducts = relatedProducts.concat(genericProducts.map(product => ({
         ...product,
-        image: '/img/products-box-img.png'
+        image: 'products-box-img_x8vu4b'
       })));
     }
 
@@ -164,7 +164,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({
               className="group bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 p-6 hover:-translate-y-1 flex flex-col h-full"
             >
               <div className="aspect-w-16 aspect-h-9 mb-4 relative overflow-hidden rounded-lg">
-                <Image
+                <CldImage
                   src={product.image}
                   alt={product.name}
                   width={400}

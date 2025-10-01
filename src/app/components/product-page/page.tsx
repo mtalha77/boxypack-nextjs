@@ -53,7 +53,7 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
     return {
       name,
       description,
-      heroImage: '/img/products-box-img.png',
+      heroImage: 'products-box-img_x8vu4b',
       modelPath: '/models/Tuck End Auto Bottom1.glb',
       features: [
         {
@@ -92,10 +92,10 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
         { name: 'X-Large', dimensions: '15×11×5 inches', price: '$1.15' }
       ],
       galleryImages: [
-        '/img/products-box-img.png',
-        '/img/product-box-2.jpg',
-        '/img/Product-Packaging-Boxes.webp',
-        '/img/shipping-box-2.webp'
+        'products-box-img_x8vu4b',
+        'product-box-2',
+        'Product-Packaging-Boxes',
+        'shipping-box_jyysru'
       ],
       customizationOptions: [
         'Full color printing',

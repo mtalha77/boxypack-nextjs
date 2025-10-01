@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 import LightBlueBackground from "../../UI/LightBlueBackground";
 
 const MoreThanPackage: React.FC = () => {
@@ -13,8 +13,8 @@ const MoreThanPackage: React.FC = () => {
             {/* Left Side - Custom Packaging Image */}
             <div className="relative">
               <div className="relative h-full w-auto">
-                <Image
-                  src="/img/Box-6.jpg"
+                <CldImage
+                  src="Box-6_vm3fmh"
                   alt="Custom Packaging Boxes - BoxyPack kraft boxes with professional design"
                   width={600}
                   height={400}

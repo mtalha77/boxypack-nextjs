@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 import { productData } from "../../data/productData";
 
 // Featured products for the gallery - using actual product data
@@ -10,32 +10,32 @@ const featuredProducts = [
   {
     key: "mailer-boxes",
     product: productData["mailer-boxes"],
-    image: "/img/Box-4.jpg",
+    image: "Box-4_lztqi7",
   },
   {
     key: "product-boxes",
     product: productData["product-boxes"],
-    image: "/img/Box-5.jpg",
+    image: "Box-5_pdb8xw",
   },
   {
     key: "rigid-boxes",
     product: productData["rigid-boxes"],
-    image: "/img/Box-6.jpg",
+    image: "Box-6_vm3fmh",
   },
   {
     key: "shipping-boxes",
     product: productData["shipping-boxes"],
-    image: "/img/Box-7.jpg",
+    image: "shipping-box_jyysru",
   },
   {
     key: "mylar-boxes",
     product: productData["mylar-boxes"],
-    image: "/img/Box-4.jpg",
+    image: "Box-4_lztqi7",
   },
   {
     key: "shopping-bags",
     product: productData["shopping-bags"],
-    image: "/img/Box-5.jpg",
+    image: "Box-5_pdb8xw",
   },
 ];
 
@@ -71,7 +71,7 @@ const BoxDesignGallery: React.FC = () => {
                 className="group block"
               >
                 <div className="relative h-80 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
-                  <Image
+                  <CldImage
                     src={featuredProducts[0].image}
                     alt={featuredProducts[0].product.name}
                     width={400}
@@ -102,7 +102,7 @@ const BoxDesignGallery: React.FC = () => {
                 className="group block"
               >
                 <div className="relative h-80 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
-                  <Image
+                  <CldImage
                     src={featuredProducts[1].image}
                     alt={featuredProducts[1].product.name}
                     width={400}
@@ -134,7 +134,7 @@ const BoxDesignGallery: React.FC = () => {
               className="group block"
             >
               <div className="relative h-160 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
-                <Image
+                <CldImage
                   src={featuredProducts[2].image}
                   alt={featuredProducts[2].product.name}
                   width={600}
@@ -164,7 +164,7 @@ const BoxDesignGallery: React.FC = () => {
               className="group block"
             >
               <div className="relative h-160 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
-                <Image
+                <CldImage
                   src={featuredProducts[3].image}
                   alt={featuredProducts[3].product.name}
                   width={600}
@@ -193,7 +193,7 @@ const BoxDesignGallery: React.FC = () => {
                 className="group block"
               >
                 <div className="relative h-80 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
-                  <Image
+                  <CldImage
                     src={featuredProducts[4].image}
                     alt={featuredProducts[4].product.name}
                     width={300}
@@ -220,7 +220,7 @@ const BoxDesignGallery: React.FC = () => {
                 className="group block"
               >
                 <div className="relative h-80 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
-                  <Image
+                  <CldImage
                     src={featuredProducts[5].image}
                     alt={featuredProducts[5].product.name}
                     width={300}

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import { Linkedin, Mail, Award, Users, Clock, Star, CheckCircle } from 'lucide-react';
 
 const AboutTeam: React.FC = () => {
@@ -138,7 +138,7 @@ const AboutTeam: React.FC = () => {
         <div 
           className="relative bg-gradient-to-br from-[var(--color-turquoise-bright)]/5 to-[var(--color-teal-deep)]/5 rounded-3xl p-12 overflow-hidden"
           style={{
-            backgroundImage: 'url(/img/shipping-box-2.webp)',
+            backgroundImage: 'url(https://res.cloudinary.com/du5lyrqvz/image/upload/shipping-box_jyysru)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundBlendMode: 'overlay'

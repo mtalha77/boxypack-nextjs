@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import { useRouter, usePathname } from 'next/navigation';
 import { 
   ChevronDown, 
@@ -227,8 +227,8 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between">
           {/* Left Side - Logo */}
           <Link href="/" className="flex items-center">
-            <Image 
-              src={headerConfig.logo.src} 
+            <CldImage 
+              src={headerConfig.logo.iconPath} 
               alt={headerConfig.logo.alt} 
               width={headerConfig.logo.width} 
               height={headerConfig.logo.height}
@@ -532,8 +532,8 @@ const Header: React.FC = () => {
                     >
                       {/* Decorative Shape - Top Right Corner Background */}
                       <div className="absolute top-0 right-0 w-96 h-60 pointer-events-none" style={{ zIndex: 10 }}>
-                        <Image
-                          src="/img/cs_slider_shape.svg"
+                        <CldImage
+                          src="cs_slider_shape_yszisl"
                           alt="Decorative shape"
                           width={384}
                           height={240}
@@ -564,7 +564,7 @@ const Header: React.FC = () => {
                                               onClick={handleSmoothClose}
                                             className="flex items-center px-4 py-3 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] group"
                                             >
-                                              <Image
+                                              <CldImage
                                                 src={getSubcategoryIcon(subcategory.name)}
                                                 alt={subcategory.name}
                                               width={32}
@@ -583,7 +583,7 @@ const Header: React.FC = () => {
                                         onClick={handleSmoothClose}
                                         className="flex items-center px-4 py-3 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] group"
                                       >
-                                        <Image
+                                        <CldImage
                                           src={getCategoryIcon(category.name)}
                                           alt={category.name}
                                           width={32}
@@ -608,7 +608,7 @@ const Header: React.FC = () => {
                                         onClick={handleSmoothClose}
                                         className="flex items-center px-4 py-3 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] group"
                                       >
-                                        <Image
+                                        <CldImage
                                           src={getSubcategoryIcon(subcategory.name)}
                                           alt={subcategory.name}
                                           width={32}
@@ -630,7 +630,7 @@ const Header: React.FC = () => {
                                 <div className="flex items-center h-full">
                                   <div className="text-center w-full">
                                     <div className="flex items-center justify-center mb-4">
-                                      <Image
+                                      <CldImage
                                         src={getCategoryIcon(section.name)}
                                         alt={section.name}
                                         width={48}

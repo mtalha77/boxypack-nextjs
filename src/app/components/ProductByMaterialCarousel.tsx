@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef, useState } from 'react';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import Link from 'next/link';
 import { productByMaterialData } from '../data/productByMaterialData';
 import LightBlueBackground from '../UI/LightBlueBackground';
@@ -54,7 +54,7 @@ const ProductByMaterialCarousel: React.FC = () => {
               style={{ width: "320px" }}
             >
               <Link href={`/products/product-by-material/${category.slug}`}>
-                <Image
+                <CldImage
                   src={category.image}
                   alt={category.name}
                   width={400}

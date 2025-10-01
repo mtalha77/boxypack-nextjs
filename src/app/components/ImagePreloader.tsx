@@ -5,14 +5,14 @@ import { useEffect } from 'react';
 // Critical images that should be preloaded for faster initial page load
 const CRITICAL_IMAGES = [
   // Homepage hero images (highest priority)
-  '/img/logo-horizontal.png',
-  '/img/products-box-img.png',
+  'logo-horizontal_wriy7t',
+  'products-box-img_x8vu4b',
   
   // Hero section images
-  '/img/Box-4.jpg',
-  '/img/Box-5.jpg',
-  '/img/Box-6.jpg',
-  '/img/Box-7.jpg',
+  'Box-4_lztqi7',
+  'Box-5_pdb8xw',
+  'Box-6_vm3fmh',
+  'shipping-box_jyysru',
   
   // Navigation icons (medium priority)
   '/icons/rigid.png',
@@ -41,17 +41,17 @@ const CRITICAL_IMAGES = [
   '/icons/pizzaBox.png',
   
   // Background and decorative elements
-  '/img/cs_slider_shape.svg',
+  'cs_slider_shape_yszisl',
 ];
 
 // Secondary images that can be loaded after critical ones
 const SECONDARY_IMAGES = [
-  '/img/logo-vertical.png',
-  '/img/Product-Packaging-Boxes.webp',
-  '/img/product-box-2.webp',
-  '/img/shipping-box-2.webp',
-  '/img/contact-hero-img.png',
-  '/img/how-it-works-img.png',
+  'logo-vertical_zkxna0',
+  'Product-Packaging-Boxes',
+  'product-box-2',
+  'shipping-box_jyysru',
+  'contact-hero-img_pknqdz',
+  'how-it-works-img_i6hojx',
 ];
 
 // Preload a single image

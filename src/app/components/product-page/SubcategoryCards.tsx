@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import { SubCategory } from '../../data/navigationData';
 import LightBlueBackground from '../../UI/LightBlueBackground';
 
@@ -94,8 +94,8 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
               href={getSubcategoryUrl(subcategory.slug)}
               className="group max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 block"
             >
-              <Image
-                src="/img/products-box-img.png"
+              <CldImage
+                src="products-box-img_x8vu4b"
                 alt={`${subcategory.name} packaging example`}
                 width={400}
                 height={300}

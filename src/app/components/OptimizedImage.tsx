@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import { useState } from 'react';
 
 interface OptimizedImageProps {
@@ -65,7 +65,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
 
   return (
     <div className={`relative ${className}`}>
-      <Image
+      <CldImage
         src={src}
         alt={alt}
         width={fill ? undefined : width}

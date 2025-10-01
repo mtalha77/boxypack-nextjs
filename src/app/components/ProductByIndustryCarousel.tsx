@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef, useState } from 'react';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import Link from 'next/link';
 import { productByIndustryData } from '../data/productByIndustryData';
 
@@ -52,7 +52,7 @@ const ProductByIndustryCarousel: React.FC = () => {
               style={{ width: "300px" }}
             >
               <Link href={`/products/product-by-industry/${category.slug}`}>
-                <Image
+                <CldImage
                   src={category.image}
                   alt={category.name}
                   width={400}

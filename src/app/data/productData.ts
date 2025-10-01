@@ -8,7 +8,7 @@ export const productData = {
   'mailer-boxes': {
     name: 'Mailer Boxes',
     description: 'Our mailer boxes bring strength and style together, ideal for gifts and subscription packs. Each box protects products while giving a clean look that strengthens brand identity.',
-    heroImage: '/img/products-box-img.png',
+    heroImage: 'products-box-img_x8vu4b',
     modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [
       {
@@ -47,7 +47,7 @@ export const productData = {
       { name: 'X-Large', dimensions: '15×11×5 inches', price: '$1.15' }
     ],
     galleryImages: [
-      '/img/products-box-img.png',
+      'products-box-img_x8vu4b',
       '/img/product-box-2.jpg',
       '/img/Product-Packaging-Boxes.webp',
       '/img/shipping-box-2.webp'
@@ -64,7 +64,7 @@ export const productData = {
   'product-boxes': {
     name: 'Product Boxes',
     description: 'Premium boxes crafted to showcase retail and online products with care. Product designs add visibility, highlight your branding, and provide trusted protection for every item.',
-    heroImage: '/img/products-box-img.png',
+    heroImage: 'products-box-img_x8vu4b',
     modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [
       {
@@ -103,7 +103,7 @@ export const productData = {
       { name: 'X-Large', dimensions: '16×12×6 inches', price: '$1.35' }
     ],
     galleryImages: [
-      '/img/products-box-img.png',
+      'products-box-img_x8vu4b',
       '/img/product-box-2.jpg',
       '/img/Product-Packaging-Boxes.webp',
       '/img/shipping-box-2.webp'
@@ -120,7 +120,7 @@ export const productData = {
   'rigid-boxes': {
     name: 'Rigid Boxes',
     description: 'Luxury rigid boxes designed for products that need more. Combining strength with style, they create memorable unboxing moments. It lifts your brand with a refined presentation.',
-    heroImage: '/img/products-box-img.png',
+    heroImage: 'products-box-img_x8vu4b',
     modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [
       {
@@ -159,7 +159,7 @@ export const productData = {
       { name: 'X-Large', dimensions: '16×12×8 inches', price: '$2.85' }
     ],
     galleryImages: [
-      '/img/products-box-img.png',
+      'products-box-img_x8vu4b',
       '/img/product-box-2.jpg',
       '/img/Product-Packaging-Boxes.webp',
       '/img/shipping-box-2.webp'
@@ -176,7 +176,7 @@ export const productData = {
   'shipping-boxes': {
     name: 'Shipping Boxes',
     description: 'Strong and reliable, our shipping boxes ensure products travel safely across any distance. Built for value and strength, they provide trusted protection and a perfect look.',
-    heroImage: '/img/products-box-img.png',
+    heroImage: 'products-box-img_x8vu4b',
     modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [
       {
@@ -215,7 +215,7 @@ export const productData = {
       { name: 'X-Large', dimensions: '20×16×12 inches', price: '$1.05' }
     ],
     galleryImages: [
-      '/img/products-box-img.png',
+      'products-box-img_x8vu4b',
       '/img/product-box-2.jpg',
       '/img/Product-Packaging-Boxes.webp',
       '/img/shipping-box-2.webp'
@@ -232,7 +232,7 @@ export const productData = {
   'mylar-boxes': {
     name: 'Mylar Boxes',
     description: 'Premium mylar packaging solutions with excellent barrier properties and durability for various products.',
-    heroImage: '/img/products-box-img.png',
+    heroImage: 'products-box-img_x8vu4b',
     modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [
       {
@@ -271,7 +271,7 @@ export const productData = {
       { name: 'X-Large', dimensions: '10×12 inches', price: '$0.45' }
     ],
     galleryImages: [
-      '/img/products-box-img.png',
+      'products-box-img_x8vu4b',
       '/img/product-box-2.jpg',
       '/img/Product-Packaging-Boxes.webp',
       '/img/shipping-box-2.webp'
@@ -288,7 +288,7 @@ export const productData = {
   'mailers': {
     name: 'Mailers',
     description: 'Efficient mail packaging for documents and small items. Professional, secure, and cost-effective solutions for all your mailing needs.',
-    heroImage: '/img/products-box-img.png',
+    heroImage: 'products-box-img_x8vu4b',
     modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [
       {
@@ -327,7 +327,7 @@ export const productData = {
       { name: 'X-Large', dimensions: '15×18 inches', price: '$0.55' }
     ],
     galleryImages: [
-      '/img/products-box-img.png',
+      'products-box-img_x8vu4b',
       '/img/product-box-2.jpg',
       '/img/Product-Packaging-Boxes.webp',
       '/img/shipping-box-2.webp'
@@ -344,7 +344,7 @@ export const productData = {
   'shopping-bags': {
     name: 'Shopping Bags',
     description: 'Our stylish shopping bags combine strength with modern appeal. They extend your brand presence and keep customers engaged well beyond purchase.',
-    heroImage: '/img/products-box-img.png',
+    heroImage: 'products-box-img_x8vu4b',
     modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [
       {
@@ -383,7 +383,7 @@ export const productData = {
       { name: 'X-Large', dimensions: '20×22×10 inches', price: '$1.85' }
     ],
     galleryImages: [
-      '/img/products-box-img.png',
+      'products-box-img_x8vu4b',
       '/img/product-box-2.jpg',
       '/img/Product-Packaging-Boxes.webp',
       '/img/shipping-box-2.webp'
@@ -400,7 +400,7 @@ export const productData = {
   'packaging-accessories': {
     name: 'Packaging Accessories',
     description: 'Essential accessories to complete your packaging needs. From protective materials to decorative elements, we have everything you need.',
-    heroImage: '/img/products-box-img.png',
+    heroImage: 'products-box-img_x8vu4b',
     modelPath: '/models/Tuck End Auto Bottom1.glb',
     features: [
       {
@@ -439,7 +439,7 @@ export const productData = {
       { name: 'Ribbons', dimensions: 'Decorative finishing', price: '$0.25' }
     ],
     galleryImages: [
-      '/img/products-box-img.png',
+      'products-box-img_x8vu4b',
       '/img/product-box-2.jpg',
       '/img/Product-Packaging-Boxes.webp',
       '/img/shipping-box-2.webp'

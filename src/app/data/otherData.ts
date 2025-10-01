@@ -18,7 +18,7 @@ export const otherData: OtherCategory = {
   name: "Other",
   slug: "other",
   description: "Additional packaging accessories and printing services for complete packaging solutions",
-  image: "/img/products-box-img.png",
+  image: "products-box-img_x8vu4b",
   subcategoriesCount: 8,
   modelPath: "/models/Tuck End Auto Bottom1.glb",
   subcategories: [

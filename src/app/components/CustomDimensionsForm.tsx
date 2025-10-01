@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import { ChevronDown, Info, Share2, Check } from 'lucide-react';
 import { navigationData, NavigationSection, MainCategory, SubCategory } from '../data/navigationData';
 import LightBlueBackground from '../UI/LightBlueBackground';
@@ -33,7 +33,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   const [quantity, setQuantity] = useState(250);
   const [productionSpeed, setProductionSpeed] = useState('Standard (8 Business Days)');
   const [showDropdowns, setShowDropdowns] = useState<{[key: string]: boolean}>({});
-  const [selectedImage, setSelectedImage] = useState('/img/Mailer-Box-3.jpg');
+  const [selectedImage, setSelectedImage] = useState('Mailer-Box-3_oct2ws');
   const [zoomLevel, setZoomLevel] = useState(1);
 
   const unitPrice = 3.92;
@@ -220,7 +220,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
             {/* Main Product Image */}
             <div className="bg-white rounded-lg shadow-lg p-8 relative group">
               <div className="w-full aspect-square flex items-center justify-center relative overflow-hidden">
-                <Image 
+                <CldImage 
                   src={selectedImage}
                   alt="Custom Mailer Box"
                   width={400}
@@ -278,14 +278,14 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
             <div className="flex gap-4 justify-center">
               <div 
                 className={`w-16 h-16 rounded border cursor-pointer transition-all duration-300 ${
-                  selectedImage === '/img/Mailer-Box-3.jpg' 
+                  selectedImage === 'Mailer-Box-3_oct2ws' 
                     ? 'border-blue-500 ring-2 ring-blue-200' 
                     : 'border-gray-200 hover:border-blue-300'
                 }`}
-                onClick={() => handleImageChange('/img/Mailer-Box-3.jpg')}
+                onClick={() => handleImageChange('Mailer-Box-3_oct2ws')}
               >
-                    <Image 
-                      src="/img/Mailer-Box-3.jpg" 
+                    <CldImage 
+                      src="Mailer-Box-3_oct2ws" 
                   alt="Mailer Box 3"
                   width={64}
                   height={64}
@@ -294,14 +294,14 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                   </div>
               <div 
                 className={`w-16 h-16 rounded border cursor-pointer transition-all duration-300 ${
-                  selectedImage === '/img/Mailer-Box-2.jpg' 
+                  selectedImage === 'Mailer-Box-2_ysut1i' 
                     ? 'border-blue-500 ring-2 ring-blue-200' 
                     : 'border-gray-200 hover:border-blue-300'
                 }`}
-                onClick={() => handleImageChange('/img/Mailer-Box-2.jpg')}
+                onClick={() => handleImageChange('Mailer-Box-2_ysut1i')}
               >
-                <Image 
-                  src="/img/Mailer-Box-2.jpg" 
+                <CldImage 
+                  src="Mailer-Box-2_ysut1i" 
                   alt="Mailer Box 2"
                   width={64}
                   height={64}
@@ -310,14 +310,14 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                 </div>
               <div 
                 className={`w-16 h-16 rounded border cursor-pointer transition-all duration-300 ${
-                  selectedImage === '/img/Mailer-Box (1).jpg' 
+                  selectedImage === 'Mailer-Box_1_ujqhhx' 
                     ? 'border-blue-500 ring-2 ring-blue-200' 
                     : 'border-gray-200 hover:border-blue-300'
                 }`}
-                onClick={() => handleImageChange('/img/Mailer-Box (1).jpg')}
+                onClick={() => handleImageChange('Mailer-Box_1_ujqhhx')}
               >
-                <Image 
-                  src="/img/Mailer-Box (1).jpg" 
+                <CldImage 
+                  src="Mailer-Box_1_ujqhhx" 
                   alt="Mailer Box 1"
                   width={64}
                   height={64}

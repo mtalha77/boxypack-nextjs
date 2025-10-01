@@ -53,7 +53,7 @@ const CategoryPageSEO: React.FC<CategoryPageSEOProps> = ({ category, section }) 
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content="/img/products-box-img.png" />
+      <meta property="og:image" content="https://res.cloudinary.com/du5lyrqvz/image/upload/products-box-img_x8vu4b" />
       <meta property="og:url" content={`https://boxypack.com/products/${section.slug}/${category.slug}`} />
       <meta property="og:site_name" content="BoxyPack" />
       
@@ -61,7 +61,7 @@ const CategoryPageSEO: React.FC<CategoryPageSEOProps> = ({ category, section }) 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content="/img/products-box-img.png" />
+      <meta name="twitter:image" content="https://res.cloudinary.com/du5lyrqvz/image/upload/products-box-img_x8vu4b" />
       
       {/* Canonical URL */}
       <link rel="canonical" href={`https://boxypack.com/products/${section.slug}/${category.slug}`} />

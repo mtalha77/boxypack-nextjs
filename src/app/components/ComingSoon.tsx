@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import { Mail, Clock, ArrowRight, Package } from 'lucide-react';
 import GradientBackground from '../UI/GradientBackground';
 

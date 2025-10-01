@@ -18,7 +18,7 @@ export const mylarBoxesData: MylarBoxCategory = {
   name: "Mylar Boxes",
   slug: "mylar-boxes",
   description: "Premium mylar packaging solutions with excellent barrier properties and durability for various products",
-  image: "/img/products-box-img.png",
+  image: "products-box-img_x8vu4b",
   subcategoriesCount: 3,
   modelPath: "/models/Tuck End Auto Bottom1.glb",
   subcategories: [
