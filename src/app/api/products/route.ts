@@ -4,6 +4,17 @@ import { getProductsCollection } from '@/lib/mongodb';
 // GET /api/products - Fetch all products
 export async function GET(request: NextRequest) {
   try {
+    // Check if MongoDB URI is available
+    if (!process.env.MONGODB_URI) {
+      console.log('⚠️ MongoDB URI not configured, returning empty array');
+      return NextResponse.json({
+        success: true,
+        data: [],
+        count: 0,
+        message: 'Database not configured'
+      });
+    }
+
     const collection = await getProductsCollection();
     const products = await collection.find({}).toArray();
     
@@ -28,6 +39,15 @@ export async function GET(request: NextRequest) {
 // POST /api/products - Create a new product
 export async function POST(request: NextRequest) {
   try {
+    // Check if MongoDB URI is available
+    if (!process.env.MONGODB_URI) {
+      return NextResponse.json({
+        success: false,
+        error: 'Database not configured',
+        message: 'MongoDB connection not available'
+      }, { status: 503 });
+    }
+
     const body = await request.json();
     const collection = await getProductsCollection();
     

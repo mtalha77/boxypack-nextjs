@@ -7,6 +7,15 @@ export async function GET(
   { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    // Check if MongoDB URI is available
+    if (!process.env.MONGODB_URI) {
+      return NextResponse.json({
+        success: false,
+        error: 'Database not configured',
+        message: 'MongoDB connection not available'
+      }, { status: 503 });
+    }
+
     const { slug } = await params;
     const collection = await getProductsCollection();
     
@@ -45,6 +54,15 @@ export async function PUT(
   { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    // Check if MongoDB URI is available
+    if (!process.env.MONGODB_URI) {
+      return NextResponse.json({
+        success: false,
+        error: 'Database not configured',
+        message: 'MongoDB connection not available'
+      }, { status: 503 });
+    }
+
     const { slug } = await params;
     const body = await request.json();
     const collection = await getProductsCollection();
@@ -92,6 +110,15 @@ export async function DELETE(
   { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    // Check if MongoDB URI is available
+    if (!process.env.MONGODB_URI) {
+      return NextResponse.json({
+        success: false,
+        error: 'Database not configured',
+        message: 'MongoDB connection not available'
+      }, { status: 503 });
+    }
+
     const { slug } = await params;
     const collection = await getProductsCollection();
     

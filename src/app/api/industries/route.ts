@@ -4,6 +4,17 @@ import { getDatabase } from '@/lib/mongodb';
 // GET /api/industries - Fetch all industries
 export async function GET(request: NextRequest) {
   try {
+    // Check if MongoDB URI is available
+    if (!process.env.MONGODB_URI) {
+      console.log('⚠️ MongoDB URI not configured, returning empty array');
+      return NextResponse.json({
+        success: true,
+        data: [],
+        count: 0,
+        message: 'Database not configured'
+      });
+    }
+
     console.log('🏭 Fetching industries from database...');
     const db = await getDatabase();
     const industriesCollection = db.collection('Industries');
@@ -34,6 +45,15 @@ export async function GET(request: NextRequest) {
 // POST /api/industries - Create a new industry
 export async function POST(request: NextRequest) {
   try {
+    // Check if MongoDB URI is available
+    if (!process.env.MONGODB_URI) {
+      return NextResponse.json({
+        success: false,
+        error: 'Database not configured',
+        message: 'MongoDB connection not available'
+      }, { status: 503 });
+    }
+
     const body = await request.json();
     const db = await getDatabase();
     const industriesCollection = db.collection('Industries');

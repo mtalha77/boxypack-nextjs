@@ -7,6 +7,16 @@ export async function GET(
   { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    // Check if MongoDB URI is available
+    if (!process.env.MONGODB_URI) {
+      console.log('⚠️ MongoDB URI not configured, returning fallback data');
+      return NextResponse.json({
+        success: false,
+        error: 'Database not configured',
+        message: 'MongoDB connection not available'
+      }, { status: 503 });
+    }
+
     const { slug } = await params;
     console.log(`🏭 Fetching industry "${slug}" from database...`);
     const db = await getDatabase();
@@ -49,6 +59,15 @@ export async function PUT(
   { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    // Check if MongoDB URI is available
+    if (!process.env.MONGODB_URI) {
+      return NextResponse.json({
+        success: false,
+        error: 'Database not configured',
+        message: 'MongoDB connection not available'
+      }, { status: 503 });
+    }
+
     const { slug } = await params;
     const body = await request.json();
     const db = await getDatabase();
@@ -97,6 +116,15 @@ export async function DELETE(
   { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    // Check if MongoDB URI is available
+    if (!process.env.MONGODB_URI) {
+      return NextResponse.json({
+        success: false,
+        error: 'Database not configured',
+        message: 'MongoDB connection not available'
+      }, { status: 503 });
+    }
+
     const { slug } = await params;
     const db = await getDatabase();
     const industriesCollection = db.collection('Industries');
