@@ -2,6 +2,7 @@ import ProductsDesignPage from '../Products-design-page';
 
 const MylarBoxesPage = () => {
   // Create proper product data structure for mylar boxes
+  // Updated to fix Vercel deployment issue
   const productData = {
     name: 'Mylar Boxes',
     description: 'Premium mylar packaging solutions with excellent barrier properties and durability for various products. Our mylar boxes provide superior protection against moisture, oxygen, and light.',
