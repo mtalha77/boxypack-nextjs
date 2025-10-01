@@ -49,15 +49,10 @@ export const popularSearches: SearchSuggestion[] = [
   { text: 'Gift Boxes', type: 'popular', count: 520 },
   { text: 'Eco Friendly Packaging', type: 'popular', count: 480 },
   { text: 'Custom Printing', type: 'popular', count: 450 },
-  { text: 'Luxury Packaging', type: 'popular', count: 420 },
-  { text: 'Food Safe Packaging', type: 'popular', count: 380 },
-  { text: 'Subscription Boxes', type: 'popular', count: 350 },
-  { text: 'Window Boxes', type: 'popular', count: 320 },
-  { text: 'Magnetic Closure Boxes', type: 'popular', count: 290 },
-  { text: 'Custom Labels', type: 'popular', count: 260 }
+  { text: 'Luxury Packaging', type: 'popular', count: 420 }
 ];
 
-// Search filters for advanced search
+// Search filters for advanced search - simplified
 export const searchFilters: SearchFilter[] = [
   {
     type: 'material',
@@ -66,9 +61,7 @@ export const searchFilters: SearchFilter[] = [
       { value: 'cardboard', label: 'Cardboard', count: 45 },
       { value: 'corrugated', label: 'Corrugated', count: 38 },
       { value: 'kraft', label: 'Kraft', count: 32 },
-      { value: 'rigid', label: 'Rigid', count: 28 },
-      { value: 'paper', label: 'Paper', count: 25 },
-      { value: 'plastic', label: 'Plastic', count: 18 }
+      { value: 'rigid', label: 'Rigid', count: 28 }
     ]
   },
   {
@@ -78,20 +71,7 @@ export const searchFilters: SearchFilter[] = [
       { value: 'cosmetic', label: 'Cosmetics', count: 42 },
       { value: 'food', label: 'Food & Beverage', count: 38 },
       { value: 'retail', label: 'Retail', count: 35 },
-      { value: 'jewelry', label: 'Jewelry', count: 28 },
-      { value: 'electronics', label: 'Electronics', count: 25 },
-      { value: 'pharmaceutical', label: 'Pharmaceutical', count: 22 }
-    ]
-  },
-  {
-    type: 'price',
-    label: 'Price Range',
-    options: [
-      { value: 'under-1', label: 'Under $1', count: 35 },
-      { value: '1-5', label: '$1 - $5', count: 48 },
-      { value: '5-10', label: '$5 - $10', count: 32 },
-      { value: '10-25', label: '$10 - $25', count: 28 },
-      { value: '25-plus', label: '$25+', count: 15 }
+      { value: 'jewelry', label: 'Jewelry', count: 28 }
     ]
   },
   {
@@ -101,9 +81,7 @@ export const searchFilters: SearchFilter[] = [
       { value: 'custom-printing', label: 'Custom Printing', count: 65 },
       { value: 'window', label: 'Window Cutout', count: 42 },
       { value: 'magnetic', label: 'Magnetic Closure', count: 38 },
-      { value: 'eco-friendly', label: 'Eco-Friendly', count: 55 },
-      { value: 'food-safe', label: 'Food Safe', count: 45 },
-      { value: 'child-resistant', label: 'Child Resistant', count: 28 }
+      { value: 'eco-friendly', label: 'Eco-Friendly', count: 55 }
     ]
   }
 ];

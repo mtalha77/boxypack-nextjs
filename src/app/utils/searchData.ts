@@ -298,14 +298,6 @@ export const searchData = (query: string, data: SearchResult[]): SearchResult[] 
     })
     .slice(0, 10); // Limit to top 10 results
 
-  // Debug logging for development
-  if (process.env.NODE_ENV === 'development') {
-    console.log(`=== SEARCH RESULTS DEBUG ===`);
-    console.log(`Query: "${query}"`);
-    console.log(`Total results found: ${sortedResults.length}`);
-    console.log('Results:', sortedResults.map(r => ({ title: r.title, url: r.url, type: r.type })));
-    console.log(`=== END SEARCH RESULTS DEBUG ===`);
-  }
 
   return sortedResults;
 };
