@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import { Target, Lightbulb, Globe, Shield, Heart, Award, Users, Clock } from 'lucide-react';
 
 const AboutStory: React.FC = () => {
@@ -80,8 +80,8 @@ const AboutStory: React.FC = () => {
 
           {/* Right Content - Image */}
           <div className="relative">
-            <Image
-              src="/img/Box-4.jpg"
+            <CldImage
+              src="Box-4_lztqi7"
               alt="BoxyPack mission - custom boxes that support every business with quality and care"
               width={600}
               height={500}
@@ -95,8 +95,8 @@ const AboutStory: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content - Image */}
           <div className="relative">
-            <Image
-              src="/img/product-box-2.webp"
+            <CldImage
+              src="product-box-2"
               alt="BoxyPack vision - innovative packaging solutions that inspire and create lasting customer experiences"
               width={600}
               height={500}

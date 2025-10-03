@@ -38,7 +38,7 @@ const CTASection: React.FC<CTASectionProps> = ({ productData }) => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button 
             onClick={handleRequestQuote}
-            className="bg-brown-rustic hover:bg-[#97602f] text-white px-8 py-4 rounded-full font-semibold transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer"
+            className="bg-gradient-to-r from-brown-dark to-[#97602f] hover:from-[#97602f] hover:to-brown-dark text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer"
           >
             Request Quote
           </button>

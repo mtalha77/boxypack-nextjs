@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import { SubCategory } from '../../data/navigationData';
 import LightBlueBackground from '../../UI/LightBlueBackground';
 
@@ -94,8 +94,8 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
               href={getSubcategoryUrl(subcategory.slug)}
               className="group max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 block"
             >
-              <Image
-                src="/img/products-box-img.png"
+              <CldImage
+                src="products-box-img_x8vu4b"
                 alt={`${subcategory.name} packaging example`}
                 width={400}
                 height={300}
@@ -103,7 +103,16 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
                 loading="lazy"
               />
               <div className="p-5">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 group-hover:text-[var(--color-teal-deep)] line-clamp-2 transition-colors duration-200">
+                <h5 
+                  className="mb-2 text-2xl font-bold tracking-tight text-gray-900 group-hover:text-[var(--color-teal-deep)] min-h-[4.5rem] flex items-start transition-colors duration-200"
+                  style={{
+                    display: '-webkit-box',
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: 'vertical',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis'
+                  }}
+                >
                   {subcategory.name}
                 </h5>
                 <p className="mb-3 font-normal text-gray-700 line-clamp-2 min-h-[3rem]">
@@ -137,9 +146,9 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
           <div className="text-center mt-8">
             <button
               onClick={handleToggleShowAll}
-              className="inline-flex items-center px-6 py-3 bg-[#0c6b76] text-white font-medium rounded-lg hover:bg-[#0a5a65] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#0c6b76] focus:ring-offset-2"
+              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-brown-dark to-[#97602f] hover:from-[#97602f] hover:to-brown-dark text-white font-medium rounded-full transition-all duration-200 focus:outline-none"
             >
-              {showAll ? 'Show Less' : `Show All ${subcategories.length} Categories`}
+              {showAll ? 'Show Less' : `Show All Products`}
               <svg 
                 className={`ml-2 w-4 h-4 transform transition-transform duration-200 ${showAll ? 'rotate-180' : ''}`}
                 fill="none" 

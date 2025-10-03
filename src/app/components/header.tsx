@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import { useRouter, usePathname } from 'next/navigation';
 import { 
   ChevronDown, 
@@ -227,8 +227,8 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between">
           {/* Left Side - Logo */}
           <Link href="/" className="flex items-center">
-            <Image 
-              src={headerConfig.logo.src} 
+            <CldImage 
+              src={headerConfig.logo.iconPath} 
               alt={headerConfig.logo.alt} 
               width={headerConfig.logo.width} 
               height={headerConfig.logo.height}
@@ -309,16 +309,16 @@ const Header: React.FC = () => {
            <div className={`absolute top-0 right-0 ${headerConfig.mobile.menuWidth} h-full bg-white shadow-lg overflow-y-auto`} onClick={(e) => e.stopPropagation()}>
              <div className="p-6 pb-20">
                <div className="flex items-center justify-between mb-6">
-                 {/* Logo instead of "Menu" text */}
-                 <div className="flex items-center space-x-3">
-                   <div className="relative">
-                     <div className="w-8 h-8 bg-transparent border-2 border-[#0ca6c2] transform rotate-45"></div>
-                     <div className="absolute inset-1 bg-transparent border-2 border-[#0ca6c2] rounded-md flex items-center justify-center">
-                       <span className="text-[#0ca6c2] font-bold text-sm transform -rotate-45">P</span>
-                     </div>
-                   </div>
-                   <span className="text-[#0c6b76] font-bold text-lg uppercase">Boxypack</span>
-                 </div>
+                 {/* mobile logo */}
+                 <Link href="/" className="flex items-center">
+                   <CldImage 
+                     src={headerConfig.logo.iconPath} 
+                     alt={headerConfig.logo.alt} 
+                     width={headerConfig.logo.width} 
+                     height={headerConfig.logo.height}
+                     priority
+                   />
+                 </Link>
                  <button
                    onClick={() => setIsMobileMenuOpen(false)}
                    className="text-gray-500 hover:text-gray-700"
@@ -532,8 +532,8 @@ const Header: React.FC = () => {
                     >
                       {/* Decorative Shape - Top Right Corner Background */}
                       <div className="absolute top-0 right-0 w-96 h-60 pointer-events-none" style={{ zIndex: 10 }}>
-                        <Image
-                          src="/img/cs_slider_shape.svg"
+                        <CldImage
+                          src="cs_slider_shape_yszisl"
                           alt="Decorative shape"
                           width={384}
                           height={240}
@@ -564,7 +564,7 @@ const Header: React.FC = () => {
                                               onClick={handleSmoothClose}
                                             className="flex items-center px-4 py-3 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] group"
                                             >
-                                              <Image
+                                              <CldImage
                                                 src={getSubcategoryIcon(subcategory.name)}
                                                 alt={subcategory.name}
                                               width={32}
@@ -583,7 +583,7 @@ const Header: React.FC = () => {
                                         onClick={handleSmoothClose}
                                         className="flex items-center px-4 py-3 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] group"
                                       >
-                                        <Image
+                                        <CldImage
                                           src={getCategoryIcon(category.name)}
                                           alt={category.name}
                                           width={32}
@@ -608,7 +608,7 @@ const Header: React.FC = () => {
                                         onClick={handleSmoothClose}
                                         className="flex items-center px-4 py-3 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] group"
                                       >
-                                        <Image
+                                        <CldImage
                                           src={getSubcategoryIcon(subcategory.name)}
                                           alt={subcategory.name}
                                           width={32}
@@ -630,7 +630,7 @@ const Header: React.FC = () => {
                                 <div className="flex items-center h-full">
                                   <div className="text-center w-full">
                                     <div className="flex items-center justify-center mb-4">
-                                      <Image
+                                      <CldImage
                                         src={getCategoryIcon(section.name)}
                                         alt={section.name}
                                         width={48}

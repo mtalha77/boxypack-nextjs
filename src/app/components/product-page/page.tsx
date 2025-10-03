@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { NavigationSection, MainCategory, SubCategory } from '../../data/navigationData';
-import { productData } from '../../data/productData';
+import { productData, getProductDataBySlug } from '../../data/productPagesData';
+import { useProduct, Product } from '@/lib/hooks/useProducts';
 import HeroSection, { BreadcrumbItem } from '../product-design-page/HeroSection';
 import CustomDimensionsForm from '../CustomDimensionsForm';
 import FeaturesSection from '../product-design-page/FeaturesSection';
@@ -31,17 +32,46 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
   pageType
 }) => {
   const [isMounted, setIsMounted] = React.useState(false);
+  const [dbProduct, setDbProduct] = React.useState<Product | null>(null);
+  const [dbLoading, setDbLoading] = React.useState(true);
 
   // Ensure component only renders properly on client side
   React.useEffect(() => {
     setIsMounted(true);
   }, []);
 
+  // Try to fetch product from database
+  React.useEffect(() => {
+    const fetchProductFromDB = async () => {
+      try {
+        setDbLoading(true);
+        const product = await getProductDataBySlug(slug);
+        if (product) {
+          setDbProduct(product);
+        }
+      } catch (error) {
+        console.warn('Failed to fetch product from database:', error);
+      } finally {
+        setDbLoading(false);
+      }
+    };
+
+    if (isMounted) {
+      fetchProductFromDB();
+    }
+  }, [slug, isMounted]);
+
   // Get product data if it exists in the legacy data structure
   const legacyProductData = productData[slug as keyof typeof productData];
 
   // Create dynamic product data based on the navigation structure
   const getProductData = () => {
+    // Use database product if available
+    if (dbProduct) {
+      return dbProduct;
+    }
+
+    // Fallback to legacy data
     if (legacyProductData) {
       return legacyProductData;
     }
@@ -53,8 +83,8 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
     return {
       name,
       description,
-      heroImage: '/img/products-box-img.png',
-      modelPath: '/models/Tuck End Auto Bottom1.glb',
+      heroImage: 'products-box-img_x8vu4b',
+      modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
       features: [
         {
           icon: 'shield',
@@ -92,10 +122,10 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
         { name: 'X-Large', dimensions: '15×11×5 inches', price: '$1.15' }
       ],
       galleryImages: [
-        '/img/products-box-img.png',
-        '/img/product-box-2.jpg',
-        '/img/Product-Packaging-Boxes.webp',
-        '/img/shipping-box-2.webp'
+        'products-box-img_x8vu4b',
+        'product-box-2',
+        'Product-Packaging-Boxes',
+        'shipping-box_jyysru'
       ],
       customizationOptions: [
         'Full color printing',
@@ -150,16 +180,21 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
 
   const breadcrumbs = getBreadcrumbs();
 
-  // Show loading state during hydration to prevent mismatch
-  if (!isMounted) {
+  // Show loading state during hydration or database fetch to prevent mismatch
+  if (!isMounted || dbLoading) {
     return (
-      <main className="min-h-screen flex items-center justify-center">
+      <main className="min-h-screen flex items-center justify-center relative">
         <GradientBackground 
           className="absolute inset-0"
         />
-        <div className="text-white text-center relative z-10">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
-          <p className="text-body-large">Loading...</p>
+        <div className="text-white text-center relative z-10 flex flex-col items-center justify-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-4 border-white/30 border-t-white mb-6"></div>
+          <h2 className="text-2xl font-semibold mb-2">
+            {!isMounted ? 'Loading...' : 'Fetching product data...'}
+          </h2>
+          <p className="text-lg text-white/80">
+            Please wait while we load the product information
+          </p>
         </div>
       </main>
     );

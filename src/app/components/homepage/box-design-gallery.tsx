@@ -2,49 +2,49 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { productData } from "../../data/productData";
+import { CldImage } from "next-cloudinary";
+import { productData } from "../../data/productPagesData";
 
 // Featured products for the gallery - using actual product data
 const featuredProducts = [
   {
     key: "mailer-boxes",
     product: productData["mailer-boxes"],
-    image: "/img/Box-4.jpg",
+    image: "Box-4_lztqi7",
   },
   {
     key: "product-boxes",
     product: productData["product-boxes"],
-    image: "/img/Box-5.jpg",
+    image: "Box-5_pdb8xw",
   },
   {
     key: "rigid-boxes",
     product: productData["rigid-boxes"],
-    image: "/img/Box-6.jpg",
+    image: "Box-6_vm3fmh",
   },
   {
     key: "shipping-boxes",
     product: productData["shipping-boxes"],
-    image: "/img/Box-7.jpg",
+    image: "shipping-box_jyysru",
   },
   {
     key: "mylar-boxes",
     product: productData["mylar-boxes"],
-    image: "/img/Box-4.jpg",
+    image: "Box-4_lztqi7",
   },
   {
     key: "shopping-bags",
     product: productData["shopping-bags"],
-    image: "/img/Box-5.jpg",
+    image: "Box-5_pdb8xw",
   },
 ];
 
 const BoxDesignGallery: React.FC = () => {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-12 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header Section */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <h2 className="text-h2 text-heading-primary mb-6">
             Boxes Designed To Inspire Trust
           </h2>
@@ -71,7 +71,7 @@ const BoxDesignGallery: React.FC = () => {
                 className="group block"
               >
                 <div className="relative h-80 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
-                  <Image
+                  <CldImage
                     src={featuredProducts[0].image}
                     alt={featuredProducts[0].product.name}
                     width={400}
@@ -102,7 +102,7 @@ const BoxDesignGallery: React.FC = () => {
                 className="group block"
               >
                 <div className="relative h-80 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
-                  <Image
+                  <CldImage
                     src={featuredProducts[1].image}
                     alt={featuredProducts[1].product.name}
                     width={400}
@@ -134,7 +134,7 @@ const BoxDesignGallery: React.FC = () => {
               className="group block"
             >
               <div className="relative h-160 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
-                <Image
+                <CldImage
                   src={featuredProducts[2].image}
                   alt={featuredProducts[2].product.name}
                   width={600}
@@ -164,7 +164,7 @@ const BoxDesignGallery: React.FC = () => {
               className="group block"
             >
               <div className="relative h-160 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
-                <Image
+                <CldImage
                   src={featuredProducts[3].image}
                   alt={featuredProducts[3].product.name}
                   width={600}
@@ -193,7 +193,7 @@ const BoxDesignGallery: React.FC = () => {
                 className="group block"
               >
                 <div className="relative h-80 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
-                  <Image
+                  <CldImage
                     src={featuredProducts[4].image}
                     alt={featuredProducts[4].product.name}
                     width={300}
@@ -202,12 +202,12 @@ const BoxDesignGallery: React.FC = () => {
                   />
 
                   {/* Hover overlay with text */}
-                  <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-4">
-                    <h3 className="text-h5 text-white mb-2">
+                  <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-6">
+                    <h3 className="text-h3 text-white mb-3">
                       {featuredProducts[4].product.name}
                     </h3>
-                    <p className="text-center text-caption">
-                      {featuredProducts[4].product.description.substring(0, 80)}
+                    <p className="text-center text-body-small">
+                      {featuredProducts[4].product.description.substring(0, 120)}
                       ...
                     </p>
                   </div>
@@ -220,7 +220,7 @@ const BoxDesignGallery: React.FC = () => {
                 className="group block"
               >
                 <div className="relative h-80 overflow-hidden shadow-lg cursor-pointer transition-all duration-300 hover:shadow-2xl">
-                  <Image
+                  <CldImage
                     src={featuredProducts[5].image}
                     alt={featuredProducts[5].product.name}
                     width={300}
@@ -229,12 +229,12 @@ const BoxDesignGallery: React.FC = () => {
                   />
 
                   {/* Hover overlay with text */}
-                  <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-4">
-                    <h3 className="text-h5 text-white mb-2">
+                  <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white p-6">
+                    <h3 className="text-h3 text-white mb-3">
                       {featuredProducts[5].product.name}
                     </h3>
-                    <p className="text-center text-caption">
-                      {featuredProducts[5].product.description.substring(0, 80)}
+                    <p className="text-center text-body-small">
+                      {featuredProducts[5].product.description.substring(0, 120)}
                       ...
                     </p>
                   </div>

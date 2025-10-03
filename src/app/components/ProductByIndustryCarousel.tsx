@@ -1,13 +1,35 @@
 'use client';
 
 import React, { useRef, useState } from 'react';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import Link from 'next/link';
 import { productByIndustryData } from '../data/productByIndustryData';
 
 const ProductByIndustryCarousel: React.FC = () => {
   const cardsContainerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [cardWidth, setCardWidth] = useState(324);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Calculate card width based on screen size
+  React.useEffect(() => {
+    const updateCardWidth = () => {
+      const isMobileView = window.innerWidth < 768;
+      setIsMobile(isMobileView);
+      
+      if (isMobileView) {
+        // Mobile: full viewport width minus container padding
+        setCardWidth(window.innerWidth - 32); // 32px for container padding (16px left + 16px right)
+      } else {
+        // Desktop: fixed width
+        setCardWidth(300);
+      }
+    };
+    
+    updateCardWidth();
+    window.addEventListener('resize', updateCardWidth);
+    return () => window.removeEventListener('resize', updateCardWidth);
+  }, []);
 
   const slideLeft = () => {
     if (currentIndex > 0) {
@@ -25,39 +47,80 @@ const ProductByIndustryCarousel: React.FC = () => {
     <section className="relative bg-white py-16 overflow-hidden">
       <div className="w-full">
         {/* Header Section */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center border-2 border-brown-dark2 px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full text-brown-dark2 font-bold text-sm font-semibold mb-6 shadow-lg">
-            <div className="w-2 h-2 bg-brown-dark2 rounded-full mr-3"></div>
-            PRODUCT BY INDUSTRY
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center lg:text-left mb-12">
+            <div className="inline-flex items-center border-2 border-brown-dark2 px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full text-brown-dark2 font-bold text-sm font-semibold mb-6 shadow-lg">
+              <div className="w-2 h-2 bg-brown-dark2 rounded-full mr-3"></div>
+              PRODUCT BY INDUSTRY
+            </div>
+            <h2 className="text-h2 text-heading-primary mb-6 leading-tight max-w-3xl mx-auto lg:mx-0">
+              Choose The Right Box By Your Industry Type
+            </h2>
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between">
+              <p className="text-lg text-gray-700 max-w-3xl mx-auto lg:mx-0 leading-relaxed mb-8 lg:mb-0">
+                Explore our comprehensive range of packaging solutions organized by industry. Each category contains specialized packaging designed for optimal protection and presentation.
+              </p>
+
+              {/* Navigation Buttons - Hidden on mobile, shown on desktop */}
+              <div className="hidden lg:flex justify-end gap-4">
+                {/* Left Arrow Button */}
+                <button
+                  onClick={slideLeft}
+                  disabled={currentIndex === 0}
+                  className={`w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full border-2 border-teal-deep cursor-pointer flex items-center justify-center text-[#0c6b76] hover:bg-[#0c6b76] hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl ${
+                    currentIndex === 0 
+                      ? 'opacity-50 cursor-not-allowed' 
+                      : ''
+                  }`}
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+
+                {/* Right Arrow Button */}
+                <button
+                  onClick={slideRight}
+                  disabled={currentIndex === productByIndustryData.length - 1}
+                  className={`w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full border-2 border-teal-deep cursor-pointer flex items-center justify-center text-[#0c6b76] hover:bg-[#0c6b76] hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl ${
+                    currentIndex === productByIndustryData.length - 1 
+                      ? 'opacity-50 cursor-not-allowed' 
+                      : ''
+                  }`}
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
-          <h2 className="text-h2 text-heading-primary mb-6 leading-tight">
-            Choose The Right Box By Your Industry Type
-          </h2>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Explore our comprehensive range of packaging solutions organized by industry. Each category contains specialized packaging designed for optimal protection and presentation.
-          </p>
         </div>
 
         {/* Cards Container */}
-        <div className="w-full mb-8">
+        <div className="w-full mb-8 overflow-hidden px-4 md:px-0 md:pl-20">
           <div 
             ref={cardsContainerRef}
-            className="flex gap-6 transition-transform duration-500 ease-in-out justify-center"
-            style={{ transform: `translateX(-${currentIndex * (300 + 24)}px)` }}
+            className="flex gap-6 transition-transform duration-500 ease-in-out md:justify-center"
+            style={{ 
+              transform: `translateX(-${currentIndex * (cardWidth + 24)}px)`
+            }}
           >
           {productByIndustryData.map((category, cardIndex) => (
             <div
               key={cardIndex}
               className="group max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 flex-shrink-0"
-              style={{ width: "300px" }}
+              style={{ 
+                width: isMobile ? `${cardWidth}px` : '300px'
+              }}
             >
               <Link href={`/products/product-by-industry/${category.slug}`}>
-                <Image
+                <CldImage
                   src={category.image}
                   alt={category.name}
                   width={400}
-                  height={300}
-                  className="w-full h-48 object-cover rounded-t-lg"
+                  height={400}
+                  className="w-full h-64 object-cover rounded-t-lg"
                 />
               </Link>
               <div className="p-5">
@@ -96,16 +159,16 @@ const ProductByIndustryCarousel: React.FC = () => {
           </div>
         </div>
 
-        {/* Navigation Buttons */}
-        <div className="flex justify-center gap-4">
+        {/* Mobile Navigation Buttons - Shown only on mobile */}
+        <div className="flex lg:hidden justify-center gap-4 mb-8">
           {/* Left Arrow Button */}
           <button
             onClick={slideLeft}
             disabled={currentIndex === 0}
-            className={`w-12 h-12 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center transition-all duration-300 ${
+            className={`w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full border-2 border-teal-deep cursor-pointer flex items-center justify-center text-[#0c6b76] hover:bg-[#0c6b76] hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl ${
               currentIndex === 0 
                 ? 'opacity-50 cursor-not-allowed' 
-                : 'hover:bg-[#0c6b76] hover:text-white hover:shadow-xl'
+                : ''
             }`}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -117,10 +180,10 @@ const ProductByIndustryCarousel: React.FC = () => {
           <button
             onClick={slideRight}
             disabled={currentIndex === productByIndustryData.length - 1}
-            className={`w-12 h-12 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center transition-all duration-300 ${
+            className={`w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full border-2 border-teal-deep cursor-pointer flex items-center justify-center text-[#0c6b76] hover:bg-[#0c6b76] hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl ${
               currentIndex === productByIndustryData.length - 1 
                 ? 'opacity-50 cursor-not-allowed' 
-                : 'hover:bg-[#0c6b76] hover:text-white hover:shadow-xl'
+                : ''
             }`}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -128,6 +191,7 @@ const ProductByIndustryCarousel: React.FC = () => {
             </svg>
           </button>
         </div>
+
       </div>
     </section>
   );

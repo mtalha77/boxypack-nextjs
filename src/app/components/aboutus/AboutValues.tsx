@@ -128,7 +128,7 @@ const AboutValues: React.FC = () => {
             <div 
               className="relative bg-gradient-to-br from-[var(--color-turquoise-bright)]/10 to-[var(--color-teal-deep)]/10 rounded-3xl p-12 text-center overflow-hidden"
               style={{
-                backgroundImage: 'url(/img/mailer-box.jpg)',
+                backgroundImage: 'url(https://res.cloudinary.com/du5lyrqvz/image/upload/mailer-box_c25yqg)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundBlendMode: 'overlay'

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import LightBlueBackground from '../../UI/LightBlueBackground';
 
 const ContactHero: React.FC = () => {
@@ -43,8 +43,8 @@ const ContactHero: React.FC = () => {
           <div className="relative flex justify-end items-center">
             {/* Delivery person with box image */}
             <div className="relative w-2/3 max-w-md">
-              <Image
-                src="/img/contact-hero-img.png"
+              <CldImage
+                src="contact-hero-img_pknqdz"
                 alt="Friendly delivery person holding a BoxyPack custom box - professional service and support"
                 width={400}
                 height={500}

@@ -18,9 +18,9 @@ export const shoppingBagsData: ShoppingBagCategory = {
   name: "Shopping Bags",
   slug: "shopping-bags",
   description: "Eco-friendly and branded shopping bag solutions for retail and promotional use",
-  image: "/img/products-box-img.png",
+  image: "products-box-img_x8vu4b",
   subcategoriesCount: 3,
-  modelPath: "/models/Tuck End Auto Bottom1.glb",
+  modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
   subcategories: [
     { 
       name: "Kraft Shopping Bag", 

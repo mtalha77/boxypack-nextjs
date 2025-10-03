@@ -1,24 +1,24 @@
 import React from 'react';
-import { Metadata } from 'next';
-import CustomDimensionsForm from '../../../../components/CustomDimensionsForm';
-import ClientTestimonials from '../../../../components/product-design-page/ClientTestamonials';
+import { navigationData } from '../../../../data/navigationData';
+import ProductPageTemplate from '../../../../components/product-page/page';
 
-export const metadata: Metadata = {
-  title: 'Corrugated Seal End Auto Bottom Box - Custom Packaging | BoxyPack',
-  description: 'Premium corrugated seal end auto bottom box packaging solutions with automatic bottom sealing. Custom sturdy and durable packaging designed for optimal protection.',
-  keywords: 'corrugated seal end auto bottom box, custom packaging, auto bottom, sturdy boxes, durable packaging',
-};
-
-const CorrugatedSealEndAutoBottomBoxPage: React.FC = () => {
-  const productData = {
-    name: 'Corrugated Seal End Auto Bottom Box'
-  };
+const CorrugatedSealEndAutoBottomBoxPage = () => {
+  const section = navigationData.find(s => s.slug === 'product-by-material');
+  const category = section?.categories?.find(c => c.slug === 'corrugated-boxes');
+  const subcategory = category?.subcategories.find(sc => sc.slug === 'corrugated-seal-end-auto-bottom-box');
+  
+  if (!section || !category || !subcategory) {
+    return <div>Subcategory not found</div>;
+  }
 
   return (
-    <div>
-      <CustomDimensionsForm />
-      <ClientTestimonials productData={productData} />
-    </div>
+    <ProductPageTemplate
+      section={section}
+      category={category}
+      subcategory={subcategory}
+      slug="corrugated-seal-end-auto-bottom-box"
+      pageType="subcategory"
+    />
   );
 };
 

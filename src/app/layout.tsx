@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: "BoxyPack",
   description: "Custom packaging and boxes can turn your brand into the total package with full customization, instant quoting, and fast turnarounds.",
   icons: {
-    icon: '/favicon.png',
+    icon: '/favicon.ico',
   },
 };
 

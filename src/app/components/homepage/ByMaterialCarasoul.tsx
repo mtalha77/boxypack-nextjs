@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import Link from 'next/link';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -124,7 +124,7 @@ const ByMaterialCarasoul: React.FC = () => {
                   style={{ width: "320px", height: "400px" }}
             >
                   <div className="relative h-56 overflow-hidden p-6 flex items-center justify-center">
-                <Image
+                <CldImage
                       src={category.image}
                       width={220}
                       height={160}

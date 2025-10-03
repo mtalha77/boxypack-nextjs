@@ -1,24 +1,24 @@
 import React from 'react';
-import { Metadata } from 'next';
-import CustomDimensionsForm from '../../../../components/CustomDimensionsForm';
-import ClientTestimonials from '../../../../components/product-design-page/ClientTestamonials';
+import { navigationData } from '../../../../data/navigationData';
+import ProductPageTemplate from '../../../../components/product-page/page';
 
-export const metadata: Metadata = {
-  title: 'Corrugated Mailer Box - Custom Packaging | BoxyPack',
-  description: 'Premium corrugated mailer box packaging solutions with self-locking design. Custom sturdy and durable packaging designed for optimal protection.',
-  keywords: 'corrugated mailer box, custom packaging, sturdy boxes, durable packaging, mailer boxes',
-};
-
-const CorrugatedMailerBoxPage: React.FC = () => {
-  const productData = {
-    name: 'Corrugated Mailer Box'
-  };
+const CorrugatedMailerBoxPage = () => {
+  const section = navigationData.find(s => s.slug === 'product-by-material');
+  const category = section?.categories?.find(c => c.slug === 'corrugated-boxes');
+  const subcategory = category?.subcategories.find(sc => sc.slug === 'corrugated-mailer-box');
+  
+  if (!section || !category || !subcategory) {
+    return <div>Subcategory not found</div>;
+  }
 
   return (
-    <div>
-      <CustomDimensionsForm />
-      <ClientTestimonials productData={productData} />
-    </div>
+    <ProductPageTemplate
+      section={section}
+      category={category}
+      subcategory={subcategory}
+      slug="corrugated-mailer-box"
+      pageType="subcategory"
+    />
   );
 };
 

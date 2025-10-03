@@ -1,24 +1,24 @@
 import React from 'react';
-import { Metadata } from 'next';
-import CustomDimensionsForm from '../../../../components/CustomDimensionsForm';
-import ClientTestimonials from '../../../../components/product-design-page/ClientTestamonials';
+import { navigationData } from '../../../../data/navigationData';
+import ProductPageTemplate from '../../../../components/product-page/page';
 
-export const metadata: Metadata = {
-  title: 'Corrugated Gable Box - Custom Packaging | BoxyPack',
-  description: 'Premium corrugated gable box packaging solutions with unique gable design. Custom sturdy and durable packaging designed for optimal protection.',
-  keywords: 'corrugated gable box, custom packaging, gable boxes, sturdy packaging, durable boxes',
-};
-
-const CorrugatedGableBoxPage: React.FC = () => {
-  const productData = {
-    name: 'Corrugated Gable Box'
-  };
+const CorrugatedGableBoxPage = () => {
+  const section = navigationData.find(s => s.slug === 'product-by-material');
+  const category = section?.categories?.find(c => c.slug === 'corrugated-boxes');
+  const subcategory = category?.subcategories.find(sc => sc.slug === 'corrugated-gable-box');
+  
+  if (!section || !category || !subcategory) {
+    return <div>Subcategory not found</div>;
+  }
 
   return (
-    <div>
-      <CustomDimensionsForm />
-      <ClientTestimonials productData={productData} />
-    </div>
+    <ProductPageTemplate
+      section={section}
+      category={category}
+      subcategory={subcategory}
+      slug="corrugated-gable-box"
+      pageType="subcategory"
+    />
   );
 };
 

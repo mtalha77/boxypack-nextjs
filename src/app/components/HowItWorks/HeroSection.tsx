@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import LightBlueBackground from '../../UI/LightBlueBackground';
 
 const HowItWorksHero: React.FC = () => {
@@ -54,8 +54,8 @@ const HowItWorksHero: React.FC = () => {
             
             {/* Main Image */}
             <div className="relative w-full max-w-lg z-10">
-              <Image
-                src="/img/how-it-works-img.png"
+              <CldImage
+                src="how-it-works-img_i6hojx"
                 alt="BoxyPack process illustration - shipping box with checklist showing completed steps"
                 width={300}
                 height={300}
