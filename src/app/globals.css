@@ -50,6 +50,19 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
+
+/* Ensure form elements have proper text colors */
+input, textarea, select {
+  color: #1f2937 !important; /* text-gray-800 */
+}
+
+/* Override dark mode for form elements in admin pages */
+.admin-page input, 
+.admin-page textarea, 
+.admin-page select {
+  color: #1f2937 !important; /* text-gray-800 */
+  background-color: #ffffff !important;
+}
 html {
   scroll-behavior: smooth;
 }

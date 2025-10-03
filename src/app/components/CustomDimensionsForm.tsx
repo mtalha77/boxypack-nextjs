@@ -27,17 +27,25 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   const [customLength, setCustomLength] = useState(9.5);
   const [customWidth, setCustomWidth] = useState(7.75);
   const [customDepth, setCustomDepth] = useState(4);
-  const [material, setMaterial] = useState('White');
+  const [material, setMaterial] = useState('kraft');
+  const [pt, setPT] = useState('14');
   const [printFinish, setPrintFinish] = useState('HDPrint Stain');
-  const [printedSides, setPrintedSides] = useState('Outside');
+  const [printedSides, setPrintedSides] = useState('outside');
+  const [lamination, setLamination] = useState('glossy');
   const [quantity, setQuantity] = useState(250);
   const [productionSpeed, setProductionSpeed] = useState('Standard (8 Business Days)');
   const [showDropdowns, setShowDropdowns] = useState<{[key: string]: boolean}>({});
   const [selectedImage, setSelectedImage] = useState('/img/Mailer-Box-3.jpg');
   const [zoomLevel, setZoomLevel] = useState(1);
 
-  const unitPrice = 3.92;
-  const subtotal = unitPrice * quantity;
+  // Pricing state
+  const [calculating, setCalculating] = useState(false);
+  const [pricingResult, setPricingResult] = useState<any>(null);
+  const [pricingError, setPricingError] = useState<string>('');
+  const [showBreakdown, setShowBreakdown] = useState(false);
+
+  const unitPrice = pricingResult?.summary?.pricePerUnit || 0;
+  const subtotal = pricingResult?.summary?.subtotal || 0;
 
   // Zoom functions
   const handleZoomIn = () => {
@@ -78,9 +86,83 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
     }));
   };
 
+  // Calculate pricing using new API
+  const calculatePricing = async () => {
+    if (!selectedProduct) {
+      setPricingError('Please select a product');
+      return;
+    }
+
+    setCalculating(true);
+    setPricingError('');
+
+    try {
+      const response = await fetch('/api/pricing/calculate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          productId: selectedProduct,
+          length: customLength,
+          width: customWidth,
+          height: customDepth,
+          pt: pt,
+          requiredUnits: quantity,
+          printing: printedSides,
+          lamination: lamination
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setPricingResult(data.data);
+        setPricingError('');
+      } else {
+        setPricingError(data.error || 'Failed to calculate pricing');
+        setPricingResult(null);
+      }
+    } catch (error) {
+      console.error('Pricing calculation error:', error);
+      setPricingError('Error calculating pricing. Please try again.');
+      setPricingResult(null);
+    } finally {
+      setCalculating(false);
+    }
+  };
+
+  // Auto-calculate when values change
+  useEffect(() => {
+    if (selectedProduct && customLength > 0 && customWidth > 0 && customDepth > 0 && quantity > 0) {
+      const timer = setTimeout(() => {
+        calculatePricing();
+      }, 500); // Debounce for 500ms
+
+      return () => clearTimeout(timer);
+    }
+  }, [selectedProduct, customLength, customWidth, customDepth, pt, quantity, printedSides, lamination]);
+
   const printColorOptions = ['Full Color', 'Black'];
   const printFinishOptions = ['HDPrint Stain'];
-  const printedSidesOptions = ['Outside', 'Inside', 'Both Sides', 'Blank'];
+  const printedSidesOptions = [
+    { label: 'Outside', value: 'outside' },
+    { label: 'Inside', value: 'inside' },
+    { label: 'Both Sides', value: 'bothSide' },
+    { label: 'Blank (No Printing)', value: 'none' }
+  ];
+  const laminationOptions = [
+    { label: 'Glossy', value: 'glossy' },
+    { label: 'Matt', value: 'matt' },
+    { label: 'Soft Touch', value: 'softTouch' },
+    { label: 'None', value: 'none' }
+  ];
+  const ptOptions = ['14', '16', '18', 'N/A'];
+  const materialOptions = [
+    { label: 'Kraft', value: 'kraft' },
+    { label: 'Cardboard', value: 'cardboard' },
+    { label: 'Corrugated', value: 'corrugated' }
+  ];
 
   // Get all products from navigation data
   const getAllProducts = () => {
@@ -114,70 +196,6 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
       product.name.toLowerCase().includes(productSearchQuery.toLowerCase()) ||
       product.category.toLowerCase().includes(productSearchQuery.toLowerCase())
     );
-  };
-  
-  // Material options based on print color
-  const fullColorMaterials = ['White', 'Dreamcoat', 'Kraft'];
-  const blackColorMaterials = ['White', 'Kraft'];
-  
-  // Size options based on print color
-  const fullColorSizes = [
-    '5" x 3" x 1.5"',
-    '6" x 4" x 3"',
-    '6" x 5" x 2.25"',
-    '7" x 5" x 3"',
-    '8" x 6" x 3"',
-    '9" x 6" x 4"',
-    '9" x 7" x 2.25"',
-    '9.5" x 7.75" x 4"',
-    '10" x 8" x 4"',
-    '11.25" x 9" x 3"',
-    '12" x 9" x 2"',
-    '12" x 10" x 4"',
-    '14" x 10" x 4"',
-    '13" x 10" x 5"'
-  ];
-
-  const blackColorSizes = [
-    '3" x 3" x 1"',
-    '4" x 4" x 2"',
-    '5" x 3" x 1.5"',
-    '6" x 4" x 3"',
-    '6" x 6" x 2"',
-    '7" x 5" x 3"',
-    '8" x 6" x 3"',
-    '8" x 8" x 3"',
-    '9" x 6" x 2"',
-    '9.5" x 7.75" x 4"',
-    '10" x 8" x 4"',
-    '12" x 9" x 2"'
-  ];
-
-  // Get current size options based on print color
-  const getCurrentSizeOptions = () => {
-    return printColor === 'Full Color' ? fullColorSizes : blackColorSizes;
-  };
-
-  // Get current material options based on print color
-  const getCurrentMaterialOptions = () => {
-    return printColor === 'Full Color' ? fullColorMaterials : blackColorMaterials;
-  };
-
-  // Update selected size and material when print color changes
-  const handlePrintColorChange = (color: string) => {
-    setPrintColor(color);
-    const newSizes = color === 'Full Color' ? fullColorSizes : blackColorSizes;
-    const newMaterials = color === 'Full Color' ? fullColorMaterials : blackColorMaterials;
-    
-    // Set to first available size if current size is not available in new options
-    if (!newSizes.includes(selectedSize)) {
-      setSelectedSize(newSizes[0]);
-    }
-    
-    // Set to first available material if current material is not available in new options
-    if (!newMaterials.includes(material)) {
-      setMaterial(newMaterials[0]);
-    }
   };
 
   // Helper functions for custom dimensions
@@ -399,44 +417,12 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
               </div>
             </div>
 
-            {/* Print Color, Material, Print Finish, Printed Sides - Row Layout */}
+            {/* Material, PT, Printed Sides, Lamination - Row Layout */}
             <div className="grid grid-cols-2 gap-4">
-            {/* Print Color */}
-              <div className="space-y-1">
-              <div className="flex items-center gap-2">
-                <label className="text-sm font-medium text-[#0c6b76]">Print Color</label>
-              </div>
-              <div className="relative">
-                <button
-                  onClick={() => toggleDropdown('printColor')}
-                    className="w-full flex items-center justify-between px-3 py-2 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
-                >
-                    <span className="text-sm text-gray-900">{printColor}</span>
-                    <ChevronDown className="w-4 h-4 text-[#0ca6c2]" />
-                </button>
-                {showDropdowns.printColor && (
-                  <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
-                    {printColorOptions.map((option) => (
-                      <button
-                        key={option}
-                        onClick={() => {
-                          handlePrintColorChange(option);
-                          toggleDropdown('printColor');
-                        }}
-                          className="w-full text-left px-3 py-2 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-sm"
-                        >
-                          {option}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-
               {/* Material */}
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <label className="text-sm font-medium text-[#0c6b76]">Material</label>
+                  <label className="text-sm font-medium text-[#0c6b76]">Material Type</label>
                   <Info className="w-3 h-3 text-[#0ca6c2]" />
                 </div>
                 <div className="relative">
@@ -444,17 +430,50 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                     onClick={() => toggleDropdown('material')}
                     className="w-full flex items-center justify-between px-3 py-2 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
                   >
-                    <span className="text-sm text-gray-900">{material}</span>
+                    <span className="text-sm text-gray-900">{materialOptions.find(m => m.value === material)?.label || 'Select'}</span>
                     <ChevronDown className="w-4 h-4 text-[#0ca6c2]" />
                   </button>
                   {showDropdowns.material && (
                     <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
-                      {getCurrentMaterialOptions().map((option: string) => (
+                      {materialOptions.map((option) => (
+                        <button
+                          key={option.value}
+                          onClick={() => {
+                            setMaterial(option.value);
+                            toggleDropdown('material');
+                          }}
+                          className="w-full text-left px-3 py-2 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-sm"
+                        >
+                          {option.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* PT (Paper Thickness) */}
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <label className="text-sm font-medium text-[#0c6b76]">PT (Paper Thickness)</label>
+                  <Info className="w-3 h-3 text-[#0ca6c2]" />
+                </div>
+                <div className="relative">
+                  <button
+                    onClick={() => toggleDropdown('pt')}
+                    className="w-full flex items-center justify-between px-3 py-2 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
+                  >
+                    <span className="text-sm text-gray-900">{pt}</span>
+                    <ChevronDown className="w-4 h-4 text-[#0ca6c2]" />
+                  </button>
+                  {showDropdowns.pt && (
+                    <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
+                      {ptOptions.map((option) => (
                         <button
                           key={option}
                           onClick={() => {
-                            setMaterial(option);
-                            toggleDropdown('material');
+                            setPT(option);
+                            toggleDropdown('pt');
                           }}
                           className="w-full text-left px-3 py-2 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-sm"
                         >
@@ -466,64 +485,64 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                 </div>
               </div>
 
-              {/* Print Finish */}
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <label className="text-sm font-medium text-[#0c6b76]">Print finish</label>
-                  <Info className="w-3 h-3 text-[#0ca6c2]" />
-                </div>
-                <div className="relative">
-                  <button
-                    onClick={() => toggleDropdown('printFinish')}
-                    className="w-full flex items-center justify-between px-3 py-2 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
-                  >
-                    <span className="text-sm text-gray-900">{printFinish}</span>
-                    <ChevronDown className="w-4 h-4 text-[#0ca6c2]" />
-                  </button>
-                  {showDropdowns.printFinish && (
-                    <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
-                      {printFinishOptions.map((option) => (
-                        <button
-                          key={option}
-                          onClick={() => {
-                            setPrintFinish(option);
-                            toggleDropdown('printFinish');
-                          }}
-                          className="w-full text-left px-3 py-2 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-sm"
-                      >
-                        {option}
-                      </button>
-                    ))}
-                  </div>
-                )}
-                </div>
-              </div>
-
               {/* Printed Sides */}
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <label className="text-sm font-medium text-[#0c6b76]">Printed sides</label>
+                  <label className="text-sm font-medium text-[#0c6b76]">Printed Sides</label>
                 </div>
                 <div className="relative">
                   <button
                     onClick={() => toggleDropdown('printedSides')}
                     className="w-full flex items-center justify-between px-3 py-2 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
                   >
-                    <span className="text-sm text-gray-900">{printedSides}</span>
+                    <span className="text-sm text-gray-900">{printedSidesOptions.find(p => p.value === printedSides)?.label || 'Select'}</span>
                     <ChevronDown className="w-4 h-4 text-[#0ca6c2]" />
                   </button>
                   {showDropdowns.printedSides && (
                     <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
                       {printedSidesOptions.map((option) => (
                         <button
-                          key={option}
+                          key={option.value}
                           onClick={() => {
-                            setPrintedSides(option);
+                            setPrintedSides(option.value);
                             toggleDropdown('printedSides');
                           }}
                           className="w-full text-left px-3 py-2 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-sm"
                         >
-                          {option}
+                          {option.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Lamination */}
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <label className="text-sm font-medium text-[#0c6b76]">Lamination</label>
+                  <Info className="w-3 h-3 text-[#0ca6c2]" />
+                </div>
+                <div className="relative">
+                  <button
+                    onClick={() => toggleDropdown('lamination')}
+                    className="w-full flex items-center justify-between px-3 py-2 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
+                  >
+                    <span className="text-sm text-gray-900">{laminationOptions.find(l => l.value === lamination)?.label || 'Select'}</span>
+                    <ChevronDown className="w-4 h-4 text-[#0ca6c2]" />
+                  </button>
+                  {showDropdowns.lamination && (
+                    <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
+                      {laminationOptions.map((option) => (
+                        <button
+                          key={option.value}
+                          onClick={() => {
+                            setLamination(option.value);
+                            toggleDropdown('lamination');
+                          }}
+                          className="w-full text-left px-3 py-2 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-sm"
+                        >
+                          {option.label}
                         </button>
                       ))}
                     </div>
@@ -532,118 +551,60 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
               </div>
             </div>
 
-            {/* Size */}
+            {/* Custom Dimensions */}
             <div className="space-y-1">
               <div className="flex items-center gap-2">
-                <label className="text-sm font-medium text-[#0c6b76]">Size (L x W x D)</label>
+                <label className="text-sm font-medium text-[#0c6b76]">Dimensions (L × W × H)</label>
                 <Info className="w-3 h-3 text-[#0ca6c2]" />
               </div>
-              <div className="space-y-3">
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => setSizeType('STANDARD SIZES')}
-                    className={`flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-lg border-2 text-xs font-medium transition-colors ${
-                      sizeType === 'STANDARD SIZES'
-                        ? 'border-[#0ca6c2] bg-[#0ca6c2]/10 text-[#0c6b76]'
-                        : 'border-[#0c6b76]/30 bg-white text-[#0c6b76] hover:border-[#0ca6c2]'
-                    }`}
-                  >
-                    {sizeType === 'STANDARD SIZES' && <Check className="w-3 h-3" />}
-                    STANDARD SIZES
-                  </button>
-                  <button
-                    onClick={() => setSizeType('CUSTOM SIZES')}
-                    className={`flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-lg border-2 text-xs font-medium transition-colors ${
-                      sizeType === 'CUSTOM SIZES'
-                        ? 'border-[#0ca6c2] bg-[#0ca6c2]/10 text-[#0c6b76]'
-                        : 'border-[#0c6b76]/30 bg-white text-[#0c6b76] hover:border-[#0ca6c2]'
-                    }`}
-                  >
-                    {sizeType === 'CUSTOM SIZES' && <Check className="w-3 h-3" />}
-                    CUSTOM SIZES
-                  </button>
+              <div className="grid grid-cols-3 gap-3">
+                {/* Length Input */}
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-700">
+                    Length (inch)<span className="text-red-500 ml-1">*</span>
+                  </label>
+                  <input
+                    type="number"
+                    value={customLength}
+                    onChange={(e) => setCustomLength(Math.max(0.25, parseFloat(e.target.value) || 0.25))}
+                    step="0.25"
+                    min="0.25"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-[#0ca6c2] focus:border-[#0ca6c2] focus:outline-none"
+                    placeholder="10"
+                  />
                 </div>
-                {sizeType === 'STANDARD SIZES' && (
-                  <div className="relative">
-                    <button
-                      onClick={() => toggleDropdown('size')}
-                      className="w-full flex items-center justify-between px-4 py-3 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
-                    >
-                      <span className="text-gray-900">{selectedSize}</span>
-                      <ChevronDown className="w-5 h-5 text-[#0ca6c2]" />
-                    </button>
-                    {showDropdowns.size && (
-                      <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
-                        {getCurrentSizeOptions().map((size: string) => (
-                          <button
-                            key={size}
-                            onClick={() => {
-                              setSelectedSize(size);
-                              toggleDropdown('size');
-                            }}
-                            className="w-full text-left px-4 py-3 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg"
-                          >
-                            {size}
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                )}
-                
-                {sizeType === 'CUSTOM SIZES' && (
-                  <div className="space-y-3">
-                    <div className="grid grid-cols-3 gap-3 justify-items-between">
-                      {/* Length Input */}
-                      <div className="space-y-2 w-32">
-                        <label className="text-sm font-medium text-gray-700">
-                          Length (inch)<span className="text-red-500 ml-1">*</span>
-                        </label>
-                          <input
-                            type="number"
-                            value={customLength}
-                            onChange={(e) => setCustomLength(Math.max(0.25, parseFloat(e.target.value) || 0.25))}
-                            step="0.25"
-                            min="0.25"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none"
-                          placeholder=""
-                        />
-                      </div>
 
-                      {/* Width Input */}
-                      <div className="space-y-2 w-32">
-                        <label className="text-sm font-medium text-gray-700">
-                          Width (inch)<span className="text-red-500 ml-1">*</span>
-                        </label>
-                          <input
-                            type="number"
-                            value={customWidth}
-                            onChange={(e) => setCustomWidth(Math.max(0.25, parseFloat(e.target.value) || 0.25))}
-                            step="0.25"
-                            min="0.25"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none"
-                          placeholder=""
-                        />
-                      </div>
+                {/* Width Input */}
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-700">
+                    Width (inch)<span className="text-red-500 ml-1">*</span>
+                  </label>
+                  <input
+                    type="number"
+                    value={customWidth}
+                    onChange={(e) => setCustomWidth(Math.max(0.25, parseFloat(e.target.value) || 0.25))}
+                    step="0.25"
+                    min="0.25"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-[#0ca6c2] focus:border-[#0ca6c2] focus:outline-none"
+                    placeholder="8"
+                  />
+                </div>
 
-                      {/* Depth Input */}
-                      <div className="space-y-2 w-32">
-                        <label className="text-sm font-medium text-gray-700">
-                          Depth (inch)<span className="text-red-500 ml-1">*</span>
-                        </label>
-                          <input
-                            type="number"
-                            value={customDepth}
-                            onChange={(e) => setCustomDepth(Math.max(0.25, parseFloat(e.target.value) || 0.25))}
-                            step="0.25"
-                            min="0.25"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none"
-                          placeholder=""
-                        />
-                      </div>
-                    </div>
-                  </div>
-                )}
+                {/* Height Input */}
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-700">
+                    Height (inch)<span className="text-red-500 ml-1">*</span>
+                  </label>
+                  <input
+                    type="number"
+                    value={customDepth}
+                    onChange={(e) => setCustomDepth(Math.max(0.25, parseFloat(e.target.value) || 0.25))}
+                    step="0.25"
+                    min="0.25"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-[#0ca6c2] focus:border-[#0ca6c2] focus:outline-none"
+                    placeholder="3"
+                  />
+                </div>
               </div>
             </div>
 
@@ -652,67 +613,116 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
             <div className="space-y-1">
               <div className="flex items-center gap-2">
                 <label className="text-sm font-medium text-[#0c6b76]">Quantity</label>
+                <Info className="w-3 h-3 text-[#0ca6c2]" />
               </div>
               <div className="flex items-center gap-4">
                 <div className="flex-1">
                   <input
                     type="number"
                     value={quantity}
-                    onChange={(e) => setQuantity(Number(e.target.value))}
+                    onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
                     className="w-full px-4 py-3 border border-[#0c6b76]/30 rounded-lg focus:ring-2 focus:ring-[#0ca6c2] focus:border-[#0ca6c2]"
                     min="1"
+                    placeholder="250"
                   />
                 </div>
-                <div className="text-right">
-                  <div className="text-sm text-gray-600">${unitPrice.toFixed(2)} each</div>
-                  <div className="flex items-center gap-1 text-xs text-green-600">
-                    <span>Save 84%</span>
-                    <ChevronDown className="w-3 h-3" />
+                {unitPrice > 0 && (
+                  <div className="text-right">
+                    <div className="text-sm font-semibold text-green-600">${unitPrice.toFixed(2)} each</div>
+                    <div className="text-xs text-gray-500">
+                      Total: ${subtotal.toFixed(2)}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
+              <p className="text-xs text-gray-500">
+                Minimum order: 1 unit • Bulk discounts available
+              </p>
             </div>
 
-            {/* Production Speed and Pricing Row */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {/* Production Speed */}
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <label className="text-sm font-medium text-[#0c6b76]">Production speed</label>
+            {/* Pricing Summary */}
+            <div className="bg-gradient-to-br from-[#0ca6c2]/10 to-blue-50 rounded-lg p-6 border-2 border-[#0ca6c2]/30">
+              {calculating ? (
+                <div className="text-center py-8">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0ca6c2] mx-auto mb-4"></div>
+                  <p className="text-gray-600">Calculating pricing...</p>
                 </div>
-                <div className="space-y-2">
-                  <label className="flex items-center gap-3 p-3 border border-[#0c6b76]/30 rounded-lg cursor-pointer hover:bg-[#0ca6c2]/5">
-                    <input
-                      type="radio"
-                      name="productionSpeed"
-                      value="Standard (8 Business Days)"
-                      checked={productionSpeed === 'Standard (8 Business Days)'}
-                      onChange={(e) => setProductionSpeed(e.target.value)}
-                      className="w-4 h-4 text-[#0ca6c2]"
-                    />
-                    <span className="text-gray-900">Standard (8 Business Days)</span>
-                  </label>
-                  <label className="flex items-center gap-3 p-3 border border-[#0c6b76]/30 rounded-lg cursor-pointer hover:bg-[#0ca6c2]/5">
-                    <input
-                      type="radio"
-                      name="productionSpeed"
-                      value="Rush (5 Business Days)"
-                      checked={productionSpeed === 'Rush (5 Business Days)'}
-                      onChange={(e) => setProductionSpeed(e.target.value)}
-                      className="w-4 h-4 text-[#0ca6c2]"
-                    />
-                    <span className="text-gray-900">Rush (5 Business Days)</span>
-                  </label>
+              ) : pricingError ? (
+                <div className="text-center py-8">
+                  <div className="text-red-600 mb-2">⚠️ {pricingError}</div>
+                  <p className="text-sm text-gray-600">Please check your inputs and try again</p>
                 </div>
-              </div>
+              ) : pricingResult ? (
+                <div className="space-y-4">
+                  {/* Main Price Display */}
+                  <div className="text-center">
+                    <div className="text-sm text-gray-600 mb-1">Price Per Unit</div>
+                    <div className="text-4xl font-bold text-[#0c6b76] mb-2">
+                      ${unitPrice.toFixed(2)}
+                    </div>
+                    <div className="text-xl text-gray-700">
+                      Total: <span className="font-semibold text-green-600">${subtotal.toFixed(2)}</span>
+                    </div>
+                    <div className="text-sm text-gray-500 mt-1">
+                      for {quantity} units
+                    </div>
+                  </div>
 
-              {/* Pricing Summary */}
-              <div className="bg-[#0ca6c2]/5 rounded-lg p-6 space-y-4">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-green-600 mb-2">${unitPrice.toFixed(2)} each</div>
-                  <div className="text-lg text-gray-700">Subtotal: ${subtotal.toFixed(2)}</div>
+                  {/* View Breakdown Button */}
+                  <button
+                    onClick={() => setShowBreakdown(!showBreakdown)}
+                    className="w-full py-2 px-4 bg-white border-2 border-[#0ca6c2] text-[#0c6b76] rounded-lg hover:bg-[#0ca6c2]/10 transition-colors font-medium"
+                  >
+                    {showBreakdown ? '− Hide' : '+ View'} Detailed Breakdown
+                  </button>
+
+                  {/* Detailed Breakdown */}
+                  {showBreakdown && (
+                    <div className="mt-4 bg-white rounded-lg p-4 max-h-96 overflow-y-auto">
+                      <h4 className="font-semibold text-gray-900 mb-3">Price Breakdown:</h4>
+                      <div className="space-y-2">
+                        {pricingResult.breakdown.map((section: any, index: number) => (
+                          <div key={index} className="border-b border-gray-200 pb-2">
+                            <div className="flex justify-between items-start">
+                              <div className="flex-1">
+                                <div className="flex items-center gap-2">
+                                  <span className="w-6 h-6 bg-[#0ca6c2] text-white rounded-full flex items-center justify-center text-xs">
+                                    {section.sectionNumber}
+                                  </span>
+                                  <span className="font-medium text-gray-900">{section.sectionName}</span>
+                                </div>
+                                <p className="text-xs text-gray-500 mt-1 ml-8">{section.description}</p>
+                                {section.formula && (
+                                  <code className="text-xs text-gray-600 mt-1 ml-8 block bg-gray-50 p-1 rounded">
+                                    {section.formula}
+                                  </code>
+                                )}
+                              </div>
+                              <div className="text-right ml-4">
+                                <span className={`font-semibold ${section.cost > 0 ? 'text-green-600' : 'text-gray-400'}`}>
+                                  ${section.cost.toFixed(2)}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="mt-4 pt-4 border-t-2 border-gray-300">
+                        <div className="flex justify-between items-center text-lg font-bold">
+                          <span>Total:</span>
+                          <span className="text-green-600">${subtotal.toFixed(2)}</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
-              </div>
+              ) : (
+                <div className="text-center py-8">
+                  <p className="text-gray-600">
+                    Select a product and enter dimensions to see pricing
+                  </p>
+                </div>
+              )}
             </div>
 
             {/* Design Options */}

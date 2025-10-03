@@ -1,0 +1,557 @@
+/**
+ * Pricing Calculator Engine
+ * Implements all 12 sections of the pricing calculation
+ * Based on flexible, formula-driven approach
+ */
+
+import {
+  ProductPricingFormula,
+  PricingCalculationRequest,
+  PricingCalculationResult,
+  SectionBreakdown,
+  MaterialCostCalculation,
+  PlatesCostCalculation,
+  PrintingCostCalculation,
+  LaminationCostCalculation,
+  DieMakingCostCalculation,
+  DieCuttingCostCalculation,
+  PastingCostCalculation,
+  TwoPieceBoxCalculation,
+  BothSidePrintingSurchargeCalculation,
+  VendorPercentageCalculation,
+  ShippingCostCalculation,
+  MaterialType
+} from '../types/pricing-formulas';
+
+export class PricingCalculator {
+  private formula: ProductPricingFormula;
+  private request: PricingCalculationRequest;
+  private sectionCosts: number[] = [];
+  private calculatedLength: number = 0;
+  private calculatedWidth: number = 0;
+  private weightOf100Units: number = 0;
+
+  constructor(formula: ProductPricingFormula, request: PricingCalculationRequest) {
+    this.formula = formula;
+    this.request = request;
+  }
+
+  /**
+   * Main calculation method - calculates all 12 sections
+   */
+  calculate(): PricingCalculationResult {
+    const breakdown: SectionBreakdown[] = [];
+
+    // Section 1: Material Cost
+    const materialCost = this.calculateMaterialCost();
+    breakdown.push(materialCost);
+    this.sectionCosts.push(materialCost.cost);
+
+    // Section 2: Scanning Cost
+    const scanningCost = this.calculateScanningCost();
+    breakdown.push(scanningCost);
+    this.sectionCosts.push(scanningCost.cost);
+
+    // Section 3: Plates Cost
+    const platesCost = this.calculatePlatesCost();
+    breakdown.push(platesCost);
+    this.sectionCosts.push(platesCost.cost);
+
+    // Section 4: Printing Cost
+    const printingCost = this.calculatePrintingCost();
+    breakdown.push(printingCost);
+    this.sectionCosts.push(printingCost.cost);
+
+    // Section 5: Lamination Cost
+    const laminationCost = this.calculateLaminationCost();
+    breakdown.push(laminationCost);
+    this.sectionCosts.push(laminationCost.cost);
+
+    // Section 6: Die Making Cost
+    const dieMakingCost = this.calculateDieMakingCost();
+    breakdown.push(dieMakingCost);
+    this.sectionCosts.push(dieMakingCost.cost);
+
+    // Section 7: Die Cutting Cost
+    const dieCuttingCost = this.calculateDieCuttingCost();
+    breakdown.push(dieCuttingCost);
+    this.sectionCosts.push(dieCuttingCost.cost);
+
+    // Section 8: Pasting Cost
+    const pastingCost = this.calculatePastingCost();
+    breakdown.push(pastingCost);
+    this.sectionCosts.push(pastingCost.cost);
+
+    // Section 9: Two-Piece Box Multiplier
+    const twoPieceBox = this.calculateTwoPieceBox();
+    breakdown.push(twoPieceBox);
+    this.sectionCosts.push(twoPieceBox.cost);
+
+    // Section 10: Both Side Printing Surcharge
+    const bothSideSurcharge = this.calculateBothSideSurcharge();
+    breakdown.push(bothSideSurcharge);
+    this.sectionCosts.push(bothSideSurcharge.cost);
+
+    // Section 11: Vendor Percentage
+    const vendorPercentage = this.calculateVendorPercentage();
+    breakdown.push(vendorPercentage);
+    this.sectionCosts.push(vendorPercentage.cost);
+
+    // Section 12: Shipping Cost
+    const shippingCost = this.calculateShippingCost();
+    breakdown.push(shippingCost);
+    this.sectionCosts.push(shippingCost.cost);
+
+    // Calculate totals
+    const subtotal = this.sectionCosts.reduce((sum, cost) => sum + cost, 0);
+    const pricePerUnit = subtotal / this.request.requiredUnits;
+
+    return {
+      success: true,
+      productName: this.formula.productName,
+      breakdown,
+      summary: {
+        subtotal: this.roundTo2(subtotal),
+        totalSections: 12,
+        pricePerUnit: this.roundTo2(pricePerUnit)
+      }
+    };
+  }
+
+  /**
+   * SECTION 1: Material Cost
+   */
+  private calculateMaterialCost(): SectionBreakdown {
+    const { length, width, height, pt, requiredUnits } = this.request;
+    const { lengthFormula, widthFormula, gsmTable, weightOf100Units, costOf100Units } = this.formula.materialCost;
+
+    // Step 1: Calculate adjusted dimensions
+    this.calculatedLength = 
+      (length * lengthFormula.lengthMultiplier) + 
+      (width * lengthFormula.widthMultiplier) + 
+      lengthFormula.additionalInches;
+
+    this.calculatedWidth = 
+      (height * widthFormula.heightMultiplier) + 
+      (widthFormula.lengthAdded ? length : 0) + 
+      widthFormula.additionalInches;
+
+    // Step 2: Get GSM from table
+    const gsmEntry = gsmTable.find(entry => entry.pt === pt);
+    if (!gsmEntry) {
+      throw new Error(`Invalid PT value: ${pt}`);
+    }
+
+    const materialType = this.formula.category as MaterialType;
+    const gsmValue = gsmEntry[materialType];
+    
+    if (gsmValue === null || gsmValue === undefined) {
+      throw new Error(`GSM not available for material type ${materialType} with PT ${pt}`);
+    }
+
+    // Step 3: Calculate weight of 100 units
+    this.weightOf100Units = 
+      (this.calculatedLength * this.calculatedWidth * gsmValue) / weightOf100Units.divisor;
+
+    // Step 4: Calculate cost of 100 units
+    const costOf100 = this.weightOf100Units * costOf100Units.rate;
+
+    // Step 5: Calculate final cost for required units
+    const finalCost = (costOf100 / 100) * requiredUnits;
+
+    const calculations: MaterialCostCalculation = {
+      inputLength: length,
+      inputWidth: width,
+      inputHeight: height,
+      calculatedLength: this.roundTo2(this.calculatedLength),
+      calculatedWidth: this.roundTo2(this.calculatedWidth),
+      pt,
+      gsmUsed: gsmValue,
+      weightOf100Units: this.roundTo2(this.weightOf100Units),
+      costOf100Units: this.roundTo2(costOf100),
+      requiredUnits,
+      finalCost: this.roundTo2(finalCost)
+    };
+
+    return {
+      sectionNumber: 1,
+      sectionName: "Material Cost",
+      description: "Calculates material cost based on dimensions, GSM values, and weight",
+      formula: `((L×${lengthFormula.lengthMultiplier} + W×${lengthFormula.widthMultiplier} + ${lengthFormula.additionalInches}) × (H×${widthFormula.heightMultiplier} + L + ${widthFormula.additionalInches}) × GSM / ${weightOf100Units.divisor}) × ${costOf100Units.rate} / 100 × Units`,
+      calculations,
+      cost: this.roundTo2(finalCost)
+    };
+  }
+
+  /**
+   * SECTION 2: Scanning Cost
+   */
+  private calculateScanningCost(): SectionBreakdown {
+    const cost = this.formula.scanningCost.cost;
+
+    return {
+      sectionNumber: 2,
+      sectionName: "Scanning Cost",
+      description: "One-time scanning setup cost",
+      formula: "Fixed Cost",
+      calculations: {
+        fixedCost: cost
+      },
+      cost: this.roundTo2(cost)
+    };
+  }
+
+  /**
+   * SECTION 3: Plates Cost
+   */
+  private calculatePlatesCost(): SectionBreakdown {
+    const { printing } = this.request;
+    const { ranges } = this.formula.platesCost;
+
+    // Find matching range based on calculated dimensions
+    const matchedRange = ranges.find(range => 
+      this.calculatedLength >= range.lengthMin &&
+      this.calculatedLength <= range.lengthMax &&
+      this.calculatedWidth >= range.widthMin &&
+      this.calculatedWidth <= range.widthMax
+    );
+
+    const baseCost = matchedRange ? matchedRange.costs[printing] : 0;
+
+    const calculations: PlatesCostCalculation = {
+      calculatedLength: this.roundTo2(this.calculatedLength),
+      calculatedWidth: this.roundTo2(this.calculatedWidth),
+      rangeMatched: matchedRange?.name || null,
+      printingType: printing,
+      baseCost,
+      finalCost: baseCost
+    };
+
+    return {
+      sectionNumber: 3,
+      sectionName: "Plates Cost",
+      description: "Cost based on calculated dimensions and printing type",
+      formula: "Cost from matched range based on length/width",
+      calculations,
+      cost: this.roundTo2(baseCost)
+    };
+  }
+
+  /**
+   * SECTION 4: Printing Cost
+   */
+  private calculatePrintingCost(): SectionBreakdown {
+    const { printing, requiredUnits } = this.request;
+    const { ranges } = this.formula.printingCost;
+
+    // Find matching range
+    const matchedRange = ranges.find(range => 
+      this.calculatedLength >= range.lengthMin &&
+      this.calculatedLength <= range.lengthMax &&
+      this.calculatedWidth >= range.widthMin &&
+      this.calculatedWidth <= range.widthMax
+    );
+
+    const baseCost = matchedRange ? matchedRange.costs[printing] : 0;
+    
+    // Calculate multiplier based on 1000-unit rule
+    const unitsMultiplier = Math.ceil(requiredUnits / 1000);
+    const finalCost = baseCost * unitsMultiplier;
+
+    const calculations: PrintingCostCalculation = {
+      calculatedLength: this.roundTo2(this.calculatedLength),
+      calculatedWidth: this.roundTo2(this.calculatedWidth),
+      rangeMatched: matchedRange?.name || null,
+      printingType: printing,
+      baseCost,
+      unitsMultiplier,
+      finalCost
+    };
+
+    return {
+      sectionNumber: 4,
+      sectionName: "Printing Cost",
+      description: "Printing cost with quantity multiplier (per 1000 units)",
+      formula: `Base Cost × ceil(Units / 1000)`,
+      calculations,
+      cost: this.roundTo2(finalCost)
+    };
+  }
+
+  /**
+   * SECTION 5: Lamination Cost
+   */
+  private calculateLaminationCost(): SectionBreakdown {
+    const { lamination, requiredUnits } = this.request;
+    
+    if (lamination === 'none') {
+      return {
+        sectionNumber: 5,
+        sectionName: "Lamination Cost",
+        description: "No lamination selected",
+        formula: "None",
+        calculations: { laminationType: 'none' },
+        cost: 0
+      };
+    }
+
+    const laminationConfig = this.formula.laminationCost[lamination];
+    const { divisor, rate } = laminationConfig;
+
+    // Calculate single unit cost
+    const singleUnitCost = (this.calculatedLength * this.calculatedWidth / divisor) * rate;
+    
+    // Total cost
+    const finalCost = singleUnitCost * requiredUnits;
+
+    const calculations: LaminationCostCalculation = {
+      calculatedLength: this.roundTo2(this.calculatedLength),
+      calculatedWidth: this.roundTo2(this.calculatedWidth),
+      laminationType: lamination,
+      divisor,
+      rate,
+      singleUnitCost: this.roundTo2(singleUnitCost),
+      totalUnits: requiredUnits,
+      finalCost: this.roundTo2(finalCost)
+    };
+
+    return {
+      sectionNumber: 5,
+      sectionName: "Lamination Cost",
+      description: `Lamination cost for ${lamination} finish`,
+      formula: `(Length × Width / ${divisor}) × ${rate} × Units`,
+      calculations,
+      cost: this.roundTo2(finalCost)
+    };
+  }
+
+  /**
+   * SECTION 6: Die Making Cost
+   */
+  private calculateDieMakingCost(): SectionBreakdown {
+    const { multiplier } = this.formula.dieMakingCost;
+    const finalCost = this.calculatedLength * this.calculatedWidth * multiplier;
+
+    const calculations: DieMakingCostCalculation = {
+      calculatedLength: this.roundTo2(this.calculatedLength),
+      calculatedWidth: this.roundTo2(this.calculatedWidth),
+      multiplier,
+      finalCost: this.roundTo2(finalCost)
+    };
+
+    return {
+      sectionNumber: 6,
+      sectionName: "Die Making Cost",
+      description: "One-time die making cost",
+      formula: `Length × Width × ${multiplier}`,
+      calculations,
+      cost: this.roundTo2(finalCost)
+    };
+  }
+
+  /**
+   * SECTION 7: Die Cutting Cost
+   */
+  private calculateDieCuttingCost(): SectionBreakdown {
+    const { requiredUnits } = this.request;
+    const { costPer1000 } = this.formula.dieCuttingCost;
+    
+    const multiplier = Math.ceil(requiredUnits / 1000);
+    const finalCost = costPer1000 * multiplier;
+
+    const calculations: DieCuttingCostCalculation = {
+      requiredUnits,
+      costPer1000,
+      multiplier,
+      finalCost
+    };
+
+    return {
+      sectionNumber: 7,
+      sectionName: "Die Cutting Cost",
+      description: "Die cutting cost per 1000 units",
+      formula: `${costPer1000} × ceil(Units / 1000)`,
+      calculations,
+      cost: this.roundTo2(finalCost)
+    };
+  }
+
+  /**
+   * SECTION 8: Pasting Cost
+   */
+  private calculatePastingCost(): SectionBreakdown {
+    const { requiredUnits } = this.request;
+    const { costPer1000 } = this.formula.pastingCost;
+    
+    const multiplier = Math.ceil(requiredUnits / 1000);
+    const finalCost = costPer1000 * multiplier;
+
+    const calculations: PastingCostCalculation = {
+      requiredUnits,
+      costPer1000,
+      multiplier,
+      finalCost
+    };
+
+    return {
+      sectionNumber: 8,
+      sectionName: "Pasting Cost",
+      description: "Pasting cost per 1000 units",
+      formula: `${costPer1000} × ceil(Units / 1000)`,
+      calculations,
+      cost: this.roundTo2(finalCost)
+    };
+  }
+
+  /**
+   * SECTION 9: Two-Piece Box Multiplier
+   */
+  private calculateTwoPieceBox(): SectionBreakdown {
+    const { enabled, multiplier } = this.formula.twoPieceBox;
+    
+    // Sum of sections 1-8
+    const sumOfPreviousSections = this.sectionCosts.slice(0, 8).reduce((sum, cost) => sum + cost, 0);
+    
+    const additionalCost = enabled ? sumOfPreviousSections * (multiplier - 1) : 0;
+
+    const calculations: TwoPieceBoxCalculation = {
+      enabled,
+      sumOfPreviousSections: this.roundTo2(sumOfPreviousSections),
+      multiplier,
+      additionalCost: this.roundTo2(additionalCost)
+    };
+
+    return {
+      sectionNumber: 9,
+      sectionName: "Two-Piece Box Multiplier",
+      description: enabled ? `Multiplies sections 1-8 by ${multiplier}` : "Not enabled for this product",
+      formula: enabled ? `Sum(Sections 1-8) × ${multiplier}` : "N/A",
+      calculations,
+      cost: this.roundTo2(additionalCost)
+    };
+  }
+
+  /**
+   * SECTION 10: Both Side Printing Surcharge
+   */
+  private calculateBothSideSurcharge(): SectionBreakdown {
+    const { printing } = this.request;
+    const { percentage } = this.formula.bothSidePrintingSurcharge;
+    
+    const applicable = printing === 'bothSide';
+    
+    // Sum of sections 1-9
+    const sumOfPreviousSections = this.sectionCosts.slice(0, 9).reduce((sum, cost) => sum + cost, 0);
+    
+    const finalCost = applicable ? sumOfPreviousSections * (percentage / 100) : 0;
+
+    const calculations: BothSidePrintingSurchargeCalculation = {
+      applicable,
+      sumOfPreviousSections: this.roundTo2(sumOfPreviousSections),
+      percentage,
+      finalCost: this.roundTo2(finalCost)
+    };
+
+    return {
+      sectionNumber: 10,
+      sectionName: "Both Side Printing Surcharge",
+      description: applicable ? `${percentage}% surcharge for both side printing` : "Not applicable (single side or no printing)",
+      formula: applicable ? `Sum(Sections 1-9) × ${percentage}%` : "N/A",
+      calculations,
+      cost: this.roundTo2(finalCost)
+    };
+  }
+
+  /**
+   * SECTION 11: Vendor Percentage
+   */
+  private calculateVendorPercentage(): SectionBreakdown {
+    const { percentage } = this.formula.vendorPercentage;
+    
+    // Sum of sections 1-10
+    const sumOfPreviousSections = this.sectionCosts.slice(0, 10).reduce((sum, cost) => sum + cost, 0);
+    
+    const finalCost = sumOfPreviousSections * (percentage / 100);
+
+    const calculations: VendorPercentageCalculation = {
+      sumOfPreviousSections: this.roundTo2(sumOfPreviousSections),
+      percentage,
+      finalCost: this.roundTo2(finalCost)
+    };
+
+    return {
+      sectionNumber: 11,
+      sectionName: "Vendor Percentage",
+      description: `${percentage}% vendor markup`,
+      formula: `Sum(Sections 1-10) × ${percentage}%`,
+      calculations,
+      cost: this.roundTo2(finalCost)
+    };
+  }
+
+  /**
+   * SECTION 12: Shipping Cost
+   */
+  private calculateShippingCost(): SectionBreakdown {
+    const { requiredUnits } = this.request;
+    const { weightCalculation, shippingTiers } = this.formula.shippingCost;
+    const { multiplier, divisor } = weightCalculation;
+
+    // Calculate single unit weight
+    const singleUnitWeight = (this.weightOf100Units * multiplier) / divisor;
+    
+    // Calculate total weight
+    const totalWeight = singleUnitWeight * requiredUnits;
+
+    // Find matching shipping tier
+    const matchedTier = shippingTiers.find(tier => 
+      totalWeight >= tier.minWeight && totalWeight < tier.maxWeight
+    );
+
+    const shippingCost = matchedTier ? matchedTier.cost : shippingTiers[shippingTiers.length - 1].cost;
+
+    const calculations: ShippingCostCalculation = {
+      weightOf100Units: this.roundTo2(this.weightOf100Units),
+      weightMultiplier: multiplier,
+      weightDivisor: divisor,
+      singleUnitWeight: this.roundTo2(singleUnitWeight),
+      requiredUnits,
+      totalWeight: this.roundTo2(totalWeight),
+      tierMatched: matchedTier ? `${matchedTier.minWeight}-${matchedTier.maxWeight} kg` : "70+ kg",
+      shippingCost
+    };
+
+    return {
+      sectionNumber: 12,
+      sectionName: "Shipping Cost",
+      description: "Shipping cost based on total weight",
+      formula: `Weight per unit: (k × ${multiplier}) / ${divisor}, then match to shipping tier`,
+      calculations,
+      cost: this.roundTo2(shippingCost)
+    };
+  }
+
+  /**
+   * Helper: Round to 2 decimal places
+   */
+  private roundTo2(value: number): number {
+    return Math.round(value * 100) / 100;
+  }
+}
+
+/**
+ * Main calculation function
+ */
+export async function calculatePricing(
+  formula: ProductPricingFormula,
+  request: PricingCalculationRequest
+): Promise<PricingCalculationResult> {
+  try {
+    const calculator = new PricingCalculator(formula, request);
+    return calculator.calculate();
+  } catch (error) {
+    console.error('Pricing calculation error:', error);
+    throw new Error(`Pricing calculation failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+  }
+}
+

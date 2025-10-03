@@ -1,0 +1,125 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { getCollection } from '@/lib/mongodb';
+import { ProductPricingFormula } from '@/lib/types/pricing-formulas';
+
+// GET - Get specific product pricing formula
+export async function GET(
+  request: NextRequest,
+  { params }: { params: { productId: string } }
+) {
+  try {
+    const collection = await getCollection('productPricingFormulas');
+    const formula = await collection.findOne({ 
+      productId: params.productId,
+      isActive: true 
+    });
+
+    if (!formula) {
+      return NextResponse.json({
+        success: false,
+        error: 'Pricing formula not found'
+      }, { status: 404 });
+    }
+
+    return NextResponse.json({
+      success: true,
+      data: formula
+    });
+  } catch (error) {
+    console.error('Error fetching pricing formula:', error);
+    return NextResponse.json({
+      success: false,
+      error: error instanceof Error ? error.message : 'Unknown error'
+    }, { status: 500 });
+  }
+}
+
+// PUT - Update product pricing formula
+export async function PUT(
+  request: NextRequest,
+  { params }: { params: { productId: string } }
+) {
+  try {
+    const updateData: Partial<ProductPricingFormula> = await request.json();
+    
+    // Remove fields that shouldn't be updated directly
+    delete updateData._id;
+    delete updateData.createdAt;
+    delete (updateData as any).productId; // Product ID should not change
+    
+    const collection = await getCollection('productPricingFormulas');
+    
+    const result = await collection.updateOne(
+      { productId: params.productId },
+      { 
+        $set: {
+          ...updateData,
+          updatedAt: new Date()
+        }
+      }
+    );
+
+    if (result.matchedCount === 0) {
+      return NextResponse.json({
+        success: false,
+        error: 'Pricing formula not found'
+      }, { status: 404 });
+    }
+
+    // Return updated formula
+    const updatedFormula = await collection.findOne({ 
+      productId: params.productId 
+    });
+
+    return NextResponse.json({
+      success: true,
+      data: updatedFormula,
+      message: 'Pricing formula updated successfully'
+    });
+  } catch (error) {
+    console.error('Error updating pricing formula:', error);
+    return NextResponse.json({
+      success: false,
+      error: error instanceof Error ? error.message : 'Unknown error'
+    }, { status: 500 });
+  }
+}
+
+// DELETE - Soft delete pricing formula
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: { productId: string } }
+) {
+  try {
+    const collection = await getCollection('productPricingFormulas');
+    
+    const result = await collection.updateOne(
+      { productId: params.productId },
+      { 
+        $set: {
+          isActive: false,
+          updatedAt: new Date()
+        }
+      }
+    );
+
+    if (result.matchedCount === 0) {
+      return NextResponse.json({
+        success: false,
+        error: 'Pricing formula not found'
+      }, { status: 404 });
+    }
+
+    return NextResponse.json({
+      success: true,
+      message: 'Pricing formula deleted successfully'
+    });
+  } catch (error) {
+    console.error('Error deleting pricing formula:', error);
+    return NextResponse.json({
+      success: false,
+      error: error instanceof Error ? error.message : 'Unknown error'
+    }, { status: 500 });
+  }
+}
+

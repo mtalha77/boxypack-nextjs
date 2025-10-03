@@ -193,7 +193,7 @@ const AdminPricingDashboard: React.FC = () => {
             {error}
           </div>
         )}
-      </div>
+    </div>
   );
 };
 
@@ -755,6 +755,7 @@ const ProductPricingEditor: React.FC<ProductPricingEditorProps> = ({ product, on
           </div>
         </div>
       </div>
+    </div>
   );
 };
 
