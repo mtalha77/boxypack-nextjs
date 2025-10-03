@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { PricingFormData, PricingResult, Material, Product, Dimensions } from '@/lib/types/pricing';
 
 interface PricingFormProps {
@@ -50,13 +50,7 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
   const [pricingResult, setPricingResult] = useState<PricingResult | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  // Load initial data
-  useEffect(() => {
-    loadProducts();
-    loadMaterials();
-  }, []);
-
-  const loadProducts = async () => {
+  const loadProducts = useCallback(async () => {
     try {
       const response = await fetch('/api/pricing/products');
       const data = await response.json();
@@ -69,9 +63,9 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
     } catch (error) {
       console.error('Error loading products:', error);
     }
-  };
+  }, [formData.productId]);
 
-  const loadMaterials = async () => {
+  const loadMaterials = useCallback(async () => {
     try {
       const response = await fetch('/api/pricing/materials');
       const data = await response.json();
@@ -84,9 +78,15 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
     } catch (error) {
       console.error('Error loading materials:', error);
     }
-  };
+  }, [formData.material]);
 
-  const handleInputChange = (field: string, value: any) => {
+  // Load initial data
+  useEffect(() => {
+    loadProducts();
+    loadMaterials();
+  }, [loadProducts, loadMaterials]);
+
+  const handleInputChange = (field: string, value: string | number | boolean | Record<string, unknown>) => {
     setFormData(prev => ({
       ...prev,
       [field]: value
@@ -124,7 +124,7 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
     }));
   };
 
-  const updateLogoPlacement = (index: number, field: string, value: any) => {
+  const updateLogoPlacement = (index: number, field: string, value: string) => {
     setFormData(prev => ({
       ...prev,
       logoPlacement: prev.logoPlacement.map((placement, i) => 
