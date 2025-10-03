@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { Loader2 } from 'lucide-react';
 
 const Login: React.FC = () => {
   const [credentials, setCredentials] = useState({
@@ -23,7 +24,7 @@ const Login: React.FC = () => {
       // Store auth token in cookies
       document.cookie = 'adminAuth=true; path=/; max-age=86400'; // 24 hours
       document.cookie = `adminUser=${credentials.username}; path=/; max-age=86400`;
-      router.push('/admin/pricing');
+      router.push('/admin/dashboard');
     } else {
       setError('Invalid credentials. Please try again.');
     }
@@ -76,7 +77,7 @@ const Login: React.FC = () => {
                   value={credentials.username}
                   onChange={handleInputChange}
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-gray-900"
-                  placeholder="admin@boxypack.com"
+                  placeholder="Enter username"
                 />
               </div>
             </div>
@@ -110,28 +111,16 @@ const Login: React.FC = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="group relative w-full flex justify-center items-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-70 disabled:cursor-not-allowed transition-all"
               >
+                {isLoading && (
+                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                )}
                 {isLoading ? 'Signing in...' : 'Sign in'}
               </button>
             </div>
           </form>
 
-          <div className="mt-6">
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300" />
-              </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">Demo Credentials</span>
-              </div>
-            </div>
-
-            <div className="mt-6 text-center text-sm text-gray-600">
-              <p><strong>Username:</strong> admin@boxypack.com</p>
-              <p><strong>Password:</strong> admin123</p>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -139,3 +128,4 @@ const Login: React.FC = () => {
 };
 
 export default Login;
+

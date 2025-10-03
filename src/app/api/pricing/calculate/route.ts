@@ -7,7 +7,6 @@ export async function POST(request: NextRequest) {
   try {
     const body: PricingCalculationRequest = await request.json();
 
-    // Validate required fields
     const requiredFields: (keyof PricingCalculationRequest)[] = [
       'productId', 'length', 'width', 'height', 'pt', 'requiredUnits', 'printing', 'lamination'
     ];
@@ -21,7 +20,6 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Validate numeric fields
     if (body.length <= 0 || body.width <= 0 || body.height <= 0) {
       return NextResponse.json({
         success: false,
@@ -36,7 +34,6 @@ export async function POST(request: NextRequest) {
       }, { status: 400 });
     }
 
-    // Validate PT value
     const validPT = ['14', '16', '18', 'N/A'];
     if (!validPT.includes(body.pt)) {
       return NextResponse.json({
@@ -45,7 +42,6 @@ export async function POST(request: NextRequest) {
       }, { status: 400 });
     }
 
-    // Validate printing type
     const validPrinting = ['outside', 'inside', 'bothSide', 'none'];
     if (!validPrinting.includes(body.printing)) {
       return NextResponse.json({
@@ -54,7 +50,6 @@ export async function POST(request: NextRequest) {
       }, { status: 400 });
     }
 
-    // Validate lamination type
     const validLamination = ['glossy', 'matt', 'softTouch', 'none'];
     if (!validLamination.includes(body.lamination)) {
       return NextResponse.json({
@@ -63,7 +58,6 @@ export async function POST(request: NextRequest) {
       }, { status: 400 });
     }
 
-    // Get pricing formula from database
     const formulasCollection = await getCollection('productPricingFormulas');
     const formula = await formulasCollection.findOne({ 
       productId: body.productId,
@@ -77,7 +71,6 @@ export async function POST(request: NextRequest) {
       }, { status: 404 });
     }
 
-    // Calculate pricing
     const result = await calculatePricing(formula, body);
 
     return NextResponse.json({

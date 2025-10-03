@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getCollection } from '@/lib/mongodb';
 import { ProductPricingFormula } from '@/lib/types/pricing-formulas';
-
-// GET - Get specific product pricing formula
 export async function GET(
   request: NextRequest,
   { params }: { params: { productId: string } }
@@ -33,8 +31,6 @@ export async function GET(
     }, { status: 500 });
   }
 }
-
-// PUT - Update product pricing formula
 export async function PUT(
   request: NextRequest,
   { params }: { params: { productId: string } }
@@ -42,7 +38,6 @@ export async function PUT(
   try {
     const updateData: Partial<ProductPricingFormula> = await request.json();
     
-    // Remove fields that shouldn't be updated directly
     delete updateData._id;
     delete updateData.createdAt;
     delete (updateData as any).productId; // Product ID should not change
@@ -84,8 +79,6 @@ export async function PUT(
     }, { status: 500 });
   }
 }
-
-// DELETE - Soft delete pricing formula
 export async function DELETE(
   request: NextRequest,
   { params }: { params: { productId: string } }

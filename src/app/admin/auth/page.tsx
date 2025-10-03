@@ -17,10 +17,7 @@ const AdminAuth: React.FC = () => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
-
-    // Simple authentication check
     if (credentials.username === 'admin@boxypack.com' && credentials.password === 'admin123') {
-      // Store auth token in cookies
       document.cookie = 'adminAuth=true; path=/; max-age=86400'; // 24 hours
       document.cookie = `adminUser=${credentials.username}; path=/; max-age=86400`;
       router.push('/admin/pricing');
@@ -76,7 +73,7 @@ const AdminAuth: React.FC = () => {
                   value={credentials.username}
                   onChange={handleInputChange}
                   className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-gray-900"
-                  placeholder="admin@boxypack.com"
+                  placeholder="Enter username"
                 />
               </div>
             </div>
@@ -117,21 +114,7 @@ const AdminAuth: React.FC = () => {
             </div>
           </form>
 
-          <div className="mt-6">
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300" />
-              </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">Demo Credentials</span>
-              </div>
-            </div>
 
-            <div className="mt-6 text-center text-sm text-gray-600">
-              <p><strong>Username:</strong> admin@boxypack.com</p>
-              <p><strong>Password:</strong> admin123</p>
-            </div>
-          </div>
         </div>
       </div>
     </div>

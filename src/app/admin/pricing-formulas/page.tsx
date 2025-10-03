@@ -123,13 +123,13 @@ export default function PricingFormulasPage() {
               </p>
             </div>
             <div className="flex gap-3">
-              <button
+              {/* <button
                 onClick={handleSeed}
                 disabled={seeding}
                 className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 {seeding ? 'Seeding...' : 'Seed Sample Data'}
-              </button>
+              </button> */}
               <button
                 onClick={() => router.push('/admin/pricing-formulas/new')}
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"

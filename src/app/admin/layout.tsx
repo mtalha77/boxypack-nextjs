@@ -16,13 +16,11 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Skip authentication check for auth page
-    if (pathname === '/admin/auth') {
+    if (pathname === '/admin/auth' || pathname === '/admin/login') {
       setIsLoading(false);
       return;
     }
 
-    // Check if user is authenticated via cookies
     const getCookie = (name: string) => {
       const value = `; ${document.cookie}`;
       const parts = value.split(`; ${name}=`);
@@ -36,17 +34,15 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
     if (authStatus === 'true' && adminUser) {
       setIsAuthenticated(true);
     } else {
-      // Redirect to login if not authenticated
-      router.push('/login');
+      router.push('/admin/login');
     }
     setIsLoading(false);
   }, [router, pathname]);
 
   const handleLogout = () => {
-    // Clear cookies
     document.cookie = 'adminAuth=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
     document.cookie = 'adminUser=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
-    router.push('/login');
+    router.push('/admin/login');
   };
 
   if (isLoading) {
@@ -60,18 +56,17 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
     );
   }
 
-  // Show auth page content without admin header
-  if (pathname === '/admin/auth') {
+  // Show auth page and login page content without admin header
+  if (pathname === '/admin/auth' || pathname === '/admin/login') {
     return <>{children}</>;
   }
 
   if (!isAuthenticated) {
-    return null; // Will redirect to login
+    return null;
   }
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Admin Header */}
       <header className="bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
@@ -84,26 +79,10 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
                 height={60}
                 className="mr-4"
               />
-              <div>
-                <h1 className="text-xl font-semibold text-gray-900">Admin Dashboard</h1>
-                <p className="text-sm text-gray-500">Pricing Management</p>
-              </div>
             </div>
 
             {/* Navigation */}
             <nav className="flex items-center space-x-4">
-              <a
-                href="/admin/pricing"
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  pathname === '/admin/pricing'
-                    ? 'bg-blue-100 text-blue-700'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                }`}
-              >
-                <Package className="w-4 h-4 inline mr-2" />
-                Pricing
-              </a>
-              
               <button
                 onClick={handleLogout}
                 className="flex items-center px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
@@ -116,7 +95,6 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="flex-1">
         {children}
       </main>

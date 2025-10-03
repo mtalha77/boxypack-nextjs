@@ -7,7 +7,6 @@ export default function AdminPage() {
   const router = useRouter();
 
   useEffect(() => {
-    // Redirect to admin dashboard
     router.push('/admin/dashboard');
   }, [router]);
 
