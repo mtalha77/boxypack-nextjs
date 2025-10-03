@@ -72,3 +72,11 @@ export async function getProductsCollection() {
   const db = await getDatabase();
   return db.collection('Products');
 }
+
+export async function getCollection(collectionName: string) {
+  if (!uri) {
+    throw new Error('MongoDB URI not configured');
+  }
+  const db = await getDatabase();
+  return db.collection(collectionName);
+}
