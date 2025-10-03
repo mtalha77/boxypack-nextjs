@@ -392,8 +392,8 @@ export default function MaterialCostEditor({ formula, onUpdate }: Props) {
           </div>
         </div>
         <div className="bg-white rounded p-3 space-y-1 text-sm">
-          <p><strong>Calculated Length:</strong> {testResult.calcLength.toFixed(2)}"</p>
-          <p><strong>Calculated Width:</strong> {testResult.calcWidth.toFixed(2)}"</p>
+          <p><strong>Calculated Length:</strong> {testResult.calcLength.toFixed(2)}&quot;</p>
+          <p><strong>Calculated Width:</strong> {testResult.calcWidth.toFixed(2)}&quot;</p>
           <p><strong>GSM Used:</strong> {testResult.gsm}</p>
           <p><strong>Weight of 100 Units:</strong> {testResult.weight100.toFixed(2)}</p>
           <p><strong>Cost of 100 Units:</strong> ${testResult.cost100.toFixed(2)}</p>
