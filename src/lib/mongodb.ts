@@ -1,7 +1,7 @@
 import { MongoClient, Db } from 'mongodb';
 
 // Check if MongoDB URI is available, but don't throw error during build
-const uri = process.env.MONGODB_URI;
+const uri = "mongodb+srv://rankorbit1026_db_user:yokyklGhNigs1oNi@cluster0.pjhksks.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 if (!uri) {
   console.warn('⚠️ MongoDB URI not found. Database features will be disabled.');

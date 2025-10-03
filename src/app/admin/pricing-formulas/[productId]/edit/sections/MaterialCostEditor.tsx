@@ -61,7 +61,7 @@ export default function MaterialCostEditor({ formula, onUpdate }: Props) {
   };
 
   const calculateTest = () => {
-    const calcLength = (testL * data.lengthFormula.lengthMultiplier) + 
+    const calcLength = (testH * data.lengthFormula.lengthMultiplier) + 
                       (testW * data.lengthFormula.widthMultiplier) + 
                       data.lengthFormula.additionalInches;
     
@@ -103,7 +103,7 @@ export default function MaterialCostEditor({ formula, onUpdate }: Props) {
         <h4 className="font-semibold text-gray-900 mb-3">Step 1: Calculated Length Formula</h4>
         <div className="bg-gray-100 rounded p-3 mb-3">
           <code className="text-sm">
-            Calculated Length = (L × {data.lengthFormula.lengthMultiplier}) + (W × {data.lengthFormula.widthMultiplier}) + {data.lengthFormula.additionalInches}
+            Calculated Length = (H × {data.lengthFormula.lengthMultiplier}) + (W × {data.lengthFormula.widthMultiplier}) + {data.lengthFormula.additionalInches}
           </code>
         </div>
         <div className="grid grid-cols-3 gap-4">
