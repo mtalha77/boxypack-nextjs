@@ -253,7 +253,10 @@ export interface SectionBreakdown {
   sectionName: string;
   description: string;
   formula: string;
-  calculations: Record<string, any>;
+  calculations: MaterialCostCalculation | PlatesCostCalculation | PrintingCostCalculation | 
+    LaminationCostCalculation | DieMakingCostCalculation | DieCuttingCostCalculation | 
+    PastingCostCalculation | TwoPieceBoxCalculation | BothSidePrintingSurchargeCalculation | 
+    VendorPercentageCalculation | ShippingCostCalculation | Record<string, unknown>;
   cost: number;
 }
 
