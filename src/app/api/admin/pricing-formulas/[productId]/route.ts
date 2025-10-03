@@ -42,7 +42,8 @@ export async function PUT(
     
     delete updateData._id;
     delete updateData.createdAt;
-    delete (updateData as any).productId; // Product ID should not change
+    // Product ID should not change
+    const cleanedData = updateData as Partial<Omit<ProductPricingFormula, 'productId'>>;
     
     const collection = await getCollection('productPricingFormulas');
     
@@ -50,7 +51,7 @@ export async function PUT(
       { productId: productId },
       { 
         $set: {
-          ...updateData,
+          ...cleanedData,
           updatedAt: new Date()
         }
       }

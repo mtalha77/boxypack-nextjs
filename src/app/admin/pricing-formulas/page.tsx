@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import { ProductPricingFormula, MaterialType } from '@/lib/types/pricing-formulas';
+import { ProductPricingFormula } from '@/lib/types/pricing-formulas';
 
 interface PaginationData {
   page: number;
@@ -26,7 +26,7 @@ export default function PricingFormulasPage() {
   const [seeding, setSeeding] = useState(false);
 
   // Fetch formulas
-  const fetchFormulas = async () => {
+  const fetchFormulas = useCallback(async () => {
     try {
       setLoading(true);
       const params = new URLSearchParams({
@@ -51,11 +51,11 @@ export default function PricingFormulasPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [pagination.page, pagination.limit, searchQuery, categoryFilter]);
 
   useEffect(() => {
     fetchFormulas();
-  }, [pagination.page, searchQuery, categoryFilter]);
+  }, [fetchFormulas]);
 
   // Handle seed button
   const handleSeed = async () => {
@@ -192,7 +192,7 @@ export default function PricingFormulasPage() {
           <div className="bg-white rounded-lg shadow p-12 text-center">
             <p className="text-gray-500 text-lg">No pricing formulas found</p>
             <p className="text-gray-400 text-sm mt-2">
-              Click "Seed Sample Data" to populate with sample formulas
+              Click &quot;Seed Sample Data&quot; to populate with sample formulas
             </p>
           </div>
         ) : (
