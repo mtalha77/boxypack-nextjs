@@ -94,32 +94,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({ productData, breadcrumbs = []
         )}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          <div className="text-white">
-            <h1 className="text-h1 text-white mb-4">{productData.name}</h1>
-            <p className="text-body-large text-white/90 mb-6">
-              {productData.description}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button 
-                onClick={handleOrderNow}
-                className="bg-brown-rustic hover:bg-[#97602f] text-white px-8 py-4 rounded-full font-semibold transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer"
-              >
-                Order Now
-              </button>
-              <button 
-                onClick={handleGetFreeQuote}
-                className="border-2 border-white text-white hover:bg-white hover:text-[#0c6b76] px-8 py-4 rounded-full font-semibold transition-colors duration-300 cursor-pointer"
-              >
-                Get Free Quote
-              </button>
-            </div>
-          </div>
-          <div className="relative flex justify-center items-center">
-            <div className="w-[600px] h-[500px]">
+          {/* 3D Model - Top on mobile, Right on desktop */}
+          <div className="relative flex justify-center items-center order-1 lg:order-2 px-4 lg:px-0">
+            <div className="w-full max-w-sm sm:max-w-md lg:w-[600px] h-[350px] sm:h-[400px] lg:h-[500px]">
               <ClientOnly>
               {!isModelReady && (
                 <div className="w-full h-full bg-white/10 rounded-lg flex items-center justify-center">
-                  <div className="text-white/70 text-body">Loading 3D Model...</div>
+                  <div className="text-white/70 text-body">Loading Model...</div>
                 </div>
               )}
               <Model3D 
@@ -128,6 +109,28 @@ const HeroSection: React.FC<HeroSectionProps> = ({ productData, breadcrumbs = []
                 onModelReady={() => setIsModelReady(true)}
               />
               </ClientOnly>
+            </div>
+          </div>
+
+          {/* Content - Bottom on mobile, Left on desktop */}
+          <div className="text-white order-2 lg:order-1 px-4 lg:px-0">
+            <h1 className="text-4xl sm:text-4xl md:text-6xl text-white mb-4 leading-tight font-bold">{productData.name}</h1>
+            <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6">
+              {productData.description}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button 
+                onClick={handleOrderNow}
+                className="bg-gradient-to-r from-brown-dark to-[#97602f] hover:from-[#97602f] hover:to-brown-dark text-white px-8 lg:px-16 py-4 lg:py-5 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer text-sm lg:text-base"
+              >
+                ORDER NOW
+              </button>
+              <button 
+                onClick={handleGetFreeQuote}
+                className="border-2 border-white text-white hover:bg-white hover:text-[#0c6b76] px-6 lg:px-8 py-3 lg:py-4 rounded-full font-semibold transition-colors duration-300 cursor-pointer text-sm lg:text-base"
+              >
+                GET FREE QUOTE
+              </button>
             </div>
           </div>
         </div>

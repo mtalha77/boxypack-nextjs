@@ -1,5 +1,5 @@
 import ProductsDesignPage from '../Products-design-page';
-import { productData } from '../../data/productData';
+import { productData } from '../../data/productPagesData';
 
 const MailerBoxesPage = () => {
   return <ProductsDesignPage productData={productData['mailer-boxes']} />;

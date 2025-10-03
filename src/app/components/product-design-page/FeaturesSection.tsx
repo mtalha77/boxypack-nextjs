@@ -53,29 +53,23 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ productData }) => {
           {productData?.features?.length > 0 ? productData.features.map((feature, index) => (
             <div 
               key={index} 
-              className="group relative bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border-2 border-gray-200 hover:border-[#0c6b76]"
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200"
             >
-              {/* Hover effect overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0ca6c2]/8 to-[#0ca6c2]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
               {/* Icon container */}
-              <div className="relative z-10 mb-6">
-                <div className="w-20 h-20 bg-gradient-to-br from-[#0c6b76] to-[#0ca6c2] rounded-2xl flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-xl">
+              <div className="mb-6">
+                <div className="w-20 h-20 bg-gradient-to-br from-[#0c6b76] to-[#0ca6c2] rounded-2xl flex items-center justify-center mx-auto mb-4 text-white shadow-lg">
                   {getIcon(feature.icon)}
                 </div>
               </div>
               {/* Content */}
-              <div className="relative z-10 text-center">
-                <h3 className="text-h3 text-heading-primary mb-4 group-hover:text-[#0a5a63] transition-colors duration-300">
+              <div className="text-center">
+                <h3 className="text-h3 text-heading-primary mb-4">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed group-hover:text-gray-900 transition-colors duration-300">
+                <p className="text-gray-600 leading-relaxed">
                   {feature.description}
                 </p>
               </div>
-              
-              {/* Bottom accent */}
-              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-[#0c6b76] to-[#0ca6c2] rounded-full group-hover:w-20 transition-all duration-500"></div>
             </div>
           )) : (
             <div className="col-span-full text-center py-12">

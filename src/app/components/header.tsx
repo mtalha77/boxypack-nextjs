@@ -309,16 +309,16 @@ const Header: React.FC = () => {
            <div className={`absolute top-0 right-0 ${headerConfig.mobile.menuWidth} h-full bg-white shadow-lg overflow-y-auto`} onClick={(e) => e.stopPropagation()}>
              <div className="p-6 pb-20">
                <div className="flex items-center justify-between mb-6">
-                 {/* Logo instead of "Menu" text */}
-                 <div className="flex items-center space-x-3">
-                   <div className="relative">
-                     <div className="w-8 h-8 bg-transparent border-2 border-[#0ca6c2] transform rotate-45"></div>
-                     <div className="absolute inset-1 bg-transparent border-2 border-[#0ca6c2] rounded-md flex items-center justify-center">
-                       <span className="text-[#0ca6c2] font-bold text-sm transform -rotate-45">P</span>
-                     </div>
-                   </div>
-                   <span className="text-[#0c6b76] font-bold text-lg uppercase">Boxypack</span>
-                 </div>
+                 {/* mobile logo */}
+                 <Link href="/" className="flex items-center">
+                   <CldImage 
+                     src={headerConfig.logo.iconPath} 
+                     alt={headerConfig.logo.alt} 
+                     width={headerConfig.logo.width} 
+                     height={headerConfig.logo.height}
+                     priority
+                   />
+                 </Link>
                  <button
                    onClick={() => setIsMobileMenuOpen(false)}
                    className="text-gray-500 hover:text-gray-700"

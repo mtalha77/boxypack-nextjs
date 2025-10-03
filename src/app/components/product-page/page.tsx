@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { NavigationSection, MainCategory, SubCategory } from '../../data/navigationData';
-import { productData, getProductDataBySlug } from '../../data/productData';
+import { productData, getProductDataBySlug } from '../../data/productPagesData';
 import { useProduct, Product } from '@/lib/hooks/useProducts';
 import HeroSection, { BreadcrumbItem } from '../product-design-page/HeroSection';
 import CustomDimensionsForm from '../CustomDimensionsForm';
@@ -183,14 +183,17 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
   // Show loading state during hydration or database fetch to prevent mismatch
   if (!isMounted || dbLoading) {
     return (
-      <main className="min-h-screen flex items-center justify-center">
+      <main className="min-h-screen flex items-center justify-center relative">
         <GradientBackground 
           className="absolute inset-0"
         />
-        <div className="text-white text-center relative z-10">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
-          <p className="text-body-large">
+        <div className="text-white text-center relative z-10 flex flex-col items-center justify-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-4 border-white/30 border-t-white mb-6"></div>
+          <h2 className="text-2xl font-semibold mb-2">
             {!isMounted ? 'Loading...' : 'Fetching product data...'}
+          </h2>
+          <p className="text-lg text-white/80">
+            Please wait while we load the product information
           </p>
         </div>
       </main>

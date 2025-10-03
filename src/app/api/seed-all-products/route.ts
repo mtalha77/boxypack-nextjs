@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getProductsCollection } from '@/lib/mongodb';
-import { productData } from '@/app/data/productData';
+import { productData } from '@/app/data/productPagesData';
 import { productByMaterialData } from '@/app/data/productByMaterialData';
 import { mylarBoxesData } from '@/app/data/mylarBoxesData';
 import { shoppingBagsData } from '@/app/data/shoppingBagsData';

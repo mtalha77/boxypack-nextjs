@@ -3,7 +3,7 @@
 import React from 'react';
 import { CldImage } from 'next-cloudinary';
 import { NavigationSection, MainCategory, SubCategory } from '../data/navigationData';
-import { productData } from '../data/productData';
+import { productData } from '../data/productPagesData';
 import LightBlueBackground from '../UI/LightBlueBackground';
 
 interface RelatedProductsProps {
@@ -36,12 +36,27 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({
         .filter(sub => sub.slug !== currentSubcategory.slug)
         .slice(0, maxItems);
       
-      relatedProducts = otherSubcategories.map(sub => ({
-        name: sub.name,
-        description: sub.description || `Premium ${sub.name.toLowerCase()} packaging solutions`,
-        href: `/products/${currentSection.slug}/${currentCategory.slug}/${sub.slug}`,
-        image: 'products-box-img_x8vu4b'
-      }));
+      relatedProducts = otherSubcategories.map(sub => {
+        // Handle different URL patterns for different sections
+        let href: string;
+        if (currentSection.slug === 'product-by-material') {
+          // Material subcategories: /products/product-by-material/cardboard-boxes/cardboard-auto-bottom-tray
+          href = `/products/${currentSection.slug}/${currentCategory.slug}/${sub.slug}`;
+        } else if (currentSection.slug === 'product-by-industry') {
+          // Industry subcategories: /products/product-by-industry/pizza-boxes/rectangle-pizza-boxes
+          href = `/products/${currentSection.slug}/${currentCategory.slug}/${sub.slug}`;
+        } else {
+          // Direct sections: link to main section page since subcategory pages don't exist
+          href = `/products/${currentSection.slug}`;
+        }
+        
+        return {
+          name: sub.name,
+          description: sub.description || `Premium ${sub.name.toLowerCase()} packaging solutions`,
+          href: href,
+          image: 'products-box-img_x8vu4b'
+        };
+      });
 
       // If not enough subcategories, add other categories from the same section
       if (relatedProducts.length < maxItems && currentSection.categories) {
@@ -49,23 +64,53 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({
           .filter(cat => cat.slug !== currentCategory.slug)
           .slice(0, maxItems - relatedProducts.length);
         
-        relatedProducts = relatedProducts.concat(otherCategories.map(cat => ({
-          name: cat.name,
-          description: cat.description || `Premium ${cat.name.toLowerCase()} packaging solutions`,
-          href: `/products/${currentSection.slug}/${cat.slug}`,
-          image: 'products-box-img_x8vu4b'
-        })));
+        relatedProducts = relatedProducts.concat(otherCategories.map(cat => {
+          // Handle different URL patterns for different sections
+          let href: string;
+          if (currentSection.slug === 'product-by-material') {
+            // Material categories: /products/product-by-material/cardboard-boxes
+            href = `/products/${currentSection.slug}/${cat.slug}`;
+          } else if (currentSection.slug === 'product-by-industry') {
+            // Industry categories: /products/product-by-industry/pizza-boxes
+            href = `/products/${currentSection.slug}/${cat.slug}`;
+          } else {
+            // Direct sections: /products/mylar-boxes, /products/shopping-bags, /products/other
+            href = `/products/${currentSection.slug}`;
+          }
+          
+          return {
+            name: cat.name,
+            description: cat.description || `Premium ${cat.name.toLowerCase()} packaging solutions`,
+            href: href,
+            image: 'products-box-img_x8vu4b'
+          };
+        }));
       }
     } else if (pageType === 'category' && currentSection && currentCategory) {
       // For category pages, show subcategories from the same category
       const subcategories = currentCategory.subcategories.slice(0, maxItems);
       
-      relatedProducts = subcategories.map(sub => ({
-        name: sub.name,
-        description: sub.description || `Premium ${sub.name.toLowerCase()} packaging solutions`,
-        href: `/products/${currentSection.slug}/${currentCategory.slug}/${sub.slug}`,
-        image: 'products-box-img_x8vu4b'
-      }));
+      relatedProducts = subcategories.map(sub => {
+        // Handle different URL patterns for different sections
+        let href: string;
+        if (currentSection.slug === 'product-by-material') {
+          // Material subcategories: /products/product-by-material/cardboard-boxes/cardboard-auto-bottom-tray
+          href = `/products/${currentSection.slug}/${currentCategory.slug}/${sub.slug}`;
+        } else if (currentSection.slug === 'product-by-industry') {
+          // Industry subcategories: /products/product-by-industry/pizza-boxes/rectangle-pizza-boxes
+          href = `/products/${currentSection.slug}/${currentCategory.slug}/${sub.slug}`;
+        } else {
+          // Direct sections: link to main section page since subcategory pages don't exist
+          href = `/products/${currentSection.slug}`;
+        }
+        
+        return {
+          name: sub.name,
+          description: sub.description || `Premium ${sub.name.toLowerCase()} packaging solutions`,
+          href: href,
+          image: 'products-box-img_x8vu4b'
+        };
+      });
 
       // If not enough subcategories, add other categories from the same section
       if (relatedProducts.length < maxItems && currentSection.categories) {
@@ -73,23 +118,53 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({
           .filter(cat => cat.slug !== currentCategory.slug)
           .slice(0, maxItems - relatedProducts.length);
         
-        relatedProducts = relatedProducts.concat(otherCategories.map(cat => ({
-          name: cat.name,
-          description: cat.description || `Premium ${cat.name.toLowerCase()} packaging solutions`,
-          href: `/products/${currentSection.slug}/${cat.slug}`,
-          image: 'products-box-img_x8vu4b'
-        })));
+        relatedProducts = relatedProducts.concat(otherCategories.map(cat => {
+          // Handle different URL patterns for different sections
+          let href: string;
+          if (currentSection.slug === 'product-by-material') {
+            // Material categories: /products/product-by-material/cardboard-boxes
+            href = `/products/${currentSection.slug}/${cat.slug}`;
+          } else if (currentSection.slug === 'product-by-industry') {
+            // Industry categories: /products/product-by-industry/pizza-boxes
+            href = `/products/${currentSection.slug}/${cat.slug}`;
+          } else {
+            // Direct sections: /products/mylar-boxes, /products/shopping-bags, /products/other
+            href = `/products/${currentSection.slug}`;
+          }
+          
+          return {
+            name: cat.name,
+            description: cat.description || `Premium ${cat.name.toLowerCase()} packaging solutions`,
+            href: href,
+            image: 'products-box-img_x8vu4b'
+          };
+        }));
       }
     } else if (pageType === 'section' && currentSection) {
       // For section pages, show categories or subcategories
       if (currentSection.categories) {
         const categories = currentSection.categories.slice(0, maxItems);
-        relatedProducts = categories.map(cat => ({
-          name: cat.name,
-          description: cat.description || `Premium ${cat.name.toLowerCase()} packaging solutions`,
-          href: `/products/${currentSection.slug}/${cat.slug}`,
-          image: 'products-box-img_x8vu4b'
-        }));
+        relatedProducts = categories.map(cat => {
+          // Handle different URL patterns for different sections
+          let href: string;
+          if (currentSection.slug === 'product-by-material') {
+            // Material categories: /products/product-by-material/cardboard-boxes
+            href = `/products/${currentSection.slug}/${cat.slug}`;
+          } else if (currentSection.slug === 'product-by-industry') {
+            // Industry categories: /products/product-by-industry/pizza-boxes
+            href = `/products/${currentSection.slug}/${cat.slug}`;
+          } else {
+            // Direct sections: /products/mylar-boxes, /products/shopping-bags, /products/other
+            href = `/products/${currentSection.slug}`;
+          }
+          
+          return {
+            name: cat.name,
+            description: cat.description || `Premium ${cat.name.toLowerCase()} packaging solutions`,
+            href: href,
+            image: 'products-box-img_x8vu4b'
+          };
+        });
       } else if (currentSection.subcategories) {
         const subcategories = currentSection.subcategories.slice(0, maxItems);
         relatedProducts = subcategories.map(sub => ({
@@ -124,7 +199,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({
         { name: 'Mailer Boxes', description: 'Perfect for shipping and e-commerce', href: '/products/mailer-boxes' },
         { name: 'Product Boxes', description: 'Custom packaging for retail products', href: '/products/product-boxes' },
         { name: 'Shipping Boxes', description: 'Durable boxes for safe delivery', href: '/products/shipping-boxes' },
-        { name: 'Pouches', description: 'Flexible packaging solutions', href: '/products/pouches' },
+        { name: 'Mylar Boxes', description: 'Flexible packaging solutions', href: '/products/mylar-boxes' },
         { name: 'Shopping Bags', description: 'Eco-friendly retail bags', href: '/products/shopping-bags' }
       ].slice(0, maxItems - relatedProducts.length);
       

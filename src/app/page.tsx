@@ -9,7 +9,7 @@ import ProductByMaterialCarousel from './components/ProductByMaterialCarousel';
 import ProductByIndustryCarousel from './components/ProductByIndustryCarousel';
 import CTASection from './components/product-design-page/CTASection';
 import ComingSoon from './components/ComingSoon';
-import ScrollVideoSection from './components/homepage/box-sequence-images';
+import ScrollVideoSection from './components/homepage/images-scroll-animation';
 import CustomDimensionsForm from './components/CustomDimensionsForm';
 
 const HomePage = () => {

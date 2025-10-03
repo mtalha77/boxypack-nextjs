@@ -82,8 +82,8 @@ const ScrollVideoSection = () => {
         }
       },
       {
-        threshold: 0.8, // Trigger when 80% of the section is visible
-        rootMargin: '0px 0px -10% 0px', // Start slightly before fully in view
+        threshold: 1.0, // Trigger only when 100% of the section is visible
+        rootMargin: '0px 0px 0px 0px', // No margin adjustment - exact visibility
       }
     );
  
@@ -134,13 +134,9 @@ const ScrollVideoSection = () => {
             // Draw the image centered and maintaining aspect ratio
             ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
           } else {
-            // Show loading state or placeholder
+            // Show loading state or placeholder without text
             ctx.fillStyle = '#f3f4f6';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#6b7280';
-            ctx.font = '24px Arial';
-            ctx.textAlign = 'center';
-            ctx.fillText(`Loading frame ${index}...`, canvas.width / 2, canvas.height / 2);
           }
         }
       }
@@ -204,7 +200,7 @@ const ScrollVideoSection = () => {
             ref={canvasRef}
             width={1000}
             height={500}
-            className="w-full h-full"
+            className="w-full h-full md:h-full h-screen"
             style={{
               display: 'block'
             }}

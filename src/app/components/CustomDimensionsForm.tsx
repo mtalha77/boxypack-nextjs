@@ -331,7 +331,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
           <div className="space-y-4">
             {/* Header Section */}
             <div className="text-left">
-              <h1 className="text-3xl md:text-4xl font-bold text-[#0c6b76] mb-4">
+              <h1 className="text-h2 text-[#0c6b76] mb-4" id="subcategories-heading">
                 Customize Your Packaging
               </h1>
               <p className="text-lg text-gray-600">

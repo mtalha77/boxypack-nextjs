@@ -18,13 +18,13 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-white text-gray-800 relative">
       {/* Decorative Shape - Top Right Corner Background */}
-      <div className="absolute top-40 right-0 w-80 h-60 pointer-events-none" style={{ zIndex: 1 }}>
+      <div className="absolute top-40 right-0 w-64 h-48 pointer-events-none overflow-hidden" style={{ zIndex: 1 }}>
         <CldImage
           src="cs_slider_shape_yszisl"
           alt="Decorative shape"
           width={256}
           height={160}
-          className="w-full h-full object-contain opacity-80 transform scale-200"
+          className="w-full h-full object-contain opacity-80 transform scale-150"
         />
       </div>
       

@@ -74,18 +74,6 @@ export const navigationData: NavigationSection[] = [
     }]
   },
   {
-    name: 'Others',
-    slug: 'other',
-    hasSubcategories: true,
-    description: 'Additional packaging accessories and printing services',
-    categories: [{
-      name: otherData.name,
-      slug: otherData.slug,
-      description: otherData.description,
-      subcategories: otherData.subcategories
-    }]
-  },
-  {
     name: 'Industries',
     slug: 'product-by-industry',
     hasSubcategories: true,
@@ -96,6 +84,18 @@ export const navigationData: NavigationSection[] = [
       description: category.description,
       subcategories: category.subcategories
     }))
+  },
+  {
+    name: 'Others',
+    slug: 'other',
+    hasSubcategories: true,
+    description: 'Additional packaging accessories and printing services',
+    categories: [{
+      name: otherData.name,
+      slug: otherData.slug,
+      description: otherData.description,
+      subcategories: otherData.subcategories
+    }]
   },
 ];
 

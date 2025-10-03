@@ -1,24 +1,24 @@
 import React from 'react';
-import { Metadata } from 'next';
-import CustomDimensionsForm from '../../../../components/CustomDimensionsForm';
-import ClientTestimonials from '../../../../components/product-design-page/ClientTestamonials';
+import { navigationData } from '../../../../data/navigationData';
+import ProductPageTemplate from '../../../../components/product-page/page';
 
-export const metadata: Metadata = {
-  title: 'Corrugated Full Flap Shipping Box - Custom Packaging | BoxyPack',
-  description: 'Premium corrugated full flap shipping box packaging solutions with complete flap coverage. Custom sturdy and durable packaging designed for optimal protection.',
-  keywords: 'corrugated full flap shipping box, custom packaging, shipping boxes, sturdy boxes, durable packaging',
-};
-
-const CorrugatedFullFlapShippingBoxPage: React.FC = () => {
-  const productData = {
-    name: 'Corrugated Full Flap Shipping Box'
-  };
+const CorrugatedFullFlapShippingBoxPage = () => {
+  const section = navigationData.find(s => s.slug === 'product-by-material');
+  const category = section?.categories?.find(c => c.slug === 'corrugated-boxes');
+  const subcategory = category?.subcategories.find(sc => sc.slug === 'corrugated-full-flap-shipping-box');
+  
+  if (!section || !category || !subcategory) {
+    return <div>Subcategory not found</div>;
+  }
 
   return (
-    <div>
-      <CustomDimensionsForm />
-      <ClientTestimonials productData={productData} />
-    </div>
+    <ProductPageTemplate
+      section={section}
+      category={category}
+      subcategory={subcategory}
+      slug="corrugated-full-flap-shipping-box"
+      pageType="subcategory"
+    />
   );
 };
 

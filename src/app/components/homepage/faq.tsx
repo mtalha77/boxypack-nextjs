@@ -5,6 +5,27 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const FAQ: React.FC = () => {
   const [activeFAQs, setActiveFAQs] = useState<number[]>([0, 5]); // Top 2 FAQs active by default
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if mobile on mount and resize
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024); // lg breakpoint
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Set initial state based on screen size
+  React.useEffect(() => {
+    if (isMobile) {
+      setActiveFAQs([0]); // Only first FAQ on mobile
+    } else {
+      setActiveFAQs([0, 5]); // First FAQ in both columns on desktop
+    }
+  }, [isMobile]);
 
   const toggleFAQ = (index: number) => {
     setActiveFAQs(prev => 
@@ -37,13 +58,14 @@ const FAQ: React.FC = () => {
       answer: "Yes, both sides can be printed. This creates a more memorable unboxing moment. Your design will stand out clearly from every angle."
     },
     // Right Column
-    {
-      question: "Can I review my design before production begins?",
-      answer: "Yes, each order includes a digital proof. You can review artwork, confirm details, and request changes. Printing starts only after you approve the proof."
-    },
+    
     {
       question: "What printing quality can I expect?",
       answer: "We provide clear, sharp, and lasting results. Our methods ensure strong colors and smooth lines. Each project is reviewed to maintain steady and trusted quality."
+    },
+    {
+      question: "Can I review my design before production begins?",
+      answer: "Yes, each order includes a digital proof. You can review artwork, confirm details, and request changes. Printing starts only after you approve the proof."
     },
     {
       question: "Is there a minimum order quantity?",

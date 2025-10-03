@@ -118,7 +118,7 @@ const Model3D: React.FC<Model3DProps> = ({ modelPath, className = "", onModelRea
         {isModelReady && <Model key={modelPath} modelPath={modelPath} />}
         <OrbitControls
           enablePan={false}
-          enableZoom={true}
+          enableZoom={false}
           enableRotate={true}
           minPolarAngle={Math.PI / 6}
           maxPolarAngle={Math.PI - Math.PI / 6}

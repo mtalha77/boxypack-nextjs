@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getProductsCollection } from '@/lib/mongodb';
-import { productData } from '@/app/data/productData';
+import { productData } from '@/app/data/productPagesData';
 
 // POST /api/seed-products - Seed the database with product data
 export async function POST(request: NextRequest) {
