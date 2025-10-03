@@ -84,7 +84,7 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
       name,
       description,
       heroImage: 'products-box-img_x8vu4b',
-      modelPath: '/models/Tuck End Auto Bottom1.glb',
+      modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
       features: [
         {
           icon: 'shield',

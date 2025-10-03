@@ -6,7 +6,7 @@ const ShoppingBagsPage = () => {
     name: 'Shopping Bags',
     description: 'Eco-friendly and branded shopping bag solutions for retail and promotional use. Our shopping bags combine sustainability with style, perfect for enhancing your brand presence.',
     heroImage: 'products-box-img_x8vu4b',
-    modelPath: '/models/Tuck End Auto Bottom1.glb',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
     features: [
       {
         icon: 'shield',

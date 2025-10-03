@@ -20,7 +20,7 @@ const generateIndustryProduct = (industry: {
     name,
     description,
     heroImage: industry.image || '/img/products-box-img.png',
-    modelPath: industry.modelPath || '/models/Tuck End Auto Bottom1.glb',
+    modelPath: industry.modelPath || 'Tuck_End_Auto_Bottom1_ttdsdf',
     features: [
       {
         icon: 'shield',

@@ -7,7 +7,7 @@ const MylarBoxesPage = () => {
     name: 'Mylar Boxes',
     description: 'Premium mylar packaging solutions with excellent barrier properties and durability for various products. Our mylar boxes provide superior protection against moisture, oxygen, and light.',
     heroImage: 'products-box-img_x8vu4b',
-    modelPath: '/models/Tuck End Auto Bottom1.glb',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
     features: [
       {
         icon: 'shield',

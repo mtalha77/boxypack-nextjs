@@ -12,20 +12,39 @@ interface Model3DProps {
 }
 
 function Model({ modelPath }: { modelPath: string }) {
-  const { scene } = useGLTF(modelPath);
+  // Convert Cloudinary public ID to full URL
+  const getModelUrl = (path: string) => {
+    if (path.startsWith('http')) {
+      return path; // Already a full URL
+    } else if (path.startsWith('/models/')) {
+      return path; // Local path
+    } else {
+      // Cloudinary public ID - construct full URL
+      return `https://res.cloudinary.com/du5lyrqvz/image/upload/v1759511215/${path}.glb`;
+    }
+  };
+
+  const modelUrl = getModelUrl(modelPath);
+  const { scene } = useGLTF(modelUrl);
   const meshRef = useRef<THREE.Group>(null);
   const [hovered, setHovered] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const baseScaleRef = useRef<number>(1);
 
   // Preload the model to ensure it's available
-  useGLTF.preload(modelPath);
+  useGLTF.preload(modelUrl);
 
   // Reset state when modelPath changes
   React.useEffect(() => {
     setIsLoaded(false);
     setHovered(false);
   }, [modelPath]);
+
+  // Debug logging
+  React.useEffect(() => {
+    console.log('Model3D - modelPath:', modelPath);
+    console.log('Model3D - constructed URL:', modelUrl);
+  }, [modelPath, modelUrl]);
 
   // Center and scale the model when it loads
   React.useEffect(() => {

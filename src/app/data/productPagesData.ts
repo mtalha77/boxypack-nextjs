@@ -9,7 +9,7 @@ export const productData = {
     name: 'Mailer Boxes',
     description: 'Our mailer boxes bring strength and style together, ideal for gifts and subscription packs. Each box protects products while giving a clean look that strengthens brand identity.',
     heroImage: 'products-box-img_x8vu4b',
-    modelPath: '/models/Tuck End Auto Bottom1.glb',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
     features: [
       {
         icon: 'shield',
@@ -65,7 +65,7 @@ export const productData = {
     name: 'Product Boxes',
     description: 'Premium boxes crafted to showcase retail and online products with care. Product designs add visibility, highlight your branding, and provide trusted protection for every item.',
     heroImage: 'products-box-img_x8vu4b',
-    modelPath: '/models/Tuck End Auto Bottom1.glb',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
     features: [
       {
         icon: 'shield',
@@ -121,7 +121,7 @@ export const productData = {
     name: 'Rigid Boxes',
     description: 'Luxury rigid boxes designed for products that need more. Combining strength with style, they create memorable unboxing moments. It lifts your brand with a refined presentation.',
     heroImage: 'products-box-img_x8vu4b',
-    modelPath: '/models/Tuck End Auto Bottom1.glb',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
     features: [
       {
         icon: 'shield',
@@ -177,7 +177,7 @@ export const productData = {
     name: 'Shipping Boxes',
     description: 'Strong and reliable, our shipping boxes ensure products travel safely across any distance. Built for value and strength, they provide trusted protection and a perfect look.',
     heroImage: 'products-box-img_x8vu4b',
-    modelPath: '/models/Tuck End Auto Bottom1.glb',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
     features: [
       {
         icon: 'shield',
@@ -233,7 +233,7 @@ export const productData = {
     name: 'Mylar Boxes',
     description: 'Premium mylar packaging solutions with excellent barrier properties and durability for various products.',
     heroImage: 'products-box-img_x8vu4b',
-    modelPath: '/models/Tuck End Auto Bottom1.glb',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
     features: [
       {
         icon: 'shield',
@@ -289,7 +289,7 @@ export const productData = {
     name: 'Mailers',
     description: 'Efficient mail packaging for documents and small items. Professional, secure, and cost-effective solutions for all your mailing needs.',
     heroImage: 'products-box-img_x8vu4b',
-    modelPath: '/models/Tuck End Auto Bottom1.glb',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
     features: [
       {
         icon: 'shield',
@@ -345,7 +345,7 @@ export const productData = {
     name: 'Shopping Bags',
     description: 'Our stylish shopping bags combine strength with modern appeal. They extend your brand presence and keep customers engaged well beyond purchase.',
     heroImage: 'products-box-img_x8vu4b',
-    modelPath: '/models/Tuck End Auto Bottom1.glb',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
     features: [
       {
         icon: 'shield',
@@ -401,7 +401,7 @@ export const productData = {
     name: 'Packaging Accessories',
     description: 'Essential accessories to complete your packaging needs. From protective materials to decorative elements, we have everything you need.',
     heroImage: 'products-box-img_x8vu4b',
-    modelPath: '/models/Tuck End Auto Bottom1.glb',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
     features: [
       {
         icon: 'shield',
@@ -478,7 +478,7 @@ export const getProductDataBySlug = async (slug: string) => {
       name: materialCategory.name,
       description: materialCategory.description,
       heroImage: materialCategory.image,
-      modelPath: '/models/Tuck End Auto Bottom1.glb',
+      modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
       features: [
         {
           icon: 'shield',
@@ -539,7 +539,7 @@ export const getProductDataBySlug = async (slug: string) => {
       name: industryCategory.name,
       description: industryCategory.description,
       heroImage: industryCategory.image,
-      modelPath: '/models/Tuck End Auto Bottom1.glb',
+      modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
       features: [
         {
           icon: 'shield',
@@ -599,7 +599,7 @@ export const getProductDataBySlug = async (slug: string) => {
       name: mylarBoxesData.name,
       description: mylarBoxesData.description,
       heroImage: mylarBoxesData.image,
-      modelPath: '/models/Tuck End Auto Bottom1.glb',
+      modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
       features: [
         {
           icon: 'shield',
@@ -659,7 +659,7 @@ export const getProductDataBySlug = async (slug: string) => {
       name: shoppingBagsData.name,
       description: shoppingBagsData.description,
       heroImage: shoppingBagsData.image,
-      modelPath: '/models/Tuck End Auto Bottom1.glb',
+      modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
       features: [
         {
           icon: 'shield',
@@ -719,7 +719,7 @@ export const getProductDataBySlug = async (slug: string) => {
       name: otherData.name,
       description: otherData.description,
       heroImage: otherData.image,
-      modelPath: '/models/Tuck End Auto Bottom1.glb',
+      modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
       features: [
         {
           icon: 'shield',

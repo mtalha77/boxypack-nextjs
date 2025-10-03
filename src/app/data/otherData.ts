@@ -20,7 +20,7 @@ export const otherData: OtherCategory = {
   description: "Additional packaging accessories and printing services for complete packaging solutions",
   image: "products-box-img_x8vu4b",
   subcategoriesCount: 8,
-  modelPath: "/models/Tuck End Auto Bottom1.glb",
+  modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
   subcategories: [
     { 
       name: "Booklets", 

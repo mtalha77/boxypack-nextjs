@@ -6,7 +6,7 @@ const OtherPage = () => {
     name: 'Other Products',
     description: 'Specialized packaging solutions and accessories for unique requirements. Our other products category includes custom solutions, protective materials, and specialized packaging components.',
     heroImage: 'products-box-img_x8vu4b',
-    modelPath: '/models/Tuck End Auto Bottom1.glb',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
     features: [
       {
         icon: 'shield',

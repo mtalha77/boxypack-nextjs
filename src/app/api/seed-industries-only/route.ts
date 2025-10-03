@@ -20,7 +20,7 @@ const generateIndustryProductFromCategory = (category: {
     name,
     description,
     heroImage: category.image || '/img/products-box-img.png',
-    modelPath: category.modelPath || '/models/Tuck End Auto Bottom1.glb',
+    modelPath: category.modelPath || 'Tuck_End_Auto_Bottom1_ttdsdf',
     features: [
       {
         icon: 'shield',
