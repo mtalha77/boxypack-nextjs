@@ -517,38 +517,40 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                 </div>
               </div>
 
-              {/* Lamination */}
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <label className="text-sm font-medium text-[#0c6b76]">Lamination</label>
-                  <Info className="w-3 h-3 text-[#0ca6c2]" />
+              {/* Lamination - Hidden for Kraft material */}
+              {material !== 'kraft' && (
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <label className="text-sm font-medium text-[#0c6b76]">Lamination</label>
+                    <Info className="w-3 h-3 text-[#0ca6c2]" />
+                  </div>
+                  <div className="relative">
+                    <button
+                      onClick={() => toggleDropdown('lamination')}
+                      className="w-full flex items-center justify-between px-3 py-2 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
+                    >
+                      <span className="text-sm text-gray-900">{laminationOptions.find(l => l.value === lamination)?.label || 'Select'}</span>
+                      <ChevronDown className="w-4 h-4 text-[#0ca6c2]" />
+                    </button>
+                    {showDropdowns.lamination && (
+                      <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
+                        {laminationOptions.map((option) => (
+                          <button
+                            key={option.value}
+                            onClick={() => {
+                              setLamination(option.value);
+                              toggleDropdown('lamination');
+                            }}
+                            className="w-full text-left px-3 py-2 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-sm"
+                          >
+                            {option.label}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
-                <div className="relative">
-                  <button
-                    onClick={() => toggleDropdown('lamination')}
-                    className="w-full flex items-center justify-between px-3 py-2 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
-                  >
-                    <span className="text-sm text-gray-900">{laminationOptions.find(l => l.value === lamination)?.label || 'Select'}</span>
-                    <ChevronDown className="w-4 h-4 text-[#0ca6c2]" />
-                  </button>
-                  {showDropdowns.lamination && (
-                    <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
-                      {laminationOptions.map((option) => (
-                        <button
-                          key={option.value}
-                          onClick={() => {
-                            setLamination(option.value);
-                            toggleDropdown('lamination');
-                          }}
-                          className="w-full text-left px-3 py-2 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-sm"
-                        >
-                          {option.label}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
+              )}
             </div>
 
             {/* Custom Dimensions */}

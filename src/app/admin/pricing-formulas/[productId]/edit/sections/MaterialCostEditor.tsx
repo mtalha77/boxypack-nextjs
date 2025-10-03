@@ -61,13 +61,17 @@ export default function MaterialCostEditor({ formula, onUpdate }: Props) {
   };
 
   const calculateTest = () => {
-    const calcLength = (testH * data.lengthFormula.lengthMultiplier) + 
+    // Calculated Length = (H × heightMultiplier) + (W × widthMultiplier) + (L × lengthMultiplier) + addition
+    const calcLength = (testH * data.lengthFormula.heightMultiplier) + 
                       (testW * data.lengthFormula.widthMultiplier) + 
-                      data.lengthFormula.additionalInches;
+                      (testL * data.lengthFormula.lengthMultiplier) + 
+                      data.lengthFormula.addition;
     
+    // Calculated Width = (H × heightMultiplier) + (W × widthMultiplier) + (L × lengthMultiplier) + addition
     const calcWidth = (testH * data.widthFormula.heightMultiplier) + 
-                     (data.widthFormula.lengthAdded ? testL : 0) + 
-                     data.widthFormula.additionalInches;
+                     (testW * data.widthFormula.widthMultiplier) + 
+                     (testL * data.widthFormula.lengthMultiplier) + 
+                     data.widthFormula.addition;
     
     const gsmEntry = data.gsmTable.find(e => e.pt === testPT);
     const gsm = gsmEntry ? gsmEntry[formula.category] || 0 : 0;
@@ -103,25 +107,29 @@ export default function MaterialCostEditor({ formula, onUpdate }: Props) {
         <h4 className="font-semibold text-gray-900 mb-3">Step 1: Calculated Length Formula</h4>
         <div className="bg-gray-100 rounded p-3 mb-3">
           <code className="text-sm">
-            Calculated Length = (H × {data.lengthFormula.lengthMultiplier}) + (W × {data.lengthFormula.widthMultiplier}) + {data.lengthFormula.additionalInches}
+            Calculated Length = (H × {data.lengthFormula.heightMultiplier}) + (W × {data.lengthFormula.widthMultiplier}) + (L × {data.lengthFormula.lengthMultiplier}) + {data.lengthFormula.addition}
           </code>
         </div>
-        <div className="grid grid-cols-3 gap-4">
+        <p className="text-xs text-gray-600 mb-3 italic">
+          Customize this formula using the user's input dimensions: Length (L), Width (W), and Height (H)
+        </p>
+        <div className="grid grid-cols-4 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Length Multiplier
+              Height (H) Multiplier
             </label>
             <input
               type="number"
-              value={data.lengthFormula.lengthMultiplier}
-              onChange={(e) => updateLengthFormula('lengthMultiplier', Number(e.target.value))}
+              value={data.lengthFormula.heightMultiplier}
+              onChange={(e) => updateLengthFormula('heightMultiplier', Number(e.target.value))}
               step="0.1"
               className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900"
             />
+            <p className="text-xs text-gray-500 mt-1">H × {data.lengthFormula.heightMultiplier}</p>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Width Multiplier
+              Width (W) Multiplier
             </label>
             <input
               type="number"
@@ -130,18 +138,33 @@ export default function MaterialCostEditor({ formula, onUpdate }: Props) {
               step="0.1"
               className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
             />
+            <p className="text-xs text-gray-500 mt-1">W × {data.lengthFormula.widthMultiplier}</p>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Additional Inches
+              Length (L) Multiplier
             </label>
             <input
               type="number"
-              value={data.lengthFormula.additionalInches}
-              onChange={(e) => updateLengthFormula('additionalInches', Number(e.target.value))}
+              value={data.lengthFormula.lengthMultiplier}
+              onChange={(e) => updateLengthFormula('lengthMultiplier', Number(e.target.value))}
               step="0.1"
               className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
             />
+            <p className="text-xs text-gray-500 mt-1">L × {data.lengthFormula.lengthMultiplier}</p>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Addition
+            </label>
+            <input
+              type="number"
+              value={data.lengthFormula.addition}
+              onChange={(e) => updateLengthFormula('addition', Number(e.target.value))}
+              step="0.1"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+            />
+            <p className="text-xs text-gray-500 mt-1">+ {data.lengthFormula.addition}</p>
           </div>
         </div>
       </div>
@@ -151,13 +174,16 @@ export default function MaterialCostEditor({ formula, onUpdate }: Props) {
         <h4 className="font-semibold text-gray-900 mb-3">Step 2: Calculated Width Formula</h4>
         <div className="bg-gray-100 rounded p-3 mb-3">
           <code className="text-sm">
-            Calculated Width = (H × {data.widthFormula.heightMultiplier}) {data.widthFormula.lengthAdded ? '+ L' : ''} + {data.widthFormula.additionalInches}
+            Calculated Width = (H × {data.widthFormula.heightMultiplier}) + (W × {data.widthFormula.widthMultiplier}) + (L × {data.widthFormula.lengthMultiplier}) + {data.widthFormula.addition}
           </code>
         </div>
-        <div className="grid grid-cols-3 gap-4">
+        <p className="text-xs text-gray-600 mb-3 italic">
+          Customize this formula using the user's input dimensions: Length (L), Width (W), and Height (H)
+        </p>
+        <div className="grid grid-cols-4 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Height Multiplier
+              Height (H) Multiplier
             </label>
             <input
               type="number"
@@ -166,32 +192,46 @@ export default function MaterialCostEditor({ formula, onUpdate }: Props) {
               step="0.1"
               className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
             />
+            <p className="text-xs text-gray-500 mt-1">H × {data.widthFormula.heightMultiplier}</p>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Add Length?
-            </label>
-            <label className="flex items-center gap-2 mt-2">
-              <input
-                type="checkbox"
-                checked={data.widthFormula.lengthAdded}
-                onChange={(e) => updateWidthFormula('lengthAdded', e.target.checked)}
-                className="w-4 h-4"
-              />
-              <span className="text-sm text-gray-700">Include Length</span>
-            </label>
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Additional Inches
+              Width (W) Multiplier
             </label>
             <input
               type="number"
-              value={data.widthFormula.additionalInches}
-              onChange={(e) => updateWidthFormula('additionalInches', Number(e.target.value))}
+              value={data.widthFormula.widthMultiplier}
+              onChange={(e) => updateWidthFormula('widthMultiplier', Number(e.target.value))}
               step="0.1"
               className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
             />
+            <p className="text-xs text-gray-500 mt-1">W × {data.widthFormula.widthMultiplier}</p>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Length (L) Multiplier
+            </label>
+            <input
+              type="number"
+              value={data.widthFormula.lengthMultiplier}
+              onChange={(e) => updateWidthFormula('lengthMultiplier', Number(e.target.value))}
+              step="0.1"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+            />
+            <p className="text-xs text-gray-500 mt-1">L × {data.widthFormula.lengthMultiplier}</p>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Addition
+            </label>
+            <input
+              type="number"
+              value={data.widthFormula.addition}
+              onChange={(e) => updateWidthFormula('addition', Number(e.target.value))}
+              step="0.1"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+            />
+            <p className="text-xs text-gray-500 mt-1">+ {data.widthFormula.addition}</p>
           </div>
         </div>
       </div>

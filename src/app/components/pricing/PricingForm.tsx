@@ -553,58 +553,60 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
           </div>
         </div>
 
-        {/* Lamination Type */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Lamination Type
-          </label>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <label className="flex items-center">
-              <input
-                type="radio"
-                name="laminationType"
-                value="none"
-                checked={formData.laminationType === 'none'}
-                onChange={(e) => handleInputChange('laminationType', e.target.value)}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-              />
-              <span className="ml-2 text-sm text-gray-700">None</span>
+        {/* Lamination Type - Hidden for Kraft material */}
+        {formData.material.toLowerCase() !== 'kraft' && (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Lamination Type
             </label>
-            <label className="flex items-center">
-              <input
-                type="radio"
-                name="laminationType"
-                value="glossy"
-                checked={formData.laminationType === 'glossy'}
-                onChange={(e) => handleInputChange('laminationType', e.target.value)}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-              />
-              <span className="ml-2 text-sm text-gray-700">Glossy</span>
-            </label>
-            <label className="flex items-center">
-              <input
-                type="radio"
-                name="laminationType"
-                value="matte"
-                checked={formData.laminationType === 'matte'}
-                onChange={(e) => handleInputChange('laminationType', e.target.value)}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-              />
-              <span className="ml-2 text-sm text-gray-700">Matte</span>
-            </label>
-            <label className="flex items-center">
-              <input
-                type="radio"
-                name="laminationType"
-                value="softtouch"
-                checked={formData.laminationType === 'softtouch'}
-                onChange={(e) => handleInputChange('laminationType', e.target.value)}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-              />
-              <span className="ml-2 text-sm text-gray-700">Soft Touch</span>
-            </label>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <label className="flex items-center">
+                <input
+                  type="radio"
+                  name="laminationType"
+                  value="none"
+                  checked={formData.laminationType === 'none'}
+                  onChange={(e) => handleInputChange('laminationType', e.target.value)}
+                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                />
+                <span className="ml-2 text-sm text-gray-700">None</span>
+              </label>
+              <label className="flex items-center">
+                <input
+                  type="radio"
+                  name="laminationType"
+                  value="glossy"
+                  checked={formData.laminationType === 'glossy'}
+                  onChange={(e) => handleInputChange('laminationType', e.target.value)}
+                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                />
+                <span className="ml-2 text-sm text-gray-700">Glossy</span>
+              </label>
+              <label className="flex items-center">
+                <input
+                  type="radio"
+                  name="laminationType"
+                  value="matte"
+                  checked={formData.laminationType === 'matte'}
+                  onChange={(e) => handleInputChange('laminationType', e.target.value)}
+                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                />
+                <span className="ml-2 text-sm text-gray-700">Matte</span>
+              </label>
+              <label className="flex items-center">
+                <input
+                  type="radio"
+                  name="laminationType"
+                  value="softtouch"
+                  checked={formData.laminationType === 'softtouch'}
+                  onChange={(e) => handleInputChange('laminationType', e.target.value)}
+                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                />
+                <span className="ml-2 text-sm text-gray-700">Soft Touch</span>
+              </label>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Production Services */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

@@ -31,14 +31,18 @@ export type MaterialType = 'kraft' | 'cardboard' | 'corrugated';
 
 export interface MaterialCostFormula {
   lengthFormula: {
-    lengthMultiplier: number;      // Default: 2
-    widthMultiplier: number;       // Default: 2
-    additionalInches: number;      // Default: 1.5
+    // Calculated Length = (H × heightMultiplier) + (W × widthMultiplier) + (L × lengthMultiplier) + addition
+    heightMultiplier: number;      // Default: 1
+    widthMultiplier: number;       // Default: 1
+    lengthMultiplier: number;      // Default: 0
+    addition: number;              // Default: 1
   };
   widthFormula: {
+    // Calculated Width = (H × heightMultiplier) + (W × widthMultiplier) + (L × lengthMultiplier) + addition
     heightMultiplier: number;      // Default: 2
-    lengthAdded: boolean;          // Default: true
-    additionalInches: number;      // Default: 2
+    widthMultiplier: number;       // Default: 0
+    lengthMultiplier: number;      // Default: 1
+    addition: number;              // Default: 2
   };
   gsmTable: GSMTableEntry[];
   weightOf100Units: {
@@ -188,6 +192,7 @@ export interface ShippingCostFormula {
     multiplier: number;            // Default: 0.9
     divisor: number;               // Default: 100
   };
+  applyBothSidePrintingMultiplier: boolean;  // Default: false - if true, doubles weight for both-side printing
   shippingTiers: ShippingTier[];
 }
 
@@ -347,6 +352,9 @@ export interface ShippingCostCalculation {
   weightDivisor: number;
   singleUnitWeight: number;
   requiredUnits: number;
+  totalWeightBeforeMultiplier: number;
+  bothSidePrintingApplied: boolean;
+  bothSidePrintingMultiplier: number;
   totalWeight: number;
   tierMatched: string;
   shippingCost: number;
@@ -358,14 +366,18 @@ export interface ShippingCostCalculation {
 
 export const DEFAULT_MATERIAL_COST: MaterialCostFormula = {
   lengthFormula: {
-    lengthMultiplier: 2,
-    widthMultiplier: 2,
-    additionalInches: 1.5
+    // Calculated Length = (H × 1) + (W × 1) + (L × 0) + 1
+    heightMultiplier: 1,
+    widthMultiplier: 1,
+    lengthMultiplier: 0,
+    addition: 1
   },
   widthFormula: {
+    // Calculated Width = (H × 2) + (W × 0) + (L × 1) + 2
     heightMultiplier: 2,
-    lengthAdded: true,
-    additionalInches: 2
+    widthMultiplier: 0,
+    lengthMultiplier: 1,
+    addition: 2
   },
   gsmTable: [
     { pt: "14", gsm: 250, kraft: 400, cardboard: 300, corrugated: null },
@@ -541,6 +553,7 @@ export function createDefaultProductFormula(
     vendorPercentage: { percentage: 25 },
     shippingCost: {
       weightCalculation: { multiplier: 0.9, divisor: 100 },
+      applyBothSidePrintingMultiplier: false,
       shippingTiers: DEFAULT_SHIPPING_TIERS
     },
     isActive: true

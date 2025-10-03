@@ -125,16 +125,20 @@ export class PricingCalculator {
     const { length, width, height, pt, requiredUnits } = this.request;
     const { lengthFormula, widthFormula, gsmTable, weightOf100Units, costOf100Units } = this.formula.materialCost;
 
-    // Step 1: Calculate adjusted dimensions
+    // Step 1: Calculate adjusted dimensions using dynamic formulas
+    // Calculated Length = (H × heightMultiplier) + (W × widthMultiplier) + (L × lengthMultiplier) + addition
     this.calculatedLength = 
-      (length * lengthFormula.lengthMultiplier) + 
+      (height * lengthFormula.heightMultiplier) + 
       (width * lengthFormula.widthMultiplier) + 
-      lengthFormula.additionalInches;
+      (length * lengthFormula.lengthMultiplier) + 
+      lengthFormula.addition;
 
+    // Calculated Width = (H × heightMultiplier) + (W × widthMultiplier) + (L × lengthMultiplier) + addition
     this.calculatedWidth = 
       (height * widthFormula.heightMultiplier) + 
-      (widthFormula.lengthAdded ? length : 0) + 
-      widthFormula.additionalInches;
+      (width * widthFormula.widthMultiplier) + 
+      (length * widthFormula.lengthMultiplier) + 
+      widthFormula.addition;
 
     // Step 2: Get GSM from table
     const gsmEntry = gsmTable.find(entry => entry.pt === pt);
@@ -177,7 +181,7 @@ export class PricingCalculator {
       sectionNumber: 1,
       sectionName: "Material Cost",
       description: "Calculates material cost based on dimensions, GSM values, and weight",
-      formula: `((L×${lengthFormula.lengthMultiplier} + W×${lengthFormula.widthMultiplier} + ${lengthFormula.additionalInches}) × (H×${widthFormula.heightMultiplier} + L + ${widthFormula.additionalInches}) × GSM / ${weightOf100Units.divisor}) × ${costOf100Units.rate} / 100 × Units`,
+      formula: `Length: (H×${lengthFormula.heightMultiplier} + W×${lengthFormula.widthMultiplier} + L×${lengthFormula.lengthMultiplier} + ${lengthFormula.addition}); Width: (H×${widthFormula.heightMultiplier} + W×${widthFormula.widthMultiplier} + L×${widthFormula.lengthMultiplier} + ${widthFormula.addition}); Cost: (CalcLength × CalcWidth × GSM / ${weightOf100Units.divisor}) × ${costOf100Units.rate} / 100 × Units`,
       calculations,
       cost: this.roundTo2(finalCost)
     };
@@ -493,15 +497,21 @@ export class PricingCalculator {
    * SECTION 12: Shipping Cost
    */
   private calculateShippingCost(): SectionBreakdown {
-    const { requiredUnits } = this.request;
-    const { weightCalculation, shippingTiers } = this.formula.shippingCost;
+    const { requiredUnits, printing } = this.request;
+    const { weightCalculation, shippingTiers, applyBothSidePrintingMultiplier } = this.formula.shippingCost;
     const { multiplier, divisor } = weightCalculation;
 
-    // Calculate single unit weight
+    // Step 1: Calculate single unit weight
     const singleUnitWeight = (this.weightOf100Units * multiplier) / divisor;
     
-    // Calculate total weight
-    const totalWeight = singleUnitWeight * requiredUnits;
+    // Step 2: Multiply by required units
+    const totalWeightBeforeMultiplier = singleUnitWeight * requiredUnits;
+
+    // Step 3: Apply both-side printing multiplier if enabled and both-side printing is selected
+    const isBothSidePrinting = printing === 'bothSide';
+    const bothSidePrintingApplied = applyBothSidePrintingMultiplier && isBothSidePrinting;
+    const bothSidePrintingMultiplier = bothSidePrintingApplied ? 2 : 1;
+    const totalWeight = totalWeightBeforeMultiplier * bothSidePrintingMultiplier;
 
     // Find matching shipping tier
     const matchedTier = shippingTiers.find(tier => 
@@ -516,16 +526,26 @@ export class PricingCalculator {
       weightDivisor: divisor,
       singleUnitWeight: this.roundTo2(singleUnitWeight),
       requiredUnits,
+      totalWeightBeforeMultiplier: this.roundTo2(totalWeightBeforeMultiplier),
+      bothSidePrintingApplied,
+      bothSidePrintingMultiplier,
       totalWeight: this.roundTo2(totalWeight),
       tierMatched: matchedTier ? `${matchedTier.minWeight}-${matchedTier.maxWeight} kg` : "70+ kg",
       shippingCost
     };
 
+    let formulaDescription = `Step 1: (k × ${multiplier}) / ${divisor} = single unit weight\n`;
+    formulaDescription += `Step 2: single unit weight × ${requiredUnits} units\n`;
+    if (bothSidePrintingApplied) {
+      formulaDescription += `Step 3: × 2 (both-side printing multiplier)\n`;
+    }
+    formulaDescription += `Step ${bothSidePrintingApplied ? '4' : '3'}: Match to shipping tier`;
+
     return {
       sectionNumber: 12,
       sectionName: "Shipping Cost",
-      description: "Shipping cost based on total weight",
-      formula: `Weight per unit: (k × ${multiplier}) / ${divisor}, then match to shipping tier`,
+      description: "Shipping cost based on total weight with optional both-side printing multiplier",
+      formula: formulaDescription,
       calculations,
       cost: this.roundTo2(shippingCost)
     };

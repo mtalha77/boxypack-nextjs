@@ -279,7 +279,13 @@ export default function EditPricingFormulaPage() {
 
         {/* Sections */}
         <div className="space-y-4 mb-8">
-          {SECTIONS.map((section) => {
+          {SECTIONS.filter(section => {
+            // Hide lamination section for kraft products
+            if (section.id === 5 && formula.category === 'kraft') {
+              return false;
+            }
+            return true;
+          }).map((section) => {
             const isExpanded = expandedSections.includes(section.id);
             const SectionComponent = section.component;
             

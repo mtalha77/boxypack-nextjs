@@ -12,23 +12,33 @@ interface Props {
 export default function ShippingCostEditor({ formula, onUpdate }: Props) {
   const [weightCalc, setWeightCalc] = useState(formula.shippingCost.weightCalculation);
   const [tiers, setTiers] = useState<ShippingTier[]>(formula.shippingCost.shippingTiers);
+  const [applyBothSideMultiplier, setApplyBothSideMultiplier] = useState(
+    formula.shippingCost.applyBothSidePrintingMultiplier ?? false
+  );
   
   // Test values
   const [testWeight100, setTestWeight100] = useState(158.06);
   const [testUnits, setTestUnits] = useState(250);
+  const [testBothSidePrinting, setTestBothSidePrinting] = useState(false);
 
-  const handleUpdate = (newWeightCalc: typeof weightCalc, newTiers: ShippingTier[]) => {
+  const handleUpdate = (newWeightCalc: typeof weightCalc, newTiers: ShippingTier[], newApplyBothSide: boolean) => {
     setWeightCalc(newWeightCalc);
     setTiers(newTiers);
+    setApplyBothSideMultiplier(newApplyBothSide);
     onUpdate({
       weightCalculation: newWeightCalc,
+      applyBothSidePrintingMultiplier: newApplyBothSide,
       shippingTiers: newTiers
     });
   };
 
   const updateWeightCalc = (field: string, value: number) => {
     const updated = { ...weightCalc, [field]: value };
-    handleUpdate(updated, tiers);
+    handleUpdate(updated, tiers, applyBothSideMultiplier);
+  };
+
+  const updateBothSideMultiplier = (value: boolean) => {
+    handleUpdate(weightCalc, tiers, value);
   };
 
   const addTier = () => {
@@ -38,7 +48,7 @@ export default function ShippingCostEditor({ formula, onUpdate }: Props) {
       maxWeight: lastTier.maxWeight + 5,
       cost: lastTier.cost + 1000
     };
-    handleUpdate(weightCalc, [...tiers, newTier]);
+    handleUpdate(weightCalc, [...tiers, newTier], applyBothSideMultiplier);
   };
 
   const deleteTier = (index: number) => {
@@ -46,21 +56,32 @@ export default function ShippingCostEditor({ formula, onUpdate }: Props) {
       alert('Must have at least one tier');
       return;
     }
-    handleUpdate(weightCalc, tiers.filter((_, i) => i !== index));
+    handleUpdate(weightCalc, tiers.filter((_, i) => i !== index), applyBothSideMultiplier);
   };
 
   const updateTier = (index: number, field: string, value: any) => {
     const newTiers = [...tiers];
     newTiers[index] = { ...newTiers[index], [field]: value };
-    handleUpdate(weightCalc, newTiers);
+    handleUpdate(weightCalc, newTiers, applyBothSideMultiplier);
   };
 
   const calculateTest = () => {
     const singleUnitWeight = (testWeight100 * weightCalc.multiplier) / weightCalc.divisor;
-    const totalWeight = singleUnitWeight * testUnits;
+    const totalWeightBeforeMultiplier = singleUnitWeight * testUnits;
+    const bothSideApplied = applyBothSideMultiplier && testBothSidePrinting;
+    const bothSideMultiplier = bothSideApplied ? 2 : 1;
+    const totalWeight = totalWeightBeforeMultiplier * bothSideMultiplier;
     const matchedTier = tiers.find(t => totalWeight >= t.minWeight && totalWeight < t.maxWeight);
     const shippingCost = matchedTier ? matchedTier.cost : tiers[tiers.length - 1].cost;
-    return { singleUnitWeight, totalWeight, shippingCost, tierName: matchedTier ? `${matchedTier.minWeight}-${matchedTier.maxWeight} kg` : '70+ kg' };
+    return { 
+      singleUnitWeight, 
+      totalWeightBeforeMultiplier,
+      bothSideApplied,
+      bothSideMultiplier,
+      totalWeight, 
+      shippingCost, 
+      tierName: matchedTier ? `${matchedTier.minWeight}-${matchedTier.maxWeight} kg` : '70+ kg' 
+    };
   };
 
   const testResult = calculateTest();
@@ -74,10 +95,10 @@ export default function ShippingCostEditor({ formula, onUpdate }: Props) {
           Shipping cost is calculated based on total weight:
         </p>
         <ol className="text-blue-800 text-sm mt-2 ml-4 list-decimal space-y-1">
-          <li>Calculate single unit weight from weight of 100 units (from Section 1)</li>
-          <li>Multiply by required units to get total weight</li>
-          <li>Find matching shipping tier</li>
-          <li>Apply tier cost</li>
+          <li>Step 1: Calculate single unit weight from weight of 100 units (from Section 1)</li>
+          <li>Step 2: Multiply by required units</li>
+          <li>Step 3: Apply both-side printing multiplier (×2) if enabled and both-side printing is selected</li>
+          <li>Step {applyBothSideMultiplier ? '4' : '3'}: Find matching shipping tier and apply tier cost</li>
         </ol>
       </div>
 
@@ -89,7 +110,7 @@ export default function ShippingCostEditor({ formula, onUpdate }: Props) {
             Single Unit Weight = (Weight of 100 Units × {weightCalc.multiplier}) / {weightCalc.divisor}
           </code>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 mb-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Multiplier
@@ -115,6 +136,29 @@ export default function ShippingCostEditor({ formula, onUpdate }: Props) {
               className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
             />
             <p className="text-xs text-gray-500 mt-1">Default: 100</p>
+          </div>
+        </div>
+
+        {/* Both-Side Printing Multiplier Toggle */}
+        <div className="border-t pt-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Apply Both-Side Printing Weight Multiplier
+              </label>
+              <p className="text-xs text-gray-500">
+                When enabled, doubles the total weight if both-side printing is selected
+              </p>
+            </div>
+            <label className="relative inline-flex items-center cursor-pointer">
+              <input
+                type="checkbox"
+                checked={applyBothSideMultiplier}
+                onChange={(e) => updateBothSideMultiplier(e.target.checked)}
+                className="sr-only peer"
+              />
+              <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+            </label>
           </div>
         </div>
       </div>
@@ -220,11 +264,28 @@ export default function ShippingCostEditor({ formula, onUpdate }: Props) {
             />
           </div>
         </div>
-        <div className="bg-white rounded p-3 space-y-1 text-sm">
-          <p><strong>Single Unit Weight:</strong> {testResult.singleUnitWeight.toFixed(4)} kg</p>
-          <p><strong>Total Weight:</strong> {testResult.totalWeight.toFixed(2)} kg</p>
+        {applyBothSideMultiplier && (
+          <div className="mb-3">
+            <label className="flex items-center space-x-2 text-sm">
+              <input
+                type="checkbox"
+                checked={testBothSidePrinting}
+                onChange={(e) => setTestBothSidePrinting(e.target.checked)}
+                className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+              />
+              <span className="text-gray-700">Both-Side Printing (Test)</span>
+            </label>
+          </div>
+        )}
+        <div className="bg-white rounded p-3 space-y-2 text-sm">
+          <p><strong>Step 1 - Single Unit Weight:</strong> {testResult.singleUnitWeight.toFixed(4)} kg</p>
+          <p><strong>Step 2 - Weight × Units:</strong> {testResult.totalWeightBeforeMultiplier.toFixed(2)} kg</p>
+          {applyBothSideMultiplier && (
+            <p><strong>Step 3 - Both-Side Multiplier:</strong> {testResult.bothSideApplied ? '×2 (Applied)' : '×1 (Not Applied)'}</p>
+          )}
+          <p><strong>Final Total Weight:</strong> {testResult.totalWeight.toFixed(2)} kg</p>
           <p><strong>Matched Tier:</strong> {testResult.tierName}</p>
-          <p className="text-xl font-bold text-purple-700 mt-2">
+          <p className="text-xl font-bold text-purple-700 mt-2 pt-2 border-t">
             Shipping Cost: ${testResult.shippingCost.toFixed(2)}
           </p>
         </div>
