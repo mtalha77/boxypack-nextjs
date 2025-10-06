@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getCollection } from '@/lib/mongodb';
 import { ProductPricingFormula } from '@/lib/types/pricing-formulas';
-import { Filter } from 'mongodb';
+import { Document } from 'mongodb';
 
 // GET - List all pricing formulas with pagination and filtering
 export async function GET(request: NextRequest) {
@@ -15,8 +15,8 @@ export async function GET(request: NextRequest) {
     const collection = await getCollection('productPricingFormulas');
     
     // Build filter
-    const filter: Filter<ProductPricingFormula> = { isActive: true };
-    if (category) filter.category = category as 'kraft' | 'cardboard' | 'corrugated';
+    const filter: Record<string, unknown> = { isActive: true };
+    if (category) filter.category = category;
     if (search) {
       filter.$or = [
         { productName: { $regex: search, $options: 'i' } },
@@ -25,11 +25,11 @@ export async function GET(request: NextRequest) {
     }
 
     // Get total count
-    const total = await collection.countDocuments(filter);
+    const total = await collection.countDocuments(filter as Document);
     
     // Get paginated results
     const formulas = await collection
-      .find(filter)
+      .find(filter as Document)
       .skip((page - 1) * limit)
       .limit(limit)
       .sort({ productName: 1 })
