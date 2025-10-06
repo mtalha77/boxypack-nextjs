@@ -33,11 +33,13 @@ export interface MaterialCostFormula {
   lengthFormula: {
     lengthMultiplier: number;      // Default: 2
     widthMultiplier: number;       // Default: 2
+    heightMultiplier: number;      // Default: 0
     additionalInches: number;      // Default: 1.5
   };
   widthFormula: {
+    lengthMultiplier: number;      // Default: 0
+    widthMultiplier: number;       // Default: 0
     heightMultiplier: number;      // Default: 2
-    lengthAdded: boolean;          // Default: true
     additionalInches: number;      // Default: 2
   };
   gsmTable: GSMTableEntry[];
@@ -116,6 +118,7 @@ export interface PrintingCostRange {
 // ============================================================================
 
 export interface LaminationCostFormula {
+  enabled: boolean;                // Default: true
   glossy: {
     divisor: number;               // Default: 144
     rate: number;                  // Default: 3.5
@@ -135,7 +138,9 @@ export interface LaminationCostFormula {
 // ============================================================================
 
 export interface DieMakingCostFormula {
-  multiplier: number;              // Default: 9 (Length × Width × 9)
+  calculationType: 'calculated' | 'fixed';  // Default: 'calculated'
+  multiplier: number;              // Default: 9 (Length × Width × 9) - only used when calculationType is 'calculated'
+  fixedCost: number;               // Default: 1000 - only used when calculationType is 'fixed'
 }
 
 // ============================================================================
@@ -290,6 +295,7 @@ export interface PrintingCostCalculation {
 }
 
 export interface LaminationCostCalculation {
+  enabled?: boolean;
   calculatedLength: number;
   calculatedWidth: number;
   laminationType: LaminationType;
@@ -301,9 +307,11 @@ export interface LaminationCostCalculation {
 }
 
 export interface DieMakingCostCalculation {
+  calculationType: 'calculated' | 'fixed';
   calculatedLength: number;
   calculatedWidth: number;
-  multiplier: number;
+  multiplier?: number;
+  fixedCost?: number;
   finalCost: number;
 }
 
@@ -360,11 +368,13 @@ export const DEFAULT_MATERIAL_COST: MaterialCostFormula = {
   lengthFormula: {
     lengthMultiplier: 2,
     widthMultiplier: 2,
+    heightMultiplier: 0,
     additionalInches: 1.5
   },
   widthFormula: {
+    lengthMultiplier: 0,
+    widthMultiplier: 0,
     heightMultiplier: 2,
-    lengthAdded: true,
     additionalInches: 2
   },
   gsmTable: [
@@ -529,11 +539,12 @@ export function createDefaultProductFormula(
     platesCost: DEFAULT_PLATES_COST,
     printingCost: DEFAULT_PRINTING_COST,
     laminationCost: {
+      enabled: true,
       glossy: { divisor: 144, rate: 3.5 },
       matt: { divisor: 144, rate: 3.5 },
       softTouch: { divisor: 144, rate: 20 }
     },
-    dieMakingCost: { multiplier: 9 },
+    dieMakingCost: { calculationType: 'calculated', multiplier: 9, fixedCost: 1000 },
     dieCuttingCost: { costPer1000: 1000 },
     pastingCost: { costPer1000: 1000 },
     twoPieceBox: { enabled: false, multiplier: 2 },

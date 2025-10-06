@@ -31,7 +31,7 @@ export default function MaterialCostEditor({ formula, onUpdate }: Props) {
     });
   };
 
-  const updateWidthFormula = (field: string, value: any) => {
+  const updateWidthFormula = (field: string, value: number) => {
     handleUpdate({
       ...data,
       widthFormula: { ...data.widthFormula, [field]: value }
@@ -63,10 +63,12 @@ export default function MaterialCostEditor({ formula, onUpdate }: Props) {
   const calculateTest = () => {
     const calcLength = (testL * data.lengthFormula.lengthMultiplier) + 
                       (testW * data.lengthFormula.widthMultiplier) + 
+                      (testH * data.lengthFormula.heightMultiplier) + 
                       data.lengthFormula.additionalInches;
     
-    const calcWidth = (testH * data.widthFormula.heightMultiplier) + 
-                     (data.widthFormula.lengthAdded ? testL : 0) + 
+    const calcWidth = (testL * data.widthFormula.lengthMultiplier) + 
+                     (testW * data.widthFormula.widthMultiplier) + 
+                     (testH * data.widthFormula.heightMultiplier) + 
                      data.widthFormula.additionalInches;
     
     const gsmEntry = data.gsmTable.find(e => e.pt === testPT);
@@ -103,10 +105,10 @@ export default function MaterialCostEditor({ formula, onUpdate }: Props) {
         <h4 className="font-semibold text-gray-900 mb-3">Step 1: Calculated Length Formula</h4>
         <div className="bg-gray-100 rounded p-3 mb-3">
           <code className="text-sm">
-            Calculated Length = (L × {data.lengthFormula.lengthMultiplier}) + (W × {data.lengthFormula.widthMultiplier}) + {data.lengthFormula.additionalInches}
+            Calculated Length = (L × {data.lengthFormula.lengthMultiplier}) + (W × {data.lengthFormula.widthMultiplier}) + (H × {data.lengthFormula.heightMultiplier}) + {data.lengthFormula.additionalInches}
           </code>
         </div>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-4 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Length Multiplier
@@ -133,6 +135,18 @@ export default function MaterialCostEditor({ formula, onUpdate }: Props) {
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
+              Height Multiplier
+            </label>
+            <input
+              type="number"
+              value={data.lengthFormula.heightMultiplier}
+              onChange={(e) => updateLengthFormula('heightMultiplier', Number(e.target.value))}
+              step="0.1"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               Additional Inches
             </label>
             <input
@@ -151,10 +165,34 @@ export default function MaterialCostEditor({ formula, onUpdate }: Props) {
         <h4 className="font-semibold text-gray-900 mb-3">Step 2: Calculated Width Formula</h4>
         <div className="bg-gray-100 rounded p-3 mb-3">
           <code className="text-sm">
-            Calculated Width = (H × {data.widthFormula.heightMultiplier}) {data.widthFormula.lengthAdded ? '+ L' : ''} + {data.widthFormula.additionalInches}
+            Calculated Width = (L × {data.widthFormula.lengthMultiplier}) + (W × {data.widthFormula.widthMultiplier}) + (H × {data.widthFormula.heightMultiplier}) + {data.widthFormula.additionalInches}
           </code>
         </div>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-4 gap-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Length Multiplier
+            </label>
+            <input
+              type="number"
+              value={data.widthFormula.lengthMultiplier}
+              onChange={(e) => updateWidthFormula('lengthMultiplier', Number(e.target.value))}
+              step="0.1"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Width Multiplier
+            </label>
+            <input
+              type="number"
+              value={data.widthFormula.widthMultiplier}
+              onChange={(e) => updateWidthFormula('widthMultiplier', Number(e.target.value))}
+              step="0.1"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+            />
+          </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Height Multiplier
@@ -166,20 +204,6 @@ export default function MaterialCostEditor({ formula, onUpdate }: Props) {
               step="0.1"
               className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
             />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Add Length?
-            </label>
-            <label className="flex items-center gap-2 mt-2">
-              <input
-                type="checkbox"
-                checked={data.widthFormula.lengthAdded}
-                onChange={(e) => updateWidthFormula('lengthAdded', e.target.checked)}
-                className="w-4 h-4"
-              />
-              <span className="text-sm text-gray-700">Include Length</span>
-            </label>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">

@@ -129,11 +129,13 @@ export class PricingCalculator {
     this.calculatedLength = 
       (length * lengthFormula.lengthMultiplier) + 
       (width * lengthFormula.widthMultiplier) + 
+      (height * lengthFormula.heightMultiplier) + 
       lengthFormula.additionalInches;
 
     this.calculatedWidth = 
+      (length * widthFormula.lengthMultiplier) + 
+      (width * widthFormula.widthMultiplier) + 
       (height * widthFormula.heightMultiplier) + 
-      (widthFormula.lengthAdded ? length : 0) + 
       widthFormula.additionalInches;
 
     // Step 2: Get GSM from table
@@ -177,7 +179,7 @@ export class PricingCalculator {
       sectionNumber: 1,
       sectionName: "Material Cost",
       description: "Calculates material cost based on dimensions, GSM values, and weight",
-      formula: `((L×${lengthFormula.lengthMultiplier} + W×${lengthFormula.widthMultiplier} + ${lengthFormula.additionalInches}) × (H×${widthFormula.heightMultiplier} + L + ${widthFormula.additionalInches}) × GSM / ${weightOf100Units.divisor}) × ${costOf100Units.rate} / 100 × Units`,
+      formula: `((L×${lengthFormula.lengthMultiplier} + W×${lengthFormula.widthMultiplier} + H×${lengthFormula.heightMultiplier} + ${lengthFormula.additionalInches}) × (L×${widthFormula.lengthMultiplier} + W×${widthFormula.widthMultiplier} + H×${widthFormula.heightMultiplier} + ${widthFormula.additionalInches}) × GSM / ${weightOf100Units.divisor}) × ${costOf100Units.rate} / 100 × Units`,
       calculations,
       cost: this.roundTo2(finalCost)
     };
@@ -283,6 +285,18 @@ export class PricingCalculator {
    */
   private calculateLaminationCost(): SectionBreakdown {
     const { lamination, requiredUnits } = this.request;
+    const { enabled } = this.formula.laminationCost;
+    
+    if (!enabled) {
+      return {
+        sectionNumber: 5,
+        sectionName: "Lamination Cost",
+        description: "Lamination cost calculation is disabled",
+        formula: "Disabled",
+        calculations: { enabled: false },
+        cost: 0
+      };
+    }
     
     if (lamination === 'none') {
       return {
@@ -329,21 +343,35 @@ export class PricingCalculator {
    * SECTION 6: Die Making Cost
    */
   private calculateDieMakingCost(): SectionBreakdown {
-    const { multiplier } = this.formula.dieMakingCost;
-    const finalCost = this.calculatedLength * this.calculatedWidth * multiplier;
+    const { calculationType, multiplier, fixedCost } = this.formula.dieMakingCost;
+    
+    let finalCost: number;
+    let formula: string;
+    let description: string;
+
+    if (calculationType === 'fixed') {
+      finalCost = fixedCost;
+      formula = `Fixed Cost: $${fixedCost}`;
+      description = "Fixed die making cost";
+    } else {
+      finalCost = this.calculatedLength * this.calculatedWidth * multiplier;
+      formula = `Length × Width × ${multiplier}`;
+      description = "Calculated die making cost based on dimensions";
+    }
 
     const calculations: DieMakingCostCalculation = {
+      calculationType,
       calculatedLength: this.roundTo2(this.calculatedLength),
       calculatedWidth: this.roundTo2(this.calculatedWidth),
-      multiplier,
+      ...(calculationType === 'calculated' ? { multiplier } : { fixedCost }),
       finalCost: this.roundTo2(finalCost)
     };
 
     return {
       sectionNumber: 6,
       sectionName: "Die Making Cost",
-      description: "One-time die making cost",
-      formula: `Length × Width × ${multiplier}`,
+      description,
+      formula,
       calculations,
       cost: this.roundTo2(finalCost)
     };
