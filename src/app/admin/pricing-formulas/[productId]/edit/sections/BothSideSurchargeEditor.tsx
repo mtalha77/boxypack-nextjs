@@ -27,7 +27,7 @@ export default function BothSideSurchargeEditor({ formula, onUpdate }: Props) {
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
         <h4 className="font-semibold text-blue-900 mb-2">How it works:</h4>
         <p className="text-blue-800 text-sm">
-          This surcharge applies ONLY when the user selects "Both Side" printing.
+          This surcharge applies ONLY when the user selects &quot;Both Side&quot; printing.
           It adds a percentage of the sum of all previous sections (1-9) to account for
           the additional complexity and materials required for both-side printing.
         </p>
@@ -40,7 +40,7 @@ export default function BothSideSurchargeEditor({ formula, onUpdate }: Props) {
           Surcharge = Sum(Sections 1-9) × ({percentage}%)
         </code>
         <p className="text-xs text-gray-600 mt-2">
-          Note: This only applies when user selects "Both Side" printing option
+          Note: This only applies when user selects &quot;Both Side&quot; printing option
         </p>
       </div>
 
@@ -70,7 +70,7 @@ export default function BothSideSurchargeEditor({ formula, onUpdate }: Props) {
       <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
         <h4 className="font-semibold text-purple-900 mb-3">Test Calculator:</h4>
         <p className="text-sm text-purple-700 mb-3">
-          Scenario: User selects "Both Side" printing
+          Scenario: User selects &quot;Both Side&quot; printing
         </p>
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -101,7 +101,7 @@ export default function BothSideSurchargeEditor({ formula, onUpdate }: Props) {
       {/* Info Box */}
       <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
         <p className="text-sm text-yellow-800">
-          <strong>Note:</strong> If user selects "Outside", "Inside", or "None" printing,
+          <strong>Note:</strong> If user selects &quot;Outside&quot;, &quot;Inside&quot;, or &quot;None&quot; printing,
           this surcharge will NOT be applied and the cost will be $0.
         </p>
       </div>

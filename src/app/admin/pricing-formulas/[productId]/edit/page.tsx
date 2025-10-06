@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import { ProductPricingFormula } from '@/lib/types/pricing-formulas';
-import { ChevronDown, ChevronUp, Save, X, TestTube } from 'lucide-react';
+import { ChevronDown, ChevronUp, Save, X } from 'lucide-react';
 
 // Section Editor Components (we'll create these)
 import MaterialCostEditor from './sections/MaterialCostEditor';
@@ -23,7 +23,7 @@ interface Section {
   id: number;
   name: string;
   description: string;
-  component: React.ComponentType<any>;
+  component: React.ComponentType<{ formula: ProductPricingFormula; onUpdate: (data: unknown) => void }>;
 }
 
 const SECTIONS: Section[] = [
@@ -157,7 +157,7 @@ export default function EditPricingFormulaPage() {
   };
 
   // Update formula section
-  const updateFormulaSection = (sectionKey: string, data: any) => {
+  const updateFormulaSection = (sectionKey: string, data: unknown) => {
     if (!formula) return;
     
     setFormula({
@@ -326,7 +326,7 @@ export default function EditPricingFormulaPage() {
                   <div className="px-6 py-6 border-t border-gray-200 bg-gray-50">
                     <SectionComponent
                       formula={formula}
-                      onUpdate={(data: any) => {
+                      onUpdate={(data: unknown) => {
                         // Map section ID to formula property key
                         const sectionKeys = [
                           'materialCost', 'scanningCost', 'platesCost', 'printingCost',
