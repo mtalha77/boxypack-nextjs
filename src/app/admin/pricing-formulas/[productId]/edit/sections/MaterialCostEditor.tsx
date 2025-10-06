@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ProductPricingFormula, MaterialCostFormula, GSMTableEntry } from '@/lib/types/pricing-formulas';
+import { ProductPricingFormula, MaterialCostFormula } from '@/lib/types/pricing-formulas';
 import { Trash2, Plus } from 'lucide-react';
 
 interface Props {
@@ -31,14 +31,14 @@ export default function MaterialCostEditor({ formula, onUpdate }: Props) {
     });
   };
 
-  const updateWidthFormula = (field: string, value: any) => {
+  const updateWidthFormula = (field: string, value: string | number) => {
     handleUpdate({
       ...data,
       widthFormula: { ...data.widthFormula, [field]: value }
     });
   };
 
-  const updateGSMEntry = (index: number, field: string, value: any) => {
+  const updateGSMEntry = (index: number, field: string, value: string | number | null) => {
     const newTable = [...data.gsmTable];
     newTable[index] = { ...newTable[index], [field]: value };
     handleUpdate({ ...data, gsmTable: newTable });
@@ -111,7 +111,7 @@ export default function MaterialCostEditor({ formula, onUpdate }: Props) {
           </code>
         </div>
         <p className="text-xs text-gray-600 mb-3 italic">
-          Customize this formula using the user's input dimensions: Length (L), Width (W), and Height (H)
+          Customize this formula using the user&apos;s input dimensions: Length (L), Width (W), and Height (H)
         </p>
         <div className="grid grid-cols-4 gap-4">
           <div>
@@ -178,7 +178,7 @@ export default function MaterialCostEditor({ formula, onUpdate }: Props) {
           </code>
         </div>
         <p className="text-xs text-gray-600 mb-3 italic">
-          Customize this formula using the user's input dimensions: Length (L), Width (W), and Height (H)
+          Customize this formula using the user&apos;s input dimensions: Length (L), Width (W), and Height (H)
         </p>
         <div className="grid grid-cols-4 gap-4">
           <div>
