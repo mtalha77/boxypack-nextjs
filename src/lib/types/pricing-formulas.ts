@@ -253,7 +253,7 @@ export interface SectionBreakdown {
   sectionName: string;
   description: string;
   formula: string;
-  calculations: Record<string, any>;
+  calculations: Record<string, unknown>;
   cost: number;
 }
 

@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
     const collection = await getCollection('productPricingFormulas');
     
     // Build filter
-    const filter: any = { isActive: true };
+    const filter: Record<string, unknown> = { isActive: true };
     if (category) filter.category = category;
     if (search) {
       filter.$or = [

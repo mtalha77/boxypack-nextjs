@@ -2,45 +2,46 @@
 
 import React, { useState, useEffect } from 'react';
 import { CldImage } from 'next-cloudinary';
-import { ChevronDown, Info, Share2, Check } from 'lucide-react';
-import { navigationData, NavigationSection, MainCategory, SubCategory } from '../data/navigationData';
-import LightBlueBackground from '../UI/LightBlueBackground';
+import { ChevronDown, Info } from 'lucide-react';
+import { navigationData } from '../data/navigationData';
 import { useRouter } from 'next/navigation';
 
 interface CustomDimensionsFormProps {
   onDesignNow?: () => void;
-  onGetCustomQuote?: () => void;
   initialProductSlug?: string; // Add prop for initial product selection
 }
 
 const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   onDesignNow,
-  onGetCustomQuote,
   initialProductSlug
 }) => {
   const router = useRouter();
   const [selectedProduct, setSelectedProduct] = useState('');
   const [productSearchQuery, setProductSearchQuery] = useState('');
-  const [printColor, setPrintColor] = useState('Full Color');
-  const [sizeType, setSizeType] = useState('STANDARD SIZES');
-  const [selectedSize, setSelectedSize] = useState('9.5" x 7.75" x 4"');
   const [customLength, setCustomLength] = useState(9.5);
   const [customWidth, setCustomWidth] = useState(7.75);
   const [customDepth, setCustomDepth] = useState(4);
   const [material, setMaterial] = useState('kraft');
   const [pt, setPT] = useState('14');
-  const [printFinish, setPrintFinish] = useState('HDPrint Stain');
   const [printedSides, setPrintedSides] = useState('outside');
   const [lamination, setLamination] = useState('glossy');
   const [quantity, setQuantity] = useState(250);
-  const [productionSpeed, setProductionSpeed] = useState('Standard (8 Business Days)');
   const [showDropdowns, setShowDropdowns] = useState<{[key: string]: boolean}>({});
   const [selectedImage, setSelectedImage] = useState('Mailer-Box-3_oct2ws');
   const [zoomLevel, setZoomLevel] = useState(1);
 
   // Pricing state
   const [calculating, setCalculating] = useState(false);
-  const [pricingResult, setPricingResult] = useState<any>(null);
+  const [pricingResult, setPricingResult] = useState<{
+    summary?: { pricePerUnit: number; subtotal: number };
+    breakdown?: Array<{ 
+      sectionNumber: number; 
+      sectionName: string; 
+      cost: number; 
+      description: string; 
+      formula: string;
+    }>;
+  } | null>(null);
   const [pricingError, setPricingError] = useState<string>('');
   const [showBreakdown, setShowBreakdown] = useState(false);
 
@@ -141,10 +142,8 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
 
       return () => clearTimeout(timer);
     }
-  }, [selectedProduct, customLength, customWidth, customDepth, pt, quantity, printedSides, lamination]);
+  }, [selectedProduct, customLength, customWidth, customDepth, pt, quantity, printedSides, lamination, calculatePricing]);
 
-  const printColorOptions = ['Full Color', 'Black'];
-  const printFinishOptions = ['HDPrint Stain'];
   const printedSidesOptions = [
     { label: 'Outside', value: 'outside' },
     { label: 'Inside', value: 'inside' },
@@ -199,35 +198,6 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   };
 
   // Helper functions for custom dimensions
-  const incrementDimension = (dimension: 'length' | 'width' | 'depth') => {
-    const step = 0.25;
-    switch (dimension) {
-      case 'length':
-        setCustomLength(prev => Math.round((prev + step) * 100) / 100);
-        break;
-      case 'width':
-        setCustomWidth(prev => Math.round((prev + step) * 100) / 100);
-        break;
-      case 'depth':
-        setCustomDepth(prev => Math.round((prev + step) * 100) / 100);
-        break;
-    }
-  };
-
-  const decrementDimension = (dimension: 'length' | 'width' | 'depth') => {
-    const step = 0.25;
-    switch (dimension) {
-      case 'length':
-        setCustomLength(prev => Math.max(0.25, Math.round((prev - step) * 100) / 100));
-        break;
-      case 'width':
-        setCustomWidth(prev => Math.max(0.25, Math.round((prev - step) * 100) / 100));
-        break;
-      case 'depth':
-        setCustomDepth(prev => Math.max(0.25, Math.round((prev - step) * 100) / 100));
-        break;
-    }
-  };
 
   return (
     <div className="custom-dimensions-form min-h-screen bg-white">
@@ -681,7 +651,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                     <div className="mt-4 bg-white rounded-lg p-4 max-h-96 overflow-y-auto">
                       <h4 className="font-semibold text-gray-900 mb-3">Price Breakdown:</h4>
                       <div className="space-y-2">
-                        {pricingResult.breakdown.map((section: any, index: number) => (
+                        {pricingResult.breakdown?.map((section, index: number) => (
                           <div key={index} className="border-b border-gray-200 pb-2">
                             <div className="flex justify-between items-start">
                               <div className="flex-1">

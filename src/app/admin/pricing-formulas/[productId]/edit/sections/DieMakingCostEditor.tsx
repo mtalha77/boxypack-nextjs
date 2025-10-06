@@ -176,8 +176,8 @@ export default function DieMakingCostEditor({ formula, onUpdate }: Props) {
             const { calcLength, calcWidth } = calculateDimensions();
             return (
               <>
-                <p><strong>Calculated Length:</strong> {calcLength.toFixed(2)}"</p>
-                <p><strong>Calculated Width:</strong> {calcWidth.toFixed(2)}"</p>
+                <p><strong>Calculated Length:</strong> {calcLength.toFixed(2)}&apos;</p>
+                <p><strong>Calculated Width:</strong> {calcWidth.toFixed(2)}&apos;</p>
                 {calculationType === 'calculated' && (
                   <p><strong>Calculation:</strong> {calcLength.toFixed(2)} × {calcWidth.toFixed(2)} × {multiplier || 0} = ${calculateTestResult().toFixed(2)}</p>
                 )}

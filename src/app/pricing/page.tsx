@@ -50,7 +50,7 @@ export default function PricingPage() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Transparent Pricing</h3>
               <p className="text-gray-600">
-                See exactly what you're paying for with detailed breakdowns of all costs and fees.
+                See exactly what you&apos;re paying for with detailed breakdowns of all costs and fees.
               </p>
             </div>
             

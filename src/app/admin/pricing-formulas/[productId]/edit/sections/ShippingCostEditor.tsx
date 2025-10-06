@@ -49,7 +49,7 @@ export default function ShippingCostEditor({ formula, onUpdate }: Props) {
     handleUpdate(weightCalc, tiers.filter((_, i) => i !== index));
   };
 
-  const updateTier = (index: number, field: string, value: any) => {
+  const updateTier = (index: number, field: string, value: string | number) => {
     const newTiers = [...tiers];
     newTiers[index] = { ...newTiers[index], [field]: value };
     handleUpdate(weightCalc, newTiers);
@@ -187,7 +187,7 @@ export default function ShippingCostEditor({ formula, onUpdate }: Props) {
           </table>
         </div>
         <p className="text-xs text-gray-500 mt-2">
-          {tiers.length} tiers configured. Last tier maxWeight should be "Infinity" for 70+ kg.
+          {tiers.length} tiers configured. Last tier maxWeight should be &quot;Infinity&quot; for 70+ kg.
         </p>
       </div>
 
@@ -234,7 +234,7 @@ export default function ShippingCostEditor({ formula, onUpdate }: Props) {
       <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
         <p className="text-sm text-yellow-800">
           <strong>Important:</strong> Make sure your tiers are in order from lowest to highest weight,
-          with no gaps. The last tier should have maxWeight as "Infinity" to catch all remaining weights.
+          with no gaps. The last tier should have maxWeight as &quot;Infinity&quot; to catch all remaining weights.
         </p>
       </div>
     </div>

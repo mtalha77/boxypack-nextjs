@@ -248,7 +248,7 @@ export default function LaminationCostEditor({ formula, onUpdate }: Props) {
               </label>
               <select
                 value={testType}
-                onChange={(e) => setTestType(e.target.value as any)}
+                onChange={(e) => setTestType(e.target.value as 'glossy' | 'matt' | 'softTouch')}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
               >
                 <option value="glossy">Glossy</option>
@@ -287,7 +287,7 @@ export default function LaminationCostEditor({ formula, onUpdate }: Props) {
       <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
         <p className="text-sm text-yellow-800">
           <strong>Note:</strong> When lamination is disabled, the entire lamination section is hidden and no cost will be charged.
-          If enabled and user selects "None" for lamination, the cost will be $0.
+          If enabled and user selects &quot;None&quot; for lamination, the cost will be $0.
           Soft touch typically costs 5-6x more than glossy/matt finishes.
         </p>
       </div>

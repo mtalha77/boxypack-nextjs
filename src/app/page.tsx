@@ -1,16 +1,19 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import BoxDesignGallery from './components/homepage/box-design-gallery';
-import VideoSection from './components/homepage/successed-with-custom';
-import MoreThanPackage from './components/homepage/more-than-package';
-import FAQ from './components/homepage/faq';
-import HeroVideoSection from './components/homepage/HeroVideoSection';
-import ProductByMaterialCarousel from './components/ProductByMaterialCarousel';
-import ProductByIndustryCarousel from './components/ProductByIndustryCarousel';
-import CTASection from './components/product-design-page/CTASection';
-import ComingSoon from './components/ComingSoon';
-import ScrollVideoSection from './components/homepage/images-scroll-animation';
-import CustomDimensionsForm from './components/CustomDimensionsForm';
+import dynamic from 'next/dynamic';
+
+// Dynamically import components that use CldImage to prevent SSR issues
+const BoxDesignGallery = dynamic(() => import('./components/homepage/box-design-gallery'), { ssr: false });
+const VideoSection = dynamic(() => import('./components/homepage/successed-with-custom'), { ssr: false });
+const MoreThanPackage = dynamic(() => import('./components/homepage/more-than-package'), { ssr: false });
+const FAQ = dynamic(() => import('./components/homepage/faq'), { ssr: false });
+const HeroVideoSection = dynamic(() => import('./components/homepage/HeroVideoSection'), { ssr: false });
+const ProductByMaterialCarousel = dynamic(() => import('./components/ProductByMaterialCarousel'), { ssr: false });
+const ProductByIndustryCarousel = dynamic(() => import('./components/ProductByIndustryCarousel'), { ssr: false });
+const CTASection = dynamic(() => import('./components/product-design-page/CTASection'), { ssr: false });
+const ComingSoon = dynamic(() => import('./components/ComingSoon'), { ssr: false });
+const ScrollVideoSection = dynamic(() => import('./components/homepage/images-scroll-animation'), { ssr: false });
+const CustomDimensionsForm = dynamic(() => import('./components/CustomDimensionsForm'), { ssr: false });
 
 const HomePage = () => {
   const [showComingSoon, setShowComingSoon] = useState(false); // Set to true to show coming soon, false to show normal homepage

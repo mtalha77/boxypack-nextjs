@@ -36,7 +36,7 @@ export default function PrintingCostEditor({ formula, onUpdate }: Props) {
     handleUpdate(ranges.filter((_, i) => i !== index));
   };
 
-  const updateRange = (index: number, field: string, value: any) => {
+  const updateRange = (index: number, field: string, value: string | number) => {
     const newRanges = [...ranges];
     if (field.startsWith('cost_')) {
       const costType = field.split('_')[1];

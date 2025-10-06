@@ -180,7 +180,7 @@ export class PricingCalculator {
       sectionName: "Material Cost",
       description: "Calculates material cost based on dimensions, GSM values, and weight",
       formula: `((L×${lengthFormula.lengthMultiplier} + W×${lengthFormula.widthMultiplier} + H×${lengthFormula.heightMultiplier} + ${lengthFormula.additionalInches}) × (L×${widthFormula.lengthMultiplier} + W×${widthFormula.widthMultiplier} + H×${widthFormula.heightMultiplier} + ${widthFormula.additionalInches}) × GSM / ${weightOf100Units.divisor}) × ${costOf100Units.rate} / 100 × Units`,
-      calculations,
+      calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(finalCost)
     };
   }
@@ -234,7 +234,7 @@ export class PricingCalculator {
       sectionName: "Plates Cost",
       description: "Cost based on calculated dimensions and printing type",
       formula: "Cost from matched range based on length/width",
-      calculations,
+      calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(baseCost)
     };
   }
@@ -275,7 +275,7 @@ export class PricingCalculator {
       sectionName: "Printing Cost",
       description: "Printing cost with quantity multiplier (per 1000 units)",
       formula: `Base Cost × ceil(Units / 1000)`,
-      calculations,
+      calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(finalCost)
     };
   }
@@ -334,7 +334,7 @@ export class PricingCalculator {
       sectionName: "Lamination Cost",
       description: `Lamination cost for ${lamination} finish`,
       formula: `(Length × Width / ${divisor}) × ${rate} × Units`,
-      calculations,
+      calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(finalCost)
     };
   }
@@ -372,7 +372,7 @@ export class PricingCalculator {
       sectionName: "Die Making Cost",
       description,
       formula,
-      calculations,
+      calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(finalCost)
     };
   }
@@ -399,7 +399,7 @@ export class PricingCalculator {
       sectionName: "Die Cutting Cost",
       description: "Die cutting cost per 1000 units",
       formula: `${costPer1000} × ceil(Units / 1000)`,
-      calculations,
+      calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(finalCost)
     };
   }
@@ -426,7 +426,7 @@ export class PricingCalculator {
       sectionName: "Pasting Cost",
       description: "Pasting cost per 1000 units",
       formula: `${costPer1000} × ceil(Units / 1000)`,
-      calculations,
+      calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(finalCost)
     };
   }
@@ -454,7 +454,7 @@ export class PricingCalculator {
       sectionName: "Two-Piece Box Multiplier",
       description: enabled ? `Multiplies sections 1-8 by ${multiplier}` : "Not enabled for this product",
       formula: enabled ? `Sum(Sections 1-8) × ${multiplier}` : "N/A",
-      calculations,
+      calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(additionalCost)
     };
   }
@@ -485,7 +485,7 @@ export class PricingCalculator {
       sectionName: "Both Side Printing Surcharge",
       description: applicable ? `${percentage}% surcharge for both side printing` : "Not applicable (single side or no printing)",
       formula: applicable ? `Sum(Sections 1-9) × ${percentage}%` : "N/A",
-      calculations,
+      calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(finalCost)
     };
   }
@@ -512,7 +512,7 @@ export class PricingCalculator {
       sectionName: "Vendor Percentage",
       description: `${percentage}% vendor markup`,
       formula: `Sum(Sections 1-10) × ${percentage}%`,
-      calculations,
+      calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(finalCost)
     };
   }
@@ -554,7 +554,7 @@ export class PricingCalculator {
       sectionName: "Shipping Cost",
       description: "Shipping cost based on total weight",
       formula: `Weight per unit: (k × ${multiplier}) / ${divisor}, then match to shipping tier`,
-      calculations,
+      calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(shippingCost)
     };
   }

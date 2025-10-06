@@ -192,7 +192,7 @@ export default function PricingFormulasPage() {
           <div className="bg-white rounded-lg shadow p-12 text-center">
             <p className="text-gray-500 text-lg">No pricing formulas found</p>
             <p className="text-gray-400 text-sm mt-2">
-              Click "Seed Sample Data" to populate with sample formulas
+              Click &quot;Seed Sample Data&quot; to populate with sample formulas
             </p>
           </div>
         ) : (

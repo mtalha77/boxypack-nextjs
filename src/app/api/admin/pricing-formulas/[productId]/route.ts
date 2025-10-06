@@ -3,12 +3,13 @@ import { getCollection } from '@/lib/mongodb';
 import { ProductPricingFormula } from '@/lib/types/pricing-formulas';
 export async function GET(
   request: NextRequest,
-  { params }: { params: { productId: string } }
+  { params }: { params: Promise<{ productId: string }> }
 ) {
   try {
+    const { productId } = await params;
     const collection = await getCollection('productPricingFormulas');
     const formula = await collection.findOne({ 
-      productId: params.productId,
+      productId,
       isActive: true 
     });
 
@@ -33,19 +34,20 @@ export async function GET(
 }
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { productId: string } }
+  { params }: { params: Promise<{ productId: string }> }
 ) {
   try {
+    const { productId } = await params;
     const updateData: Partial<ProductPricingFormula> = await request.json();
     
     delete updateData._id;
     delete updateData.createdAt;
-    delete (updateData as any).productId; // Product ID should not change
+    delete (updateData as Record<string, unknown>).productId; // Product ID should not change
     
     const collection = await getCollection('productPricingFormulas');
     
     const result = await collection.updateOne(
-      { productId: params.productId },
+      { productId },
       { 
         $set: {
           ...updateData,
@@ -63,7 +65,7 @@ export async function PUT(
 
     // Return updated formula
     const updatedFormula = await collection.findOne({ 
-      productId: params.productId 
+      productId 
     });
 
     return NextResponse.json({
@@ -81,13 +83,14 @@ export async function PUT(
 }
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { productId: string } }
+  { params }: { params: Promise<{ productId: string }> }
 ) {
   try {
+    const { productId } = await params;
     const collection = await getCollection('productPricingFormulas');
     
     const result = await collection.updateOne(
-      { productId: params.productId },
+      { productId },
       { 
         $set: {
           isActive: false,

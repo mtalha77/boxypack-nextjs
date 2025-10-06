@@ -36,7 +36,7 @@ export default function PlatesCostEditor({ formula, onUpdate }: Props) {
     handleUpdate(ranges.filter((_, i) => i !== index));
   };
 
-  const updateRange = (index: number, field: string, value: any) => {
+  const updateRange = (index: number, field: string, value: string | number) => {
     const newRanges = [...ranges];
     if (field.startsWith('cost_')) {
       const costType = field.split('_')[1];
@@ -187,7 +187,7 @@ export default function PlatesCostEditor({ formula, onUpdate }: Props) {
       {/* Info Box */}
       <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
         <p className="text-sm text-yellow-800">
-          <strong>Important:</strong> Make sure your ranges don't overlap and cover all possible dimension combinations.
+          <strong>Important:</strong> Make sure your ranges don&apos;t overlap and cover all possible dimension combinations.
           The system will use the first matching range it finds.
         </p>
       </div>

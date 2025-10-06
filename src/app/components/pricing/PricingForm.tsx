@@ -86,11 +86,27 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
     }
   };
 
-  const handleInputChange = (field: string, value: any) => {
+  const handleInputChange = (field: string, value: string | number | boolean) => {
     setFormData(prev => ({
       ...prev,
       [field]: value
     }));
+  };
+
+  const handleNestedInputChange = (parentField: string, childField: string, value: string | number) => {
+    setFormData(prev => {
+      const currentValue = prev[parentField as keyof PricingFormData];
+      if (typeof currentValue === 'object' && currentValue !== null && !Array.isArray(currentValue)) {
+        return {
+          ...prev,
+          [parentField]: {
+            ...currentValue,
+            [childField]: value
+          }
+        };
+      }
+      return prev;
+    });
   };
 
   const handleDimensionsChange = (field: keyof Dimensions, value: number | string) => {
@@ -109,9 +125,10 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
       logoPlacement: [
         ...prev.logoPlacement,
         {
-          position: 'front',
-          size: 'medium',
-          complexity: 'simple'
+          side: 'front',
+          position: 'center',
+          size: 1,
+          colorCount: 1
         }
       ]
     }));
@@ -124,7 +141,7 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
     }));
   };
 
-  const updateLogoPlacement = (index: number, field: string, value: any) => {
+  const updateLogoPlacement = (index: number, field: string, value: string | number) => {
     setFormData(prev => ({
       ...prev,
       logoPlacement: prev.logoPlacement.map((placement, i) => 
@@ -312,6 +329,24 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
             <div key={index} className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4 p-4 border border-gray-200 rounded-lg">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Side
+                </label>
+                <select
+                  value={placement.side}
+                  onChange={(e) => updateLogoPlacement(index, 'side', e.target.value)}
+                  className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                >
+                  <option value="front">Front</option>
+                  <option value="back">Back</option>
+                  <option value="left">Left</option>
+                  <option value="right">Right</option>
+                  <option value="top">Top</option>
+                  <option value="bottom">Bottom</option>
+                </select>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
                   Position
                 </label>
                 <select
@@ -319,44 +354,40 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
                   onChange={(e) => updateLogoPlacement(index, 'position', e.target.value)}
                   className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
-                  <option value="front">Front</option>
-                  <option value="back">Back</option>
-                  <option value="side">Side</option>
-                  <option value="top">Top</option>
-                  <option value="bottom">Bottom</option>
-                  <option value="all_sides">All Sides</option>
+                  <option value="center">Center</option>
+                  <option value="top-left">Top Left</option>
+                  <option value="top-right">Top Right</option>
+                  <option value="bottom-left">Bottom Left</option>
+                  <option value="bottom-right">Bottom Right</option>
                 </select>
               </div>
               
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Size
+                  Size (inches)
                 </label>
-                <select
+                <input
+                  type="number"
+                  min="0.1"
+                  step="0.1"
                   value={placement.size}
-                  onChange={(e) => updateLogoPlacement(index, 'size', e.target.value)}
+                  onChange={(e) => updateLogoPlacement(index, 'size', parseFloat(e.target.value) || 1)}
                   className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-                  <option value="small">Small</option>
-                  <option value="medium">Medium</option>
-                  <option value="large">Large</option>
-                  <option value="custom">Custom</option>
-                </select>
+                />
               </div>
               
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Complexity
+                  Color Count
                 </label>
-                <select
-                  value={placement.complexity}
-                  onChange={(e) => updateLogoPlacement(index, 'complexity', e.target.value)}
+                <input
+                  type="number"
+                  min="1"
+                  max="10"
+                  value={placement.colorCount}
+                  onChange={(e) => updateLogoPlacement(index, 'colorCount', parseInt(e.target.value) || 1)}
                   className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-                  <option value="simple">Simple</option>
-                  <option value="medium">Medium</option>
-                  <option value="complex">Complex</option>
-                </select>
+                />
               </div>
               
               <div className="flex items-end">
@@ -380,7 +411,7 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
             </label>
             <select
               value={formData.printingOptions.type}
-              onChange={(e) => handleInputChange('printingOptions', { ...formData.printingOptions, type: e.target.value })}
+              onChange={(e) => handleNestedInputChange('printingOptions', 'type', e.target.value)}
               className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
             >
               <option value="none">No Printing</option>
@@ -399,7 +430,7 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
               min="1"
               max="6"
               value={formData.printingOptions.sides}
-              onChange={(e) => handleInputChange('printingOptions', { ...formData.printingOptions, sides: parseInt(e.target.value) || 1 })}
+              onChange={(e) => handleNestedInputChange('printingOptions', 'sides', parseInt(e.target.value) || 1)}
               className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
             />
           </div>
@@ -410,7 +441,7 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
             </label>
             <select
               value={formData.printingOptions.complexity}
-              onChange={(e) => handleInputChange('printingOptions', { ...formData.printingOptions, complexity: e.target.value })}
+              onChange={(e) => handleNestedInputChange('printingOptions', 'complexity', e.target.value)}
               className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
             >
               <option value="simple">Simple</option>
@@ -428,7 +459,7 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
             </label>
             <select
               value={formData.finishingOptions.type}
-              onChange={(e) => handleInputChange('finishingOptions', { ...formData.finishingOptions, type: e.target.value })}
+              onChange={(e) => handleNestedInputChange('finishingOptions', 'type', e.target.value)}
               className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
             >
               <option value="none">No Finishing</option>
@@ -528,28 +559,28 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
               />
               <span className="ml-2 text-sm text-gray-700">Inside</span>
             </label>
-            <label className="flex items-center">
-              <input
-                type="radio"
-                name="printingType"
-                value="bothside"
-                checked={formData.printingType === 'bothside'}
-                onChange={(e) => handleInputChange('printingType', e.target.value)}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-              />
-              <span className="ml-2 text-sm text-gray-700">Both Sides</span>
-            </label>
-            <label className="flex items-center">
-              <input
-                type="radio"
-                name="printingType"
-                value="blank"
-                checked={formData.printingType === 'blank'}
-                onChange={(e) => handleInputChange('printingType', e.target.value)}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-              />
-              <span className="ml-2 text-sm text-gray-700">Blank</span>
-            </label>
+             <label className="flex items-center">
+               <input
+                 type="radio"
+                 name="printingType"
+                 value="bothSide"
+                 checked={formData.printingType === 'bothSide'}
+                 onChange={(e) => handleInputChange('printingType', e.target.value)}
+                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+               />
+               <span className="ml-2 text-sm text-gray-700">Both Sides</span>
+             </label>
+             <label className="flex items-center">
+               <input
+                 type="radio"
+                 name="printingType"
+                 value="none"
+                 checked={formData.printingType === 'none'}
+                 onChange={(e) => handleInputChange('printingType', e.target.value)}
+                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+               />
+               <span className="ml-2 text-sm text-gray-700">Blank</span>
+             </label>
           </div>
         </div>
 
@@ -581,28 +612,28 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
               />
               <span className="ml-2 text-sm text-gray-700">Glossy</span>
             </label>
-            <label className="flex items-center">
-              <input
-                type="radio"
-                name="laminationType"
-                value="matte"
-                checked={formData.laminationType === 'matte'}
-                onChange={(e) => handleInputChange('laminationType', e.target.value)}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-              />
-              <span className="ml-2 text-sm text-gray-700">Matte</span>
-            </label>
-            <label className="flex items-center">
-              <input
-                type="radio"
-                name="laminationType"
-                value="softtouch"
-                checked={formData.laminationType === 'softtouch'}
-                onChange={(e) => handleInputChange('laminationType', e.target.value)}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-              />
-              <span className="ml-2 text-sm text-gray-700">Soft Touch</span>
-            </label>
+             <label className="flex items-center">
+               <input
+                 type="radio"
+                 name="laminationType"
+                 value="matt"
+                 checked={formData.laminationType === 'matt'}
+                 onChange={(e) => handleInputChange('laminationType', e.target.value)}
+                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+               />
+               <span className="ml-2 text-sm text-gray-700">Matte</span>
+             </label>
+             <label className="flex items-center">
+               <input
+                 type="radio"
+                 name="laminationType"
+                 value="softTouch"
+                 checked={formData.laminationType === 'softTouch'}
+                 onChange={(e) => handleInputChange('laminationType', e.target.value)}
+                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+               />
+               <span className="ml-2 text-sm text-gray-700">Soft Touch</span>
+             </label>
           </div>
         </div>
 
@@ -719,24 +750,24 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
         <div className="mt-8 p-6 bg-gray-50 rounded-lg">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">Pricing Breakdown</h3>
           
-          <div className="space-y-2 mb-6">
-            {pricingResult.breakdown.map((item, index) => (
-              <div key={index} className="flex justify-between items-center py-2 border-b border-gray-200">
-                <span className="text-gray-700">{item.description}</span>
-                <span className="font-semibold">${item.cost.toFixed(2)}</span>
-              </div>
-            ))}
-          </div>
+           <div className="space-y-2 mb-6">
+             {pricingResult.breakdown?.map((item, index) => (
+               <div key={index} className="flex justify-between items-center py-2 border-b border-gray-200">
+                 <span className="text-gray-700">{item.description}</span>
+                 <span className="font-semibold">${item.cost.toFixed(2)}</span>
+               </div>
+             ))}
+           </div>
           
-          <div className="border-t border-gray-300 pt-4">
-            <div className="flex justify-between items-center text-lg font-semibold">
-              <span>Total Price:</span>
-              <span className="text-2xl text-blue-600">${pricingResult.total.toFixed(2)}</span>
-            </div>
-            <p className="text-sm text-gray-600 mt-2">
-              Estimated Delivery: {new Date(pricingResult.estimatedDelivery).toLocaleDateString()}
-            </p>
-          </div>
+           <div className="border-t border-gray-300 pt-4">
+             <div className="flex justify-between items-center text-lg font-semibold">
+               <span>Total Price:</span>
+               <span className="text-2xl text-blue-600">${pricingResult.summary?.total?.toFixed(2) || '0.00'}</span>
+             </div>
+             <p className="text-sm text-gray-600 mt-2">
+               Price per unit: ${pricingResult.summary?.pricePerUnit?.toFixed(2) || '0.00'}
+             </p>
+           </div>
         </div>
       )}
     </div>
