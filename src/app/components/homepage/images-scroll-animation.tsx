@@ -51,6 +51,11 @@ const ScrollVideoSection = () => {
 
   // Load all 150 images from Cloudinary
   const images = useMemo(() => {
+    // Only run on client-side
+    if (typeof window === 'undefined') {
+      return [];
+    }
+
     const loadedImages: HTMLImageElement[] = [];
 
     for (let i = 0; i < 150; i++) {
