@@ -378,7 +378,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                       <button
                         key={option.value}
                         onClick={() => handleMaterialSelection(option.value)}
-                        className="w-full text-left px-3 py-2 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-sm"
+                        className="w-full text-left px-3 py-2 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-sm text-gray-900"
                       >
                         {option.label}
                       </button>
@@ -475,7 +475,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                             setPT(option);
                             toggleDropdown('pt');
                           }}
-                          className="w-full text-left px-3 py-2 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-sm"
+                          className="w-full text-left px-3 py-2 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-sm text-gray-900"
                         >
                           {option}
                         </button>
@@ -507,7 +507,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                             setPrintedSides(option.value);
                             toggleDropdown('printedSides');
                           }}
-                          className="w-full text-left px-3 py-2 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-sm"
+                          className="w-full text-left px-3 py-2 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-sm text-gray-900"
                         >
                           {option.label}
                         </button>
@@ -533,7 +533,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                         : 'border-[#0c6b76]/30 bg-white hover:border-[#0ca6c2]'
                     }`}
                   >
-                    <span className="text-sm">
+                    <span className="text-sm text-gray-900">
                       {selectedMaterial === 'kraft-boxes' ? 'Not Available' : (laminationOptions.find(l => l.value === lamination)?.label || 'Select')}
                     </span>
                     <ChevronDown className={`w-4 h-4 ${selectedMaterial === 'kraft-boxes' ? 'text-gray-400' : 'text-[#0ca6c2]'}`} />
@@ -547,7 +547,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                             setLamination(option.value);
                             toggleDropdown('lamination');
                           }}
-                          className="w-full text-left px-3 py-2 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-sm"
+                          className="w-full text-left px-3 py-2 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-sm text-gray-900"
                         >
                           {option.label}
                         </button>
