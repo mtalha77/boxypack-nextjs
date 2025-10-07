@@ -194,6 +194,7 @@ export interface ShippingCostFormula {
     divisor: number;               // Default: 100
   };
   shippingTiers: ShippingTier[];
+  applyBothSidePrintingMultiplier?: boolean;  // Optional property for admin UI
 }
 
 export interface ShippingTier {
