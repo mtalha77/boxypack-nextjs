@@ -47,8 +47,16 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   const [pricingError, setPricingError] = useState<string>('');
   const [showBreakdown, setShowBreakdown] = useState(false);
 
+  // Currency conversion state
+  const [exchangeRate, setExchangeRate] = useState<number | null>(null);
+  const [loadingRate, setLoadingRate] = useState(true);
+
   const unitPrice = pricingResult?.summary?.pricePerUnit || 0;
   const subtotal = pricingResult?.summary?.subtotal || 0;
+
+  // Convert PKR to USD
+  const unitPriceUSD = exchangeRate ? unitPrice / exchangeRate : 0;
+  const subtotalUSD = exchangeRate ? subtotal / exchangeRate : 0;
 
   // Zoom functions
   const handleZoomIn = () => {
@@ -69,6 +77,31 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
     setZoomLevel(1); // Reset zoom when switching images
   };
 
+
+  // Fetch exchange rate on component mount
+  useEffect(() => {
+    const fetchExchangeRate = async () => {
+      try {
+        setLoadingRate(true);
+        const response = await fetch('https://api.exchangerate.host/convert?from=PKR&to=USD&amount=1');
+        const data = await response.json();
+        
+        if (data.success && data.result) {
+          setExchangeRate(1 / data.result); // Store PKR per USD rate
+        } else {
+          console.error('Failed to fetch exchange rate:', data);
+          setExchangeRate(null);
+        }
+      } catch (error) {
+        console.error('Error fetching exchange rate:', error);
+        setExchangeRate(null);
+      } finally {
+        setLoadingRate(false);
+      }
+    };
+
+    fetchExchangeRate();
+  }, []);
 
   // Handle pre-selection from sessionStorage or initialProductSlug
   useEffect(() => {
@@ -638,10 +671,24 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                 </div>
                 {unitPrice > 0 && (
                   <div className="text-right">
-                    <div className="text-sm font-semibold text-green-600">${unitPrice.toFixed(2)} each</div>
-                    <div className="text-xs text-gray-500">
-                      Total: ${subtotal.toFixed(2)}
-                    </div>
+                    {exchangeRate ? (
+                      <>
+                        <div className="text-sm font-semibold text-green-600">${unitPriceUSD.toFixed(2)} each</div>
+                        <div className="text-xs text-gray-500">
+                          Total: ${subtotalUSD.toFixed(2)}
+                        </div>
+                        <div className="text-xs text-gray-400">
+                          (PKR {unitPrice.toFixed(2)})
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="text-sm font-semibold text-green-600">PKR {unitPrice.toFixed(2)} each</div>
+                        <div className="text-xs text-gray-500">
+                          Total: PKR {subtotal.toFixed(2)}
+                        </div>
+                      </>
+                    )}
                   </div>
                 )}
               </div>
@@ -667,15 +714,46 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                   {/* Main Price Display */}
                   <div className="text-center">
                     <div className="text-sm text-gray-600 mb-1">Price Per Unit</div>
-                    <div className="text-4xl font-bold text-[#0c6b76] mb-2">
-                      ${unitPrice.toFixed(2)}
-                    </div>
-                    <div className="text-xl text-gray-700">
-                      Total: <span className="font-semibold text-green-600">${subtotal.toFixed(2)}</span>
-                    </div>
-                    <div className="text-sm text-gray-500 mt-1">
-                      for {quantity} units
-                    </div>
+                    {exchangeRate ? (
+                      <>
+                        <div className="text-4xl font-bold text-[#0c6b76] mb-2">
+                          ${unitPriceUSD.toFixed(2)}
+                        </div>
+                        <div className="text-xl text-gray-700">
+                          Total: <span className="font-semibold text-green-600">${subtotalUSD.toFixed(2)}</span>
+                        </div>
+                        <div className="text-sm text-gray-500 mt-1">
+                          for {quantity} units
+                        </div>
+                        <div className="text-xs text-gray-400 mt-2">
+                          (PKR {unitPrice.toFixed(2)} per unit • Total: PKR {subtotal.toFixed(2)})
+                        </div>
+                      </>
+                    ) : loadingRate ? (
+                      <>
+                        <div className="text-4xl font-bold text-[#0c6b76] mb-2">
+                          <div className="animate-pulse">Loading...</div>
+                        </div>
+                        <div className="text-sm text-gray-500 mt-1">
+                          Fetching exchange rates...
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="text-4xl font-bold text-[#0c6b76] mb-2">
+                          PKR {unitPrice.toFixed(2)}
+                        </div>
+                        <div className="text-xl text-gray-700">
+                          Total: <span className="font-semibold text-green-600">PKR {subtotal.toFixed(2)}</span>
+                        </div>
+                        <div className="text-sm text-gray-500 mt-1">
+                          for {quantity} units
+                        </div>
+                        <div className="text-xs text-orange-500 mt-2">
+                          Unable to fetch USD conversion
+                        </div>
+                      </>
+                    )}
                   </div>
 
                   {/* View Breakdown Button */}
@@ -709,9 +787,20 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                                 )}
                               </div>
                               <div className="text-right ml-4">
-                                <span className={`font-semibold ${section.cost > 0 ? 'text-green-600' : 'text-gray-400'}`}>
-                                  ${section.cost.toFixed(2)}
-                                </span>
+                                {exchangeRate ? (
+                                  <>
+                                    <span className={`font-semibold ${section.cost > 0 ? 'text-green-600' : 'text-gray-400'}`}>
+                                      ${(section.cost / exchangeRate).toFixed(2)}
+                                    </span>
+                                    <div className="text-xs text-gray-400">
+                                      PKR {section.cost.toFixed(2)}
+                                    </div>
+                                  </>
+                                ) : (
+                                  <span className={`font-semibold ${section.cost > 0 ? 'text-green-600' : 'text-gray-400'}`}>
+                                    PKR {section.cost.toFixed(2)}
+                                  </span>
+                                )}
                               </div>
                             </div>
                           </div>
@@ -720,7 +809,16 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                       <div className="mt-4 pt-4 border-t-2 border-gray-300">
                         <div className="flex justify-between items-center text-lg font-bold">
                           <span>Total:</span>
-                          <span className="text-green-600">${subtotal.toFixed(2)}</span>
+                          {exchangeRate ? (
+                            <div className="text-right">
+                              <span className="text-green-600">${subtotalUSD.toFixed(2)}</span>
+                              <div className="text-xs text-gray-400 font-normal">
+                                PKR {subtotal.toFixed(2)}
+                              </div>
+                            </div>
+                          ) : (
+                            <span className="text-green-600">PKR {subtotal.toFixed(2)}</span>
+                          )}
                         </div>
                       </div>
                     </div>
