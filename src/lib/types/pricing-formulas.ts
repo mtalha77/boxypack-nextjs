@@ -398,30 +398,30 @@ export const DEFAULT_PLATES_COST: PlatesCostFormula = {
       lengthMin: 0.1,
       lengthMax: 12.5,
       widthMin: 0.1,
-      widthMax: 18,
+      widthMax: 12.5,
       costs: { outside: 1200, inside: 1200, bothSide: 2400, none: 0 }
     },
     {
       name: "Medium",
       lengthMin: 12.6,
       lengthMax: 18,
-      widthMin: 18.1,
-      widthMax: 25,
+      widthMin: 12.6,
+      widthMax: 18,
       costs: { outside: 2400, inside: 2400, bothSide: 4800, none: 0 }
     },
     {
       name: "Large",
       lengthMin: 18.1,
-      lengthMax: 20,
-      widthMin: 25.1,
-      widthMax: 30,
+      lengthMax: 25,
+      widthMin: 18.1,
+      widthMax: 25,
       costs: { outside: 5000, inside: 5000, bothSide: 10000, none: 0 }
     },
     {
       name: "Extra Large",
-      lengthMin: 20.1,
-      lengthMax: 28,
-      widthMin: 30.1,
+      lengthMin: 25.1,
+      lengthMax: 40,
+      widthMin: 25.1,
       widthMax: 40,
       costs: { outside: 8000, inside: 8000, bothSide: 16000, none: 0 }
     }
@@ -435,30 +435,30 @@ export const DEFAULT_PRINTING_COST: PrintingCostFormula = {
       lengthMin: 0.1,
       lengthMax: 12.5,
       widthMin: 0.1,
-      widthMax: 18,
+      widthMax: 12.5,
       costs: { outside: 3500, inside: 3500, bothSide: 7000, none: 0 }
     },
     {
       name: "Medium",
       lengthMin: 12.6,
       lengthMax: 18,
-      widthMin: 18.1,
-      widthMax: 25,
+      widthMin: 12.6,
+      widthMax: 18,
       costs: { outside: 6000, inside: 6000, bothSide: 12000, none: 0 }
     },
     {
       name: "Large",
       lengthMin: 18.1,
-      lengthMax: 20,
-      widthMin: 25.1,
-      widthMax: 30,
+      lengthMax: 25,
+      widthMin: 18.1,
+      widthMax: 25,
       costs: { outside: 8000, inside: 8000, bothSide: 16000, none: 0 }
     },
     {
       name: "Extra Large",
-      lengthMin: 20.1,
-      lengthMax: 28,
-      widthMin: 30.1,
+      lengthMin: 25.1,
+      lengthMax: 40,
+      widthMin: 25.1,
       widthMax: 40,
       costs: { outside: 10000, inside: 10000, bothSide: 20000, none: 0 }
     }

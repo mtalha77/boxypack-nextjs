@@ -210,12 +210,10 @@ export class PricingCalculator {
     const { printing } = this.request;
     const { ranges } = this.formula.platesCost;
 
-    // Find matching range based on calculated dimensions
+    // Find matching range based on largest dimension
+    const largestDimension = Math.max(this.calculatedLength, this.calculatedWidth);
     const matchedRange = ranges.find(range => 
-      this.calculatedLength >= range.lengthMin &&
-      this.calculatedLength <= range.lengthMax &&
-      this.calculatedWidth >= range.widthMin &&
-      this.calculatedWidth <= range.widthMax
+      largestDimension >= range.lengthMin && largestDimension <= range.lengthMax
     );
 
     const baseCost = matchedRange ? matchedRange.costs[printing] : 0;
@@ -232,8 +230,8 @@ export class PricingCalculator {
     return {
       sectionNumber: 3,
       sectionName: "Plates Cost",
-      description: "Cost based on calculated dimensions and printing type",
-      formula: "Cost from matched range based on length/width",
+      description: "Cost based on largest dimension and printing type",
+      formula: "Cost from matched range based on largest dimension",
       calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(baseCost)
     };
@@ -246,12 +244,10 @@ export class PricingCalculator {
     const { printing, requiredUnits } = this.request;
     const { ranges } = this.formula.printingCost;
 
-    // Find matching range
+    // Find matching range based on largest dimension
+    const largestDimension = Math.max(this.calculatedLength, this.calculatedWidth);
     const matchedRange = ranges.find(range => 
-      this.calculatedLength >= range.lengthMin &&
-      this.calculatedLength <= range.lengthMax &&
-      this.calculatedWidth >= range.widthMin &&
-      this.calculatedWidth <= range.widthMax
+      largestDimension >= range.lengthMin && largestDimension <= range.lengthMax
     );
 
     const baseCost = matchedRange ? matchedRange.costs[printing] : 0;
