@@ -47,7 +47,7 @@ export default function MaterialCostEditor({ formula, onUpdate }: Props) {
   const addGSMEntry = () => {
     handleUpdate({
       ...data,
-      gsmTable: [...data.gsmTable, { pt: 'Custom', gsm: 300, kraft: 400, cardboard: 300, corrugated: null }]
+      gsmTable: [...data.gsmTable, { pt: 'Custom', gsm: 300 }]
     });
   };
 
@@ -72,7 +72,7 @@ export default function MaterialCostEditor({ formula, onUpdate }: Props) {
                      data.widthFormula.additionalInches;
     
     const gsmEntry = data.gsmTable.find(e => e.pt === testPT);
-    const gsm = gsmEntry ? gsmEntry[formula.category] || 0 : 0;
+    const gsm = gsmEntry ? gsmEntry.gsm : 0;
     
     const weight100 = (calcLength * calcWidth * gsm) / data.weightOf100Units.divisor;
     const cost100 = weight100 * data.costOf100Units.rate;
@@ -93,7 +93,7 @@ export default function MaterialCostEditor({ formula, onUpdate }: Props) {
         </p>
         <ol className="text-blue-800 text-sm mt-2 ml-4 list-decimal space-y-1">
           <li>Calculate adjusted dimensions using user inputs</li>
-          <li>Look up GSM value from table based on PT and material</li>
+          <li>Look up GSM value from table based on PT</li>
           <li>Calculate weight of 100 units</li>
           <li>Calculate cost of 100 units</li>
           <li>Scale to required quantity</li>
@@ -238,9 +238,6 @@ export default function MaterialCostEditor({ formula, onUpdate }: Props) {
               <tr>
                 <th className="px-3 py-2 text-left text-xs font-medium text-gray-700">PT</th>
                 <th className="px-3 py-2 text-left text-xs font-medium text-gray-700">GSM</th>
-                <th className="px-3 py-2 text-left text-xs font-medium text-gray-700">Kraft</th>
-                <th className="px-3 py-2 text-left text-xs font-medium text-gray-700">Cardboard</th>
-                <th className="px-3 py-2 text-left text-xs font-medium text-gray-700">Corrugated</th>
                 <th className="px-3 py-2"></th>
               </tr>
             </thead>
@@ -260,33 +257,6 @@ export default function MaterialCostEditor({ formula, onUpdate }: Props) {
                       type="number"
                       value={entry.gsm}
                       onChange={(e) => updateGSMEntry(index, 'gsm', Number(e.target.value))}
-                      className="w-24 px-2 py-1 border rounded text-sm"
-                    />
-                  </td>
-                  <td className="px-3 py-2">
-                    <input
-                      type="number"
-                      value={entry.kraft || ''}
-                      onChange={(e) => updateGSMEntry(index, 'kraft', e.target.value ? Number(e.target.value) : null)}
-                      placeholder="-"
-                      className="w-24 px-2 py-1 border rounded text-sm"
-                    />
-                  </td>
-                  <td className="px-3 py-2">
-                    <input
-                      type="number"
-                      value={entry.cardboard || ''}
-                      onChange={(e) => updateGSMEntry(index, 'cardboard', e.target.value ? Number(e.target.value) : null)}
-                      placeholder="-"
-                      className="w-24 px-2 py-1 border rounded text-sm"
-                    />
-                  </td>
-                  <td className="px-3 py-2">
-                    <input
-                      type="number"
-                      value={entry.corrugated || ''}
-                      onChange={(e) => updateGSMEntry(index, 'corrugated', e.target.value ? Number(e.target.value) : null)}
-                      placeholder="-"
                       className="w-24 px-2 py-1 border rounded text-sm"
                     />
                   </td>
