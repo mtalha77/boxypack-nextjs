@@ -29,6 +29,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   const [lamination, setLamination] = useState('glossy');
   const [quantity, setQuantity] = useState(250);
   const [showDropdowns, setShowDropdowns] = useState<{[key: string]: boolean}>({});
+  const [showCustomPricingMessage, setShowCustomPricingMessage] = useState(false);
   const [selectedImage, setSelectedImage] = useState('Mailer-Box-3_oct2ws');
   const [zoomLevel, setZoomLevel] = useState(1);
 
@@ -55,8 +56,9 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   const subtotal = pricingResult?.summary?.subtotal || 0;
 
   // Convert PKR to USD
-  const unitPriceUSD = exchangeRate ? unitPrice / exchangeRate : 0;
-  const subtotalUSD = exchangeRate ? subtotal / exchangeRate : 0;
+  // exchangeRate is how many USD per 1 PKR (e.g., 0.0036)
+  const unitPriceUSD = exchangeRate ? unitPrice * exchangeRate : 0;
+  const subtotalUSD = exchangeRate ? subtotal * exchangeRate : 0;
 
   // Zoom functions
   const handleZoomIn = () => {
@@ -83,18 +85,17 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
     const fetchExchangeRate = async () => {
       try {
         setLoadingRate(true);
-        const response = await fetch('https://api.exchangerate.host/convert?from=PKR&to=USD&amount=1');
+        const apiKey = process.env.NEXT_PUBLIC_EXCHANGE_RATE_API;
+        const response = await fetch(`https://api.exchangerate.host/convert?access_key=${apiKey}&from=PKR&to=USD&amount=1`);
         const data = await response.json();
         
         if (data.success && data.result) {
-          setExchangeRate(1 / data.result); // Store PKR per USD rate
+          setExchangeRate(data.result);
         } else {
-          console.error('Failed to fetch exchange rate:', data);
-          setExchangeRate(null);
+          setExchangeRate(0.0036);
         }
       } catch (error) {
-        console.error('Error fetching exchange rate:', error);
-        setExchangeRate(null);
+        setExchangeRate(0.0036);
       } finally {
         setLoadingRate(false);
       }
@@ -190,14 +191,20 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
 
   // Auto-calculate when values change
   useEffect(() => {
-    if (selectedMaterial && selectedProduct && customLength > 0 && customWidth > 0 && customDepth > 0 && quantity > 0) {
-      const timer = setTimeout(() => {
-        calculatePricing();
-      }, 500); // Debounce for 500ms
+    if (quantity > 20000) {
+      setShowCustomPricingMessage(true);
+      setPricingResult(null);
+    } else {
+      setShowCustomPricingMessage(false);
+      if (selectedMaterial && selectedProduct && customLength > 0 && customWidth > 0 && customDepth > 0 && quantity > 0) {
+        const timer = setTimeout(() => {
+          calculatePricing();
+        }, 500); // Debounce for 500ms
 
-      return () => clearTimeout(timer);
+        return () => clearTimeout(timer);
+      }
     }
-  }, [calculatePricing]);
+  }, [calculatePricing, quantity, selectedMaterial, selectedProduct, customLength, customWidth, customDepth]);
 
   const printedSidesOptions = [
     { label: 'Outside', value: 'outside' },
@@ -664,42 +671,59 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                     type="number"
                     value={quantity}
                     onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
-                    className="w-full px-4 py-3 border border-[#0c6b76]/30 rounded-lg focus:ring-2 focus:ring-[#0ca6c2] focus:border-[#0ca6c2]"
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#0ca6c2] focus:border-[#0ca6c2] ${
+                      quantity > 20000 ? 'border-orange-400 bg-orange-50' : 'border-[#0c6b76]/30'
+                    }`}
                     min="1"
                     placeholder="250"
                   />
                 </div>
-                {unitPrice > 0 && (
+                {unitPrice > 0 && exchangeRate && quantity <= 20000 && (
                   <div className="text-right">
-                    {exchangeRate ? (
-                      <>
-                        <div className="text-sm font-semibold text-green-600">${unitPriceUSD.toFixed(2)} each</div>
-                        <div className="text-xs text-gray-500">
-                          Total: ${subtotalUSD.toFixed(2)}
-                        </div>
-                        <div className="text-xs text-gray-400">
-                          (PKR {unitPrice.toFixed(2)})
-                        </div>
-                      </>
-                    ) : (
-                      <>
-                        <div className="text-sm font-semibold text-green-600">PKR {unitPrice.toFixed(2)} each</div>
-                        <div className="text-xs text-gray-500">
-                          Total: PKR {subtotal.toFixed(2)}
-                        </div>
-                      </>
-                    )}
+                    <div className="text-sm font-semibold text-green-600">${unitPriceUSD.toFixed(2)} each</div>
+                    <div className="text-xs text-gray-500">
+                      Total: ${subtotalUSD.toFixed(2)}
+                    </div>
                   </div>
                 )}
               </div>
-              <p className="text-xs text-gray-500">
-                Minimum order: 1 unit • Bulk discounts available
-              </p>
+              {quantity > 20000 ? (
+                <div className="flex items-start gap-2 p-3 bg-orange-50 border border-orange-200 rounded-lg">
+                  <Info className="w-4 h-4 text-orange-600 mt-0.5 flex-shrink-0" />
+                  <p className="text-sm text-orange-800">
+                    Orders over 20,000 units require custom pricing.{' '}
+                    <button
+                      onClick={() => router.push('/#request-quote-section')}
+                      className="font-semibold underline hover:text-orange-900"
+                    >
+                      Contact us for a quote
+                    </button>
+                  </p>
+                </div>
+              ) : (
+                <p className="text-xs text-gray-500">
+                  Minimum order: 1 unit • Maximum: 20,000 units • Bulk discounts available
+                </p>
+              )}
             </div>
 
             {/* Pricing Summary */}
             <div className="bg-gradient-to-br from-[#0ca6c2]/10 to-blue-50 rounded-lg p-6 border-2 border-[#0ca6c2]/30">
-              {calculating ? (
+              {showCustomPricingMessage ? (
+                <div className="text-center py-8">
+                  <div className="text-4xl mb-4">📦</div>
+                  <h3 className="text-xl font-semibold text-[#0c6b76] mb-2">Large Order Detected</h3>
+                  <p className="text-gray-600 mb-4">
+                    Orders over 20,000 units qualify for special bulk pricing.
+                  </p>
+                  <button
+                    onClick={() => router.push('/#request-quote-section')}
+                    className="bg-[#0c6b76] hover:bg-[#0ca6c2] text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                  >
+                    Request Custom Quote
+                  </button>
+                </div>
+              ) : calculating ? (
                 <div className="text-center py-8">
                   <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0ca6c2] mx-auto mb-4"></div>
                   <p className="text-gray-600">Calculating pricing...</p>
@@ -713,9 +737,18 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                 <div className="space-y-4">
                   {/* Main Price Display */}
                   <div className="text-center">
-                    <div className="text-sm text-gray-600 mb-1">Price Per Unit</div>
-                    {exchangeRate ? (
+                    {loadingRate ? (
                       <>
+                        <div className="text-4xl font-bold text-[#0c6b76] mb-2">
+                          <div className="animate-pulse">Loading...</div>
+                        </div>
+                        <div className="text-sm text-gray-500 mt-1">
+                          Calculating pricing...
+                        </div>
+                      </>
+                    ) : exchangeRate ? (
+                      <>
+                        <div className="text-sm text-gray-600 mb-1">Price Per Unit</div>
                         <div className="text-4xl font-bold text-[#0c6b76] mb-2">
                           ${unitPriceUSD.toFixed(2)}
                         </div>
@@ -725,35 +758,8 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                         <div className="text-sm text-gray-500 mt-1">
                           for {quantity} units
                         </div>
-                        <div className="text-xs text-gray-400 mt-2">
-                          (PKR {unitPrice.toFixed(2)} per unit • Total: PKR {subtotal.toFixed(2)})
-                        </div>
                       </>
-                    ) : loadingRate ? (
-                      <>
-                        <div className="text-4xl font-bold text-[#0c6b76] mb-2">
-                          <div className="animate-pulse">Loading...</div>
-                        </div>
-                        <div className="text-sm text-gray-500 mt-1">
-                          Fetching exchange rates...
-                        </div>
-                      </>
-                    ) : (
-                      <>
-                        <div className="text-4xl font-bold text-[#0c6b76] mb-2">
-                          PKR {unitPrice.toFixed(2)}
-                        </div>
-                        <div className="text-xl text-gray-700">
-                          Total: <span className="font-semibold text-green-600">PKR {subtotal.toFixed(2)}</span>
-                        </div>
-                        <div className="text-sm text-gray-500 mt-1">
-                          for {quantity} units
-                        </div>
-                        <div className="text-xs text-orange-500 mt-2">
-                          Unable to fetch USD conversion
-                        </div>
-                      </>
-                    )}
+                    ) : null}
                   </div>
 
                   {/* View Breakdown Button */}
@@ -787,20 +793,9 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                                 )}
                               </div>
                               <div className="text-right ml-4">
-                                {exchangeRate ? (
-                                  <>
-                                    <span className={`font-semibold ${section.cost > 0 ? 'text-green-600' : 'text-gray-400'}`}>
-                                      ${(section.cost / exchangeRate).toFixed(2)}
-                                    </span>
-                                    <div className="text-xs text-gray-400">
-                                      PKR {section.cost.toFixed(2)}
-                                    </div>
-                                  </>
-                                ) : (
-                                  <span className={`font-semibold ${section.cost > 0 ? 'text-green-600' : 'text-gray-400'}`}>
-                                    PKR {section.cost.toFixed(2)}
-                                  </span>
-                                )}
+                                <span className={`font-semibold ${section.cost > 0 ? 'text-green-600' : 'text-gray-400'}`}>
+                                  ${exchangeRate ? (section.cost * exchangeRate).toFixed(2) : '0.00'}
+                                </span>
                               </div>
                             </div>
                           </div>
@@ -809,16 +804,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                       <div className="mt-4 pt-4 border-t-2 border-gray-300">
                         <div className="flex justify-between items-center text-lg font-bold">
                           <span>Total:</span>
-                          {exchangeRate ? (
-                            <div className="text-right">
-                              <span className="text-green-600">${subtotalUSD.toFixed(2)}</span>
-                              <div className="text-xs text-gray-400 font-normal">
-                                PKR {subtotal.toFixed(2)}
-                              </div>
-                            </div>
-                          ) : (
-                            <span className="text-green-600">PKR {subtotal.toFixed(2)}</span>
-                          )}
+                          <span className="text-green-600">${exchangeRate ? subtotalUSD.toFixed(2) : '0.00'}</span>
                         </div>
                       </div>
                     </div>
