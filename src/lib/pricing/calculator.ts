@@ -1,6 +1,6 @@
 /**
  * Pricing Calculator Engine
- * Implements all 12 sections of the pricing calculation
+ * Implements all 13 sections of the pricing calculation
  * Based on flexible, formula-driven approach
  */
 
@@ -20,7 +20,7 @@ import {
   BothSidePrintingSurchargeCalculation,
   VendorPercentageCalculation,
   ShippingCostCalculation,
-  MaterialType
+  CostMarginCalculation
 } from '../types/pricing-formulas';
 
 export class PricingCalculator {
@@ -102,6 +102,11 @@ export class PricingCalculator {
     breakdown.push(shippingCost);
     this.sectionCosts.push(shippingCost.cost);
 
+    // Section 13: Cost Margin Percentage
+    const costMargin = this.calculateCostMargin();
+    breakdown.push(costMargin);
+    this.sectionCosts.push(costMargin.cost);
+
     // Calculate totals
     const subtotal = this.sectionCosts.reduce((sum, cost) => sum + cost, 0);
     const pricePerUnit = subtotal / this.request.requiredUnits;
@@ -112,7 +117,7 @@ export class PricingCalculator {
       breakdown,
       summary: {
         subtotal: this.roundTo2(subtotal),
-        totalSections: 12,
+        totalSections: 13,
         pricePerUnit: this.roundTo2(pricePerUnit)
       }
     };
@@ -138,18 +143,13 @@ export class PricingCalculator {
       (height * widthFormula.heightMultiplier) + 
       widthFormula.additionalInches;
 
-    // Step 2: Get GSM from table
+    // Step 2: Get GSM from table based on PT only
     const gsmEntry = gsmTable.find(entry => entry.pt === pt);
     if (!gsmEntry) {
       throw new Error(`Invalid PT value: ${pt}`);
     }
 
-    const materialType = this.formula.category as MaterialType;
-    const gsmValue = gsmEntry[materialType];
-    
-    if (gsmValue === null || gsmValue === undefined) {
-      throw new Error(`GSM not available for material type ${materialType} with PT ${pt}`);
-    }
+    const gsmValue = gsmEntry.gsm;
 
     // Step 3: Calculate weight of 100 units
     this.weightOf100Units = 
@@ -532,7 +532,20 @@ export class PricingCalculator {
       totalWeight >= tier.minWeight && totalWeight < tier.maxWeight
     );
 
-    const shippingCost = matchedTier ? matchedTier.cost : shippingTiers[shippingTiers.length - 1].cost;
+    let shippingCost: number;
+    let tierMatched: string;
+
+    if (matchedTier) {
+      // Use the matched tier cost
+      shippingCost = matchedTier.cost;
+      tierMatched = `${matchedTier.minWeight}-${matchedTier.maxWeight} kg`;
+    } else {
+      // For weights over 70kg, calculate cost per kg
+      // Last tier has the per-kg rate (default: 2250 per kg)
+      const perKgRate = shippingTiers[shippingTiers.length - 1].cost;
+      shippingCost = totalWeight * perKgRate;
+      tierMatched = `70+ kg (${totalWeight} kg × $${perKgRate}/kg)`;
+    }
 
     const calculations: ShippingCostCalculation = {
       weightOf100Units: this.roundTo2(this.weightOf100Units),
@@ -541,17 +554,45 @@ export class PricingCalculator {
       singleUnitWeight: this.roundTo2(singleUnitWeight),
       requiredUnits,
       totalWeight: this.roundTo2(totalWeight),
-      tierMatched: matchedTier ? `${matchedTier.minWeight}-${matchedTier.maxWeight} kg` : "70+ kg",
+      tierMatched,
       shippingCost
     };
 
     return {
       sectionNumber: 12,
       sectionName: "Shipping Cost",
-      description: "Shipping cost based on total weight",
-      formula: `Weight per unit: (k × ${multiplier}) / ${divisor}, then match to shipping tier`,
+      description: "Shipping cost based on total weight (over 70kg: per-kg rate)",
+      formula: `Weight per unit: (k × ${multiplier}) / ${divisor}, then match to shipping tier or calculate per-kg for 70+ kg`,
       calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(shippingCost)
+    };
+  }
+
+  /**
+   * SECTION 13: Cost Margin Percentage
+   */
+  private calculateCostMargin(): SectionBreakdown {
+    // Default to 50% if costMargin is not defined (for backwards compatibility)
+    const percentage = this.formula.costMargin?.percentage ?? 50;
+    
+    // Sum of sections 1-12
+    const sumOfPreviousSections = this.sectionCosts.slice(0, 12).reduce((sum, cost) => sum + cost, 0);
+    
+    const finalCost = sumOfPreviousSections * (percentage / 100);
+
+    const calculations: CostMarginCalculation = {
+      sumOfPreviousSections: this.roundTo2(sumOfPreviousSections),
+      percentage,
+      finalCost: this.roundTo2(finalCost)
+    };
+
+    return {
+      sectionNumber: 13,
+      sectionName: "Cost Margin",
+      description: `${percentage}% cost margin added to previous sections`,
+      formula: `Sum(Sections 1-12) × ${percentage}%`,
+      calculations: calculations as unknown as Record<string, unknown>,
+      cost: this.roundTo2(finalCost)
     };
   }
 

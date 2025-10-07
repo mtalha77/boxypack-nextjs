@@ -53,10 +53,7 @@ export interface MaterialCostFormula {
 
 export interface GSMTableEntry {
   pt: string;                      // "14", "16", "18", "N/A"
-  gsm: number;
-  kraft: number | null;
-  cardboard: number | null;
-  corrugated: number | null;
+  gsm: number;                     // GSM value to use for calculation
 }
 
 // ============================================================================
@@ -204,6 +201,14 @@ export interface ShippingTier {
 }
 
 // ============================================================================
+// SECTION 13: COST MARGIN PERCENTAGE
+// ============================================================================
+
+export interface CostMarginFormula {
+  percentage: number;              // Default: 50 (50%)
+}
+
+// ============================================================================
 // COMPLETE PRODUCT PRICING FORMULA
 // ============================================================================
 
@@ -214,7 +219,7 @@ export interface ProductPricingFormula {
   category: MaterialType;
   subcategory?: string;
   
-  // All 12 sections
+  // All 13 sections
   materialCost: MaterialCostFormula;
   scanningCost: ScanningCostFormula;
   platesCost: PlatesCostFormula;
@@ -227,6 +232,7 @@ export interface ProductPricingFormula {
   bothSidePrintingSurcharge: BothSidePrintingSurchargeFormula;
   vendorPercentage: VendorPercentageFormula;
   shippingCost: ShippingCostFormula;
+  costMargin?: CostMarginFormula;  // Optional for backwards compatibility
   
   // Metadata
   isActive: boolean;
@@ -361,6 +367,12 @@ export interface ShippingCostCalculation {
   shippingCost: number;
 }
 
+export interface CostMarginCalculation {
+  sumOfPreviousSections: number;
+  percentage: number;
+  finalCost: number;
+}
+
 // ============================================================================
 // DEFAULT FORMULAS
 // ============================================================================
@@ -379,10 +391,10 @@ export const DEFAULT_MATERIAL_COST: MaterialCostFormula = {
     additionalInches: 2
   },
   gsmTable: [
-    { pt: "14", gsm: 250, kraft: 400, cardboard: 300, corrugated: null },
-    { pt: "16", gsm: 300, kraft: 400, cardboard: 300, corrugated: null },
-    { pt: "18", gsm: 350, kraft: 400, cardboard: 300, corrugated: null },
-    { pt: "N/A", gsm: 700, kraft: null, cardboard: null, corrugated: 300 }
+    { pt: "14", gsm: 250 },
+    { pt: "16", gsm: 300 },
+    { pt: "18", gsm: 350 },
+    { pt: "N/A", gsm: 700 }
   ],
   weightOf100Units: {
     divisor: 15500
@@ -555,6 +567,7 @@ export function createDefaultProductFormula(
       weightCalculation: { multiplier: 0.9, divisor: 100 },
       shippingTiers: DEFAULT_SHIPPING_TIERS
     },
+    costMargin: { percentage: 50 },
     isActive: true
   };
 }

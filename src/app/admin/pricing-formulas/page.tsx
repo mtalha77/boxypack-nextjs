@@ -23,7 +23,6 @@ export default function PricingFormulasPage() {
     total: 0,
     pages: 0
   });
-  const [seeding, setSeeding] = useState(false);
 
   // Fetch formulas
   const fetchFormulas = useCallback(async () => {
@@ -56,34 +55,6 @@ export default function PricingFormulasPage() {
   useEffect(() => {
     fetchFormulas();
   }, [fetchFormulas]);
-
-  // Handle seed button
-  const handleSeed = async () => {
-    if (!confirm('This will seed sample pricing formulas. Continue?')) {
-      return;
-    }
-
-    try {
-      setSeeding(true);
-      const response = await fetch('/api/admin/seed-formulas', {
-        method: 'POST'
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        alert('Pricing formulas seeded successfully!');
-        fetchFormulas();
-      } else {
-        alert(`Failed to seed: ${data.error}`);
-      }
-    } catch (error) {
-      console.error('Error seeding formulas:', error);
-      alert('Error seeding formulas');
-    } finally {
-      setSeeding(false);
-    }
-  };
 
   // Handle delete
   const handleDelete = async (productId: string) => {
@@ -123,13 +94,6 @@ export default function PricingFormulasPage() {
               </p>
             </div>
             <div className="flex gap-3">
-              <button
-                onClick={handleSeed}
-                disabled={seeding}
-                className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-              >
-                {seeding ? 'Seeding...' : 'Seed Sample Data'}
-              </button>
               <button
                 onClick={() => router.push('/admin/pricing-formulas/new')}
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
@@ -192,7 +156,7 @@ export default function PricingFormulasPage() {
           <div className="bg-white rounded-lg shadow p-12 text-center">
             <p className="text-gray-500 text-lg">No pricing formulas found</p>
             <p className="text-gray-400 text-sm mt-2">
-              Click &quot;Seed Sample Data&quot; to populate with sample formulas
+              Click &quot;Add New Product&quot; to create a pricing formula
             </p>
           </div>
         ) : (

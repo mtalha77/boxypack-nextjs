@@ -18,6 +18,7 @@ import TwoPieceBoxEditor from './sections/TwoPieceBoxEditor';
 import BothSideSurchargeEditor from './sections/BothSideSurchargeEditor';
 import VendorPercentageEditor from './sections/VendorPercentageEditor';
 import ShippingCostEditor from './sections/ShippingCostEditor';
+import CostMarginEditor from './sections/CostMarginEditor';
 
 interface Section {
   id: number;
@@ -101,6 +102,12 @@ const SECTIONS: Section[] = [
     name: 'Shipping Cost',
     description: 'Shipping cost based on weight tiers',
     component: ShippingCostEditor
+  },
+  {
+    id: 13,
+    name: 'Cost Margin',
+    description: 'Final profit margin percentage on all previous costs',
+    component: CostMarginEditor
   }
 ];
 
@@ -328,7 +335,8 @@ export default function EditPricingFormulaPage() {
                         const sectionKeys = [
                           'materialCost', 'scanningCost', 'platesCost', 'printingCost',
                           'laminationCost', 'dieMakingCost', 'dieCuttingCost', 'pastingCost',
-                          'twoPieceBox', 'bothSidePrintingSurcharge', 'vendorPercentage', 'shippingCost'
+                          'twoPieceBox', 'bothSidePrintingSurcharge', 'vendorPercentage', 'shippingCost',
+                          'costMargin'
                         ];
                         updateFormulaSection(sectionKeys[section.id - 1], data);
                       }}
