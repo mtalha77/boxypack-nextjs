@@ -1,7 +1,4 @@
-/**
- * Pricing Form Types
- * Used by the pricing form component
- */
+// Pricing form types for the pricing calculator component
 
 export interface Dimensions {
   length: number;
@@ -11,19 +8,20 @@ export interface Dimensions {
 }
 
 export interface LogoPlacement {
-  position: string;
-  size: string;
-  complexity: string;
+  side: 'front' | 'back' | 'left' | 'right' | 'top' | 'bottom';
+  position: 'center' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+  size: number;
+  colorCount: number;
 }
 
 export interface PrintingOptions {
-  type: string;
+  type: 'none' | 'outside' | 'inside' | 'bothSide';
   sides: number;
-  complexity: string;
+  complexity: 'simple' | 'medium' | 'complex';
 }
 
 export interface FinishingOptions {
-  type: string;
+  type: 'none' | 'glossy' | 'matt' | 'softTouch';
 }
 
 export interface PricingFormData {
@@ -39,8 +37,8 @@ export interface PricingFormData {
   // CSV-based pricing options
   scanningRequired: boolean;
   platesRequired: boolean;
-  printingType: string;
-  laminationType: string;
+  printingType: 'outside' | 'inside' | 'bothSide' | 'none';
+  laminationType: 'glossy' | 'matt' | 'softTouch' | 'none';
   dieMakingRequired: boolean;
   dieCuttingRequired: boolean;
   pastingRequired: boolean;
@@ -49,28 +47,32 @@ export interface PricingFormData {
   shippingWeight: number;
 }
 
-export interface PricingBreakdownItem {
-  description: string;
-  cost: number;
-}
-
-export interface PricingResult {
-  total: number;
-  breakdown: PricingBreakdownItem[];
-  estimatedDelivery: string;
+export interface Material {
+  _id: string;
+  name: string;
+  gsm?: number;
+  pricePerUnit?: number;
 }
 
 export interface Product {
   _id: string;
   name: string;
-  category?: string;
+  category: string;
   description?: string;
 }
 
-export interface Material {
-  _id: string;
-  name: string;
-  type?: string;
-  description?: string;
+export interface PricingResult {
+  summary?: {
+    pricePerUnit: number;
+    subtotal: number;
+    total: number;
+  };
+  breakdown?: Array<{
+    sectionNumber: number;
+    sectionName: string;
+    cost: number;
+    description: string;
+    formula: string;
+  }>;
+  calculations?: Record<string, unknown>;
 }
-

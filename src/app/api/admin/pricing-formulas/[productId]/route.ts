@@ -9,7 +9,7 @@ export async function GET(
     const { productId } = await params;
     const collection = await getCollection('productPricingFormulas');
     const formula = await collection.findOne({ 
-      productId: productId,
+      productId,
       isActive: true 
     });
 
@@ -42,16 +42,15 @@ export async function PUT(
     
     delete updateData._id;
     delete updateData.createdAt;
-    // Product ID should not change
-    const cleanedData = updateData as Partial<Omit<ProductPricingFormula, 'productId'>>;
+    delete (updateData as Record<string, unknown>).productId; // Product ID should not change
     
     const collection = await getCollection('productPricingFormulas');
     
     const result = await collection.updateOne(
-      { productId: productId },
+      { productId },
       { 
         $set: {
-          ...cleanedData,
+          ...updateData,
           updatedAt: new Date()
         }
       }
@@ -66,7 +65,7 @@ export async function PUT(
 
     // Return updated formula
     const updatedFormula = await collection.findOne({ 
-      productId: productId 
+      productId 
     });
 
     return NextResponse.json({
@@ -91,7 +90,7 @@ export async function DELETE(
     const collection = await getCollection('productPricingFormulas');
     
     const result = await collection.updateOne(
-      { productId: productId },
+      { productId },
       { 
         $set: {
           isActive: false,

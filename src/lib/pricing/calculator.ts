@@ -125,20 +125,18 @@ export class PricingCalculator {
     const { length, width, height, pt, requiredUnits } = this.request;
     const { lengthFormula, widthFormula, gsmTable, weightOf100Units, costOf100Units } = this.formula.materialCost;
 
-    // Step 1: Calculate adjusted dimensions using dynamic formulas
-    // Calculated Length = (H × heightMultiplier) + (W × widthMultiplier) + (L × lengthMultiplier) + addition
+    // Step 1: Calculate adjusted dimensions
     this.calculatedLength = 
-      (height * lengthFormula.heightMultiplier) + 
-      (width * lengthFormula.widthMultiplier) + 
       (length * lengthFormula.lengthMultiplier) + 
-      lengthFormula.addition;
+      (width * lengthFormula.widthMultiplier) + 
+      (height * lengthFormula.heightMultiplier) + 
+      lengthFormula.additionalInches;
 
-    // Calculated Width = (H × heightMultiplier) + (W × widthMultiplier) + (L × lengthMultiplier) + addition
     this.calculatedWidth = 
-      (height * widthFormula.heightMultiplier) + 
-      (width * widthFormula.widthMultiplier) + 
       (length * widthFormula.lengthMultiplier) + 
-      widthFormula.addition;
+      (width * widthFormula.widthMultiplier) + 
+      (height * widthFormula.heightMultiplier) + 
+      widthFormula.additionalInches;
 
     // Step 2: Get GSM from table
     const gsmEntry = gsmTable.find(entry => entry.pt === pt);
@@ -181,8 +179,8 @@ export class PricingCalculator {
       sectionNumber: 1,
       sectionName: "Material Cost",
       description: "Calculates material cost based on dimensions, GSM values, and weight",
-      formula: `Length: (H×${lengthFormula.heightMultiplier} + W×${lengthFormula.widthMultiplier} + L×${lengthFormula.lengthMultiplier} + ${lengthFormula.addition}); Width: (H×${widthFormula.heightMultiplier} + W×${widthFormula.widthMultiplier} + L×${widthFormula.lengthMultiplier} + ${widthFormula.addition}); Cost: (CalcLength × CalcWidth × GSM / ${weightOf100Units.divisor}) × ${costOf100Units.rate} / 100 × Units`,
-      calculations,
+      formula: `((L×${lengthFormula.lengthMultiplier} + W×${lengthFormula.widthMultiplier} + H×${lengthFormula.heightMultiplier} + ${lengthFormula.additionalInches}) × (L×${widthFormula.lengthMultiplier} + W×${widthFormula.widthMultiplier} + H×${widthFormula.heightMultiplier} + ${widthFormula.additionalInches}) × GSM / ${weightOf100Units.divisor}) × ${costOf100Units.rate} / 100 × Units`,
+      calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(finalCost)
     };
   }
@@ -212,12 +210,10 @@ export class PricingCalculator {
     const { printing } = this.request;
     const { ranges } = this.formula.platesCost;
 
-    // Find matching range based on calculated dimensions
+    // Find matching range based on largest dimension
+    const largestDimension = Math.max(this.calculatedLength, this.calculatedWidth);
     const matchedRange = ranges.find(range => 
-      this.calculatedLength >= range.lengthMin &&
-      this.calculatedLength <= range.lengthMax &&
-      this.calculatedWidth >= range.widthMin &&
-      this.calculatedWidth <= range.widthMax
+      largestDimension >= range.lengthMin && largestDimension <= range.lengthMax
     );
 
     const baseCost = matchedRange ? matchedRange.costs[printing] : 0;
@@ -234,9 +230,9 @@ export class PricingCalculator {
     return {
       sectionNumber: 3,
       sectionName: "Plates Cost",
-      description: "Cost based on calculated dimensions and printing type",
-      formula: "Cost from matched range based on length/width",
-      calculations,
+      description: "Cost based on largest dimension and printing type",
+      formula: "Cost from matched range based on largest dimension",
+      calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(baseCost)
     };
   }
@@ -248,12 +244,10 @@ export class PricingCalculator {
     const { printing, requiredUnits } = this.request;
     const { ranges } = this.formula.printingCost;
 
-    // Find matching range
+    // Find matching range based on largest dimension
+    const largestDimension = Math.max(this.calculatedLength, this.calculatedWidth);
     const matchedRange = ranges.find(range => 
-      this.calculatedLength >= range.lengthMin &&
-      this.calculatedLength <= range.lengthMax &&
-      this.calculatedWidth >= range.widthMin &&
-      this.calculatedWidth <= range.widthMax
+      largestDimension >= range.lengthMin && largestDimension <= range.lengthMax
     );
 
     const baseCost = matchedRange ? matchedRange.costs[printing] : 0;
@@ -277,7 +271,7 @@ export class PricingCalculator {
       sectionName: "Printing Cost",
       description: "Printing cost with quantity multiplier (per 1000 units)",
       formula: `Base Cost × ceil(Units / 1000)`,
-      calculations,
+      calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(finalCost)
     };
   }
@@ -287,6 +281,18 @@ export class PricingCalculator {
    */
   private calculateLaminationCost(): SectionBreakdown {
     const { lamination, requiredUnits } = this.request;
+    const { enabled } = this.formula.laminationCost;
+    
+    if (!enabled) {
+      return {
+        sectionNumber: 5,
+        sectionName: "Lamination Cost",
+        description: "Lamination cost calculation is disabled",
+        formula: "Disabled",
+        calculations: { enabled: false },
+        cost: 0
+      };
+    }
     
     if (lamination === 'none') {
       return {
@@ -324,7 +330,7 @@ export class PricingCalculator {
       sectionName: "Lamination Cost",
       description: `Lamination cost for ${lamination} finish`,
       formula: `(Length × Width / ${divisor}) × ${rate} × Units`,
-      calculations,
+      calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(finalCost)
     };
   }
@@ -333,22 +339,36 @@ export class PricingCalculator {
    * SECTION 6: Die Making Cost
    */
   private calculateDieMakingCost(): SectionBreakdown {
-    const { multiplier } = this.formula.dieMakingCost;
-    const finalCost = this.calculatedLength * this.calculatedWidth * multiplier;
+    const { calculationType, multiplier, fixedCost } = this.formula.dieMakingCost;
+    
+    let finalCost: number;
+    let formula: string;
+    let description: string;
+
+    if (calculationType === 'fixed') {
+      finalCost = fixedCost;
+      formula = `Fixed Cost: $${fixedCost}`;
+      description = "Fixed die making cost";
+    } else {
+      finalCost = this.calculatedLength * this.calculatedWidth * multiplier;
+      formula = `Length × Width × ${multiplier}`;
+      description = "Calculated die making cost based on dimensions";
+    }
 
     const calculations: DieMakingCostCalculation = {
+      calculationType,
       calculatedLength: this.roundTo2(this.calculatedLength),
       calculatedWidth: this.roundTo2(this.calculatedWidth),
-      multiplier,
+      ...(calculationType === 'calculated' ? { multiplier } : { fixedCost }),
       finalCost: this.roundTo2(finalCost)
     };
 
     return {
       sectionNumber: 6,
       sectionName: "Die Making Cost",
-      description: "One-time die making cost",
-      formula: `Length × Width × ${multiplier}`,
-      calculations,
+      description,
+      formula,
+      calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(finalCost)
     };
   }
@@ -375,7 +395,7 @@ export class PricingCalculator {
       sectionName: "Die Cutting Cost",
       description: "Die cutting cost per 1000 units",
       formula: `${costPer1000} × ceil(Units / 1000)`,
-      calculations,
+      calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(finalCost)
     };
   }
@@ -402,7 +422,7 @@ export class PricingCalculator {
       sectionName: "Pasting Cost",
       description: "Pasting cost per 1000 units",
       formula: `${costPer1000} × ceil(Units / 1000)`,
-      calculations,
+      calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(finalCost)
     };
   }
@@ -430,7 +450,7 @@ export class PricingCalculator {
       sectionName: "Two-Piece Box Multiplier",
       description: enabled ? `Multiplies sections 1-8 by ${multiplier}` : "Not enabled for this product",
       formula: enabled ? `Sum(Sections 1-8) × ${multiplier}` : "N/A",
-      calculations,
+      calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(additionalCost)
     };
   }
@@ -461,7 +481,7 @@ export class PricingCalculator {
       sectionName: "Both Side Printing Surcharge",
       description: applicable ? `${percentage}% surcharge for both side printing` : "Not applicable (single side or no printing)",
       formula: applicable ? `Sum(Sections 1-9) × ${percentage}%` : "N/A",
-      calculations,
+      calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(finalCost)
     };
   }
@@ -488,7 +508,7 @@ export class PricingCalculator {
       sectionName: "Vendor Percentage",
       description: `${percentage}% vendor markup`,
       formula: `Sum(Sections 1-10) × ${percentage}%`,
-      calculations,
+      calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(finalCost)
     };
   }
@@ -497,21 +517,15 @@ export class PricingCalculator {
    * SECTION 12: Shipping Cost
    */
   private calculateShippingCost(): SectionBreakdown {
-    const { requiredUnits, printing } = this.request;
-    const { weightCalculation, shippingTiers, applyBothSidePrintingMultiplier } = this.formula.shippingCost;
+    const { requiredUnits } = this.request;
+    const { weightCalculation, shippingTiers } = this.formula.shippingCost;
     const { multiplier, divisor } = weightCalculation;
 
-    // Step 1: Calculate single unit weight
+    // Calculate single unit weight
     const singleUnitWeight = (this.weightOf100Units * multiplier) / divisor;
     
-    // Step 2: Multiply by required units
-    const totalWeightBeforeMultiplier = singleUnitWeight * requiredUnits;
-
-    // Step 3: Apply both-side printing multiplier if enabled and both-side printing is selected
-    const isBothSidePrinting = printing === 'bothSide';
-    const bothSidePrintingApplied = applyBothSidePrintingMultiplier && isBothSidePrinting;
-    const bothSidePrintingMultiplier = bothSidePrintingApplied ? 2 : 1;
-    const totalWeight = totalWeightBeforeMultiplier * bothSidePrintingMultiplier;
+    // Calculate total weight
+    const totalWeight = singleUnitWeight * requiredUnits;
 
     // Find matching shipping tier
     const matchedTier = shippingTiers.find(tier => 
@@ -526,27 +540,17 @@ export class PricingCalculator {
       weightDivisor: divisor,
       singleUnitWeight: this.roundTo2(singleUnitWeight),
       requiredUnits,
-      totalWeightBeforeMultiplier: this.roundTo2(totalWeightBeforeMultiplier),
-      bothSidePrintingApplied,
-      bothSidePrintingMultiplier,
       totalWeight: this.roundTo2(totalWeight),
       tierMatched: matchedTier ? `${matchedTier.minWeight}-${matchedTier.maxWeight} kg` : "70+ kg",
       shippingCost
     };
 
-    let formulaDescription = `Step 1: (k × ${multiplier}) / ${divisor} = single unit weight\n`;
-    formulaDescription += `Step 2: single unit weight × ${requiredUnits} units\n`;
-    if (bothSidePrintingApplied) {
-      formulaDescription += `Step 3: × 2 (both-side printing multiplier)\n`;
-    }
-    formulaDescription += `Step ${bothSidePrintingApplied ? '4' : '3'}: Match to shipping tier`;
-
     return {
       sectionNumber: 12,
       sectionName: "Shipping Cost",
-      description: "Shipping cost based on total weight with optional both-side printing multiplier",
-      formula: formulaDescription,
-      calculations,
+      description: "Shipping cost based on total weight",
+      formula: `Weight per unit: (k × ${multiplier}) / ${divisor}, then match to shipping tier`,
+      calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(shippingCost)
     };
   }

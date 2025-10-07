@@ -31,18 +31,16 @@ export type MaterialType = 'kraft' | 'cardboard' | 'corrugated';
 
 export interface MaterialCostFormula {
   lengthFormula: {
-    // Calculated Length = (H × heightMultiplier) + (W × widthMultiplier) + (L × lengthMultiplier) + addition
-    heightMultiplier: number;      // Default: 1
-    widthMultiplier: number;       // Default: 1
-    lengthMultiplier: number;      // Default: 0
-    addition: number;              // Default: 1
+    lengthMultiplier: number;      // Default: 2
+    widthMultiplier: number;       // Default: 2
+    heightMultiplier: number;      // Default: 0
+    additionalInches: number;      // Default: 1.5
   };
   widthFormula: {
-    // Calculated Width = (H × heightMultiplier) + (W × widthMultiplier) + (L × lengthMultiplier) + addition
-    heightMultiplier: number;      // Default: 2
+    lengthMultiplier: number;      // Default: 0
     widthMultiplier: number;       // Default: 0
-    lengthMultiplier: number;      // Default: 1
-    addition: number;              // Default: 2
+    heightMultiplier: number;      // Default: 2
+    additionalInches: number;      // Default: 2
   };
   gsmTable: GSMTableEntry[];
   weightOf100Units: {
@@ -120,6 +118,7 @@ export interface PrintingCostRange {
 // ============================================================================
 
 export interface LaminationCostFormula {
+  enabled: boolean;                // Default: true
   glossy: {
     divisor: number;               // Default: 144
     rate: number;                  // Default: 3.5
@@ -139,7 +138,9 @@ export interface LaminationCostFormula {
 // ============================================================================
 
 export interface DieMakingCostFormula {
-  multiplier: number;              // Default: 9 (Length × Width × 9)
+  calculationType: 'calculated' | 'fixed';  // Default: 'calculated'
+  multiplier: number;              // Default: 9 (Length × Width × 9) - only used when calculationType is 'calculated'
+  fixedCost: number;               // Default: 1000 - only used when calculationType is 'fixed'
 }
 
 // ============================================================================
@@ -192,7 +193,6 @@ export interface ShippingCostFormula {
     multiplier: number;            // Default: 0.9
     divisor: number;               // Default: 100
   };
-  applyBothSidePrintingMultiplier: boolean;  // Default: false - if true, doubles weight for both-side printing
   shippingTiers: ShippingTier[];
 }
 
@@ -253,10 +253,7 @@ export interface SectionBreakdown {
   sectionName: string;
   description: string;
   formula: string;
-  calculations: MaterialCostCalculation | PlatesCostCalculation | PrintingCostCalculation | 
-    LaminationCostCalculation | DieMakingCostCalculation | DieCuttingCostCalculation | 
-    PastingCostCalculation | TwoPieceBoxCalculation | BothSidePrintingSurchargeCalculation | 
-    VendorPercentageCalculation | ShippingCostCalculation | Record<string, unknown>;
+  calculations: Record<string, unknown>;
   cost: number;
 }
 
@@ -298,6 +295,7 @@ export interface PrintingCostCalculation {
 }
 
 export interface LaminationCostCalculation {
+  enabled?: boolean;
   calculatedLength: number;
   calculatedWidth: number;
   laminationType: LaminationType;
@@ -309,9 +307,11 @@ export interface LaminationCostCalculation {
 }
 
 export interface DieMakingCostCalculation {
+  calculationType: 'calculated' | 'fixed';
   calculatedLength: number;
   calculatedWidth: number;
-  multiplier: number;
+  multiplier?: number;
+  fixedCost?: number;
   finalCost: number;
 }
 
@@ -355,9 +355,6 @@ export interface ShippingCostCalculation {
   weightDivisor: number;
   singleUnitWeight: number;
   requiredUnits: number;
-  totalWeightBeforeMultiplier: number;
-  bothSidePrintingApplied: boolean;
-  bothSidePrintingMultiplier: number;
   totalWeight: number;
   tierMatched: string;
   shippingCost: number;
@@ -369,18 +366,16 @@ export interface ShippingCostCalculation {
 
 export const DEFAULT_MATERIAL_COST: MaterialCostFormula = {
   lengthFormula: {
-    // Calculated Length = (H × 1) + (W × 1) + (L × 0) + 1
-    heightMultiplier: 1,
-    widthMultiplier: 1,
-    lengthMultiplier: 0,
-    addition: 1
+    lengthMultiplier: 2,
+    widthMultiplier: 2,
+    heightMultiplier: 0,
+    additionalInches: 1.5
   },
   widthFormula: {
-    // Calculated Width = (H × 2) + (W × 0) + (L × 1) + 2
-    heightMultiplier: 2,
+    lengthMultiplier: 0,
     widthMultiplier: 0,
-    lengthMultiplier: 1,
-    addition: 2
+    heightMultiplier: 2,
+    additionalInches: 2
   },
   gsmTable: [
     { pt: "14", gsm: 250, kraft: 400, cardboard: 300, corrugated: null },
@@ -403,30 +398,30 @@ export const DEFAULT_PLATES_COST: PlatesCostFormula = {
       lengthMin: 0.1,
       lengthMax: 12.5,
       widthMin: 0.1,
-      widthMax: 18,
+      widthMax: 12.5,
       costs: { outside: 1200, inside: 1200, bothSide: 2400, none: 0 }
     },
     {
       name: "Medium",
       lengthMin: 12.6,
       lengthMax: 18,
-      widthMin: 18.1,
-      widthMax: 25,
+      widthMin: 12.6,
+      widthMax: 18,
       costs: { outside: 2400, inside: 2400, bothSide: 4800, none: 0 }
     },
     {
       name: "Large",
       lengthMin: 18.1,
-      lengthMax: 20,
-      widthMin: 25.1,
-      widthMax: 30,
+      lengthMax: 25,
+      widthMin: 18.1,
+      widthMax: 25,
       costs: { outside: 5000, inside: 5000, bothSide: 10000, none: 0 }
     },
     {
       name: "Extra Large",
-      lengthMin: 20.1,
-      lengthMax: 28,
-      widthMin: 30.1,
+      lengthMin: 25.1,
+      lengthMax: 40,
+      widthMin: 25.1,
       widthMax: 40,
       costs: { outside: 8000, inside: 8000, bothSide: 16000, none: 0 }
     }
@@ -440,30 +435,30 @@ export const DEFAULT_PRINTING_COST: PrintingCostFormula = {
       lengthMin: 0.1,
       lengthMax: 12.5,
       widthMin: 0.1,
-      widthMax: 18,
+      widthMax: 12.5,
       costs: { outside: 3500, inside: 3500, bothSide: 7000, none: 0 }
     },
     {
       name: "Medium",
       lengthMin: 12.6,
       lengthMax: 18,
-      widthMin: 18.1,
-      widthMax: 25,
+      widthMin: 12.6,
+      widthMax: 18,
       costs: { outside: 6000, inside: 6000, bothSide: 12000, none: 0 }
     },
     {
       name: "Large",
       lengthMin: 18.1,
-      lengthMax: 20,
-      widthMin: 25.1,
-      widthMax: 30,
+      lengthMax: 25,
+      widthMin: 18.1,
+      widthMax: 25,
       costs: { outside: 8000, inside: 8000, bothSide: 16000, none: 0 }
     },
     {
       name: "Extra Large",
-      lengthMin: 20.1,
-      lengthMax: 28,
-      widthMin: 30.1,
+      lengthMin: 25.1,
+      lengthMax: 40,
+      widthMin: 25.1,
       widthMax: 40,
       costs: { outside: 10000, inside: 10000, bothSide: 20000, none: 0 }
     }
@@ -544,11 +539,12 @@ export function createDefaultProductFormula(
     platesCost: DEFAULT_PLATES_COST,
     printingCost: DEFAULT_PRINTING_COST,
     laminationCost: {
+      enabled: true,
       glossy: { divisor: 144, rate: 3.5 },
       matt: { divisor: 144, rate: 3.5 },
       softTouch: { divisor: 144, rate: 20 }
     },
-    dieMakingCost: { multiplier: 9 },
+    dieMakingCost: { calculationType: 'calculated', multiplier: 9, fixedCost: 1000 },
     dieCuttingCost: { costPer1000: 1000 },
     pastingCost: { costPer1000: 1000 },
     twoPieceBox: { enabled: false, multiplier: 2 },
@@ -556,7 +552,6 @@ export function createDefaultProductFormula(
     vendorPercentage: { percentage: 25 },
     shippingCost: {
       weightCalculation: { multiplier: 0.9, divisor: 100 },
-      applyBothSidePrintingMultiplier: false,
       shippingTiers: DEFAULT_SHIPPING_TIERS
     },
     isActive: true

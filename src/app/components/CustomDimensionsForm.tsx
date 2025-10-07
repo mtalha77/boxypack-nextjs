@@ -2,35 +2,29 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { CldImage } from 'next-cloudinary';
-import { ChevronDown, Info, Share2, Check } from 'lucide-react';
-import { navigationData, NavigationSection, MainCategory, SubCategory } from '../data/navigationData';
-import LightBlueBackground from '../UI/LightBlueBackground';
+import { ChevronDown, Info } from 'lucide-react';
+import { navigationData } from '../data/navigationData';
+import { productByMaterialData } from '../data/productByMaterialData';
 import { useRouter } from 'next/navigation';
-import { PricingCalculationResult, SectionBreakdown } from '@/lib/types/pricing-formulas';
 
 interface CustomDimensionsFormProps {
   onDesignNow?: () => void;
-  onGetCustomQuote?: () => void;
   initialProductSlug?: string; // Add prop for initial product selection
 }
 
 const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   onDesignNow,
-  onGetCustomQuote,
   initialProductSlug
 }) => {
   const router = useRouter();
+  const [selectedMaterial, setSelectedMaterial] = useState('');
   const [selectedProduct, setSelectedProduct] = useState('');
   const [productSearchQuery, setProductSearchQuery] = useState('');
-  const [printColor, setPrintColor] = useState('Full Color');
-  const [sizeType, setSizeType] = useState('STANDARD SIZES');
-  const [selectedSize, setSelectedSize] = useState('9.5" x 7.75" x 4"');
   const [customLength, setCustomLength] = useState(9.5);
   const [customWidth, setCustomWidth] = useState(7.75);
   const [customDepth, setCustomDepth] = useState(4);
   const [material, setMaterial] = useState('kraft');
   const [pt, setPT] = useState('14');
-  const [printFinish, setPrintFinish] = useState('HDPrint Stain');
   const [printedSides, setPrintedSides] = useState('outside');
   const [lamination, setLamination] = useState('glossy');
   const [quantity, setQuantity] = useState(250);
@@ -40,7 +34,16 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
 
   // Pricing state
   const [calculating, setCalculating] = useState(false);
-  const [pricingResult, setPricingResult] = useState<PricingCalculationResult | null>(null);
+  const [pricingResult, setPricingResult] = useState<{
+    summary?: { pricePerUnit: number; subtotal: number };
+    breakdown?: Array<{ 
+      sectionNumber: number; 
+      sectionName: string; 
+      cost: number; 
+      description: string; 
+      formula: string;
+    }>;
+  } | null>(null);
   const [pricingError, setPricingError] = useState<string>('');
   const [showBreakdown, setShowBreakdown] = useState(false);
 
@@ -79,6 +82,13 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
     }
   }, [initialProductSlug]);
 
+  // Auto-set lamination to 'none' when Kraft is selected
+  useEffect(() => {
+    if (selectedMaterial === 'kraft-boxes') {
+      setLamination('none');
+    }
+  }, [selectedMaterial]);
+
   const toggleDropdown = (field: string) => {
     setShowDropdowns(prev => ({
       ...prev,
@@ -86,8 +96,21 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
     }));
   };
 
+  // Handle material selection and reset product
+  const handleMaterialSelection = (materialSlug: string) => {
+    setSelectedMaterial(materialSlug);
+    setSelectedProduct(''); // Reset product selection when material changes
+    setProductSearchQuery(''); // Clear search query
+    toggleDropdown('materialSelection');
+  };
+
   // Calculate pricing using new API
   const calculatePricing = useCallback(async () => {
+    if (!selectedMaterial) {
+      setPricingError('Please select a material type');
+      return;
+    }
+    
     if (!selectedProduct) {
       setPricingError('Please select a product');
       return;
@@ -110,7 +133,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
           pt: pt,
           requiredUnits: quantity,
           printing: printedSides,
-          lamination: lamination
+          lamination: selectedMaterial === 'kraft-boxes' ? 'none' : lamination
         })
       });
 
@@ -130,18 +153,18 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
     } finally {
       setCalculating(false);
     }
-  }, [selectedProduct, customLength, customWidth, customDepth, pt, quantity, printedSides, lamination]);
+  }, [selectedMaterial, selectedProduct, customLength, customWidth, customDepth, pt, quantity, printedSides, lamination]);
 
   // Auto-calculate when values change
   useEffect(() => {
-    if (selectedProduct && customLength > 0 && customWidth > 0 && customDepth > 0 && quantity > 0) {
+    if (selectedMaterial && selectedProduct && customLength > 0 && customWidth > 0 && customDepth > 0 && quantity > 0) {
       const timer = setTimeout(() => {
         calculatePricing();
       }, 500); // Debounce for 500ms
 
       return () => clearTimeout(timer);
     }
-  }, [selectedProduct, customLength, customWidth, customDepth, pt, quantity, printedSides, lamination, calculatePricing]);
+  }, [calculatePricing]);
 
   const printedSidesOptions = [
     { label: 'Outside', value: 'outside' },
@@ -162,39 +185,47 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
     { label: 'Corrugated', value: 'corrugated' }
   ];
 
-  // Get all products from navigation data
-  const getAllProducts = () => {
-    const allProducts: Array<{name: string, slug: string, category: string}> = [];
-    navigationData.forEach(section => {
-      if (section.categories) {
-        section.categories.forEach(category => {
-          if (category.subcategories) {
-            category.subcategories.forEach(subcategory => {
-              allProducts.push({
-                name: subcategory.name,
-                slug: subcategory.slug,
-                category: category.name
-              });
-            });
-          }
-        });
-      }
-    });
-    return allProducts;
-  };
+  // Material selection options for the first step
+  const materialSelectionOptions = [
+    { label: 'Kraft', value: 'kraft-boxes' },
+    { label: 'Cardboard', value: 'cardboard-boxes' },
+    { label: 'Corrugated', value: 'corrugated-boxes' },
+    { label: 'Rigid', value: 'rigid-boxes' }
+  ];
 
-  // Get filtered products based on search query
-  const getFilteredProducts = () => {
-    const allProducts = getAllProducts();
-    if (!productSearchQuery.trim()) {
-      return allProducts;
+  // Get products based on selected material
+  const getProductsByMaterial = () => {
+    if (!selectedMaterial) {
+      return [];
     }
     
-    return allProducts.filter(product => 
+    const materialCategory = productByMaterialData.find(category => category.slug === selectedMaterial);
+    if (!materialCategory) {
+      return [];
+    }
+    
+    return materialCategory.subcategories.map(subcategory => ({
+                name: subcategory.name,
+                slug: subcategory.slug,
+      category: materialCategory.name,
+      description: subcategory.description
+    }));
+  };
+
+  // Get filtered products based on search query and selected material
+  const getFilteredProducts = () => {
+    const materialProducts = getProductsByMaterial();
+    if (!productSearchQuery.trim()) {
+      return materialProducts;
+    }
+    
+    return materialProducts.filter(product => 
       product.name.toLowerCase().includes(productSearchQuery.toLowerCase()) ||
       product.category.toLowerCase().includes(productSearchQuery.toLowerCase())
     );
   };
+
+  // Helper functions for custom dimensions
 
   return (
     <div className="custom-dimensions-form min-h-screen bg-white">
@@ -325,19 +356,52 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
               </p>
             </div>
             
-            {/* Product Selection */}
+            {/* Material Selection - First Step */}
             <div className="space-y-1">
               <div className="flex items-center gap-2">
-                <label className="text-sm font-medium text-[#0c6b76]">Product</label>
+                <label className="text-sm font-medium text-[#0c6b76]">Material Type</label>
                 <Info className="w-3 h-3 text-[#0ca6c2]" />
               </div>
               <div className="relative">
                 <button
-                  onClick={() => toggleDropdown('product')}
+                  onClick={() => toggleDropdown('materialSelection')}
                   className="w-full flex items-center justify-between px-3 py-2 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
                 >
                   <span className="text-sm text-gray-900">
-                    {selectedProduct ? getAllProducts().find(product => product.slug === selectedProduct)?.name || 'Select Product' : 'Select Product'}
+                    {selectedMaterial ? materialSelectionOptions.find(m => m.value === selectedMaterial)?.label || 'Select Material' : 'Select Material'}
+                  </span>
+                  <ChevronDown className="w-4 h-4 text-[#0ca6c2]" />
+                </button>
+                {showDropdowns.materialSelection && (
+                  <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
+                    {materialSelectionOptions.map((option) => (
+                      <button
+                        key={option.value}
+                        onClick={() => handleMaterialSelection(option.value)}
+                        className="w-full text-left px-3 py-2 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-sm"
+                      >
+                        {option.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+            
+            {/* Product Selection - Only show if material is selected */}
+            {selectedMaterial && (
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <label className="text-sm font-medium text-[#0c6b76]">Product</label>
+                  <Info className="w-3 h-3 text-[#0ca6c2]" />
+                </div>
+                <div className="relative">
+                  <button
+                    onClick={() => toggleDropdown('product')}
+                    className="w-full flex items-center justify-between px-3 py-2 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
+                  >
+                    <span className="text-sm text-gray-900">
+                      {selectedProduct ? getProductsByMaterial().find(product => product.slug === selectedProduct)?.name || 'Select Product' : 'Select Product'}
                   </span>
                   <ChevronDown className="w-4 h-4 text-[#0ca6c2]" />
                 </button>
@@ -375,7 +439,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                         ))
                       ) : (
                         <div className="px-4 py-3 text-gray-500 text-sm text-center">
-                          No products found matching &quot;{productSearchQuery}&quot;
+                            {productSearchQuery ? `No products found matching "${productSearchQuery}"` : 'No products available'}
                         </div>
                       )}
                     </div>
@@ -383,41 +447,10 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                 )}
               </div>
             </div>
+            )}
 
-            {/* Material, PT, Printed Sides, Lamination - Row Layout */}
+            {/* PT, Printed Sides, Lamination - Row Layout */}
             <div className="grid grid-cols-2 gap-4">
-              {/* Material */}
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <label className="text-sm font-medium text-[#0c6b76]">Material Type</label>
-                  <Info className="w-3 h-3 text-[#0ca6c2]" />
-                </div>
-                <div className="relative">
-                  <button
-                    onClick={() => toggleDropdown('material')}
-                    className="w-full flex items-center justify-between px-3 py-2 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
-                  >
-                    <span className="text-sm text-gray-900">{materialOptions.find(m => m.value === material)?.label || 'Select'}</span>
-                    <ChevronDown className="w-4 h-4 text-[#0ca6c2]" />
-                  </button>
-                  {showDropdowns.material && (
-                    <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
-                      {materialOptions.map((option) => (
-                        <button
-                          key={option.value}
-                          onClick={() => {
-                            setMaterial(option.value);
-                            toggleDropdown('material');
-                          }}
-                          className="w-full text-left px-3 py-2 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-sm"
-                        >
-                          {option.label}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
 
               {/* PT (Paper Thickness) */}
               <div className="space-y-1">
@@ -484,40 +517,48 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                 </div>
               </div>
 
-              {/* Lamination - Hidden for Kraft material */}
-              {material !== 'kraft' && (
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2">
-                    <label className="text-sm font-medium text-[#0c6b76]">Lamination</label>
-                    <Info className="w-3 h-3 text-[#0ca6c2]" />
-                  </div>
-                  <div className="relative">
-                    <button
-                      onClick={() => toggleDropdown('lamination')}
-                      className="w-full flex items-center justify-between px-3 py-2 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
-                    >
-                      <span className="text-sm text-gray-900">{laminationOptions.find(l => l.value === lamination)?.label || 'Select'}</span>
-                      <ChevronDown className="w-4 h-4 text-[#0ca6c2]" />
-                    </button>
-                    {showDropdowns.lamination && (
-                      <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
-                        {laminationOptions.map((option) => (
-                          <button
-                            key={option.value}
-                            onClick={() => {
-                              setLamination(option.value);
-                              toggleDropdown('lamination');
-                            }}
-                            className="w-full text-left px-3 py-2 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-sm"
-                          >
-                            {option.label}
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+              {/* Lamination */}
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <label className="text-sm font-medium text-[#0c6b76]">Lamination</label>
+                  <Info className="w-3 h-3 text-[#0ca6c2]" />
                 </div>
-              )}
+                <div className="relative">
+                  <button
+                    onClick={() => selectedMaterial !== 'kraft-boxes' && toggleDropdown('lamination')}
+                    disabled={selectedMaterial === 'kraft-boxes'}
+                    className={`w-full flex items-center justify-between px-3 py-2 border rounded-lg transition-colors ${
+                      selectedMaterial === 'kraft-boxes' 
+                        ? 'border-gray-200 bg-gray-50 text-gray-400 cursor-not-allowed' 
+                        : 'border-[#0c6b76]/30 bg-white hover:border-[#0ca6c2]'
+                    }`}
+                  >
+                    <span className="text-sm">
+                      {selectedMaterial === 'kraft-boxes' ? 'Not Available' : (laminationOptions.find(l => l.value === lamination)?.label || 'Select')}
+                    </span>
+                    <ChevronDown className={`w-4 h-4 ${selectedMaterial === 'kraft-boxes' ? 'text-gray-400' : 'text-[#0ca6c2]'}`} />
+                  </button>
+                  {showDropdowns.lamination && selectedMaterial !== 'kraft-boxes' && (
+                    <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
+                      {laminationOptions.map((option) => (
+                        <button
+                          key={option.value}
+                          onClick={() => {
+                            setLamination(option.value);
+                            toggleDropdown('lamination');
+                          }}
+                          className="w-full text-left px-3 py-2 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-sm"
+                        >
+                          {option.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                {selectedMaterial === 'kraft-boxes' && (
+                  <p className="text-xs text-gray-500">Lamination is not available for Kraft boxes</p>
+                )}
+              </div>
             </div>
 
             {/* Custom Dimensions */}
@@ -650,7 +691,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                     <div className="mt-4 bg-white rounded-lg p-4 max-h-96 overflow-y-auto">
                       <h4 className="font-semibold text-gray-900 mb-3">Price Breakdown:</h4>
                       <div className="space-y-2">
-                        {pricingResult.breakdown.map((section: SectionBreakdown, index: number) => (
+                        {pricingResult.breakdown?.map((section, index: number) => (
                           <div key={index} className="border-b border-gray-200 pb-2">
                             <div className="flex justify-between items-start">
                               <div className="flex-1">
@@ -688,7 +729,9 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
               ) : (
                 <div className="text-center py-8">
                   <p className="text-gray-600">
-                    Select a product and enter dimensions to see pricing
+                    {!selectedMaterial ? 'Select a material type to get started' : 
+                     !selectedProduct ? 'Select a product to see pricing' : 
+                     'Enter dimensions to see pricing'}
                   </p>
                 </div>
               )}
