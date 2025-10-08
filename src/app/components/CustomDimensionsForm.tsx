@@ -186,7 +186,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
         setRequiresCustomQuote(false);
       } else {
         // Check if it requires custom quote due to dimensions
-        if (data.requiresCustomQuote) {
+        if (data.requiresCustomQuote === true) {
           setRequiresCustomQuote(true);
           setPricingError('');
           setPricingResult(null);

@@ -650,7 +650,11 @@ export async function calculatePricing(
     return calculator.calculate();
   } catch (error) {
     console.error('Pricing calculation error:', error);
-    throw new Error(`Pricing calculation failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    // Re-throw the original error to preserve the error message
+    if (error instanceof Error) {
+      throw error;
+    }
+    throw new Error('Unknown error occurred during pricing calculation');
   }
 }
 
