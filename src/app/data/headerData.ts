@@ -30,8 +30,15 @@ export interface HeaderConfig {
 
 export interface NavigationItem {
   name: string;
-  href: string;
+  href?: string;
   hasDropdown?: boolean;
+  dropdownItems?: NavigationDropdownItem[];
+}
+
+export interface NavigationDropdownItem {
+  name: string;
+  href: string;
+  description?: string;
 }
 
 // Icon mapping configurations
@@ -1035,9 +1042,15 @@ export const headerConfig: HeaderConfig = {
   navigation: {
     items: [
       { name: 'How It Works', href: '/how-it-works' },
-      { name: 'About Us', href: '/about-us' },
-      { name: 'Privacy Policy', href: '/privacy-policy' },
-      { name: 'Terms of Use', href: '/terms-of-use' },
+      { 
+        name: 'About Company', 
+        hasDropdown: true,
+        dropdownItems: [
+          { name: 'About Us', href: '/about-us' },
+          { name: 'Privacy Policy', href: '/privacy-policy' },
+          { name: 'Terms of Use', href: '/terms-of-use' }
+        ]
+      },
       { name: 'Contact Us', href: '/contact-us' }
     ]
   },

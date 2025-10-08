@@ -2,10 +2,11 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { CldImage } from 'next-cloudinary';
-import { ChevronDown, Info } from 'lucide-react';
+import { ChevronDown, Info, ShoppingCart, Check } from 'lucide-react';
 import { navigationData } from '../data/navigationData';
 import { productByMaterialData } from '../data/productByMaterialData';
 import { useRouter } from 'next/navigation';
+import { useCart } from '../contexts/CartContext';
 
 interface CustomDimensionsFormProps {
   onDesignNow?: () => void;
@@ -51,6 +52,11 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   // Currency conversion state
   const [exchangeRate, setExchangeRate] = useState<number | null>(null);
   const [loadingRate, setLoadingRate] = useState(true);
+
+  // Cart state
+  const { addItem } = useCart();
+  const [showAddedToCart, setShowAddedToCart] = useState(false);
+  const [showUpdatedInCart, setShowUpdatedInCart] = useState(false);
 
   const unitPrice = pricingResult?.summary?.pricePerUnit || 0;
   const subtotal = pricingResult?.summary?.subtotal || 0;
@@ -263,6 +269,49 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
       product.name.toLowerCase().includes(productSearchQuery.toLowerCase()) ||
       product.category.toLowerCase().includes(productSearchQuery.toLowerCase())
     );
+  };
+
+  // Add to cart handler
+  const handleAddToCart = () => {
+    if (!selectedMaterial || !selectedProduct || !pricingResult || quantity > 20000) {
+      alert('Please select all options and ensure pricing is available');
+      return;
+    }
+
+    const selectedMaterialName = materialSelectionOptions.find(m => m.value === selectedMaterial)?.label || selectedMaterial;
+    const selectedProductData = getProductsByMaterial().find(p => p.slug === selectedProduct);
+    const productName = selectedProductData?.name || 'Custom Box';
+
+    const cartItem = {
+      id: `${selectedProduct}-${Date.now()}`,
+      productName,
+      productSlug: selectedProduct,
+      material: selectedMaterialName,
+      length: customLength,
+      width: customWidth,
+      height: customDepth,
+      pt,
+      printedSides: printedSidesOptions.find(p => p.value === printedSides)?.label || printedSides,
+      lamination: selectedMaterial === 'kraft-boxes' ? 'None' : (laminationOptions.find(l => l.value === lamination)?.label || lamination),
+      quantity,
+      unitPrice: unitPriceUSD,
+      subtotal: subtotalUSD,
+      addedAt: Date.now()
+    };
+
+    const result = addItem(cartItem);
+    
+    if (result.success) {
+      if (result.isUpdate) {
+        // Show updated message
+        setShowUpdatedInCart(true);
+        setTimeout(() => setShowUpdatedInCart(false), 3000);
+      } else {
+        // Show added message
+        setShowAddedToCart(true);
+        setTimeout(() => setShowAddedToCart(false), 3000);
+      }
+    }
   };
 
   // Helper functions for custom dimensions
@@ -822,8 +871,42 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
             </div>
 
             {/* Design Options */}
-            <div className="space-y-6">
-              {/* Design Now */}
+            <div className="space-y-3">
+              {/* Add to Cart Button */}
+              {!showCustomPricingMessage && pricingResult && !pricingError && (
+                <div className="text-center">
+                  <button
+                    onClick={handleAddToCart}
+                    disabled={calculating || !selectedMaterial || !selectedProduct}
+                    className={`w-full font-semibold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 ${
+                      showAddedToCart
+                        ? 'bg-green-600 text-white'
+                        : showUpdatedInCart
+                        ? 'bg-blue-600 text-white'
+                        : 'bg-white border-2 border-[#0c6b76] text-[#0c6b76] hover:bg-[#0c6b76] hover:text-white'
+                    } disabled:opacity-50 disabled:cursor-not-allowed`}
+                  >
+                    {showAddedToCart ? (
+                      <>
+                        <Check className="w-5 h-5" />
+                        Added to Cart!
+                      </>
+                    ) : showUpdatedInCart ? (
+                      <>
+                        <Check className="w-5 h-5" />
+                        Updated in Cart!
+                      </>
+                    ) : (
+                      <>
+                        <ShoppingCart className="w-5 h-5" />
+                        ADD TO CART
+                      </>
+                    )}
+                  </button>
+                </div>
+              )}
+
+              {/* Order Now Button */}
               <div className="text-center">
                 <button
                   onClick={onDesignNow}

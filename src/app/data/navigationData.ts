@@ -86,12 +86,6 @@ export const navigationData: NavigationSection[] = [
     }))
   },
   {
-    name: 'Pricing',
-    slug: 'pricing',
-    hasSubcategories: false,
-    description: 'Get instant pricing for your custom packaging needs'
-  },
-  {
     name: 'Others',
     slug: 'other',
     hasSubcategories: true,

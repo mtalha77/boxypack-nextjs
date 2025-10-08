@@ -8,13 +8,16 @@ import {
   Search, 
   Menu, 
   X, 
-  Package
+  Package,
+  ShoppingCart
 } from 'lucide-react';
 import Link from 'next/link';
 import { navigationData, NavigationSection, MainCategory } from '../data/navigationData';
 import { headerConfig, getCategoryIcon, getSubcategoryIcon } from '../data/headerData';
 import SearchDropdown from './SearchDropdown';
 import EnhancedSearchDropdown from './EnhancedSearchDropdown';
+import CartDropdown from './CartDropdown';
+import { useCart } from '../contexts/CartContext';
 import { getAllSearchData, searchData, SearchResult } from '../utils/searchData';
 import { getAllEnhancedSearchData, enhancedSearch, getSearchSuggestions, EnhancedSearchResult, SearchSuggestion } from '../utils/enhancedSearchData';
 
@@ -27,6 +30,15 @@ const Header: React.FC = () => {
   const [hoveredSubcategory, setHoveredSubcategory] = useState<string | null>(null);
   const [isClosing, setIsClosing] = useState(false);
   const [mobileExpandedSections, setMobileExpandedSections] = useState<Set<string>>(new Set());
+  
+  // Cart state
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const { getItemCount } = useCart();
+  
+  // Company dropdown state
+  const [isCompanyDropdownOpen, setIsCompanyDropdownOpen] = useState(false);
+  const companyDropdownRef = useRef<HTMLDivElement>(null);
+  const companyDropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   
   // Search state
   const [searchQuery, setSearchQuery] = useState('');
@@ -92,11 +104,14 @@ const Header: React.FC = () => {
     };
   }, [searchQuery, allSearchData, allEnhancedSearchData, useEnhancedSearch]);
 
-  // Close search when clicking outside
+  // Close search and company dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (searchInputRef.current && !searchInputRef.current.contains(event.target as Node)) {
         setIsSearchOpen(false);
+      }
+      if (companyDropdownRef.current && !companyDropdownRef.current.contains(event.target as Node)) {
+        setIsCompanyDropdownOpen(false);
       }
     };
 
@@ -206,6 +221,20 @@ const Header: React.FC = () => {
     }
   };
 
+  // Company dropdown handlers with delay
+  const handleCompanyDropdownEnter = () => {
+    if (companyDropdownTimeoutRef.current) {
+      clearTimeout(companyDropdownTimeoutRef.current);
+    }
+    setIsCompanyDropdownOpen(true);
+  };
+
+  const handleCompanyDropdownLeave = () => {
+    companyDropdownTimeoutRef.current = setTimeout(() => {
+      setIsCompanyDropdownOpen(false);
+    }, 300); // 300ms delay before closing
+  };
+
 
   const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Escape') {
@@ -280,18 +309,78 @@ const Header: React.FC = () => {
           {/* Right Side - Navigation - Hidden on mobile */}
           <div className="hidden md:flex items-center space-x-6">
             {headerConfig.navigation.items.map((item) => (
-              <Link 
-                key={item.href}
-                href={item.href} 
-                className="text-gray-700 hover:text-[#0c6b76] transition-colors font-medium"
-              >
-                {item.name}
-              </Link>
+              item.hasDropdown ? (
+                <div 
+                  key={item.name} 
+                  className="relative"
+                  ref={companyDropdownRef}
+                  onMouseEnter={handleCompanyDropdownEnter}
+                  onMouseLeave={handleCompanyDropdownLeave}
+                >
+                  <button
+                    className="flex items-center gap-1 text-gray-700 hover:text-[#0c6b76] transition-colors font-medium"
+                  >
+                    {item.name}
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isCompanyDropdownOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  
+                  {/* Company Dropdown */}
+                  {isCompanyDropdownOpen && item.dropdownItems && (
+                    <div className="absolute right-0 top-full mt-1 w-48 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50">
+                      {item.dropdownItems.map((dropdownItem) => (
+                        <Link
+                          key={dropdownItem.href}
+                          href={dropdownItem.href}
+                          className="block px-4 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-[#0c6b76] transition-colors font-medium"
+                        >
+                          {dropdownItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link 
+                  key={item.href}
+                  href={item.href || '#'} 
+                  className="text-gray-700 hover:text-[#0c6b76] transition-colors font-medium"
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
+            
+            {/* Cart Icon */}
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="relative text-gray-700 hover:text-[#0c6b76] transition-colors"
+              aria-label="Shopping cart"
+            >
+              <ShoppingCart className="w-6 h-6" />
+              {getItemCount() > 0 && (
+                <span className="absolute -top-2 -right-2 bg-[#0c6b76] text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {getItemCount()}
+                </span>
+              )}
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-4">
+            {/* Mobile Cart Icon */}
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="relative text-gray-700 hover:text-[#0c6b76] transition-colors"
+              aria-label="Shopping cart"
+            >
+              <ShoppingCart className="w-6 h-6" />
+              {getItemCount() > 0 && (
+                <span className="absolute -top-2 -right-2 bg-[#0c6b76] text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {getItemCount()}
+                </span>
+              )}
+            </button>
+            
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -467,24 +556,45 @@ const Header: React.FC = () => {
                  </div>
                </div>
                
-               {/* Mobile Navigation Items */}
-               <div className="space-y-4">
-                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Pages</h3>
-                 {headerConfig.navigation.items.map((item) => (
-                   <Link 
-                     key={item.href}
-                     href={item.href} 
-                     className="block py-3 px-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-                     onClick={() => setIsMobileMenuOpen(false)}
-                   >
-                     <span className="font-semibold text-gray-900">{item.name}</span>
-                   </Link>
-                 ))}
-               </div>
+              {/* Mobile Navigation Items */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Pages</h3>
+                {headerConfig.navigation.items.map((item) => (
+                  item.hasDropdown && item.dropdownItems ? (
+                    <div key={item.name} className="space-y-2">
+                      <div className="font-semibold text-gray-900 px-4 py-2 bg-gray-100 rounded-lg">
+                        {item.name}
+                      </div>
+                      {item.dropdownItems.map((dropdownItem) => (
+                        <Link
+                          key={dropdownItem.href}
+                          href={dropdownItem.href}
+                          className="block py-2 px-6 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {dropdownItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  ) : (
+                    <Link 
+                      key={item.href}
+                      href={item.href || '#'} 
+                      className="block py-3 px-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      <span className="font-semibold text-gray-900">{item.name}</span>
+                    </Link>
+                  )
+                ))}
+              </div>
              </div>
            </div>
          </div>
        )}
+
+      {/* Cart Dropdown */}
+      <CartDropdown isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
 
       {/* Category Navigation Bar - Hidden on mobile */}
       <div className="hidden md:block white border-t border-gray-200 relative">
