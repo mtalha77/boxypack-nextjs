@@ -48,6 +48,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   } | null>(null);
   const [pricingError, setPricingError] = useState<string>('');
   const [showBreakdown, setShowBreakdown] = useState(false);
+  const [requiresCustomQuote, setRequiresCustomQuote] = useState(false);
 
   // Currency conversion state
   const [exchangeRate, setExchangeRate] = useState<number | null>(null);
@@ -182,14 +183,24 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
       if (data.success) {
         setPricingResult(data.data);
         setPricingError('');
+        setRequiresCustomQuote(false);
       } else {
-        setPricingError(data.error || 'Failed to calculate pricing');
-        setPricingResult(null);
+        // Check if it requires custom quote due to dimensions
+        if (data.requiresCustomQuote) {
+          setRequiresCustomQuote(true);
+          setPricingError('');
+          setPricingResult(null);
+        } else {
+          setPricingError(data.error || 'Failed to calculate pricing');
+          setPricingResult(null);
+          setRequiresCustomQuote(false);
+        }
       }
     } catch (error) {
       console.error('Pricing calculation error:', error);
       setPricingError('Error calculating pricing. Please try again.');
       setPricingResult(null);
+      setRequiresCustomQuote(false);
     } finally {
       setCalculating(false);
     }
@@ -200,6 +211,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
     if (quantity > 20000) {
       setShowCustomPricingMessage(true);
       setPricingResult(null);
+      setRequiresCustomQuote(false);
     } else {
       setShowCustomPricingMessage(false);
       if (selectedMaterial && selectedProduct && customLength > 0 && customWidth > 0 && customDepth > 0 && quantity > 0) {
@@ -772,6 +784,20 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                     Request Custom Quote
                   </button>
                 </div>
+              ) : requiresCustomQuote ? (
+                <div className="text-center py-8">
+                  <div className="text-4xl mb-4">📏</div>
+                  <h3 className="text-xl font-semibold text-[#0c6b76] mb-2">Custom Dimensions Detected</h3>
+                  <p className="text-gray-600 mb-4">
+                    Your calculated dimensions exceed 40 inches. We need to provide you with a custom quotation for these specifications.
+                  </p>
+                  <button
+                    onClick={() => router.push('/#request-quote-section')}
+                    className="bg-[#0c6b76] hover:bg-[#0ca6c2] text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                  >
+                    Request Custom Quote
+                  </button>
+                </div>
               ) : calculating ? (
                 <div className="text-center py-8">
                   <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0ca6c2] mx-auto mb-4"></div>
@@ -873,7 +899,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
             {/* Design Options */}
             <div className="space-y-3">
               {/* Add to Cart Button */}
-              {!showCustomPricingMessage && pricingResult && !pricingError && (
+              {!showCustomPricingMessage && !requiresCustomQuote && pricingResult && !pricingError && (
                 <div className="text-center">
                   <button
                     onClick={handleAddToCart}

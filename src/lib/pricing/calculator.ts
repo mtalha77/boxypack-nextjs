@@ -143,6 +143,11 @@ export class PricingCalculator {
       (height * widthFormula.heightMultiplier) + 
       widthFormula.additionalInches;
 
+    // Check if calculated dimensions exceed 40 inches
+    if (this.calculatedLength > 40 || this.calculatedWidth > 40) {
+      throw new Error('DIMENSIONS_EXCEED_LIMIT');
+    }
+
     // Step 2: Get GSM from table based on PT only
     const gsmEntry = gsmTable.find(entry => entry.pt === pt);
     if (!gsmEntry) {
@@ -213,7 +218,7 @@ export class PricingCalculator {
     // Find matching range based on largest dimension
     const largestDimension = Math.max(this.calculatedLength, this.calculatedWidth);
     const matchedRange = ranges.find(range => 
-      largestDimension >= range.lengthMin && largestDimension <= range.lengthMax
+      largestDimension >= range.dimensionMin && largestDimension <= range.dimensionMax
     );
 
     const baseCost = matchedRange ? matchedRange.costs[printing] : 0;
@@ -247,7 +252,7 @@ export class PricingCalculator {
     // Find matching range based on largest dimension
     const largestDimension = Math.max(this.calculatedLength, this.calculatedWidth);
     const matchedRange = ranges.find(range => 
-      largestDimension >= range.lengthMin && largestDimension <= range.lengthMax
+      largestDimension >= range.dimensionMin && largestDimension <= range.dimensionMax
     );
 
     const baseCost = matchedRange ? matchedRange.costs[printing] : 0;
@@ -525,7 +530,22 @@ export class PricingCalculator {
     const singleUnitWeight = (this.weightOf100Units * multiplier) / divisor;
     
     // Calculate total weight
-    const totalWeight = singleUnitWeight * requiredUnits;
+    let totalWeight = singleUnitWeight * requiredUnits;
+    
+    // Check if two-piece box is enabled (this controls both multipliers)
+    const twoPieceBoxEnabled = this.formula.twoPieceBox?.enabled || false;
+    const twoPieceBoxMultiplier = this.formula.twoPieceBox?.multiplier || 2;
+    
+    // Apply both-side printing multiplier if two-piece box is enabled AND user selected both-side printing
+    const isBothSidePrinting = this.request.printing === 'bothSide';
+    if (twoPieceBoxEnabled && isBothSidePrinting) {
+      totalWeight = totalWeight * 2;
+    }
+    
+    // Apply two-piece box multiplier if enabled
+    if (twoPieceBoxEnabled) {
+      totalWeight = totalWeight * twoPieceBoxMultiplier;
+    }
 
     // Find matching shipping tier
     const matchedTier = shippingTiers.find(tier => 
@@ -540,11 +560,11 @@ export class PricingCalculator {
       shippingCost = matchedTier.cost;
       tierMatched = `${matchedTier.minWeight}-${matchedTier.maxWeight} kg`;
     } else {
-      // For weights over 70kg, calculate cost per kg
-      // Last tier has the per-kg rate (default: 2250 per kg)
-      const perKgRate = shippingTiers[shippingTiers.length - 1].cost;
-      shippingCost = totalWeight * perKgRate;
-      tierMatched = `70+ kg (${totalWeight} kg × $${perKgRate}/kg)`;
+      // For weights over 70kg, calculate: 183454 + (weight × 2250)
+      const baseCost = 183454;
+      const perKgRate = 2250;
+      shippingCost = baseCost + (totalWeight * perKgRate);
+      tierMatched = `70+ kg (${baseCost.toFixed(0)} + ${totalWeight.toFixed(2)} kg × $${perKgRate}/kg)`;
     }
 
     const calculations: ShippingCostCalculation = {
@@ -555,14 +575,28 @@ export class PricingCalculator {
       requiredUnits,
       totalWeight: this.roundTo2(totalWeight),
       tierMatched,
-      shippingCost
+      shippingCost,
+      bothSidePrintingMultiplierApplied: twoPieceBoxEnabled && isBothSidePrinting,
+      twoPieceBoxMultiplierApplied: twoPieceBoxEnabled,
+      twoPieceBoxMultiplierValue: twoPieceBoxEnabled ? twoPieceBoxMultiplier : undefined
     };
+
+    // Build formula string
+    let formulaStr = `Weight per unit: (k × ${multiplier}) / ${divisor}`;
+    if (twoPieceBoxEnabled && isBothSidePrinting) {
+      formulaStr += ` × 2 (Both-Side Printing)`;
+    }
+    if (twoPieceBoxEnabled) {
+      formulaStr += ` × ${twoPieceBoxMultiplier} (Two-Piece Box)`;
+    }
+    formulaStr += `, then match to shipping tier or calculate per-kg for 70+ kg`;
+    const formula = formulaStr;
 
     return {
       sectionNumber: 12,
       sectionName: "Shipping Cost",
       description: "Shipping cost based on total weight (over 70kg: per-kg rate)",
-      formula: `Weight per unit: (k × ${multiplier}) / ${divisor}, then match to shipping tier or calculate per-kg for 70+ kg`,
+      formula,
       calculations: calculations as unknown as Record<string, unknown>,
       cost: this.roundTo2(shippingCost)
     };

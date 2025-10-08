@@ -20,10 +20,8 @@ export default function PrintingCostEditor({ formula, onUpdate }: Props) {
   const addRange = () => {
     handleUpdate([...ranges, {
       name: `Range ${ranges.length + 1}`,
-      lengthMin: 0,
-      lengthMax: 10,
-      widthMin: 0,
-      widthMax: 10,
+      dimensionMin: 0,
+      dimensionMax: 10,
       costs: { outside: 3000, inside: 3000, bothSide: 6000, none: 0 }
     }]);
   };
@@ -56,11 +54,11 @@ export default function PrintingCostEditor({ formula, onUpdate }: Props) {
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
         <h4 className="font-semibold text-blue-900 mb-2">How it works:</h4>
         <p className="text-blue-800 text-sm mb-2">
-          Printing cost is determined by checking which range the calculated dimensions fall into,
+          Printing cost is determined by checking which range the <strong>larger dimension</strong> falls into,
           then applying the 1000-unit multiplier rule:
         </p>
         <ul className="text-blue-800 text-sm ml-4 list-disc space-y-1">
-          <li>Find the matching range based on length AND width</li>
+          <li>Find the matching range based on the larger dimension</li>
           <li>Get base cost for selected printing type</li>
           <li>Multiply by ceil(Units / 1000)</li>
         </ul>
@@ -104,15 +102,15 @@ export default function PrintingCostEditor({ formula, onUpdate }: Props) {
               </button>
             </div>
 
-            {/* Dimension Ranges */}
-            <div className="grid grid-cols-2 gap-4 mb-4">
+            {/* Dimension Range */}
+            <div className="mb-4">
               <div className="bg-gray-50 rounded p-3">
-                <p className="text-sm font-medium text-gray-700 mb-2">Length Range</p>
+                <p className="text-sm font-medium text-gray-700 mb-2">Dimension Range (applies to larger dimension)</p>
                 <div className="flex items-center gap-2">
                   <input
                     type="number"
-                    value={range.lengthMin}
-                    onChange={(e) => updateRange(index, 'lengthMin', Number(e.target.value))}
+                    value={range.dimensionMin}
+                    onChange={(e) => updateRange(index, 'dimensionMin', Number(e.target.value))}
                     step="0.1"
                     className="flex-1 px-3 py-2 border rounded text-sm"
                     placeholder="Min"
@@ -120,31 +118,8 @@ export default function PrintingCostEditor({ formula, onUpdate }: Props) {
                   <span className="text-gray-500">to</span>
                   <input
                     type="number"
-                    value={range.lengthMax}
-                    onChange={(e) => updateRange(index, 'lengthMax', Number(e.target.value))}
-                    step="0.1"
-                    className="flex-1 px-3 py-2 border rounded text-sm"
-                    placeholder="Max"
-                  />
-                </div>
-              </div>
-
-              <div className="bg-gray-50 rounded p-3">
-                <p className="text-sm font-medium text-gray-700 mb-2">Width Range</p>
-                <div className="flex items-center gap-2">
-                  <input
-                    type="number"
-                    value={range.widthMin}
-                    onChange={(e) => updateRange(index, 'widthMin', Number(e.target.value))}
-                    step="0.1"
-                    className="flex-1 px-3 py-2 border rounded text-sm"
-                    placeholder="Min"
-                  />
-                  <span className="text-gray-500">to</span>
-                  <input
-                    type="number"
-                    value={range.widthMax}
-                    onChange={(e) => updateRange(index, 'widthMax', Number(e.target.value))}
+                    value={range.dimensionMax}
+                    onChange={(e) => updateRange(index, 'dimensionMax', Number(e.target.value))}
                     step="0.1"
                     className="flex-1 px-3 py-2 border rounded text-sm"
                     placeholder="Max"

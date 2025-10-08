@@ -74,11 +74,9 @@ export interface PlatesCostFormula {
 
 export interface PlatesCostRange {
   id?: string;                     // For UI tracking
-  name: string;                    // e.g., "Small", "Medium", "Large"
-  lengthMin: number;
-  lengthMax: number;
-  widthMin: number;
-  widthMax: number;
+  name: string;                    // e.g., "0-18", "18-25", "25-30", "30-40"
+  dimensionMin: number;            // Minimum dimension (applies to bigger dimension)
+  dimensionMax: number;            // Maximum dimension (applies to bigger dimension)
   costs: {
     outside: number;
     inside: number;
@@ -97,11 +95,9 @@ export interface PrintingCostFormula {
 
 export interface PrintingCostRange {
   id?: string;                     // For UI tracking
-  name: string;
-  lengthMin: number;
-  lengthMax: number;
-  widthMin: number;
-  widthMax: number;
+  name: string;                    // e.g., "0-18", "18-25", "25-30", "30-40"
+  dimensionMin: number;            // Minimum dimension (applies to bigger dimension)
+  dimensionMax: number;            // Maximum dimension (applies to bigger dimension)
   costs: {
     outside: number;
     inside: number;
@@ -191,7 +187,6 @@ export interface ShippingCostFormula {
     divisor: number;               // Default: 100
   };
   shippingTiers: ShippingTier[];
-  applyBothSidePrintingMultiplier?: boolean;  // Optional property for admin UI
 }
 
 export interface ShippingTier {
@@ -365,6 +360,9 @@ export interface ShippingCostCalculation {
   totalWeight: number;
   tierMatched: string;
   shippingCost: number;
+  bothSidePrintingMultiplierApplied?: boolean;
+  twoPieceBoxMultiplierApplied?: boolean;
+  twoPieceBoxMultiplierValue?: number;
 }
 
 export interface CostMarginCalculation {
@@ -407,35 +405,27 @@ export const DEFAULT_MATERIAL_COST: MaterialCostFormula = {
 export const DEFAULT_PLATES_COST: PlatesCostFormula = {
   ranges: [
     {
-      name: "Small",
-      lengthMin: 0.1,
-      lengthMax: 12.5,
-      widthMin: 0.1,
-      widthMax: 12.5,
-      costs: { outside: 1200, inside: 1200, bothSide: 2400, none: 0 }
-    },
-    {
-      name: "Medium",
-      lengthMin: 12.6,
-      lengthMax: 18,
-      widthMin: 12.6,
-      widthMax: 18,
+      name: "0-18",
+      dimensionMin: 0,
+      dimensionMax: 18,
       costs: { outside: 2400, inside: 2400, bothSide: 4800, none: 0 }
     },
     {
-      name: "Large",
-      lengthMin: 18.1,
-      lengthMax: 25,
-      widthMin: 18.1,
-      widthMax: 25,
+      name: "18.1-25",
+      dimensionMin: 18.1,
+      dimensionMax: 25,
       costs: { outside: 5000, inside: 5000, bothSide: 10000, none: 0 }
     },
     {
-      name: "Extra Large",
-      lengthMin: 25.1,
-      lengthMax: 40,
-      widthMin: 25.1,
-      widthMax: 40,
+      name: "25.1-30",
+      dimensionMin: 25.1,
+      dimensionMax: 30,
+      costs: { outside: 6500, inside: 6500, bothSide: 13000, none: 0 }
+    },
+    {
+      name: "30.1-40",
+      dimensionMin: 30.1,
+      dimensionMax: 40,
       costs: { outside: 8000, inside: 8000, bothSide: 16000, none: 0 }
     }
   ]
@@ -444,35 +434,27 @@ export const DEFAULT_PLATES_COST: PlatesCostFormula = {
 export const DEFAULT_PRINTING_COST: PrintingCostFormula = {
   ranges: [
     {
-      name: "Small",
-      lengthMin: 0.1,
-      lengthMax: 12.5,
-      widthMin: 0.1,
-      widthMax: 12.5,
-      costs: { outside: 3500, inside: 3500, bothSide: 7000, none: 0 }
-    },
-    {
-      name: "Medium",
-      lengthMin: 12.6,
-      lengthMax: 18,
-      widthMin: 12.6,
-      widthMax: 18,
+      name: "0-18",
+      dimensionMin: 0,
+      dimensionMax: 18,
       costs: { outside: 6000, inside: 6000, bothSide: 12000, none: 0 }
     },
     {
-      name: "Large",
-      lengthMin: 18.1,
-      lengthMax: 25,
-      widthMin: 18.1,
-      widthMax: 25,
+      name: "18.1-25",
+      dimensionMin: 18.1,
+      dimensionMax: 25,
       costs: { outside: 8000, inside: 8000, bothSide: 16000, none: 0 }
     },
     {
-      name: "Extra Large",
-      lengthMin: 25.1,
-      lengthMax: 40,
-      widthMin: 25.1,
-      widthMax: 40,
+      name: "25.1-30",
+      dimensionMin: 25.1,
+      dimensionMax: 30,
+      costs: { outside: 9000, inside: 9000, bothSide: 18000, none: 0 }
+    },
+    {
+      name: "30.1-40",
+      dimensionMin: 30.1,
+      dimensionMax: 40,
       costs: { outside: 10000, inside: 10000, bothSide: 20000, none: 0 }
     }
   ]

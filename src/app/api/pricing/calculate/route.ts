@@ -80,6 +80,16 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('Pricing calculation API error:', error);
+    
+    // Check if dimensions exceed limit
+    if (error instanceof Error && error.message === 'DIMENSIONS_EXCEED_LIMIT') {
+      return NextResponse.json({
+        success: false,
+        requiresCustomQuote: true,
+        error: 'Calculated dimensions exceed 40 inches. Please contact us for a custom quotation.'
+      }, { status: 400 });
+    }
+    
     return NextResponse.json({
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error occurred'

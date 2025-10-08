@@ -81,6 +81,34 @@ export default function PricingFormulasPage() {
     }
   };
 
+  // Handle cost values migration
+  const handleCostValuesMigration = async () => {
+    if (!confirm('This will update Plates & Printing cost values for all products.\n\nPlates Costs:\n• 0-18: $1,200\n• 18.1-25: $2,400\n• 25.1-30: $5,000\n• 30.1-40: $8,000\n\nPrinting Costs:\n• 0-18: $3,500\n• 18.1-25: $6,000\n• 25.1-30: $8,000\n• 30.1-40: $10,000\n\nContinue?')) {
+      return;
+    }
+
+    try {
+      setLoading(true);
+      const response = await fetch('/api/admin/migrate-pricing-values', {
+        method: 'POST'
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        alert(`Cost values migration completed!\n\nUpdated: ${data.summary.updated}\nSkipped: ${data.summary.skipped}\nFailed: ${data.summary.failed}`);
+        fetchFormulas();
+      } else {
+        alert(`Migration failed: ${data.error}`);
+      }
+    } catch (error) {
+      console.error('Error running migration:', error);
+      alert('Error running migration');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 py-8 text-gray-900 admin-page">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
