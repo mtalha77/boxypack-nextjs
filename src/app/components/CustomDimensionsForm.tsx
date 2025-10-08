@@ -787,9 +787,8 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
               ) : requiresCustomQuote ? (
                 <div className="text-center py-8">
                   <div className="text-4xl mb-4">📏</div>
-                  <h3 className="text-xl font-semibold text-[#0c6b76] mb-2">Custom Dimensions Detected</h3>
                   <p className="text-gray-600 mb-4">
-                    Your calculated dimensions exceed 40 inches. We need to provide you with a custom quotation for these specifications.
+                    We need to provide you with a custom quotation for these specifications.
                   </p>
                   <button
                     onClick={() => router.push('/#request-quote-section')}
