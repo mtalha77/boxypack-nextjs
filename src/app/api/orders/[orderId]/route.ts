@@ -4,12 +4,13 @@ import { ObjectId } from 'mongodb';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { orderId: string } }
+  { params }: { params: Promise<{ orderId: string }> }
 ) {
   try {
+    const { orderId } = await params;
     const ordersCollection = await getCollection('Orders');
     const order = await ordersCollection.findOne({
-      _id: new ObjectId(params.orderId)
+      _id: new ObjectId(orderId)
     });
 
     if (!order) {
@@ -34,9 +35,10 @@ export async function GET(
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { orderId: string } }
+  { params }: { params: Promise<{ orderId: string }> }
 ) {
   try {
+    const { orderId } = await params;
     const body = await request.json();
     const ordersCollection = await getCollection('Orders');
 
@@ -68,7 +70,7 @@ export async function PATCH(
     }
 
     const result = await ordersCollection.updateOne(
-      { _id: new ObjectId(params.orderId) },
+      { _id: new ObjectId(orderId) },
       { $set: updateData }
     );
 
