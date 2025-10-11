@@ -24,7 +24,20 @@ export async function POST(request: NextRequest) {
         country: body.country,
       },
       
-      items: body.items.map((item: any) => ({
+      items: body.items.map((item: {
+        productName: string;
+        productSlug: string;
+        material: string;
+        length: number;
+        width: number;
+        height: number;
+        pt: string;
+        printedSides: string;
+        lamination: string;
+        quantity: number;
+        unitPrice: number;
+        subtotal: number;
+      }) => ({
         productName: item.productName,
         productSlug: item.productSlug,
         material: item.material,

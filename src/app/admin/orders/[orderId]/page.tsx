@@ -199,7 +199,7 @@ export default function OrderDetailPage() {
                           <div className="mt-2 grid grid-cols-2 gap-2 text-sm text-gray-600">
                             <div><span className="font-medium">Material:</span> {item.material}</div>
                             <div><span className="font-medium">PT:</span> {item.pt}</div>
-                            <div><span className="font-medium">Dimensions:</span> {item.dimensions.length}" × {item.dimensions.width}" × {item.dimensions.height}"</div>
+                            <div><span className="font-medium">Dimensions:</span> {item.dimensions.length}&quot; × {item.dimensions.width}&quot; × {item.dimensions.height}&quot;</div>
                             <div><span className="font-medium">Printing:</span> {item.printedSides}</div>
                             <div><span className="font-medium">Lamination:</span> {item.lamination}</div>
                             <div><span className="font-medium">Quantity:</span> {item.quantity} units</div>

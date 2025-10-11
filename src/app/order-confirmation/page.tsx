@@ -9,7 +9,35 @@ export default function OrderConfirmationPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { clearCart } = useCart();
-  const [orderData, setOrderData] = useState<any>(null);
+  const [orderData, setOrderData] = useState<{
+    orderNumber: string;
+    orderDate: string;
+    email: string;
+    phone: string;
+    fullName: string;
+    companyName?: string;
+    shippingAddress: string;
+    city: string;
+    state: string;
+    zipCode: string;
+    country: string;
+    items: Array<{
+      productName: string;
+      material: string;
+      length: number;
+      width: number;
+      height: number;
+      pt: string;
+      printedSides: string;
+      lamination: string;
+      quantity: number;
+      unitPrice: number;
+      subtotal: number;
+    }>;
+    designFiles?: string[];
+    additionalNotes?: string;
+    totalAmount: number;
+  } | null>(null);
   const [orderNumber, setOrderNumber] = useState('');
 
   useEffect(() => {
@@ -62,7 +90,7 @@ export default function OrderConfirmationPage() {
                     Confirmation Email Sent
                   </h3>
                   <p className="text-gray-600 mb-3">
-                    We've sent a confirmation email to <span className="font-semibold text-[#0c6b76]">{orderData.email}</span> with your order details. 
+                    We&apos;ve sent a confirmation email to <span className="font-semibold text-[#0c6b76]">{orderData.email}</span> with your order details. 
                     Our team will review your order and contact you within 24 hours to confirm production details and finalize shipping arrangements.
                   </p>
                   <p className="text-gray-600">
@@ -149,7 +177,7 @@ export default function OrderConfirmationPage() {
                 Order Items
               </h2>
               <div className="space-y-4">
-                {orderData.items.map((item: any, index: number) => (
+                {orderData.items.map((item, index: number) => (
                   <div key={index} className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                     <div className="flex justify-between items-start mb-2">
                       <div className="flex-1">
@@ -161,7 +189,7 @@ export default function OrderConfirmationPage() {
                           </div>
                           <div className="flex items-center gap-2 text-sm text-gray-600">
                             <span className="font-medium">Dimensions:</span>
-                            <span>{item.length}" × {item.width}" × {item.height}"</span>
+                            <span>{item.length}&quot; × {item.width}&quot; × {item.height}&quot;</span>
                           </div>
                           <div className="flex items-center gap-2 text-sm text-gray-600">
                             <span className="font-medium">Paper Thickness:</span>
@@ -258,13 +286,13 @@ export default function OrderConfirmationPage() {
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 w-6 h-6 bg-[#0c6b76] text-white rounded-full flex items-center justify-center text-sm font-semibold">2</span>
                   <p className="text-gray-700 pt-0.5">
-                    You'll receive a detailed invoice via email for your records
+                    You&apos;ll receive a detailed invoice via email for your records
                   </p>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 w-6 h-6 bg-[#0c6b76] text-white rounded-full flex items-center justify-center text-sm font-semibold">3</span>
                   <p className="text-gray-700 pt-0.5">
-                    We'll send you a production proof for approval before manufacturing
+                    We&apos;ll send you a production proof for approval before manufacturing
                   </p>
                 </li>
                 <li className="flex items-start gap-3">
@@ -276,7 +304,7 @@ export default function OrderConfirmationPage() {
                 <li className="flex items-start gap-3">
                   <span className="flex-shrink-0 w-6 h-6 bg-[#0c6b76] text-white rounded-full flex items-center justify-center text-sm font-semibold">5</span>
                   <p className="text-gray-700 pt-0.5">
-                    You'll receive tracking information once your order ships
+                    You&apos;ll receive tracking information once your order ships
                   </p>
                 </li>
               </ol>

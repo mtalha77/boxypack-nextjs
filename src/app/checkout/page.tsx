@@ -385,7 +385,7 @@ export default function CheckoutPage() {
                       <div className="flex-1">
                         <h3 className="font-semibold text-gray-900 text-sm">{item.productName}</h3>
                         <p className="text-xs text-gray-600 mt-1">
-                          {item.material} • {item.length}" × {item.width}" × {item.height}"
+                          {item.material} • {item.length}&quot; × {item.width}&quot; × {item.height}&quot;
                         </p>
                         <p className="text-xs text-gray-600">
                           PT: {item.pt} • {item.printedSides} • {item.lamination}
