@@ -1,6 +1,7 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useCart } from '../contexts/CartContext';
 import { X, ShoppingCart, Trash2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
@@ -14,6 +15,20 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) => {
   const { items, removeItem, updateQuantity, getTotalPrice, clearCart } = useCart();
   const router = useRouter();
 
+  // Lock body scroll when cart is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   const handleCheckout = () => {
@@ -26,16 +41,21 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) => {
     onClose();
   };
 
-  return (
-    <div className="fixed inset-0 z-50 overflow-hidden">
-      {/* Backdrop */}
+  // Use portal to render outside normal DOM flow
+  const cartContent = (
+    <>
+      {/* Clickable backdrop area - only on the left side */}
       <div
-        className="absolute inset-0 bg-black bg-opacity-30 transition-opacity"
+        className="fixed left-0 top-0 h-full w-full sm:w-auto sm:right-96 sm:left-0"
+        style={{ zIndex: 9998 }}
         onClick={onClose}
       />
 
-      {/* Cart Dropdown */}
-      <div className="absolute right-0 top-0 h-full w-full md:w-96 bg-white shadow-2xl flex flex-col">
+      {/* Cart Dropdown - Slides in from right */}
+      <div 
+        className="fixed right-0 top-0 h-full w-full sm:w-96 bg-white shadow-2xl flex flex-col transform transition-transform"
+        style={{ zIndex: 9999 }}
+      >
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-200">
           <div className="flex items-center gap-2">
@@ -175,8 +195,11 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) => {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
+
+  // Render using portal to document.body
+  return createPortal(cartContent, document.body);
 };
 
 export default CartDropdown;
