@@ -17,21 +17,25 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   const handleCheckout = () => {
-    // Navigate to contact form or checkout page
+    router.push('/checkout');
+    onClose();
+  };
+
+  const handleRequestQuote = () => {
     router.push('/#request-quote-section');
     onClose();
   };
 
   return (
-    <>
+    <div className="fixed inset-0 z-50 overflow-hidden">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black bg-opacity-30 z-40"
+        className="absolute inset-0 bg-black bg-opacity-30 transition-opacity"
         onClick={onClose}
       />
 
       {/* Cart Dropdown */}
-      <div className="fixed right-0 top-0 h-full w-full md:w-96 bg-white shadow-2xl z-50 flex flex-col">
+      <div className="absolute right-0 top-0 h-full w-full md:w-96 bg-white shadow-2xl flex flex-col">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-200">
           <div className="flex items-center gap-2">
@@ -148,7 +152,7 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) => {
                 Checkout Now
               </button>
               <button
-                onClick={handleCheckout}
+                onClick={handleRequestQuote}
                 className="w-full bg-[#0c6b76] hover:bg-[#0ca6c2] text-white font-medium py-3 px-4 rounded-lg transition-colors"
               >
                 Request Quote
@@ -171,7 +175,7 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) => {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 
