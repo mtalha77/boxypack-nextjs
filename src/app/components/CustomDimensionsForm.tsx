@@ -173,6 +173,14 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
     setPricingError('');
 
     try {
+      // For rigid boxes, treat 'matt' as 'glossy' for pricing calculation (same pricing)
+      let calculationLamination = lamination;
+      if (selectedMaterial === 'kraft-boxes') {
+        calculationLamination = 'none';
+      } else if (selectedMaterial === 'rigid-boxes' && lamination === 'matt') {
+        calculationLamination = 'glossy';
+      }
+
       const response = await fetch('/api/pricing/calculate', {
         method: 'POST',
         headers: {
@@ -186,7 +194,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
           pt: pt,
           requiredUnits: quantity,
           printing: printedSides,
-          lamination: selectedMaterial === 'kraft-boxes' ? 'none' : lamination
+          lamination: calculationLamination
         })
       });
 

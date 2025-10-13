@@ -1,6 +1,6 @@
 /**
  * Rigid Pricing Calculator Engine
- * Implements all 8 sections of the Rigid pricing calculation
+ * Implements all 9 sections of the Rigid pricing calculation
  * Separate from standard calculator for different formula logic
  */
 
@@ -10,6 +10,7 @@ import {
   RigidPricingCalculationResult,
   RigidSectionBreakdown,
   RigidMaterialCostCalculation,
+  RigidPlatesCostCalculation,
   RigidPrintingCostCalculation,
   RigidLaminationCostCalculation,
   RigidMakingCostCalculation,
@@ -39,7 +40,7 @@ export class RigidPricingCalculator {
   }
 
   /**
-   * Main calculation method - calculates all 8 sections
+   * Main calculation method - calculates all 9 sections
    */
   calculate(): RigidPricingCalculationResult {
     const breakdown: RigidSectionBreakdown[] = [];
@@ -54,32 +55,37 @@ export class RigidPricingCalculator {
     breakdown.push(scanningCost);
     this.sectionCosts.push(scanningCost.cost);
 
-    // Section 3: Printing Cost
+    // Section 3: Plates Cost
+    const platesCost = this.calculatePlatesCost();
+    breakdown.push(platesCost);
+    this.sectionCosts.push(platesCost.cost);
+
+    // Section 4: Printing Cost
     const printingCost = this.calculatePrintingCost();
     breakdown.push(printingCost);
     this.sectionCosts.push(printingCost.cost);
 
-    // Section 4: Lamination Cost
+    // Section 5: Lamination Cost
     const laminationCost = this.calculateLaminationCost();
     breakdown.push(laminationCost);
     this.sectionCosts.push(laminationCost.cost);
 
-    // Section 5: Making Cost
+    // Section 6: Making Cost
     const makingCost = this.calculateMakingCost();
     breakdown.push(makingCost);
     this.sectionCosts.push(makingCost.cost);
 
-    // Section 6: Vendor Percentage
+    // Section 7: Vendor Percentage
     const vendorPercentage = this.calculateVendorPercentage();
     breakdown.push(vendorPercentage);
     this.sectionCosts.push(vendorPercentage.cost);
 
-    // Section 7: Shipping Cost
+    // Section 8: Shipping Cost
     const shippingCost = this.calculateShippingCost();
     breakdown.push(shippingCost);
     this.sectionCosts.push(shippingCost.cost);
 
-    // Section 8: Margin Cost
+    // Section 9: Margin Cost
     const marginCost = this.calculateMarginCost();
     breakdown.push(marginCost);
     this.sectionCosts.push(marginCost.cost);
@@ -94,7 +100,7 @@ export class RigidPricingCalculator {
       breakdown,
       summary: {
         subtotal: this.roundTo2(subtotal),
-        totalSections: 8,
+        totalSections: 9,
         pricePerUnit: this.roundTo2(pricePerUnit)
       }
     };
@@ -230,7 +236,49 @@ export class RigidPricingCalculator {
   }
 
   /**
-   * SECTION 3: Printing Cost (Based on Paper dimensions, ×4)
+   * SECTION 3: Plates Cost (Based on Paper dimensions, ×2)
+   */
+  private calculatePlatesCost(): RigidSectionBreakdown {
+    const { ranges, multiplier } = this.formula.platesCost;
+
+    // Get largest dimension from Paper 1 or Paper 2
+    const largestDimension = Math.max(
+      this.paper1Length, this.paper1Width,
+      this.paper2Length, this.paper2Width
+    );
+
+    // Find matching range
+    const matchedRange = ranges.find(range => 
+      largestDimension >= range.dimensionMin && largestDimension <= range.dimensionMax
+    );
+
+    const baseCost = matchedRange ? matchedRange.cost : 0;
+    const finalCost = baseCost * multiplier;
+
+    const calculations: RigidPlatesCostCalculation = {
+      paper1Length: this.roundTo2(this.paper1Length),
+      paper1Width: this.roundTo2(this.paper1Width),
+      paper2Length: this.roundTo2(this.paper2Length),
+      paper2Width: this.roundTo2(this.paper2Width),
+      largestDimension: this.roundTo2(largestDimension),
+      rangeMatched: matchedRange?.name || null,
+      baseCost,
+      multiplier,
+      finalCost
+    };
+
+    return {
+      sectionNumber: 3,
+      sectionName: "Plates Cost",
+      description: `Plates cost based on largest paper dimension (×${multiplier})`,
+      formula: `Base Cost × ${multiplier}`,
+      calculations: calculations as unknown as Record<string, unknown>,
+      cost: this.roundTo2(finalCost)
+    };
+  }
+
+  /**
+   * SECTION 4: Printing Cost (Based on Paper dimensions, ×4)
    */
   private calculatePrintingCost(): RigidSectionBreakdown {
     const { ranges, sheetsMultiplier } = this.formula.printingCost;
@@ -262,7 +310,7 @@ export class RigidPricingCalculator {
     };
 
     return {
-      sectionNumber: 3,
+      sectionNumber: 4,
       sectionName: "Printing Cost",
       description: `Printing cost based on largest paper dimension (×${sheetsMultiplier})`,
       formula: `Base Cost × ${sheetsMultiplier}`,
@@ -272,7 +320,7 @@ export class RigidPricingCalculator {
   }
 
   /**
-   * SECTION 4: Lamination Cost (Based on Paper dimensions, ×4)
+   * SECTION 5: Lamination Cost (Based on Paper dimensions, ×4)
    */
   private calculateLaminationCost(): RigidSectionBreakdown {
     const { lamination, requiredUnits } = this.request;
@@ -280,7 +328,7 @@ export class RigidPricingCalculator {
 
     if (!enabled) {
       return {
-        sectionNumber: 4,
+        sectionNumber: 5,
         sectionName: "Lamination Cost",
         description: "Lamination is disabled for this product",
         formula: "Disabled",
@@ -291,7 +339,7 @@ export class RigidPricingCalculator {
 
     if (lamination === 'none') {
       return {
-        sectionNumber: 4,
+        sectionNumber: 5,
         sectionName: "Lamination Cost",
         description: "No lamination selected",
         formula: "None",
@@ -328,7 +376,7 @@ export class RigidPricingCalculator {
     };
 
     return {
-      sectionNumber: 4,
+      sectionNumber: 5,
       sectionName: "Lamination Cost",
       description: `${lamination} lamination (×${sheetsMultiplier} sheets)`,
       formula: `(Length × Width / ${divisor}) × ${rate} × Units × ${sheetsMultiplier}`,
@@ -364,7 +412,7 @@ export class RigidPricingCalculator {
     };
 
     return {
-      sectionNumber: 5,
+      sectionNumber: 6,
       sectionName: "Making Cost",
       description: `Assembly cost per unit (Tier: ${tierMatched})`,
       formula: `${costPerUnit} PKR per unit × ${requiredUnits} units`,
@@ -391,7 +439,7 @@ export class RigidPricingCalculator {
     };
 
     return {
-      sectionNumber: 6,
+      sectionNumber: 7,
       sectionName: "Vendor Percentage",
       description: `${percentage}% vendor markup`,
       formula: `Sum(Sections 1-5) × ${percentage}%`,
@@ -456,7 +504,7 @@ export class RigidPricingCalculator {
     };
 
     return {
-      sectionNumber: 7,
+      sectionNumber: 8,
       sectionName: "Shipping Cost",
       description: "Shipping cost based on volumetric weight calculation",
       formula: `Weight(kg) = ((lengthCm × requiredUnitsCalc) × (widthCm × temp) × (heightCm × temp2)) / 5000`,
@@ -483,7 +531,7 @@ export class RigidPricingCalculator {
     };
 
     return {
-      sectionNumber: 8,
+      sectionNumber: 9,
       sectionName: "Margin Cost",
       description: `${percentage}% profit margin`,
       formula: `Sum(Sections 1-7) × ${percentage}%`,

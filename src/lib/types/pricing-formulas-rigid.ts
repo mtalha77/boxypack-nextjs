@@ -108,7 +108,24 @@ export interface RigidScanningCostFormula {
 }
 
 // ============================================================================
-// SECTION 3: PRINTING COST (RIGID)
+// SECTION 3: PLATES COST (RIGID)
+// ============================================================================
+
+export interface RigidPlatesCostFormula {
+  ranges: RigidPlatesCostRange[];
+  multiplier: number;  // Default: 2 (multiply cost by 2)
+}
+
+export interface RigidPlatesCostRange {
+  id?: string;
+  name: string;  // e.g., "0-18", "18-25", etc.
+  dimensionMin: number;
+  dimensionMax: number;
+  cost: number;  // Base cost before multiplying by 2
+}
+
+// ============================================================================
+// SECTION 4: PRINTING COST (RIGID)
 // ============================================================================
 
 export interface RigidPrintingCostFormula {
@@ -125,7 +142,7 @@ export interface RigidPrintingCostRange {
 }
 
 // ============================================================================
-// SECTION 4: LAMINATION COST (RIGID)
+// SECTION 5: LAMINATION COST (RIGID)
 // ============================================================================
 
 export interface RigidLaminationCostFormula {
@@ -141,7 +158,7 @@ export interface RigidLaminationCostFormula {
 }
 
 // ============================================================================
-// SECTION 5: MAKING COST
+// SECTION 6: MAKING COST
 // ============================================================================
 
 export interface RigidMakingCostFormula {
@@ -155,7 +172,7 @@ export interface RigidMakingCostTier {
 }
 
 // ============================================================================
-// SECTION 6: VENDOR PERCENTAGE
+// SECTION 7: VENDOR PERCENTAGE
 // ============================================================================
 
 export interface RigidVendorPercentageFormula {
@@ -163,7 +180,7 @@ export interface RigidVendorPercentageFormula {
 }
 
 // ============================================================================
-// SECTION 7: SHIPPING COST (RIGID)
+// SECTION 8: SHIPPING COST (RIGID)
 // ============================================================================
 
 export interface RigidShippingCostFormula {
@@ -179,7 +196,7 @@ export interface ShippingTier {
 }
 
 // ============================================================================
-// SECTION 8: MARGIN COST
+// SECTION 9: MARGIN COST
 // ============================================================================
 
 export interface RigidMarginCostFormula {
@@ -198,9 +215,10 @@ export interface RigidProductPricingFormula {
   subcategory?: string;
   formulaType: 'rigid';  // Distinguishes from standard formulas
   
-  // All 8 sections
+  // All 9 sections
   materialCost: RigidMaterialCostFormula;
   scanningCost: RigidScanningCostFormula;
+  platesCost: RigidPlatesCostFormula;
   printingCost: RigidPrintingCostFormula;
   laminationCost: RigidLaminationCostFormula;
   makingCost: RigidMakingCostFormula;
@@ -276,6 +294,18 @@ export interface RigidMaterialCostCalculation {
   finalCost: number;
 }
 
+export interface RigidPlatesCostCalculation {
+  paper1Length: number;
+  paper1Width: number;
+  paper2Length: number;
+  paper2Width: number;
+  largestDimension: number;
+  rangeMatched: string | null;
+  baseCost: number;
+  multiplier: number;
+  finalCost: number;
+}
+
 export interface RigidPrintingCostCalculation {
   paper1Length: number;
   paper1Width: number;
@@ -343,6 +373,16 @@ export interface RigidMarginCostCalculation {
 // ============================================================================
 // DEFAULT FORMULAS FOR RIGID
 // ============================================================================
+
+export const DEFAULT_RIGID_PLATES_COST: RigidPlatesCostFormula = {
+  ranges: [
+    { name: "0-18", dimensionMin: 0, dimensionMax: 18, cost: 2400 },
+    { name: "18.1-25", dimensionMin: 18.1, dimensionMax: 25, cost: 4800 },
+    { name: "25.1-30", dimensionMin: 25.1, dimensionMax: 30, cost: 10000 },
+    { name: "30.1-40", dimensionMin: 30.1, dimensionMax: 40, cost: 16000 }
+  ],
+  multiplier: 2
+};
 
 export const DEFAULT_RIGID_PRINTING_COST: RigidPrintingCostFormula = {
   ranges: [
@@ -499,6 +539,8 @@ export function createDefaultRigidFormula(
     },
     
     scanningCost: { cost: 200 },
+    
+    platesCost: DEFAULT_RIGID_PLATES_COST,
     
     printingCost: DEFAULT_RIGID_PRINTING_COST,
     

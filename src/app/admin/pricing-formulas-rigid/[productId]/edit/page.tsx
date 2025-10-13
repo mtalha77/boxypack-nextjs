@@ -5,6 +5,7 @@ import { useRouter, useParams } from 'next/navigation';
 import { RigidProductPricingFormula } from '@/lib/types/pricing-formulas-rigid';
 import RigidMaterialCostEditor from './sections/MaterialCostEditor';
 import { RigidScanningCostEditor, RigidVendorPercentageEditor, RigidMarginCostEditor } from './sections/SimpleEditorsRigid';
+import RigidPlatesCostEditor from './sections/PlatesCostEditor';
 import RigidPrintingCostEditor from './sections/PrintingCostEditor';
 import RigidLaminationCostEditor from './sections/LaminationCostEditor';
 import RigidMakingCostEditor from './sections/MakingCostEditor';
@@ -103,12 +104,13 @@ export default function RigidPricingFormulaEditPage() {
   const sections = [
     { number: 1, name: 'Material Cost', component: RigidMaterialCostEditor },
     { number: 2, name: 'Scanning Cost', component: RigidScanningCostEditor },
-    { number: 3, name: 'Printing Cost', component: RigidPrintingCostEditor },
-    { number: 4, name: 'Lamination Cost', component: RigidLaminationCostEditor },
-    { number: 5, name: 'Making Cost', component: RigidMakingCostEditor },
-    { number: 6, name: 'Vendor Percentage', component: RigidVendorPercentageEditor },
-    { number: 7, name: 'Shipping Cost', component: RigidShippingCostEditor },
-    { number: 8, name: 'Margin Cost', component: RigidMarginCostEditor }
+    { number: 3, name: 'Plates Cost', component: RigidPlatesCostEditor },
+    { number: 4, name: 'Printing Cost', component: RigidPrintingCostEditor },
+    { number: 5, name: 'Lamination Cost', component: RigidLaminationCostEditor },
+    { number: 6, name: 'Making Cost', component: RigidMakingCostEditor },
+    { number: 7, name: 'Vendor Percentage', component: RigidVendorPercentageEditor },
+    { number: 8, name: 'Shipping Cost', component: RigidShippingCostEditor },
+    { number: 9, name: 'Margin Cost', component: RigidMarginCostEditor }
   ];
 
   const activeComponent = sections.find(s => s.number === activeSection);
@@ -125,7 +127,7 @@ export default function RigidPricingFormulaEditPage() {
                 {formula.productName}
               </p>
               <span className="inline-block mt-2 px-3 py-1 bg-purple-100 text-purple-800 text-xs font-semibold rounded-full">
-                RIGID PRODUCT (8 Sections)
+                RIGID PRODUCT (9 Sections)
               </span>
             </div>
             <div className="flex gap-3">
@@ -215,8 +217,8 @@ export default function RigidPricingFormulaEditPage() {
                   ← Previous
                 </button>
                 <button
-                  onClick={() => setActiveSection(Math.min(8, activeSection + 1))}
-                  disabled={activeSection === 8}
+                  onClick={() => setActiveSection(Math.min(9, activeSection + 1))}
+                  disabled={activeSection === 9}
                   className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Next →
@@ -235,12 +237,13 @@ function getSectionKey(sectionNumber: number): string {
   const keyMap: Record<number, string> = {
     1: 'materialCost',
     2: 'scanningCost',
-    3: 'printingCost',
-    4: 'laminationCost',
-    5: 'makingCost',
-    6: 'vendorPercentage',
-    7: 'shippingCost',
-    8: 'marginCost'
+    3: 'platesCost',
+    4: 'printingCost',
+    5: 'laminationCost',
+    6: 'makingCost',
+    7: 'vendorPercentage',
+    8: 'shippingCost',
+    9: 'marginCost'
   };
   return keyMap[sectionNumber];
 }
