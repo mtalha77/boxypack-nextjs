@@ -1,6 +1,8 @@
 import clientPromise from '../lib/mongodb';
 import { createDefaultRigidFormula } from '../lib/types/pricing-formulas-rigid';
 
+// Note: Uses the new flexible formula structure with individual multipliers
+
 // Helper function to create slug from name
 function createSlug(name: string): string {
   return name

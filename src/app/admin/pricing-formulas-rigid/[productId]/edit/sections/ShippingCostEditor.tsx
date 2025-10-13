@@ -23,22 +23,6 @@ export default function RigidShippingCostEditor({ formula, onUpdate }: Props) {
     onUpdate(newConfig);
   };
 
-  const updateBaseCalc = (field: string, value: number) => {
-    const updated = {
-      ...config,
-      baseCalculation: { ...config.baseCalculation, [field]: value }
-    };
-    handleUpdate(updated);
-  };
-
-  const updateDimConversion = (field: string, value: number) => {
-    const updated = {
-      ...config,
-      dimensionConversion: { ...config.dimensionConversion, [field]: value }
-    };
-    handleUpdate(updated);
-  };
-
   const addTier = () => {
     const lastTier = config.shippingTiers[config.shippingTiers.length - 1];
     const newTier: ShippingTier = {
@@ -126,72 +110,13 @@ export default function RigidShippingCostEditor({ formula, onUpdate }: Props) {
         </ol>
       </div>
 
-      <div className="bg-white border border-gray-300 rounded-lg p-4">
-        <h4 className="font-semibold text-gray-900 mb-3">Base Calculation</h4>
-        <div className="bg-gray-100 rounded p-3 mb-3">
-          <code className="text-sm">
-            Base Weight = (Paper Length × Paper Width × {config.baseCalculation.multiplier}) / {config.baseCalculation.divisor}
-          </code>
-        </div>
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Multiplier
-            </label>
-            <input
-              type="number"
-              value={config.baseCalculation.multiplier}
-              onChange={(e) => updateBaseCalc('multiplier', Number(e.target.value))}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-            />
-            <p className="text-xs text-gray-500 mt-1">Default: 2000</p>
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Divisor
-            </label>
-            <input
-              type="number"
-              value={config.baseCalculation.divisor}
-              onChange={(e) => updateBaseCalc('divisor', Number(e.target.value))}
-              min="1"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-            />
-            <p className="text-xs text-gray-500 mt-1">Default: 15500</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-white border border-gray-300 rounded-lg p-4">
-        <h4 className="font-semibold text-gray-900 mb-3">Dimension Conversion (inches to cm)</h4>
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Conversion Factor (cm per inch)
-            </label>
-            <input
-              type="number"
-              value={config.dimensionConversion.cmToInch}
-              onChange={(e) => updateDimConversion('cmToInch', Number(e.target.value))}
-              step="0.01"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-            />
-            <p className="text-xs text-gray-500 mt-1">Default: 2.54</p>
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Length Addition (after conversion)
-            </label>
-            <input
-              type="number"
-              value={config.dimensionConversion.lengthAddition}
-              onChange={(e) => updateDimConversion('lengthAddition', Number(e.target.value))}
-              step="0.1"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-            />
-            <p className="text-xs text-gray-500 mt-1">Default: 1</p>
-          </div>
-        </div>
+      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+        <p className="text-sm text-yellow-800">
+          <strong>Note:</strong> The shipping weight calculation is fixed in the formula:
+          <br/>• Dimensions converted to cm: (L×2.54)+1, W×2.54, H×2.54
+          <br/>• Weight calculated using volumetric formula
+          <br/>• No editable multipliers - formula is hardcoded for consistency
+        </p>
       </div>
 
       <div className="bg-white border border-gray-300 rounded-lg p-4">

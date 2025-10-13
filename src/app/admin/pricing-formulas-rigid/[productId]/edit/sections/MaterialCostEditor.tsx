@@ -33,67 +33,28 @@ export default function RigidMaterialCostEditor({ formula, onUpdate }: Props) {
     handleUpdate(updated);
   };
 
-  const updateCardboard1 = (field: string, value: number) => {
+  // Generic update functions for each component
+  const updateFormula = (component: 'cardboard1' | 'cardboard2' | 'paper1' | 'paper2', dimension: 'lengthFormula' | 'widthFormula', field: string, value: number) => {
     const updated = {
       ...config,
-      cardboard1: { ...config.cardboard1, [field]: value }
-    };
-    handleUpdate(updated);
-  };
-
-  const updateCardboard1Multipliers = (field: string, value: number) => {
-    const updated = {
-      ...config,
-      cardboard1: {
-        ...config.cardboard1,
-        widthMultipliers: { ...config.cardboard1.widthMultipliers, [field]: value }
+      [component]: {
+        ...config[component],
+        [dimension]: {
+          ...config[component][dimension],
+          [field]: value
+        }
       }
     };
     handleUpdate(updated);
   };
 
-  const updateCardboard2 = (field: string, value: number) => {
+  const updateSheetsMultiplier = (component: 'paper1' | 'paper2', value: number) => {
     const updated = {
       ...config,
-      cardboard2: { ...config.cardboard2, [field]: value }
-    };
-    handleUpdate(updated);
-  };
-
-  const updateCardboard2Multipliers = (field: string, value: number) => {
-    const updated = {
-      ...config,
-      cardboard2: {
-        ...config.cardboard2,
-        widthMultipliers: { ...config.cardboard2.widthMultipliers, [field]: value }
+      [component]: {
+        ...config[component],
+        sheetsMultiplier: value
       }
-    };
-    handleUpdate(updated);
-  };
-
-  const updatePaper1 = (field: string, value: number) => {
-    const updated = {
-      ...config,
-      paper1: { ...config.paper1, [field]: value }
-    };
-    handleUpdate(updated);
-  };
-
-  const updatePaper1Multipliers = (field: string, value: number) => {
-    const updated = {
-      ...config,
-      paper1: {
-        ...config.paper1,
-        widthMultipliers: { ...config.paper1.widthMultipliers, [field]: value }
-      }
-    };
-    handleUpdate(updated);
-  };
-
-  const updatePaper2 = (field: string, value: number) => {
-    const updated = {
-      ...config,
-      paper2: { ...config.paper2, [field]: value }
     };
     handleUpdate(updated);
   };
@@ -103,36 +64,52 @@ export default function RigidMaterialCostEditor({ formula, onUpdate }: Props) {
     const { gsmTable, divisor, cardboard1, cardboard2, paper1, paper2 } = config;
 
     // Cardboard 1
-    const c1Length = testLength + cardboard1.lengthAddition;
-    const c1Width = (testWidth * cardboard1.widthMultipliers.width) + 
-                    (testHeight * cardboard1.widthMultipliers.height) + 
-                    cardboard1.widthMultipliers.addition;
+    const c1Length = (testLength * cardboard1.lengthFormula.lengthMultiplier) + 
+                     (testWidth * cardboard1.lengthFormula.widthMultiplier) + 
+                     (testHeight * cardboard1.lengthFormula.heightMultiplier) + 
+                     cardboard1.lengthFormula.additionalInches;
+    const c1Width = (testLength * cardboard1.widthFormula.lengthMultiplier) + 
+                    (testWidth * cardboard1.widthFormula.widthMultiplier) + 
+                    (testHeight * cardboard1.widthFormula.heightMultiplier) + 
+                    cardboard1.widthFormula.additionalInches;
     const c1Cost = (c1Length * c1Width * gsmTable.cardboard.gsm) / divisor * gsmTable.cardboard.rate;
 
     // Cardboard 2
-    const c2Length = (testLength + cardboard2.lengthAddition1) + 
-                     (testHeight * cardboard2.lengthHeightMultiplier) + 
-                     cardboard2.lengthAddition2;
-    const c2Width = (testWidth * cardboard2.widthMultipliers.width) + 
-                    (testHeight * cardboard2.widthMultipliers.height) + 
-                    cardboard2.widthMultipliers.addition;
+    const c2Length = (testLength * cardboard2.lengthFormula.lengthMultiplier) + 
+                     (testWidth * cardboard2.lengthFormula.widthMultiplier) + 
+                     (testHeight * cardboard2.lengthFormula.heightMultiplier) + 
+                     cardboard2.lengthFormula.additionalInches;
+    const c2Width = (testLength * cardboard2.widthFormula.lengthMultiplier) + 
+                    (testWidth * cardboard2.widthFormula.widthMultiplier) + 
+                    (testHeight * cardboard2.widthFormula.heightMultiplier) + 
+                    cardboard2.widthFormula.additionalInches;
     const c2Cost = (c2Length * c2Width * gsmTable.cardboard.gsm) / divisor * gsmTable.cardboard.rate;
 
-    // Paper 1 (×2 sheets)
-    const p1Length = testLength + paper1.lengthAddition;
-    const p1Width = (testHeight * paper1.widthMultipliers.height) + 
-                    (testWidth * paper1.widthMultipliers.width) + 
-                    paper1.widthMultipliers.addition;
+    // Paper 1
+    const p1Length = (testLength * paper1.lengthFormula.lengthMultiplier) + 
+                     (testWidth * paper1.lengthFormula.widthMultiplier) + 
+                     (testHeight * paper1.lengthFormula.heightMultiplier) + 
+                     paper1.lengthFormula.additionalInches;
+    const p1Width = (testLength * paper1.widthFormula.lengthMultiplier) + 
+                    (testWidth * paper1.widthFormula.widthMultiplier) + 
+                    (testHeight * paper1.widthFormula.heightMultiplier) + 
+                    paper1.widthFormula.additionalInches;
     const p1CostBeforeSheets = (p1Length * p1Width * gsmTable.paper.gsm) / divisor * gsmTable.paper.rate;
     const p1Cost = p1CostBeforeSheets * paper1.sheetsMultiplier;
 
-    // Paper 2 (×2 sheets)
-    const p2Length = testLength + (testHeight * paper2.lengthHeightMultiplier);
-    const p2Width = testWidth + (testHeight * paper2.widthHeightMultiplier) + paper2.widthAddition;
+    // Paper 2
+    const p2Length = (testLength * paper2.lengthFormula.lengthMultiplier) + 
+                     (testWidth * paper2.lengthFormula.widthMultiplier) + 
+                     (testHeight * paper2.lengthFormula.heightMultiplier) + 
+                     paper2.lengthFormula.additionalInches;
+    const p2Width = (testLength * paper2.widthFormula.lengthMultiplier) + 
+                    (testWidth * paper2.widthFormula.widthMultiplier) + 
+                    (testHeight * paper2.widthFormula.heightMultiplier) + 
+                    paper2.widthFormula.additionalInches;
     const p2CostBeforeSheets = (p2Length * p2Width * gsmTable.paper.gsm) / divisor * gsmTable.paper.rate;
     const p2Cost = p2CostBeforeSheets * paper2.sheetsMultiplier;
 
-    // Sum all 4 costs (NEW FORMULA)
+    // Sum all 4 costs
     const totalCost = c1Cost + c2Cost + p1Cost + p2Cost;
     const costRatio = totalCost / 100;
     const finalCost = costRatio * testUnits;
@@ -150,13 +127,77 @@ export default function RigidMaterialCostEditor({ formula, onUpdate }: Props) {
 
   const testResult = calculateTest();
 
+  // Helper component for formula editor
+  const FormulaEditor = ({ 
+    title, 
+    component, 
+    dimension, 
+    config 
+  }: { 
+    title: string; 
+    component: 'cardboard1' | 'cardboard2' | 'paper1' | 'paper2'; 
+    dimension: 'lengthFormula' | 'widthFormula';
+    config: any;
+  }) => (
+    <div className="border border-gray-200 rounded p-3">
+      <h5 className="font-medium text-gray-800 mb-2">{title}</h5>
+      <div className="grid grid-cols-4 gap-2">
+        <div>
+          <label className="block text-xs text-gray-600 mb-1">L ×</label>
+          <input
+            type="number"
+            value={config.lengthMultiplier}
+            onChange={(e) => updateFormula(component, dimension, 'lengthMultiplier', Number(e.target.value))}
+            step="0.1"
+            className="w-full px-2 py-1 border border-gray-300 rounded text-sm"
+          />
+        </div>
+        <div>
+          <label className="block text-xs text-gray-600 mb-1">W ×</label>
+          <input
+            type="number"
+            value={config.widthMultiplier}
+            onChange={(e) => updateFormula(component, dimension, 'widthMultiplier', Number(e.target.value))}
+            step="0.1"
+            className="w-full px-2 py-1 border border-gray-300 rounded text-sm"
+          />
+        </div>
+        <div>
+          <label className="block text-xs text-gray-600 mb-1">H ×</label>
+          <input
+            type="number"
+            value={config.heightMultiplier}
+            onChange={(e) => updateFormula(component, dimension, 'heightMultiplier', Number(e.target.value))}
+            step="0.1"
+            className="w-full px-2 py-1 border border-gray-300 rounded text-sm"
+          />
+        </div>
+        <div>
+          <label className="block text-xs text-gray-600 mb-1">+ inches</label>
+          <input
+            type="number"
+            value={config.additionalInches}
+            onChange={(e) => updateFormula(component, dimension, 'additionalInches', Number(e.target.value))}
+            step="0.1"
+            className="w-full px-2 py-1 border border-gray-300 rounded text-sm"
+          />
+        </div>
+      </div>
+      <div className="bg-gray-50 rounded p-2 mt-2">
+        <code className="text-xs">
+          = (L × {config.lengthMultiplier}) + (W × {config.widthMultiplier}) + (H × {config.heightMultiplier}) + {config.additionalInches}
+        </code>
+      </div>
+    </div>
+  );
+
   return (
     <div className="space-y-6 text-gray-900">
       {/* Description */}
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
         <h4 className="font-semibold text-blue-900 mb-2">Rigid Material Cost Structure:</h4>
         <p className="text-blue-800 text-sm">
-          Calculates material costs for Rigid boxes using:
+          Fully flexible formula system with individual multipliers for each dimension component.
         </p>
         <ul className="text-blue-800 text-sm mt-2 ml-4 list-disc space-y-1">
           <li><strong>2 Cardboard calculations</strong> (Cardboard 1 + Cardboard 2)</li>
@@ -231,218 +272,69 @@ export default function RigidMaterialCostEditor({ formula, onUpdate }: Props) {
       {/* Cardboard 1 Formula */}
       <div className="bg-white border border-gray-300 rounded-lg p-4">
         <h4 className="font-semibold text-gray-900 mb-3">Cardboard 1 Formula</h4>
-        <div className="bg-gray-100 rounded p-3 mb-3">
-          <code className="text-sm">
-            Length = User Length + {config.cardboard1.lengthAddition}<br/>
-            Width = (User Width × {config.cardboard1.widthMultipliers.width}) + (User Height × {config.cardboard1.widthMultipliers.height}) + {config.cardboard1.widthMultipliers.addition}<br/>
-            Cost = (Length × Width × {config.gsmTable.cardboard.gsm}) / {config.divisor} × {config.gsmTable.cardboard.rate}
-          </code>
-        </div>
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Length Addition
-            </label>
-            <input
-              type="number"
-              value={config.cardboard1.lengthAddition}
-              onChange={(e) => updateCardboard1('lengthAddition', Number(e.target.value))}
-              step="0.1"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-            />
-          </div>
-        </div>
-        <div className="mt-3">
-          <label className="block text-sm font-medium text-gray-700 mb-2">Width Multipliers</label>
-          <div className="grid grid-cols-3 gap-3">
-            <div>
-              <label className="block text-xs text-gray-600 mb-1">Width ×</label>
-              <input
-                type="number"
-                value={config.cardboard1.widthMultipliers.width}
-                onChange={(e) => updateCardboard1Multipliers('width', Number(e.target.value))}
-                step="0.1"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-              />
-            </div>
-            <div>
-              <label className="block text-xs text-gray-600 mb-1">Height ×</label>
-              <input
-                type="number"
-                value={config.cardboard1.widthMultipliers.height}
-                onChange={(e) => updateCardboard1Multipliers('height', Number(e.target.value))}
-                step="0.1"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-              />
-            </div>
-            <div>
-              <label className="block text-xs text-gray-600 mb-1">Addition</label>
-              <input
-                type="number"
-                value={config.cardboard1.widthMultipliers.addition}
-                onChange={(e) => updateCardboard1Multipliers('addition', Number(e.target.value))}
-                step="0.1"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-              />
-            </div>
-          </div>
+        <div className="space-y-3">
+          <FormulaEditor 
+            title="Length Formula" 
+            component="cardboard1" 
+            dimension="lengthFormula" 
+            config={config.cardboard1.lengthFormula} 
+          />
+          <FormulaEditor 
+            title="Width Formula" 
+            component="cardboard1" 
+            dimension="widthFormula" 
+            config={config.cardboard1.widthFormula} 
+          />
         </div>
       </div>
 
       {/* Cardboard 2 Formula */}
       <div className="bg-white border border-gray-300 rounded-lg p-4">
         <h4 className="font-semibold text-gray-900 mb-3">Cardboard 2 Formula</h4>
-        <div className="bg-gray-100 rounded p-3 mb-3">
-          <code className="text-sm">
-            Length = (User Length + {config.cardboard2.lengthAddition1}) + (User Height × {config.cardboard2.lengthHeightMultiplier}) + {config.cardboard2.lengthAddition2}<br/>
-            Width = (User Width × {config.cardboard2.widthMultipliers.width}) + (User Height × {config.cardboard2.widthMultipliers.height}) + {config.cardboard2.widthMultipliers.addition}<br/>
-            Cost = (Length × Width × {config.gsmTable.cardboard.gsm}) / {config.divisor} × {config.gsmTable.cardboard.rate}
-          </code>
-        </div>
-        <div className="grid grid-cols-3 gap-3">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Length Addition 1
-            </label>
-            <input
-              type="number"
-              value={config.cardboard2.lengthAddition1}
-              onChange={(e) => updateCardboard2('lengthAddition1', Number(e.target.value))}
-              step="0.1"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Height Multiplier
-            </label>
-            <input
-              type="number"
-              value={config.cardboard2.lengthHeightMultiplier}
-              onChange={(e) => updateCardboard2('lengthHeightMultiplier', Number(e.target.value))}
-              step="0.1"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Length Addition 2
-            </label>
-            <input
-              type="number"
-              value={config.cardboard2.lengthAddition2}
-              onChange={(e) => updateCardboard2('lengthAddition2', Number(e.target.value))}
-              step="0.1"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-            />
-          </div>
-        </div>
-        <div className="mt-3">
-          <label className="block text-sm font-medium text-gray-700 mb-2">Width Multipliers</label>
-          <div className="grid grid-cols-3 gap-3">
-            <div>
-              <label className="block text-xs text-gray-600 mb-1">Width ×</label>
-              <input
-                type="number"
-                value={config.cardboard2.widthMultipliers.width}
-                onChange={(e) => updateCardboard2Multipliers('width', Number(e.target.value))}
-                step="0.1"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-              />
-            </div>
-            <div>
-              <label className="block text-xs text-gray-600 mb-1">Height ×</label>
-              <input
-                type="number"
-                value={config.cardboard2.widthMultipliers.height}
-                onChange={(e) => updateCardboard2Multipliers('height', Number(e.target.value))}
-                step="0.1"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-              />
-            </div>
-            <div>
-              <label className="block text-xs text-gray-600 mb-1">Addition</label>
-              <input
-                type="number"
-                value={config.cardboard2.widthMultipliers.addition}
-                onChange={(e) => updateCardboard2Multipliers('addition', Number(e.target.value))}
-                step="0.1"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-              />
-            </div>
-          </div>
+        <div className="space-y-3">
+          <FormulaEditor 
+            title="Length Formula" 
+            component="cardboard2" 
+            dimension="lengthFormula" 
+            config={config.cardboard2.lengthFormula} 
+          />
+          <FormulaEditor 
+            title="Width Formula" 
+            component="cardboard2" 
+            dimension="widthFormula" 
+            config={config.cardboard2.widthFormula} 
+          />
         </div>
       </div>
 
       {/* Paper 1 Formula */}
       <div className="bg-white border border-gray-300 rounded-lg p-4">
         <h4 className="font-semibold text-gray-900 mb-3">Paper 1 Formula (×{config.paper1.sheetsMultiplier} sheets)</h4>
-        <div className="bg-gray-100 rounded p-3 mb-3">
-          <code className="text-sm">
-            Length = User Length + {config.paper1.lengthAddition}<br/>
-            Width = (User Height × {config.paper1.widthMultipliers.height}) + (User Width × {config.paper1.widthMultipliers.width}) + {config.paper1.widthMultipliers.addition}<br/>
-            Cost = (Length × Width × {config.gsmTable.paper.gsm}) / {config.divisor} × {config.gsmTable.paper.rate} × {config.paper1.sheetsMultiplier}
-          </code>
-        </div>
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Length Addition
-            </label>
-            <input
-              type="number"
-              value={config.paper1.lengthAddition}
-              onChange={(e) => updatePaper1('lengthAddition', Number(e.target.value))}
-              step="0.1"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-            />
-          </div>
-          <div>
+        <div className="space-y-3">
+          <FormulaEditor 
+            title="Length Formula" 
+            component="paper1" 
+            dimension="lengthFormula" 
+            config={config.paper1.lengthFormula} 
+          />
+          <FormulaEditor 
+            title="Width Formula" 
+            component="paper1" 
+            dimension="widthFormula" 
+            config={config.paper1.widthFormula} 
+          />
+          <div className="border border-gray-200 rounded p-3">
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Sheets Multiplier
             </label>
             <input
               type="number"
               value={config.paper1.sheetsMultiplier}
-              onChange={(e) => updatePaper1('sheetsMultiplier', Number(e.target.value))}
+              onChange={(e) => updateSheetsMultiplier('paper1', Number(e.target.value))}
               min="1"
               className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
             />
-          </div>
-        </div>
-        <div className="mt-3">
-          <label className="block text-sm font-medium text-gray-700 mb-2">Width Multipliers</label>
-          <div className="grid grid-cols-3 gap-3">
-            <div>
-              <label className="block text-xs text-gray-600 mb-1">Height ×</label>
-              <input
-                type="number"
-                value={config.paper1.widthMultipliers.height}
-                onChange={(e) => updatePaper1Multipliers('height', Number(e.target.value))}
-                step="0.1"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-              />
-            </div>
-            <div>
-              <label className="block text-xs text-gray-600 mb-1">Width ×</label>
-              <input
-                type="number"
-                value={config.paper1.widthMultipliers.width}
-                onChange={(e) => updatePaper1Multipliers('width', Number(e.target.value))}
-                step="0.1"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-              />
-            </div>
-            <div>
-              <label className="block text-xs text-gray-600 mb-1">Addition</label>
-              <input
-                type="number"
-                value={config.paper1.widthMultipliers.addition}
-                onChange={(e) => updatePaper1Multipliers('addition', Number(e.target.value))}
-                step="0.1"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-              />
-            </div>
+            <p className="text-xs text-gray-500 mt-1">Default: 2</p>
           </div>
         </div>
       </div>
@@ -450,62 +342,32 @@ export default function RigidMaterialCostEditor({ formula, onUpdate }: Props) {
       {/* Paper 2 Formula */}
       <div className="bg-white border border-gray-300 rounded-lg p-4">
         <h4 className="font-semibold text-gray-900 mb-3">Paper 2 Formula (×{config.paper2.sheetsMultiplier} sheets)</h4>
-        <div className="bg-gray-100 rounded p-3 mb-3">
-          <code className="text-sm">
-            Length = User Length + (User Height × {config.paper2.lengthHeightMultiplier})<br/>
-            Width = User Width + (User Height × {config.paper2.widthHeightMultiplier}) + {config.paper2.widthAddition}<br/>
-            Cost = (Length × Width × {config.gsmTable.paper.gsm}) / {config.divisor} × {config.gsmTable.paper.rate} × {config.paper2.sheetsMultiplier}
-          </code>
-        </div>
-        <div className="grid grid-cols-3 gap-3">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Length Height Multiplier
-            </label>
-            <input
-              type="number"
-              value={config.paper2.lengthHeightMultiplier}
-              onChange={(e) => updatePaper2('lengthHeightMultiplier', Number(e.target.value))}
-              step="0.1"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Width Height Multiplier
-            </label>
-            <input
-              type="number"
-              value={config.paper2.widthHeightMultiplier}
-              onChange={(e) => updatePaper2('widthHeightMultiplier', Number(e.target.value))}
-              step="0.1"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Width Addition
-            </label>
-            <input
-              type="number"
-              value={config.paper2.widthAddition}
-              onChange={(e) => updatePaper2('widthAddition', Number(e.target.value))}
-              step="0.1"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
-            />
-          </div>
-        </div>
-        <div className="mt-3">
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Sheets Multiplier
-          </label>
-          <input
-            type="number"
-            value={config.paper2.sheetsMultiplier}
-            onChange={(e) => updatePaper2('sheetsMultiplier', Number(e.target.value))}
-            min="1"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+        <div className="space-y-3">
+          <FormulaEditor 
+            title="Length Formula" 
+            component="paper2" 
+            dimension="lengthFormula" 
+            config={config.paper2.lengthFormula} 
           />
+          <FormulaEditor 
+            title="Width Formula" 
+            component="paper2" 
+            dimension="widthFormula" 
+            config={config.paper2.widthFormula} 
+          />
+          <div className="border border-gray-200 rounded p-3">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Sheets Multiplier
+            </label>
+            <input
+              type="number"
+              value={config.paper2.sheetsMultiplier}
+              onChange={(e) => updateSheetsMultiplier('paper2', Number(e.target.value))}
+              min="1"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm"
+            />
+            <p className="text-xs text-gray-500 mt-1">Default: 2</p>
+          </div>
         </div>
       </div>
 
@@ -559,14 +421,14 @@ export default function RigidMaterialCostEditor({ formula, onUpdate }: Props) {
           <div className="grid grid-cols-2 gap-4">
             <div className="border-l-4 border-blue-500 pl-3">
               <h5 className="font-semibold text-blue-900 mb-2">Cardboard 1</h5>
-              <p className="text-sm">Length: {testResult.cardboard1.length.toFixed(2)}&quot;</p>
-              <p className="text-sm">Width: {testResult.cardboard1.width.toFixed(2)}&quot;</p>
+              <p className="text-sm">Length: {testResult.cardboard1.length.toFixed(2)}"</p>
+              <p className="text-sm">Width: {testResult.cardboard1.width.toFixed(2)}"</p>
               <p className="text-sm font-bold text-blue-700">Cost: {testResult.cardboard1.cost.toFixed(2)} PKR</p>
             </div>
             <div className="border-l-4 border-blue-600 pl-3">
               <h5 className="font-semibold text-blue-900 mb-2">Cardboard 2</h5>
-              <p className="text-sm">Length: {testResult.cardboard2.length.toFixed(2)}&quot;</p>
-              <p className="text-sm">Width: {testResult.cardboard2.width.toFixed(2)}&quot;</p>
+              <p className="text-sm">Length: {testResult.cardboard2.length.toFixed(2)}"</p>
+              <p className="text-sm">Width: {testResult.cardboard2.width.toFixed(2)}"</p>
               <p className="text-sm font-bold text-blue-700">Cost: {testResult.cardboard2.cost.toFixed(2)} PKR</p>
             </div>
           </div>
@@ -574,15 +436,15 @@ export default function RigidMaterialCostEditor({ formula, onUpdate }: Props) {
           <div className="grid grid-cols-2 gap-4 mt-3">
             <div className="border-l-4 border-green-500 pl-3">
               <h5 className="font-semibold text-green-900 mb-2">Paper 1 (×{config.paper1.sheetsMultiplier})</h5>
-              <p className="text-sm">Length: {testResult.paper1.length.toFixed(2)}&quot;</p>
-              <p className="text-sm">Width: {testResult.paper1.width.toFixed(2)}&quot;</p>
+              <p className="text-sm">Length: {testResult.paper1.length.toFixed(2)}"</p>
+              <p className="text-sm">Width: {testResult.paper1.width.toFixed(2)}"</p>
               <p className="text-sm">Before sheets: {testResult.paper1.costBeforeSheets.toFixed(2)} PKR</p>
               <p className="text-sm font-bold text-green-700">Cost: {testResult.paper1.cost.toFixed(2)} PKR</p>
             </div>
             <div className="border-l-4 border-green-600 pl-3">
               <h5 className="font-semibold text-green-900 mb-2">Paper 2 (×{config.paper2.sheetsMultiplier})</h5>
-              <p className="text-sm">Length: {testResult.paper2.length.toFixed(2)}&quot;</p>
-              <p className="text-sm">Width: {testResult.paper2.width.toFixed(2)}&quot;</p>
+              <p className="text-sm">Length: {testResult.paper2.length.toFixed(2)}"</p>
+              <p className="text-sm">Width: {testResult.paper2.width.toFixed(2)}"</p>
               <p className="text-sm">Before sheets: {testResult.paper2.costBeforeSheets.toFixed(2)} PKR</p>
               <p className="text-sm font-bold text-green-700">Cost: {testResult.paper2.cost.toFixed(2)} PKR</p>
             </div>
@@ -608,4 +470,3 @@ export default function RigidMaterialCostEditor({ formula, onUpdate }: Props) {
     </div>
   );
 }
-

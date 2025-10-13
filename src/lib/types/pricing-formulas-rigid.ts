@@ -32,53 +32,70 @@ export interface RigidMaterialCostFormula {
   };
   divisor: number;  // Default: 15500
   
-  // Cardboard 1 formula
+  // Cardboard 1 formula (FLEXIBLE)
   cardboard1: {
-    lengthFormula: string;  // e.g., "length + 1"
-    lengthAddition: number; // Default: 1
-    widthFormula: string;   // e.g., "(width × 2) + (height × 2) + 1"
-    widthMultipliers: {
-      width: number;   // Default: 2
-      height: number;  // Default: 2
-      addition: number; // Default: 1
+    lengthFormula: {
+      lengthMultiplier: number;   // Default: 1
+      widthMultiplier: number;    // Default: 0
+      heightMultiplier: number;   // Default: 0
+      additionalInches: number;   // Default: 1
+    };
+    widthFormula: {
+      lengthMultiplier: number;   // Default: 0
+      widthMultiplier: number;    // Default: 2
+      heightMultiplier: number;   // Default: 2
+      additionalInches: number;   // Default: 1
     };
   };
   
-  // Cardboard 2 formula
+  // Cardboard 2 formula (FLEXIBLE)
   cardboard2: {
-    lengthFormula: string;  // e.g., "(length + 1) + (height × 2) + 1"
-    lengthAddition1: number; // Default: 1 (for length + 1)
-    lengthHeightMultiplier: number; // Default: 2
-    lengthAddition2: number; // Default: 1 (final addition)
-    widthFormula: string;   // e.g., "(width × 2) + (height × 2) + 1"
-    widthMultipliers: {
-      width: number;   // Default: 2
-      height: number;  // Default: 2
-      addition: number; // Default: 1
+    lengthFormula: {
+      lengthMultiplier: number;   // Default: 1
+      widthMultiplier: number;    // Default: 0
+      heightMultiplier: number;   // Default: 2
+      additionalInches: number;   // Default: 2 (adds 1 for length, then +1 at end = 2 total)
+    };
+    widthFormula: {
+      lengthMultiplier: number;   // Default: 0
+      widthMultiplier: number;    // Default: 2
+      heightMultiplier: number;   // Default: 2
+      additionalInches: number;   // Default: 1
     };
   };
   
-  // Paper 1 formula (×2 sheets)
+  // Paper 1 formula (FLEXIBLE, ×2 sheets)
   paper1: {
-    lengthFormula: string;  // e.g., "length + 2"
-    lengthAddition: number; // Default: 2
-    widthFormula: string;   // e.g., "(height × 2) + (width × 2) + 2"
-    widthMultipliers: {
-      height: number;  // Default: 2
-      width: number;   // Default: 2
-      addition: number; // Default: 2
+    lengthFormula: {
+      lengthMultiplier: number;   // Default: 1
+      widthMultiplier: number;    // Default: 0
+      heightMultiplier: number;   // Default: 0
+      additionalInches: number;   // Default: 2
     };
-    sheetsMultiplier: number; // Default: 2
+    widthFormula: {
+      lengthMultiplier: number;   // Default: 0
+      widthMultiplier: number;    // Default: 2
+      heightMultiplier: number;   // Default: 2
+      additionalInches: number;   // Default: 2
+    };
+    sheetsMultiplier: number;     // Default: 2
   };
   
-  // Paper 2 formula (×2 sheets)
+  // Paper 2 formula (FLEXIBLE, ×2 sheets)
   paper2: {
-    lengthFormula: string;  // e.g., "length + (height × 2)"
-    lengthHeightMultiplier: number; // Default: 2
-    widthFormula: string;   // e.g., "width + (height × 2) + 1"
-    widthHeightMultiplier: number; // Default: 2
-    widthAddition: number; // Default: 1
-    sheetsMultiplier: number; // Default: 2
+    lengthFormula: {
+      lengthMultiplier: number;   // Default: 1
+      widthMultiplier: number;    // Default: 0
+      heightMultiplier: number;   // Default: 2
+      additionalInches: number;   // Default: 0
+    };
+    widthFormula: {
+      lengthMultiplier: number;   // Default: 0
+      widthMultiplier: number;    // Default: 1
+      heightMultiplier: number;   // Default: 2
+      additionalInches: number;   // Default: 1
+    };
+    sheetsMultiplier: number;     // Default: 2
   };
 }
 
@@ -150,15 +167,9 @@ export interface RigidVendorPercentageFormula {
 // ============================================================================
 
 export interface RigidShippingCostFormula {
-  baseCalculation: {
-    multiplier: number;  // Default: 2000
-    divisor: number;     // Default: 15500
-  };
-  dimensionConversion: {
-    cmToInch: number;    // Default: 2.54
-    lengthAddition: number; // Default: 1
-  };
-  shippingTiers: ShippingTier[];  // Same tier structure
+  shippingTiers: ShippingTier[];  // Weight-based tier structure
+  // Note: Conversion factors (2.54, +1, etc.) are hardcoded in calculator
+  // Weight formula: ((lengthCm × requiredUnitsCalc) × (widthCm × temp) × (heightCm × temp2)) / 5000
 }
 
 export interface ShippingTier {
@@ -428,32 +439,61 @@ export function createDefaultRigidFormula(
       },
       divisor: 15500,
       cardboard1: {
-        lengthFormula: "length + 1",
-        lengthAddition: 1,
-        widthFormula: "(width × 2) + (height × 2) + 1",
-        widthMultipliers: { width: 2, height: 2, addition: 1 }
+        lengthFormula: {
+          lengthMultiplier: 1,
+          widthMultiplier: 0,
+          heightMultiplier: 0,
+          additionalInches: 1
+        },
+        widthFormula: {
+          lengthMultiplier: 0,
+          widthMultiplier: 2,
+          heightMultiplier: 2,
+          additionalInches: 1
+        }
       },
       cardboard2: {
-        lengthFormula: "(length + 1) + (height × 2) + 1",
-        lengthAddition1: 1,
-        lengthHeightMultiplier: 2,
-        lengthAddition2: 1,
-        widthFormula: "(width × 2) + (height × 2) + 1",
-        widthMultipliers: { width: 2, height: 2, addition: 1 }
+        lengthFormula: {
+          lengthMultiplier: 1,
+          widthMultiplier: 0,
+          heightMultiplier: 2,
+          additionalInches: 2
+        },
+        widthFormula: {
+          lengthMultiplier: 0,
+          widthMultiplier: 2,
+          heightMultiplier: 2,
+          additionalInches: 1
+        }
       },
       paper1: {
-        lengthFormula: "length + 2",
-        lengthAddition: 2,
-        widthFormula: "(height × 2) + (width × 2) + 2",
-        widthMultipliers: { height: 2, width: 2, addition: 2 },
+        lengthFormula: {
+          lengthMultiplier: 1,
+          widthMultiplier: 0,
+          heightMultiplier: 0,
+          additionalInches: 2
+        },
+        widthFormula: {
+          lengthMultiplier: 0,
+          widthMultiplier: 2,
+          heightMultiplier: 2,
+          additionalInches: 2
+        },
         sheetsMultiplier: 2
       },
       paper2: {
-        lengthFormula: "length + (height × 2)",
-        lengthHeightMultiplier: 2,
-        widthFormula: "width + (height × 2) + 1",
-        widthHeightMultiplier: 2,
-        widthAddition: 1,
+        lengthFormula: {
+          lengthMultiplier: 1,
+          widthMultiplier: 0,
+          heightMultiplier: 2,
+          additionalInches: 0
+        },
+        widthFormula: {
+          lengthMultiplier: 0,
+          widthMultiplier: 1,
+          heightMultiplier: 2,
+          additionalInches: 1
+        },
         sheetsMultiplier: 2
       }
     },
@@ -475,14 +515,6 @@ export function createDefaultRigidFormula(
     vendorPercentage: { percentage: 25 },
     
     shippingCost: {
-      baseCalculation: {
-        multiplier: 2000,
-        divisor: 15500
-      },
-      dimensionConversion: {
-        cmToInch: 2.54,
-        lengthAddition: 1
-      },
       shippingTiers: DEFAULT_RIGID_SHIPPING_TIERS
     },
     

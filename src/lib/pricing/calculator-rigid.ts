@@ -108,38 +108,58 @@ export class RigidPricingCalculator {
     const { gsmTable, divisor, cardboard1, cardboard2, paper1, paper2 } = this.formula.materialCost;
 
     // ===== CARDBOARD 1 CALCULATION =====
-    this.cardboard1Length = length + cardboard1.lengthAddition;
-    this.cardboard1Width = (width * cardboard1.widthMultipliers.width) + 
-                           (height * cardboard1.widthMultipliers.height) + 
-                           cardboard1.widthMultipliers.addition;
+    this.cardboard1Length = (length * cardboard1.lengthFormula.lengthMultiplier) + 
+                            (width * cardboard1.lengthFormula.widthMultiplier) + 
+                            (height * cardboard1.lengthFormula.heightMultiplier) + 
+                            cardboard1.lengthFormula.additionalInches;
+    
+    this.cardboard1Width = (length * cardboard1.widthFormula.lengthMultiplier) + 
+                           (width * cardboard1.widthFormula.widthMultiplier) + 
+                           (height * cardboard1.widthFormula.heightMultiplier) + 
+                           cardboard1.widthFormula.additionalInches;
     
     const cardboard1Cost = (this.cardboard1Length * this.cardboard1Width * gsmTable.cardboard.gsm) / 
                            divisor * gsmTable.cardboard.rate;
 
     // ===== CARDBOARD 2 CALCULATION =====
-    this.cardboard2Length = (length + cardboard2.lengthAddition1) + 
-                            (height * cardboard2.lengthHeightMultiplier) + 
-                            cardboard2.lengthAddition2;
-    this.cardboard2Width = (width * cardboard2.widthMultipliers.width) + 
-                           (height * cardboard2.widthMultipliers.height) + 
-                           cardboard2.widthMultipliers.addition;
+    this.cardboard2Length = (length * cardboard2.lengthFormula.lengthMultiplier) + 
+                            (width * cardboard2.lengthFormula.widthMultiplier) + 
+                            (height * cardboard2.lengthFormula.heightMultiplier) + 
+                            cardboard2.lengthFormula.additionalInches;
+    
+    this.cardboard2Width = (length * cardboard2.widthFormula.lengthMultiplier) + 
+                           (width * cardboard2.widthFormula.widthMultiplier) + 
+                           (height * cardboard2.widthFormula.heightMultiplier) + 
+                           cardboard2.widthFormula.additionalInches;
     
     const cardboard2Cost = (this.cardboard2Length * this.cardboard2Width * gsmTable.cardboard.gsm) / 
                            divisor * gsmTable.cardboard.rate;
 
     // ===== PAPER 1 CALCULATION (×2 sheets) =====
-    this.paper1Length = length + paper1.lengthAddition;
-    this.paper1Width = (height * paper1.widthMultipliers.height) + 
-                       (width * paper1.widthMultipliers.width) + 
-                       paper1.widthMultipliers.addition;
+    this.paper1Length = (length * paper1.lengthFormula.lengthMultiplier) + 
+                        (width * paper1.lengthFormula.widthMultiplier) + 
+                        (height * paper1.lengthFormula.heightMultiplier) + 
+                        paper1.lengthFormula.additionalInches;
+    
+    this.paper1Width = (length * paper1.widthFormula.lengthMultiplier) + 
+                       (width * paper1.widthFormula.widthMultiplier) + 
+                       (height * paper1.widthFormula.heightMultiplier) + 
+                       paper1.widthFormula.additionalInches;
     
     const paper1CostBeforeSheets = (this.paper1Length * this.paper1Width * gsmTable.paper.gsm) / 
                                    divisor * gsmTable.paper.rate;
     const paper1Cost = paper1CostBeforeSheets * paper1.sheetsMultiplier;
 
     // ===== PAPER 2 CALCULATION (×2 sheets) =====
-    this.paper2Length = length + (height * paper2.lengthHeightMultiplier);
-    this.paper2Width = width + (height * paper2.widthHeightMultiplier) + paper2.widthAddition;
+    this.paper2Length = (length * paper2.lengthFormula.lengthMultiplier) + 
+                        (width * paper2.lengthFormula.widthMultiplier) + 
+                        (height * paper2.lengthFormula.heightMultiplier) + 
+                        paper2.lengthFormula.additionalInches;
+    
+    this.paper2Width = (length * paper2.widthFormula.lengthMultiplier) + 
+                       (width * paper2.widthFormula.widthMultiplier) + 
+                       (height * paper2.widthFormula.heightMultiplier) + 
+                       paper2.widthFormula.additionalInches;
     
     const paper2CostBeforeSheets = (this.paper2Length * this.paper2Width * gsmTable.paper.gsm) / 
                                    divisor * gsmTable.paper.rate;
