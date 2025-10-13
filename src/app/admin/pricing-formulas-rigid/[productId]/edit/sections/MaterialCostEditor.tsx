@@ -559,14 +559,14 @@ export default function RigidMaterialCostEditor({ formula, onUpdate }: Props) {
           <div className="grid grid-cols-2 gap-4">
             <div className="border-l-4 border-blue-500 pl-3">
               <h5 className="font-semibold text-blue-900 mb-2">Cardboard 1</h5>
-              <p className="text-sm">Length: {testResult.cardboard1.length.toFixed(2)}"</p>
-              <p className="text-sm">Width: {testResult.cardboard1.width.toFixed(2)}"</p>
+              <p className="text-sm">Length: {testResult.cardboard1.length.toFixed(2)}&quot;</p>
+              <p className="text-sm">Width: {testResult.cardboard1.width.toFixed(2)}&quot;</p>
               <p className="text-sm font-bold text-blue-700">Cost: {testResult.cardboard1.cost.toFixed(2)} PKR</p>
             </div>
             <div className="border-l-4 border-blue-600 pl-3">
               <h5 className="font-semibold text-blue-900 mb-2">Cardboard 2</h5>
-              <p className="text-sm">Length: {testResult.cardboard2.length.toFixed(2)}"</p>
-              <p className="text-sm">Width: {testResult.cardboard2.width.toFixed(2)}"</p>
+              <p className="text-sm">Length: {testResult.cardboard2.length.toFixed(2)}&quot;</p>
+              <p className="text-sm">Width: {testResult.cardboard2.width.toFixed(2)}&quot;</p>
               <p className="text-sm font-bold text-blue-700">Cost: {testResult.cardboard2.cost.toFixed(2)} PKR</p>
             </div>
           </div>
@@ -574,15 +574,15 @@ export default function RigidMaterialCostEditor({ formula, onUpdate }: Props) {
           <div className="grid grid-cols-2 gap-4 mt-3">
             <div className="border-l-4 border-green-500 pl-3">
               <h5 className="font-semibold text-green-900 mb-2">Paper 1 (×{config.paper1.sheetsMultiplier})</h5>
-              <p className="text-sm">Length: {testResult.paper1.length.toFixed(2)}"</p>
-              <p className="text-sm">Width: {testResult.paper1.width.toFixed(2)}"</p>
+              <p className="text-sm">Length: {testResult.paper1.length.toFixed(2)}&quot;</p>
+              <p className="text-sm">Width: {testResult.paper1.width.toFixed(2)}&quot;</p>
               <p className="text-sm">Before sheets: {testResult.paper1.costBeforeSheets.toFixed(2)} PKR</p>
               <p className="text-sm font-bold text-green-700">Cost: {testResult.paper1.cost.toFixed(2)} PKR</p>
             </div>
             <div className="border-l-4 border-green-600 pl-3">
               <h5 className="font-semibold text-green-900 mb-2">Paper 2 (×{config.paper2.sheetsMultiplier})</h5>
-              <p className="text-sm">Length: {testResult.paper2.length.toFixed(2)}"</p>
-              <p className="text-sm">Width: {testResult.paper2.width.toFixed(2)}"</p>
+              <p className="text-sm">Length: {testResult.paper2.length.toFixed(2)}&quot;</p>
+              <p className="text-sm">Width: {testResult.paper2.width.toFixed(2)}&quot;</p>
               <p className="text-sm">Before sheets: {testResult.paper2.costBeforeSheets.toFixed(2)} PKR</p>
               <p className="text-sm font-bold text-green-700">Cost: {testResult.paper2.cost.toFixed(2)} PKR</p>
             </div>

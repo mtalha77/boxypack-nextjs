@@ -190,9 +190,12 @@ export default function RigidPricingFormulaEditPage() {
               </div>
 
               {/* Render Active Component */}
-              {activeComponent && React.createElement(activeComponent.component as any, {
+              {activeComponent && React.createElement(activeComponent.component as React.ComponentType<{
+                formula: RigidProductPricingFormula;
+                onUpdate: (data: unknown) => void;
+              }>, {
                 formula: formula,
-                onUpdate: (data: any) => {
+                onUpdate: (data: unknown) => {
                   const key = getSectionKey(activeSection);
                   setFormula({
                     ...formula,
