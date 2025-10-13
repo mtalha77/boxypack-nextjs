@@ -130,6 +130,18 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
     }
   }, [selectedMaterial]);
 
+  useEffect(() => {
+    if (selectedMaterial === 'corrugated-boxes' || selectedMaterial === 'rigid-boxes') {
+      setPT('N/A');
+    } else {
+      setPT(prev => prev === 'N/A' ? '14' : prev);
+    }
+    
+    if (selectedMaterial === 'rigid-boxes') {
+      setPrintedSides('none');
+    }
+  }, [selectedMaterial]);
+
   const toggleDropdown = (field: string) => {
     setShowDropdowns(prev => ({
       ...prev,
@@ -326,7 +338,36 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
     }
   };
 
-  // Helper functions for custom dimensions
+  const handleOrderNow = () => {
+    if (!selectedMaterial || !selectedProduct || !pricingResult || quantity > 20000) {
+      alert('Please select all options and ensure pricing is available');
+      return;
+    }
+
+    const selectedMaterialName = materialSelectionOptions.find(m => m.value === selectedMaterial)?.label || selectedMaterial;
+    const selectedProductData = getProductsByMaterial().find(p => p.slug === selectedProduct);
+    const productName = selectedProductData?.name || 'Custom Box';
+
+    const cartItem = {
+      id: `${selectedProduct}-${Date.now()}`,
+      productName,
+      productSlug: selectedProduct,
+      material: selectedMaterialName,
+      length: customLength,
+      width: customWidth,
+      height: customDepth,
+      pt,
+      printedSides: printedSidesOptions.find(p => p.value === printedSides)?.label || printedSides,
+      lamination: selectedMaterial === 'kraft-boxes' ? 'None' : (laminationOptions.find(l => l.value === lamination)?.label || lamination),
+      quantity,
+      unitPrice: unitPriceUSD,
+      subtotal: subtotalUSD,
+      addedAt: Date.now()
+    };
+
+    addItem(cartItem);
+    router.push('/checkout');
+  };
 
   return (
     <div className="custom-dimensions-form min-h-screen bg-white">
@@ -561,13 +602,18 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                 </div>
                 <div className="relative">
                   <button
-                    onClick={() => toggleDropdown('pt')}
-                    className="w-full flex items-center justify-between px-3 py-2 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
+                    onClick={() => (selectedMaterial !== 'corrugated-boxes' && selectedMaterial !== 'rigid-boxes') && toggleDropdown('pt')}
+                    disabled={selectedMaterial === 'corrugated-boxes' || selectedMaterial === 'rigid-boxes'}
+                    className={`w-full flex items-center justify-between px-3 py-2 border rounded-lg transition-colors ${
+                      selectedMaterial === 'corrugated-boxes' || selectedMaterial === 'rigid-boxes'
+                        ? 'border-gray-200 bg-gray-50 text-gray-400 cursor-not-allowed' 
+                        : 'border-[#0c6b76]/30 bg-white hover:border-[#0ca6c2]'
+                    }`}
                   >
                     <span className="text-sm text-gray-900">{pt}</span>
-                    <ChevronDown className="w-4 h-4 text-[#0ca6c2]" />
+                    <ChevronDown className={`w-4 h-4 ${selectedMaterial === 'corrugated-boxes' || selectedMaterial === 'rigid-boxes' ? 'text-gray-400' : 'text-[#0ca6c2]'}`} />
                   </button>
-                  {showDropdowns.pt && (
+                  {showDropdowns.pt && selectedMaterial !== 'corrugated-boxes' && selectedMaterial !== 'rigid-boxes' && (
                     <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
                       {ptOptions.map((option) => (
                         <button
@@ -584,39 +630,44 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                     </div>
                   )}
                 </div>
+                {(selectedMaterial === 'corrugated-boxes' || selectedMaterial === 'rigid-boxes') && (
+                  <p className="text-xs text-gray-500">PT N/A is fixed for {selectedMaterial === 'corrugated-boxes' ? 'Corrugated' : 'Rigid'} boxes</p>
+                )}
               </div>
 
-              {/* Printed Sides */}
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <label className="text-sm font-medium text-[#0c6b76]">Printed Sides</label>
+              {/* Printed Sides - Hidden for Rigid boxes */}
+              {selectedMaterial !== 'rigid-boxes' && (
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <label className="text-sm font-medium text-[#0c6b76]">Printed Sides</label>
+                  </div>
+                  <div className="relative">
+                    <button
+                      onClick={() => toggleDropdown('printedSides')}
+                      className="w-full flex items-center justify-between px-3 py-2 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
+                    >
+                      <span className="text-sm text-gray-900">{printedSidesOptions.find(p => p.value === printedSides)?.label || 'Select'}</span>
+                      <ChevronDown className="w-4 h-4 text-[#0ca6c2]" />
+                    </button>
+                    {showDropdowns.printedSides && (
+                      <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
+                        {printedSidesOptions.map((option) => (
+                          <button
+                            key={option.value}
+                            onClick={() => {
+                              setPrintedSides(option.value);
+                              toggleDropdown('printedSides');
+                            }}
+                            className="w-full text-left px-3 py-2 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-sm text-gray-900"
+                          >
+                            {option.label}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
-                <div className="relative">
-                  <button
-                    onClick={() => toggleDropdown('printedSides')}
-                    className="w-full flex items-center justify-between px-3 py-2 border border-[#0c6b76]/30 rounded-lg bg-white hover:border-[#0ca6c2] transition-colors"
-                  >
-                    <span className="text-sm text-gray-900">{printedSidesOptions.find(p => p.value === printedSides)?.label || 'Select'}</span>
-                    <ChevronDown className="w-4 h-4 text-[#0ca6c2]" />
-                  </button>
-                  {showDropdowns.printedSides && (
-                    <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
-                      {printedSidesOptions.map((option) => (
-                        <button
-                          key={option.value}
-                          onClick={() => {
-                            setPrintedSides(option.value);
-                            toggleDropdown('printedSides');
-                          }}
-                          className="w-full text-left px-3 py-2 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg text-sm text-gray-900"
-                        >
-                          {option.label}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
+              )}
 
               {/* Lamination */}
               <div className="space-y-1">
@@ -934,8 +985,9 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
               {/* Order Now Button */}
               <div className="text-center">
                 <button
-                  onClick={onDesignNow}
-                  className="w-full bg-[#0c6b76] cursor-pointer hover:bg-[#0ca6c2] text-white font-semibold py-4 px-6 rounded-lg transition-colors"
+                  onClick={handleOrderNow}
+                  disabled={calculating || !selectedMaterial || !selectedProduct || !pricingResult || quantity > 20000}
+                  className="w-full bg-[#0c6b76] cursor-pointer hover:bg-[#0ca6c2] text-white font-semibold py-4 px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   ORDER NOW
                 </button>

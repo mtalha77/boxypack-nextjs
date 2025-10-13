@@ -42,7 +42,7 @@ const AdminDashboard: React.FC = () => {
     {
       title: 'Order Management',
       description: 'View and manage customer orders',
-      href: '/admin/',
+      href: '/admin/orders',
       icon: '📋',
       color: 'bg-purple-500'
     },
