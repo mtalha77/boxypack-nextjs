@@ -40,7 +40,7 @@ export default function RigidPricingFormulasPage() {
       const data = await response.json();
 
       if (data.success) {
-        setFormulas(data.data.formulas.filter((f: any) => f.formulaType === 'rigid'));
+        setFormulas(data.data.formulas.filter((f: RigidProductPricingFormula) => f.formulaType === 'rigid'));
         setPagination(data.data.pagination);
       } else {
         console.error('Failed to fetch formulas:', data.error);

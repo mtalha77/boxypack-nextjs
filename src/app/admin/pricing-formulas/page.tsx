@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { ProductPricingFormula } from '@/lib/types/pricing-formulas';
+import { RigidProductPricingFormula } from '@/lib/types/pricing-formulas-rigid';
 
 interface PaginationData {
   page: number;
@@ -11,9 +12,11 @@ interface PaginationData {
   pages: number;
 }
 
+type AnyPricingFormula = ProductPricingFormula | RigidProductPricingFormula;
+
 export default function PricingFormulasPage() {
   const router = useRouter();
-  const [formulas, setFormulas] = useState<any[]>([]); // Accept both standard and rigid formulas
+  const [formulas, setFormulas] = useState<AnyPricingFormula[]>([]); // Accept both standard and rigid formulas
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState<string>('');
@@ -221,7 +224,7 @@ export default function PricingFormulasPage() {
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {formulas.map((formula) => {
-                  const isRigid = formula.formulaType === 'rigid';
+                  const isRigid = 'formulaType' in formula && formula.formulaType === 'rigid';
                   const editPath = isRigid 
                     ? `/admin/pricing-formulas-rigid/${formula.productId}/edit`
                     : `/admin/pricing-formulas/${formula.productId}/edit`;
