@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useCart } from '../contexts/CartContext';
-import { Upload, Package, Trash2, X } from 'lucide-react';
+import { Upload, Package, Trash2, X, CheckCircle, Cloud } from 'lucide-react';
 import { CldImage } from 'next-cloudinary';
 
 export default function CheckoutPage() {
@@ -29,10 +29,16 @@ export default function CheckoutPage() {
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [uploadedFileNames, setUploadedFileNames] = useState<string[]>([]);
+  const [uploadedFileUrls, setUploadedFileUrls] = useState<string[]>([]);
 
   useEffect(() => {
+    // Only redirect to home if cart is empty AND user hasn't placed an order
+    // This prevents interference with the order confirmation flow
     if (items.length === 0 && !orderPlaced && !submitting) {
-      router.push('/');
+      const hasOrderConfirmation = sessionStorage.getItem('orderConfirmation');
+      if (!hasOrderConfirmation) {
+        router.push('/');
+      }
     }
   }, [items, router, orderPlaced, submitting]);
 
@@ -43,14 +49,48 @@ export default function CheckoutPage() {
     }
   };
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
-    if (files.length > 0) {
+    if (files.length === 0) return;
+
+    setUploading(true);
+
+    try {
+      const uploadPromises = files.map(async (file) => {
+        const formData = new FormData();
+        formData.append('file', file);
+
+        const response = await fetch('/api/upload-design', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const result = await response.json();
+        
+        if (!result.success) {
+          throw new Error(`Failed to upload ${file.name}`);
+        }
+
+        return {
+          name: file.name,
+          url: result.data.url,
+        };
+      });
+
+      const uploadedFiles = await Promise.all(uploadPromises);
+
+      setUploadedFileNames(prev => [...prev, ...uploadedFiles.map(f => f.name)]);
+      setUploadedFileUrls(prev => [...prev, ...uploadedFiles.map(f => f.url)]);
+
       setFormData(prev => ({
         ...prev,
         designFiles: [...prev.designFiles, ...files]
       }));
-      setUploadedFileNames(prev => [...prev, ...files.map(f => f.name)]);
+    } catch (error) {
+      console.error('Error uploading files:', error);
+      alert('Failed to upload some files. Please try again.');
+    } finally {
+      setUploading(false);
     }
   };
 
@@ -60,6 +100,7 @@ export default function CheckoutPage() {
       designFiles: prev.designFiles.filter((_, i) => i !== index)
     }));
     setUploadedFileNames(prev => prev.filter((_, i) => i !== index));
+    setUploadedFileUrls(prev => prev.filter((_, i) => i !== index));
   };
 
   const validateForm = () => {
@@ -94,7 +135,7 @@ export default function CheckoutPage() {
       const orderData = {
         orderNumber,
         ...formData,
-        designFiles: uploadedFileNames,
+        designFiles: uploadedFileUrls.length > 0 ? uploadedFileUrls : uploadedFileNames,
         items: items,
         totalAmount: getTotalPrice(),
         orderDate: new Date().toISOString(),
@@ -117,9 +158,8 @@ export default function CheckoutPage() {
       sessionStorage.setItem('orderConfirmation', JSON.stringify(orderData));
       sessionStorage.setItem('clearCartOnConfirmation', 'true');
 
-      setTimeout(() => {
-        router.push('/order-confirmation');
-      }, 500);
+      // Navigate immediately without setTimeout to avoid race conditions
+      router.push('/order-confirmation');
     } catch (error) {
       console.error('Order submission error:', error);
       alert('Failed to submit order. Please try again.');
@@ -313,40 +353,75 @@ export default function CheckoutPage() {
                     Design Files
                   </h2>
                   <div className="space-y-4">
-                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-[#0ca6c2] transition-colors">
-                      <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                      <label className="cursor-pointer">
-                        <span className="text-[#0c6b76] font-semibold hover:text-[#0ca6c2]">
-                          Click to upload
-                        </span>
-                        <span className="text-gray-600"> or drag and drop</span>
-                        <input
-                          type="file"
-                          multiple
-                          onChange={handleFileUpload}
-                          className="hidden"
-                          accept=".pdf,.ai,.eps,.psd,.jpg,.jpeg,.png"
-                        />
-                      </label>
-                      <p className="text-xs text-gray-500 mt-2">
-                        PDF, AI, EPS, PSD, JPG, PNG (max 10 files)
-                      </p>
+                    <div className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
+                      uploading ? 'border-[#0ca6c2] bg-blue-50' : 'border-gray-300 hover:border-[#0ca6c2]'
+                    }`}>
+                      {uploading ? (
+                        <>
+                          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0ca6c2] mx-auto mb-4"></div>
+                          <p className="text-[#0c6b76] font-semibold">Uploading files...</p>
+                          <p className="text-xs text-gray-500 mt-2">
+                            Please wait while we upload your design files
+                          </p>
+                        </>
+                      ) : (
+                        <>
+                          <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                          <label className="cursor-pointer">
+                            <span className="text-[#0c6b76] font-semibold hover:text-[#0ca6c2]">
+                              Click to upload
+                            </span>
+                            <span className="text-gray-600"> or drag and drop</span>
+                            <input
+                              type="file"
+                              multiple
+                              onChange={handleFileUpload}
+                              className="hidden"
+                              accept=".pdf,.ai,.eps,.psd,.jpg,.jpeg,.png"
+                              disabled={uploading}
+                            />
+                          </label>
+                          <p className="text-xs text-gray-500 mt-2">
+                            PDF, AI, EPS, PSD, JPG, PNG (max 10 files)
+                          </p>
+                        </>
+                      )}
                     </div>
 
                     {uploadedFileNames.length > 0 && (
                       <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-sm text-green-600 mb-2">
+                          <CheckCircle className="w-4 h-4" />
+                          <span className="font-medium">
+                            {uploadedFileNames.length} file{uploadedFileNames.length > 1 ? 's' : ''} uploaded successfully
+                          </span>
+                        </div>
                         {uploadedFileNames.map((fileName, index) => (
                           <div
                             key={index}
-                            className="flex items-center justify-between bg-gray-50 p-3 rounded-lg"
+                            className="flex items-center justify-between bg-gradient-to-r from-green-50 to-blue-50 p-3 rounded-lg border border-green-200"
                           >
                             <div className="flex items-center gap-3">
-                              <Package className="w-5 h-5 text-[#0c6b76]" />
-                              <span className="text-sm text-gray-900">{fileName}</span>
+                              <div className="relative">
+                                <Package className="w-5 h-5 text-[#0c6b76]" />
+                                {uploadedFileUrls[index] && (
+                                  <Cloud className="w-3 h-3 text-green-600 absolute -top-1 -right-1" />
+                                )}
+                              </div>
+                              <div>
+                                <span className="text-sm text-gray-900 font-medium">{fileName}</span>
+                                {uploadedFileUrls[index] && (
+                                  <p className="text-xs text-green-600 flex items-center gap-1">
+                                    <CheckCircle className="w-3 h-3" />
+                                    Uploaded to cloud storage
+                                  </p>
+                                )}
+                              </div>
                             </div>
                             <button
                               onClick={() => removeFile(index)}
                               className="text-red-500 hover:text-red-700 transition-colors"
+                              title="Remove file"
                             >
                               <X className="w-5 h-5" />
                             </button>

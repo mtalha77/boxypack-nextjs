@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
-import { ArrowLeft, Package, User, MapPin, Phone, Mail, Calendar, DollarSign, FileText, Truck } from 'lucide-react';
+import { ArrowLeft, Package, User, MapPin, Phone, Mail, Calendar, DollarSign, FileText, Truck, Download, ExternalLink } from 'lucide-react';
 
 interface Order {
   _id: string;
@@ -293,18 +293,78 @@ export default function OrderDetailPage() {
                 <div className="px-6 py-4 border-b border-gray-200">
                   <h2 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
                     <FileText className="w-5 h-5 text-[#0c6b76]" />
-                    Design Files
+                    Design Files ({order.designFiles.length})
                   </h2>
                 </div>
                 <div className="p-6">
-                  <ul className="space-y-2">
+                  <div className="space-y-3">
                     {order.designFiles.map((file, index) => (
-                      <li key={index} className="flex items-center gap-2 text-gray-700">
-                        <FileText className="w-4 h-4 text-gray-400" />
-                        {file}
-                      </li>
+                      <div 
+                        key={index} 
+                        className="flex items-center justify-between bg-gradient-to-r from-gray-50 to-blue-50 p-4 rounded-lg border border-gray-200 hover:border-[#0ca6c2] transition-colors"
+                      >
+                        <div className="flex items-center gap-3 flex-1 min-w-0">
+                          <div className="w-10 h-10 bg-[#0c6b76] rounded-lg flex items-center justify-center flex-shrink-0">
+                            <FileText className="w-5 h-5 text-white" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="font-medium text-gray-900 truncate" title={file}>
+                              {file}
+                            </p>
+                            <p className="text-xs text-gray-500 mt-0.5">
+                              {file.split('.').pop()?.toUpperCase() || 'FILE'} Document
+                            </p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2 ml-4">
+                          <button
+                            onClick={() => {
+                              // If file is a URL, open it
+                              if (file.startsWith('http://') || file.startsWith('https://')) {
+                                window.open(file, '_blank');
+                              } else {
+                                alert(`File: ${file}\n\nNote: File upload integration needed. Currently storing filenames only.`);
+                              }
+                            }}
+                            className="p-2 text-[#0c6b76] hover:bg-[#0c6b76] hover:text-white rounded-lg transition-colors"
+                            title="View file"
+                          >
+                            <ExternalLink className="w-5 h-5" />
+                          </button>
+                          <button
+                            onClick={() => {
+                              // If file is a URL, download it
+                              if (file.startsWith('http://') || file.startsWith('https://')) {
+                                const link = document.createElement('a');
+                                link.href = file;
+                                link.download = file.split('/').pop() || 'download';
+                                document.body.appendChild(link);
+                                link.click();
+                                document.body.removeChild(link);
+                              } else {
+                                alert(`File: ${file}\n\nNote: File upload integration needed. Currently storing filenames only.\n\nTo enable downloads:\n1. Integrate Cloudinary or AWS S3\n2. Upload files during checkout\n3. Store URLs in database`);
+                              }
+                            }}
+                            className="p-2 text-white bg-[#0c6b76] hover:bg-[#0ca6c2] rounded-lg transition-colors"
+                            title="Download file"
+                          >
+                            <Download className="w-5 h-5" />
+                          </button>
+                        </div>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
+                  <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                    <div className="flex items-start gap-2">
+                      <FileText className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-sm font-medium text-yellow-900">File Upload Note</p>
+                        <p className="text-xs text-yellow-700 mt-1">
+                          Currently, only filenames are stored. To enable file downloads, integrate cloud storage (Cloudinary/AWS S3) in the checkout process.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             )}

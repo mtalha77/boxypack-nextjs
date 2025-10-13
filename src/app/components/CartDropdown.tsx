@@ -56,8 +56,8 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) => {
         className="fixed right-0 top-0 h-full w-full sm:w-96 bg-white shadow-2xl flex flex-col transform transition-transform"
         style={{ zIndex: 9999 }}
       >
-        {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-200">
+        {/* Header - Fixed at top */}
+        <div className="flex items-center justify-between p-4 border-b border-gray-200 flex-shrink-0">
           <div className="flex items-center gap-2">
             <ShoppingCart className="w-5 h-5 text-[#0c6b76]" />
             <h2 className="text-lg font-semibold text-gray-900">
@@ -72,8 +72,8 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) => {
           </button>
         </div>
 
-        {/* Cart Items */}
-        <div className="flex-1 overflow-y-auto p-4">
+        {/* Cart Items - Scrollable middle section */}
+        <div className="flex-1 overflow-y-auto p-4 min-h-0">
           {items.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full text-center py-12">
               <ShoppingCart className="w-16 h-16 text-gray-300 mb-4" />
@@ -91,8 +91,16 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) => {
               </button>
             </div>
           ) : (
-            <div className="space-y-4">
-              {items.map((item) => (
+            <>
+              {items.length > 3 && (
+                <div className="mb-3 p-2 bg-blue-50 border border-blue-200 rounded-lg text-center">
+                  <p className="text-xs text-blue-700 font-medium">
+                    📦 {items.length} items in cart • Scroll to view all
+                  </p>
+                </div>
+              )}
+              <div className="space-y-4">
+                {items.map((item) => (
                 <div
                   key={item.id}
                   className="bg-gray-50 rounded-lg p-4 border border-gray-200"
@@ -148,14 +156,15 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) => {
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            </>
           )}
         </div>
 
-        {/* Footer with Total and Actions */}
+        {/* Footer with Total and Actions - Fixed at bottom */}
         {items.length > 0 && (
-          <div className="border-t border-gray-200 p-4 bg-gray-50">
+          <div className="border-t border-gray-200 p-4 bg-gray-50 flex-shrink-0">
             <div className="flex justify-between items-center mb-4">
               <span className="text-lg font-semibold text-gray-900">Total:</span>
               <span className="text-2xl font-bold text-green-600">
@@ -163,19 +172,19 @@ const CartDropdown: React.FC<CartDropdownProps> = ({ isOpen, onClose }) => {
               </span>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-2.5">
               <button
                 onClick={handleCheckout}
-                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold py-4 px-4 rounded-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 transform hover:scale-[1.02]"
               >
                 <ShoppingCart className="w-5 h-5" />
-                Checkout Now
+                Proceed to Checkout
               </button>
               <button
                 onClick={handleRequestQuote}
-                className="w-full bg-[#0c6b76] hover:bg-[#0ca6c2] text-white font-medium py-3 px-4 rounded-lg transition-colors"
+                className="w-full bg-[#0c6b76] hover:bg-[#0ca6c2] text-white font-medium py-3 px-4 rounded-lg transition-colors shadow-md hover:shadow-lg"
               >
-                Request Quote
+                Request Custom Quote
               </button>
               <button
                 onClick={() => {
