@@ -9,7 +9,7 @@ function createSlug(name: string): string {
     .replace(/(^-|-$)/g, '');
 }
 
-// Only 5 Rigid products as specified
+// Only 5 Rigid products as specified (matching productByMaterialData.ts)
 const rigidProducts = [
   'Magnetic Closure Rigid Box',
   'Two Piece Rigid Boxes',

@@ -21,21 +21,14 @@ export const productByMaterialData: MaterialCategory[] = [
     slug: "rigid-boxes",
     description: "Premium luxury packaging with superior strength and durability for high-end products",
     image: "Mailer-Box-3_oct2ws",
-    subcategoriesCount: 12,
+    subcategoriesCount: 5,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
-      { name: "Magnetic Closure Rigid Boxes", slug: "magnetic-closure-rigid-boxes", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
+      { name: "Magnetic Closure Rigid Box", slug: "magnetic-closure-rigid-box", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
       { name: "Two Piece Rigid Boxes", slug: "two-piece-rigid-boxes", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Collapsible / Foldable Rigid Boxes", slug: "collapsible-foldable-rigid-boxes", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Sliding / Sleeve Rigid Boxes", slug: "sliding-sleeve-rigid-boxes", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Child Resistant Rigid Box", slug: "child-resistant-rigid-box", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Custom Rigid Paper Tubes", slug: "custom-rigid-paper-tubes", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
+      { name: "Sliding / sleeve Rigid Boxes (Match Style Boxes)", slug: "sliding-sleeve-rigid-boxes-match-style-boxes", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
       { name: "Brief Case Style", slug: "brief-case-style", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Book Style Rigid Boxes", slug: "book-style-rigid-boxes", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Hexagon Rigid Boxes", slug: "hexagon-rigid-boxes", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Round Shaped Rigid Boxes", slug: "round-shaped-rigid-boxes", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Rigid Book Sleeves", slug: "rigid-book-sleeves", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Shoulder Rigid Boxes", slug: "shoulder-rigid-boxes", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" }
+      { name: "Book Style Rigid Boxes", slug: "book-style-rigid-boxes", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" }
     ]
   },
   {
