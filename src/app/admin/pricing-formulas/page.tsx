@@ -13,7 +13,7 @@ interface PaginationData {
 
 export default function PricingFormulasPage() {
   const router = useRouter();
-  const [formulas, setFormulas] = useState<ProductPricingFormula[]>([]);
+  const [formulas, setFormulas] = useState<any[]>([]); // Accept both standard and rigid formulas
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState<string>('');
@@ -116,12 +116,18 @@ export default function PricingFormulasPage() {
         <div className="mb-8">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Pricing Formulas</h1>
+              <h1 className="text-3xl font-bold text-gray-900">All Pricing Formulas</h1>
               <p className="mt-2 text-sm text-gray-600">
-                Manage product pricing formulas and calculations
+                Manage all product pricing formulas (Standard 13-section & Rigid 8-section)
               </p>
             </div>
-            <div className="flex gap-3"> 
+            <div className="flex gap-3">
+              <button
+                onClick={() => router.push('/admin/pricing-formulas-rigid')}
+                className="px-4 py-2 border-2 border-purple-600 text-purple-600 rounded-lg hover:bg-purple-50 transition-colors"
+              >
+                🎁 Rigid Products
+              </button>
               <button
                 onClick={() => router.push('/admin/pricing-formulas/new')}
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
@@ -160,9 +166,10 @@ export default function PricingFormulasPage() {
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
               >
                 <option value="">All Categories</option>
-                <option value="kraft">Kraft</option>
-                <option value="cardboard">Cardboard</option>
-                <option value="corrugated">Corrugated</option>
+                <option value="kraft">Kraft (13 sections)</option>
+                <option value="cardboard">Cardboard (13 sections)</option>
+                <option value="corrugated">Corrugated (13 sections)</option>
+                <option value="rigid">Rigid (8 sections)</option>
               </select>
             </div>
           </div>
@@ -199,10 +206,10 @@ export default function PricingFormulasPage() {
                     Category
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Vendor %
+                    Formula Type
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Two-Piece Box
+                    Vendor %
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Last Updated
@@ -213,56 +220,66 @@ export default function PricingFormulasPage() {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {formulas.map((formula) => (
-                  <tr key={formula.productId} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div>
-                        <div className="text-sm font-medium text-gray-900">
-                          {formula.productName}
+                {formulas.map((formula) => {
+                  const isRigid = formula.formulaType === 'rigid';
+                  const editPath = isRigid 
+                    ? `/admin/pricing-formulas-rigid/${formula.productId}/edit`
+                    : `/admin/pricing-formulas/${formula.productId}/edit`;
+                  
+                  return (
+                    <tr key={formula.productId} className="hover:bg-gray-50">
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div>
+                          <div className="text-sm font-medium text-gray-900">
+                            {formula.productName}
+                          </div>
+                          <div className="text-sm text-gray-500">
+                            ID: {formula.productId}
+                          </div>
                         </div>
-                        <div className="text-sm text-gray-500">
-                          ID: {formula.productId}
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                        formula.category === 'kraft' ? 'bg-yellow-100 text-yellow-800' :
-                        formula.category === 'cardboard' ? 'bg-blue-100 text-blue-800' :
-                        'bg-green-100 text-green-800'
-                      }`}>
-                        {formula.category}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {formula.vendorPercentage?.percentage || 0}%
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                        formula.twoPieceBox?.enabled ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
-                      }`}>
-                        {formula.twoPieceBox?.enabled ? 'Enabled' : 'Disabled'}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {new Date(formula.updatedAt).toLocaleDateString()}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <button
-                        onClick={() => router.push(`/admin/pricing-formulas/${formula.productId}/edit`)}
-                        className="text-blue-600 hover:text-blue-900 mr-4"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => handleDelete(formula.productId)}
-                        className="text-red-600 hover:text-red-900"
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                ))}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <span className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                          formula.category === 'kraft' ? 'bg-yellow-100 text-yellow-800' :
+                          formula.category === 'cardboard' ? 'bg-blue-100 text-blue-800' :
+                          formula.category === 'corrugated' ? 'bg-green-100 text-green-800' :
+                          'bg-purple-100 text-purple-800'
+                        }`}>
+                          {formula.category}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <span className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                          isRigid ? 'bg-purple-100 text-purple-800' : 'bg-blue-100 text-blue-800'
+                        }`}>
+                          {isRigid ? '8 Sections' : '13 Sections'}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        {formula.vendorPercentage?.percentage || 0}%
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {new Date(formula.updatedAt).toLocaleDateString()}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <button
+                          onClick={() => router.push(editPath)}
+                          className={`${
+                            isRigid ? 'text-purple-600 hover:text-purple-900' : 'text-blue-600 hover:text-blue-900'
+                          } mr-4`}
+                        >
+                          Edit
+                        </button>
+                        <button
+                          onClick={() => handleDelete(formula.productId)}
+                          className="text-red-600 hover:text-red-900"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
