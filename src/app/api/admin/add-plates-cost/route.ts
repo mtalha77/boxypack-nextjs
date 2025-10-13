@@ -17,17 +17,24 @@ export async function POST() {
     const db = client.db('boxypack');
     const collection = db.collection('pricingFormulas');
 
-    // Find all rigid products without platesCost
-    const rigidProducts = await collection.find({ 
-      formulaType: 'rigid',
-      platesCost: { $exists: false }
+    // Find all rigid products
+    const allRigidProducts = await collection.find({ 
+      formulaType: 'rigid'
     }).toArray();
+
+    // Filter products that need platesCost added or fixed
+    const rigidProducts = allRigidProducts.filter(product => 
+      !product.platesCost || 
+      !product.platesCost.ranges || 
+      !product.platesCost.multiplier
+    );
 
     if (rigidProducts.length === 0) {
       return NextResponse.json({
         success: true,
-        message: 'No rigid products need updating. All already have platesCost.',
-        updated: 0
+        message: 'No rigid products need updating. All already have valid platesCost.',
+        updated: 0,
+        totalRigidProducts: allRigidProducts.length
       });
     }
 
@@ -49,8 +56,9 @@ export async function POST() {
 
     return NextResponse.json({
       success: true,
-      message: `Successfully added plates cost to ${successCount} rigid products`,
+      message: `Successfully added/updated plates cost for ${successCount} rigid products`,
       updated: successCount,
+      totalRigidProducts: allRigidProducts.length,
       productNames: rigidProducts.map(p => p.productName)
     });
 

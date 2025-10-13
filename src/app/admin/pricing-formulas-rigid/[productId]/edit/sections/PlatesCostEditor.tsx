@@ -8,8 +8,19 @@ interface Props {
   onUpdate: (data: RigidPlatesCostFormula) => void;
 }
 
+// Default plates cost in case it's missing
+const DEFAULT_PLATES_COST = {
+  ranges: [
+    { name: "0-18", dimensionMin: 0, dimensionMax: 18, cost: 2400 },
+    { name: "18.1-25", dimensionMin: 18.1, dimensionMax: 25, cost: 4800 },
+    { name: "25.1-30", dimensionMin: 25.1, dimensionMax: 30, cost: 10000 },
+    { name: "30.1-40", dimensionMin: 30.1, dimensionMax: 40, cost: 16000 }
+  ],
+  multiplier: 2
+};
+
 export default function RigidPlatesCostEditor({ formula, onUpdate }: Props) {
-  const [config, setConfig] = useState(formula.platesCost);
+  const [config, setConfig] = useState(formula.platesCost || DEFAULT_PLATES_COST);
   const [testLength, setTestLength] = useState(10);
   const [testWidth, setTestWidth] = useState(8);
   const [testHeight, setTestHeight] = useState(3);
@@ -91,12 +102,12 @@ export default function RigidPlatesCostEditor({ formula, onUpdate }: Props) {
       paperDims.paper2.width
     );
     
-    const matchedRange = config.ranges.find(range =>
+    const matchedRange = (config?.ranges || []).find(range =>
       largestDimension >= range.dimensionMin && largestDimension <= range.dimensionMax
     );
     
     const baseCost = matchedRange ? matchedRange.cost : 0;
-    const finalCost = baseCost * config.multiplier;
+    const finalCost = baseCost * (config?.multiplier || 2);
     
     return {
       paper1: paperDims.paper1,
@@ -116,7 +127,7 @@ export default function RigidPlatesCostEditor({ formula, onUpdate }: Props) {
         <h4 className="font-semibold text-blue-900 mb-2">Plates Cost (Section 3):</h4>
         <p className="text-blue-800 text-sm">
           Plates cost is based on the largest dimension of Paper 1 or Paper 2.
-          The selected range&apos;s cost is multiplied by {config.multiplier}.
+          The selected range&apos;s cost is multiplied by {config?.multiplier || 2}.
         </p>
       </div>
 
@@ -129,7 +140,7 @@ export default function RigidPlatesCostEditor({ formula, onUpdate }: Props) {
           </label>
           <input
             type="number"
-            value={config.multiplier}
+            value={config?.multiplier || 2}
             onChange={(e) => updateMultiplier(Number(e.target.value))}
             min="1"
             step="0.1"
@@ -151,7 +162,7 @@ export default function RigidPlatesCostEditor({ formula, onUpdate }: Props) {
           </button>
         </div>
         <div className="space-y-3">
-          {config.ranges.map((range, index) => (
+          {(config?.ranges || []).map((range, index) => (
             <div key={index} className="border border-gray-200 rounded-lg p-3">
               <div className="grid grid-cols-4 gap-3 mb-2">
                 <div>
@@ -194,7 +205,7 @@ export default function RigidPlatesCostEditor({ formula, onUpdate }: Props) {
                 </div>
               </div>
               <div className="text-xs text-gray-600">
-                Range: {range.dimensionMin}&quot; - {range.dimensionMax}&quot; → {range.cost} PKR (×{config.multiplier} = {range.cost * config.multiplier} PKR)
+                Range: {range.dimensionMin}&quot; - {range.dimensionMax}&quot; → {range.cost} PKR (×{config?.multiplier || 2} = {range.cost * (config?.multiplier || 2)} PKR)
               </div>
             </div>
           ))}
