@@ -88,20 +88,26 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {displayedSubcategories.map((subcategory, index) => (
-            <Link 
-              key={subcategory.slug}
-              href={getSubcategoryUrl(subcategory.slug)}
-              className="group max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 block"
-            >
-              <CldImage
-                src="products-box-img_x8vu4b"
-                alt={`${subcategory.name} packaging example`}
-                width={400}
-                height={300}
-                className="w-full h-48 object-cover rounded-t-lg"
-                loading="lazy"
-              />
+          {displayedSubcategories.map((subcategory, index) => {
+            // Use first image from subcategory's images array, or default image
+            const imageSource = subcategory.images && subcategory.images.length > 0 
+              ? subcategory.images[0] 
+              : "products-box-img_x8vu4b";
+            
+            return (
+              <Link 
+                key={subcategory.slug}
+                href={getSubcategoryUrl(subcategory.slug)}
+                className="group max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 block"
+              >
+                <CldImage
+                  src={imageSource}
+                  alt={`${subcategory.name} packaging example`}
+                  width={400}
+                  height={300}
+                  className="w-full h-48 object-cover rounded-t-lg"
+                  loading="lazy"
+                />
               <div className="p-5">
                 <h5 
                   className="mb-2 text-2xl font-bold tracking-tight text-gray-900 group-hover:text-[var(--color-teal-deep)] min-h-[4.5rem] flex items-start transition-colors duration-200"
@@ -138,7 +144,8 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
                 </div>
               </div>
             </Link>
-          ))}
+            );
+          })}
         </div>
         
         {/* Show All / Show Less Button */}

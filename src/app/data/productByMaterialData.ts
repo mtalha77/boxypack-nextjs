@@ -3,6 +3,7 @@ export interface MaterialSubCategory {
   slug: string;
   description?: string;
   modelPath?: string;
+  images?: string[]; // Array of Cloudinary public IDs for product images
 }
 
 export interface MaterialCategory {
@@ -39,23 +40,108 @@ export const productByMaterialData: MaterialCategory[] = [
     subcategoriesCount: 18,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
-      { name: "Kraft Mailer Box", slug: "kraft-mailer-box", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Kraft Box with Lid", slug: "kraft-box-with-lid", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Kraft Pillow Box", slug: "kraft-pillow-box", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Kraft Gable Box", slug: "kraft-gable-box", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Kraft Bakery / Cake Box", slug: "kraft-bakery-cake-box", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Kraft Sleeve Box", slug: "kraft-sleeve-box", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Kraft TUCK End BOX - Reverse Tuck end Box ,Straight Tuck End Box, 1-2-3 lock Bottom Box, Auto Lock Bottom Box", slug: "kraft-tuck-end-box", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Kraft Five Panel Hanger Box", slug: "kraft-five-panel-hanger-box", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Kraft Side Lock Six Corner Box", slug: "kraft-side-lock-six-corner-box", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Kraft Regular Six Corner Box", slug: "kraft-regular-six-corner-box", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Kraft Seal End Auto Bottom Box", slug: "kraft-seal-end-auto-bottom-box", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Kraft single wall Auto Bottom Tray", slug: "kraft-single-wall-auto-bottom-tray", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Kraft Two Piece Box", slug: "kraft-two-piece-box", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Kraft Ciggeret Box", slug: "kraft-cigarette-box", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Kraft Bookend Box", slug: "kraft-bookend-box", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Kraft Dispenser Box", slug: "kraft-dispenser-box", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Kraft Double Wall Frame Tray", slug: "kraft-double-wall-frame-tray", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" }
+      { 
+        name: "Kraft Mailer Box", 
+        slug: "kraft-mailer-box", 
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: ["Mailer-Box_ximzdy", "Mailer-Box-2_sdcq5v", "Mailer-Box-3_xvwc3h"]
+      },
+      { 
+        name: "Kraft Box with Lid", 
+        slug: "kraft-box-with-lid", 
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: ["Kraft-Boxes-With-Lid_bvvlo5", "Kraft-Boxes-With-Lid-2_nht4ru", "Kraft-Boxes-With-Lid-3_bbjahp"]
+      },
+      { 
+        name: "Kraft Pillow Box", 
+        slug: "kraft-pillow-box", 
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: ["Kraft-Pillow-Soap-Box_qgyxg3", "Kraft-Pillow-Soap-Box-2_fxvtv9", "Kraft-Pillow-Soap-Box-3_ehvr1d"]
+      },
+      { 
+        name: "Kraft Gable Box", 
+        slug: "kraft-gable-box", 
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: ["Kraft-Gable-Box_i0vbt9", "Kraft-Gable-Box-2_skatu5", "Kraft-Gable-Box-3_dduloq"]
+      },
+      { 
+        name: "Kraft Bakery / Cake Box", 
+        slug: "kraft-bakery-cake-box", 
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: ["Kraft-Bakery-Cake-Box_lbrpz8", "Kraft-Bakery-Cake-Box-2_pubkwi", "Kraft-Bakery-Cake-Box-3_hykgm5"]
+      },
+      { 
+        name: "Kraft Sleeve Box", 
+        slug: "kraft-sleeve-box", 
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: ["Kraft-Sleeve-Box_zebf6i", "Kraft-Sleeve-Box-2_tcarov", "Kraft-Sleeve-Box-3_fzzo68"]
+      },
+      { 
+        name: "Kraft TUCK End BOX - Reverse Tuck end Box ,Straight Tuck End Box, 1-2-3 lock Bottom Box, Auto Lock Bottom Box", 
+        slug: "kraft-tuck-end-box", 
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: ["Kraft-Tuck-End-Box_xot1ve", "Kraft-Tuck-End-Box-2_fqtnjo", "Kraft-Tuck-End-Box-3_alj9hw"]
+      },
+      { 
+        name: "Kraft Five Panel Hanger Box", 
+        slug: "kraft-five-panel-hanger-box", 
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: ["Kraft-Five-Panel-Hanger-Box_vqaq1b", "Kraft-Five-Panel-Hanger-Box-2_z2kzej", "Kraft-Five-Panel-Hanger-Box-3_uthtgn"]
+      },
+      { 
+        name: "Kraft Side Lock Six Corner Box", 
+        slug: "kraft-side-lock-six-corner-box", 
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: ["Kraft-Side-Lock-Six-Corners_xyy2gh", "Kraft-Side-Lock-Six-Corners-2_wupuaa", "Kraft-Side-Lock-Six-Corners-3_ymwf5d"]
+      },
+      { 
+        name: "Kraft Regular Six Corner Box", 
+        slug: "kraft-regular-six-corner-box", 
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: ["Kraft-Regular-Six-Corner-Box_r2wkgt", "Kraft-Regular-Six-Corner-Box-2_ojhutw", "Kraft-Regular-Six-Corner-Box-3_y9bu3j"]
+      },
+      { 
+        name: "Kraft Seal End Auto Bottom Box", 
+        slug: "kraft-seal-end-auto-bottom-box", 
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: ["Kraft-Seal-End-Auto-Bottom-Box_gddrys", "Kraft-Seal-End-Auto-Bottom-Box-2_xrhibj", "Kraft-Seal-End-Auto-Bottom-Box-3_az42hj"]
+      },
+      { 
+        name: "Kraft single wall Auto Bottom Tray", 
+        slug: "kraft-single-wall-auto-bottom-tray", 
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: ["Kraft-Single-Wall-Auto-Bottom-Tray_cxpl8m", "Kraft-Single-Wall-Auto-Bottom-Tray-2_rd54qx", "Kraft-Single-Wall-Auto-Bottom-Tray-3_zgcisf"]
+      },
+      { 
+        name: "Kraft Two Piece Box", 
+        slug: "kraft-two-piece-box", 
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: ["Kraft-Two-Piece-Box_i0ua2d", "Kraft-Two-Piece-Box-2_utl6ru", "Kraft-Two-Piece-Box-3_dpm4f9"]
+      },
+      { 
+        name: "Kraft Ciggeret Box", 
+        slug: "kraft-cigarette-box", 
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: ["Kraft-Cigarette-Box_gqxdr7", "Kraft-Cigarette-Box-2_gzm2wx", "Kraft-Cigarette-Box-3_nbh68t"]
+      },
+      { 
+        name: "Kraft Bookend Box", 
+        slug: "kraft-bookend-box", 
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: ["Kraft-Bookend-Box_tlixms", "Kraft-Bookend-Box-2_jyspg3", "Kraft-Bookend-Box-3_ikjeez"]
+      },
+      { 
+        name: "Kraft Dispenser Box", 
+        slug: "kraft-dispenser-box", 
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: ["Kraft-Dispenser-Box_mxxcxq", "Kraft-Dispenser-Box-2_i0xyix", "Kraft-Dispenser-Box-3_y48ynq"]
+      },
+      { 
+        name: "Kraft Double Wall Frame Tray", 
+        slug: "kraft-double-wall-frame-tray", 
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: ["Kraft-Double-Wall-Frame-Tray_i8lzim", "Kraft-Double-Wall-Frame-Tray-2_navrvz", "Kraft-Double-Wall-Frame-Tray-3_utgimb"]
+      }
     ]
   },
   {

@@ -33,6 +33,11 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   const [showCustomPricingMessage, setShowCustomPricingMessage] = useState(false);
   const [selectedImage, setSelectedImage] = useState('Mailer-Box-3_oct2ws');
   const [zoomLevel, setZoomLevel] = useState(1);
+  const [currentProductImages, setCurrentProductImages] = useState<string[]>([
+    'Mailer-Box-3_oct2ws',
+    'Mailer-Box-2_ysut1i',
+    'Mailer-Box_1_ujqhhx'
+  ]);
 
   // Pricing state
   const [calculating, setCalculating] = useState(false);
@@ -129,6 +134,28 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
       setLamination('none');
     }
   }, [selectedMaterial]);
+
+  // Update images when product changes
+  useEffect(() => {
+    if (selectedProduct && selectedMaterial) {
+      const materialCategory = productByMaterialData.find(category => category.slug === selectedMaterial);
+      if (materialCategory) {
+        const product = materialCategory.subcategories.find(sub => sub.slug === selectedProduct);
+        if (product && product.images && product.images.length > 0) {
+          setCurrentProductImages(product.images);
+          setSelectedImage(product.images[0]); // Set first image as default
+        } else {
+          // Reset to default images if product has no images
+          setCurrentProductImages([
+            'Mailer-Box-3_oct2ws',
+            'Mailer-Box-2_ysut1i',
+            'Mailer-Box_1_ujqhhx'
+          ]);
+          setSelectedImage('Mailer-Box-3_oct2ws');
+        }
+      }
+    }
+  }, [selectedProduct, selectedMaterial]);
 
   useEffect(() => {
     if (selectedMaterial === 'corrugated-boxes' || selectedMaterial === 'rigid-boxes') {
@@ -442,54 +469,25 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
 
             {/* Thumbnail Gallery */}
             <div className="flex gap-4 justify-center">
-              <div 
-                className={`w-16 h-16 rounded border cursor-pointer transition-all duration-300 ${
-                  selectedImage === 'Mailer-Box-3_oct2ws' 
-                    ? 'border-blue-500 ring-2 ring-blue-200' 
-                    : 'border-gray-200 hover:border-blue-300'
-                }`}
-                onClick={() => handleImageChange('Mailer-Box-3_oct2ws')}
-              >
-                    <CldImage 
-                      src="Mailer-Box-3_oct2ws" 
-                  alt="Mailer Box 3"
-                  width={64}
-                  height={64}
-                  className="w-full h-full object-cover rounded"
-                    />
-                  </div>
-              <div 
-                className={`w-16 h-16 rounded border cursor-pointer transition-all duration-300 ${
-                  selectedImage === 'Mailer-Box-2_ysut1i' 
-                    ? 'border-blue-500 ring-2 ring-blue-200' 
-                    : 'border-gray-200 hover:border-blue-300'
-                }`}
-                onClick={() => handleImageChange('Mailer-Box-2_ysut1i')}
-              >
-                <CldImage 
-                  src="Mailer-Box-2_ysut1i" 
-                  alt="Mailer Box 2"
-                  width={64}
-                  height={64}
-                  className="w-full h-full object-cover rounded"
-                />
+              {currentProductImages.map((imageSrc, index) => (
+                <div 
+                  key={imageSrc}
+                  className={`w-16 h-16 rounded border cursor-pointer transition-all duration-300 ${
+                    selectedImage === imageSrc 
+                      ? 'border-blue-500 ring-2 ring-blue-200' 
+                      : 'border-gray-200 hover:border-blue-300'
+                  }`}
+                  onClick={() => handleImageChange(imageSrc)}
+                >
+                  <CldImage 
+                    src={imageSrc} 
+                    alt={`Product Image ${index + 1}`}
+                    width={64}
+                    height={64}
+                    className="w-full h-full object-cover rounded"
+                  />
                 </div>
-              <div 
-                className={`w-16 h-16 rounded border cursor-pointer transition-all duration-300 ${
-                  selectedImage === 'Mailer-Box_1_ujqhhx' 
-                    ? 'border-blue-500 ring-2 ring-blue-200' 
-                    : 'border-gray-200 hover:border-blue-300'
-                }`}
-                onClick={() => handleImageChange('Mailer-Box_1_ujqhhx')}
-              >
-                <CldImage 
-                  src="Mailer-Box_1_ujqhhx" 
-                  alt="Mailer Box 1"
-                  width={64}
-                  height={64}
-                  className="w-full h-full object-cover rounded"
-                />
-              </div>
+              ))}
             </div>
           </div>
 

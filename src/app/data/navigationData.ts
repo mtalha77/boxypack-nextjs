@@ -8,6 +8,7 @@ export interface SubCategory {
   name: string;
   slug: string;
   description?: string;
+  images?: string[]; // Array of Cloudinary public IDs for product images
 }
 
 export interface MainCategory {
@@ -46,7 +47,12 @@ export const navigationData: NavigationSection[] = [
       name: category.name,
       slug: category.slug,
       description: category.description,
-      subcategories: category.subcategories
+      subcategories: category.subcategories.map(sub => ({
+        name: sub.name,
+        slug: sub.slug,
+        description: sub.description,
+        images: sub.images
+      }))
     }))
   },
   {
