@@ -49,7 +49,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ productData, breadcrumbs = []
   };
 
   return (
-    <section className={`pt-10 relative overflow-hidden ${hasModelError ? 'min-h-[60vh]' : 'min-h-[95vh]'}`}>
+    <section className={`py-12 lg:py-16 relative overflow-hidden`}>
       <GradientBackground 
         className="absolute inset-0"
       />

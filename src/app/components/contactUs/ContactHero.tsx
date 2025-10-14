@@ -12,7 +12,7 @@ const ContactHero: React.FC = () => {
           {/* Left Content */}
           <div className="space-y-6">
             <div className="space-y-6">
-              <h1 className="text-h1 leading-tight">
+              <h1 className="text-h1 leading-tight text-[#97602F]">
               Ready For Your Custom Box Journey? <span className="text-heading-secondary">Let&apos;s Get Started</span>
               </h1>
               

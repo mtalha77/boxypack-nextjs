@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { CldImage } from 'next-cloudinary';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Testimonial {
@@ -11,7 +10,6 @@ interface Testimonial {
   role: string;
   content: string;
   rating: number;
-  avatar: string;
 }
 
 interface ClientTestimonialsProps {
@@ -31,8 +29,7 @@ const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({ productData }) 
       company: "EcoFashion Co.",
       role: "Marketing Director",
       content: "The custom packaging boxes from BoxyPack transformed our brand presentation. The quality is exceptional and our customers love the unboxing experience. Highly recommended!",
-      rating: 5,
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face&auto=format&q=80"
+      rating: 5
     },
     {
       id: 2,
@@ -40,8 +37,7 @@ const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({ productData }) 
       company: "TechGadgets Inc.",
       role: "CEO",
       content: "Outstanding service and premium quality packaging. BoxyPack helped us create a memorable first impression that our customers rave about. The attention to detail is remarkable.",
-      rating: 5,
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face&auto=format&q=80"
+      rating: 5
     },
     {
       id: 3,
@@ -49,8 +45,7 @@ const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({ productData }) 
       company: "Beauty Essentials",
       role: "Founder",
       content: "Working with BoxyPack has been a game-changer for our beauty brand. Their custom designs perfectly capture our brand essence and the packaging quality is top-notch.",
-      rating: 5,
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face&auto=format&q=80"
+      rating: 5
     },
     {
       id: 4,
@@ -58,8 +53,7 @@ const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({ productData }) 
       company: "Luxury Goods Ltd.",
       role: "Operations Manager",
       content: "The premium packaging solutions from BoxyPack elevated our product presentation to new heights. Professional service, fast delivery, and exceptional quality every time.",
-      rating: 5,
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face&auto=format&q=80"
+      rating: 5
     },
     {
       id: 5,
@@ -67,8 +61,7 @@ const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({ productData }) 
       company: "Artisan Crafts",
       role: "Creative Director",
       content: "BoxyPack understood our vision perfectly and delivered packaging that truly represents our brand. The craftsmanship and attention to detail exceeded our expectations.",
-      rating: 5,
-      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face&auto=format&q=80"
+      rating: 5
     }
   ];
 
@@ -167,18 +160,7 @@ const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({ productData }) 
               </blockquote>
 
               {/* Client Info */}
-              <div className="flex items-center justify-center space-x-6">
-                {/* Avatar */}
-                <div className="w-16 h-16 rounded-full overflow-hidden shadow-lg ring-2 ring-white/50">
-                  <CldImage
-                    src={testimonials[currentIndex].avatar}
-                    alt={testimonials[currentIndex].name}
-                    width={64}
-                    height={64}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
+              <div className="flex items-center justify-center">
                 {/* Client Details */}
                 <div className="text-center transition-all duration-500 ease-in-out">
                   <h4 className="text-h4 text-heading-primary mb-1">
