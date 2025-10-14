@@ -38,8 +38,12 @@ export default function OrderConfirmationPage() {
     totalAmount: number;
   } | null>(null);
   const [orderNumber, setOrderNumber] = useState('');
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
+    // Only run once on mount
+    if (isInitialized) return;
+
     const storedOrder = sessionStorage.getItem('orderConfirmation');
     const shouldClearCart = sessionStorage.getItem('clearCartOnConfirmation');
     
@@ -53,13 +57,26 @@ export default function OrderConfirmationPage() {
         clearCart();
         sessionStorage.removeItem('clearCartOnConfirmation');
       }
+      
+      setIsInitialized(true);
     } else {
+      // Only redirect if we haven't initialized yet and there's no data
       router.push('/');
     }
-  }, [router, clearCart]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (!orderData) {
-    return null;
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 mb-4">
+            <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-[#0c6b76]"></div>
+          </div>
+          <p className="text-gray-600 text-lg">Loading order details...</p>
+        </div>
+      </div>
+    );
   }
 
   return (

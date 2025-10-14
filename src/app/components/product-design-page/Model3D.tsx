@@ -40,12 +40,6 @@ function Model({ modelPath }: { modelPath: string }) {
     setHovered(false);
   }, [modelPath]);
 
-  // Debug logging
-  React.useEffect(() => {
-    console.log('Model3D - modelPath:', modelPath);
-    console.log('Model3D - constructed URL:', modelUrl);
-  }, [modelPath, modelUrl]);
-
   // Center and scale the model when it loads
   React.useEffect(() => {
     if (scene && !isLoaded) {

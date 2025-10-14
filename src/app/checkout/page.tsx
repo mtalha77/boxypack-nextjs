@@ -413,7 +413,7 @@ export default function CheckoutPage() {
                                 {uploadedFileUrls[index] && (
                                   <p className="text-xs text-green-600 flex items-center gap-1">
                                     <CheckCircle className="w-3 h-3" />
-                                    Uploaded to cloud storage
+                                    Uploaded
                                   </p>
                                 )}
                               </div>

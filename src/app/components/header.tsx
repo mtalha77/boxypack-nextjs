@@ -58,8 +58,6 @@ const Header: React.FC = () => {
   useEffect(() => {
     const searchData = getAllSearchData();
     const enhancedData = getAllEnhancedSearchData();
-    console.log('Initializing search data:', searchData.length, 'items');
-    console.log('Initializing enhanced search data:', enhancedData.length, 'items');
     setAllSearchData(searchData);
     setAllEnhancedSearchData(enhancedData);
   }, []);
@@ -81,11 +79,9 @@ const Header: React.FC = () => {
           const suggestions = getSearchSuggestions(searchQuery, allEnhancedSearchData);
           setEnhancedSearchResults(results);
           setSearchSuggestions(suggestions);
-          console.log('Enhanced search completed:', { query: searchQuery, resultsCount: results.length, suggestionsCount: suggestions.length });
         } else {
           const results = searchData(searchQuery, allSearchData);
           setSearchResults(results);
-          console.log('Search completed:', { query: searchQuery, resultsCount: results.length });
         }
         setIsSearchLoading(false);
       }, headerConfig.search.debounceDelay);
@@ -195,8 +191,6 @@ const Header: React.FC = () => {
   };
 
   const handleSearchResultClick = (resultTitle?: string) => {
-    console.log('Search result clicked:', resultTitle);
-    
     // If a result title is provided, show it in the search bar
     if (resultTitle) {
       setSearchQuery(resultTitle);
@@ -452,11 +446,7 @@ const Header: React.FC = () => {
                            <Link
                              key={result.id}
                              href={result.url}
-                             onClick={(e) => {
-                               console.log('=== MOBILE LINK CLICK EVENT ===');
-                               console.log('Mobile link clicked for:', result.title);
-                               console.log('URL:', result.url);
-                               console.log('Event:', e);
+                            onClick={() => {
                                handleSearchResultClick(result.title);
                                setIsMobileMenuOpen(false);
                              }}
@@ -605,7 +595,13 @@ const Header: React.FC = () => {
                 <div key={section.slug} className="relative">
                     <div
                      className="text-black hover:text-black font-medium transition-colors pb-2 relative group cursor-pointer flex items-center"
-                    onMouseEnter={() => setHoveredMainSection(section.slug)}
+                    onMouseEnter={() => {
+                      setHoveredMainSection(section.slug);
+                      // For material section, set first category as hovered by default
+                      if (section.slug === 'product-by-material' && section.categories && section.categories.length > 0) {
+                        setHoveredCategory(section.categories[0].slug);
+                      }
+                    }}
                      onMouseLeave={() => {
                       // Don't close immediately when leaving the section text
                        // Let the dropdown handle its own hover state
@@ -624,9 +620,11 @@ const Header: React.FC = () => {
           {/* Hover Dropdown Menu */}
                   {hoveredMainSection === section.slug && !isClosing && (
                                            <div 
-                      className={`absolute left-0 w-auto h-[70vh] z-50 bg-white shadow-lg transition-all duration-1000 ease-in-out ${
+                      className={`absolute left-0 w-auto max-h-[70vh] z-50 bg-white shadow-lg transition-all duration-1000 ease-in-out ${
                         section.slug === 'product-by-industry' 
                           ? 'min-w-[48rem] max-w-7xl' 
+                          : section.slug === 'product-by-material'
+                          ? 'min-w-[56rem] max-w-5xl'
                           : section.slug === 'other'
                           ? 'min-w-[32rem] max-w-6xl'
                           : 'min-w-96 max-w-4xl'
@@ -650,16 +648,87 @@ const Header: React.FC = () => {
                           className="w-full h-full object-cover opacity-60"
                         />
                       </div>
-                      <div className="w-full h-full flex">
-                        <div className="w-full px-0 py-6 h-full">
+                      <div className="w-full flex">
+                        <div className="w-full px-0 py-6">
                           {section.hasSubcategories ? (
-                            <div className="flex h-full">
+                            <div className="flex">
                               {section.categories ? (
-                                // Layout for sections with categories
+                                // Special layout for product-by-material with two columns
+                                section.slug === 'product-by-material' ? (
+                                  <div className="flex w-full">
+                                    {/* Left Column - Categories */}
+                                    <div className="w-1/3 px-6 border-r border-gray-200">
+                                      <div className="space-y-2 pt-4 pb-4">
+                                        {section.categories.map((category) => (
+                                          <div
+                                            key={category.slug}
+                                            onMouseEnter={() => setHoveredCategory(category.slug)}
+                                            className={`flex items-center px-4 py-3 rounded-lg transition-all cursor-pointer ${
+                                              hoveredCategory === category.slug
+                                                ? 'bg-[#0c6b76]/10 text-[#0c6b76]'
+                                                : 'text-gray-700 hover:bg-gray-50'
+                                            }`}
+                                          >
+                                            <CldImage
+                                              src={getCategoryIcon(category.name)}
+                                              alt={category.name}
+                                              width={32}
+                                              height={32}
+                                              className="w-8 h-8 mr-3 flex-shrink-0"
+                                            />
+                                            <span className="font-medium text-sm">{category.name}</span>
+                                          </div>
+                                        ))}
+                                      </div>
+                                    </div>
+                                    
+                                    {/* Right Column - Subcategories */}
+                                    <div className="w-2/3 px-6">
+                                      <div className="pt-4 pb-4">
+                                        {hoveredCategory ? (
+                                          <div>
+                                            <h3 className="text-lg font-semibold text-[#0c6b76] mb-4">
+                                              {section.categories.find(cat => cat.slug === hoveredCategory)?.name} Products
+                                            </h3>
+                                            <div className="grid grid-cols-2 gap-3">
+                                              {section.categories
+                                                .find(cat => cat.slug === hoveredCategory)
+                                                ?.subcategories?.map((subcategory) => (
+                                                  <Link
+                                                    key={subcategory.slug}
+                                                    href={`/products/${section.slug}/${hoveredCategory}/${subcategory.slug}`}
+                                                    onClick={handleSmoothClose}
+                                                    className="flex items-start px-3 py-2 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] hover:bg-[#0c6b76]/5 group"
+                                                  >
+                                                    <CldImage
+                                                      src={getSubcategoryIcon(subcategory.name)}
+                                                      alt={subcategory.name}
+                                                      width={24}
+                                                      height={24}
+                                                      className="w-6 h-6 mr-2 flex-shrink-0 mt-0.5"
+                                                    />
+                                                    <span className="text-sm leading-tight">{subcategory.name}</span>
+                                                  </Link>
+                                                )) || []}
+                                            </div>
+                                          </div>
+                                        ) : (
+                                          <div className="flex items-center justify-center min-h-[200px] text-gray-400">
+                                            <div className="text-center">
+                                              <Package className="w-12 h-12 mx-auto mb-2 opacity-50" />
+                                              <p className="text-sm">Hover over a material to see products</p>
+                                            </div>
+                                          </div>
+                                        )}
+                                      </div>
+                                    </div>
+                                  </div>
+                                ) : (
+                                  // Layout for other sections with categories
                                 <div className="w-full px-6">
-                                  <div className={`grid gap-4 max-h-80 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 hover:scrollbar-thumb-gray-400 pt-4 pb-4 ${
+                                    <div className={`grid gap-4 pt-4 pb-4 ${
                                     section.slug === 'product-by-industry' 
-                                      ? 'grid-cols-2 lg:grid-cols-4' 
+                                      ? 'grid-cols-2 lg:grid-cols-4 max-h-[60vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 hover:scrollbar-thumb-gray-400' 
                                       : section.slug === 'other'
                                       ? 'grid-cols-2'
                                       : 'grid-cols-1'
@@ -685,7 +754,7 @@ const Header: React.FC = () => {
                                             </Link>
                                         )) || [];
                                       } else {
-                                        // For Materials and Industries, show categories
+                                          // For Industries, show categories
                                         return (
                                       <Link
                                         key={category.slug}
@@ -707,10 +776,11 @@ const Header: React.FC = () => {
                                     })}
                                   </div>
                                 </div>
+                                )
                               ) : (
                                 // Layout for sections with direct subcategories (fallback)
                                 <div className="w-full px-6">
-                                  <div className="grid grid-cols-1 gap-4 max-h-80 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 hover:scrollbar-thumb-gray-400 pt-4 pb-4">
+                                  <div className="grid grid-cols-1 gap-4 pt-4 pb-4">
                                     {section.subcategories?.map((subcategory) => (
                                       <Link
                                         key={subcategory.slug}
@@ -734,10 +804,10 @@ const Header: React.FC = () => {
                             </div>
                           ) : (
                             // Simple dropdown for sections without subcategories - using same layout as complex dropdowns
-                            <div className="flex h-full">
+                            <div className="flex">
                               {/* Left Side - Section Info */}
                               <div className="w-1/4 pr-6 border-r border-gray-200">
-                                <div className="flex items-center h-full">
+                                <div className="flex items-center">
                                   <div className="text-center w-full">
                                     <div className="flex items-center justify-center mb-4">
                                       <CldImage
@@ -760,7 +830,7 @@ const Header: React.FC = () => {
                               
                               {/* Right Side - Subcategories */}
                               <div className="w-3/4 pl-6">
-                                <div className="grid grid-cols-1 gap-2 max-h-80 overflow-y-auto">
+                                <div className="grid grid-cols-1 gap-2">
                                   {section.subcategories?.map((subcategory) => (
                                     <Link
                                       key={subcategory.slug}

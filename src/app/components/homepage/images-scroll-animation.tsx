@@ -62,16 +62,9 @@ const ScrollVideoSection = () => {
       const img = new Image();
       img.crossOrigin = 'anonymous';
       img.src = `https://res.cloudinary.com/du5lyrqvz/image/upload/f_auto,q_auto,w_1000,h_500,c_fill/${imagePublicIds[i]}`;
-      
-      // Add error handling for failed image loads
-      img.onerror = () => {
-        console.warn(`Failed to load image ${i + 1}: ${imagePublicIds[i]}`);
-      };
-      
       loadedImages.push(img);
     }
 
-    console.log('🎬 Loaded 150 images for animation');
     return loadedImages;
   }, [imagePublicIds]);
  

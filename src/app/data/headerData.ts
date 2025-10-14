@@ -325,116 +325,151 @@ export const categoryIconMappings: IconMapping[] = [
 ];
 
 export const subcategoryIconMappings: IconMapping[] = [
-  // Box construction types - using available PNG icons
+  // Box construction types - using Cloudinary IDs for consistency
   {
     pattern: 'magnetic',
-    iconPath: '/icons/rigid.png',
+    iconPath: 'rigid-box_wavmky',
     description: 'Magnetic closure boxes'
   },
   {
     pattern: 'two piece',
-    iconPath: '/icons/rigid.png',
+    iconPath: 'rigid-box_wavmky',
     description: 'Two-piece boxes'
   },
   {
     pattern: ['collapsible', 'foldable'],
-    iconPath: '/icons/kraft.png',
+    iconPath: 'kraft-boxes_hwu3cv',
     description: 'Foldable boxes'
   },
   {
     pattern: ['sliding', 'sleeve'],
-    iconPath: '/icons/cardboard.png',
+    iconPath: 'rigid-box_wavmky',
     description: 'Sliding boxes'
   },
   {
     pattern: 'child resistant',
-    iconPath: '/icons/rigid.png',
+    iconPath: 'rigid-box_wavmky',
     description: 'Child-resistant boxes'
   },
   {
     pattern: 'brief case',
-    iconPath: '/icons/rigid.png',
+    iconPath: 'rigid-box_wavmky',
     description: 'Briefcase boxes'
   },
   {
     pattern: 'book style',
-    iconPath: '/icons/kraft.png',
+    iconPath: 'rigid-box_wavmky',
     description: 'Book-style boxes'
   },
   {
+    pattern: 'bookend',
+    iconPath: 'stationaryBox_zhokdh',
+    description: 'Bookend boxes'
+  },
+  {
     pattern: 'hexagon',
-    iconPath: '/icons/rigid.png',
+    iconPath: 'rigid-box_wavmky',
     description: 'Hexagonal boxes'
   },
   {
     pattern: 'round',
-    iconPath: '/icons/rigid.png',
+    iconPath: 'rigid-box_wavmky',
     description: 'Round boxes'
   },
   {
     pattern: 'shoulder',
-    iconPath: '/icons/cardboard.png',
+    iconPath: 'cardboard_jjfywq',
     description: 'Shoulder boxes'
   },
   {
     pattern: 'pillow',
-    iconPath: '/icons/rigid.png',
+    iconPath: 'soapBox_qpabxg',
     description: 'Pillow boxes'
   },
   {
     pattern: 'gable',
-    iconPath: '/icons/kraft.png',
+    iconPath: 'kraft-boxes_hwu3cv',
     description: 'Gable boxes'
   },
   {
     pattern: 'tuck',
-    iconPath: '/icons/kraft.png',
+    iconPath: 'cardboard_jjfywq',
     description: 'Tuck boxes'
   },
   {
     pattern: 'window',
-    iconPath: '/icons/myler-ziplock-bag.png',
+    iconPath: 'window-bag_tw8vlq',
     description: 'Window boxes'
   },
   {
     pattern: 'display',
-    iconPath: '/icons/rigid.png',
+    iconPath: 'retailBox_qpyhws',
     description: 'Display boxes'
   },
   {
     pattern: 'dispenser',
-    iconPath: '/icons/soapBox.png',
+    iconPath: 'soapBox_qpabxg',
     description: 'Dispenser boxes'
   },
   {
     pattern: 'hanger',
-    iconPath: '/icons/rigid.png',
+    iconPath: 'apparelBox_c0r1bo',
     description: 'Hanger boxes'
   },
   {
     pattern: 'inserts',
-    iconPath: '/icons/cardboard.png',
+    iconPath: 'cardboard_jjfywq',
     description: 'Box inserts'
   },
   {
     pattern: 'auto bottom',
-    iconPath: '/icons/rigid.png',
+    iconPath: 'cardboard_jjfywq',
     description: 'Auto bottom boxes'
   },
   {
     pattern: 'seal end',
-    iconPath: '/icons/rigid.png',
+    iconPath: 'cardboard_jjfywq',
     description: 'Seal end boxes'
   },
   {
     pattern: 'blister',
-    iconPath: '/icons/rigid.png',
+    iconPath: 'rigid-box_wavmky',
     description: 'Blister boxes'
   },
   {
     pattern: 'full flap',
     iconPath: 'shippingBox_v70vln',
     description: 'Full flap boxes'
+  },
+  {
+    pattern: 'box with lid',
+    iconPath: 'rigid-box_wavmky',
+    description: 'Box with lid'
+  },
+  {
+    pattern: 'six corner',
+    iconPath: 'cardboard_jjfywq',
+    description: 'Six corner boxes'
+  },
+  {
+    pattern: 'side lock',
+    iconPath: 'cardboard_jjfywq',
+    description: 'Side lock boxes'
+  },
+  {
+    pattern: 'double wall',
+    iconPath: 'corrugated_ox51z1',
+    description: 'Double wall boxes'
+  },
+  {
+    pattern: 'double locked',
+    iconPath: 'corrugated_ox51z1',
+    description: 'Double locked boxes'
+  },
+  {
+    pattern: 'frame tray',
+    iconPath: 'cardboard_jjfywq',
+    description: 'Frame tray'
   },
   
   // Specific subcategory patterns from actual data
@@ -445,172 +480,177 @@ export const subcategoryIconMappings: IconMapping[] = [
   },
   {
     pattern: 'cake',
-    iconPath: '/icons/bakeryBox.png',
+    iconPath: 'bakeryBox_ntpjfy',
     description: 'Cake boxes'
   },
   {
+    pattern: 'bakery',
+    iconPath: 'bakeryBox_ntpjfy',
+    description: 'Bakery boxes'
+  },
+  {
     pattern: 'donut',
-    iconPath: '/icons/bakeryBox.png',
+    iconPath: 'bakeryBox_ntpjfy',
     description: 'Donut boxes'
   },
   {
     pattern: 'cupcake',
-    iconPath: '/icons/bakeryBox.png',
+    iconPath: 'bakeryBox_ntpjfy',
     description: 'Cupcake boxes'
   },
   {
     pattern: 'cookie',
-    iconPath: '/icons/bakeryBox.png',
+    iconPath: 'bakeryBox_ntpjfy',
     description: 'Cookie boxes'
   },
   {
     pattern: 'pastry',
-    iconPath: '/icons/bakeryBox.png',
+    iconPath: 'bakeryBox_ntpjfy',
     description: 'Pastry boxes'
   },
   {
     pattern: 'candy',
-    iconPath: '/icons/bakeryBox.png',
+    iconPath: 'bakeryBox_ntpjfy',
     description: 'Candy boxes'
   },
   {
     pattern: 'perfume',
-    iconPath: '/icons/cosmaticsBox.png',
+    iconPath: 'cosmaticsBox_gfjkea',
     description: 'Perfume boxes'
   },
   {
     pattern: 'makeup',
-    iconPath: '/icons/cosmaticsBox.png',
+    iconPath: 'cosmaticsBox_gfjkea',
     description: 'Makeup boxes'
   },
   {
     pattern: 'lipstick',
-    iconPath: '/icons/cosmaticsBox.png',
+    iconPath: 'cosmaticsBox_gfjkea',
     description: 'Lipstick boxes'
   },
   {
     pattern: 'mascara',
-    iconPath: '/icons/cosmaticsBox.png',
+    iconPath: 'cosmaticsBox_gfjkea',
     description: 'Mascara boxes'
   },
   {
     pattern: 'nail polish',
-    iconPath: '/icons/cosmaticsBox.png',
+    iconPath: 'cosmaticsBox_gfjkea',
     description: 'Nail polish boxes'
   },
   {
     pattern: 'coffee',
-    iconPath: '/icons/foodBox.png',
+    iconPath: 'foodBox_bmo9dr',
     description: 'Coffee boxes'
   },
   {
     pattern: 'burger',
-    iconPath: '/icons/foodBox.png',
+    iconPath: 'foodBox_bmo9dr',
     description: 'Burger boxes'
   },
   {
     pattern: 'sandwich',
-    iconPath: '/icons/foodBox.png',
+    iconPath: 'foodBox_bmo9dr',
     description: 'Sandwich boxes'
   },
   {
     pattern: 'french fry',
-    iconPath: '/icons/foodBox.png',
+    iconPath: 'foodBox_bmo9dr',
     description: 'French fry boxes'
   },
   {
     pattern: 'noodle',
-    iconPath: '/icons/foodBox.png',
+    iconPath: 'foodBox_bmo9dr',
     description: 'Noodle boxes'
   },
   {
     pattern: 'popcorn',
-    iconPath: '/icons/foodBox.png',
+    iconPath: 'foodBox_bmo9dr',
     description: 'Popcorn boxes'
   },
   {
     pattern: 'snack',
-    iconPath: '/icons/foodBox.png',
+    iconPath: 'foodBox_bmo9dr',
     description: 'Snack boxes'
   },
   {
     pattern: 'tea',
-    iconPath: '/icons/foodBox.png',
+    iconPath: 'foodBox_bmo9dr',
     description: 'Tea boxes'
   },
   {
     pattern: 'birthday',
-    iconPath: '/icons/giftBox.png',
+    iconPath: 'giftBox_gmbygu',
     description: 'Birthday gift boxes'
   },
   {
     pattern: 'party favor',
-    iconPath: '/icons/giftBox.png',
+    iconPath: 'giftBox_gmbygu',
     description: 'Party favor boxes'
   },
   {
     pattern: 'deluxe',
-    iconPath: '/icons/giftBox.png',
+    iconPath: 'giftBox_gmbygu',
     description: 'Deluxe gift boxes'
   },
   {
     pattern: 'anklet',
-    iconPath: '/icons/jwelryBox.png',
+    iconPath: 'jwelryBox_qcz5al',
     description: 'Anklet boxes'
   },
   {
     pattern: 'pendant',
-    iconPath: '/icons/jwelryBox.png',
+    iconPath: 'jwelryBox_qcz5al',
     description: 'Pendant boxes'
   },
   {
     pattern: 'bracelet',
-    iconPath: '/icons/jwelryBox.png',
+    iconPath: 'jwelryBox_qcz5al',
     description: 'Bracelet boxes'
   },
   {
     pattern: 'ring',
-    iconPath: '/icons/jwelryBox.png',
+    iconPath: 'jwelryBox_qcz5al',
     description: 'Ring boxes'
   },
   {
     pattern: 'earring',
-    iconPath: '/icons/jwelryBox.png',
+    iconPath: 'jwelryBox_qcz5al',
     description: 'Earring boxes'
   },
   {
     pattern: 'necklace',
-    iconPath: '/icons/jwelryBox.png',
+    iconPath: 'jwelryBox_qcz5al',
     description: 'Necklace boxes'
   },
   {
     pattern: 'velvet',
-    iconPath: '/icons/jwelryBox.png',
+    iconPath: 'jwelryBox_qcz5al',
     description: 'Velvet bags'
   },
   {
     pattern: 'die cut',
-    iconPath: '/icons/retailBox.png',
+    iconPath: 'retailBox_qpyhws',
     description: 'Die cut boxes'
   },
   {
     pattern: 'toy',
-    iconPath: '/icons/retailBox.png',
+    iconPath: 'retailBox_qpyhws',
     description: 'Toy boxes'
   },
   {
     pattern: 'luxury',
-    iconPath: '/icons/candelBox.png',
+    iconPath: 'candelBox_unqhum',
     description: 'Luxury candle boxes'
   },
   {
     pattern: 'taper',
-    iconPath: '/icons/candelBox.png',
+    iconPath: 'candelBox_unqhum',
     description: 'Taper candle boxes'
   },
   {
     pattern: 'wax melt',
-    iconPath: '/icons/candelBox.png',
+    iconPath: 'candelBox_unqhum',
     description: 'Wax melt boxes'
   },
   {
@@ -630,267 +670,272 @@ export const subcategoryIconMappings: IconMapping[] = [
   },
   {
     pattern: 'bath bomb',
-    iconPath: '/icons/soapBox.png',
+    iconPath: 'soapBox_qpabxg',
     description: 'Bath bomb boxes'
   },
   {
     pattern: 'handmade',
-    iconPath: '/icons/soapBox.png',
+    iconPath: 'soapBox_qpabxg',
     description: 'Handmade soap boxes'
   },
   {
     pattern: 'square soap',
-    iconPath: '/icons/soapBox.png',
+    iconPath: 'soapBox_qpabxg',
     description: 'Square soap boxes'
   },
   {
     pattern: 'cufflink',
-    iconPath: '/icons/apparelBox.png',
+    iconPath: 'apparelBox_c0r1bo',
     description: 'Cufflink boxes'
   },
   {
     pattern: 'tie',
-    iconPath: '/icons/apparelBox.png',
+    iconPath: 'apparelBox_c0r1bo',
     description: 'Tie boxes'
   },
   {
     pattern: 'belt',
-    iconPath: '/icons/apparelBox.png',
+    iconPath: 'apparelBox_c0r1bo',
     description: 'Belt boxes'
   },
   {
     pattern: 'clothing',
-    iconPath: '/icons/apparelBox.png',
+    iconPath: 'apparelBox_c0r1bo',
     description: 'Clothing boxes'
   },
   {
     pattern: 'lingerie',
-    iconPath: '/icons/apparelBox.png',
+    iconPath: 'apparelBox_c0r1bo',
     description: 'Lingerie boxes'
   },
   {
     pattern: 'underwear',
-    iconPath: '/icons/apparelBox.png',
+    iconPath: 'apparelBox_c0r1bo',
     description: 'Underwear boxes'
   },
   {
     pattern: 't-shirt',
-    iconPath: '/icons/apparelBox.png',
+    iconPath: 'apparelBox_c0r1bo',
     description: 'T-shirt boxes'
   },
   {
     pattern: 'socks',
-    iconPath: '/icons/apparelBox.png',
+    iconPath: 'apparelBox_c0r1bo',
     description: 'Socks boxes'
   },
   {
     pattern: 'shoe',
-    iconPath: '/icons/sportsBox.png',
+    iconPath: 'sportsBox_v6pwaf',
     description: 'Shoe boxes'
   },
   {
     pattern: 'golf',
-    iconPath: '/icons/sportsBox.png',
+    iconPath: 'sportsBox_v6pwaf',
     description: 'Golf ball boxes'
   },
   {
     pattern: 'football',
-    iconPath: '/icons/sportsBox.png',
+    iconPath: 'sportsBox_v6pwaf',
     description: 'Football boxes'
   },
   {
     pattern: 'paper cigarette',
-    iconPath: '/icons/cigratteeBox.png',
+    iconPath: 'cigratteeBox_kaytkj',
     description: 'Paper cigarette boxes'
   },
   {
     pattern: 'empty cigarette',
-    iconPath: '/icons/cigratteeBox.png',
+    iconPath: 'cigratteeBox_kaytkj',
     description: 'Empty cigarette boxes'
   },
   {
     pattern: 'blank cigarette',
-    iconPath: '/icons/cigratteeBox.png',
+    iconPath: 'cigratteeBox_kaytkj',
     description: 'Blank cigarette boxes'
   },
   {
     pattern: 'flip top',
-    iconPath: '/icons/cigratteeBox.png',
+    iconPath: 'cigratteeBox_kaytkj',
     description: 'Flip top cigarette boxes'
   },
   {
+    pattern: 'ciggeret',
+    iconPath: 'cigratteeBox_kaytkj',
+    description: 'Cigarette boxes'
+  },
+  {
     pattern: 'cbd gummies',
-    iconPath: '/icons/CBDBox.png',
+    iconPath: 'CBDBox_aizsuy',
     description: 'CBD gummies boxes'
   },
   {
     pattern: 'cannabis',
-    iconPath: '/icons/CBDBox.png',
+    iconPath: 'CBDBox_aizsuy',
     description: 'Cannabis boxes'
   },
   {
     pattern: 'hemp oil',
-    iconPath: '/icons/CBDBox.png',
+    iconPath: 'CBDBox_aizsuy',
     description: 'Hemp oil boxes'
   },
   {
     pattern: 'tincture',
-    iconPath: '/icons/CBDBox.png',
+    iconPath: 'CBDBox_aizsuy',
     description: 'CBD tincture boxes'
   },
   {
     pattern: 'vape cartridge',
-    iconPath: '/icons/eliquidBox.png',
+    iconPath: 'eliquidBox_wpu3he',
     description: 'Vape cartridge boxes'
   },
   {
     pattern: 'disposable vape',
-    iconPath: '/icons/eliquidBox.png',
+    iconPath: 'eliquidBox_wpu3he',
     description: 'Disposable vape boxes'
   },
   {
     pattern: 'pencil',
-    iconPath: '/icons/stationaryBox.png',
+    iconPath: 'stationaryBox_zhokdh',
     description: 'Pencil boxes'
   },
   {
     pattern: 'pen',
-    iconPath: '/icons/stationaryBox.png',
+    iconPath: 'stationaryBox_zhokdh',
     description: 'Pen boxes'
   },
   {
     pattern: 'book',
-    iconPath: '/icons/stationaryBox.png',
+    iconPath: 'stationaryBox_zhokdh',
     description: 'Book boxes'
   },
   {
     pattern: 'presentation',
-    iconPath: '/icons/stationaryBox.png',
+    iconPath: 'stationaryBox_zhokdh',
     description: 'Presentation folders'
   },
   {
     pattern: 'christmas eve',
-    iconPath: '/icons/christmasBox.png',
+    iconPath: 'christmasBox_eldfzv',
     description: 'Christmas eve boxes'
   },
   {
     pattern: 'christmas present',
-    iconPath: '/icons/christmasBox.png',
+    iconPath: 'christmasBox_eldfzv',
     description: 'Christmas present boxes'
   },
   {
     pattern: 'christmas treat',
-    iconPath: '/icons/christmasBox.png',
+    iconPath: 'christmasBox_eldfzv',
     description: 'Christmas treat boxes'
   },
   {
     pattern: 'christmas favor',
-    iconPath: '/icons/christmasBox.png',
+    iconPath: 'christmasBox_eldfzv',
     description: 'Christmas favor boxes'
   },
   {
     pattern: 'chocolate milk',
-    iconPath: '/icons/chocolateBox.png',
+    iconPath: 'chocolateBox_yuhq78',
     description: 'Chocolate milk boxes'
   },
   {
     pattern: 'chocolate bomb',
-    iconPath: '/icons/chocolateBox.png',
+    iconPath: 'chocolateBox_yuhq78',
     description: 'Chocolate bomb boxes'
   },
   {
     pattern: 'chocolate bar',
-    iconPath: '/icons/chocolateBox.png',
+    iconPath: 'chocolateBox_yuhq78',
     description: 'Chocolate bar boxes'
   },
   {
     pattern: 'cereal wholesale',
-    iconPath: '/icons/carealBox.png',
+    iconPath: 'carealBox_y12zuv',
     description: 'Cereal boxes wholesale'
   },
   {
     pattern: 'mini cereal',
-    iconPath: '/icons/carealBox.png',
+    iconPath: 'carealBox_y12zuv',
     description: 'Mini cereal boxes'
   },
   {
     pattern: 'corn flakes',
-    iconPath: '/icons/carealBox.png',
+    iconPath: 'carealBox_y12zuv',
     description: 'Corn flakes boxes'
   },
   {
     pattern: 'breakfast cereal',
-    iconPath: '/icons/carealBox.png',
+    iconPath: 'carealBox_y12zuv',
     description: 'Breakfast cereal boxes'
   },
   {
     pattern: 'colorful cereal',
-    iconPath: '/icons/carealBox.png',
+    iconPath: 'carealBox_y12zuv',
     description: 'Colorful cereal boxes'
   },
   {
     pattern: 'vintage cereal',
-    iconPath: '/icons/carealBox.png',
+    iconPath: 'carealBox_y12zuv',
     description: 'Vintage cereal boxes'
   },
   {
     pattern: 'retro cereal',
-    iconPath: '/icons/carealBox.png',
+    iconPath: 'carealBox_y12zuv',
     description: 'Retro cereal boxes'
   },
   {
     pattern: '90s cereal',
-    iconPath: '/icons/carealBox.png',
+    iconPath: 'carealBox_y12zuv',
     description: '90s cereal boxes'
   },
   {
     pattern: '80s cereal',
-    iconPath: '/icons/carealBox.png',
+    iconPath: 'carealBox_y12zuv',
     description: '80s cereal boxes'
   },
   {
     pattern: 'funny cereal',
-    iconPath: '/icons/carealBox.png',
+    iconPath: 'carealBox_y12zuv',
     description: 'Funny cereal boxes'
   },
   {
     pattern: 'delta 8',
-    iconPath: '/icons/preRollBox.png',
+    iconPath: 'preRollBox_h6woxr',
     description: 'Delta 8 boxes'
   },
   {
     pattern: 'white pizza',
-    iconPath: '/icons/pizzaBox.png',
+    iconPath: 'pizzaBox_c15rfj',
     description: 'White pizza boxes'
   },
   {
     pattern: 'pizza slice',
-    iconPath: '/icons/pizzaBox.png',
+    iconPath: 'pizzaBox_c15rfj',
     description: 'Pizza slice boxes'
   },
   {
     pattern: 'round pizza',
-    iconPath: '/icons/pizzaBox.png',
+    iconPath: 'pizzaBox_c15rfj',
     description: 'Round pizza boxes'
   },
   {
     pattern: 'rectangle pizza',
-    iconPath: '/icons/pizzaBox.png',
+    iconPath: 'pizzaBox_c15rfj',
     description: 'Rectangle pizza boxes'
   },
   {
     pattern: 'flatbread pizza',
-    iconPath: '/icons/pizzaBox.png',
+    iconPath: 'pizzaBox_c15rfj',
     description: 'Flatbread pizza boxes'
   },
   {
     pattern: 'inch pizza',
-    iconPath: '/icons/pizzaBox.png',
+    iconPath: 'pizzaBox_c15rfj',
     description: 'Pizza boxes by size'
   },
   {
     pattern: 'blank pizza',
-    iconPath: '/icons/pizzaBox.png',
+    iconPath: 'pizzaBox_c15rfj',
     description: 'Blank pizza boxes'
   },
   
@@ -1064,19 +1109,15 @@ export const headerConfig: HeaderConfig = {
 export const getCategoryIcon = (categoryName: string): string => {
   const name = categoryName.toLowerCase();
   
-  console.log('🔍 Getting category icon for:', categoryName, 'processed name:', name);
-  
   // First try exact matches
   for (const mapping of categoryIconMappings) {
     if (mapping.exactMatch) {
       if (Array.isArray(mapping.pattern)) {
         if (mapping.pattern.some(pattern => name === pattern.toLowerCase())) {
-          console.log('✅ Exact category match found:', mapping.pattern, '->', mapping.iconPath);
           return mapping.iconPath;
         }
       } else {
         if (name === mapping.pattern.toLowerCase()) {
-          console.log('✅ Exact category match found:', mapping.pattern, '->', mapping.iconPath);
           return mapping.iconPath;
         }
       }
@@ -1088,27 +1129,21 @@ export const getCategoryIcon = (categoryName: string): string => {
     if (!mapping.exactMatch) {
       if (Array.isArray(mapping.pattern)) {
         if (mapping.pattern.some(pattern => name.includes(pattern))) {
-          console.log('✅ Partial category match found:', mapping.pattern, '->', mapping.iconPath);
           return mapping.iconPath;
         }
       } else {
         if (name.includes(mapping.pattern)) {
-          console.log('✅ Partial category match found:', mapping.pattern, '->', mapping.iconPath);
           return mapping.iconPath;
         }
       }
     }
   }
   
-  console.log('❌ No category match found for:', categoryName, 'using default icon');
-  return '/icons/rigid.png'; // Default box icon
+  return 'rigid-box_wavmky'; // Default box icon
 };
 
 export const getSubcategoryIcon = (subcategoryName: string): string => {
   const name = subcategoryName.toLowerCase();
-  
-  // Debug logging for all subcategories
-  console.log('🔍 Getting subcategory icon for:', subcategoryName, 'processed name:', name);
   
   // First try exact matches
   for (const mapping of subcategoryIconMappings) {
@@ -1116,12 +1151,10 @@ export const getSubcategoryIcon = (subcategoryName: string): string => {
       // For exact matches, check if the name exactly matches the pattern
       if (Array.isArray(mapping.pattern)) {
         if (mapping.pattern.some(pattern => name === pattern.toLowerCase())) {
-          console.log('✅ Exact subcategory match found:', mapping.pattern, '->', mapping.iconPath);
           return mapping.iconPath;
         }
       } else {
         if (name === mapping.pattern.toLowerCase()) {
-          console.log('✅ Exact subcategory match found:', mapping.pattern, '->', mapping.iconPath);
           return mapping.iconPath;
         }
       }
@@ -1134,20 +1167,17 @@ export const getSubcategoryIcon = (subcategoryName: string): string => {
       // For partial matches, check if the name includes the pattern
       if (Array.isArray(mapping.pattern)) {
         if (mapping.pattern.some(pattern => name.includes(pattern))) {
-          console.log('✅ Partial subcategory match found:', mapping.pattern, '->', mapping.iconPath);
           return mapping.iconPath;
         }
       } else {
         if (name.includes(mapping.pattern)) {
-          console.log('✅ Partial subcategory match found:', mapping.pattern, '->', mapping.iconPath);
           return mapping.iconPath;
         }
       }
     }
   }
   
-  console.log('❌ No subcategory match found for:', subcategoryName, 'using default icon');
-  return '/icons/rigid.png'; // Default box icon
+  return 'rigid-box_wavmky'; // Default box icon
 };
 
 export default {
