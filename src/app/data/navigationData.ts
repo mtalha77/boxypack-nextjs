@@ -56,7 +56,7 @@ export const navigationData: NavigationSection[] = [
     }))
   },
   {
-    name: 'Mylar Boxes',
+    name: 'Mylar Pouches',
     slug: 'mylar-boxes',
     hasSubcategories: true,
     description: 'Premium mylar packaging solutions with excellent barrier properties',
