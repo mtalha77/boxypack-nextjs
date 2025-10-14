@@ -24,6 +24,7 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ productData, breadcrumbs = [] }) => {
   const [isModelReady, setIsModelReady] = useState(false);
+  const [hasModelError, setHasModelError] = useState(false);
   const router = useRouter();
 
   // Handle Order Now button click
@@ -48,13 +49,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({ productData, breadcrumbs = []
   };
 
   return (
-    <section className="pt-10 relative overflow-hidden min-h-[95vh]">
+    <section className={`pt-10 relative overflow-hidden ${hasModelError ? 'min-h-[60vh]' : 'min-h-[95vh]'}`}>
       <GradientBackground 
         className="absolute inset-0"
       />
 
-      <div className="max-w-7xl mx-auto px-6 relative" style={{ zIndex: 10 }}>
-        {/* Dynamic Breadcrumb */}
+<div className="max-w-7xl mx-auto px-6 relative" style={{ zIndex: 10 }}>
+{/* Dynamic Breadcrumb */}
         {breadcrumbs.length > 0 && (
           <div className="mb-6">
             <nav className="flex" aria-label="Breadcrumb">
@@ -93,27 +94,34 @@ const HeroSection: React.FC<HeroSectionProps> = ({ productData, breadcrumbs = []
           </div>
         )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          {/* 3D Model - Top on mobile, Right on desktop */}
-          <div className="relative flex justify-center items-center order-1 lg:order-2 px-4 lg:px-0">
-            <div className="w-full max-w-sm sm:max-w-md lg:w-[600px] h-[350px] sm:h-[400px] lg:h-[500px]">
-              <ClientOnly>
-              {!isModelReady && (
-                <div className="w-full h-full bg-white/10 rounded-lg flex items-center justify-center">
-                  <div className="text-white/70 text-body">Loading Model...</div>
-                </div>
-              )}
-              <Model3D 
-                modelPath={productData.modelPath} 
-                className="w-full h-full"
-                onModelReady={() => setIsModelReady(true)}
-              />
-              </ClientOnly>
+        <div className={`grid grid-cols-1 ${hasModelError ? 'lg:grid-cols-1' : 'lg:grid-cols-2'} gap-8 ${hasModelError ? 'items-start' : 'items-center'}`}>
+          {/* 3D Model - Top on mobile, Right on desktop - Only show if no error */}
+          {!hasModelError && (
+            <div className="relative flex justify-center items-center order-1 lg:order-2 px-4 lg:px-0">
+              <div className="w-full max-w-sm sm:max-w-md lg:w-[600px] h-[350px] sm:h-[400px] lg:h-[500px]">
+                <ClientOnly>
+                {!isModelReady && (
+                  <div className="w-full h-full bg-white/10 rounded-lg flex items-center justify-center">
+                    <div className="text-white/70 text-body">Loading Model...</div>
+                  </div>
+                )}
+                <Model3D 
+                  modelPath={productData.modelPath} 
+                  className="w-full h-full"
+                  onModelReady={() => setIsModelReady(true)}
+                  onError={() => setHasModelError(true)}
+                />
+                </ClientOnly>
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Content - Bottom on mobile, Left on desktop */}
-          <div className="text-white order-2 lg:order-1 px-4 lg:px-0">
+          <div className={`text-white px-4 lg:px-0 ${
+            hasModelError 
+              ? 'order-2 lg:order-1' // Center content when model is hidden
+              : 'order-2 lg:order-1' // Keep order classes when model is visible
+          }`}>
             <h1 className="text-4xl sm:text-4xl md:text-6xl text-white mb-4 leading-tight font-bold">{productData.name}</h1>
             <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6">
               {productData.description}

@@ -119,12 +119,31 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   // Handle pre-selection from sessionStorage or initialProductSlug
   useEffect(() => {
     const storedProduct = sessionStorage.getItem('selectedProduct');
-    if (storedProduct) {
-      setSelectedProduct(storedProduct);
+    const productSlugToUse = storedProduct || initialProductSlug;
+    
+    if (productSlugToUse) {
+      // Find which material category this product belongs to
+      const materialCategory = productByMaterialData.find(category => 
+        category.subcategories.some(sub => sub.slug === productSlugToUse)
+      );
+      
+      if (materialCategory) {
+        // Set both material and product
+        setSelectedMaterial(materialCategory.slug);
+        setSelectedProduct(productSlugToUse);
+        
+        // Find the product and set its images
+        const product = materialCategory.subcategories.find(sub => sub.slug === productSlugToUse);
+        if (product && product.images && product.images.length > 0) {
+          setCurrentProductImages(product.images);
+          setSelectedImage(product.images[0]);
+        }
+      }
+      
       // Clear the stored product after using it
-      sessionStorage.removeItem('selectedProduct');
-    } else if (initialProductSlug) {
-      setSelectedProduct(initialProductSlug);
+      if (storedProduct) {
+        sessionStorage.removeItem('selectedProduct');
+      }
     }
   }, [initialProductSlug]);
 

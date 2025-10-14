@@ -189,12 +189,6 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
         />
         <div className="text-white text-center relative z-10 flex flex-col items-center justify-center">
           <div className="animate-spin rounded-full h-16 w-16 border-4 border-white/30 border-t-white mb-6"></div>
-          <h2 className="text-2xl font-semibold mb-2">
-            {!isMounted ? 'Loading...' : 'Fetching product data...'}
-          </h2>
-          <p className="text-lg text-white/80">
-            Please wait while we load the product information
-          </p>
         </div>
       </main>
     );
@@ -206,8 +200,10 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
         {/* Hero Section with Integrated Breadcrumb */}
         <HeroSection productData={productInfo} breadcrumbs={breadcrumbs} />
 
-        {/* Custom Dimensions Form */}
-        <CustomDimensionsForm />
+        {/* Custom Dimensions Form - Pass the slug for auto-selection */}
+        <CustomDimensionsForm 
+          initialProductSlug={pageType === 'subcategory' && subcategory ? subcategory.slug : undefined}
+        />
 
         {/* Subcategory Cards Section - Show subcategories for category and subcategory pages */}
         {(pageType === 'category' || pageType === 'subcategory') && category?.subcategories && section && (

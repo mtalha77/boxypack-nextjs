@@ -9,6 +9,7 @@ interface Model3DProps {
   modelPath: string;
   className?: string;
   onModelReady?: () => void;
+  onError?: () => void;
 }
 
 function Model({ modelPath }: { modelPath: string }) {
@@ -93,9 +94,37 @@ function Model({ modelPath }: { modelPath: string }) {
   );
 }
 
-const Model3D: React.FC<Model3DProps> = ({ modelPath, className = "", onModelReady }) => {
+// Error Boundary Component for 3D Model
+class Model3DErrorBoundary extends React.Component<
+  { children: React.ReactNode; onError?: () => void },
+  { hasError: boolean }
+> {
+  constructor(props: { children: React.ReactNode; onError?: () => void }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: Error) {
+    console.warn('3D Model failed to load:', error);
+    this.props.onError?.();
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return null; // Don't render anything on error
+    }
+    return this.props.children;
+  }
+}
+
+const Model3D: React.FC<Model3DProps> = ({ modelPath, className = "", onModelReady, onError }) => {
   const [isModelReady, setIsModelReady] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   // Ensure component only renders on client side
   React.useEffect(() => {
@@ -107,39 +136,42 @@ const Model3D: React.FC<Model3DProps> = ({ modelPath, className = "", onModelRea
     onModelReady?.();
   };
 
+  const handleError = () => {
+    setHasError(true);
+    onError?.();
+  };
+
   // Don't render on server side to prevent hydration issues
-  if (!isMounted) {
-    return (
-      <div className={`w-full h-full ${className} flex items-center justify-center bg-gray-100 rounded-lg`}>
-        <div className="text-gray-500">Loading 3D Model...</div>
-      </div>
-    );
+  if (!isMounted || hasError) {
+    return null;
   }
 
   return (
-    <div className={`w-full h-full ${className}`}>
-      <Canvas
-        camera={{ position: [0, 0, 5], fov: 50 }}
-        style={{ background: 'transparent' }}
-        gl={{ antialias: true, alpha: true }}
-        onCreated={handleModelReady}
-      >
-        <ambientLight intensity={0.6} />
-        <directionalLight position={[10, 10, 5]} intensity={1} />
-        <pointLight position={[-10, -10, -5]} intensity={0.5} />
-        <hemisphereLight intensity={0.4} />
-        {isModelReady && <Model key={modelPath} modelPath={modelPath} />}
-        <OrbitControls
-          enablePan={false}
-          enableZoom={false}
-          enableRotate={true}
-          minPolarAngle={Math.PI / 6}
-          maxPolarAngle={Math.PI - Math.PI / 6}
-          minDistance={4}
-          maxDistance={6}
-        />
-      </Canvas>
-    </div>
+    <Model3DErrorBoundary onError={handleError}>
+      <div className={`w-full h-full ${className}`}>
+        <Canvas
+          camera={{ position: [0, 0, 5], fov: 50 }}
+          style={{ background: 'transparent' }}
+          gl={{ antialias: true, alpha: true }}
+          onCreated={handleModelReady}
+        >
+          <ambientLight intensity={0.6} />
+          <directionalLight position={[10, 10, 5]} intensity={1} />
+          <pointLight position={[-10, -10, -5]} intensity={0.5} />
+          <hemisphereLight intensity={0.4} />
+          {isModelReady && <Model key={modelPath} modelPath={modelPath} />}
+          <OrbitControls
+            enablePan={false}
+            enableZoom={false}
+            enableRotate={true}
+            minPolarAngle={Math.PI / 6}
+            maxPolarAngle={Math.PI - Math.PI / 6}
+            minDistance={4}
+            maxDistance={6}
+          />
+        </Canvas>
+      </div>
+    </Model3DErrorBoundary>
   );
 };
 

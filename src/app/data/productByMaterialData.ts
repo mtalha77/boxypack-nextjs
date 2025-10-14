@@ -25,9 +25,9 @@ export const productByMaterialData: MaterialCategory[] = [
     subcategoriesCount: 5,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
-      { name: "Magnetic Closure Rigid Box", slug: "magnetic-closure-rigid-box", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
+      { name: "Magnetic Closure Rigid Box", slug: "magnetic-closure-rigid-boxes", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
       { name: "Two Piece Rigid Boxes", slug: "two-piece-rigid-boxes", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
-      { name: "Sliding / sleeve Rigid Boxes (Match Style Boxes)", slug: "sliding-sleeve-rigid-boxes-match-style-boxes", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
+      { name: "Sliding / sleeve Rigid Boxes (Match Style Boxes)", slug: "sliding-sleeve-rigid-boxes", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
       { name: "Brief Case Style", slug: "brief-case-style", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" },
       { name: "Book Style Rigid Boxes", slug: "book-style-rigid-boxes", modelPath: "Tuck_End_Auto_Bottom1_ttdsdf" }
     ]
