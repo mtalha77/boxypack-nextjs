@@ -155,10 +155,11 @@ export default function CheckoutPage() {
         throw new Error(result.error || 'Failed to place order');
       }
 
+      // Store order data in sessionStorage
       sessionStorage.setItem('orderConfirmation', JSON.stringify(orderData));
       sessionStorage.setItem('clearCartOnConfirmation', 'true');
 
-      // Navigate immediately without setTimeout to avoid race conditions
+      // Navigate to order confirmation page
       router.push('/order-confirmation');
     } catch (error) {
       console.error('Order submission error:', error);

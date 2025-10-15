@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import { LogOut, Settings, Package } from 'lucide-react';
 
 interface AdminLayoutProps {
@@ -72,12 +72,13 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
           <div className="flex justify-between items-center h-16">
             {/* Logo and Title */}
             <div className="flex items-center">
-              <Image
-                src="/img/logo-vertical.png"
+              <CldImage
+                src="logo-vertical_zkxna0"
                 alt="Boxypack"
                 width={120}
                 height={60}
                 className="mr-4"
+                priority
               />
             </div>
 

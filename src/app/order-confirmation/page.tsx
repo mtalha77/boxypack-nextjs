@@ -1,12 +1,13 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { CheckCircle, Package, Mail, Phone, MapPin, Calendar, FileText } from 'lucide-react';
 import { useCart } from '../contexts/CartContext';
 
 export default function OrderConfirmationPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { clearCart } = useCart();
   const [orderData, setOrderData] = useState<{
     orderNumber: string;
@@ -41,26 +42,35 @@ export default function OrderConfirmationPage() {
   const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
-    // Only run once on mount
+    // Prevent multiple executions
     if (isInitialized) return;
 
     const storedOrder = sessionStorage.getItem('orderConfirmation');
     const shouldClearCart = sessionStorage.getItem('clearCartOnConfirmation');
     
     if (storedOrder) {
-      const data = JSON.parse(storedOrder);
-      setOrderData(data);
-      setOrderNumber(data.orderNumber);
-      sessionStorage.removeItem('orderConfirmation');
-      
-      if (shouldClearCart === 'true') {
-        clearCart();
-        sessionStorage.removeItem('clearCartOnConfirmation');
+      try {
+        const data = JSON.parse(storedOrder);
+        setOrderData(data);
+        setOrderNumber(data.orderNumber);
+        
+        if (shouldClearCart === 'true') {
+          clearCart();
+          sessionStorage.removeItem('clearCartOnConfirmation');
+        }
+        
+        setIsInitialized(true);
+        
+        // Clear session storage after a delay to ensure component is fully loaded
+        setTimeout(() => {
+          sessionStorage.removeItem('orderConfirmation');
+        }, 1000);
+      } catch (error) {
+        console.error('Error parsing order data:', error);
+        router.push('/');
       }
-      
-      setIsInitialized(true);
     } else {
-      // Only redirect if we haven't initialized yet and there's no data
+      // No order data in sessionStorage
       router.push('/');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

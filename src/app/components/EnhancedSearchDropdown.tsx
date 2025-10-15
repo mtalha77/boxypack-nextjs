@@ -244,7 +244,6 @@ const EnhancedSearchDropdown: React.FC<EnhancedSearchDropdownProps> = ({
                         className="mr-2 rounded"
                       />
                       <span className="text-gray-600">{option.label}</span>
-                      <span className="ml-auto text-gray-400">({option.count})</span>
                     </label>
                   ))}
                 </div>
@@ -387,9 +386,6 @@ const EnhancedSearchDropdown: React.FC<EnhancedSearchDropdownProps> = ({
                       >
                         <div className="flex items-center justify-between">
                           <span className="text-gray-700">{suggestion.text}</span>
-                          {suggestion.count && (
-                            <span className="text-xs text-gray-400">{suggestion.count}</span>
-                          )}
                         </div>
                       </button>
                     );

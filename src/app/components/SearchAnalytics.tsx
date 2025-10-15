@@ -72,17 +72,9 @@ const SearchAnalytics: React.FC<SearchAnalyticsProps> = ({ searchQuery, onSugges
                   className="w-full text-left flex items-center justify-between p-2 rounded-lg hover:bg-white hover:shadow-sm transition-all duration-200 group"
                 >
                   <div className="flex items-center">
-                    <span className="text-xs text-gray-500 w-6">{index + 1}</span>
                     <span className="text-sm text-gray-700 group-hover:text-[#0c6b76] transition-colors">
                       {search.term}
                     </span>
-                  </div>
-                  <div className="flex items-center">
-                    <span className="text-xs text-gray-400 mr-2">{search.count}</span>
-                    <div className={`w-2 h-2 rounded-full ${
-                      search.trend === 'up' ? 'bg-green-500' :
-                      search.trend === 'down' ? 'bg-red-500' : 'bg-gray-400'
-                    }`} />
                   </div>
                 </button>
               ))}
@@ -105,27 +97,12 @@ const SearchAnalytics: React.FC<SearchAnalyticsProps> = ({ searchQuery, onSugges
                   <span className="text-sm text-gray-700 group-hover:text-[#0c6b76] transition-colors">
                     {trend.term}
                   </span>
-                  <span className="text-xs text-green-600 font-medium">
-                    +{trend.growth}%
-                  </span>
                 </button>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Search Tips */}
-        <div className="mt-4 p-3 bg-blue-50 rounded-lg">
-          <div className="flex items-center text-sm font-medium text-blue-900 mb-2">
-            <Search className="w-4 h-4 mr-2" />
-            Search Tips
-          </div>
-          <div className="text-xs text-blue-800 space-y-1">
-            <div>• Try searching by material: &apos;cardboard&apos;, &apos;kraft&apos;, &apos;rigid&apos;</div>
-            <div>• Search by industry: &apos;cosmetic&apos;, &apos;food&apos;, &apos;jewelry&apos;</div>
-            <div>• Look for features: &apos;window&apos;, &apos;magnetic&apos;, &apos;eco-friendly&apos;</div>
-          </div>
-        </div>
       </div>
     );
   }

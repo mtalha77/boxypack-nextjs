@@ -597,8 +597,8 @@ const Header: React.FC = () => {
                      className="text-black hover:text-black font-medium transition-colors pb-2 relative group cursor-pointer flex items-center"
                     onMouseEnter={() => {
                       setHoveredMainSection(section.slug);
-                      // For material section, set first category as hovered by default
-                      if (section.slug === 'product-by-material' && section.categories && section.categories.length > 0) {
+                      // For material and industry sections, set first category as hovered by default
+                      if ((section.slug === 'product-by-material' || section.slug === 'product-by-industry') && section.categories && section.categories.length > 0) {
                         setHoveredCategory(section.categories[0].slug);
                       }
                     }}
@@ -621,10 +621,8 @@ const Header: React.FC = () => {
                   {hoveredMainSection === section.slug && !isClosing && (
                                            <div 
                       className={`absolute left-0 w-auto max-h-[70vh] z-50 bg-white shadow-lg transition-all duration-1000 ease-in-out ${
-                        section.slug === 'product-by-industry' 
-                          ? 'min-w-[48rem] max-w-7xl' 
-                          : section.slug === 'product-by-material'
-                          ? 'min-w-[56rem] max-w-5xl'
+                        (section.slug === 'product-by-industry' || section.slug === 'product-by-material')
+                          ? 'min-w-[56rem] max-w-5xl' 
                           : section.slug === 'other'
                           ? 'min-w-[32rem] max-w-6xl'
                           : 'min-w-96 max-w-4xl'
@@ -653,11 +651,11 @@ const Header: React.FC = () => {
                           {section.hasSubcategories ? (
                             <div className="flex">
                               {section.categories ? (
-                                // Special layout for product-by-material with two columns
-                                section.slug === 'product-by-material' ? (
+                                // Special layout for product-by-material and product-by-industry with two columns
+                                (section.slug === 'product-by-material' || section.slug === 'product-by-industry') ? (
                                   <div className="flex w-full">
                                     {/* Left Column - Categories */}
-                                    <div className="w-1/3 px-6 border-r border-gray-200">
+                                    <div className="w-1/3 px-6 border-r border-gray-200 max-h-[60vh] overflow-y-auto">
                                       <div className="space-y-2 pt-4 pb-4">
                                         {section.categories.map((category) => (
                                           <div
@@ -716,7 +714,7 @@ const Header: React.FC = () => {
                                           <div className="flex items-center justify-center min-h-[200px] text-gray-400">
                                             <div className="text-center">
                                               <Package className="w-12 h-12 mx-auto mb-2 opacity-50" />
-                                              <p className="text-sm">Hover over a material to see products</p>
+                                              <p className="text-sm">Hover over a {section.slug === 'product-by-material' ? 'material' : 'industry'} to see products</p>
                                             </div>
                                           </div>
                                         )}
@@ -727,9 +725,7 @@ const Header: React.FC = () => {
                                   // Layout for other sections with categories
                                 <div className="w-full px-6">
                                     <div className={`grid gap-4 pt-4 pb-4 ${
-                                    section.slug === 'product-by-industry' 
-                                      ? 'grid-cols-2 lg:grid-cols-4 max-h-[60vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 hover:scrollbar-thumb-gray-400' 
-                                      : section.slug === 'other'
+                                      section.slug === 'other'
                                       ? 'grid-cols-2'
                                       : 'grid-cols-1'
                                   }`}>
@@ -754,7 +750,7 @@ const Header: React.FC = () => {
                                             </Link>
                                         )) || [];
                                       } else {
-                                          // For Industries, show categories
+                                          // For other sections, show categories
                                         return (
                                       <Link
                                         key={category.slug}
