@@ -9,6 +9,7 @@ const ScrollVideoSection = () => {
   const [animationStarted, setAnimationStarted] = useState(false);
   const [animationCompleted, setAnimationCompleted] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(1);
+  const [canvasDimensions, setCanvasDimensions] = useState({ width: 1920, height: 1080 });
  
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -49,7 +50,7 @@ const ScrollVideoSection = () => {
     "146_ekk4ga", "147_nnccpz", "148_gde2xr", "149_d6vrzy", "150_hldhvd"
   ];
 
-  // Load all 150 images from Cloudinary
+  // Load all 150 images from Cloudinary with high quality
   const images = useMemo(() => {
     // Only run on client-side
     if (typeof window === 'undefined') {
@@ -61,13 +62,38 @@ const ScrollVideoSection = () => {
     for (let i = 0; i < 150; i++) {
       const img = new Image();
       img.crossOrigin = 'anonymous';
-      img.src = `https://res.cloudinary.com/du5lyrqvz/image/upload/f_auto,q_auto,w_1000,h_500,c_fill/${imagePublicIds[i]}`;
+      // Use higher quality (q_90) and larger dimensions (w_2000,h_1200) for better quality
+      img.src = `https://res.cloudinary.com/du5lyrqvz/image/upload/f_auto,q_90,w_2000,h_1200,c_fill/${imagePublicIds[i]}`;
       loadedImages.push(img);
     }
 
     return loadedImages;
   }, [imagePublicIds]);
  
+  // Set canvas dimensions based on viewport and device pixel ratio for high-DPI displays
+  useEffect(() => {
+    const updateCanvasDimensions = () => {
+      if (typeof window !== 'undefined') {
+        const dpr = window.devicePixelRatio || 1;
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        
+        // Set canvas resolution accounting for device pixel ratio
+        setCanvasDimensions({
+          width: width * dpr,
+          height: height * dpr
+        });
+      }
+    };
+
+    updateCanvasDimensions();
+    window.addEventListener('resize', updateCanvasDimensions);
+
+    return () => {
+      window.removeEventListener('resize', updateCanvasDimensions);
+    };
+  }, []);
+
   // Intersection Observer to detect when section is in view
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -99,10 +125,14 @@ const ScrollVideoSection = () => {
   const render = useCallback(
     (index: number) => {
       if (canvasRef.current) {
-        const ctx = canvasRef.current.getContext('2d');
+        const ctx = canvasRef.current.getContext('2d', { alpha: false });
         if (ctx) {
           const canvas = canvasRef.current;
           const img = images[index - 1];
+          
+          // Enable image smoothing for better quality
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = 'high';
           
           // Clear canvas
           ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -196,8 +226,8 @@ const ScrollVideoSection = () => {
         <div className="sticky top-0 w-full h-screen">
           <canvas
             ref={canvasRef}
-            width={1000}
-            height={500}
+            width={canvasDimensions.width}
+            height={canvasDimensions.height}
             className="w-full h-full md:h-full h-screen"
             style={{
               display: 'block'
