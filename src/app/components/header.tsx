@@ -683,7 +683,7 @@ const Header: React.FC = () => {
                                     </div>
                                     
                                     {/* Right Column - Subcategories */}
-                                    <div className="w-2/3 px-6">
+                                    <div className="w-2/3 px-6 max-h-[60vh] overflow-y-auto">
                                       <div className="pt-4 pb-4">
                                         {hoveredCategory ? (
                                           <div>
