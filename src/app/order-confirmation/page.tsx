@@ -1,13 +1,12 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { CheckCircle, Package, Mail, Phone, MapPin, Calendar, FileText } from 'lucide-react';
 import { useCart } from '../contexts/CartContext';
 
 export default function OrderConfirmationPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const { clearCart } = useCart();
   const [orderData, setOrderData] = useState<{
     orderNumber: string;
