@@ -6,31 +6,23 @@ import LightBlueBackground from '../../UI/LightBlueBackground';
 
 const HowItWorksHero: React.FC = () => {
   return (
-    <LightBlueBackground className="relative min-h-[60vh] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-0 py-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <LightBlueBackground className="relative overflow-hidden !py-4 md:!py-6">
+      <div className="max-w-7xl mx-auto px-6 md:px-0">
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-6">
-            <div className="space-y-4">
-              <h1 className="text-h1 leading-tight">
-                How BoxyPack Turns Ideas Into <span className="text-heading-secondary">Custom Box Solutions</span>
-              </h1>
+          <div className="space-y-3 md:space-y-4">
+            <div className="space-y-2 md:space-y-3 text-body-large text-body-primary">
+              <h2 className="text-h2 text-heading-secondary">
+                Simple Steps. Perfect Packaging. Every Time.
+              </h2>
               
-              <div className="space-y-3 text-body-large text-body-primary">
-                <p>
-                  BoxyPack creating custom boxes is simple. We guide you with clear steps that combine 
-                  <span className="font-semibold text-[var(--color-teal-deep)]"> creativity, choice, and reliable support</span>.
-                </p>
-                
-                <p>
-                  Our process helps every brand move smoothly from concept to completion. The result is packaging that 
-                  <span className="font-semibold text-[var(--color-turquoise-bright)]"> protects products and strengthens identity</span>.
-                </p>
-              </div>
+              <p>
+                From first idea to final delivery, BoxyPack makes packaging simple. Clear steps, real support, and flawless results every time.
+              </p>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <button className="inline-flex items-center justify-center px-8 py-4 bg-brown-rustic hover:bg-[#97602f] text-white font-semibold rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 cursor-pointer">
                 Get Free Quote
               </button>

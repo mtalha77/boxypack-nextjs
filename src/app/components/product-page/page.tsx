@@ -245,7 +245,7 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
         <ClientTestamonials productData={productInfo} />
 
         {/* CTA Section - Ready to Get Started */}
-        <CTASection productData={productInfo} />
+        <CTASection />
       </main>
     </ErrorBoundary>
   );

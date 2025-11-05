@@ -54,11 +54,11 @@ const ProductByIndustryCarousel: React.FC = () => {
               PRODUCT BY INDUSTRY
             </div>
             <h2 className="text-h2 text-heading-primary mb-6 leading-tight max-w-3xl mx-auto lg:mx-0">
-              Choose The Right Box By Your Industry Type
+            Choose the Right Box for Your Industry
             </h2>
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between">
               <p className="text-lg text-gray-700 max-w-3xl mx-auto lg:mx-0 leading-relaxed mb-8 lg:mb-0">
-                Explore our comprehensive range of packaging solutions organized by industry. Each category contains specialized packaging designed for optimal protection and presentation.
+              Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product’s needs, offering style, strength, and perfect presentation.
               </p>
 
               {/* Navigation Buttons - Hidden on mobile, shown on desktop */}

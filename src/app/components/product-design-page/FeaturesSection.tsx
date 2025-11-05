@@ -41,10 +41,10 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ productData }) => {
             Why Choose Us
           </div>
           <h2 className="text-h2 text-heading-primary mb-6 leading-tight">
-            Why Choose Our {productData.name}?
+            Boxes That Build Real Brands
           </h2>
           <p className="text-body-large text-body-primary max-w-4xl mx-auto">
-            Built for quality, designed for impact, and crafted for your brand. Experience the difference that premium packaging makes.
+            At BoxyPack, we make custom boxes that mean more. Each one is made to match your product and your purpose. You choose the size, shape, and finish, and we bring it to life with care. Our custom packaging boxes are strong, neat, and printed clearly. They keep your products safe and make customers remember your brand every time they open the box.
           </p>
         </div>
         

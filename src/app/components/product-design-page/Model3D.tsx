@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
+import ErrorBoundary from '../ErrorBoundary';
 
 interface Model3DProps {
   modelPath: string;
@@ -11,19 +12,30 @@ interface Model3DProps {
   onModelReady?: () => void;
 }
 
-function Model({ modelPath }: { modelPath: string }) {
-  // Convert Cloudinary public ID to full URL
-  const getModelUrl = (path: string) => {
-    if (path.startsWith('http')) {
-      return path; // Already a full URL
-    } else if (path.startsWith('/models/')) {
-      return path; // Local path
-    } else {
-      // Cloudinary public ID - construct full URL
-      return `https://res.cloudinary.com/du5lyrqvz/image/upload/v1759511215/${path}.glb`;
-    }
-  };
+// Convert Cloudinary public ID to full URL
+const getModelUrl = (path: string) => {
+  // Handle paths that might have spaces or incorrect formatting
+  let cleanPath = path.trim();
+  
+  // If it starts with /models/, it's a local path but we don't have models locally
+  // So convert it to Cloudinary format
+  if (cleanPath.startsWith('/models/')) {
+    // Extract filename and convert to Cloudinary format
+    cleanPath = cleanPath.replace('/models/', '').replace('.glb', '').replace(/\s+/g, '_');
+  }
+  
+  // Replace spaces with underscores for Cloudinary
+  cleanPath = cleanPath.replace(/\s+/g, '_');
+  
+  if (cleanPath.startsWith('http')) {
+    return cleanPath; // Already a full URL
+  } else {
+    // Cloudinary public ID - construct full URL
+    return `https://res.cloudinary.com/du5lyrqvz/image/upload/v1759511215/${cleanPath}.glb`;
+  }
+};
 
+function Model({ modelPath }: { modelPath: string }) {
   const modelUrl = getModelUrl(modelPath);
   const { scene } = useGLTF(modelUrl);
   const meshRef = useRef<THREE.Group>(null);
@@ -31,8 +43,16 @@ function Model({ modelPath }: { modelPath: string }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const baseScaleRef = useRef<number>(1);
 
-  // Preload the model to ensure it's available
-  useGLTF.preload(modelUrl);
+  // Preload the model if it's valid
+  React.useEffect(() => {
+    if (modelUrl && !modelUrl.includes('/models/')) {
+      try {
+        useGLTF.preload(modelUrl);
+      } catch (err) {
+        console.warn('Failed to preload model:', err);
+      }
+    }
+  }, [modelUrl]);
 
   // Reset state when modelPath changes
   React.useEffect(() => {
@@ -40,38 +60,37 @@ function Model({ modelPath }: { modelPath: string }) {
     setHovered(false);
   }, [modelPath]);
 
-  // Debug logging
-  React.useEffect(() => {
-    console.log('Model3D - modelPath:', modelPath);
-    console.log('Model3D - constructed URL:', modelUrl);
-  }, [modelPath, modelUrl]);
-
   // Center and scale the model when it loads
   React.useEffect(() => {
     if (scene && !isLoaded) {
-      // Clone the scene to avoid modifying the original
-      const clonedScene = scene.clone();
-      
-      // Calculate bounding box
-      const box = new THREE.Box3().setFromObject(clonedScene);
-      const size = box.getSize(new THREE.Vector3());
-      const center = box.getCenter(new THREE.Vector3());
-      
-      // Center the model
-      clonedScene.position.sub(center);
-      
-      // Scale the model to fit nicely in the container (target size of 2 units)
-      const maxDimension = Math.max(size.x, size.y, size.z);
-      const targetSize = 2;
-      const scale = targetSize / maxDimension * 1;
-      clonedScene.scale.setScalar(scale);
-      baseScaleRef.current = scale;
-      
-      // Update the original scene
-      scene.position.copy(clonedScene.position);
-      scene.scale.copy(clonedScene.scale);
-      
-      setIsLoaded(true);
+      try {
+        // Clone the scene to avoid modifying the original
+        const clonedScene = scene.clone();
+        
+        // Calculate bounding box
+        const box = new THREE.Box3().setFromObject(clonedScene);
+        const size = box.getSize(new THREE.Vector3());
+        const center = box.getCenter(new THREE.Vector3());
+        
+        // Center the model
+        clonedScene.position.sub(center);
+        
+        // Scale the model to fit nicely in the container (target size of 2 units)
+        const maxDimension = Math.max(size.x, size.y, size.z);
+        const targetSize = 2;
+        const scale = targetSize / maxDimension * 1;
+        clonedScene.scale.setScalar(scale);
+        baseScaleRef.current = scale;
+        
+        // Update the original scene
+        scene.position.copy(clonedScene.position);
+        scene.scale.copy(clonedScene.scale);
+        
+        setIsLoaded(true);
+      } catch (err) {
+        console.error('Error processing 3D model:', err);
+        setIsLoaded(false);
+      }
     }
   }, [scene, isLoaded]);
 
@@ -84,7 +103,7 @@ function Model({ modelPath }: { modelPath: string }) {
     }
   });
 
-  if (!isLoaded) {
+  if (!isLoaded || !scene) {
     return null;
   }
 
@@ -99,9 +118,11 @@ function Model({ modelPath }: { modelPath: string }) {
   );
 }
 
+
 const Model3D: React.FC<Model3DProps> = ({ modelPath, className = "", onModelReady }) => {
   const [isModelReady, setIsModelReady] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   // Ensure component only renders on client side
   React.useEffect(() => {
@@ -122,29 +143,50 @@ const Model3D: React.FC<Model3DProps> = ({ modelPath, className = "", onModelRea
     );
   }
 
+  // If there's an error, just show a placeholder
+  if (hasError) {
+    return (
+      <div className={`w-full h-full ${className} flex items-center justify-center bg-gray-100 rounded-lg`}>
+        <div className="text-gray-400 text-sm">3D Model unavailable</div>
+      </div>
+    );
+  }
+
   return (
     <div className={`w-full h-full ${className}`}>
-      <Canvas
-        camera={{ position: [0, 0, 5], fov: 50 }}
-        style={{ background: 'transparent' }}
-        gl={{ antialias: true, alpha: true }}
-        onCreated={handleModelReady}
+      <ErrorBoundary
+        fallback={
+          <div className="w-full h-full flex items-center justify-center bg-gray-100 rounded-lg">
+            <div className="text-gray-400 text-sm">3D Model unavailable</div>
+          </div>
+        }
       >
-        <ambientLight intensity={0.6} />
-        <directionalLight position={[10, 10, 5]} intensity={1} />
-        <pointLight position={[-10, -10, -5]} intensity={0.5} />
-        <hemisphereLight intensity={0.4} />
-        {isModelReady && <Model key={modelPath} modelPath={modelPath} />}
-        <OrbitControls
-          enablePan={false}
-          enableZoom={false}
-          enableRotate={true}
-          minPolarAngle={Math.PI / 6}
-          maxPolarAngle={Math.PI - Math.PI / 6}
-          minDistance={4}
-          maxDistance={6}
-        />
-      </Canvas>
+        <Canvas
+          camera={{ position: [0, 0, 5], fov: 50 }}
+          style={{ background: 'transparent' }}
+          gl={{ antialias: true, alpha: true }}
+          onCreated={handleModelReady}
+        >
+          <ambientLight intensity={0.6} />
+          <directionalLight position={[10, 10, 5]} intensity={1} />
+          <pointLight position={[-10, -10, -5]} intensity={0.5} />
+          <hemisphereLight intensity={0.4} />
+          {isModelReady && (
+            <Suspense fallback={null}>
+              <Model key={modelPath} modelPath={modelPath} />
+            </Suspense>
+          )}
+          <OrbitControls
+            enablePan={false}
+            enableZoom={false}
+            enableRotate={true}
+            minPolarAngle={Math.PI / 6}
+            maxPolarAngle={Math.PI - Math.PI / 6}
+            minDistance={4}
+            maxDistance={6}
+          />
+        </Canvas>
+      </ErrorBoundary>
     </div>
   );
 };

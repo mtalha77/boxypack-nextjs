@@ -8,12 +8,7 @@ export default function TermsOfUsePage() {
     <main>
       <TermsHero />
       <TermsContent />
-      <CTASection 
-        productData={{
-          ctaTitle: "Ready to Get Started?",
-          ctaDescription: "Now that you understand our terms, let's create amazing packaging together. Our team is ready to help you every step of the way."
-        }}
-      />
+      <CTASection />
     </main>
   );
 }

@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
             <div className="mb-6">
               <CldImage src="logo-vertical_zkxna0" alt="Boxypack" width={180} height={90} className="mb-4" priority />
               <p className="text-body-small text-body-secondary leading-relaxed">
-                BoxyPack is where box and packaging meet passion. We make boxes that protect, present, and promote your products with creativity, choice, and reliable support.
+               BoxyPack is where box and packaging meet passion. We create boxes to protect your products, present your brand beautifully, and promote endless customer trust with every detail.
               </p>
             </div>
           </div>

@@ -8,12 +8,7 @@ export default function HowItWorksPage() {
     <main>
       <HowItWorksHero />
       <ProgressSteps />
-      <CTASection 
-        productData={{
-          ctaTitle: "Ready to Build Your Custom Box Journey?",
-          ctaDescription: "Now that you know how it works, let's get started! Our team is ready to guide you through every step of creating your perfect packaging."
-        }}
-      />
+      <CTASection />
     </main>
   );
 }

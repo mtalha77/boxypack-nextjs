@@ -5,14 +5,22 @@ import { useRouter } from "next/navigation";
 import { Phone } from "lucide-react";
 
 interface CTASectionProps {
-  productData: {
-    ctaTitle: string;
-    ctaDescription: string;
+  productData?: {
+    ctaTitle?: string;
+    ctaDescription?: string;
   };
 }
 
 const CTASection: React.FC<CTASectionProps> = ({ productData }) => {
   const router = useRouter();
+
+  // Default CTA content
+  const defaultTitle = "Start Your Packaging Journey Today";
+  const defaultDescription = "Let's turn your product into something unforgettable. Our team is here to design, print, and deliver boxes that fit your brand perfectly.";
+
+  // Use provided content or fall back to defaults
+  const ctaTitle = productData?.ctaTitle || defaultTitle;
+  const ctaDescription = productData?.ctaDescription || defaultDescription;
 
   // Handle Request Quote button click
   const handleRequestQuote = () => {
@@ -30,10 +38,10 @@ const CTASection: React.FC<CTASectionProps> = ({ productData }) => {
     <section className="py-20 bg-gradient-to-r from-[#0c6b76] to-[#0ca6c2]">
       <div className="max-w-4xl mx-auto px-6 text-center">
         <h2 className="text-h2 text-white mb-6">
-          {productData.ctaTitle}
+          {ctaTitle}
         </h2>
         <p className="text-body-large text-white/90 mb-8">
-          {productData.ctaDescription}
+          {ctaDescription}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button 

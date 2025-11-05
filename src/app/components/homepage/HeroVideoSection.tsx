@@ -50,11 +50,11 @@ const HeroVideoSection = () => {
 
           {/* Content - Bottom on mobile, Left on desktop */}
           <div className="text-left text-white order-2 lg:order-1">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight mb-4 lg:mb-6">
-            Buy{" "} <span className='bg-gradient-to-r from-brown-dark to-[#97602f] bg-clip-text text-transparent'>Custom Boxes</span> {" "} That Build Brands
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight mb-4 lg:mb-6">
+            Design & Order{" "} <span className='bg-gradient-to-r from-brown-dark to-[#97602f] bg-clip-text text-transparent'>Premium Custom Packaging</span> {" "} and Printed Boxes
             </h1>
-            <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-white/90 mb-4 lg:mb-8 max-w-2xl">
-            Order custom boxes built with care, giving your brand presence and reliable boxes that protect products while creating lasting impressions.
+            <p className="text-sm sm:text-base md:text-xl lg:text-1.5xl text-white/90 mb-4 lg:mb-8 max-w-2xl">
+            Design your own custom packaging and boxes with full customization options, professional printing, and trusted support for every business type.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 items-stretch">
               <button 
@@ -81,21 +81,6 @@ const HeroVideoSection = () => {
               </button>
             </div>
             
-            {/* Additional Value Proposition - Hidden on mobile */}
-            <div className="mt-6 lg:mt-8 hidden md:flex flex-wrap gap-6 text-white/80 text-sm">
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-[#0ca6c2] rounded-full mr-2"></div>
-                <span>Instant Pricing & Ordering</span>
-              </div>
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-[#0ca6c2] rounded-full mr-2"></div>
-                <span>Fast 8-Day Production</span>
-              </div>
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-[#0ca6c2] rounded-full mr-2"></div>
-                <span>No Minimum Order</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>

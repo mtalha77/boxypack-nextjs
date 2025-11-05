@@ -20,7 +20,7 @@ export const productByMaterialData: MaterialCategory[] = [
   {
     name: "Rigid Boxes",
     slug: "rigid-boxes",
-    description: "Premium luxury packaging with superior strength and durability for high-end products",
+    description: "Rigid boxes are designed that add luxury and strength to every product.",
     image: "Mailer-Box-3_oct2ws",
     subcategoriesCount: 5,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -35,7 +35,7 @@ export const productByMaterialData: MaterialCategory[] = [
   {
     name: "Kraft Boxes",
     slug: "kraft-boxes",
-    description: "Eco-friendly kraft paper packaging solutions with natural appeal and sustainability",
+    description: "Simple kraft boxes designed for recyclable and eco-friendly brands with purpose.",
     image: "Mailer-Box-2_ysut1i",
     subcategoriesCount: 18,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -147,7 +147,7 @@ export const productByMaterialData: MaterialCategory[] = [
   {
     name: "Cardboard Boxes",
     slug: "cardboard-boxes",
-    description: "Versatile cardboard packaging for all industries with excellent customization options",
+    description: "Cardboard boxes are made for printing, fold, and brand for daily use.",
     image: "Mailer-Box_1_ujqhhx",
     subcategoriesCount: 20,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -175,7 +175,7 @@ export const productByMaterialData: MaterialCategory[] = [
   {
     name: "Corrugated Boxes",
     slug: "corrugated-boxes",
-    description: "Strong corrugated packaging for shipping and storage with maximum protection",
+    description: "Heavy-duty custom boxes are built to protect during every shipment.",
     image: "Mailer-Box-3_oct2ws",
     subcategoriesCount: 8,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",

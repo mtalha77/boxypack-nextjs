@@ -26,20 +26,20 @@ const MoreThanPackage: React.FC = () => {
             <div className="space-y-6 md:space-y-8 lg:pl-4">
               {/* Headline */}
               <h2 className="text-h2 text-heading-primary leading-tight">
-                More Than Just Custom Boxes
+                Every Packaging Box Tells Your Story
               </h2>
 
               {/* Body Text */}
               <p className="text-body text-body-primary">
-                At BoxyPack, every box is made to fit your brand and your
-                products, always unique to your needs. Choose your size, shape,
-                material, and finish to create a design that feels personal and
-                complete. From inside details to outside design, our boxes give
-                customers a reason to remember your brand. With strong materials
-                and clear printing, our custom boxes provide packaging that
-                supports brands and creates lasting value.
+                At BoxyPack, we see packaging as more than a box. It’s the first
+                thing people see, the first thing they remember. Our custom
+                packaging and boxes are made to fit your product and your story.
+                Each design is built with care, shaped by real ideas, and
+                printed to perfection. Every custom box shows your effort and
+                pride. Take a look below and find the perfect box that brings
+                your product and brand to life.
               </p>
-              
+
               <div className="space-y-4">
                 {/* Primary CTA Button */}
                 <button className="w-full lg:w-auto font-semibold bg-gradient-to-r from-brown-dark to-[#97602f] hover:from-[#97602f] hover:to-brown-dark text-white py-4 px-8 cursor-pointer rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
