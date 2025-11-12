@@ -196,11 +196,11 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({
     // If still not enough, add generic popular products
     if (relatedProducts.length < maxItems) {
       const genericProducts = [
-        { name: 'Mailer Boxes', description: 'Perfect for shipping and e-commerce', href: '/products/mailer-boxes' },
-        { name: 'Product Boxes', description: 'Custom packaging for retail products', href: '/products/product-boxes' },
+        { name: 'Two Piece Rigid Boxes', description: 'Elegant two-piece boxes for premium products', href: '/products/two-piece-rigid-boxes' },
         { name: 'Shipping Boxes', description: 'Durable boxes for safe delivery', href: '/products/shipping-boxes' },
         { name: 'Mylar Boxes', description: 'Flexible packaging solutions', href: '/products/mylar-boxes' },
-        { name: 'Shopping Bags', description: 'Eco-friendly retail bags', href: '/products/shopping-bags' }
+        { name: 'Shopping Bags', description: 'Eco-friendly retail bags', href: '/products/shopping-bags' },
+        { name: 'Packaging Accessories', description: 'Essential add-ons to complete your packaging', href: '/products/packaging-accessories' }
       ].slice(0, maxItems - relatedProducts.length);
       
       relatedProducts = relatedProducts.concat(genericProducts.map(product => ({

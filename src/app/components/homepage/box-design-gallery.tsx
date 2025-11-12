@@ -8,16 +8,6 @@ import { productData } from "../../data/productPagesData";
 // Featured products for the gallery - using actual product data
 const featuredProducts = [
   {
-    key: "mailer-boxes",
-    product: productData["mailer-boxes"],
-    image: "Box-4_lztqi7",
-  },
-  {
-    key: "product-boxes",
-    product: productData["product-boxes"],
-    image: "Box-5_pdb8xw",
-  },
-  {
     key: "rigid-boxes",
     product: productData["rigid-boxes"],
     image: "Box-6_vm3fmh",
@@ -36,6 +26,16 @@ const featuredProducts = [
     key: "shopping-bags",
     product: productData["shopping-bags"],
     image: "Box-5_pdb8xw",
+  },
+  {
+    key: "packaging-accessories",
+    product: productData["packaging-accessories"],
+    image: "products-box-img_x8vu4b",
+  },
+  {
+    key: "two-piece-rigid-boxes",
+    product: productData["two-piece-rigid-boxes"],
+    image: "Mailer-Box-3_oct2ws",
   },
 ];
 
@@ -65,7 +65,7 @@ const BoxDesignGallery: React.FC = () => {
           <div className="space-y-6">
             {/* Top Row - 2 images side by side */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Card 1: Mailer Boxes */}
+              {/* Card 1: Rigid Boxes */}
               <Link
                 href={`/products/${featuredProducts[0].key}`}
                 className="group block"
@@ -96,7 +96,7 @@ const BoxDesignGallery: React.FC = () => {
                 </div>
               </Link>
 
-              {/* Card 2: Product Boxes */}
+              {/* Card 2: Shipping Boxes */}
               <Link
                 href={`/products/${featuredProducts[1].key}`}
                 className="group block"
@@ -128,7 +128,7 @@ const BoxDesignGallery: React.FC = () => {
               </Link>
             </div>
 
-            {/* Bottom Row - 1 wide image */}
+            {/* Bottom Row - 1 wide image (Mylar Boxes) */}
             <Link
               href={`/products/${featuredProducts[2].key}`}
               className="group block"
@@ -158,7 +158,7 @@ const BoxDesignGallery: React.FC = () => {
 
           {/* Right Side - 1 tall image on top, 2 below */}
           <div className="space-y-6">
-            {/* Top - 1 tall image */}
+            {/* Top - 1 tall image (Shopping Bags) */}
             <Link
               href={`/products/${featuredProducts[3].key}`}
               className="group block"
@@ -187,7 +187,7 @@ const BoxDesignGallery: React.FC = () => {
 
             {/* Bottom - 2 images side by side */}
             <div className="grid grid-cols-2 gap-6">
-              {/* Card 5: Pouches */}
+              {/* Card 5: Packaging Accessories */}
               <Link
                 href={`/products/${featuredProducts[4].key}`}
                 className="group block"
@@ -214,7 +214,7 @@ const BoxDesignGallery: React.FC = () => {
                 </div>
               </Link>
 
-              {/* Card 6: Shopping Bags */}
+              {/* Card 6: Two Piece Rigid Boxes */}
               <Link
                 href={`/products/${featuredProducts[5].key}`}
                 className="group block"

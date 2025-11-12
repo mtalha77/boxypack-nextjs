@@ -6,7 +6,17 @@ import { Check, Star, Truck, Shield, Palette } from 'lucide-react';
 interface FeaturesSectionProps {
   productData: {
     name: string;
-    features: Array<{
+    whyChooseUs?: {
+      eyebrow?: string;
+      heading?: string;
+      description?: string;
+      features?: Array<{
+        icon: string;
+        title: string;
+        description: string;
+      }>;
+    };
+    features?: Array<{
       icon: string;
       title: string;
       description: string;
@@ -14,22 +24,26 @@ interface FeaturesSectionProps {
   };
 }
 
+const iconLookup: Record<string, React.ReactNode> = {
+  shield: <Shield className="w-8 h-8" />,
+  palette: <Palette className="w-8 h-8" />,
+  truck: <Truck className="w-8 h-8" />,
+  check: <Check className="w-8 h-8" />,
+  star: <Star className="w-8 h-8" />
+};
+
 const FeaturesSection: React.FC<FeaturesSectionProps> = ({ productData }) => {
-  const getIcon = (iconName: string) => {
-    const iconProps = { className: "w-8 h-8" };
-    switch (iconName) {
-      case 'shield':
-        return <Shield {...iconProps} />;
-      case 'palette':
-        return <Palette {...iconProps} />;
-      case 'truck':
-        return <Truck {...iconProps} />;
-      case 'check':
-        return <Check {...iconProps} />;
-      default:
-        return <Shield {...iconProps} />;
-    }
-  };
+  const whyChooseUs = productData.whyChooseUs || {};
+  const sectionFeatures = whyChooseUs.features && whyChooseUs.features.length > 0
+    ? whyChooseUs.features
+    : productData.features || [];
+
+  const eyebrow = whyChooseUs.eyebrow || 'Why Choose Us';
+  const heading = whyChooseUs.heading || `${productData.name} That Build Real Brands`;
+  const description = whyChooseUs.description ||
+    `At BoxyPack, we engineer ${productData.name.toLowerCase()} that combine on-brand presentation with real-world durability. Every project is guided by packaging strategists who know how to transform boxes into repeat business.`;
+
+  const getIcon = (iconName: string) => iconLookup[iconName] || <Shield className="w-8 h-8" />;
 
   return (
     <div className="bg-white">
@@ -38,21 +52,21 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ productData }) => {
         <div className="text-center mb-20">
           <div className="inline-flex items-center font-bold uppercase border-2 border-brown-dark2 px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full text-brown-dark2 text-sm font-semibold mb-6 shadow-lg">
             <div className="w-2 h-2 bg-brown-dark2 font-bold rounded-full mr-3 "></div>
-            Why Choose Us
+            {eyebrow}
           </div>
           <h2 className="text-h2 text-heading-primary mb-6 leading-tight">
-            Boxes That Build Real Brands
+            {heading}
           </h2>
           <p className="text-body-large text-body-primary max-w-4xl mx-auto">
-            At BoxyPack, we make custom boxes that mean more. Each one is made to match your product and your purpose. You choose the size, shape, and finish, and we bring it to life with care. Our custom packaging boxes are strong, neat, and printed clearly. They keep your products safe and make customers remember your brand every time they open the box.
+            {description}
           </p>
         </div>
         
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {productData?.features?.length > 0 ? productData.features.map((feature, index) => (
+          {sectionFeatures.length > 0 ? sectionFeatures.map((feature, index) => (
             <div 
-              key={index} 
+              key={`${feature.title}-${index}`} 
               className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200"
             >
               {/* Icon container */}

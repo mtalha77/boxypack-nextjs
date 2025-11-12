@@ -12,6 +12,13 @@ export interface Product {
     title: string;
     description: string;
   }>;
+  keyFeatures?: string[];
+  overview?: {
+    heading?: string;
+    title?: string;
+    paragraphs?: string[];
+    highlights?: string[];
+  };
   specifications: Array<{
     label: string;
     value: string;
@@ -19,10 +26,71 @@ export interface Product {
   sizes: Array<{
     name: string;
     dimensions: string;
-    price: string;
+    price?: string;
   }>;
   galleryImages: string[];
   customizationOptions: string[];
+  customization?: {
+    eyebrow?: string;
+    heading?: string;
+    description?: string;
+    detailsHeading?: string;
+    details?: Array<{
+      label: string;
+      value: string;
+    }>;
+    footerNote?: string;
+    supportTitle?: string;
+    supportDescription?: string;
+    supportActions?: Array<{
+      label: string;
+      description: string;
+    }>;
+  };
+  whyChooseUs?: {
+    eyebrow?: string;
+    heading?: string;
+    description?: string;
+    features: Array<{
+      icon: string;
+      title: string;
+      description: string;
+    }>;
+  };
+  faq?: {
+    eyebrow?: string;
+    heading?: string;
+    items: Array<{
+      question: string;
+      answer: string;
+    }>;
+  };
+  contactSection?: {
+    eyebrow?: string;
+    heading?: string;
+    description?: string;
+    channels: Array<{
+      label: string;
+      value: string;
+      type?: 'phone' | 'email' | 'link';
+      href?: string;
+    }>;
+    cta?: {
+      label: string;
+      href?: string;
+    };
+  };
+  subcategoryCards?: {
+    heading?: string;
+    description?: string;
+    items: Array<{
+      name: string;
+      slug: string;
+      description: string;
+      image: string;
+      href?: string;
+    }>;
+  };
   ctaTitle: string;
   ctaDescription: string;
   createdAt?: Date;

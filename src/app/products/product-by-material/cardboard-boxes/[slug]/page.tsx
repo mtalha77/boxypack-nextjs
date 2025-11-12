@@ -1,14 +1,23 @@
 import React from 'react';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+import { notFound } from 'next/navigation';
 
-const MagneticClosureRigidBoxesPage = () => {
+interface SubcategoryPageProps {
+  params: {
+    slug: string;
+  };
+}
+
+const SubcategoryPage = async ({ params }: SubcategoryPageProps) => {
+  const { slug } = params;
+  
   const section = navigationData.find(s => s.slug === 'product-by-material');
-  const category = section?.categories?.find(c => c.slug === 'rigid-boxes');
-  const subcategory = category?.subcategories.find(sc => sc.slug === 'magnetic-closure-rigid-box');
+  const category = section?.categories?.find(c => c.slug === 'cardboard-boxes');
+  const subcategory = category?.subcategories.find(sc => sc.slug === slug);
   
   if (!section || !category || !subcategory) {
-    return <div>Subcategory not found</div>;
+    notFound();
   }
 
   return (
@@ -16,10 +25,11 @@ const MagneticClosureRigidBoxesPage = () => {
       section={section}
       category={category}
       subcategory={subcategory}
-      slug="magnetic-closure-rigid-box"
+      slug={slug}
       pageType="subcategory"
     />
   );
 };
 
-export default MagneticClosureRigidBoxesPage;
+export default SubcategoryPage;
+

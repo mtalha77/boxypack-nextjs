@@ -249,13 +249,9 @@ const ContactUs: React.FC = () => {
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-turquoise-bright)] focus:border-transparent transition-all duration-200"
                   >
-                    <option value="">Select a project type</option>
-                    <option value="mailer-boxes">Mailer Boxes</option>
-                    <option value="product-boxes">Product Boxes</option>
-                    <option value="rigid-boxes">Rigid Boxes</option>
+                    <option value="">Select Packaging Type</option>
                     <option value="shipping-boxes">Shipping Boxes</option>
-                    <option value="pouches">Pouches</option>
-                    <option value="shopping-bags">Shopping Bags</option>
+                    <option value="custom-packaging">Custom Packaging</option>
                     <option value="other">Other</option>
                   </select>
                 </div>

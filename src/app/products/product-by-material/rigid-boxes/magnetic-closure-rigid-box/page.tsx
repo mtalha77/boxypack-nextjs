@@ -2,7 +2,7 @@ import React from 'react';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
 
-const MagneticClosureRigidBoxesPage = () => {
+const MagneticClosureRigidBoxPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');
   const category = section?.categories?.find(c => c.slug === 'rigid-boxes');
   const subcategory = category?.subcategories.find(sc => sc.slug === 'magnetic-closure-rigid-box');
@@ -22,4 +22,5 @@ const MagneticClosureRigidBoxesPage = () => {
   );
 };
 
-export default MagneticClosureRigidBoxesPage;
+export default MagneticClosureRigidBoxPage;
+

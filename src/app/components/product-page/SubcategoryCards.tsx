@@ -6,57 +6,84 @@ import { CldImage } from 'next-cloudinary';
 import { SubCategory } from '../../data/navigationData';
 import LightBlueBackground from '../../UI/LightBlueBackground';
 
+interface CustomSubcategoryCard {
+  name: string;
+  slug: string;
+  description: string;
+  image: string;
+  href?: string;
+}
+
 interface SubcategoryCardsProps {
-  subcategories: SubCategory[];
+  subcategories?: SubCategory[];
   parentCategoryName: string;
   parentCategorySlug: string;
   sectionSlug: string;
   className?: string;
+  customCards?: {
+    heading?: string;
+    description?: string;
+    items: CustomSubcategoryCard[];
+  };
 }
 
 const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
-  subcategories,
+  subcategories = [],
   parentCategoryName,
   parentCategorySlug,
   sectionSlug,
-  className = ''
+  className = '',
+  customCards
 }) => {
   const [showAll, setShowAll] = useState(false);
   
-  // Helper function to generate correct URL based on section
-  const getSubcategoryUrl = (subcategorySlug: string) => {
+  const customHeading = customCards?.heading;
+  const customDescription = customCards?.description;
+  
+  const buildHref = (slug: string, overrideHref?: string) => {
+    if (overrideHref) {
+      return overrideHref;
+    }
+
     let url: string;
     
     if (sectionSlug === 'product-by-industry') {
-      url = `/products/${sectionSlug}/${parentCategorySlug}/${subcategorySlug}`;
+      url = `/products/${sectionSlug}/${parentCategorySlug}/${slug}`;
     } else if (sectionSlug === 'product-by-material') {
-      // Check if this is a direct category or a material category
       const directCategories = ['mylar-boxes', 'shopping-bags', 'other'];
       if (directCategories.includes(parentCategorySlug)) {
-        url = `/products/${parentCategorySlug}/${subcategorySlug}`;
+        url = `/products/${parentCategorySlug}/${slug}`;
       } else {
-        // Material categories (cardboard-boxes, corrugated-boxes, kraft-boxes, rigid-boxes)
-        url = `/products/${sectionSlug}/${parentCategorySlug}/${subcategorySlug}`;
+        url = `/products/${sectionSlug}/${parentCategorySlug}/${slug}`;
       }
     } else {
-      url = `/products/${parentCategorySlug}/${subcategorySlug}`;
+      url = `/products/${parentCategorySlug}/${slug}`;
     }
     
     return url;
   };
   
-  if (!subcategories || subcategories.length === 0) {
+  const cardItems: CustomSubcategoryCard[] = customCards?.items?.length
+    ? customCards.items
+    : subcategories.map(sub => ({
+        name: sub.name,
+        slug: sub.slug,
+        description: sub.description || `Premium ${sub.name.toLowerCase()} packaging solutions designed for optimal protection and presentation.`,
+        image: sub.images && sub.images.length > 0 ? sub.images[0] : 'products-box-img_x8vu4b',
+        href: buildHref(sub.slug)
+      }));
+  
+  if (!cardItems || cardItems.length === 0) {
     return null;
   }
 
   // Show only first 4 cards initially, or all if showAll is true
-  const displayedSubcategories = showAll ? subcategories : subcategories.slice(0, 4);
-  const hasMoreCards = subcategories.length > 4;
+  const displayedSubcategories = showAll ? cardItems : cardItems.slice(0, 4);
+  const hasMoreCards = cardItems.length > 4;
 
   const handleToggleShowAll = () => {
     setShowAll(!showAll);
     
-    // If showing less (collapsing), scroll to the subcategory section
     if (showAll) {
       setTimeout(() => {
         const element = document.getElementById('subcategories-heading');
@@ -67,9 +94,12 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
             inline: 'nearest'
           });
         }
-      }, 100); // Small delay to allow state update to complete
+      }, 100);
     }
   };
+
+  const headingText = customHeading || `Our Range of ${parentCategoryName}`;
+  const descriptionText = customDescription || `Explore our comprehensive range of ${parentCategoryName.toLowerCase()} packaging solutions. Each category is designed to meet specific industry needs and requirements.`;
 
   return (
     <LightBlueBackground className={className}>
@@ -79,73 +109,65 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
             id="subcategories-heading"
             className="text-h2 text-body-primary mb-4"
           >
-           Our Range of {parentCategoryName}
+            {headingText}
           </h2>
           <p className="text-body-large text-body-secondary max-w-3xl mx-auto">
-            Explore our comprehensive range of {parentCategoryName.toLowerCase()} packaging solutions. 
-            Each category is designed to meet specific industry needs and requirements.
+            {descriptionText}
           </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {displayedSubcategories.map((subcategory, index) => {
-            // Use first image from subcategory's images array, or default image
-            const imageSource = subcategory.images && subcategory.images.length > 0 
-              ? subcategory.images[0] 
-              : "products-box-img_x8vu4b";
-            
-            return (
-              <Link 
-                key={subcategory.slug}
-                href={getSubcategoryUrl(subcategory.slug)}
-                className="group max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 block"
+          {displayedSubcategories.map((subcategory, index) => (
+            <Link 
+              key={`${subcategory.slug}-${index}`}
+              href={buildHref(subcategory.slug, subcategory.href)}
+              className="group max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 block"
+            >
+              <CldImage
+                src={subcategory.image}
+                alt={`${subcategory.name} packaging example`}
+                width={400}
+                height={300}
+                className="w-full h-48 object-cover rounded-t-lg"
+                loading="lazy"
+              />
+            <div className="p-5">
+              <h5 
+                className="mb-2 text-2xl font-bold tracking-tight text-gray-900 group-hover:text-[var(--color-teal-deep)] min-h-[4.5rem] flex items-start transition-colors duration-200"
+                style={{
+                  display: '-webkit-box',
+                  WebkitLineClamp: 2,
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis'
+                }}
               >
-                <CldImage
-                  src={imageSource}
-                  alt={`${subcategory.name} packaging example`}
-                  width={400}
-                  height={300}
-                  className="w-full h-48 object-cover rounded-t-lg"
-                  loading="lazy"
-                />
-              <div className="p-5">
-                <h5 
-                  className="mb-2 text-2xl font-bold tracking-tight text-gray-900 group-hover:text-[var(--color-teal-deep)] min-h-[4.5rem] flex items-start transition-colors duration-200"
-                  style={{
-                    display: '-webkit-box',
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: 'vertical',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis'
-                  }}
+                {subcategory.name}
+              </h5>
+              <p className="mb-3 font-normal text-gray-700 line-clamp-2 min-h-[3rem]">
+                {subcategory.description}
+              </p>
+              <div className="inline-flex justify-end items-center text-sm font-semibold text-[var(--color-teal-deep)] hover:text-[var(--color-turquoise-bright)] transition-colors duration-200 group-hover:text-[var(--color-teal-deep)]">
+                View Product
+                <svg 
+                  className="w-4 h-4 ml-2" 
+                  aria-hidden="true" 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  fill="none" 
+                  viewBox="0 0 24 24"
                 >
-                  {subcategory.name}
-                </h5>
-                <p className="mb-3 font-normal text-gray-700 line-clamp-2 min-h-[3rem]">
-                  {subcategory.description || `Premium ${subcategory.name.toLowerCase()} packaging solutions designed for optimal protection and presentation.`}
-                </p>
-                <div className="inline-flex justify-end items-center text-sm font-semibold text-[var(--color-teal-deep)] hover:text-[var(--color-turquoise-bright)] transition-colors duration-200 group-hover:text-[var(--color-teal-deep)]">
-                  View Product
-                  <svg 
-                    className="w-4 h-4 ml-2" 
-                    aria-hidden="true" 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    fill="none" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path 
-                      stroke="currentColor" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth="2" 
-                      d="m9 18 6-6-6-6"
-                    />
-                  </svg>
-                </div>
+                  <path 
+                    stroke="currentColor" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth="2" 
+                    d="m9 18 6-6-6-6"
+                  />
+                </svg>
               </div>
-            </Link>
-            );
-          })}
+            </div>
+          </Link>
+          ))}
         </div>
         
         {/* Show All / Show Less Button */}
