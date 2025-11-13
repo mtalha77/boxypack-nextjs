@@ -4,23 +4,24 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import { Phone } from "lucide-react";
 
+interface CTAContent {
+  title?: string;
+  description?: string;
+}
+
 interface CTASectionProps {
   productData?: {
-    ctaTitle?: string;
-    ctaDescription?: string;
-  };
+    cta?: CTAContent;
+  } | null;
 }
 
 const CTASection: React.FC<CTASectionProps> = ({ productData }) => {
   const router = useRouter();
 
-  // Default CTA content
-  const defaultTitle = "Start Your Packaging Journey Today";
-  const defaultDescription = "Let's turn your product into something unforgettable. Our team is here to design, print, and deliver boxes that fit your brand perfectly.";
+  const defaultMessage = "Strong Designs, Lasting Impressions";
 
-  // Use provided content or fall back to defaults
-  const ctaTitle = productData?.ctaTitle || defaultTitle;
-  const ctaDescription = productData?.ctaDescription || defaultDescription;
+  const ctaTitle = productData?.cta?.title || defaultMessage;
+  const ctaDescription = productData?.cta?.description || defaultMessage;
 
   // Handle Request Quote button click
   const handleRequestQuote = () => {

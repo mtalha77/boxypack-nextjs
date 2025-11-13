@@ -2,9 +2,10 @@
 
 import React, { useState } from 'react';
 import { CldImage } from 'next-cloudinary';
-import { ArrowRight, Package } from 'lucide-react';
-import { FaFacebook, FaYoutube, FaPinterest, FaTwitter, FaTiktok, FaReddit } from 'react-icons/fa';
+import { ArrowRight } from 'lucide-react';
+import { FaFacebook, FaYoutube, FaPinterest, FaTiktok, FaReddit } from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";   
+import Link from 'next/link';
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -47,10 +48,26 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-h4 text-heading-primary mb-6">Product By Material</h3>
             <ul className="space-y-3">
-              <li><a href="/products/product-by-material/cardboard-boxes" className="text-body-small text-body-secondary hover:text-[#0c6b76] hover:translate-x-1 transition-all duration-300 font-semibold inline-block">Cardboard Boxes</a></li>
-              <li><a href="/products/product-by-material/corrugated-boxes" className="text-body-small text-body-secondary hover:text-[#0c6b76] hover:translate-x-1 transition-all duration-300 font-semibold inline-block">Corrugated Boxes</a></li>
-              <li><a href="/products/product-by-material/kraft-boxes" className="text-body-small text-body-secondary hover:text-[#0c6b76] hover:translate-x-1 transition-all duration-300 font-semibold inline-block">Kraft Boxes</a></li>
-              <li><a href="/products/product-by-material/rigid-boxes" className="text-body-small text-body-secondary hover:text-[#0c6b76] hover:translate-x-1 transition-all duration-300 font-semibold inline-block">Rigid Boxes</a></li>
+              <li>
+                <Link href="/products/product-by-material/cardboard-boxes" className="text-body-small text-body-secondary hover:text-[#0c6b76] hover:translate-x-1 transition-all duration-300 font-semibold inline-block">
+                  Cardboard Boxes
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/product-by-material/corrugated-boxes" className="text-body-small text-body-secondary hover:text-[#0c6b76] hover:translate-x-1 transition-all duration-300 font-semibold inline-block">
+                  Corrugated Boxes
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/product-by-material/kraft-boxes" className="text-body-small text-body-secondary hover:text-[#0c6b76] hover:translate-x-1 transition-all duration-300 font-semibold inline-block">
+                  Kraft Boxes
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/product-by-material/rigid-boxes" className="text-body-small text-body-secondary hover:text-[#0c6b76] hover:translate-x-1 transition-all duration-300 font-semibold inline-block">
+                  Rigid Boxes
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -58,10 +75,26 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-h4 text-heading-primary mb-6">Product By Industry</h3>
             <ul className="space-y-3">
-              <li><a href="/products/product-by-industry/cosmetic-boxes" className="text-body-small text-body-secondary hover:text-[#0c6b76] hover:translate-x-1 transition-all duration-300 font-semibold inline-block">Cosmetic Boxes</a></li>
-              <li><a href="/products/product-by-industry/food-boxes" className="text-body-small text-body-secondary hover:text-[#0c6b76] hover:translate-x-1 transition-all duration-300 font-semibold inline-block">Food Boxes</a></li>
-              <li><a href="/products/product-by-industry/jewelry-boxes" className="text-body-small text-body-secondary hover:text-[#0c6b76] hover:translate-x-1 transition-all duration-300 font-semibold inline-block">Jewelry Boxes</a></li>
-              <li><a href="/products/product-by-industry/gift-boxes" className="text-body-small text-body-secondary hover:text-[#0c6b76] hover:translate-x-1 transition-all duration-300 font-semibold inline-block">Gift Boxes</a></li>
+              <li>
+                <Link href="/products/product-by-industry/cosmetic-boxes" className="text-body-small text-body-secondary hover:text-[#0c6b76] hover:translate-x-1 transition-all duration-300 font-semibold inline-block">
+                  Cosmetic Boxes
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/product-by-industry/food-boxes" className="text-body-small text-body-secondary hover:text-[#0c6b76] hover:translate-x-1 transition-all duration-300 font-semibold inline-block">
+                  Food Boxes
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/product-by-industry/jewelry-boxes" className="text-body-small text-body-secondary hover:text-[#0c6b76] hover:translate-x-1 transition-all duration-300 font-semibold inline-block">
+                  Jewelry Boxes
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/product-by-industry/gift-boxes" className="text-body-small text-body-secondary hover:text-[#0c6b76] hover:translate-x-1 transition-all duration-300 font-semibold inline-block">
+                  Gift Boxes
+                </Link>
+              </li>
             </ul>
           </div>
 

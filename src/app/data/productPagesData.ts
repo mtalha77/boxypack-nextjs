@@ -15,11 +15,73 @@ interface ProductFAQItem {
   answer: string;
 }
 
-interface ProductContactChannel {
-  label: string;
-  value: string;
-  type?: 'phone' | 'email' | 'link';
-  href?: string;
+type DefaultCustomization = ReturnType<typeof createDefaultCustomization>;
+type DefaultWhyChooseUs = ReturnType<typeof createDefaultWhyChooseUs>;
+
+type PartialCustomization = Partial<DefaultCustomization> & {
+  details?: DefaultCustomization['details'];
+  supportActions?: DefaultCustomization['supportActions'];
+};
+
+type PartialWhyChooseUs = Partial<DefaultWhyChooseUs>;
+interface SubcategoryCardItem {
+  name: string;
+  slug: string;
+  description: string;
+  image: string;
+}
+
+interface SubcategoryCards {
+  heading: string;
+  description?: string;
+  items: SubcategoryCardItem[];
+}
+
+const industryPageEntries: Record<string, RawProductEntry> = {};
+
+type RawProductEntry = {
+  name?: string;
+  description?: string;
+  heroImage?: string;
+  modelPath?: string;
+  features?: ProductSectionFeature[];
+  keyFeatures?: string[];
+  customization?: PartialCustomization;
+  overview?: Partial<ReturnType<typeof createDefaultOverview>>;
+  whyChooseUs?: PartialWhyChooseUs;
+  faq?: {
+    eyebrow?: string;
+    heading?: string;
+    items?: ProductFAQItem[];
+  };
+  cta?: {
+    title?: string;
+    description?: string;
+  };
+  ctaTitle?: string;
+  ctaDescription?: string;
+  subcategoryCards?: SubcategoryCards;
+  [key: string]: unknown;
+};
+
+interface EnrichedProductEntry extends Omit<RawProductEntry, 'features' | 'keyFeatures' | 'customization' | 'overview' | 'whyChooseUs' | 'faq' | 'cta'> {
+  slug: string;
+  name: string;
+  features: ProductSectionFeature[];
+  keyFeatures: string[];
+  customization: DefaultCustomization;
+  overview: ReturnType<typeof createDefaultOverview>;
+  whyChooseUs: DefaultWhyChooseUs;
+  faq?: {
+    eyebrow?: string;
+    heading?: string;
+    items: ProductFAQItem[];
+  };
+  cta: {
+    title: string;
+    description: string;
+  };
+  subcategoryCards?: SubcategoryCards;
 }
 
 const sentenceCase = (value: string) =>
@@ -56,37 +118,6 @@ const createDefaultKeyFeatures = (name: string): string[] => [
   `Short runs through large volumes produced with care`
 ];
 
-const createDefaultSpecifications = (name: string) => [
-  { label: 'Material', value: 'Premium Cardboard / Rigid Board / Kraft' },
-  { label: 'Printing', value: 'Full Color CMYK + Specialty Finishes' },
-  { label: 'Finish', value: 'Matte, Gloss, Soft-Touch & Foil Options' },
-  { label: 'MOQ', value: 'Starts at 250 units with tiered discounts' },
-  { label: 'Lead Time', value: '10–14 business days after approval' },
-  { label: 'Shipping', value: 'Global fulfillment with tracking updates' }
-];
-
-const createDefaultSizes = () => [
-  { name: 'Small', dimensions: '6 × 4 × 2 in', price: 'Contact for pricing' },
-  { name: 'Medium', dimensions: '10 × 7 × 3 in', price: 'Contact for pricing' },
-  { name: 'Large', dimensions: '12 × 9 × 4 in', price: 'Contact for pricing' },
-  { name: 'Custom', dimensions: 'Built to your exact spec', price: 'Quoted on request' }
-];
-
-const createDefaultGallery = () => [
-  'products-box-img_x8vu4b',
-  'Box-5_pdb8xw',
-  'Box-6_vm3fmh',
-  'shipping-box_jyysru'
-];
-
-const createDefaultCustomizationOptions = (name: string) => [
-  `Die-cut structures engineered specifically for your ${name.toLowerCase()}`,
-  'Inside & outside printing with Pantone matching',
-  'Foil stamping, embossing, debossing & spot UV options',
-  'Protective coatings, lamination, and soft-touch films',
-  'Custom inserts, trays, and partitions for product security'
-];
-
 const createDefaultWhyChooseUs = (name: string) => ({
   eyebrow: 'Why Choose Us',
   heading: `${sentenceCase(name)} That Build Real Brands`,
@@ -94,59 +125,31 @@ const createDefaultWhyChooseUs = (name: string) => ({
   features: createDefaultFeatures(name)
 });
 
-const createDefaultFaq = (name: string) => ({
-  eyebrow: 'FAQs',
-  heading: `Frequently Asked Questions about ${sentenceCase(name)}`,
-  items: [
-    {
-      question: `What customization options are available for ${name.toLowerCase()}?`,
-      answer: `Select from multiple board grades, coatings, specialty finishes, and structural designs. We tailor every ${name.toLowerCase()} to your exact guidelines.`
-    },
-    {
-      question: `How quickly can I receive my ${name.toLowerCase()} order?`,
-      answer: 'Standard production runs ship in 10–14 business days once artwork is approved. Rush service is available—talk with our team about deadlines.'
-    },
-    {
-      question: `Can you design inserts for my ${name.toLowerCase()}?`,
-      answer: 'Yes. Our structural designers create custom inserts, trays, or foam supports that keep every item perfectly in place.'
-    },
-    {
-      question: `Do you offer sustainable ${name.toLowerCase()} materials?`,
-      answer: 'Absolutely. Choose post-consumer boards, soy inks, and recyclable coatings to align with your sustainability goals.'
-    }
-  ] as ProductFAQItem[]
-});
-
-const createDefaultContactSection = (name: string) => ({
-  eyebrow: 'Partner With Us',
-  heading: `Ready to create ${sentenceCase(name)} that stand out?`,
-  description: `Share your specs, style requirements, or inspiration. Our packaging consultants will guide you through material choices, pricing, and production timelines for your ${name.toLowerCase()}.`,
-  channels: [
-    { label: 'Call our packaging team', value: '+1 (800) 123-4567', type: 'phone' },
-    { label: 'Email project details', value: 'hello@boxypack.com', type: 'email', href: 'mailto:hello@boxypack.com' },
-    { label: 'Book a packaging consultation', value: 'Schedule a 30-minute strategy session', type: 'link', href: '/contact-us#book-call' }
-  ] as ProductContactChannel[],
-  cta: {
-    label: 'Request a custom quote',
-    href: '/contact-us#quote'
-  }
-});
-
 const ensureArray = <T,>(value: T[] | undefined, fallback: T[]) =>
   Array.isArray(value) && value.length > 0 ? value : fallback;
 
-const getSubcategoryImage = (subcategory: any, fallback: string) => {
-  if (!subcategory) return fallback || 'products-box-img_x8vu4b';
-  if (typeof subcategory.image === 'string' && subcategory.image.length > 0) {
-    return subcategory.image;
+const getSubcategoryImage = (subcategory: unknown, fallback: string) => {
+  if (!subcategory || typeof subcategory !== 'object') {
+    return fallback || 'products-box-img_x8vu4b';
   }
-  if (Array.isArray(subcategory.images) && subcategory.images.length > 0) {
-    return subcategory.images[0];
+
+  const record = subcategory as Record<string, unknown>;
+
+  if (typeof record.image === 'string' && record.image.length > 0) {
+    return record.image;
   }
+
+  if (Array.isArray(record.images) && record.images.length > 0) {
+    const [primaryImage] = record.images as unknown[];
+    if (typeof primaryImage === 'string' && primaryImage.length > 0) {
+      return primaryImage;
+    }
+  }
+
   return fallback || 'products-box-img_x8vu4b';
 };
 
-const buildSubcategoryCards = (slug: string) => {
+const buildSubcategoryCards = (slug: string): SubcategoryCards | undefined => {
   const materialCategory = productByMaterialData.find(category => category.slug === slug);
   if (materialCategory) {
     return {
@@ -155,7 +158,9 @@ const buildSubcategoryCards = (slug: string) => {
       items: materialCategory.subcategories.map(sub => ({
         name: sub.name,
         slug: sub.slug,
-        description: sub.description || `Premium ${sub.name.toLowerCase()} packaging solutions tailored to your products.`,
+        description:
+          sub.description ||
+          `Premium ${sub.name.toLowerCase()} packaging solutions tailored to your products.`,
         image: getSubcategoryImage(sub, materialCategory.image)
       }))
     };
@@ -169,7 +174,9 @@ const buildSubcategoryCards = (slug: string) => {
       items: industryCategory.subcategories.map(sub => ({
         name: sub.name,
         slug: sub.slug,
-        description: sub.description || `${sub.name} designed to meet industry demands with custom branding.`,
+        description:
+          sub.description ||
+          `${sub.name} designed to meet industry demands with custom branding.`,
         image: getSubcategoryImage(sub, industryCategory.image)
       }))
     };
@@ -182,7 +189,9 @@ const buildSubcategoryCards = (slug: string) => {
       items: mylarBoxesData.subcategories.map(sub => ({
         name: sub.name,
         slug: sub.slug,
-        description: sub.description || `${sub.name} engineered with advanced barrier properties for freshness.`,
+        description:
+          sub.description ||
+          `${sub.name} engineered with advanced barrier properties for freshness.`,
         image: getSubcategoryImage(sub, mylarBoxesData.image)
       }))
     };
@@ -195,7 +204,9 @@ const buildSubcategoryCards = (slug: string) => {
       items: shoppingBagsData.subcategories.map(sub => ({
         name: sub.name,
         slug: sub.slug,
-        description: sub.description || `${sub.name} crafted for memorable retail experiences.`,
+        description:
+          sub.description ||
+          `${sub.name} crafted for memorable retail experiences.`,
         image: getSubcategoryImage(sub, shoppingBagsData.image)
       }))
     };
@@ -208,7 +219,9 @@ const buildSubcategoryCards = (slug: string) => {
       items: otherData.subcategories.map(sub => ({
         name: sub.name,
         slug: sub.slug,
-        description: sub.description || `${sub.name} accessories to finish every package with polish.`,
+        description:
+          sub.description ||
+          `${sub.name} accessories to finish every package with polish.`,
         image: getSubcategoryImage(sub, otherData.image)
       }))
     };
@@ -229,21 +242,21 @@ const createDefaultOverview = (name: string, description?: string) => ({
 
 const createDefaultCustomization = (name: string) => ({
   eyebrow: 'Customization',
-  heading: `Customize Your ${sentenceCase(name)}`,
-  description: `Design and order custom ${name.toLowerCase()} to match your exact needs. Choose your materials, structures, and finishes that bring your brand vision to life.`,
-  detailsHeading: 'Tailor Every Detail',
+  heading: 'Customize Your Packaging',
+  description: `Design and order ${sentenceCase(name)} that match your product and brand needs. Choose your preferred material, size, and surface finish.`,
+  detailsHeading: 'Customization Details',
   details: [
-    { label: 'Material Type', value: 'Premium Cardboard / Rigid Board / Kraft' },
-    { label: 'Structure', value: 'Magnetic / Two-Piece / Drawer / Foldable' },
-    { label: 'Thickness', value: '14PT / 18PT / 24PT' },
-    { label: 'Finish', value: 'Glossy / Matte / Soft Touch / UV Coating' },
+    { label: 'Material Type', value: 'Kraft Paperboard / Recycled Cardboard' },
+    { label: 'Structure', value: 'Gable Box / Foldable Handle Design' },
+    { label: 'Thickness', value: '12PT / 14PT / 18PT' },
+    { label: 'Finish', value: 'Matte / Gloss / Uncoated' },
     { label: 'Printing', value: 'Inside, Outside, or Both' },
-    { label: 'Dimensions (L × W × H)', value: 'Fully custom—no fixed limits' },
-    { label: 'Quantity', value: 'Starts at 250 units with scale pricing' }
+    { label: 'Dimensions (L × W × H)', value: 'e.g., 10 × 6 × 4' },
+    { label: 'Quantity', value: '250 units (Bulk discounts available)' }
   ],
-  footerNote: 'Review your design, preview your sample, and place your order online.',
+  footerNote: 'Review your design, preview your sample, and order online.',
   supportTitle: 'Need help before ordering?',
-  supportDescription: `If you’d like to talk before placing your order, our support team will guide you through ${name.toLowerCase()} materials, pricing, or design options.`,
+  supportDescription: 'If you’d like to talk before placing your order, our support team is ready. You can connect directly with an agent or get a quick email reply to discuss materials, pricing, or design options.',
   supportActions: [
     {
       label: 'Live Assistance',
@@ -257,11 +270,24 @@ const createDefaultCustomization = (name: string) => ({
 });
 
 const createDefaultCTA = (name: string) => ({
-  ctaTitle: 'Ready to Get Started?',
-  ctaDescription: `Get a custom quote for your ${name.toLowerCase()} today. Our team is ready to help you create the perfect packaging solution.`
+  title: 'Ready to Get Started?',
+  description: `Get a custom quote for your ${name.toLowerCase()} today. Our team is ready to help you create the perfect packaging solution.`
 });
 
-const rawProductData = {
+const buildFaq = (
+  name: string,
+  items: ProductFAQItem[],
+  options?: {
+    eyebrow?: string;
+    heading?: string;
+  }
+) => ({
+  eyebrow: options?.eyebrow || `${sentenceCase(name)} FAQs`,
+  heading: options?.heading || `Common Questions about ${sentenceCase(name)}`,
+  items
+});
+
+const rawProductData: Record<string, RawProductEntry> = {
   // Product: Rigid Boxes
   'rigid-boxes': {
     name: 'Rigid Boxes',
@@ -277,64 +303,17 @@ const rawProductData = {
       'Reusable keepsake presentation extends the customer experience',
       'Handcrafted production suited for VIP kits, launches, and retail displays'
     ],
-    specifications: [
-      { label: 'Material', value: 'Premium Cardboard / Rigid Board / Kraft' },
-      { label: 'Printing', value: 'Full Color CMYK + Specialty Finishes' },
-      { label: 'Finish', value: 'Matte, Gloss, Soft-Touch & Foil Options' },
-      { label: 'MOQ', value: 'Starts at 250 units with tiered discounts' },
-      { label: 'Lead Time', value: '10–14 business days after approval' },
-      { label: 'Shipping', value: 'Global fulfillment with tracking updates' }
-    ],
-    sizes: [
-      { name: 'Small', dimensions: '6 × 4 × 2 in', price: 'Contact for pricing' },
-      { name: 'Medium', dimensions: '10 × 7 × 3 in', price: 'Contact for pricing' },
-      { name: 'Large', dimensions: '12 × 9 × 4 in', price: 'Contact for pricing' },
-      { name: 'Custom', dimensions: 'Built to your exact spec', price: 'Quoted on request' }
-    ],
-    galleryImages: [
-      'products-box-img_x8vu4b',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Die-cut structures engineered specifically for your rigid boxes',
-      'Inside & outside printing with Pantone matching',
-      'Foil stamping, embossing, debossing & spot UV options',
-      'Protective coatings, lamination, and soft-touch films',
-      'Custom inserts, trays, and partitions for product security'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Rigid Boxes',
-      description: 'Design and order custom rigid boxes to match your exact needs. Choose your materials, structures, and finishes that bring your brand vision to life.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Material Type', value: 'Rigid Board / Heavy-Duty Cardboard' },
-        { label: 'Structure', value: 'Magnetic / Two-Piece / Drawer / Foldable' },
-        { label: 'Thickness', value: '14PT / 18PT / 24PT' },
-        { label: 'Finish', value: 'Glossy / Matte / Soft Touch / Velvet' },
-        { label: 'Printing', value: 'Inside, Outside, or Both' },
-        { label: 'Dimensions (L × W × H)', value: 'e.g., 9.5 × 7.75 × 4' },
-        { label: 'Quantity', value: '250 units (Bulk discounts available)' }
-      ],
-      footerNote: 'Review your design, preview your sample, and place your order online.',
-      supportTitle: 'Need help before ordering?',
-      supportDescription: 'If you\'d like to talk before placing your order, our support team is ready.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Connect directly with an agent for instant guidance.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Get a quick reply about materials, pricing, or design options.'
-        }
+        { label: 'Material Type', value: '80pt-120pt rigid greyboard wrapped in coated, linen, or velvet paper' },
+        { label: 'Structure', value: 'Lift-off lids, shoulder necks, magnetic closures, or drawer formats' },
+        { label: 'Thickness', value: '2.0 mm / 2.5 mm / 3.0 mm board with optional foam or molded inserts' },
+        { label: 'Finish', value: 'Soft-touch lamination, velvet wrap, foil stamping, and spot UV accents' },
+        { label: 'Printing', value: 'Offset CMYK plus Pantone, screen print textures, interior or exterior' },
+        { label: 'Dimensions (L x W x H)', value: 'Custom cavities from 3" x 3" x 1.5" up to 18" x 12" x 6"' },
+        { label: 'Quantity', value: 'Starting at 100 units with staged and handcrafted production' }
       ]
     },
-    ctaTitle: 'Ready for Luxury Packaging?',
-    ctaDescription: 'Get a custom quote for your premium rigid boxes today. Experience the difference that luxury packaging makes.',
-   
     overview: {
       heading: 'Product Overview',
       title: 'Rigid Boxes Crafted for Premium Brands',
@@ -345,7 +324,34 @@ const rawProductData = {
         'Whether you need limited-run influencer kits or global retail programs, our production workflow scales craftsmanship with speed so your brand story arrives intact every time.'
       ]
     },
+    faq: buildFaq('Rigid Boxes', [
+      {
+        question: 'Can I mix different closure styles within one rigid box program?',
+        answer:
+          'Absolutely. We routinely combine magnetic panels, ribbon pulls, and telescoping lids within the same production run so your rigid boxes match each SKU’s experience while keeping color and finish consistent.'
+      },
+      {
+        question: 'How are premium finishes like foil or velvet applied?',
+        answer:
+          'Our finishing team hand-wraps each rigid panel before applying foil stamping, velvet laminations, or soft-touch coatings. This process protects precise edges and keeps branding details sharp on every box.'
+      },
+      {
+        question: 'Do you help engineer inserts for fragile products?',
+        answer:
+          'Yes. Our structural designers prototype foam, molded pulp, or satin-wrapped inserts that align with your rigid box dimensions to keep delicate products secure during shipping and unboxing.'
+      },
+      {
+        question: 'What is the typical production timeline for rigid boxes?',
+        answer:
+          'After approving proofs and prototypes, handcrafted rigid box programs typically ship in 4–6 weeks. We also offer staged deliveries for large rollouts or event-driven timelines.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for Luxury Packaging?',
+      description: 'Get a custom quote for your premium rigid boxes today. Experience the difference that luxury packaging makes.'
+    },
   },
+
   // Product: Shipping Boxes
   'shipping-boxes': {
     name: 'Shipping Boxes',
@@ -361,64 +367,17 @@ const rawProductData = {
       'Interior print and inserts deliver on-brand subscription experiences',
       'Cost-effective production scaling for nationwide rollouts'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Corrugated Cardboard / Kraft Paper' },
-      { label: 'Structure', value: 'Regular Slotted / Full Overlap / Half Slotted' },
-      { label: 'Thickness', value: '150-300 GSM' },
-      { label: 'Finish', value: 'Standard / Water Resistant Coating' },
-      { label: 'Printing', value: 'Single / Double Color / Full Color' },
-      { label: 'Dimensions (L × W × H)', value: 'Custom sizes available' },
-      { label: 'Quantity', value: '500+ units (Bulk discounts available)' }
-    ],
-    sizes: [
-      { name: 'Small', dimensions: '6 × 4 × 2 in', price: 'Contact for pricing' },
-      { name: 'Medium', dimensions: '10 × 7 × 3 in', price: 'Contact for pricing' },
-      { name: 'Large', dimensions: '12 × 9 × 4 in', price: 'Contact for pricing' },
-      { name: 'Custom', dimensions: 'Built to your exact spec', price: 'Quoted on request' }
-    ],
-    galleryImages: [
-      'products-box-img_x8vu4b',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Die-cut structures engineered specifically for your shipping boxes',
-      'Inside & outside printing with Pantone matching',
-      'Foil stamping, embossing, debossing & spot UV options',
-      'Protective coatings, lamination, and soft-touch films',
-      'Custom inserts, trays, and partitions for product security'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Shipping Boxes',
-      description: 'Design and order custom shipping boxes to match your exact needs. Choose your materials, printing options, and finishes that bring your brand vision to life.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Material Type', value: 'Corrugated Cardboard / Kraft Paper' },
-        { label: 'Structure', value: 'Regular Slotted / Full Overlap / Half Slotted' },
-        { label: 'Thickness', value: '150-300 GSM' },
-        { label: 'Finish', value: 'Standard / Water Resistant Coating' },
-        { label: 'Printing', value: 'Single / Double Color / Full Color' },
-        { label: 'Dimensions (L × W × H)', value: 'Custom sizes available' },
-        { label: 'Quantity', value: '500+ units (Bulk discounts available)' }
-      ],
-      footerNote: 'Review your design, preview your sample, and place your order online.',
-      supportTitle: 'Need help before ordering?',
-      supportDescription: 'If you\'d like to talk before placing your order, our support team is ready.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Connect directly with an agent for instant guidance.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Get a quick reply about materials, pricing, or design options.'
-        }
+        { label: 'Material Type', value: 'E, B, or BC flute corrugated with kraft or white-top liners' },
+        { label: 'Structure', value: 'Regular slotted cartons, mailers, half-slotted, or auto-lock bottoms' },
+        { label: 'Thickness', value: 'Single wall 1/16"-3/16" or double wall 1/4" configurations' },
+        { label: 'Finish', value: 'Kraft, flood white, anti-scuff AQ, or water-resistant coatings' },
+        { label: 'Printing', value: 'Flexo, digital, or litho-lam wraps with variable data options' },
+        { label: 'Dimensions (L x W x H)', value: 'Custom cut scores from 4" x 4" x 2" to 24" x 18" x 12"' },
+        { label: 'Quantity', value: 'Production from 250 cartons with palletized fulfillment' }
       ]
     },
-    ctaTitle: 'Ready to Ship with Confidence?',
-    ctaDescription: 'Get a custom quote for your shipping boxes today. Ensure your products arrive safely every time.',
     overview: {
       heading: 'Product Overview',
       title: 'Shipping Boxes That Protect and Promote',
@@ -428,7 +387,34 @@ const rawProductData = {
         'Pair rugged performance with bold graphics, interior print, and kitted experiences to transform every shipment into a branded moment your customers remember.'
       ]
     },
+    faq: buildFaq('Shipping Boxes', [
+      {
+          question: 'How do I choose the right flute for my shipping box?',
+          answer:
+            'We look at product weight, transit distance, and DIM pricing to recommend an E, B, or BC flute. Our engineers model compression strength so you can balance protection with freight efficiency.'
+      },
+      {
+          question: 'Can shipping boxes feature full-color graphics?',
+          answer:
+            'Yes. We can flood print exteriors, add interior storytelling, or apply litho-laminate wraps that keep graphics protected during handling. Digital and flexo print options cover short and long runs.'
+      },
+      {
+          question: 'What lead times should I expect for a replenishment order?',
+          answer:
+            'Standard replenishment orders ship in 2–3 weeks after artwork approval. If your volumes shift unexpectedly, our production scheduling team can accelerate runs or stage palletized inventory.'
+      },
+      {
+          question: 'Do you offer ISTA testing for shipping boxes?',
+          answer:
+            'We can run ISTA, burst, and drop testing on request. Our team partners with certified labs or executes in-house simulations to validate packaging before rollout.'
+      }
+    ], { heading: 'Questions about Shipping Boxes', eyebrow: 'Shipping Box FAQs' }),
+    cta: {
+      title: 'Ready to Ship with Confidence?',
+      description: 'Get a custom quote for your shipping boxes today. Ensure your products arrive safely every time.'
+    },
   },
+
   // Product: Kraft Boxes
   'kraft-boxes': {
     name: 'Kraft Boxes',
@@ -444,64 +430,17 @@ const rawProductData = {
       'High recycled content options satisfy green procurement standards',
       'Ideal for farm-to-table, artisan, DTC, and lifestyle brands'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Brown Kraft / Recycled Cardboard' },
-      { label: 'Structure', value: 'Mailer / Tuck-End / Sleeve / Display' },
-      { label: 'Thickness', value: '12PT / 14PT / 18PT / 24PT' },
-      { label: 'Finish', value: 'Natural / Matte Varnish / Aqueous Coating' },
-      { label: 'Printing', value: 'CMYK / White Ink / Pantone' },
-      { label: 'Dimensions (L × W × H)', value: 'Fully custom sizing available' },
-      { label: 'Quantity', value: 'Starts at 250 units with sustainable options' }
-    ],
-    sizes: [
-      { name: 'Small', dimensions: '6 × 4 × 2 in', price: 'Contact for pricing' },
-      { name: 'Medium', dimensions: '10 × 7 × 3 in', price: 'Contact for pricing' },
-      { name: 'Large', dimensions: '12 × 9 × 4 in', price: 'Contact for pricing' },
-      { name: 'Custom', dimensions: 'Built to your exact spec', price: 'Quoted on request' }
-    ],
-    galleryImages: [
-      'products-box-img_x8vu4b',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Custom die cuts, tear strips, and locking tabs for kraft boxes',
-      'Spot UV, foil accents, and embossing that contrast the kraft texture',
-      'Window patching and inserts for premium product reveals',
-      'Soy-based inks and water-based coatings for greener production',
-      'Interior printing and messaging for a cohesive brand experience'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Kraft Boxes',
-      description: 'Design kraft boxes that reflect your sustainable vision. Choose structures, finishes, and eco inks that bring your story to life.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Material Type', value: 'Unbleached Kraft / Recycled Board' },
-        { label: 'Structure', value: 'Mailer / Tuck-End / Sleeve / Display' },
-        { label: 'Thickness', value: '12PT / 14PT / 18PT / 24PT' },
-        { label: 'Finish', value: 'Natural / Matte / Soft Touch' },
-        { label: 'Printing', value: 'CMYK / White Ink / Pantone' },
-        { label: 'Dimensions (L × W × H)', value: 'Fully custom sizing available' },
-        { label: 'Quantity', value: 'Starts at 250 units (bulk discounts available)' }
-      ],
-      footerNote: 'Review proofs, approve samples, and launch production with confidence.',
-      supportTitle: 'Need sustainable packaging guidance?',
-      supportDescription: 'Our packaging experts will help you select the right kraft material, finish, and structure for your products.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Connect with a specialist for structure and finish recommendations.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Request pricing, lead times, or sustainability certifications.'
-        }
+        { label: 'Material Type', value: 'Unbleached kraft SBS, CCNB, and recycled paperboard blends' },
+        { label: 'Structure', value: 'Mailer, tuck-end, sleeve, and windowed dielines tailored to SKU' },
+        { label: 'Thickness', value: '14pt / 18pt / 24pt board with optional corrugated pads' },
+        { label: 'Finish', value: 'Water-based varnish, soy ink floods, white ink pops, foil touches' },
+        { label: 'Printing', value: 'Digital CMYK or offset spot colors that keep natural fibers visible' },
+        { label: 'Dimensions (L x W x H)', value: 'Die-lines from 3" x 3" x 1" favor boxes to 12" x 10" x 4"' },
+        { label: 'Quantity', value: 'Eco-forward runs from 250 units with repeat program support' }
       ]
     },
-    ctaTitle: 'Ready for Eco-Friendly Kraft Packaging?',
-    ctaDescription: 'Request a custom quote for kraft boxes that highlight your sustainable brand values.',
     overview: {
       heading: 'Product Overview',
       title: 'Kraft Boxes Aligned with Sustainable Brands',
@@ -511,7 +450,34 @@ const rawProductData = {
         'From farm-to-table meal kits to artisanal retail packaging, our team scales production while maintaining recycled content targets, environmental certifications, and consistent color profiles.'
       ]
     },
+    faq: buildFaq('Kraft Boxes', [
+      {
+          question: 'Are kraft boxes compatible with white ink or metallic embellishments?',
+          answer:
+            'They are. We pre-treat surfaces so white ink, foil, or metallic touches maintain vibrancy while letting the natural fibers show through, giving you premium contrast on kraft stock.'
+      },
+      {
+          question: 'Can kraft boxes meet food-contact requirements?',
+          answer:
+            'Yes. We offer food-safe interior liners, aqueous coatings, and grease barriers that keep kraft boxes compliant for direct-contact applications like baked goods or meal kits.'
+      },
+      {
+          question: 'Do kraft boxes hold up to e-commerce shipping?',
+          answer:
+            'With the right board caliper and reinforcement, kraft boxes perform well in parcel networks. We can add tuck locks, crash-lock bottoms, or inserts to keep contents secure in transit.'
+      },
+      {
+          question: 'Can you match recycled content goals for retailers?',
+          answer:
+            'We routinely supply kraft board with documented post-consumer content. Our sourcing team can align with retailer mandates or corporate sustainability targets.'
+      }
+    ], { heading: 'Questions about Kraft Boxes', eyebrow: 'Kraft Box FAQs' }),
+    cta: {
+      title: 'Ready for Eco-Friendly Kraft Packaging?',
+      description: 'Request a custom quote for kraft boxes that highlight your sustainable brand values.'
+    },
   },
+
   // Product: Cardboard Boxes
   'cardboard-boxes': {
     name: 'Cardboard Boxes',
@@ -527,64 +493,17 @@ const rawProductData = {
       'Compatible with fulfillment automation for rapid turnarounds',
       'Trusted for cosmetics, electronics, CPG, and promotional mailers'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Folding Carton / SBS / C1S / C2S' },
-      { label: 'Structure', value: 'Auto-Lock Bottom / Straight Tuck / Display' },
-      { label: 'Thickness', value: '12PT / 14PT / 18PT / 24PT' },
-      { label: 'Finish', value: 'Gloss / Matte / Soft Touch / UV' },
-      { label: 'Printing', value: 'Full Color CMYK + Specialty Finishes' },
-      { label: 'Dimensions (L × W × H)', value: 'Fully custom—engineered to spec' },
-      { label: 'Quantity', value: 'Starts at 250 units with tiered pricing' }
-    ],
-    sizes: [
-      { name: 'Small', dimensions: '6 × 4 × 2 in', price: 'Contact for pricing' },
-      { name: 'Medium', dimensions: '10 × 7 × 3 in', price: 'Contact for pricing' },
-      { name: 'Large', dimensions: '12 × 9 × 4 in', price: 'Contact for pricing' },
-      { name: 'Custom', dimensions: 'Built to your exact spec', price: 'Quoted on request' }
-    ],
-    galleryImages: [
-      'products-box-img_x8vu4b',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Structural engineering for retail-ready cardboard displays',
-      'Embossing, debossing, foil, and spot UV for premium detail',
-      'Custom inserts, trays, and dividers to secure products',
-      'Gloss, matte, and soft-touch laminations for shelf appeal',
-      'Perforations and easy-open features for customer convenience'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Cardboard Boxes',
-      description: 'Build cardboard boxes tailored to your product requirements, branding, and fulfillment workflow.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Material Type', value: 'Folding Carton / SBS / Kraft Back' },
-        { label: 'Structure', value: 'Mailer / Folding Carton / Display' },
-        { label: 'Thickness', value: '12PT / 14PT / 18PT / 24PT' },
-        { label: 'Finish', value: 'Gloss / Matte / Soft Touch / Spot UV' },
-        { label: 'Printing', value: 'CMYK / Pantone / Metallic Inks' },
-        { label: 'Dimensions (L × W × H)', value: 'Engineered to your product specifications' },
-        { label: 'Quantity', value: 'Starts at 250 units (bulk discounts available)' }
-      ],
-      footerNote: 'Approve dielines, run test samples, and launch full production seamlessly.',
-      supportTitle: 'Need help with structure or printing?',
-      supportDescription: 'Our packaging engineers assist with dielines, coatings, and fulfillment-ready designs.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Speak with an engineer about structure and fulfillment requirements.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Request pricing matrices, print specs, or mockups.'
-        }
+        { label: 'Material Type', value: 'SBS, CCNB, and FBB folding carton boards in gloss or matte grades' },
+        { label: 'Structure', value: 'Straight tuck, reverse tuck, crash lock, display and mailer formats' },
+        { label: 'Thickness', value: '12pt / 16pt / 20pt board with reinforced scores for automation' },
+        { label: 'Finish', value: 'Gloss AQ, matte soft-touch, reticulated UV, foil, or emboss details' },
+        { label: 'Printing', value: 'Litho CMYK + Pantone, hybrid digital, or spot white for windows' },
+        { label: 'Dimensions (L x W x H)', value: 'Retail cartons from 1.5" x 1.5" x 4" to 18" x 12" x 6"' },
+        { label: 'Quantity', value: 'Carton runs from 250 pieces scaling to 100,000+' }
       ]
     },
-    ctaTitle: 'Ready to Elevate Your Cardboard Packaging?',
-    ctaDescription: 'Connect with our team for a custom cardboard box quote tailored to your brand.',
     overview: {
       heading: 'Product Overview',
       title: 'Cardboard Boxes Built for Retail Impact',
@@ -594,7 +513,34 @@ const rawProductData = {
         'Whether you are launching a limited run or scaling to nationwide distribution, our color management, finishing options, and timeline discipline keep every box on brand and on schedule.'
       ]
     },
+    faq: buildFaq('Cardboard Boxes', [
+      {
+          question: 'What structures work best for automated packing lines?',
+          answer:
+            'Straight tuck, reverse tuck, and crash-lock formats are engineered to run smoothly on automated folding and gluing lines. We adjust score strength and glue seams to match your equipment.'
+      },
+      {
+          question: 'Can cardboard boxes include interior printing?',
+          answer:
+            'Yes. We print interior panels with brand storytelling, regulatory copy, or cross-sells. Our prepress team balances ink coverage so colors stay consistent inside and out.'
+      },
+      {
+          question: 'How small can my order quantity be?',
+          answer:
+            'We support pilot runs starting at 250 cartons with digital printing, then scale to offset or hybrid production as your volumes grow.'
+      },
+      {
+          question: 'Do you provide prototypes for new dielines?',
+          answer:
+            'We can produce white samples and printed mockups so you can test fit, finishes, and automation compatibility before committing to production.'
+      }
+    ], { heading: 'Questions about Cardboard Boxes', eyebrow: 'Cardboard Box FAQs' }),
+    cta: {
+      title: 'Ready to Elevate Your Cardboard Packaging?',
+      description: 'Connect with our team for a custom cardboard box quote tailored to your brand.'
+    },
   },
+
   // Product: Corrugated Boxes
   'corrugated-boxes': {
     name: 'Corrugated Boxes',
@@ -610,64 +556,17 @@ const rawProductData = {
       'Rapid prototyping and ISTA testing accelerate approvals',
       'Ideal for e-commerce, industrial, and bulk retail shipments'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Single / Double / Triple Wall Corrugated' },
-      { label: 'Structure', value: 'Regular Slotted / Mailer / Die-Cut' },
-      { label: 'Flute Options', value: 'E-Flute / B-Flute / C-Flute / BC Double Wall' },
-      { label: 'Finish', value: 'Kraft / White / Coated / Water Resistant' },
-      { label: 'Printing', value: 'Flexographic / Digital / Litho-Laminate' },
-      { label: 'Testing', value: 'ISTA, Edge Crush Test (ECT), Burst Test compliant' },
-      { label: 'Quantity', value: 'Starts at 500 units with freight optimization' }
-    ],
-    sizes: [
-      { name: 'Small', dimensions: '8 × 6 × 4 in', price: 'Contact for pricing' },
-      { name: 'Medium', dimensions: '12 × 9 × 6 in', price: 'Contact for pricing' },
-      { name: 'Large', dimensions: '16 × 12 × 10 in', price: 'Contact for pricing' },
-      { name: 'Custom', dimensions: 'Built to your exact spec', price: 'Quoted on request' }
-    ],
-    galleryImages: [
-      'products-box-img_x8vu4b',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Reinforced corners, double walls, and inserts for added protection',
-      'High-gloss litho-laminate wraps for premium corrugated displays',
-      'Moisture-resistant coatings and anti-abrasion treatments',
-      'Custom perforations, handles, and easy-open features',
-      'Subscription-ready interior printing and branded tissue/kits'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Corrugated Boxes',
-      description: 'Engineer corrugated boxes that satisfy performance, branding, and logistics requirements.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Material Type', value: 'Single / Double / Triple Wall Corrugated' },
-        { label: 'Structure', value: 'RSC / Mailer / Die-Cut / Pallet Shipper' },
-        { label: 'Flute Options', value: 'E / B / C / BC / EB' },
-        { label: 'Finish', value: 'Kraft / White / Coated / Anti-Scuff' },
-        { label: 'Printing', value: 'Flexo / Digital / Litho-Lam' },
-        { label: 'Dimensions (L × W × H)', value: 'Engineered around your product and shipping method' },
-        { label: 'Quantity', value: 'Starts at 500 units (bulk efficiencies available)' }
-      ],
-      footerNote: 'Prototype, test, and roll out corrugated packaging that meets your supply chain demands.',
-      supportTitle: 'Need structural testing or guidance?',
-      supportDescription: 'Our corrugated specialists advise on fluting, coatings, and compliance testing.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Discuss structural needs, testing, and cushioning with a corrugated expert.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Request pricing, dielines, and certification support.'
-        }
+        { label: 'Material Type', value: 'E, B, C, and BC flute corrugated with kraft or white liners' },
+        { label: 'Structure', value: 'Die-cut mailers, RSC, auto-bottom trays, FOL shippers, and inserts' },
+        { label: 'Thickness', value: 'Single wall 1/16"-3/16", double wall 1/4", or triple wall options' },
+        { label: 'Finish', value: 'Litho-lam wraps, satin AQ, anti-abrasion coatings, and tear features' },
+        { label: 'Printing', value: 'High-graphic digital, flexo spot colors, or litho wraps with foil' },
+        { label: 'Dimensions (L x W x H)', value: 'Engineered footprints from 6" x 4" x 2" to 30" x 20" x 14"' },
+        { label: 'Quantity', value: 'MOQ from 250 shippers with truckload scaling and VMI options' }
       ]
     },
-    ctaTitle: 'Ready for Heavy-Duty Corrugated Packaging?',
-    ctaDescription: 'Get a corrugated box quote engineered for your shipping and subscription workflows.',
     overview: {
       heading: 'Product Overview',
       title: 'Corrugated Boxes for Demanding Supply Chains',
@@ -677,7 +576,34 @@ const rawProductData = {
         'Our rapid prototyping, testing, and freight optimization programs ensure each corrugated box meets regulatory standards while minimizing total landed cost.'
       ]
     },
+    faq: buildFaq('Corrugated Boxes', [
+      {
+          question: 'How do I select between single-wall and double-wall corrugate?',
+          answer:
+            'We evaluate product weight, stacking requirements, and transportation routes to recommend single, double, or triple-wall builds. Our engineers run ECT and edge-crush tests to verify performance.'
+      },
+      {
+          question: 'Can corrugated boxes support premium graphics?',
+          answer:
+            'Yes. We offer litho-lamination, high-graphic flexo, and digital printing that deliver vibrant artwork on corrugated surfaces without sacrificing durability.'
+      },
+      {
+          question: 'Do you create custom inserts for corrugated kits?',
+          answer:
+            'We design foam, corrugated, or molded pulp inserts that nest inside your shipper. Each insert is engineered for quick fulfillment and consistent presentation.'
+      },
+      {
+          question: 'What turnaround time should I expect for corrugated production?',
+          answer:
+            'Standard corrugated programs ship in 10–14 business days after proof approval. Rush schedules are available if you need boxes faster for launch or replenishment.'
+      }
+    ], { heading: 'Questions about Corrugated Boxes', eyebrow: 'Corrugated Box FAQs' }),
+    cta: {
+      title: 'Ready for Heavy-Duty Corrugated Packaging?',
+      description: 'Get a corrugated box quote engineered for your shipping and subscription workflows.'
+    },
   },
+
   // Product: Mylar Boxes
   'mylar-boxes': {
     name: 'Mylar Boxes',
@@ -693,64 +619,17 @@ const rawProductData = {
       'Stand-up and flat pouch formats optimize merchandising space',
       'Low minimums with rapid lead times for product launches'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Mylar Film / Barrier Materials' },
-      { label: 'Structure', value: 'Stand-Up / Zipper / Window Bag' },
-      { label: 'Thickness', value: '50-200 Microns' },
-      { label: 'Finish', value: 'Matte / Glossy' },
-      { label: 'Printing', value: 'Full Color Flexographic' },
-      { label: 'Dimensions', value: 'Custom sizes available' },
-      { label: 'Quantity', value: '1000+ units (Bulk discounts available)' }
-    ],
-    sizes: [
-      { name: 'Small', dimensions: '6 × 4 × 2 in', price: 'Contact for pricing' },
-      { name: 'Medium', dimensions: '10 × 7 × 3 in', price: 'Contact for pricing' },
-      { name: 'Large', dimensions: '12 × 9 × 4 in', price: 'Contact for pricing' },
-      { name: 'Custom', dimensions: 'Built to your exact spec', price: 'Quoted on request' }
-    ],
-    galleryImages: [
-      'products-box-img_x8vu4b',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Die-cut structures engineered specifically for your mylar boxes',
-      'Inside & outside printing with Pantone matching',
-      'Foil stamping, embossing, debossing & spot UV options',
-      'Protective coatings, lamination, and soft-touch films',
-      'Custom inserts, trays, and partitions for product security'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Mylar Boxes',
-      description: 'Design and order custom mylar boxes to match your exact needs. Choose your materials, printing options, and finishes that bring your brand vision to life.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Material Type', value: 'Mylar Film / Barrier Materials' },
-        { label: 'Structure', value: 'Stand-Up / Zipper / Window Bag' },
-        { label: 'Thickness', value: '50-200 Microns' },
-        { label: 'Finish', value: 'Matte / Glossy' },
-        { label: 'Printing', value: 'Full Color Flexographic' },
-        { label: 'Dimensions', value: 'Custom sizes available' },
-        { label: 'Quantity', value: '1000+ units (Bulk discounts available)' }
-      ],
-      footerNote: 'Review your design, preview your sample, and place your order online.',
-      supportTitle: 'Need help before ordering?',
-      supportDescription: 'If you\'d like to talk before placing your order, our support team is ready.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Connect directly with an agent for instant guidance.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Get a quick reply about materials, pricing, or design options.'
-        }
+        { label: 'Material Type', value: 'Food-grade PET/VMPET/PE laminations with aluminum barrier layers' },
+        { label: 'Structure', value: 'Flat bottom, three-side seal, child-resistant zipper, or hang hole options' },
+        { label: 'Thickness', value: '3 mil / 4 mil / 5 mil laminate stacks tuned for moisture and aroma' },
+        { label: 'Finish', value: 'Gloss, matte, holographic films, or tactile spot varnish panels' },
+        { label: 'Printing', value: 'Rotogravure or digital up to 9 colors with matte/gloss dual panels' },
+        { label: 'Dimensions (L x W x H)', value: 'Standard 4" x 6" to 12" x 15" gusseted formats with custom die-cuts' },
+        { label: 'Quantity', value: 'Flexible runs from 1,000 digitally printed pouches to 50,000+' }
       ]
     },
-    ctaTitle: 'Ready for Mylar Packaging?',
-    ctaDescription: 'Get a custom quote for your mylar boxes today. Discover the perfect barrier packaging solution for your products.',
     overview: {
       heading: 'Product Overview',
       title: 'Mylar Boxes Engineered for Shelf Life',
@@ -760,7 +639,34 @@ const rawProductData = {
         'With rapid prototyping, low minimums, and food-safe certifications, we support product launches, seasonal flavors, and large-scale runs with equal focus.'
       ]
     },
+    faq: buildFaq('Mylar Boxes', [
+      {
+          question: 'What barrier options can my mylar packaging include?',
+          answer:
+            'We layer PET, VMPET, and PE films to achieve moisture, oxygen, and aroma barriers that match your shelf-life targets. We can also add aluminum layers for products needing maximum protection.'
+      },
+      {
+          question: 'Can mylar pouches be child-resistant?',
+          answer:
+            'Yes. We offer certified child-resistant zipper systems and tear-notches that meet regulatory requirements for cannabis, nutraceutical, and chemical products.'
+      },
+      {
+          question: 'How do metallic and holographic effects impact lead time?',
+          answer:
+            'Specialty films are stocked in-house, so adding holographic or metallic finishes typically adds only a few extra days for lamination and proofing.'
+      },
+      {
+          question: 'Are low-minimum digital runs available for mylar packaging?',
+          answer:
+            'We can produce as few as 1,000 digitally printed pouches, making it easy to test flavors or limited editions before scaling to long-run gravure production.'
+      }
+    ], { heading: 'Questions about Mylar Boxes', eyebrow: 'Mylar Packaging FAQs' }),
+    cta: {
+      title: 'Ready for Mylar Packaging?',
+      description: 'Get a custom quote for your mylar boxes today. Discover the perfect barrier packaging solution for your products.'
+    },
   },
+
   // Product: Shopping Bags
   'shopping-bags': {
     name: 'Shopping Bags',
@@ -776,64 +682,17 @@ const rawProductData = {
       'Reusable tote-style designs extend your marketing reach beyond checkout',
       'Custom gussets and bases support everything from cosmetics to apparel'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Recycled Paper / Cotton / Canvas' },
-      { label: 'Structure', value: 'Standard / Tote / Handle Options' },
-      { label: 'Thickness', value: '200-400 GSM' },
-      { label: 'Finish', value: 'Matte / Glossy' },
-      { label: 'Printing', value: 'Full Color CMYK' },
-      { label: 'Dimensions', value: 'Custom sizes available' },
-      { label: 'Quantity', value: '500+ units (Bulk discounts available)' }
-    ],
-    sizes: [
-      { name: 'Small', dimensions: '6 × 4 × 2 in', price: 'Contact for pricing' },
-      { name: 'Medium', dimensions: '10 × 7 × 3 in', price: 'Contact for pricing' },
-      { name: 'Large', dimensions: '12 × 9 × 4 in', price: 'Contact for pricing' },
-      { name: 'Custom', dimensions: 'Built to your exact spec', price: 'Quoted on request' }
-    ],
-    galleryImages: [
-      'products-box-img_x8vu4b',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Die-cut structures engineered specifically for your shopping bags',
-      'Inside & outside printing with Pantone matching',
-      'Foil stamping, embossing, debossing & spot UV options',
-      'Protective coatings, lamination, and soft-touch films',
-      'Custom inserts, trays, and partitions for product security'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Shopping Bags',
-      description: 'Design and order custom shopping bags to match your exact needs. Choose your materials, printing options, and finishes that bring your brand vision to life.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Material Type', value: 'Recycled Paper / Cotton / Canvas' },
-        { label: 'Structure', value: 'Standard / Tote / Handle Options' },
-        { label: 'Thickness', value: '200-400 GSM' },
-        { label: 'Finish', value: 'Matte / Glossy' },
-        { label: 'Printing', value: 'Full Color CMYK' },
-        { label: 'Dimensions', value: 'Custom sizes available' },
-        { label: 'Quantity', value: '500+ units (Bulk discounts available)' }
-      ],
-      footerNote: 'Review your design, preview your sample, and place your order online.',
-      supportTitle: 'Need help before ordering?',
-      supportDescription: 'If you\'d like to talk before placing your order, our support team is ready.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Connect directly with an agent for instant guidance.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Get a quick reply about materials, pricing, or design options.'
-        }
+        { label: 'Material Type', value: '157gsm art paper, natural kraft, or 120u non-woven fabrics' },
+        { label: 'Structure', value: 'Pinch-bottom, square-bottom, or euro tote with custom handles' },
+        { label: 'Thickness', value: '120gsm / 157gsm / 210gsm papers with reinforced base cards' },
+        { label: 'Finish', value: 'Matte or gloss lamination, foil stamping, spot UV, or soft-touch' },
+        { label: 'Printing', value: 'Full-bleed offset, silk-screen metallics, Pantone-matched branding' },
+        { label: 'Dimensions (L x W x H)', value: 'From 6" x 3" x 8" boutique bags to 16" x 6" x 13" totes' },
+        { label: 'Quantity', value: 'Custom bag orders starting at 250 units with restock programs' }
       ]
     },
-    ctaTitle: 'Ready for Eco-Friendly Shopping?',
-    ctaDescription: 'Get a custom quote for your shopping bags today. Promote your brand while protecting the environment.',
     overview: {
       heading: 'Product Overview',
       title: 'Shopping Bags Designed for Everyday Branding',
@@ -843,7 +702,34 @@ const rawProductData = {
         'From boutique collections to national retail programs, we align bag construction with your sustainability goals and merchandising calendar.'
       ]
     },
+    faq: buildFaq('Shopping Bags', [
+      {
+          question: 'What handle styles can I include on my shopping bags?',
+          answer:
+            'We offer twisted paper, ribbon, rope, and die-cut handles. Each option is load-tested so the handle matches your bag size and product weight.'
+      },
+      {
+          question: 'Can shopping bags be produced with sustainable materials?',
+          answer:
+            'Yes. We source FSC-certified papers, recycled fibers, and water-based inks. Reinforced bases keep the bag reusable while supporting sustainability goals.'
+      },
+      {
+          question: 'Do you provide custom tissue or accessories to match the bags?',
+          answer:
+            'We can coordinate tissue, stickers, and belly bands that ship alongside your bags. Our kitting services bundle everything so stores receive complete merchandising sets.'
+      },
+      {
+          question: 'How quickly can you replenish shopping bags for peak seasons?',
+          answer:
+            'Standard lead times are 3–4 weeks, but we stage production and inventory to support seasonal surges. Rush programs are available for last-minute events.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for Eco-Friendly Shopping?',
+      description: 'Get a custom quote for your shopping bags today. Promote your brand while protecting the environment.'
+    },
   },
+
   // Product: Packaging Accessories
   'packaging-accessories': {
     name: 'Packaging Accessories',
@@ -859,64 +745,17 @@ const rawProductData = {
       'Ribbon, twine, and wax seals create premium finishing touches',
       'Kitting and fulfillment-ready accessory packs streamline operations'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Various Premium Materials' },
-      { label: 'Structure', value: 'Protective / Decorative / Functional' },
-      { label: 'Thickness', value: 'Custom Specifications' },
-      { label: 'Finish', value: 'Multiple Options Available' },
-      { label: 'Printing', value: 'Full Color Available' },
-      { label: 'Dimensions', value: 'Custom sizes available' },
-      { label: 'Quantity', value: '250+ units (Bulk discounts available)' }
-    ],
-    sizes: [
-      { name: 'Small', dimensions: '6 × 4 × 2 in', price: 'Contact for pricing' },
-      { name: 'Medium', dimensions: '10 × 7 × 3 in', price: 'Contact for pricing' },
-      { name: 'Large', dimensions: '12 × 9 × 4 in', price: 'Contact for pricing' },
-      { name: 'Custom', dimensions: 'Built to your exact spec', price: 'Quoted on request' }
-    ],
-    galleryImages: [
-      'products-box-img_x8vu4b',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Die-cut structures engineered specifically for your packaging accessories',
-      'Inside & outside printing with Pantone matching',
-      'Foil stamping, embossing, debossing & spot UV options',
-      'Protective coatings, lamination, and soft-touch films',
-      'Custom inserts, trays, and partitions for product security'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Packaging Accessories',
-      description: 'Design and order custom packaging accessories to match your exact needs. Choose your materials, printing options, and finishes that bring your brand vision to life.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Material Type', value: 'Various Premium Materials' },
-        { label: 'Structure', value: 'Protective / Decorative / Functional' },
-        { label: 'Thickness', value: 'Custom Specifications' },
-        { label: 'Finish', value: 'Multiple Options Available' },
-        { label: 'Printing', value: 'Full Color Available' },
-        { label: 'Dimensions', value: 'Custom sizes available' },
-        { label: 'Quantity', value: '250+ units (Bulk discounts available)' }
-      ],
-      footerNote: 'Review your design, preview your sample, and place your order online.',
-      supportTitle: 'Need help before ordering?',
-      supportDescription: 'If you\'d like to talk before placing your order, our support team is ready.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Connect directly with an agent for instant guidance.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Get a quick reply about materials, pricing, or design options.'
-        }
+        { label: 'Material Type', value: 'FSC-certified papers, PET, PVC, and specialty substrates' },
+        { label: 'Structure', value: 'Labels, belly bands, wraps, tape, inserts, tags, and seals' },
+        { label: 'Thickness', value: 'Paper 70gsm-240gsm, films 1.5 mil-4 mil, board up to 20pt' },
+        { label: 'Finish', value: 'Varnish, foil, textured laminates, emboss, and specialty coatings' },
+        { label: 'Printing', value: 'Digital, flexo, or offset with metallics, white, and variable data' },
+        { label: 'Dimensions (L x W x H)', value: 'Sized from 1" accent labels to 24" protective wraps' },
+        { label: 'Quantity', value: 'Accessory packs from 500 pieces with kitting fulfillment' }
       ]
     },
-    ctaTitle: 'Ready to Complete Your Packaging?',
-    ctaDescription: 'Get a custom quote for your packaging accessories today. Complete your packaging solution with our premium accessories.',
     overview: {
       heading: 'Product Overview',
       title: 'Packaging Accessories That Complete the Experience',
@@ -925,6 +764,32 @@ const rawProductData = {
         'Add tactile finishes with ribbons, wax seals, belly bands, and custom wraps, or build informative touchpoints with QR-enabled cards and booklets.',
         'Our kitting team bundles accessories to match your fulfillment flow, ensuring every package leaves your facility consistent, polished, and on-brand.'
       ]
+    },
+    faq: buildFaq('Packaging Accessories', [
+      {
+          question: 'Can accessories ship pre-kitted with my packaging?',
+          answer:
+            'Yes. We assemble accessory packs—like tissue, stickers, or inserts—so fulfillment teams receive ready-to-use bundles that match each SKU or campaign.'
+      },
+      {
+          question: 'Do you source specialty materials like ribbon or wax seals?',
+          answer:
+            'We maintain a vetted supplier network for ribbons, wax seals, and specialty trims. Our sourcing team matches colors and textures to your exact brand guidelines.'
+      },
+      {
+          question: 'How are printed collateral pieces coordinated with packaging?',
+          answer:
+            'Our prepress team aligns booklet, card, and label artwork with your packaging color targets, ensuring everything looks cohesive when unboxed.'
+      },
+      {
+          question: 'Can accessory programs scale for subscription or influencer kits?',
+          answer:
+            'Absolutely. We manage inventory, apply personalization, and schedule drop shipments to keep subscription and influencer programs on time and consistent.'
+      }
+    ], { heading: 'Questions about Packaging Accessories', eyebrow: 'Accessory FAQs' }),
+    cta: {
+      title: 'Ready to Complete Your Packaging?',
+      description: 'Get a custom quote for your packaging accessories today. Complete your packaging solution with our premium accessories.'
     },
   },
   
@@ -947,65 +812,40 @@ const rawProductData = {
       'Reusable and durable',
       'Professional presentation'
     ],
-    // specifications: [
-    //   { label: 'Material Type', value: 'Rigid Board / Heavy-Duty Cardboard' },
-    //   { label: 'Structure', value: 'Magnetic Closure' },
-    //   { label: 'Thickness', value: '14PT / 18PT / 24PT' },
-    //   { label: 'Finish', value: 'Glossy / Matte / Soft Touch / Velvet' },
-    //   { label: 'Printing', value: 'Inside, Outside, or Both' },
-    //   { label: 'Dimensions (L × W × H)', value: 'Custom sizes available' },
-    //   { label: 'Quantity', value: '250 units (Bulk discounts available)' }
-    // ],
-    // sizes: [
-    //   { name: 'Small', dimensions: '6 × 4 × 2 in', price: 'Contact for pricing' },
-    //   { name: 'Medium', dimensions: '10 × 7 × 3 in', price: 'Contact for pricing' },
-    //   { name: 'Large', dimensions: '12 × 9 × 4 in', price: 'Contact for pricing' },
-    //   { name: 'Custom', dimensions: 'Built to your exact spec', price: 'Quoted on request' }
-    // ],
-    galleryImages: [
-      'Mailer-Box-3_oct2ws',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    // customizationOptions: [
-    //   'Die-cut structures engineered specifically for your magnetic closure rigid boxes',
-    //   'Inside & outside printing with Pantone matching',
-    //   'Foil stamping, embossing, debossing & spot UV options',
-    //   'Protective coatings, lamination, and soft-touch films',
-    //   'Custom inserts, trays, and partitions for product security'
-    // ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Magnetic Closure Rigid Box',
-      description: 'Design and order custom magnetic closure rigid boxes to match your exact needs. Choose your materials, finishes, and design elements.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Material Type', value: 'Rigid Board / Heavy-Duty Cardboard' },
-        { label: 'Structure', value: 'Magnetic Closure' },
-        { label: 'Thickness', value: '14PT / 18PT / 24PT' },
-        { label: 'Finish', value: 'Glossy / Matte / Soft Touch / Velvet' },
-        { label: 'Printing', value: 'Inside, Outside, or Both' },
-        { label: 'Dimensions (L × W × H)', value: 'Custom sizes available' },
-        { label: 'Quantity', value: '250 units (Bulk discounts available)' }
-      ],
-      footerNote: 'Review your design, preview your sample, and place your order online.',
-      supportTitle: 'Need help before ordering?',
-      supportDescription: 'If you\'d like to talk before placing your order, our support team is ready.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Connect directly with an agent for instant guidance.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Get a quick reply about materials, pricing, or design options.'
-        }
+        { label: 'Material Type', value: '100pt-120pt rigid greyboard wrapped in anti-scratch coated paper' },
+        { label: 'Structure', value: 'Flip-top clamshell with embedded neodymium magnets and iron plates' },
+        { label: 'Thickness', value: '2.5 mm walls with optional EVA, satin, or molded plastic inserts' },
+        { label: 'Finish', value: 'Soft-touch matte, high gloss, foil stamping, and debossed logos' },
+        { label: 'Printing', value: 'Offset CMYK with spot PMS, interior floods, and foil interior panels' },
+        { label: 'Dimensions (L x W x H)', value: 'From 6" x 6" x 2" gift kits to 14" x 10" x 5" hampers' },
+        { label: 'Quantity', value: 'Boutique runs starting at 100 magnetic rigid boxes' }
       ]
     },
-    ctaTitle: 'Ready for Luxury Packaging?',
-    ctaDescription: 'Get a custom quote for your magnetic closure rigid boxes today. Experience premium packaging that elevates your brand.'
+    faq: buildFaq('Magnetic Closure Rigid Box', [
+      {
+        question: 'How strong are the magnetic closures on these rigid boxes?',
+        answer:
+          'We embed neodymium magnets within the wrap so the closure remains secure through repeated openings and during transit. Magnet placement is tested to match the weight of your product.'
+      },
+      {
+        question: 'Can I customize the interior platform of a magnetic closure rigid box?',
+        answer:
+          'Yes. We design custom EVA, foam, or satin-wrapped platforms that cradle each component. Inserts are cut to exact tolerances so the reveal feels intentional every time.'
+      },
+      {
+        question: 'Do magnetic closure rigid boxes ship set-up or flat?',
+        answer:
+          'You can choose either. Most luxury programs ship set-up for immediate use, but we also offer partially assembled options to save freight while keeping assembly simple.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for Luxury Packaging?',
+      description: 'Get a custom quote for your magnetic closure rigid boxes today. Experience premium packaging that elevates your brand.'
+    }
   },
+
   // Subcategory: Two Piece Rigid Boxes
   'two-piece-rigid-boxes': {
     name: 'Two Piece Rigid Boxes',
@@ -1021,65 +861,40 @@ const rawProductData = {
       'Durable and reusable',
       'Professional finish options'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Rigid Board / Heavy-Duty Cardboard' },
-      { label: 'Structure', value: 'Two-Piece (Base + Lid)' },
-      { label: 'Thickness', value: '14PT / 18PT / 24PT' },
-      { label: 'Finish', value: 'Glossy / Matte / Soft Touch / Velvet' },
-      { label: 'Printing', value: 'Inside, Outside, or Both' },
-      { label: 'Dimensions (L × W × H)', value: 'Custom sizes available' },
-      { label: 'Quantity', value: '250 units (Bulk discounts available)' }
-    ],
-    sizes: [
-      { name: 'Small', dimensions: '6 × 4 × 2 in', price: 'Contact for pricing' },
-      { name: 'Medium', dimensions: '10 × 7 × 3 in', price: 'Contact for pricing' },
-      { name: 'Large', dimensions: '12 × 9 × 4 in', price: 'Contact for pricing' },
-      { name: 'Custom', dimensions: 'Built to your exact spec', price: 'Quoted on request' }
-    ],
-    galleryImages: [
-      'Mailer-Box-3_oct2ws',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Die-cut structures engineered specifically for your two-piece rigid boxes',
-      'Inside & outside printing with Pantone matching',
-      'Foil stamping, embossing, debossing & spot UV options',
-      'Protective coatings, lamination, and soft-touch films',
-      'Custom inserts, trays, and partitions for product security'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Two Piece Rigid Boxes',
-      description: 'Design and order custom two-piece rigid boxes to match your exact needs. Choose your materials, finishes, and design elements.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Material Type', value: 'Rigid Board / Heavy-Duty Cardboard' },
-        { label: 'Structure', value: 'Two-Piece (Base + Lid)' },
-        { label: 'Thickness', value: '14PT / 18PT / 24PT' },
-        { label: 'Finish', value: 'Glossy / Matte / Soft Touch / Velvet' },
-        { label: 'Printing', value: 'Inside, Outside, or Both' },
-        { label: 'Dimensions (L × W × H)', value: 'Custom sizes available' },
-        { label: 'Quantity', value: '250 units (Bulk discounts available)' }
-      ],
-      footerNote: 'Review your design, preview your sample, and place your order online.',
-      supportTitle: 'Need help before ordering?',
-      supportDescription: 'If you\'d like to talk before placing your order, our support team is ready.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Connect directly with an agent for instant guidance.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Get a quick reply about materials, pricing, or design options.'
-        }
+        { label: 'Material Type', value: '90pt-120pt rigid board wrapped in coated, textured, or specialty paper' },
+        { label: 'Structure', value: 'Lift-off lid with telescoping shoulder, friction-fit base, or neck inserts' },
+        { label: 'Thickness', value: '2.0 mm / 2.5 mm board walls with optional reinforced corners' },
+        { label: 'Finish', value: 'Matte or gloss laminate, soft-touch, foil, and debossed lid crests' },
+        { label: 'Printing', value: 'Offset CMYK, PMS accents, and interior flood or pattern printing' },
+        { label: 'Dimensions (L x W x H)', value: 'Sized from 4" x 4" x 2" jewelry to 15" x 12" x 6" apparel boxes' },
+        { label: 'Quantity', value: 'Custom two-piece runs beginning at 150 sets' }
       ]
     },
-    ctaTitle: 'Ready for Premium Packaging?',
-    ctaDescription: 'Get a custom quote for your two-piece rigid boxes today. Create elegant packaging that showcases your products beautifully.'
+    faq: buildFaq('Two Piece Rigid Boxes', [
+      {
+        question: 'How do you ensure the lid and base of a two-piece rigid box fit perfectly?',
+        answer:
+          'We dial in shoulder height and friction tolerances during prototyping so the lid glides smoothly while staying aligned. Each run is checked to maintain that premium feel.'
+      },
+      {
+        question: 'Can I add custom inserts or accessories inside the two-piece box?',
+        answer:
+          'Absolutely. We fabricate custom foam, molded pulp, or folded board inserts that match your product layout and keep contents secure during shipping and unboxing.'
+      },
+      {
+        question: 'Are there sustainable material options for two-piece rigid boxes?',
+        answer:
+          'Yes. We offer recycled greyboard cores wrapped in FSC-certified papers and can finish them with water-based coatings to support your sustainability commitments.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for Premium Packaging?',
+      description: 'Get a custom quote for your two-piece rigid boxes today. Create elegant packaging that showcases your products beautifully.'
+    }
   },
+
   // Subcategory: Sliding / Sleeve Rigid Boxes (Match Style Boxes)
   'sliding-sleeve-rigid-boxes-match-style-boxes': {
     name: 'Sliding / Sleeve Rigid Boxes (Match Style Boxes)',
@@ -1095,65 +910,40 @@ const rawProductData = {
       'Elegant presentation',
       'Durable construction'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Rigid Board / Heavy-Duty Cardboard' },
-      { label: 'Structure', value: 'Sliding Sleeve / Match Style' },
-      { label: 'Thickness', value: '14PT / 18PT / 24PT' },
-      { label: 'Finish', value: 'Glossy / Matte / Soft Touch / Velvet' },
-      { label: 'Printing', value: 'Inside, Outside, or Both' },
-      { label: 'Dimensions (L × W × H)', value: 'Custom sizes available' },
-      { label: 'Quantity', value: '250 units (Bulk discounts available)' }
-    ],
-    sizes: [
-      { name: 'Small', dimensions: '6 × 4 × 2 in', price: 'Contact for pricing' },
-      { name: 'Medium', dimensions: '10 × 7 × 3 in', price: 'Contact for pricing' },
-      { name: 'Large', dimensions: '12 × 9 × 4 in', price: 'Contact for pricing' },
-      { name: 'Custom', dimensions: 'Built to your exact spec', price: 'Quoted on request' }
-    ],
-    galleryImages: [
-      'Mailer-Box-3_oct2ws',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Die-cut structures engineered specifically for your sliding sleeve rigid boxes',
-      'Inside & outside printing with Pantone matching',
-      'Foil stamping, embossing, debossing & spot UV options',
-      'Protective coatings, lamination, and soft-touch films',
-      'Custom inserts, trays, and partitions for product security'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Sliding Sleeve Rigid Boxes',
-      description: 'Design and order custom sliding sleeve rigid boxes to match your exact needs. Choose your materials, finishes, and design elements.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Material Type', value: 'Rigid Board / Heavy-Duty Cardboard' },
-        { label: 'Structure', value: 'Sliding Sleeve / Match Style' },
-        { label: 'Thickness', value: '14PT / 18PT / 24PT' },
-        { label: 'Finish', value: 'Glossy / Matte / Soft Touch / Velvet' },
-        { label: 'Printing', value: 'Inside, Outside, or Both' },
-        { label: 'Dimensions (L × W × H)', value: 'Custom sizes available' },
-        { label: 'Quantity', value: '250 units (Bulk discounts available)' }
-      ],
-      footerNote: 'Review your design, preview your sample, and place your order online.',
-      supportTitle: 'Need help before ordering?',
-      supportDescription: 'If you\'d like to talk before placing your order, our support team is ready.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Connect directly with an agent for instant guidance.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Get a quick reply about materials, pricing, or design options.'
-        }
+        { label: 'Material Type', value: 'Rigid greyboard wrapped in coated art paper or textured specialty stocks' },
+        { label: 'Structure', value: 'Drawer-style inner tray with contrasting outer sleeve and ribbon pulls' },
+        { label: 'Thickness', value: '2.0 mm tray walls with optional 3.0 mm base reinforcement' },
+        { label: 'Finish', value: 'Matte or gloss laminate, foil frames, spot UV, or soft-touch varnish' },
+        { label: 'Printing', value: 'Offset CMYK + metallic inks across sleeve and tray surfaces' },
+        { label: 'Dimensions (L x W x H)', value: 'From 5" x 4" x 1.5" electronics to 12" x 9" x 3" welcome kits' },
+        { label: 'Quantity', value: 'Custom sleeve sets starting at 200 match-style boxes' }
       ]
     },
-    ctaTitle: 'Ready for Elegant Packaging?',
-    ctaDescription: 'Get a custom quote for your sliding sleeve rigid boxes today. Create sophisticated packaging that stands out.'
+    faq: buildFaq('Sliding Sleeve Rigid Boxes', [
+      {
+        question: 'How smooth is the sliding action on these rigid boxes?',
+        answer:
+          'We line sleeves and trays with low-friction wraps and check tolerances during assembly so every reveal feels smooth without being loose.'
+      },
+      {
+        question: 'Can I add a ribbon pull or magnetic stop to the sleeve?',
+        answer:
+          'Yes. Ribbon pulls, thumb notches, and hidden magnets can be integrated to enhance usability while keeping the sleeve aligned with the tray.'
+      },
+      {
+        question: 'What insert options work best for sliding sleeve boxes?',
+        answer:
+          'Foam, paperboard, or molded plastic inserts can be engineered to fit the tray. We ensure the insert height lines up with the sleeve opening for a polished reveal.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for Elegant Packaging?',
+      description: 'Get a custom quote for your sliding sleeve rigid boxes today. Create sophisticated packaging that stands out.'
+    }
   },
+
   // Subcategory: Brief Case Style
   'brief-case-style': {
     name: 'Brief Case Style',
@@ -1169,65 +959,40 @@ const rawProductData = {
       'Fully customizable',
       'Luxury finish options'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Rigid Board / Heavy-Duty Cardboard' },
-      { label: 'Structure', value: 'Briefcase Style with Handle' },
-      { label: 'Thickness', value: '14PT / 18PT / 24PT' },
-      { label: 'Finish', value: 'Glossy / Matte / Soft Touch / Velvet' },
-      { label: 'Printing', value: 'Inside, Outside, or Both' },
-      { label: 'Dimensions (L × W × H)', value: 'Custom sizes available' },
-      { label: 'Quantity', value: '250 units (Bulk discounts available)' }
-    ],
-    sizes: [
-      { name: 'Small', dimensions: '6 × 4 × 2 in', price: 'Contact for pricing' },
-      { name: 'Medium', dimensions: '10 × 7 × 3 in', price: 'Contact for pricing' },
-      { name: 'Large', dimensions: '12 × 9 × 4 in', price: 'Contact for pricing' },
-      { name: 'Custom', dimensions: 'Built to your exact spec', price: 'Quoted on request' }
-    ],
-    galleryImages: [
-      'Mailer-Box-3_oct2ws',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Die-cut structures engineered specifically for your briefcase-style rigid boxes',
-      'Inside & outside printing with Pantone matching',
-      'Foil stamping, embossing, debossing & spot UV options',
-      'Protective coatings, lamination, and soft-touch films',
-      'Custom inserts, trays, and partitions for product security'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Brief Case Style Boxes',
-      description: 'Design and order custom briefcase-style rigid boxes to match your exact needs. Choose your materials, finishes, and design elements.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Material Type', value: 'Rigid Board / Heavy-Duty Cardboard' },
-        { label: 'Structure', value: 'Briefcase Style with Handle' },
-        { label: 'Thickness', value: '14PT / 18PT / 24PT' },
-        { label: 'Finish', value: 'Glossy / Matte / Soft Touch / Velvet' },
-        { label: 'Printing', value: 'Inside, Outside, or Both' },
-        { label: 'Dimensions (L × W × H)', value: 'Custom sizes available' },
-        { label: 'Quantity', value: '250 units (Bulk discounts available)' }
-      ],
-      footerNote: 'Review your design, preview your sample, and place your order online.',
-      supportTitle: 'Need help before ordering?',
-      supportDescription: 'If you\'d like to talk before placing your order, our support team is ready.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Connect directly with an agent for instant guidance.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Get a quick reply about materials, pricing, or design options.'
-        }
+        { label: 'Material Type', value: 'Rigid greyboard laminated with fabric, PU leather, or coated papers' },
+        { label: 'Structure', value: 'Suitcase-inspired clamshell with metal hinges, handle hardware, and clasps' },
+        { label: 'Thickness', value: 'Reinforced 3.0 mm panels with internal support rails and trays' },
+        { label: 'Finish', value: 'Hand-stitched corners, matte varnish, metallic guards, embossed plates' },
+        { label: 'Printing', value: 'Silk-screened logos, foil deboss on wraps, printed liners, and badges' },
+        { label: 'Dimensions (L x W x H)', value: 'Executive kits from 11" x 8" x 2" to 18" x 13" x 4"' },
+        { label: 'Quantity', value: 'Limited production starting at 50 briefcase kits' }
       ]
     },
-    ctaTitle: 'Ready for Executive Packaging?',
-    ctaDescription: 'Get a custom quote for your briefcase-style rigid boxes today. Create premium packaging that commands attention.'
+    faq: buildFaq('Brief Case Style Rigid Boxes', [
+      {
+        question: 'How durable are the handles and hardware on briefcase-style boxes?',
+        answer:
+          'We source metal hardware rated for repeated use and reinforce handle areas with additional board layers so the case travels securely.'
+      },
+      {
+        question: 'Can I customize the interior compartments of the briefcase box?',
+        answer:
+          'Absolutely. We design foam, trays, and accessory pockets that organize each component, ensuring the presentation feels like a curated kit.'
+      },
+      {
+        question: 'Do these boxes ship assembled?',
+        answer:
+          'Most briefcase programs ship fully assembled with hardware installed. For large deployments we can ship partially assembled kits with simple final setup instructions.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for Executive Packaging?',
+      description: 'Get a custom quote for your briefcase-style rigid boxes today. Create premium packaging that commands attention.'
+    }
   },
+
   // Subcategory: Book Style Rigid Boxes
   'book-style-rigid-boxes': {
     name: 'Book Style Rigid Boxes',
@@ -1243,64 +1008,38 @@ const rawProductData = {
       'Luxury finish options',
       'Unique unboxing experience'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Rigid Board / Heavy-Duty Cardboard' },
-      { label: 'Structure', value: 'Book Style with Hinged Lid' },
-      { label: 'Thickness', value: '14PT / 18PT / 24PT' },
-      { label: 'Finish', value: 'Glossy / Matte / Soft Touch / Velvet' },
-      { label: 'Printing', value: 'Inside, Outside, or Both' },
-      { label: 'Dimensions (L × W × H)', value: 'Custom sizes available' },
-      { label: 'Quantity', value: '250 units (Bulk discounts available)' }
-    ],
-    sizes: [
-      { name: 'Small', dimensions: '6 × 4 × 2 in', price: 'Contact for pricing' },
-      { name: 'Medium', dimensions: '10 × 7 × 3 in', price: 'Contact for pricing' },
-      { name: 'Large', dimensions: '12 × 9 × 4 in', price: 'Contact for pricing' },
-      { name: 'Custom', dimensions: 'Built to your exact spec', price: 'Quoted on request' }
-    ],
-    galleryImages: [
-      'Mailer-Box-3_oct2ws',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Die-cut structures engineered specifically for your book-style rigid boxes',
-      'Inside & outside printing with Pantone matching',
-      'Foil stamping, embossing, debossing & spot UV options',
-      'Protective coatings, lamination, and soft-touch films',
-      'Custom inserts, trays, and partitions for product security'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Book Style Rigid Boxes',
-      description: 'Design and order custom book-style rigid boxes to match your exact needs. Choose your materials, finishes, and design elements.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Material Type', value: 'Rigid Board / Heavy-Duty Cardboard' },
-        { label: 'Structure', value: 'Book Style with Hinged Lid' },
-        { label: 'Thickness', value: '14PT / 18PT / 24PT' },
-        { label: 'Finish', value: 'Glossy / Matte / Soft Touch / Velvet' },
-        { label: 'Printing', value: 'Inside, Outside, or Both' },
-        { label: 'Dimensions (L × W × H)', value: 'Custom sizes available' },
-        { label: 'Quantity', value: '250 units (Bulk discounts available)' }
-      ],
-      footerNote: 'Review your design, preview your sample, and place your order online.',
-      supportTitle: 'Need help before ordering?',
-      supportDescription: 'If you\'d like to talk before placing your order, our support team is ready.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Connect directly with an agent for instant guidance.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Get a quick reply about materials, pricing, or design options.'
-        }
+        { label: 'Material Type', value: '90pt-110pt rigid board wrapped in art paper or buckram book cloth' },
+        { label: 'Structure', value: 'Hardcover-style hinged lid with magnetic closure and inside platform' },
+        { label: 'Thickness', value: '2.0 mm cover boards with 1.5 mm spine wrap and platform risers' },
+        { label: 'Finish', value: 'Linen textures, foil spine titles, debossed covers, spot UV prints' },
+        { label: 'Printing', value: 'Offset CMYK with PMS spine inks, foil combinations, interior floods' },
+        { label: 'Dimensions (L x W x H)', value: 'Album formats from 7" x 9" x 1.5" to 13" x 11" x 3"' },
+        { label: 'Quantity', value: 'Special edition runs starting at 100 book-style boxes' }
       ]
     },
-    ctaTitle: 'Ready for Unique Packaging?',
-    ctaDescription: 'Get a custom quote for your book-style rigid boxes today. Create memorable packaging that tells your brand story.'
+    faq: buildFaq('Book Style Rigid Boxes', [
+      {
+        question: 'How do book-style rigid boxes stay closed?',
+        answer:
+          'We integrate concealed magnets, ribbon ties, or elastic straps into the spine so the cover stays shut while still offering a smooth, book-like opening.'
+      },
+      {
+        question: 'Can the spine and cover be customized separately?',
+        answer:
+          'Yes. We can apply different wraps, foil titles, and embossing to the spine and cover, helping you emulate the look of a premium hardcover release.'
+      },
+      {
+        question: 'What insert options pair well with book-style boxes?',
+        answer:
+          'Platform risers, foam trays, and printed booklets can be combined to tell a story as the recipient turns each “page” of the reveal.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for Unique Packaging?',
+      description: 'Get a custom quote for your book-style rigid boxes today. Create memorable packaging that tells your brand story.'
+    }
   },
   // ========== KRAFT BOXES SUBCATEGORIES ==========
   // Subcategory: Kraft Mailer Box
@@ -1318,59 +1057,38 @@ const rawProductData = {
       'Made with recycled fibers and low-VOC inks',
       'Ideal for DTC cosmetics, apparel drops, and artisan goods'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'E-flute kraft corrugate or 18PT kraft SBS' },
-      { label: 'Structure', value: 'Self-locking tuck mailer with dust flaps' },
-      { label: 'Thickness', value: '1.5 mm corrugate / 18–24PT SBS' },
-      { label: 'Finish', value: 'Natural kraft, matte AQ, or soft-touch film' },
-      { label: 'Printing', value: 'Exterior + interior digital or offset with white ink capability' },
-      { label: 'Dimensions', value: 'Custom dielines tailored to SKU sets' },
-      { label: 'MOQ', value: 'Starts at 250 units; scale pricing at 1K+' }
-    ],
-    sizes: [
-      { name: 'Essentials', dimensions: '7 × 5 × 2 in', price: 'Quote on request' },
-      { name: 'Standard', dimensions: '9 × 6 × 3 in', price: 'Quote on request' },
-      { name: 'XL Drop', dimensions: '12 × 10 × 4 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Built around your product assortment', price: 'Talk with our team' }
-    ],
-    galleryImages: ['Mailer-Box_ximzdy', 'Mailer-Box-2_sdcq5v', 'Mailer-Box-3_xvwc3h', 'products-box-img_x8vu4b'],
-    customizationOptions: [
-      'Add foam or molded pulp inserts to cradle fragile items',
-      'Laser-score tear strips for premium yet effortless openings',
-      'Combine kraft exterior with white-ink graffiti interiors',
-      'Include belly bands or sleeves for variant differentiation',
-      'Pre-fold or kitting services for high-volume launches'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Kraft Mailer Boxes',
-      description: 'Design kraft mailers that deliver a curated unboxing experience while keeping logistics simple and sustainable.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Board Options', value: 'Recycled corrugate, kraft SBS, or laminated hybrid structures' },
-        { label: 'Closure & Security', value: 'Tuck tabs, peel-and-seal adhesive, or tamper-evident seals' },
-        { label: 'Print Layers', value: '1–5 color print, metallic hits, or hydrographic textures' },
-        { label: 'Interior Treatments', value: 'Custom inserts, gusset pockets, or surprise-and-delight cards' },
-        { label: 'Fulfillment Add-ons', value: 'Kitting, tissue wrapping, and seasonal variant packs' },
-        { label: 'Sustainability', value: 'FSC chain-of-custody, soy-based inks, curbside recyclability' },
-        { label: 'Speed to Market', value: 'Prototyping in 5 business days with press-ready dielines' }
-      ],
-      footerNote: 'Approve artwork, execute production, and schedule fulfillment support with one partner.',
-      supportTitle: 'Need guidance on structure or kitting?',
-      supportDescription: 'Our packaging strategists will map production, print, and fulfillment workflows around your mailer program.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Review dielines, insert designs, and automation guidelines with an engineer.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Request pricing matrices, lead times, and sustainability documentation.'
-        }
+        { label: 'Material Type', value: 'E-flute recycled kraft board with kraft or white interior liners' },
+        { label: 'Structure', value: 'Die-cut self-locking mailer with cherry locks and dust flaps' },
+        { label: 'Thickness', value: '1/16" corrugated profile with optional double-wall front panel' },
+        { label: 'Finish', value: 'Uncoated kraft, water-based varnish, soft-touch AQ, or spot foil' },
+        { label: 'Printing', value: 'Digital CMYK with white ink or 2-color flexo inside and out' },
+        { label: 'Dimensions (L x W x H)', value: 'From 6" x 4" x 2" sample boxes to 12" x 9" x 4" shipments' },
+        { label: 'Quantity', value: 'Short runs starting at 250 kraft mailers' }
       ]
     },
-    ctaTitle: 'Ready to Launch Kraft Mailers?',
-    ctaDescription: 'Share your dimensions and brand goals—we’ll craft a kraft mailer box that arrives ready to impress.',
+    faq: buildFaq('Kraft Mailer Box', [
+      {
+        question: 'Will kraft mailer boxes protect products during parcel shipping?',
+        answer:
+          'We specify the right corrugate grade and reinforce stress points so your kraft mailers pass parcel drop and crush testing without needing extra void fill.'
+      },
+      {
+        question: 'Can I print inside my kraft mailer boxes?',
+        answer:
+          'Yes. Interior panels can feature storytelling, care instructions, or referral offers printed in white ink or full color while keeping the natural kraft look.'
+      },
+      {
+        question: 'Do kraft mailers arrive pre-folded?',
+        answer:
+          'They ship flat to save space but include clear fold lines and locking tabs for quick assembly on the packing line.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Launch Kraft Mailers?',
+      description: 'Share your dimensions and brand goals—we’ll craft a kraft mailer box that arrives ready to impress.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Kraft Mailer Boxes Built for DTC Moments',
@@ -1381,6 +1099,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Kraft Box with Lid
   'kraft-box-with-lid': {
     name: 'Kraft Box with Lid',
@@ -1396,64 +1115,38 @@ const rawProductData = {
       'Optional neck lids or shoulder inserts for luxury feel',
       'Ships flat or pre-assembled depending on program scale'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Recycled greyboard wrapped in premium kraft liner' },
-      { label: 'Structure', value: 'Two-piece telescoping lid with optional neck' },
-      { label: 'Thickness', value: '1.5–2.5 mm board with kraft wrap' },
-      { label: 'Finish', value: 'Natural kraft, dyed kraft, linen emboss, or foil wrap' },
-      { label: 'Printing', value: 'Spot color, hot foil, blind or foil deboss, UV accents' },
-      { label: 'Dimensions', value: 'Custom-milled boards to your exact height/width/depth' },
-      { label: 'MOQ', value: 'Starts at 500 units for wrapped rigid construction' }
-    ],
-    sizes: [
-      { name: 'Keepsake', dimensions: '5 × 5 × 3 in', price: 'Quote on request' },
-      { name: 'Retail Medium', dimensions: '8 × 6 × 3 in', price: 'Quote on request' },
-      { name: 'Gift Hamper', dimensions: '12 × 10 × 4 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'All dimensions engineered per SKU fit', price: 'Discuss with specialist' }
-    ],
-    galleryImages: [
-      'Kraft-Boxes-With-Lid_bvvlo5',
-      'Kraft-Boxes-With-Lid-2_nht4ru',
-      'Kraft-Boxes-With-Lid-3_bbjahp',
-      'products-box-img_x8vu4b'
-    ],
-    customizationOptions: [
-      'Add ribbon pulls, magnetic closures, or belly bands',
-      'Design custom foam, pulp, or EVA inserts for product presentation',
-      'Line interiors with specialty paper or printed storytelling panels',
-      'Incorporate windows, die-cut logos, or split lid reveals',
-      'Bundle multiple lid colors for seasonal or variant releases'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Kraft Box with Lid',
-      description: 'Create a signature reveal by tailoring lid height, wrap textures, and insert systems around your product and brand.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Wrap & Texture', value: 'Dyed kraft wraps, linen-textured papers, or duplex color pairings' },
-        { label: 'Closure Choices', value: 'Simple lift lids, magnetic wraparound straps, ribbon ties, or button closures' },
-        { label: 'Interior Fitments', value: 'Precision die-cut inserts, molded pulp trays, or fabric-wrapped cradles' },
-        { label: 'Special Effects', value: 'Foil deboss, spot UV, edge painting, or two-tone lids' },
-        { label: 'Logistics', value: 'Flat pack components or pre-assembled packs kitted for stores' },
-        { label: 'Certifications', value: 'Recycled board content, FSC chain-of-custody, RoHS compliance' },
-        { label: 'Timeline', value: 'Sampling in 7 business days with production in as fast as 3 weeks' }
-      ],
-      footerNote: 'We align dielines, wraps, and inserts to keep your lid boxes cohesive across multiple product lines.',
-      supportTitle: 'Need structural or finish inspiration?',
-      supportDescription: 'Collaborate with our structural engineers to develop lid heights, shoulder reveals, and accessory kits that elevate your presentation.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Workshop tactile finishes and opening sequences with an expert.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive mood boards, dielines, and cost tiers for your lid box concept.'
-        }
+        { label: 'Material Type', value: '18pt-24pt kraft SBS with food-safe interior or white top wrap' },
+        { label: 'Structure', value: 'Two-piece lid and base with optional shoulder neck or neck lid' },
+        { label: 'Thickness', value: '0.018" / 0.020" / 0.024" board plus optional corrugated pads' },
+        { label: 'Finish', value: 'Matte varnish, soft-touch film, foil edges, linen or textured wraps' },
+        { label: 'Printing', value: 'Offset CMYK with white ink accents and interior branding' },
+        { label: 'Dimensions (L x W x H)', value: 'From 4" x 4" x 3" gifting to 12" x 10" x 5" shelf boxes' },
+        { label: 'Quantity', value: 'Custom lid and base sets starting at 300 units' }
       ]
     },
-    ctaTitle: 'Ready to Present in Kraft Lids?',
-    ctaDescription: 'Tell us about your product and we’ll build a kraft lid box experience that turns gifting into storytelling.',
+    faq: buildFaq('Kraft Box with Lid', [
+      {
+        question: 'How do you keep kraft lids from feeling loose?',
+        answer:
+          'We prototype lid and base tolerances to achieve a snug friction fit. Optional shoulders or neck inserts can add extra stability for heavier contents.'
+      },
+      {
+        question: 'Can I mix different lid and base colors?',
+        answer:
+          'Absolutely. We can wrap lids and bases in contrasting kraft or specialty papers, giving you tiered variants within the same production run.'
+      },
+      {
+        question: 'Are food-safe liners available for kraft lid boxes?',
+        answer:
+          'Yes. We can add FDA-compliant interior liners or coatings so edible products stay protected without compromising the kraft finish.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Present in Kraft Lids?',
+      description: 'Tell us about your product and we’ll build a kraft lid box experience that turns gifting into storytelling.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Kraft Lid Boxes Made for Memorable Reveals',
@@ -1464,6 +1157,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Kraft Pillow Box
   'kraft-pillow-box': {
     name: 'Kraft Pillow Box',
@@ -1479,64 +1173,38 @@ const rawProductData = {
       'Compatible with single-product sample drops',
       'Custom sizes available from jewelry to apparel accessories'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Premium kraft SBS or specialty dyed kraft board' },
-      { label: 'Structure', value: 'Curved pillow folds with tuck tabs' },
-      { label: 'Thickness', value: '14–20PT depending on size and weight' },
-      { label: 'Finish', value: 'Natural kraft, matte AQ, soft-touch, or spot UV accents' },
-      { label: 'Printing', value: 'Digital or offset with white ink, metallic hits, or gradient wraps' },
-      { label: 'Dimensions', value: 'Custom width, curve, and depth to suit your product' },
-      { label: 'MOQ', value: 'Starts at 500 units with rapid prototyping' }
-    ],
-    sizes: [
-      { name: 'Sampler', dimensions: '5 × 3 × 1 in', price: 'Quote on request' },
-      { name: 'Retail Accent', dimensions: '7 × 4 × 1.5 in', price: 'Quote on request' },
-      { name: 'Accessory', dimensions: '9 × 5 × 2 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Any arch radius engineered to your SKU', price: 'Consult our team' }
-    ],
-    galleryImages: [
-      'Kraft-Pillow-Soap-Box_qgyxg3',
-      'Kraft-Pillow-Soap-Box-2_fxvtv9',
-      'Kraft-Pillow-Soap-Box-3_ehvr1d',
-      'products-box-img_x8vu4b'
-    ],
-    customizationOptions: [
-      'Add die-cut windows or hanger holes for retail displays',
-      'Wrap with hemp cord, ribbon, or custom printed belly bands',
-      'Integrate foil-stamped logos or blind deboss graphics',
-      'Include interior pockets for inserts, sachets, or promo cards',
-      'Pair with matching kraft mailers for a cohesive kit'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Kraft Pillow Boxes',
-      description: 'Dial in curvature, finish, and printing to craft pillow boxes that feel handmade yet perform at production scale.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Board & Finish', value: 'Natural kraft, dyed tones, or pearlized wraps with protective coatings' },
-        { label: 'Closure Enhancements', value: 'Ribbon pull-tabs, magnetic snaps, or tamper-evident seals' },
-        { label: 'Accessory Integration', value: 'Pre-applied string ties, belly bands, or gift card sleeves' },
-        { label: 'Retail Ready', value: 'Hanger punch-outs, pegboard slots, or euro holes' },
-        { label: 'Printing', value: 'All-over patterns, gradient washes, or white-ink illustrations' },
-        { label: 'Add-ons', value: 'Custom filler paper, tissue inserts, or fragrance sachets' },
-        { label: 'Lead Time', value: 'Express sampling in 5 days, production begins after approval' }
-      ],
-      footerNote: 'We align pillow box geometry with the way your customers interact, display, and reuse the packaging.',
-      supportTitle: 'Need help finalizing shape or ribbon styling?',
-      supportDescription: 'Our design consultants will mock up pillow box profiles, finishes, and accessory options tailored to your brand.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Review curvature templates and accessory mockups in a collaborative session.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive dielines, finish swatches, and pricing tiers for multiple sizes.'
-        }
+        { label: 'Material Type', value: '16pt kraft folding carton with optional white clay coated finish' },
+        { label: 'Structure', value: 'Curved pillow die-cut with tuck tabs and optional euro hang hole' },
+        { label: 'Thickness', value: '0.016" kraft stock with 0.018" upgrade for heavier accessories' },
+        { label: 'Finish', value: 'Natural kraft, soft-touch laminate, foil stamping, or window patch' },
+        { label: 'Printing', value: 'Digital or offset CMYK with white ink and metallic accents' },
+        { label: 'Dimensions (L x W x H)', value: 'From 4" x 2" x 1" favor pillows to 8" x 4" x 2" retail packs' },
+        { label: 'Quantity', value: 'Kraft pillow box runs beginning at 500 units' }
       ]
     },
-    ctaTitle: 'Ready to Elevate with Kraft Pillow Boxes?',
-    ctaDescription: 'Tell us about your event or SKU assortment and we’ll craft pillow boxes that make each handoff memorable.',
+    faq: buildFaq('Kraft Pillow Box', [
+      {
+        question: 'How secure are the closures on kraft pillow boxes?',
+        answer:
+          'Each end features interlocking tabs that snap into place. We tailor tab depth to product thickness so the box stays closed without tape.'
+      },
+      {
+        question: 'Can pillow boxes include hanging holes or windows?',
+        answer:
+          'Yes. We can add euro holes for peg displays or apply a window patch to showcase your product while maintaining structural integrity.'
+      },
+      {
+        question: 'Are pillow boxes good for mailing?',
+        answer:
+          'They are best for handouts or retail. For shipping we recommend pairing the pillow box with an exterior mailer to protect the curved panels.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Elevate with Kraft Pillow Boxes?',
+      description: 'Tell us about your event or SKU assortment and we’ll craft pillow boxes that make each handoff memorable.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Kraft Pillow Boxes Designed for Boutique Impact',
@@ -1547,6 +1215,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Kraft Gable Box
   'kraft-gable-box': {
     name: 'Kraft Gable Box',
@@ -1562,64 +1231,38 @@ const rawProductData = {
       'Supports window cut-outs for product peeks',
       'Strength rated for gourmet jars, candles, and merch'
     ],
-    specifications: [
-      { label: 'Material Type', value: '24PT food-safe kraft board or E-flute corrugate' },
-      { label: 'Structure', value: 'Auto-bottom or lock-bottom gable with carry handle' },
-      { label: 'Thickness', value: '18–28PT board; upgrade to corrugate for heavier loads' },
-      { label: 'Finish', value: 'Natural kraft, grease-resistant AQ, or soft-touch films' },
-      { label: 'Printing', value: 'Full-color digital, spot Pantone, or metallic foils' },
-      { label: 'Dimensions', value: 'Custom width/depth to match your product weight' },
-      { label: 'MOQ', value: 'Starts at 500 units with mixed-size runs available' }
-    ],
-    sizes: [
-      { name: 'Treat Carrier', dimensions: '6 × 4 × 4 in', price: 'Quote on request' },
-      { name: 'Corporate Gift', dimensions: '9 × 6 × 6 in', price: 'Quote on request' },
-      { name: 'Event Hamper', dimensions: '12 × 9 × 8 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Crafted to match product weight and volume', price: 'Plan with our team' }
-    ],
-    galleryImages: [
-      'Kraft-Gable-Box_i0vbt9',
-      'Kraft-Gable-Box-2_skatu5',
-      'Kraft-Gable-Box-3_dduloq',
-      'products-box-img_x8vu4b'
-    ],
-    customizationOptions: [
-      'Add PET-free windows or patterned cut-outs',
-      'Integrate ribbon closures, belly bands, or wax seals',
-      'Apply food-safe liners or grease-resistant barriers',
-      'Bundle with branded tissue, menus, or tasting cards',
-      'Pre-pack gift kits with fulfillment and drop-shipping support'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Kraft Gable Boxes',
-      description: 'Design portable kraft carriers that protect artisanal goods and deliver a share-worthy unboxing moment.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Structural Options', value: 'Auto-bottom, snap lock, or reinforced bases for heavier contents' },
-        { label: 'Handle Comfort', value: 'Rounded die-cuts, reinforced grips, or ribbon-wrapped handles' },
-        { label: 'Food Readiness', value: 'Food-safe coatings, barrier liners, or inner sleeves' },
-        { label: 'Brand Story', value: 'Interior print, tasting notes, or QR-triggered landing pages' },
-        { label: 'Protection', value: 'Custom dividers, bottle guards, or molded pulp inserts' },
-        { label: 'Sustainability', value: 'Compostable liners, recyclable windows, FSC-certified board' },
-        { label: 'Fulfillment', value: 'Kitting, drop shipping, and inventory staging for events' }
-      ],
-      footerNote: 'We coordinate structure, finishing, and logistics so your kraft gable boxes arrive ready for gifting or service.',
-      supportTitle: 'Planning a tasting kit or corporate drop?',
-      supportDescription: 'Partner with our team to design gable boxes that balance durability, food safety, and presentation.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Engineer handle strength, weight distribution, and insert systems with us.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive dielines, finish swatches, and packaging roadmaps tuned to your event timeline.'
-        }
+        { label: 'Material Type', value: '20pt kraft SBS or lightweight corrugated with reinforced handle' },
+        { label: 'Structure', value: 'Auto-lock bottom gable with interlocking handle tabs and window option' },
+        { label: 'Thickness', value: '0.020" board or 1.5 mm micro-flute for heavier takeaway items' },
+        { label: 'Finish', value: 'Natural kraft, flood color, moisture-resistant coatings, foil seals' },
+        { label: 'Printing', value: 'Flexo 1-3 colors for speed or offset for photographic branding' },
+        { label: 'Dimensions (L x W x H)', value: 'Carry sizes from 6" x 4" x 4" to 10" x 6" x 7"' },
+        { label: 'Quantity', value: 'Kraft gable orders starting at 250 handled boxes' }
       ]
     },
-    ctaTitle: 'Ready to Carry in Kraft Style?',
-    ctaDescription: 'Tell us about your gifting or gourmet program and we’ll build kraft gable boxes that travel beautifully.',
+    faq: buildFaq('Kraft Gable Box', [
+      {
+        question: 'How much weight can a kraft gable box carry?',
+        answer:
+          'Handle areas are reinforced and tested for your exact load. We can switch to heavier caliper board or add support inserts for particularly heavy items.'
+      },
+      {
+        question: 'Can I add windows to a kraft gable box?',
+        answer:
+          'Absolutely. We die-cut windows in the panels and can add a clear film to protect contents while putting them on display.'
+      },
+      {
+        question: 'Do these boxes ship flat?',
+        answer:
+          'Yes. They arrive flat-packed with pre-scored folds so your team can pop them open and lock the base in seconds.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Carry in Kraft Style?',
+      description: 'Tell us about your gifting or gourmet program and we’ll build kraft gable boxes that travel beautifully.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Kraft Gable Boxes Built for Elevated Portability',
@@ -1630,6 +1273,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Kraft Bakery / Cake Box
   'kraft-bakery-cake-box': {
     name: 'Kraft Bakery / Cake Box',
@@ -1645,64 +1289,38 @@ const rawProductData = {
       'Ships flat for back-of-house efficiency',
       'Custom sizes from cupcakes to multi-tier cakes'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Food-grade kraft SBS with grease-resistant barrier' },
-      { label: 'Structure', value: 'Auto-lock bottom with tabbed lid' },
-      { label: 'Thickness', value: '20–26PT board for bakery loads' },
-      { label: 'Finish', value: 'Natural kraft, moisture barrier AQ, or laminated gloss' },
-      { label: 'Printing', value: 'Food-safe inks, spot whites, or pattern floods' },
-      { label: 'Dimensions', value: 'Engineered to your pastry and cake pan dimensions' },
-      { label: 'MOQ', value: 'Starts at 1000 units with repeat-order programs' }
-    ],
-    sizes: [
-      { name: 'Cupcake Quad', dimensions: '6 × 6 × 4 in', price: 'Quote on request' },
-      { name: 'Standard Cake', dimensions: '10 × 10 × 5 in', price: 'Quote on request' },
-      { name: 'Tiered Celebration', dimensions: '14 × 14 × 8 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Cut-to-fit box + insert combos', price: 'Coordinate with our bakery team' }
-    ],
-    galleryImages: [
-      'Kraft-Bakery-Cake-Box_lbrpz8',
-      'Kraft-Bakery-Cake-Box-2_pubkwi',
-      'Kraft-Bakery-Cake-Box-3_hykgm5',
-      'products-box-img_x8vu4b'
-    ],
-    customizationOptions: [
-      'Insert cupcake holders, macaron trays, or dessert pods',
-      'Add ribbon slots, sticker tabs, or brand seals',
-      'Implement PET-free windows or compostable film',
-      'Print interior thank-you notes or heating instructions',
-      'Bundle with matching catering trays and utensils'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Kraft Bakery & Cake Boxes',
-      description: 'Deliver pastries that look as delightful at pickup as they did in the display case.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Food Protection', value: 'Grease-resist linings, vents, and inserts tuned to your recipes' },
-        { label: 'Presentation', value: 'Windows, foil logos, and branded liners elevate take-home experiences' },
-        { label: 'Insert Systems', value: 'Cupcake grids, macaron channels, or tiered cake supports' },
-        { label: 'Logistics', value: 'Flat-pack cartons with quick-lock assembly for busy bakeries' },
-        { label: 'Compliance', value: 'FDA-compliant inks, CPSIA certifications, allergen statements' },
-        { label: 'Multi-location Support', value: 'Inventory staging, blanket PO management, and co-packing' },
-        { label: 'Speed', value: 'Prototype kits in 7 days, production timed to seasonal peaks' }
-      ],
-      footerNote: 'Keep your baked goods picture-perfect from bakery case to celebration table.',
-      supportTitle: 'Need to scale your bakery packaging?',
-      supportDescription: 'Work with us to tailor cake boxes, inserts, and supply chain workflows for every storefront.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Collaborate on insert engineering and window placement with our structural team.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive dielines, coatings, and price tiers for your bakery lineup.'
-        }
+        { label: 'Material Type', value: '18pt kraft board with food-safe clay-coated interior liners' },
+        { label: 'Structure', value: 'Auto-bottom or lock corner bakery fold with optional window film' },
+        { label: 'Thickness', value: '0.018" board with 0.024" upgrade for tiered cakes and heavier pastries' },
+        { label: 'Finish', value: 'Food-contact aqueous coatings, spot gloss frames, perforated vents' },
+        { label: 'Printing', value: 'Offset CMYK with FDA-compliant inks and interior allergen panels' },
+        { label: 'Dimensions (L x W x H)', value: 'From 8" x 8" x 4" cakes to 14" x 10" x 6" catering trays' },
+        { label: 'Quantity', value: 'Bakery-ready runs starting at 250 kraft cake boxes' }
       ]
     },
-    ctaTitle: 'Ready to Box Your Bakes Beautifully?',
-    ctaDescription: 'Share your menu and we’ll deliver kraft bakery boxes that keep every treat pristine.',
+    faq: buildFaq('Kraft Bakery Box', [
+      {
+        question: 'Will frosting or glaze stain the kraft bakery box?',
+        answer:
+          'We apply grease-resistant, food-safe liners to the interior so frosting and fillings stay contained without affecting the kraft exterior.'
+      },
+      {
+        question: 'Can I add vents to manage moisture?',
+        answer:
+          'Yes. Strategic venting prevents condensation for warm pastries. We can design removable vents if you need to toggle airflow per SKU.'
+      },
+      {
+        question: 'Do you offer inserts for cupcakes or pastries?',
+        answer:
+          'We create die-cut inserts sized to your baked goods so each item travels upright and arrives display-ready.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Box Your Bakes Beautifully?',
+      description: 'Share your menu and we’ll deliver kraft bakery boxes that keep every treat pristine.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Kraft Bakery Boxes Designed for Culinary Showcases',
@@ -1713,6 +1331,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Kraft Sleeve Box
   'kraft-sleeve-box': {
     name: 'Kraft Sleeve Box',
@@ -1728,64 +1347,38 @@ const rawProductData = {
       'Modular design allows quick variant swaps',
       'Ships assembled or flat depending on timeline'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Rigid board tray wrapped in kraft with sleeve wrap' },
-      { label: 'Structure', value: 'Slipcase sleeve with drawer-style tray' },
-      { label: 'Thickness', value: '1.5–2.5 mm board with kraft wrap' },
-      { label: 'Finish', value: 'Natural kraft, dyed kraft, embossed, or foil wraps' },
-      { label: 'Printing', value: 'Offset, foil, spot UV, or blind deboss on sleeve and tray' },
-      { label: 'Dimensions', value: 'Custom tray depth and sleeve clearance per product' },
-      { label: 'MOQ', value: 'Starts at 500 sets for wrapped rigid construction' }
-    ],
-    sizes: [
-      { name: 'Starter', dimensions: '7 × 5 × 2 in', price: 'Quote on request' },
-      { name: 'Premium Kit', dimensions: '10 × 7 × 3 in', price: 'Quote on request' },
-      { name: 'Presentation', dimensions: '12 × 9 × 3.5 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Drawer and sleeve engineered for your assortment', price: 'Plan with our specialists' }
-    ],
-    galleryImages: [
-      'Kraft-Sleeve-Box_zebf6i',
-      'Kraft-Sleeve-Box-2_tcarov',
-      'Kraft-Sleeve-Box-3_fzzo68',
-      'products-box-img_x8vu4b'
-    ],
-    customizationOptions: [
-      'Add magnetic closures or ribbon pull-tabs for tactile appeal',
-      'Design multi-tier trays or removable inserts',
-      'Include printed belly bands or variable-data sleeves',
-      'Integrate NFC or QR triggers for digital experiences',
-      'Bundle with influencer kits, POS displays, or product manuals'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Kraft Sleeve Boxes',
-      description: 'Create sliding sleeve experiences that feel custom-built for every launch or collaboration.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Exterior Styling', value: 'Two-tone sleeves, embossing, or textured laminates' },
-        { label: 'Drawer Engineering', value: 'Foam, EVA, molded pulp, or card inserts shaped to products' },
-        { label: 'Engagement', value: 'Pull ribbons, reveal messaging, or hidden compartments' },
-        { label: 'Smart Packaging', value: 'NFC tags, AR markers, or serialized labels embedded in sleeves' },
-        { label: 'Fulfillment', value: 'Hand assembly, kitting, and drop shipping for PR lists' },
-        { label: 'Sustainability', value: 'Recycled board, soy inks, and recyclable adhesives' },
-        { label: 'Timing', value: 'Sample sets in 7–10 days with production geared to launch calendars' }
-      ],
-      footerNote: 'We choreograph every slide, reveal, and accessory to keep your audience engaged from first touch.',
-      supportTitle: 'Developing an influencer or welcome kit?',
-      supportDescription: 'Work with our structural and creative teams to choreograph every reveal moment.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Prototype drawer mechanics and accessory placement with an expert.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive dielines, finish inspiration, and fulfillment plans tailored to your launch.'
-        }
+        { label: 'Material Type', value: '18pt kraft sleeves paired with white or kraft inner trays' },
+        { label: 'Structure', value: 'Slide-on sleeve over tuck-end or open-faced tray with thumb notch' },
+        { label: 'Thickness', value: '0.018" sleeve with 0.020" tray walls for rigid presentation' },
+        { label: 'Finish', value: 'Matte varnish, spot foil striping, debossed logos, window patching' },
+        { label: 'Printing', value: 'Digital CMYK with white ink or litho for gradient-rich artwork' },
+        { label: 'Dimensions (L x W x H)', value: 'Sleeve sets from 5" x 5" x 1.5" to 11" x 8" x 3"' },
+        { label: 'Quantity', value: 'Sleeve and tray programs starting at 400 units' }
       ]
     },
-    ctaTitle: 'Ready to Slide into Memorable Packaging?',
-    ctaDescription: 'Share your product lineup and we’ll craft kraft sleeve boxes that elevate every reveal.',
+    faq: buildFaq('Kraft Sleeve Box', [
+      {
+        question: 'How do you keep the sleeve gliding smoothly over the tray?',
+        answer:
+          'We calibrate sleeve tolerance during prototyping and can add thumb notches or ribbon pulls so the slide action feels premium without snagging.'
+      },
+      {
+        question: 'Can I swap sleeves for seasonal campaigns?',
+        answer:
+          'Yes. We can mass-produce core trays and print multiple sleeve versions that slide onto the same base, giving you easy refreshes.'
+      },
+      {
+        question: 'Are magnetic closures available for kraft sleeve boxes?',
+        answer:
+          'We can embed slim magnets or friction stops to keep the sleeve from sliding open unintentionally during transit.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Slide into Memorable Packaging?',
+      description: 'Share your product lineup and we’ll craft kraft sleeve boxes that elevate every reveal.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Kraft Sleeve Boxes Crafted for Captivating Reveals',
@@ -1796,6 +1389,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Kraft TUCK End BOX - Reverse Tuck / Straight Tuck / Auto Lock
   'kraft-tuck-end-box': {
     name: 'Kraft Tuck End Box',
@@ -1811,64 +1405,38 @@ const rawProductData = {
       'Collapsible design reduces shipping and storage costs',
       'Ideal for CPG, cosmetic, and wellness product lines'
     ],
-    specifications: [
-      { label: 'Material Type', value: '14–24PT kraft SBS or duplex board' },
-      { label: 'Structure', value: 'Reverse tuck, straight tuck, 1-2-3 lock, or auto-lock bottom' },
-      { label: 'Finish', value: 'Natural kraft, matte AQ, gloss UV, or soft-touch' },
-      { label: 'Printing', value: 'CMYK + Pantone, foil, emboss, or spot UV on kraft' },
-      { label: 'Dimensions', value: 'Custom dielines tailored to product footprint' },
-      { label: 'Inserts', value: 'Optional product trays, blister cards, or folded leaflets' },
-      { label: 'MOQ', value: 'Starts at 500 units with roll-out programs to 100K+' }
-    ],
-    sizes: [
-      { name: 'Shelf Mini', dimensions: '4 × 1.5 × 6 in', price: 'Quote on request' },
-      { name: 'Wellness Pack', dimensions: '6 × 2 × 8 in', price: 'Quote on request' },
-      { name: 'Retail Large', dimensions: '8 × 3 × 10 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Engineered to automated line specifications', price: 'Connect with production team' }
-    ],
-    galleryImages: [
-      'Kraft-Tuck-End-Box_xot1ve',
-      'Kraft-Tuck-End-Box-2_fqtnjo',
-      'Kraft-Tuck-End-Box-3_alj9hw',
-      'products-box-img_x8vu4b'
-    ],
-    customizationOptions: [
-      'Add hang tabs, euro slots, or tear-strip openings',
-      'Line with foil or barrier films for light/moisture sensitive goods',
-      'Integrate scratch-offs, loyalty codes, or serialized labels',
-      'Bundle with shelf-ready trays or display cartons',
-      'Include interior print for usage guides or storytelling'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Kraft Tuck End Boxes',
-      description: 'Build a shelf-ready kraft carton that folds, glues, and protects precisely the way you need.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Closure Format', value: 'Reverse tuck, straight tuck, auto-lock bottoms, crash locks' },
-        { label: 'Display Features', value: 'Hanger holes, windows, tear-away panels, or display trays' },
-        { label: 'Barrier Needs', value: 'Foil lining, varnishes, or insert cards for product protection' },
-        { label: 'High-Speed Converting', value: 'Designed for compatibility with automated filling lines' },
-        { label: 'Branding', value: 'Spot white, foil, flood coating, or tactile varnishes on kraft' },
-        { label: 'Documentation', value: 'Insert printing, multi-language panels, QR-enabled experiences' },
-        { label: 'Scaling', value: 'Pilot runs to large-scale production with regional warehousing' }
-      ],
-      footerNote: 'We align structure and finishing with the demands of your retail channels and automation.',
-      supportTitle: 'Need help optimizing for retail or fulfillment?',
-      supportDescription: 'Engage our structural team to fine-tune dielines, coatings, and insert strategies for your kraft tuck cartons.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Review automation specs and carton performance with our engineers.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive carton prototypes, cost analyses, and rollout schedules.'
-        }
+        { label: 'Material Type', value: '14pt-18pt kraft SBS engineered for tuck-end constructions' },
+        { label: 'Structure', value: 'Reverse tuck, straight tuck, or auto-lock with glue seam options' },
+        { label: 'Thickness', value: '0.014" / 0.016" / 0.018" panels with reinforced tuck flaps' },
+        { label: 'Finish', value: 'Matte AQ, eco varnish, perforated tear strips, foil naming plates' },
+        { label: 'Printing', value: 'Offset CMYK plus Pantone spots and variable batch coding' },
+        { label: 'Dimensions (L x W x H)', value: 'From 2" x 1" x 4" wellness packs to 6" x 3" x 9" pantry goods' },
+        { label: 'Quantity', value: 'High-speed compatible runs beginning at 500 kraft tuck cartons' }
       ]
     },
-    ctaTitle: 'Ready to Upgrade Your Kraft Cartons?',
-    ctaDescription: 'Send us your product specs and we’ll craft kraft tuck boxes that slot seamlessly into your workflow.',
+    faq: buildFaq('Kraft Tuck End Box', [
+      {
+        question: 'Which tuck style should I choose for my product?',
+        answer:
+          'Reverse tuck works well for manual packing, straight tuck excels for shelf presentation, and auto-lock bottoms add strength for heavier items. We help you select the right option.'
+      },
+      {
+        question: 'Can kraft tuck cartons include hang tabs or windows?',
+        answer:
+          'Yes. We can add die-cut windows with film, peg-ready hang tabs, and perforations without compromising the structural integrity of the tuck flaps.'
+      },
+      {
+        question: 'How do kraft tuck boxes perform on auto-gluers?',
+        answer:
+          'We fine-tune score depth and glue flaps to keep your cartons running efficiently on automated folding and gluing lines.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Upgrade Your Kraft Cartons?',
+      description: 'Send us your product specs and we’ll craft kraft tuck boxes that slot seamlessly into your workflow.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Kraft Tuck Cartons Engineered for Retail Success',
@@ -1879,6 +1447,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Kraft Five Panel Hanger Box
   'kraft-five-panel-hanger-box': {
     name: 'Kraft Five Panel Hanger Box',
@@ -1894,64 +1463,38 @@ const rawProductData = {
       'Die-cut thumb notches for easy opening in-store',
       'Perfect for electronics, accessories, and wellness SKUs'
     ],
-    specifications: [
-      { label: 'Material Type', value: '16–22PT kraft SBS or kraft duplex board' },
-      { label: 'Structure', value: 'Five-panel hanger with tuck or auto-lock base' },
-      { label: 'Finish', value: 'Natural kraft, matte AQ, gloss UV, or spot varnish' },
-      { label: 'Printing', value: 'Full-color, white ink, metallic accents, or raised UV' },
-      { label: 'Dimensions', value: 'Custom hanger height, panel width, and depth' },
-      { label: 'Display Compatibility', value: 'Pegboard, slatwall, or clip-strip layouts' },
-      { label: 'MOQ', value: 'Starts at 1000 units with multi-location fulfillment' }
-    ],
-    sizes: [
-      { name: 'Accessory Pack', dimensions: '4 × 1.5 × 8 in', price: 'Quote on request' },
-      { name: 'Electronics', dimensions: '6 × 2 × 10 in', price: 'Quote on request' },
-      { name: 'Wellness', dimensions: '7 × 2.5 × 11 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Tailored hanger height and panel width', price: 'Discuss display plan with us' }
-    ],
-    galleryImages: [
-      'Kraft-Five-Panel-Hanger-Box_vqaq1b',
-      'Kraft-Five-Panel-Hanger-Box-2_z2kzej',
-      'Kraft-Five-Panel-Hanger-Box-3_uthtgn',
-      'products-box-img_x8vu4b'
-    ],
-    customizationOptions: [
-      'Add clear windows, perforated coupons, or contest panels',
-      'Include serialized labels or RFID for inventory tracking',
-      'Print color-coded edges for quick merchandising',
-      'Design companion shelf trays or clip strips',
-      'Integrate hanging hardware or reinforcement for heavier SKUs'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Kraft Five Panel Hanger Boxes',
-      description: 'Command pegboard real estate with hanger cartons that combine structure, storytelling, and supply-chain efficiency.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Hanger Geometry', value: 'Custom hole placement, reinforcement, or dual hanger options' },
-        { label: 'Product Security', value: 'Tamper-evident seals, shrink bands, or internal locks' },
-        { label: 'Sustainability', value: 'Recyclable boards, PET-free windows, low-VOC inks' },
-        { label: 'Automation', value: 'Cartons engineered for automated filling and sealing lines' },
-        { label: 'Display Strategy', value: 'Clip-strip compatibility, endcap kits, or PDQ displays' },
-        { label: 'Documentation', value: 'Multilingual panels, regulatory icons, or QR engagement' },
-        { label: 'Logistics', value: 'Staggered production and warehousing for multi-retailer programs' }
-      ],
-      footerNote: 'We ensure your peg-ready cartons withstand handling, look sharp, and align with retailer compliance.',
-      supportTitle: 'Coordinating a retail rollout?',
-      supportDescription: 'Partner with our team to align hanger carton specs, finishes, and logistics for every channel.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Align structure and display requirements with a packaging engineer.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive retailer compliance checklists, dielines, and pricing options.'
-        }
+        { label: 'Material Type', value: '16pt kraft folding carton reinforced with double-layer hanger panel' },
+        { label: 'Structure', value: 'Five-panel hanger with fold-over header, lock bottom, and peg slot' },
+        { label: 'Thickness', value: '0.016" board with optional 0.018" for heavier planogram items' },
+        { label: 'Finish', value: 'Uncoated kraft, UV spot gloss, transparent windows, coupon tear-offs' },
+        { label: 'Printing', value: 'Offset CMYK with white ink layers for crisp graphics on kraft' },
+        { label: 'Dimensions (L x W x H)', value: 'Peg-ready formats from 3" x 1.5" x 6" to 6" x 2.5" x 10"' },
+        { label: 'Quantity', value: 'Retail hanger cartons starting at 1,000 units' }
       ]
     },
-    ctaTitle: 'Ready to Hang Your Brand with Confidence?',
-    ctaDescription: 'Send us your product details—we’ll craft hanger cartons that stand out on every peg.',
+    faq: buildFaq('Kraft Five Panel Hanger Box', [
+      {
+        question: 'Will the hanger panel support heavier products?',
+        answer:
+          'We laminate the hanger panel and reinforce the peg slot to match retailer specs, ensuring the carton won’t tear even with repeated handling.'
+      },
+      {
+        question: 'Can I add tear-away coupons or windows to the hanger box?',
+        answer:
+          'Absolutely. We integrate perforated coupons, windows, or thumb notches while maintaining the structural integrity needed for peg displays.'
+      },
+      {
+        question: 'Do these cartons pack flat for shipping?',
+        answer:
+          'Yes. Hanger cartons ship flat and pop into shape quickly, making replenishment easy for store staff.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Hang Your Brand with Confidence?',
+      description: 'Send us your product details—we’ll craft hanger cartons that stand out on every peg.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Kraft Hanger Cartons Built for Retail Impact',
@@ -1962,6 +1505,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Kraft Side Lock Six Corner Box
   'kraft-side-lock-six-corner-box': {
     name: 'Kraft Side Lock Six Corner Box',
@@ -1977,64 +1521,38 @@ const rawProductData = {
       'Stacks securely for shelf or cooler merchandising',
       'Reusable by consumers thanks to sturdy build'
     ],
-    specifications: [
-      { label: 'Material Type', value: '18–24PT kraft SBS or corrugate hybrids' },
-      { label: 'Structure', value: 'Side-lock six corner pre-glued tray' },
-      { label: 'Finish', value: 'Natural kraft, moisture barrier AQ, or matte film' },
-      { label: 'Printing', value: 'Full exterior/interior coverage, white ink, or metallic accents' },
-      { label: 'Dimensions', value: 'Custom tray width, depth, and lip height' },
-      { label: 'Accessories', value: 'Optional lids, sleeves, or clear covers' },
-      { label: 'MOQ', value: 'Starts at 500 units with rapid auto-bottom options' }
-    ],
-    sizes: [
-      { name: 'Bakery Tray', dimensions: '8 × 6 × 2 in', price: 'Quote on request' },
-      { name: 'Merch Display', dimensions: '10 × 8 × 3 in', price: 'Quote on request' },
-      { name: 'Apparel Box', dimensions: '12 × 10 × 4 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Any tray depth and lip height engineered to product', price: 'Coordinate with design team' }
-    ],
-    galleryImages: [
-      'Kraft-Side-Lock-Six-Corners_xyy2gh',
-      'Kraft-Side-Lock-Six-Corners-2_wupuaa',
-      'Kraft-Side-Lock-Six-Corners-3_ymwf5d',
-      'products-box-img_x8vu4b'
-    ],
-    customizationOptions: [
-      'Add clear lids, PET-free film, or paperboard covers',
-      'Combine with printed sleeves or belly bands',
-      'Include dividers or partitions for multi-item sets',
-      'Integrate tamper evident tapes or seals',
-      'Apply grease-resistant coatings for food applications'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Kraft Six Corner Trays',
-      description: 'Design pop-up kraft trays that carry, display, and protect products effortlessly.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Tray Geometry', value: 'Custom lip heights, bevels, and corner lock tolerances' },
-        { label: 'Rigid Upgrades', value: 'Corrugate laminations or reinforcement strips for heavier loads' },
-        { label: 'Lidding Options', value: 'Snap-on lids, film seals, or windowed covers' },
-        { label: 'Branding & Print', value: 'Interior storytelling, loyalty codes, or instruction graphics' },
-        { label: 'Fulfillment', value: 'Pre-folding, kitting, and co-packing available' },
-        { label: 'Sustainability', value: 'Mono-material solutions, FSC board, water-based coatings' },
-        { label: 'Testing', value: 'Compression, stack, and transit testing to match your supply chain' }
-      ],
-      footerNote: 'We align tray design with your display, fulfillment, and sustainability goals.',
-      supportTitle: 'Need trays that pop and perform?',
-      supportDescription: 'Our packaging engineers will optimize six corner trays for your product weight, finish, and display strategy.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Co-create tray geometry and inserts during a live engineering session.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Request dielines, finish swatches, and performance test summaries.'
-        }
+        { label: 'Material Type', value: '18pt kraft or CCNB board engineered for pop-open six corner builds' },
+        { label: 'Structure', value: 'Side-lock tray with folding dust flaps, glued corners, and quick assembly' },
+        { label: 'Thickness', value: '0.018" stock with optional 0.022" for heavier bakery or deli items' },
+        { label: 'Finish', value: 'Matte varnish, anti-grease coatings, foil edges, window inserts' },
+        { label: 'Printing', value: 'Litho CMYK with tight registration across inside and outside panels' },
+        { label: 'Dimensions (L x W x H)', value: 'Trays from 6" x 4" x 2" to 12" x 9" x 4"' },
+        { label: 'Quantity', value: 'Quick-fold trays beginning at 500 kraft six-corner units' }
       ]
     },
-    ctaTitle: 'Ready for Pop-Up Kraft Trays?',
-    ctaDescription: 'Send us your product specs and we’ll deliver kraft trays that deploy in seconds and look exceptional.',
+    faq: buildFaq('Kraft Side Lock Six Corner Box', [
+      {
+        question: 'How fast can these six corner trays be set up?',
+        answer:
+          'They arrive pre-glued and pop into shape with a single motion. Side locks snap into place so you can move directly to packing.'
+      },
+      {
+        question: 'Can I add windows or clear lids to the tray?',
+        answer:
+          'Yes. We can design trays to accept PET windows or companion lids while keeping the side-lock mechanism secure.'
+      },
+      {
+        question: 'Are these trays reusable for customers?',
+        answer:
+          'The reinforced corners and thicker kraft board mean many customers repurpose the trays, enhancing your brand exposure.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for Pop-Up Kraft Trays?',
+      description: 'Send us your product specs and we’ll deliver kraft trays that deploy in seconds and look exceptional.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Kraft Six Corner Trays for Instant Displays',
@@ -2045,6 +1563,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Kraft Regular Six Corner Box
   'kraft-regular-six-corner-box': {
     name: 'Kraft Regular Six Corner Box',
@@ -2060,64 +1579,38 @@ const rawProductData = {
       'Stable stacking for storage, shipping, and display',
       'Available with die-cut handles or thumb notches'
     ],
-    specifications: [
-      { label: 'Material Type', value: '20–28PT kraft SBS or laminated corrugate' },
-      { label: 'Structure', value: 'Regular six corner tray with gluelines' },
-      { label: 'Finish', value: 'Natural kraft, anti-grease AQ, or satin film' },
-      { label: 'Printing', value: 'Edge-to-edge offset, digital, or flexo prints' },
-      { label: 'Dimensions', value: 'Custom base and wall height engineered per use case' },
-      { label: 'Accessories', value: 'Optional lids, window film, partitions, or crash-lock bases' },
-      { label: 'MOQ', value: 'Starts at 500 trays with scale to national programs' }
-    ],
-    sizes: [
-      { name: 'Service Tray', dimensions: '12 × 9 × 3 in', price: 'Quote on request' },
-      { name: 'Retail Display', dimensions: '14 × 10 × 4 in', price: 'Quote on request' },
-      { name: 'XL Merch', dimensions: '16 × 12 × 5 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Tray geometry tuned to product and channel', price: 'Plan with our team' }
-    ],
-    galleryImages: [
-      'Kraft-Regular-Six-Corner-Box_r2wkgt',
-      'Kraft-Regular-Six-Corner-Box-2_ojhutw',
-      'Kraft-Regular-Six-Corner-Box-3_y9bu3j',
-      'products-box-img_x8vu4b'
-    ],
-    customizationOptions: [
-      'Add die-cut handles or finger notches for easy lift',
-      'Integrate partitions for multi-item merchandising',
-      'Use barrier coatings for food or refrigerated environments',
-      'Bundle with lids, shrink film, or wraparound sleeves',
-      'Include interior print for instructions or recipe cards'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Regular Six Corner Trays',
-      description: 'Build kraft trays that assemble fast, carry weight, and keep your brand visible from every angle.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Wall Reinforcement', value: 'Laminate options, additional score lines, or support tabs' },
-        { label: 'Handling', value: 'Handles, thumb notches, or reinforced edges for heavy lifts' },
-        { label: 'Lidding Solutions', value: 'Snap-on lids, film windows, or board covers' },
-        { label: 'Printing', value: 'Interior print, QR storytelling, or loyalty codes' },
-        { label: 'Inserts', value: 'Partitions, air cells, or molded pulp accessories' },
-        { label: 'Sustainability', value: 'Mono-material builds and recyclable finishes' },
-        { label: 'Fulfillment', value: 'Pre-folding, assembly instructions, and kitting support' }
-      ],
-      footerNote: 'From supply chain to storefront, we align tray performance with your operational needs.',
-      supportTitle: 'Need trays that transition from storage to display?',
-      supportDescription: 'Our team will develop six corner trays ready for automated or manual deployment across your channels.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Engineer tray specs, inserts, and finishing in collaboration with us.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive structural drawings, performance data, and packaging playbooks.'
-        }
+        { label: 'Material Type', value: '16pt kraft SBS with pre-glued six corner construction' },
+        { label: 'Structure', value: 'Regular six corner folding tray with double side walls and lid options' },
+        { label: 'Thickness', value: '0.016" board with insert-ready base or 0.020" upgrade for heavier assortments' },
+        { label: 'Finish', value: 'Matte varnish, gloss windows, foil logos, PET lid compatibility' },
+        { label: 'Printing', value: 'Offset CMYK with interior messaging and window patch alignment' },
+        { label: 'Dimensions (L x W x H)', value: 'Trays from 7" x 5" x 2" to 12" x 10" x 3"' },
+        { label: 'Quantity', value: 'Retail trays beginning at 750 kraft six corner units' }
       ]
     },
-    ctaTitle: 'Ready for Retail-Ready Kraft Trays?',
-    ctaDescription: 'Share your merchandising goals and we’ll build kraft trays that deploy fast and look sharp.',
+    faq: buildFaq('Kraft Regular Six Corner Box', [
+      {
+        question: 'What makes regular six corner trays useful for retail?',
+        answer:
+          'They pop up quickly, create a stable open tray, and provide ample billboard space for branding on both interior and exterior walls.'
+      },
+      {
+        question: 'Can these trays support heavier apparel or food items?',
+        answer:
+          'Yes. We can upgrade board caliper or add double walls in high-stress areas to handle heavier merchandise without bowing.'
+      },
+      {
+        question: 'Are lid or sleeve accessories available?',
+        answer:
+          'We offer compatible lids, sleeves, and shrink-wrap options so you can adapt the tray to different merchandising formats.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for Retail-Ready Kraft Trays?',
+      description: 'Share your merchandising goals and we’ll build kraft trays that deploy fast and look sharp.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Kraft Six Corner Trays That Work Overtime',
@@ -2128,6 +1621,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Kraft Seal End Auto Bottom Box
   'kraft-seal-end-auto-bottom-box': {
     name: 'Kraft Seal End Auto Bottom Box',
@@ -2143,64 +1637,38 @@ const rawProductData = {
       'Strong sidewalls resist crushing during shipment',
       'Ideal for supplements, health, and cosmetic verticals'
     ],
-    specifications: [
-      { label: 'Material Type', value: '16–24PT kraft SBS with optional foil or barrier lining' },
-      { label: 'Structure', value: 'Seal-end top with auto-lock bottom' },
-      { label: 'Finish', value: 'Natural kraft, matte AQ, gloss UV, or soft touch' },
-      { label: 'Printing', value: 'Full-color, spot white, microtext security, or foil' },
-      { label: 'Dimensions', value: 'Custom-built to automated line specifications' },
-      { label: 'Security', value: 'Perforations, glue seals, and tamper evident labels' },
-      { label: 'MOQ', value: 'Starts at 10K units with large-scale production available' }
-    ],
-    sizes: [
-      { name: 'Vial Pack', dimensions: '4 × 1.5 × 6 in', price: 'Quote on request' },
-      { name: 'Supplement Carton', dimensions: '5 × 2 × 7 in', price: 'Quote on request' },
-      { name: 'Cosmetic Tube', dimensions: '7 × 2 × 8 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Engineered to filling line and product tolerances', price: 'Consult automation team' }
-    ],
-    galleryImages: [
-      'Kraft-Seal-End-Auto-Bottom-Box_gddrys',
-      'Kraft-Seal-End-Auto-Bottom-Box-2_xrhibj',
-      'Kraft-Seal-End-Auto-Bottom-Box-3_az42hj',
-      'products-box-img_x8vu4b'
-    ],
-    customizationOptions: [
-      'Integrate scratch-resist coatings, holograms, or serialized labels',
-      'Add hang tabs, tear strips, or dispensers',
-      'Include interior leaflets, blister cards, or bottle dividers',
-      'Use moisture/oxygen barrier films for sensitive formulas',
-      'Pre-glue or pre-apply adhesives for automation efficiency'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Kraft Seal-End Cartons',
-      description: 'Design kraft seal-end auto-bottom cartons that balance speed, compliance, and shelf appeal.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Automation Readiness', value: 'Cartons tuned to your erecting, filling, and sealing equipment' },
-        { label: 'Security Layers', value: 'Glue seals, perf lines, void labels, and anti-counterfeit features' },
-        { label: 'Barrier Protection', value: 'Foil, PVDC, or plant-based coatings for product stability' },
-        { label: 'Branding', value: 'High-density print, emboss/deboss, and tactile coatings on kraft' },
-        { label: 'Regulatory Panels', value: 'Multi-language side panels, drug facts, and compliance icons' },
-        { label: 'Supply Chain', value: 'Regional warehousing, JIT delivery, and forecast management' },
-        { label: 'Testing', value: 'Line trials, drop testing, and climate conditioning support' }
-      ],
-      footerNote: 'We align carton structure and finish with the demands of your automated packaging lines and regulatory landscape.',
-      supportTitle: 'Scaling compliance-ready packaging?',
-      supportDescription: 'Work with our automation specialists to dial in kraft seal-end cartons for every SKU.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Review machinery specs, gluing, and sealing requirements with our engineers.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive compliance templates, performance reports, and rollout schedules.'
-        }
+        { label: 'Material Type', value: '18pt kraft folding carton tuned for high-speed packing lines' },
+        { label: 'Structure', value: 'Seal-end top with auto-lock base and tamper-evident flaps' },
+        { label: 'Thickness', value: '0.018" board with 0.020" upgrade for dense powders or mixes' },
+        { label: 'Finish', value: 'Matte varnish, UV high-gloss badges, perforated pour features' },
+        { label: 'Printing', value: 'Offset CMYK plus spot whites for regulatory and nutrition panels' },
+        { label: 'Dimensions (L x W x H)', value: 'Cartons from 3" x 1.5" x 6" to 5" x 2.5" x 10"' },
+        { label: 'Quantity', value: 'Automation-ready runs starting at 1,000 seal-end cartons' }
       ]
     },
-    ctaTitle: 'Ready for High-Speed Kraft Cartoning?',
-    ctaDescription: 'Send us your product and line specs—we’ll produce kraft seal-end cartons that keep pace with demand.',
+    faq: buildFaq('Kraft Seal End Auto Bottom Box', [
+      {
+        question: 'How do these cartons perform on automated cartoning lines?',
+        answer:
+          'Auto-bottom footprints snap into shape instantly and the seal-end flaps are engineered for hot-melt or tape systems, keeping pace with high-speed equipment.'
+      },
+      {
+        question: 'Can we incorporate tamper-evident features?',
+        answer:
+          'Yes. Tear tapes, perforations, and security slits can be built into the top seal to provide visual tamper evidence.'
+      },
+      {
+        question: 'Are barrier coatings available for sensitive products?',
+        answer:
+          'We can apply moisture, grease, or light-barrier coatings to protect contents such as powdered mixes, supplements, or cosmetics.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for High-Speed Kraft Cartoning?',
+      description: 'Send us your product and line specs—we’ll produce kraft seal-end cartons that keep pace with demand.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Kraft Seal-End Cartons Built for Performance',
@@ -2211,6 +1679,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Kraft Single Wall Auto Bottom Tray
   'kraft-single-wall-auto-bottom-tray': {
     name: 'Kraft Single Wall Auto Bottom Tray',
@@ -2226,64 +1695,38 @@ const rawProductData = {
       'Flat-pack shipping optimizes storage space',
       'Available with lid, film, or sleeve accessories'
     ],
-    specifications: [
-      { label: 'Material Type', value: '18–24PT kraft SBS or corrugate laminate' },
-      { label: 'Structure', value: 'Auto-bottom tray with open top or optional lid' },
-      { label: 'Finish', value: 'Natural kraft, grease-resistant AQ, satin film' },
-      { label: 'Printing', value: 'Exterior/interior offset or digital with spot white options' },
-      { label: 'Dimensions', value: 'Custom footprint, wall height, and flare angle' },
-      { label: 'Accessories', value: 'Partitions, belly bands, or film windows' },
-      { label: 'MOQ', value: 'Starts at 500 trays with kitting services available' }
-    ],
-    sizes: [
-      { name: 'Cafe Tray', dimensions: '9 × 6 × 2 in', price: 'Quote on request' },
-      { name: 'Gift Set', dimensions: '10 × 8 × 3 in', price: 'Quote on request' },
-      { name: 'Event Box', dimensions: '12 × 8 × 4 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Tailored trays for your product mix', price: 'Chat with our engineers' }
-    ],
-    galleryImages: [
-      'Kraft-Single-Wall-Auto-Bottom-Tray_cxpl8m',
-      'Kraft-Single-Wall-Auto-Bottom-Tray-2_rd54qx',
-      'Kraft-Single-Wall-Auto-Bottom-Tray-3_zgcisf',
-      'products-box-img_x8vu4b'
-    ],
-    customizationOptions: [
-      'Add grease-resistant liners or inserts',
-      'Integrate dual compartments or fold-out dividers',
-      'Include belly bands, ribbons, or printed sleeves',
-      'Apply die-cut handles or thumb notches',
-      'Bundle with lids, clear film, or display sleeves'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Kraft Auto Bottom Trays',
-      description: 'Craft easy-to-assemble kraft trays that streamline service lines and gift presentation.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Assembly Speed', value: 'Auto-bottom designs that pop open instantly' },
-        { label: 'Protection', value: 'Grease barriers, inserts, and structural reinforcements' },
-        { label: 'Brand Moments', value: 'Interior storytelling, QR codes, or loyalty messaging' },
-        { label: 'Accessories', value: 'Sleeves, lids, or film wraps tailored to your merchandise' },
-        { label: 'Fulfillment', value: 'Pre-folding, co-packing, and distribution staging' },
-        { label: 'Sustainability', value: 'Mono-material builds with recyclable coatings' },
-        { label: 'Scaling', value: 'Pilot runs supported by national rollout capacity' }
-      ],
-      footerNote: 'We align tray design with your throughput, branding, and sustainability goals.',
-      supportTitle: 'Need fast-deploy trays for your program?',
-      supportDescription: 'Partner with our team to develop auto-bottom trays that match your service or gifting workflow.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Prototype tray geometry and accessory options with our structural experts.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive dielines, finish proposals, and fulfillment plans.'
-        }
+        { label: 'Material Type', value: 'Single-wall kraft corrugated or 20pt solid board' },
+        { label: 'Structure', value: 'Auto-bottom tray with rolled top edge and optional windowed lid' },
+        { label: 'Thickness', value: 'E-flute 1/16" or 0.020" board based on weight requirements' },
+        { label: 'Finish', value: 'Natural kraft, moisture barrier varnish, spot foil celebration accents' },
+        { label: 'Printing', value: 'Digital CMYK for seasonal rotations or flexo spot colors for scale' },
+        { label: 'Dimensions (L x W x H)', value: 'Tray footprints from 5" x 4" x 2" to 12" x 9" x 3"' },
+        { label: 'Quantity', value: 'Auto-bottom tray runs beginning at 500 kraft units' }
       ]
     },
-    ctaTitle: 'Ready for Instant Kraft Trays?',
-    ctaDescription: 'Tell us about your cafe, gifting, or merch program and we’ll engineer trays that set up in seconds.',
+    faq: buildFaq('Kraft Single Wall Auto Bottom Tray', [
+      {
+        question: 'How quickly do auto bottom trays set up?',
+        answer:
+          'The crash-lock base snaps into place with one motion, letting your team move straight to loading items with no tape required.'
+      },
+      {
+        question: 'Can I add dividers or compartments to the tray?',
+        answer:
+          'Yes. We can integrate fold-out dividers or provide loose inserts that slot into the tray to separate menu items or products.'
+      },
+      {
+        question: 'Are moisture barriers available for food applications?',
+        answer:
+          'We can apply aqueous or film barriers to keep oils and sauces from wicking into the kraft board while maintaining a natural look.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for Instant Kraft Trays?',
+      description: 'Tell us about your cafe, gifting, or merch program and we’ll engineer trays that set up in seconds.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Kraft Auto-Bottom Trays for Rapid Service',
@@ -2294,6 +1737,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Kraft Two Piece Box
   'kraft-two-piece-box': {
     name: 'Kraft Two Piece Box',
@@ -2309,64 +1753,38 @@ const rawProductData = {
       'Ideal for apparel, luxury stationery, and curated gifts',
       'Ships flat (set-up) or pre-assembled with kitting available'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Rigid greyboard wrapped in premium kraft paper' },
-      { label: 'Structure', value: 'Telescoping two-piece lid and base' },
-      { label: 'Thickness', value: '2–3 mm board for enhanced rigidity' },
-      { label: 'Finish', value: 'Natural kraft, dyed kraft, soft-touch, linen emboss' },
-      { label: 'Printing', value: 'Foil, deboss, spot UV, or duplex color wraps' },
-      { label: 'Dimensions', value: 'Custom width/length/height engineered for product' },
-      { label: 'MOQ', value: 'Starts at 500 units with mixed-size programs available' }
-    ],
-    sizes: [
-      { name: 'Accessory Box', dimensions: '6 × 6 × 2 in', price: 'Quote on request' },
-      { name: 'Apparel Box', dimensions: '12 × 10 × 3 in', price: 'Quote on request' },
-      { name: 'Gift Hamper', dimensions: '14 × 12 × 4 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Fully bespoke sizes with inserts', price: 'Consult our design studio' }
-    ],
-    galleryImages: [
-      'Kraft-Two-Piece-Box_i0ua2d',
-      'Kraft-Two-Piece-Box-2_utl6ru',
-      'Kraft-Two-Piece-Box-3_dpm4f9',
-      'products-box-img_x8vu4b'
-    ],
-    customizationOptions: [
-      'Add fabric pulls, magnetic closures, or ribbon ties',
-      'Integrate foam, molded pulp, or fabric-wrapped inserts',
-      'Bundle with sleeves, belly bands, or slipcovers',
-      'Line interiors with patterned paper or foil touches',
-      'Offer personalization, numbering, or edition stamping'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Kraft Two Piece Boxes',
-      description: 'Compose a keepsake-worthy unboxing experience with lids, inserts, and finishes that reflect your brand story.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Exterior Styling', value: 'Mix kraft with dyed wraps, foils, and texture embosses' },
-        { label: 'Interior Fit', value: 'Custom compartments, fabric lining, or foam cradles' },
-        { label: 'Accessories', value: 'Ribbon pulls, magnetic snaps, wax seals, or belly bands' },
-        { label: 'Personalisation', value: 'Edition numbering, foil personalisation, or hangtags' },
-        { label: 'Fulfillment', value: 'Pre-assembled sets, drop shipping, and launch kitting' },
-        { label: 'Sustainability', value: 'Recycled board, recyclable wraps, water-based adhesives' },
-        { label: 'Roadmap', value: 'Mood boards, prototyping, and production scheduling' }
-      ],
-      footerNote: 'We choreograph every touchpoint so your two piece boxes become keepsakes.',
-      supportTitle: 'Planning a premium launch or gifting program?',
-      supportDescription: 'Work with our studio to develop two piece boxes that elevate your product reveal.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Explore material, wrap, and insert combinations with a packaging stylist.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive dielines, finish mockups, and pricing tailored to your collection.'
-        }
+        { label: 'Material Type', value: '20pt kraft board with optional white interior wrap or liner' },
+        { label: 'Structure', value: 'Base and lid folding carton with friction-fit telescoping design' },
+        { label: 'Thickness', value: '0.020" board with 0.024" upgrade for heavier gifting' },
+        { label: 'Finish', value: 'Matte varnish, foil crests, debossed lids, ribbon or twine closures' },
+        { label: 'Printing', value: 'Litho CMYK with PMS accents and inside lid storytelling' },
+        { label: 'Dimensions (L x W x H)', value: 'From 5" x 5" x 3" to 12" x 10" x 4"' },
+        { label: 'Quantity', value: 'Two-piece kraft sets starting at 400 units' }
       ]
     },
-    ctaTitle: 'Ready to Design Signature Kraft Boxes?',
-    ctaDescription: 'Share your concept and we’ll craft two-piece kraft boxes that keep customers reaching for more.',
+    faq: buildFaq('Kraft Two Piece Box', [
+      {
+        question: 'Can kraft two-piece boxes achieve a premium finish?',
+        answer:
+          'Definitely. We combine natural kraft with foil, debossing, or colored wraps to create a luxe presentation while keeping the sustainable core visible.'
+      },
+      {
+        question: 'How do you secure delicate items inside the box?',
+        answer:
+          'We build custom inserts from kraft, foam, or molded pulp to cradle each item so it stays centered when the lid is lifted.'
+      },
+      {
+        question: 'Are ribbon or band closures available?',
+        answer:
+          'Yes. We can add die-cut channels for ribbon, twine, or belly bands to enhance the unboxing ritual.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Design Signature Kraft Boxes?',
+      description: 'Share your concept and we’ll craft two-piece kraft boxes that keep customers reaching for more.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Kraft Two Piece Boxes Crafted for Keeps',
@@ -2377,6 +1795,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Kraft Cigarette Box
   'kraft-cigarette-box': {
     name: 'Kraft Cigarette Box',
@@ -2392,64 +1811,38 @@ const rawProductData = {
       'Interior printable for brand storytelling or loyalty codes',
       'Sustainable kraft paperboard aligns with eco-forward positioning'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Kraft laminated SBS with optional foil barrier' },
-      { label: 'Structure', value: 'Flip-top hinge lid with inner frame' },
-      { label: 'Finish', value: 'Natural kraft, matte AQ, or soft-touch varnish' },
-      { label: 'Printing', value: 'CMYK + Pantone, metallic accents, microtext security' },
-      { label: 'Dimensions', value: 'Custom pack depths for king, slim, or bespoke formats' },
-      { label: 'Compliance', value: 'Warning panel layout, track-and-trace, tax stamp areas' },
-      { label: 'MOQ', value: 'Starts at 25K units with global fulfillment support' }
-    ],
-    sizes: [
-      { name: 'King Size', dimensions: '3.5 × 2.2 × 0.9 in', price: 'Quote on request' },
-      { name: 'Slim Pack', dimensions: '3.9 × 2 × 0.75 in', price: 'Quote on request' },
-      { name: 'Custom Blend', dimensions: 'Tailored to proprietary stick count', price: 'Quote on request' },
-      { name: 'Special Edition', dimensions: 'Limited formats with custom sleeves', price: 'Consult compliance team' }
-    ],
-    galleryImages: [
-      'Kraft-Cigarette-Box_gqxdr7',
-      'Kraft-Cigarette-Box-2_gzm2wx',
-      'Kraft-Cigarette-Box-3_nbh68t',
-      'products-box-img_x8vu4b'
-    ],
-    customizationOptions: [
-      'Add foil inner liners, tear tape, and tax-stamp tabs',
-      'Embed QR or NFC elements for track-and-trace programs',
-      'Apply spot white, metallic foils, or embossed crests',
-      'Design shoulder boxes or slip cases for premium lines',
-      'Bundle with display cartons, cartons, or duty-free sleeves'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Kraft Cigarette Boxes',
-      description: 'Balance compliance, barrier protection, and brand distinction with kraft cigarette packaging built for today’s regulations.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Panel Engineering', value: 'Dedicated space for warnings, UPCs, and tax stamps' },
-        { label: 'Barrier Selection', value: 'Foil, EVOH, or plant-based barrier films for freshness' },
-        { label: 'Security Features', value: 'Serialized labels, microtext, holograms, and tamper-evident seals' },
-        { label: 'Premiumization', value: 'Soft-touch coatings, foil crests, or textured wraps' },
-        { label: 'Accessories', value: 'Carton outers, display cases, and duty-free gift sleeves' },
-        { label: 'Sustainability', value: 'FSC-certified boards, soy inks, recyclable construction' },
-        { label: 'Compliance Support', value: 'Artwork proofing against regional regulatory frameworks' }
-      ],
-      footerNote: 'We streamline regulatory approvals while elevating the tactile feel of your kraft cigarette packaging.',
-      supportTitle: 'Navigating compliance and brand upgrades?',
-      supportDescription: 'Connect with our regulatory packaging specialists to align copy, warnings, and finishes.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Review panel layouts, security elements, and barrier specs in real time.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive compliance checklists, dielines, and production timelines for each market.'
-        }
+        { label: 'Material Type', value: '14pt kraft board with clay-coated interior for moisture control' },
+        { label: 'Structure', value: 'Flip-top hinge-lid carton with tear tape and stamp panel integration' },
+        { label: 'Thickness', value: '0.014" board with reinforced hinge scores for repeat opening' },
+        { label: 'Finish', value: 'Matte varnish, foil crests, embossing, and tear-tape starter tabs' },
+        { label: 'Printing', value: 'Multicolor offset with regulatory black plates and metallic accents' },
+        { label: 'Dimensions (L x W x H)', value: 'Standard 2.25" x 0.9" x 3.6" packs with 10s or king-size variants' },
+        { label: 'Quantity', value: 'Regulation-ready runs beginning at 5,000 kraft cigarette cartons' }
       ]
     },
-    ctaTitle: 'Ready to Refresh Your Kraft Cigarette Packaging?',
-    ctaDescription: 'Share your compliance requirements and brand goals—we’ll engineer cartons that meet both.',
+    faq: buildFaq('Kraft Cigarette Box', [
+      {
+        question: 'Do these cartons meet regulatory warning panel requirements?',
+        answer:
+          'We engineer the panel layout to comply with regional regulations, leaving dedicated zones for health warnings, tax stamps, and duty-free marks.'
+      },
+      {
+        question: 'Can a kraft cigarette box include barrier liners?',
+        answer:
+          'Yes. We can integrate foil or metallized liners to preserve product freshness while keeping the exterior sustainable.'
+      },
+      {
+        question: 'How durable is the hinge lid?',
+        answer:
+          'We reinforce hinge scores and soft crush areas so the lid opens smoothly throughout repeated daily use.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Refresh Your Kraft Cigarette Packaging?',
+      description: 'Share your compliance requirements and brand goals—we’ll engineer cartons that meet both.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Kraft Cigarette Cartons with Conscious Appeal',
@@ -2460,6 +1853,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Kraft Bookend Box
   'kraft-bookend-box': {
     name: 'Kraft Bookend Box',
@@ -2475,64 +1869,38 @@ const rawProductData = {
       'Optional windows highlight hero products',
       'Ideal for tech accessories, games, and wellness kits'
     ],
-    specifications: [
-      { label: 'Material Type', value: '16–24PT kraft SBS or duplex board' },
-      { label: 'Structure', value: 'Wraparound bookend with tuck side closure' },
-      { label: 'Finish', value: 'Natural kraft, matte AQ, soft-touch, or spot UV' },
-      { label: 'Printing', value: 'Full-color, white underprints, foil, or embossing' },
-      { label: 'Dimensions', value: 'Custom width and spine depth per product set' },
-      { label: 'Inserts', value: 'Die-cut trays, blister packs, or literature pockets' },
-      { label: 'MOQ', value: 'Starts at 1000 units with drop ship programs available' }
-    ],
-    sizes: [
-      { name: 'Accessory Kit', dimensions: '7 × 6 × 2 in', price: 'Quote on request' },
-      { name: 'Wellness Box', dimensions: '9 × 7 × 2.5 in', price: 'Quote on request' },
-      { name: 'Learning Set', dimensions: '11 × 8 × 3 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Tailored spines and closures for your SKU', price: 'Work with our designers' }
-    ],
-    galleryImages: [
-      'Kraft-Bookend-Box_tlixms',
-      'Kraft-Bookend-Box-2_jyspg3',
-      'Kraft-Bookend-Box-3_ikjeez',
-      'products-box-img_x8vu4b'
-    ],
-    customizationOptions: [
-      'Add magnetic closures, ribbon pulls, or elastic loops',
-      'Include trays for hardware, literature, or sample vials',
-      'Integrate windows, die-cut reveals, or lenticular panels',
-      'Combine with companion sleeves or slipcases',
-      'Embed NFC, QR, or AR elements for digital onboarding'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Kraft Bookend Boxes',
-      description: 'Deliver a cover-to-cover unboxing journey with kraft bookend cartons tuned to your content.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Closure Experience', value: 'Magnetic snaps, soft-close flaps, or ribbon reveals' },
-        { label: 'Interior Layout', value: 'Foam, pulp, or card inserts tailored to your components' },
-        { label: 'Interactive Elements', value: 'Augmented reality triggers, QR onboarding, or hidden compartments' },
-        { label: 'Finishes', value: 'Soft-touch, foil accents, blind emboss, or duplex wraps' },
-        { label: 'Fulfillment', value: 'Hand assembly, kitting, and multi-channel distribution support' },
-        { label: 'Sustainability', value: 'Mono-material designs, soy inks, and recyclable magnets options' },
-        { label: 'Timeline', value: 'Prototyping in 10 days with production timed to launch cycles' }
-      ],
-      footerNote: 'We choreograph the opening sequence so each unboxing feels like turning the first page.',
-      supportTitle: 'Building an onboarding or launch kit?',
-      supportDescription: 'Collaborate with our creative and structural teams to build immersive kraft bookend boxes.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Prototype inserts, closures, and interactive elements in real time.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive dielines, storyboards, and pricing plans for your program.'
-        }
+        { label: 'Material Type', value: '18pt kraft board reinforced with double side flaps' },
+        { label: 'Structure', value: 'Bookend tuck style with glue seam, locking tongue, and option for window' },
+        { label: 'Thickness', value: '0.018" stock with 0.022" upgrade for glassware or premium gifts' },
+        { label: 'Finish', value: 'Matte varnish, spot UV spines, foil titles, hang-tab integration' },
+        { label: 'Printing', value: 'Offset CMYK with interior color blocking and die-cut reveal alignment' },
+        { label: 'Dimensions (L x W x H)', value: 'Bookend formats from 4" x 2" x 6" to 8" x 3" x 10"' },
+        { label: 'Quantity', value: 'Story-driven kraft bookend runs starting at 750 cartons' }
       ]
     },
-    ctaTitle: 'Ready to Tell Your Story in Kraft?',
-    ctaDescription: 'Share your product narrative— we’ll design kraft bookend boxes that bring it to life.',
+    faq: buildFaq('Kraft Bookend Box', [
+      {
+        question: 'How does the bookend closure stay secure?',
+        answer:
+          'We use tuck tongues, magnets, or adhesive dots on the side flaps to keep the cover closed while still allowing an easy, book-like opening.'
+      },
+      {
+        question: 'Can I include printed instructions on the inside cover?',
+        answer:
+          'Yes. The interior panels are perfect for onboarding content, product stories, or QR codes. We align artwork so it reads naturally as the cover opens.'
+      },
+      {
+        question: 'Are window cut-outs available?',
+        answer:
+          'We can add windows with PET film to spotlight hero products before the cover is opened, enhancing shelf appeal.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Tell Your Story in Kraft?',
+      description: 'Share your product narrative— we’ll design kraft bookend boxes that bring it to life.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Kraft Bookend Boxes Built for Storytelling',
@@ -2543,6 +1911,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Kraft Dispenser Box
   'kraft-dispenser-box': {
     name: 'Kraft Dispenser Box',
@@ -2558,64 +1927,38 @@ const rawProductData = {
       'Optional reclosable flaps for storage between uses',
       'Compact footprint ideal for impulse purchase areas'
     ],
-    specifications: [
-      { label: 'Material Type', value: '18–24PT kraft SBS or micro-flute corrugate' },
-      { label: 'Structure', value: 'Dispenser carton with tear-away or tuck front' },
-      { label: 'Finish', value: 'Natural kraft, matte AQ, or gloss varnish for durability' },
-      { label: 'Printing', value: 'Full exterior/interior print with spot finishes' },
-      { label: 'Dimensions', value: 'Custom width, depth, and capacity aligned with SKU count' },
-      { label: 'Accessories', value: 'Optional hang tabs, clip strips, or peg-ready feet' },
-      { label: 'MOQ', value: 'Starts at 1000 units with rapid-turn display programs' }
-    ],
-    sizes: [
-      { name: 'Stick Pack Dispenser', dimensions: '5 × 3 × 6 in', price: 'Quote on request' },
-      { name: 'Sachet Display', dimensions: '7 × 4 × 8 in', price: 'Quote on request' },
-      { name: 'Wipe Canister Holder', dimensions: '8 × 5 × 10 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Engineered for your product count and configuration', price: 'Plan with display team' }
-    ],
-    galleryImages: [
-      'Kraft-Dispenser-Box_mxxcxq',
-      'Kraft-Dispenser-Box-2_i0xyix',
-      'Kraft-Dispenser-Box-3_y48ynq',
-      'products-box-img_x8vu4b'
-    ],
-    customizationOptions: [
-      'Add perforated tear strips or removable sleeves',
-      'Integrate product information panels or coupons',
-      'Combine with PDQ trays or clip strips for retail rollouts',
-      'Apply moisture-resistant coatings for restroom or kitchen placement',
-      'Bundle with master shippers for replenishment efficiency'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Kraft Dispenser Boxes',
-      description: 'Deliver grab-and-go convenience with dispenser cartons tuned to your product and retail environment.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Dispensing Mechanism', value: 'Perforations, hinged doors, or recloseable flaps' },
-        { label: 'Product Fit', value: 'Custom wells, channels, or guides for consistent dispensing' },
-        { label: 'Brand Real Estate', value: 'Bold front panels, side callouts, and interior messaging' },
-        { label: 'Durability', value: 'Laminates, AQ, or varnishes for high-touch environments' },
-        { label: 'Deployment', value: 'Flat ship, shelf-ready, or pre-packed display options' },
-        { label: 'Sustainability', value: 'Mono-material construction and recyclable coatings' },
-        { label: 'Fulfillment', value: 'Co-packing, carton coding, and master shipper integration' }
-      ],
-      footerNote: 'We keep your dispensers sturdy, compliant, and easy for customers to interact with.',
-      supportTitle: 'Launching samples or countertop displays?',
-      supportDescription: 'Partner with our display specialists to build kraft dispensers that convert.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Run dispensing trials and structural reviews with our team.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive dielines, merchandising plans, and replenishment roadmaps.'
-        }
+        { label: 'Material Type', value: '16pt kraft board with optional PET window film and barrier varnish' },
+        { label: 'Structure', value: 'Perforated dispenser front with dust flap reload and glued auto bottom' },
+        { label: 'Thickness', value: '0.016" board with 0.020" option for heavier sachets or wipes' },
+        { label: 'Finish', value: 'Matte varnish, tear-away perf scoring, foil badges, anti-scuff coating' },
+        { label: 'Printing', value: 'Offset CMYK with panel numbering and variable lot coding' },
+        { label: 'Dimensions (L x W x H)', value: 'Dispenser footprints from 4" x 4" x 6" to 6" x 4" x 9"' },
+        { label: 'Quantity', value: 'Counter-ready dispenser runs starting at 500 kraft units' }
       ]
     },
-    ctaTitle: 'Ready for Counter-Ready Kraft Dispensers?',
-    ctaDescription: 'Let’s design dispenser cartons that move product fast while looking on-brand.',
+    faq: buildFaq('Kraft Dispenser Box', [
+      {
+        question: 'How does the dispenser opening stay tidy?',
+        answer:
+          'We use precision perforations and reinforced front panels so the tear-away section removes cleanly and keeps the dispensing edge crisp.'
+      },
+      {
+        question: 'Can I reload the dispenser once the product runs out?',
+        answer:
+          'Yes. The top flap can be reclosed or reloaded, allowing staff to refill sachets or wipes without replacing the entire unit.'
+      },
+      {
+        question: 'Are moisture-resistant options available?',
+        answer:
+          'We can apply moisture barriers or select coated boards so the dispenser performs well in gyms, salons, or kitchens.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for Counter-Ready Kraft Dispensers?',
+      description: 'Let’s design dispenser cartons that move product fast while looking on-brand.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Kraft Dispenser Boxes Built for Conversion',
@@ -2626,6 +1969,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Kraft Double Wall Frame Tray
   'kraft-double-wall-frame-tray': {
     name: 'Kraft Double Wall Frame Tray',
@@ -2641,64 +1985,38 @@ const rawProductData = {
       'Optional die-cut grips for ergonomic handling',
       'Supports moist or chilled environments with proper coatings'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Kraft SBS laminated to inner support board or micro-flute' },
-      { label: 'Structure', value: 'Double-wall frame tray with reinforced corners' },
-      { label: 'Finish', value: 'Natural kraft, moisture barrier AQ, or anti-scuff varnish' },
-      { label: 'Printing', value: 'High-impact graphics or minimal branding on kraft' },
-      { label: 'Dimensions', value: 'Custom base, wall height, and frame width per application' },
-      { label: 'Accessories', value: 'Lids, inserts, or slipcovers for additional protection' },
-      { label: 'MOQ', value: 'Starts at 500 units with staging for regional deliveries' }
-    ],
-    sizes: [
-      { name: 'Bakery Display', dimensions: '14 × 10 × 3 in', price: 'Quote on request' },
-      { name: 'Produce Tray', dimensions: '16 × 12 × 4 in', price: 'Quote on request' },
-      { name: 'Premium Gift', dimensions: '18 × 14 × 5 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Engineered for weight, stack, and presentation goals', price: 'Work with engineering' }
-    ],
-    galleryImages: [
-      'Kraft-Double-Wall-Frame-Tray_i8lzim',
-      'Kraft-Double-Wall-Frame-Tray-2_navrvz',
-      'Kraft-Double-Wall-Frame-Tray-3_utgimb',
-      'products-box-img_x8vu4b'
-    ],
-    customizationOptions: [
-      'Add clear lids, film windows, or wraparound sleeves',
-      'Integrate partitions, bottle guards, or protective cradles',
-      'Apply grease-resistant or moisture barrier coatings',
-      'Include die-cut handles or grip cut-outs for heavy loads',
-      'Bundle with master shippers or stacking pallets'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Kraft Double Wall Trays',
-      description: 'Deliver heavyweight performance and presentation with double-wall kraft trays tailored to your assortment.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Structural Reinforcement', value: 'Dual wall thickness, support ribs, and corner locks' },
-        { label: 'Protection', value: 'Barrier coatings, inserts, or moisture-safe liners' },
-        { label: 'Branding', value: 'High-fidelity graphics, foil accents, or minimalist kraft aesthetics' },
-        { label: 'Handling', value: 'Handle cut-outs, safety grips, or reinforced edges' },
-        { label: 'Logistics', value: 'Stack testing, palletization planning, regional fulfillment' },
-        { label: 'Sustainability', value: 'Recyclable mono-material builds with FSC certification' },
-        { label: 'Support', value: 'Onsite trials, training, and assembly documentation' }
-      ],
-      footerNote: 'We engineer tray strength, appearance, and logistics to keep your goods protected and presentation-ready.',
-      supportTitle: 'Need rugged trays for premium products?',
-      supportDescription: 'Collaborate with our structural team to design trays that balance strength, sustainability, and shelf appeal.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Evaluate structural requirements and finishing in a live design session.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive performance test data, dielines, and supply plans.' 
-        }
+        { label: 'Material Type', value: '20pt kraft board with double-wall frame construction' },
+        { label: 'Structure', value: 'Fold-and-lock frame tray with interior platform and optional lid fit' },
+        { label: 'Thickness', value: '0.020" board with 0.024" upgrades for heavier contents' },
+        { label: 'Finish', value: 'Matte kraft, soft-touch varnish, foil trim, moisture barrier coatings' },
+        { label: 'Printing', value: 'Litho CMYK with precise score registration and interior storytelling' },
+        { label: 'Dimensions (L x W x H)', value: 'Frame trays from 6" x 6" x 2" to 12" x 10" x 3"' },
+        { label: 'Quantity', value: 'Custom frame tray runs starting at 400 kraft sets' }
       ]
     },
-    ctaTitle: 'Ready for Heavy-Duty Kraft Trays?',
-    ctaDescription: 'Let us engineer kraft double-wall trays that stand up to transport, stacking, and display.',
+    faq: buildFaq('Kraft Double Wall Frame Tray', [
+      {
+        question: 'What makes the double-wall frame so strong?',
+        answer:
+          'The folded frame locks the walls together, creating a rigid perimeter that resists bowing under weight and keeps corners sharp for display.'
+      },
+      {
+        question: 'Can these trays handle chilled or moist environments?',
+        answer:
+          'Yes. We can add moisture-resistant coatings and choose boards that hold up in refrigerated cases or produce departments.'
+      },
+      {
+        question: 'Do the trays stack securely?',
+        answer:
+          'The frame design keeps edges square, allowing trays to stack without slipping, even when fully loaded.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for Heavy-Duty Kraft Trays?',
+      description: 'Let us engineer kraft double-wall trays that stand up to transport, stacking, and display.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Kraft Frame Trays Ready for Demanding Displays',
@@ -2725,64 +2043,38 @@ const rawProductData = {
       'Ships flat for efficient warehousing and replenishment',
       'Ideal for cosmetics, snacks, supplements, and novelty items'
     ],
-    specifications: [
-      { label: 'Material Type', value: '18–24PT SBS or micro-flute with printed wrap' },
-      { label: 'Structure', value: 'Auto-lock base with tear-away or tuck-front display' },
-      { label: 'Finish', value: 'Gloss UV, matte AQ, or soft-touch laminate' },
-      { label: 'Printing', value: 'Full-color CMYK + spot Pantone or foil' },
-      { label: 'Dimensions', value: 'Custom footprint sized to SKU count and depth' },
-      { label: 'Header Options', value: 'Integrated risers, interchangeable toppers, or removable wings' },
-      { label: 'MOQ', value: 'Starts at 500 display kits with multi-store fulfillment' }
-    ],
-    sizes: [
-      { name: 'Counter Mini', dimensions: '7 × 5 × 5 in', price: 'Quote on request' },
-      { name: 'Checkout Standard', dimensions: '9 × 6 × 7 in', price: 'Quote on request' },
-      { name: 'Shelf Tier', dimensions: '12 × 8 × 8 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Engineered to product planogram', price: 'Collaborate with display team' }
-    ],
-    galleryImages: [
-      'Mailer-Box_1_ujqhhx',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Add removable coupon pads or wobblers',
-      'Design tiered inserts to keep products upright',
-      'Include interchangeable headers for seasonal messaging',
-      'Integrate clear windows or PET-free film for product visibility',
-      'Bundle with master shippers for rapid store deployment'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Cardboard Display Boxes',
-      description: 'Create display-ready cartons that blend eye-catching graphics with retail practicality.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Display Configuration', value: 'Counter, shelf, peg-ready, or clip-strip compatible structures' },
-        { label: 'Inventory Flow', value: 'Gravity-feed inserts, shelf dividers, or refill trays' },
-        { label: 'Brand Amplification', value: 'Extended headers, curved panels, and dimensional add-ons' },
-        { label: 'Durability', value: 'Reinforced corners, varnish hits, and scuff-resistant laminates' },
-        { label: 'Deployment', value: 'Pre-packed cartons, kitted displays, and route-ready master cases' },
-        { label: 'Sustainability', value: 'Mono-material builds and recyclable coatings' },
-        { label: 'Speed to Market', value: 'Prototyping in 7 days with rollout scheduling support' }
-      ],
-      footerNote: 'We make sure every display ships flat, pops open fast, and performs in-store.',
-      supportTitle: 'Planning a national merchandising push?',
-      supportDescription: 'Align with our retail specialists to synchronize packaging, displays, and replenishment cycles.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Review planograms, inserts, and branding live with a packaging strategist.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive dielines, mockups, and logistics plans tailored to your channel.'
-        }
+        { label: 'Material Type', value: '18pt-24pt SBS or CCNB with reinforced display headers' },
+        { label: 'Structure', value: 'Counter display with auto-bottom tray, tear-away front, and header' },
+        { label: 'Thickness', value: '0.018" base with 0.024" header support panels' },
+        { label: 'Finish', value: 'Gloss AQ, spot UV accents, optional PET window patches' },
+        { label: 'Printing', value: 'Offset CMYK with Pantone matches across tray and header' },
+        { label: 'Dimensions (L x W x H)', value: 'Displays from 7" x 6" x 8" to 12" x 9" x 14"' },
+        { label: 'Quantity', value: 'Retail display runs beginning at 250 units' }
       ]
     },
-    ctaTitle: 'Ready to Launch Retail Displays?',
-    ctaDescription: 'Share your product lineup and we’ll craft cardboard displays that move inventory fast.',
+    faq: buildFaq('Cardboard Display Box', [
+      {
+        question: 'Do display boxes ship pre-assembled?',
+        answer:
+          'They ship flat to save space but are pre-glued so retail staff can pop them open quickly and lock the header in place.'
+      },
+      {
+        question: 'Can I add interchangeable headers for promotions?',
+        answer:
+          'Yes. We can design slotted headers or clip-on wings that let you swap messaging while reusing the same base tray.'
+      },
+      {
+        question: 'How do you keep the display stable as product sells through?',
+        answer:
+          'We engineer the tray angle and front lip to keep remaining inventory forward-facing and upright even as stock levels drop.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Launch Retail Displays?',
+      description: 'Share your product lineup and we’ll craft cardboard displays that move inventory fast.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Cardboard Display Boxes Built to Convert',
@@ -2793,6 +2085,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Cardboard Tuck End Box
   'cardboard-tuck-end-box': {
     name: 'Cardboard Tuck End Box',
@@ -2808,64 +2101,38 @@ const rawProductData = {
       'Ideal for cosmetics, wellness, tech accessories, and CPG',
       'Ships flat to minimize freight and storage costs'
     ],
-    specifications: [
-      { label: 'Material Type', value: '16–24PT SBS or C1S/C2S folding carton board' },
-      { label: 'Structure', value: 'Reverse tuck, straight tuck, 1-2-3 lock, or auto-bottom' },
-      { label: 'Finish', value: 'Gloss UV, matte AQ, soft-touch, or spot UV contrast' },
-      { label: 'Printing', value: 'Offset CMYK, Pantone hits, foil, or emboss/deboss' },
-      { label: 'Dimensions', value: 'Custom dielines engineered to product footprint' },
-      { label: 'Security', value: 'Tear strips, glue seals, or tamper-evident tapes available' },
-      { label: 'MOQ', value: 'Starts at 500 units; scales to automated runs of 100K+' }
-    ],
-    sizes: [
-      { name: 'Shelf Mini', dimensions: '4 × 1.5 × 6 in', price: 'Quote on request' },
-      { name: 'Retail Standard', dimensions: '6 × 2 × 8 in', price: 'Quote on request' },
-      { name: 'Premium Tall', dimensions: '8 × 3 × 10 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Dialed to your automation and product needs', price: 'Consult production team' }
-    ],
-    galleryImages: [
-      'Mailer-Box_1_ujqhhx',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Add foil, spot UV, or holographic accents',
-      'Integrate windows, vents, or easy-open tear strips',
-      'Include insert cards, blister trays, or molded pulp supports',
-      'Bundle with retail-ready trays or shippers',
-      'Pre-apply glue assists for high-speed filling lines'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Cardboard Tuck End Boxes',
-      description: 'Engineer folding cartons that glide through production and stand out on the shelf.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Production Alignment', value: 'Cartons dialed to your converting, filling, and sealing equipment' },
-        { label: 'Shelf Presence', value: 'Die-cut windows, hang tabs, and structural add-ons for visibility' },
-        { label: 'Branding', value: 'High-fidelity graphics, foil crests, textured coatings, or duplex color wraps' },
-        { label: 'Protection', value: 'Barrier coatings, UV shields, or tamper-evident features' },
-        { label: 'Documentation', value: 'Multi-language panels, compliance icons, and QR-enabled instructions' },
-        { label: 'Fulfillment', value: 'Kitting, palletization plans, and JIT deliveries' },
-        { label: 'Sustainability', value: 'Recycled board content, soy inks, and recyclable finishes' }
-      ],
-      footerNote: 'We streamline tooling, proofs, and production runs so your cartons launch on schedule.',
-      supportTitle: 'Need to balance automation with aesthetics?',
-      supportDescription: 'Work with our structural engineers to fine-tune tuck-end cartons for performance and polish.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Review dielines, print treatments, and automation tolerances together.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive press proofs, pricing ladders, and compliance guides.'
-        }
+        { label: 'Material Type', value: 'SBS 12pt-18pt board optimized for tuck-end production' },
+        { label: 'Structure', value: 'Reverse tuck, straight tuck, or auto-lock with glue seam options' },
+        { label: 'Thickness', value: '0.012" / 0.014" / 0.018" board with crash-lock options for heavier SKUs' },
+        { label: 'Finish', value: 'Gloss or matte AQ, foil accents, UV spot patterns, security seals' },
+        { label: 'Printing', value: 'High-resolution litho CMYK with Pantone hits and spot white' },
+        { label: 'Dimensions (L x W x H)', value: 'Cartons from 1.75" x 1" x 4" to 7" x 3" x 9"' },
+        { label: 'Quantity', value: 'Production cartons starting at 1,000 cardboard tuck units' }
       ]
     },
-    ctaTitle: 'Ready for Production-Ready Tuck Cartons?',
-    ctaDescription: 'Send us your specs and we’ll craft cardboard tuck-end boxes that keep your line moving.',
+    faq: buildFaq('Cardboard Tuck End Box', [
+      {
+        question: 'Which tuck format best suits automated lines?',
+        answer:
+          'Crash-lock bottoms speed up filling for heavier products, straight tuck offers a clean front panel for retail, and reverse tuck minimizes tooling for manual packing.'
+      },
+      {
+        question: 'Can I include tamper-evident features on tuck cartons?',
+        answer:
+          'We can add perforated tabs, tear strips, or glued seals that show visible tamper evidence without complicating fulfillment.'
+      },
+      {
+        question: 'How do you ensure color consistency across large runs?',
+        answer:
+          'We calibrate to your brand Pantones, run press checks, and maintain press profiles so every batch matches approved color standards.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for Production-Ready Tuck Cartons?',
+      description: 'Send us your specs and we’ll craft cardboard tuck-end boxes that keep your line moving.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Cardboard Tuck Cartons Built for Brands',
@@ -2876,6 +2143,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Cardboard Box with Lid
   'cardboard-box-with-lid': {
     name: 'Cardboard Box with Lid',
@@ -2891,64 +2159,38 @@ const rawProductData = {
       'Great for apparel, cosmetics, stationery, and curated kits',
       'Available flat-packed or pre-assembled depending on program scale'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Rigid board wrapped in printed or textured paper; premium folding carton options' },
-      { label: 'Structure', value: 'Telescoping lid and base with optional neck or shoulder' },
-      { label: 'Finish', value: 'Matte, gloss, linen, anti-scuff, or foil wraps' },
-      { label: 'Printing', value: 'Full-color exterior/interior, foil, emboss, or spot UV' },
-      { label: 'Dimensions', value: 'Custom width, depth, and lid height engineered to product' },
-      { label: 'Inserts', value: 'Foam, pulp, SBS, or fabric-wrapped trays' },
-      { label: 'MOQ', value: 'Starts at 500 sets with kitting and fulfillment support' }
-    ],
-    sizes: [
-      { name: 'Accessory Lift', dimensions: '6 × 6 × 2 in', price: 'Quote on request' },
-      { name: 'Apparel Reveal', dimensions: '12 × 9 × 3 in', price: 'Quote on request' },
-      { name: 'Premium Gift', dimensions: '14 × 12 × 4 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Tailored to your assortment and merchandising strategy', price: 'Discuss with packaging stylist' }
-    ],
-    galleryImages: [
-      'Mailer-Box_1_ujqhhx',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Employ duplex wraps or contrasting lid interiors',
-      'Integrate ribbon pulls, magnetic closures, or belly bands',
-      'Add personalized foil, numbering, or hang tags',
-      'Line interiors with patterned, velvet, or metallic papers',
-      'Bundle with sleeves or outer shippers for secure transport'
-    ],
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Cardboard Lid Boxes',
-      description: 'Design lift-off lid boxes that deliver a polished reveal aligned with your brand aesthetic.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Exterior Styling', value: 'Soft-touch, linen, kraft, or duplex color pairings' },
-        { label: 'Interior Experience', value: 'Patterned liners, messaging panels, or accessory compartments' },
-        { label: 'Closure Enhancements', value: 'Ribbon pulls, magnets, wax seals, or elastic loops' },
-        { label: 'Insert Systems', value: 'Custom trays for apparel, electronics, or gift sets' },
-        { label: 'Fulfillment', value: 'Pre-assembly, tissue wrapping, and drop-ship kitting' },
-        { label: 'Sustainability', value: 'Recyclable wraps, FSC board, and water-based adhesives' },
-        { label: 'Launch Support', value: 'Mood boards, sample approvals, and schedule planning' }
-      ],
-      footerNote: 'We choreograph every layer so your lid boxes become part of the unboxing keepsake.',
-      supportTitle: 'Planning a seasonal collection or influencer send?',
-      supportDescription: 'Work with our creative studio to compose lid boxes that feel bespoke at any scale.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Explore wrap, insert, and finish combinations with a packaging designer.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive dielines, finish mockups, and pricing tailored to your assortment.'
-        }
+        { label: 'Material Type', value: '20pt SBS or duplex board with optional metallic or textured wraps' },
+        { label: 'Structure', value: 'Separate lid and base with reinforced corners and telescoping fit' },
+        { label: 'Thickness', value: '0.020" board with 0.024" chipboard stiffeners for premium rigidity' },
+        { label: 'Finish', value: 'Gloss film, soft-touch matte, foil logos, ribbon closure channels' },
+        { label: 'Printing', value: 'Litho CMYK, UV spot gloss, foil stamping across lid edges and interior' },
+        { label: 'Dimensions (L x W x H)', value: 'Gift boxes from 5" x 5" x 3" to 15" x 11" x 4"' },
+        { label: 'Quantity', value: 'Custom lid and base sets starting at 300 cardboard units' }
       ]
     },
-    ctaTitle: 'Ready to Elevate with Lid Boxes?',
-    ctaDescription: 'Tell us about your product and we’ll craft cardboard lid boxes that delight from first glance to final reveal.',
+    faq: buildFaq('Cardboard Box with Lid', [
+      {
+        question: 'How do you prevent the lid from warping over time?',
+        answer:
+          'We reinforce corners and can add chipboard stiffeners or double walls so the lid maintains its shape across production and use.'
+      },
+      {
+        question: 'Can the interior be printed or lined differently from the exterior?',
+        answer:
+          'Yes. We can print inside panels or apply specialty liners, allowing you to create dual-tone reveals that match your brand aesthetic.'
+      },
+      {
+        question: 'Do lid boxes stack well for retail shelving?',
+        answer:
+          'Their telescoping fit and reinforced walls support vertical stacking, making them ideal for merchandising and storage.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Elevate with Lid Boxes?',
+      description: 'Tell us about your product and we’ll craft cardboard lid boxes that delight from first glance to final reveal.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Cardboard Lid Boxes for Signature Unboxings',
@@ -2959,6 +2201,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Cardboard Gable Box
   'cardboard-gable-box': {
     name: 'Cardboard Gable Box',
@@ -2974,64 +2217,39 @@ const rawProductData = {
       'Food-safe coatings available for direct contact items',
       'Perfect for events, corporate gifting, and take-out programs'
     ],
-    specifications: [
-      { label: 'Material Type', value: '20–26PT SBS or kraft-back SBS with food-safe options' },
-      { label: 'Structure', value: 'Lock-bottom or auto-bottom gable with carry handle' },
-      { label: 'Finish', value: 'Natural kraft, matte, gloss, or anti-grease coatings' },
-      { label: 'Printing', value: 'CMYK + Pantone, foil, or spot UV for emphasis' },
-      { label: 'Dimensions', value: 'Custom footprint and handle profile tuned to product weight' },
-      { label: 'Accessories', value: 'Interior dividers, inserts, or menu pockets' },
-      { label: 'MOQ', value: 'Starts at 500 units; scalable to multi-location programs' }
-    ],
-    sizes: [
-      { name: 'Treat Carrier', dimensions: '6 × 4 × 4 in', price: 'Quote on request' },
-      { name: 'Gift Medium', dimensions: '9 × 6 × 6 in', price: 'Quote on request' },
-      { name: 'Event Large', dimensions: '12 × 9 × 8 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Designed around contents and carrying comfort', price: 'Plan with our engineers' }
-    ],
-    galleryImages: [
-      'Mailer-Box_1_ujqhhx',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Add window cut-outs or transparent film for product visibility',
-      'Include ribbon or rope handle upgrades',
-      'Integrate tamper-evident seals or tear strips',
-      'Bundle with inserts, collateral, or tasting cards',
-      'Provide flat-pack or pre-assembled options based on fulfillment'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Cardboard Gable Boxes',
-      description: 'Craft gable boxes that pair portability with premium presentation.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Handle Comfort', value: 'Rounded die-cuts, reinforced grips, or ribbon-wrapped handles' },
-        { label: 'Food Readiness', value: 'Grease-resistant linings, vents, and barrier films' },
-        { label: 'Structure', value: 'Auto-bottom, lock-bottom, or reinforced base options' },
-        { label: 'Brand Story', value: 'Interior print, menu pockets, or QR engagement' },
-        { label: 'Protection', value: 'Dividers, bottle guards, or foam inserts' },
-        { label: 'Sustainability', value: 'Recyclable coatings, compostable films, and FSC paperboard' },
-        { label: 'Fulfillment', value: 'Kitting, assembly instructions, and drop-shipping support' }
-      ],
-      footerNote: 'We align structure, finishes, and fulfillment so every gable box travels beautifully.',
-      supportTitle: 'Planning a tasting kit or VIP gifting program?',
-      supportDescription: 'Partner with our team to tailor gable boxes that balance durability, branding, and logistics.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Co-develop handle styles, inserts, and finishes in a live session.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive dielines, finish decks, and pricing suited to your schedule.'
-        }
+        { label: 'Material Type', value: '20pt folding carton or micro-flute board engineered for carry handles' },
+        { label: 'Structure', value: 'Self-locking gable with auto bottom, interlocking handles, and optional window cutouts' },
+        { label: 'Thickness', value: '0.020" board or E-flute 1/16" for contents up to 10 lb' },
+        { label: 'Finish', value: 'Gloss varnish, grease barrier coatings, foil seals, or custom color floods' },
+        { label: 'Printing', value: 'Offset CMYK with interior floods or flexo spot colors for fast turns' },
+        { label: 'Dimensions (L x W x H)', value: 'Carry sizes from 5" x 3" x 5" kids meals to 12" x 6" x 9" catering carriers' },
+        { label: 'Quantity', value: 'Gable box programs starting at 250 cardboard carriers' }
       ]
     },
-    ctaTitle: 'Ready to Deliver in Style?',
-    ctaDescription: 'Tell us about your program and we’ll build cardboard gable boxes that make every handoff memorable.',
+    faq: buildFaq('Cardboard Gable Box', [
+      {
+        question: 'How durable are the handles on cardboard gable boxes?',
+        answer:
+          'We reinforce handle seams and can laminate the interior to ensure the box carries its intended load without tearing.'
+      },
+      {
+        question: 'Can gable boxes be made food safe?',
+        answer:
+          'Yes. We use food-contact coatings and liners so the boxes work for catering, bakery, or meal kit applications.'
+      },
+      {
+        question: 'Do gable boxes arrive flat or set up?',
+        answer:
+          'They ship flat with pre-scored lines. Assembly takes seconds: simply pop the base, fold the sides, and snap the handles together.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Deliver in Style?',
+      description: 'Tell us about your program and we’ll build cardboard gable boxes that make every handoff memorable.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Cardboard Gable Boxes Built for On-the-Go Experiences',
@@ -3042,6 +2260,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Cardboard Cake / Bakery Box
   'cardboard-cake-bakery-box': {
     name: 'Cardboard Cake / Bakery Box',
@@ -3057,64 +2276,39 @@ const rawProductData = {
       'Supports custom inserts for cupcakes, macarons, and tarts',
       'Compliant with food-contact inks and coatings'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Food-grade SBS or clay-coated kraft with barrier options' },
-      { label: 'Structure', value: 'Locking top with tuck front or automatic locking base' },
-      { label: 'Finish', value: 'Natural, matte AQ, gloss UV, or anti-grease coatings' },
-      { label: 'Printing', value: 'Food-safe inks, spot white, foil, or pattern floods' },
-      { label: 'Dimensions', value: 'Custom sizes for single desserts up to multi-tier cakes' },
-      { label: 'Accessories', value: 'Insert grids, cupcake trays, product cards, or ribbon slots' },
-      { label: 'MOQ', value: 'Starts at 1000 units with reorder programs for bakeries' }
-    ],
-    sizes: [
-      { name: 'Cupcake 4-Pack', dimensions: '6 × 6 × 4 in', price: 'Quote on request' },
-      { name: 'Cake Standard', dimensions: '10 × 10 × 5 in', price: 'Quote on request' },
-      { name: 'Tiered Celebration', dimensions: '14 × 14 × 7 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Engineered around pan size and dessert height', price: 'Coordinate with bakery team' }
-    ],
-    galleryImages: [
-      'Mailer-Box_1_ujqhhx',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Add clear windows or patterned cut-outs',
-      'Integrate insert trays for cupcakes, cookies, or pastry assortments',
-      'Include ribbon slots, sticker tabs, or brand seals',
-      'Apply grease-resistant coatings or moisture barriers',
-      'Bundle with catering trays or delivery shippers'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Bakery Boxes',
-      description: 'Deliver desserts that arrive photo-perfect with bakery boxes designed around your menu.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Food Integrity', value: 'Grease barriers, vents, and inserts to protect delicate finishes' },
-        { label: 'Customer Experience', value: 'Window reveals, interior messaging, and branded liners' },
-        { label: 'Efficiency', value: 'Flat-packed cartons with quick-lock assembly for rush periods' },
-        { label: 'Accessories', value: 'Cupcake grids, macaron channels, and tier stabilizers' },
-        { label: 'Compliance', value: 'FDA-compliant coatings, allergen labeling, and traceability' },
-        { label: 'Scaling', value: 'Forecasting, warehousing, and location-specific distribution' },
-        { label: 'Seasonality', value: 'Limited-edition graphics and quick-change inserts' }
-      ],
-      footerNote: 'We keep your baked goods protected, beautiful, and easy to transport.',
-      supportTitle: 'Need packaging for peak seasons?',
-      supportDescription: 'Partner with our bakery specialists to align packaging, inserts, and fulfillment with your calendar.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Prototype inserts, windows, and closures alongside our engineers.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive dielines, compliance documentation, and production timelines.'
-        }
+        { label: 'Material Type', value: 'Food-safe 18pt SBS with poly-coated interior for moisture resistance' },
+        { label: 'Structure', value: 'Lock corner bakery fold or auto bottom with optional window film and vents' },
+        { label: 'Thickness', value: '0.018" panel with 0.024" upgrade for tiered cakes and dense pastries' },
+        { label: 'Finish', value: 'Food-contact AQ, gloss window frames, foil monograms, perforated vents' },
+        { label: 'Printing', value: 'Litho CMYK with allergen, ingredient, and reheating information panels' },
+        { label: 'Dimensions (L x W x H)', value: 'Bake sizes from 8" x 8" x 4" single cakes to 14" x 10" x 6" trays' },
+        { label: 'Quantity', value: 'Bakery release runs from 500 cardboard cake boxes' }
       ]
     },
-    ctaTitle: 'Ready to Showcase Your Bakes?',
-    ctaDescription: 'Share your dessert lineup and we’ll build bakery boxes that protect and delight.',
+    faq: buildFaq('Cardboard Bakery Box', [
+      {
+        question: 'How do you keep frosting from damaging the box?',
+        answer:
+          'Food-safe poly or aqueous liners keep oils and frosting separated from the board, so presentation stays pristine through delivery.'
+      },
+      {
+        question: 'Can I add windows or vents to the bakery box?',
+        answer:
+          'Yes. We add PET windows for display and perforated vents to manage steam, ensuring your baked goods arrive intact.'
+      },
+      {
+        question: 'Are inserts available for cupcakes or pastries?',
+        answer:
+          'We die-cut inserts sized to your treats so every dessert stays upright and spaced during transport.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Showcase Your Bakes?',
+      description: 'Share your dessert lineup and we’ll build bakery boxes that protect and delight.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Cardboard Bakery Boxes Crafted for Culinary Artistry',
@@ -3125,6 +2319,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Cardboard Sleeve Box
   'cardboard-sleeve-box': {
     name: 'Cardboard Sleeve Box',
@@ -3140,64 +2335,39 @@ const rawProductData = {
       'Excellent for welcome kits, influencer mailers, and premium sets',
       'Ships assembled or flat depending on production needs'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Rigid board or premium folding carton with wrapped sleeve' },
-      { label: 'Structure', value: 'Slipcase sleeve with drawer tray or telescoping slider' },
-      { label: 'Finish', value: 'Soft-touch, linen, matte, gloss, or foil wraps' },
-      { label: 'Printing', value: 'Full exterior/interior, foil, emboss/deboss, or spot UV' },
-      { label: 'Dimensions', value: 'Custom drawer depth and sleeve clearance built to product' },
-      { label: 'Inserts', value: 'Foam, EVA, molded pulp, or SBS partitions' },
-      { label: 'MOQ', value: 'Starts at 500 kits with hand finishing available' }
-    ],
-    sizes: [
-      { name: 'Starter Kit', dimensions: '7 × 5 × 2 in', price: 'Quote on request' },
-      { name: 'Premium Presentation', dimensions: '10 × 7 × 3 in', price: 'Quote on request' },
-      { name: 'Collector Edition', dimensions: '12 × 9 × 3.5 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Engineered to your SKUs and campaign goals', price: 'Work with structural design' }
-    ],
-    galleryImages: [
-      'Mailer-Box_1_ujqhhx',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Add magnetic or ribbon-assisted closures',
-      'Create tiered or removable tray systems',
-      'Integrate NFC tags, QR codes, or AR triggers',
-      'Design variable sleeves for limited editions or personalization',
-      'Bundle with mailer shippers or display stands'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Cardboard Sleeve Boxes',
-      description: 'Craft sliding sleeve experiences that guide recipients through your brand story.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Reveal Mechanics', value: 'Precision-fit sleeves, pull ribbons, magnets, or stepped trays' },
-        { label: 'Interior Layout', value: 'Foam cradles, multi-level trays, or modular compartments' },
-        { label: 'Interactivity', value: 'Embedded tech, hidden messages, or sequential storytelling panels' },
-        { label: 'Finishing', value: 'Soft-touch lamination, spot varnish, foil, or duplex wraps' },
-        { label: 'Fulfillment', value: 'Hand assembly, campaign-specific kitting, and drop ship lists' },
-        { label: 'Sustainability', value: 'Mono-material builds, recycled board, and recyclable adhesives' },
-        { label: 'Timeline', value: 'Prototyping in 10 days with coordinated launch schedules' }
-      ],
-      footerNote: 'We orchestrate every slide, reveal, and keepsake moment so your sleeve boxes resonate.',
-      supportTitle: 'Planning a launch or onboarding kit?',
-      supportDescription: 'Collaborate with our structural and creative teams to choreograph your unboxing journey.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Prototype sleeve mechanics and insert layouts with a packaging engineer.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive storyboards, dielines, and costed configurations for your rollout.'
-        }
+        { label: 'Material Type', value: '16pt-20pt SBS sleeves paired with 18pt inner trays or blanks' },
+        { label: 'Structure', value: 'Slide-on sleeve with thumb hole, perforated reveal, or window patch over trays' },
+        { label: 'Thickness', value: '0.016" sleeve with 0.020" tray walls for structural strength' },
+        { label: 'Finish', value: 'Soft-touch laminate, foil striping, spot UV gradients, textured varnish' },
+        { label: 'Printing', value: 'Offset CMYK + Pantone overlays for precise color blocking across panels' },
+        { label: 'Dimensions (L x W x H)', value: 'Sleeve kits from 4" x 4" x 1" samples to 12" x 9" x 3" electronics' },
+        { label: 'Quantity', value: 'Sleeve projects from 500 cardboard sets with SKU versioning support' }
       ]
     },
-    ctaTitle: 'Ready to Slide into Memorable Packaging?',
-    ctaDescription: 'Share your campaign goals and we’ll build cardboard sleeve boxes that captivate.',
+    faq: buildFaq('Cardboard Sleeve Box', [
+      {
+        question: 'How do you prevent sleeves from loosening over time?',
+        answer:
+          'We test tray and sleeve tolerances so they maintain a snug fit. Optional finger notches or pull tabs keep the interaction smooth without reducing friction.'
+      },
+      {
+        question: 'Can sleeves be swapped for limited editions?',
+        answer:
+          'Yes. We can produce a core tray and multiple sleeve variations, allowing you to refresh artwork without retooling inserts.'
+      },
+      {
+        question: 'Are magnetic or ribbon pulls available?',
+        answer:
+          'We can add hidden magnets, ribbon pulls, or die-cut thumb cuts to enhance ergonomics and create a more premium reveal.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Slide into Memorable Packaging?',
+      description: 'Share your campaign goals and we’ll build cardboard sleeve boxes that captivate.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Cardboard Sleeve Boxes Designed for Emotion',
@@ -3208,6 +2378,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Cardboard Dispenser Box
   'cardboard-dispenser-box': {
     name: 'Cardboard Dispenser Box',
@@ -3223,64 +2394,39 @@ const rawProductData = {
       'Can ship individually or nested inside master shippers',
       'Ideal for supplements, single-serve beverages, wipes, and samples'
     ],
-    specifications: [
-      { label: 'Material Type', value: '18–24PT SBS or micro-flute board for added rigidity' },
-      { label: 'Structure', value: 'Dispenser carton with tear-away or hinged access panel' },
-      { label: 'Finish', value: 'Matte AQ, gloss UV, or varnish for high-touch durability' },
-      { label: 'Printing', value: 'Full-color CMYK, Pantone hits, or metallic accents' },
-      { label: 'Dimensions', value: 'Custom width, depth, and height tuned to product count' },
-      { label: 'Accessories', value: 'Hang tabs, clip-strip hooks, or base risers' },
-      { label: 'MOQ', value: 'Starts at 1000 units with replenishment programs available' }
-    ],
-    sizes: [
-      { name: 'Stick Pack Dispenser', dimensions: '5 × 3 × 6 in', price: 'Quote on request' },
-      { name: 'Sachet Tower', dimensions: '7 × 4 × 8 in', price: 'Quote on request' },
-      { name: 'Counter Showcase', dimensions: '8 × 5 × 10 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Configured for your SKU and merchandising environment', price: 'Coordinate with display specialists' }
-    ],
-    galleryImages: [
-      'Mailer-Box_1_ujqhhx',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Add perforated coupons, sample cards, or tear-away messaging',
-      'Design shelf-ready shipping cartons with tear-away fronts',
-      'Integrate moisture-resistant laminates for restroom or kitchen use',
-      'Bundle with PDQ trays or clip strips for broader rollouts',
-      'Include reorder QR codes or loyalty messaging inside the lid'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Cardboard Dispenser Boxes',
-      description: 'Deliver a tidy, on-brand dispensing experience that boosts trials and sales.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Dispensing Style', value: 'Gravity-feed, pull-tab, or recloseable flap configurations' },
-        { label: 'Product Fit', value: 'Channels, guides, or wells tuned to sachet or stick dimensions' },
-        { label: 'Brand Canvas', value: 'Bold front panels, side storytelling, and interior reveals' },
-        { label: 'Durability', value: 'Laminate options, reinforced corners, or double-wall upgrades' },
-        { label: 'Deployment', value: 'Flat ship, shelf-ready, or pre-packed display solutions' },
-        { label: 'Sustainability', value: 'Mono-material constructions with recyclable finishes' },
-        { label: 'Fulfillment', value: 'Co-packing, coding, and master shipper integration' }
-      ],
-      footerNote: 'We make dispensing effortless so your products stay organized and accessible.',
-      supportTitle: 'Rolling out samples or counter programs?',
-      supportDescription: 'Partner with our merchandising team to engineer dispenser boxes that convert.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Test dispensing performance and structural integrity with our experts.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive design files, performance summaries, and rollout timelines.'
-        }
+        { label: 'Material Type', value: '18pt SBS with reinforced dispenser front and optional PET window' },
+        { label: 'Structure', value: 'Counter dispenser with glued auto bottom and resealable top flap for refills' },
+        { label: 'Thickness', value: '0.018" board with 0.022" front wall for repeated dispensing cycles' },
+        { label: 'Finish', value: 'Gloss AQ, tactile matte, metallic foil cues, moisture resistant coatings' },
+        { label: 'Printing', value: 'Litho CMYK with variable lot coding and sequential numbering on tear panels' },
+        { label: 'Dimensions (L x W x H)', value: 'Dispensers from 4" x 3" x 6" sachets to 7" x 5" x 9" wipes' },
+        { label: 'Quantity', value: 'Planogram-ready dispenser runs starting at 750 cardboard units' }
       ]
     },
-    ctaTitle: 'Ready to Dispense with Confidence?',
-    ctaDescription: 'Tell us about your product and we’ll create dispenser boxes that perform all day long.',
+    faq: buildFaq('Cardboard Dispenser Box', [
+      {
+        question: 'How cleanly does the dispenser front tear away?',
+        answer:
+          'We laser-cut perforations so the opening removes in one motion, preserving the graphics while exposing the dispense area.'
+      },
+      {
+        question: 'Can the dispenser box be resealed after hours?',
+        answer:
+          'Yes. We add recloseable lids or tuck backs so staff can cover the opening when the counter is closed.'
+      },
+      {
+        question: 'Do you offer moisture-resistant options?',
+        answer:
+          'We can laminate the interior or use coated boards to resist moisture, making the dispenser suitable for gyms, kitchens, or outdoor events.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Dispense with Confidence?',
+      description: 'Tell us about your product and we’ll create dispenser boxes that perform all day long.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Cardboard Dispenser Boxes for High-Traffic Counters',
@@ -3291,6 +2437,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Cardboard Five Panel Hanger
   'cardboard-five-panel-hanger': {
     name: 'Cardboard Five Panel Hanger',
@@ -3306,64 +2453,39 @@ const rawProductData = {
       'Compatible with automated or manual packing lines',
       'Ideal for electronics, cosmetics, small appliances, and accessories'
     ],
-    specifications: [
-      { label: 'Material Type', value: '16–22PT SBS or reinforced board with optional lamination' },
-      { label: 'Structure', value: 'Five-panel hanger with tuck, auto, or lock-bottom base' },
-      { label: 'Finish', value: 'Matte AQ, gloss UV, soft-touch, or anti-scuff varnish' },
-      { label: 'Printing', value: 'High-impact CMYK, Pantone, foil, or raised UV elements' },
-      { label: 'Dimensions', value: 'Hanger height and panel width customized per planogram' },
-      { label: 'Security', value: 'Tamper labels, shrink bands, or RFID/UPC integration' },
-      { label: 'MOQ', value: 'Starts at 1000 units with retailer-compliant packaging support' }
-    ],
-    sizes: [
-      { name: 'Accessory Hanger', dimensions: '4 × 1.5 × 8 in', price: 'Quote on request' },
-      { name: 'Electronics', dimensions: '6 × 2 × 10 in', price: 'Quote on request' },
-      { name: 'Wellness', dimensions: '7 × 2.5 × 11 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Engineered to retailer specs and product weight', price: 'Collaborate with retail engineers' }
-    ],
-    galleryImages: [
-      'Mailer-Box_1_ujqhhx',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Add die-cut windows, spot varnish, or metallic accents',
-      'Design tear-away demonstration panels or try-me flaps',
-      'Integrate blister packs, inner trays, or literature pockets',
-      'Use color-coded edges for quick merchandising and line extensions',
-      'Bundle with PDQ trays or shipper displays for cohesive rollouts'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Cardboard Hanger Cartons',
-      description: 'Turn pegboard real estate into a powerful branded stage with engineered hanger cartons.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Retail Compliance', value: 'Hanger geometry, hole placement, and load ratings tuned to each retailer' },
-        { label: 'Product Security', value: 'Tamper evident seals, zip ties, or shrink wrapping' },
-        { label: 'Brand Impact', value: 'Foil, raised UV, and layered graphics to stop shoppers mid-aisle' },
-        { label: 'Automation', value: 'Cartons compatible with auto cartoners or hand assembly' },
-        { label: 'Documentation', value: 'Instruction panels, multi-language layouts, or QR-enabled guides' },
-        { label: 'Logistics', value: 'Regional warehousing, staggered releases, and replenishment planning' },
-        { label: 'Sustainability', value: 'Recyclable boards and coatings without compromising performance' }
-      ],
-      footerNote: 'We ensure every hanger carton meets retailer mandates while maximizing shelf presence.',
-      supportTitle: 'Launching across multiple retail partners?',
-      supportDescription: 'Work with our retail packaging consultants to harmonize specs, timelines, and merchandising.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Review compliance checklists and structure options with an expert.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive retailer-specific dielines, certification support, and rollout calendars.'
-        }
+        { label: 'Material Type', value: '16pt SBS with reinforced hanger panel and optional PET blister integration' },
+        { label: 'Structure', value: 'Five-panel hanger with fold-over header, lock bottom, and side window options' },
+        { label: 'Thickness', value: '0.016" board with laminated hanger fold for added tear resistance' },
+        { label: 'Finish', value: 'Gloss varnish, foil stamping on header, UV spot textures on feature callouts' },
+        { label: 'Printing', value: 'Offset CMYK with white backing for window borders and UPC accuracy' },
+        { label: 'Dimensions (L x W x H)', value: 'Hanger packs from 3" x 1" x 6" to 6" x 2.5" x 10" electronics' },
+        { label: 'Quantity', value: 'Retail peg programs from 1,000 cardboard hangers' }
       ]
     },
-    ctaTitle: 'Ready to Dominate the Pegboard?',
-    ctaDescription: 'Send us your product specs and planograms—we’ll engineer hanger cartons that deliver impact.',
+    faq: buildFaq('Cardboard Five Panel Hanger', [
+      {
+        question: 'How do you reinforce the hanger panel?',
+        answer:
+          'We laminate or double-layer the hanger area and align the peg slot with retailer specs so it withstands repeated handling on the sales floor.'
+      },
+      {
+        question: 'Can hanger cartons include blister packs or windows?',
+        answer:
+          'Yes. We integrate PET blisters or windows without compromising the structural support required for hanging displays.'
+      },
+      {
+        question: 'Are there options for tamper-evident openings?',
+        answer:
+          'We add perforated tear strips or security seals that preserve shelf appeal while clearly signaling tampering.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Dominate the Pegboard?',
+      description: 'Send us your product specs and planograms—we’ll engineer hanger cartons that deliver impact.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Cardboard Hanger Cartons Made for Retail Success',
@@ -3374,6 +2496,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Cardboard Mailer Boxes
   'cardboard-mailer-boxes': {
     name: 'Cardboard Mailer Boxes',
@@ -3389,64 +2512,39 @@ const rawProductData = {
       'Ships flat and assembles quickly without additional tape',
       'Perfect for DTC brands, corporate kits, and special editions'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'E-flute or B-flute corrugate with premium litho wrap' },
-      { label: 'Structure', value: 'Roll end tuck top (RETT) or roll end front tuck (REFT)' },
-      { label: 'Finish', value: 'Matte AQ, gloss UV, soft-touch, or kraft wraps' },
-      { label: 'Printing', value: 'Full-color litho, digital short run, or spot Pantone with varnish hits' },
-      { label: 'Dimensions', value: 'Custom dielines tailored to product set and shipping class' },
-      { label: 'Inserts', value: 'Foam, SBS, corrugate, or molded pulp trays' },
-      { label: 'MOQ', value: 'Starts at 250 units with scaling for national programs' }
-    ],
-    sizes: [
-      { name: 'Welcome Kit', dimensions: '9 × 7 × 3 in', price: 'Quote on request' },
-      { name: 'Subscription Standard', dimensions: '11 × 9 × 4 in', price: 'Quote on request' },
-      { name: 'VIP Drop', dimensions: '14 × 10 × 5 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Engineered to SKU assortment and DIM weight goals', price: 'Review with fulfillment team' }
-    ],
-    galleryImages: [
-      'Mailer-Box_1_ujqhhx',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Add branded peel-and-seal closures and tear strips',
-      'Integrate layered inserts, tissue, or swag compartments',
-      'Employ duplex color schemes for exterior/interior contrast',
-      'Include QR-triggered experiences or augmented reality',
-      'Bundle with shipper cartons or fulfillment-ready kits'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Cardboard Mailers',
-      description: 'Design mailer boxes that survive the journey and deliver a social-worthy unboxing.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Transit Durability', value: 'Corrugate grade selection, inserts, and compression testing' },
-        { label: 'Brand Reveal', value: 'Interior story panels, layered inserts, and finishing touches' },
-        { label: 'Fulfillment Speed', value: 'Peel-and-seal tape, auto-locking flaps, or pre-fold options' },
-        { label: 'Sustainability', value: 'FSC board, soy inks, and recyclable coatings included by default' },
-        { label: 'Personalization', value: 'Variable data printing, sleeves, or limited-edition wraps' },
-        { label: 'Operations', value: 'Inventory staging, kitting, and direct-to-customer shipping support' },
-        { label: 'Analytics', value: 'Integrated QR/URL journeys for customer engagement tracking' }
-      ],
-      footerNote: 'We align packaging, fulfillment, and storytelling so every shipment feels curated.',
-      supportTitle: 'Launching or scaling a subscription?',
-      supportDescription: 'Partner with our DTC specialists to synchronize packaging specs with your fulfillment workflow.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Walk through dielines, inserts, and automation compatibility with our team.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive packaging roadmaps, cost tiers, and rollout schedules.'
-        }
+        { label: 'Material Type', value: 'E-flute corrugated with white clay-coated outer liner and kraft interior' },
+        { label: 'Structure', value: 'One-piece rollover mailer with dust flaps, cherry locks, and tear-strip option' },
+        { label: 'Thickness', value: '1/16" corrugated board with optional double-wall front flap reinforcement' },
+        { label: 'Finish', value: 'Gloss or matte litho-lam wraps, kraft flood coats, anti-scuff varnishes' },
+        { label: 'Printing', value: 'Digital CMYK for quick drops or litho laminates for gradient-rich artwork' },
+        { label: 'Dimensions (L x W x H)', value: 'Mailer footprints from 7" x 5" x 2" to 13" x 10" x 4"' },
+        { label: 'Quantity', value: 'Starter runs of 250 cardboard mailer boxes with branded inserts optional' }
       ]
     },
-    ctaTitle: 'Ready to Elevate Your Mailers?',
-    ctaDescription: 'Tell us about your brand experience—we’ll deliver cardboard mailers that wow on arrival.',
+    faq: buildFaq('Cardboard Mailer Boxes', [
+      {
+        question: 'How do you keep mailer boxes secure without extra tape?',
+        answer:
+          'Cherry locks and tear-strips are engineered to hold during transit while allowing customers to open the box cleanly without tools.'
+      },
+      {
+        question: 'Can I include custom inserts for my unboxing experience?',
+        answer:
+          'Yes. We design corrugated, foam, or paperboard inserts that cradle each product and reveal them in a planned sequence.'
+      },
+      {
+        question: 'What are the minimums for full interior printing?',
+        answer:
+          'We offer digital print for runs as low as 250 units with full interior coverage, and litho-laminate for larger volumes requiring precise color.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Elevate Your Mailers?',
+      description: 'Tell us about your brand experience—we’ll deliver cardboard mailers that wow on arrival.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Cardboard Mailer Boxes Crafted for Unboxing',
@@ -3457,6 +2555,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Cardboard Double Locked Wall Lid Box
   'cardboard-double-locked-wall-lid-box': {
     name: 'Cardboard Double Locked Wall Lid Box',
@@ -3472,64 +2571,39 @@ const rawProductData = {
       'Optional ribbon pulls or magnetic straps elevate feel',
       'Ideal for gourmet foods, electronics, spirits, and luxury gifting'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Premium folding carton with double-wall locking design' },
-      { label: 'Structure', value: 'Interlocking double-wall lid with reinforced base' },
-      { label: 'Finish', value: 'Matte, gloss, linen, soft-touch, or foil wraps' },
-      { label: 'Printing', value: 'CMYK, Pantone, foil stamping, emboss/deboss, or spot UV' },
-      { label: 'Dimensions', value: 'Custom width, depth, and wall height engineered to payload' },
-      { label: 'Inserts', value: 'Foam, EVA, pulp, or card partitions for product security' },
-      { label: 'MOQ', value: 'Starts at 500 units with made-to-order finishing' }
-    ],
-    sizes: [
-      { name: 'Premium Keepsake', dimensions: '8 × 8 × 4 in', price: 'Quote on request' },
-      { name: 'Retail XL', dimensions: '12 × 10 × 5 in', price: 'Quote on request' },
-      { name: 'Luxury Hamper', dimensions: '16 × 12 × 6 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Engineered to weight and presentation goals', price: 'Design with our luxury team' }
-    ],
-    galleryImages: [
-      'Mailer-Box_1_ujqhhx',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Add interior mirrors, brand plates, or keepsake compartments',
-      'Integrate magnets, ribbon pulls, or elastic closures',
-      'Use duplex wraps or contrasting lid interiors',
-      'Include custom inserts, flasks, or accessory trays',
-      'Bundle with protective shippers or outer sleeves'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Double-Locked Lid Boxes',
-      description: 'Deliver heavyweight presentation with double-wall lid boxes engineered to impress.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Structural Integrity', value: 'Reinforced walls, locking tabs, and precision scoring' },
-        { label: 'Sensory Impact', value: 'Soft-touch, linen, metallic, or duplex wraps for tactile delight' },
-        { label: 'Interior Architecture', value: 'Tiered trays, accessory drawers, or specialized compartments' },
-        { label: 'Closure Enhancements', value: 'Magnetic straps, ribbon pulls, or custom hardware' },
-        { label: 'Fulfillment', value: 'Hand-assembled sets, white-glove kitting, and global drop shipping' },
-        { label: 'Sustainability', value: 'Recyclable wraps, water-based adhesives, and FSC-certified board' },
-        { label: 'Program Support', value: 'Material swatching, prototyping, and timeline management' }
-      ],
-      footerNote: 'We craft luxe experiences that deliver the heft and polish your products deserve.',
-      supportTitle: 'Curating a premium release?',
-      supportDescription: 'Collaborate with our luxury packaging specialists to fine-tune every element.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Explore material palettes, insert concepts, and finishing live with our team.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive renderings, BOMs, and production schedules customized to your launch.'
-        }
+        { label: 'Material Type', value: '20pt SBS with double-wall lid panels and locking corners for rigidity' },
+        { label: 'Structure', value: 'Top-load folding carton with dual side locks on lid and reinforced panels' },
+        { label: 'Thickness', value: '0.020" board with 0.024" upgrade for heavy glass or home goods' },
+        { label: 'Finish', value: 'Matte film lamination, foil framing, soft-touch lid for premium tactility' },
+        { label: 'Printing', value: 'Offset CMYK with inside lid storytelling and spot UV product visuals' },
+        { label: 'Dimensions (L x W x H)', value: 'Lid boxes from 6" x 6" x 4" to 14" x 10" x 6"' },
+        { label: 'Quantity', value: 'Production runs from 400 double-wall lid cartons' }
       ]
     },
-    ctaTitle: 'Ready for Elevated Lid Packaging?',
-    ctaDescription: 'Share your vision and we’ll deliver double-wall lid boxes that embody your brand.',
+    faq: buildFaq('Cardboard Double Locked Wall Lid Box', [
+      {
+        question: 'What makes double locked walls different from standard lids?',
+        answer:
+          'The dual-wall construction interlocks panels on both lid and base, giving the box rigid strength similar to a setup box while staying lightweight.'
+      },
+      {
+        question: 'Can I add magnetic or ribbon closures?',
+        answer:
+          'Yes. We can integrate magnets, ribbon ties, or elastic straps to complement the reinforced structure and enhance the unboxing.'
+      },
+      {
+        question: 'Are these boxes suitable for heavy products?',
+        answer:
+          'Absolutely. The double-wall architecture distributes weight evenly, and we can add internal braces or foam to support heavier merchandise.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for Elevated Lid Packaging?',
+      description: 'Share your vision and we’ll deliver double-wall lid boxes that embody your brand.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Cardboard Double-Wall Lids for Premium Impact',
@@ -3540,6 +2614,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Cardboard Side Lock Six Corner Box
   'cardboard-side-lock-six-corner-box': {
     name: 'Cardboard Side Lock Six Corner Box',
@@ -3555,64 +2630,39 @@ const rawProductData = {
       'Ships flat to streamline warehouse storage',
       'Great for bakery, apparel sets, kits, and merchandising trays'
     ],
-    specifications: [
-      { label: 'Material Type', value: '18–24PT SBS or laminated corrugate for added strength' },
-      { label: 'Structure', value: 'Pre-glued side lock six corner tray' },
-      { label: 'Finish', value: 'Matte, gloss, anti-grease, or soft-touch coatings' },
-      { label: 'Printing', value: 'Full-coverage CMYK, Pantone accents, or spot UV details' },
-      { label: 'Dimensions', value: 'Custom tray width, depth, and wall height tuned to product' },
-      { label: 'Accessories', value: 'Lids, inserts, partitions, or belly bands' },
-      { label: 'MOQ', value: 'Starts at 500 trays with automation-friendly packing options' }
-    ],
-    sizes: [
-      { name: 'Bakery Tray', dimensions: '8 × 6 × 2 in', price: 'Quote on request' },
-      { name: 'Merch Display', dimensions: '10 × 8 × 3 in', price: 'Quote on request' },
-      { name: 'Apparel Kit', dimensions: '12 × 10 × 4 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Tailored to your product load and presentation goals', price: 'Consult with engineering' }
-    ],
-    galleryImages: [
-      'Mailer-Box_1_ujqhhx',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Add clear lids, film windows, or wraparound sleeves',
-      'Integrate partitions, risers, or product cradles',
-      'Apply grease-resistant coatings for food applications',
-      'Include tear-away front panels for display conversions',
-      'Bundle with shippers or pallet programs for distribution'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Side Lock Trays',
-      description: 'Deliver trays that pop open quickly and stay sturdy on the shelf.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Structural Tuning', value: 'Corner locks, wall angles, and base strength tuned to payload' },
-        { label: 'Branding Canvas', value: 'Interior storytelling, loyalty messaging, or instruction panels' },
-        { label: 'Protection', value: 'Dividers, foam, or pulp inserts for fragile items' },
-        { label: 'Display Flexibility', value: 'Sleeves, belly bands, or nested tray solutions' },
-        { label: 'Operations', value: 'Pre-folding, kitting, and pallet optimization' },
-        { label: 'Sustainability', value: 'Recyclable boards and coatings, FSC chain-of-custody available' },
-        { label: 'Testing', value: 'Compression, stack, and transit testing for peace of mind' }
-      ],
-      footerNote: 'We engineer trays for speed, strength, and standout branding.',
-      supportTitle: 'Need trays that move from production to display seamlessly?',
-      supportDescription: 'Collaborate with our structural engineers to design side lock trays that perform across environments.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Co-develop tray geometry, inserts, and finishing touches in real time.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive structural drawings, finish swatches, and logistics plans.'
-        }
+        { label: 'Material Type', value: '18pt SBS engineered for pop-open six-corner displays' },
+        { label: 'Structure', value: 'Side-lock tray with reinforced corners, dust covers, and quick-assemble design' },
+        { label: 'Thickness', value: '0.018" board with optional 0.022" for gourmet foods or ceramics' },
+        { label: 'Finish', value: 'Gloss AQ, window patches, foil striping, anti-grease coatings' },
+        { label: 'Printing', value: 'Litho CMYK aligned across corners and interior tray surfaces' },
+        { label: 'Dimensions (L x W x H)', value: 'Trays from 7" x 5" x 2" to 13" x 9" x 4"' },
+        { label: 'Quantity', value: 'Quick-fold cardboard trays starting at 600 units' }
       ]
     },
-    ctaTitle: 'Ready for Pop-Up Performance?',
-    ctaDescription: 'Share your specs and we’ll deliver cardboard trays that assemble in seconds.',
+    faq: buildFaq('Cardboard Side Lock Six Corner Box', [
+      {
+        question: 'How quickly can staff set up these trays?',
+        answer:
+          'Pre-glued seams mean the tray pops into shape with one motion; side locks snap in to keep the structure rigid during filling and display.'
+      },
+      {
+        question: 'Can I add clear lids or sleeves?',
+        answer:
+          'Yes. We design compatible lids, film wraps, or sleeves that slide over the tray while leaving side locks accessible.'
+      },
+      {
+        question: 'Are these trays strong enough for heavier goods?',
+        answer:
+          'We can upgrade to heavier caliper board or add reinforcement strips to support ceramics, gourmet foods, or boxed sets.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for Pop-Up Performance?',
+      description: 'Share your specs and we’ll deliver cardboard trays that assemble in seconds.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Cardboard Side Lock Trays Engineered for Efficiency',
@@ -3623,6 +2673,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Cardboard Regular Six Corner Box
   'cardboard-regular-six-corner-box': {
     name: 'Cardboard Regular Six Corner Box',
@@ -3638,64 +2689,39 @@ const rawProductData = {
       'Interior print turns trays into storytelling platforms',
       'Compatible with lids, sleeves, or shrink wrapping'
     ],
-    specifications: [
-      { label: 'Material Type', value: '20–28PT folding carton or laminated corrugate' },
-      { label: 'Structure', value: 'Regular six corner tray with glued corners' },
-      { label: 'Finish', value: 'Matte AQ, gloss UV, anti-scuff, or soft-touch coatings' },
-      { label: 'Printing', value: 'Full-color outside and inside with optional foil or emboss' },
-      { label: 'Dimensions', value: 'Custom base and wall height tailored to contents' },
-      { label: 'Accessories', value: 'Lids, partitions, risers, or protective liners' },
-      { label: 'MOQ', value: 'Starts at 500 units with national rollout scalability' }
-    ],
-    sizes: [
-      { name: 'Retail Display', dimensions: '12 × 9 × 3 in', price: 'Quote on request' },
-      { name: 'Service Tray', dimensions: '14 × 10 × 4 in', price: 'Quote on request' },
-      { name: 'XL Merch', dimensions: '16 × 12 × 5 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Engineered to weight, product mix, and channel needs', price: 'Plan with our team' }
-    ],
-    galleryImages: [
-      'Mailer-Box_1_ujqhhx',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Add handles, thumb notches, or tear-away fronts',
-      'Integrate partitions or foam rails for organized displays',
-      'Include barrier coatings for refrigerated or foodservice use',
-      'Bundle with lids, sleeves, or shrink film for distribution',
-      'Print instructions, recipes, or storytelling inside the tray'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Regular Six Corner Trays',
-      description: 'Design trays that balance rapid assembly with on-brand merchandising.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Structural Support', value: 'Reinforced walls, additional score lines, or laminated bases' },
-        { label: 'Handling', value: 'Cut-out grips, handles, or finger notches for easy lift' },
-        { label: 'Aesthetics', value: 'Interior graphics, foil accents, or layered branding' },
-        { label: 'Protection', value: 'Inserts, partitions, or liners for fragile contents' },
-        { label: 'Fulfillment', value: 'Pre-folded trays, assembly guides, and kitting services' },
-        { label: 'Sustainability', value: 'Mono-material builds with recyclable or compostable finishes' },
-        { label: 'Logistics', value: 'Stack testing, pallet plans, and regional warehousing' }
-      ],
-      footerNote: 'We ensure your trays stand tall from packing line to sales floor.',
-      supportTitle: 'Need display trays that work overtime?',
-      supportDescription: 'Collaborate with our packaging experts to craft six corner trays tuned to your program.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Evaluate tray construction, inserts, and finishing with our structural team.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive dielines, performance data, and rollout strategies.'
-        }
+        { label: 'Material Type', value: '16pt SBS with pre-glued six-corner mechanism for rapid setup' },
+        { label: 'Structure', value: 'Regular six-corner folding tray with reinforced front wall and tuckable lid' },
+        { label: 'Thickness', value: '0.016" board with 0.020" upgrade for weight-bearing displays' },
+        { label: 'Finish', value: 'Matte varnish, foil logos, spot UV on front panel, PET window options' },
+        { label: 'Printing', value: 'Offset CMYK with inside panel printing for branding during unboxing' },
+        { label: 'Dimensions (L x W x H)', value: 'Pop-up trays from 6" x 4" x 2" to 12" x 8" x 3.5"' },
+        { label: 'Quantity', value: 'Six-corner tray programs from 700 cardboard units' }
       ]
     },
-    ctaTitle: 'Ready to Stage Your Products in Style?',
-    ctaDescription: 'Share your display goals—we’ll build cardboard trays that look great and work hard.',
+    faq: buildFaq('Cardboard Regular Six Corner Box', [
+      {
+        question: 'Where do regular six corner trays excel?',
+        answer:
+          'They provide a wide-open top for merchandising, making them ideal for apparel, gift sets, or foodservice displays that require easy access.'
+      },
+      {
+        question: 'Can I request custom die-cut handles or windows?',
+        answer:
+          'Yes. We can add handles, product windows, or accessory slots without compromising the structural integrity of the tray.'
+      },
+      {
+        question: 'Do the trays stack well in storage?',
+        answer:
+          'They ship flat for storage efficiency and, once assembled, their straight walls allow for stable stacking on shelves or pallets.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Stage Your Products in Style?',
+      description: 'Share your display goals—we’ll build cardboard trays that look great and work hard.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Cardboard Six Corner Trays Built for Busy Operations',
@@ -3706,6 +2732,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Cardboard Seal End Auto Bottom Box
   'cardboard-seal-end-auto-bottom-box': {
     name: 'Cardboard Seal End Auto Bottom Box',
@@ -3721,64 +2748,39 @@ const rawProductData = {
       'Compatible with manual or automated insertion of literature and bottles',
       'Ideal for nutraceutical, pharma, beauty, and specialty food packaging'
     ],
-    specifications: [
-      { label: 'Material Type', value: '16–24PT SBS with optional foil or EVOH barrier laminations' },
-      { label: 'Structure', value: 'Seal-end top with pre-glued auto-lock bottom' },
-      { label: 'Finish', value: 'Matte AQ, gloss UV, soft-touch, or anti-scuff varnish' },
-      { label: 'Printing', value: 'CMYK, spot Pantone, foil, microtext, or UV security features' },
-      { label: 'Dimensions', value: 'Engineered to product count, blister size, and cartoner tolerances' },
-      { label: 'Security', value: 'Tamper seals, tear tapes, void labels, or glue-assisted closures' },
-      { label: 'MOQ', value: 'Starts at 10K units with global compliance documentation' }
-    ],
-    sizes: [
-      { name: 'Vial Carton', dimensions: '4 × 1.5 × 6 in', price: 'Quote on request' },
-      { name: 'Supplement Carton', dimensions: '5 × 2 × 7 in', price: 'Quote on request' },
-      { name: 'Cosmetic Tube', dimensions: '7 × 2 × 8 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Calibrated to machinery and regulatory panel layouts', price: 'Consult compliance team' }
-    ],
-    galleryImages: [
-      'Mailer-Box_1_ujqhhx',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Incorporate foil or holofoil security seals',
-      'Add tear-string openings or recloseable zippers',
-      'Include folded inserts, leaflets, or blister retention systems',
-      'Apply scratch-resistant or moisture barrier coatings',
-      'Bundle with shipper cartons or knock-down display trays'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Seal-End Cartons',
-      description: 'Design seal-end cartons that meet regulatory, branding, and automation demands without compromise.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Automation Fit', value: 'Cartons tuned to erector, filler, and sealer specifications' },
-        { label: 'Security Layers', value: 'Glue profiles, tear tapes, holograms, and serialized labels' },
-        { label: 'Barrier Protection', value: 'Foil, PVDC, or aqueous barriers for sensitive formulations' },
-        { label: 'Brand Elevation', value: 'Soft-touch, foil, raised UV, or duplex color wraps' },
-        { label: 'Documentation', value: 'Panel layouts for multi-language inserts and regulatory icons' },
-        { label: 'Supply Chain', value: 'Regional warehousing, JIT delivery, and forecast management' },
-        { label: 'Testing', value: 'Line trials, drop testing, and climate conditioning support' }
-      ],
-      footerNote: 'We align structure, finish, and compliance so your seal-end cartons move smoothly from line to shelf.',
-      supportTitle: 'Scaling a regulated product launch?',
-      supportDescription: 'Partner with our automation specialists to dial in cartons for speed, safety, and brand presence.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Review machinery specs, glue patterns, and compliance requirements together.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive technical drawings, validation data, and phased rollout plans.'
-        }
+        { label: 'Material Type', value: '18pt SBS optimized for high-speed filling and heat-seal compatibility' },
+        { label: 'Structure', value: 'Seal-end top with auto-lock bottom and tamper tape integration' },
+        { label: 'Thickness', value: '0.018" board with 0.022" upgrade for dense powders or granular products' },
+        { label: 'Finish', value: 'Gloss AQ, spot metallics, pour spouts, perforated opening features' },
+        { label: 'Printing', value: 'Offset CMYK with regulatory nutrition panels and batch codes pre-applied' },
+        { label: 'Dimensions (L x W x H)', value: 'Cartons from 3" x 1.5" x 6" supplements to 6" x 3" x 10" dry goods' },
+        { label: 'Quantity', value: 'Line-ready cardboard cartons from 5,000 units' }
       ]
     },
-    ctaTitle: 'Ready for High-Speed Seal-End Cartons?',
-    ctaDescription: 'Send us your product and line specs—we’ll engineer cartons that protect, comply, and present.',
+    faq: buildFaq('Cardboard Seal End Auto Bottom Box', [
+      {
+        question: 'Are these cartons compatible with automated filling?',
+        answer:
+          'Yes. Auto-bottom bases lock instantly and seal-end flaps are designed for glue systems, keeping lines running at full speed.'
+      },
+      {
+        question: 'Can we add serialization or variable data?',
+        answer:
+          'We can pre-print lot codes, serialization, or apply data windows, ensuring every carton meets regulatory and tracking requirements.'
+      },
+      {
+        question: 'Do you offer barrier coatings for sensitive products?',
+        answer:
+          'We apply light, moisture, or oxygen barriers to protect nutraceuticals, pharmaceuticals, and specialty foods throughout distribution.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for High-Speed Seal-End Cartons?',
+      description: 'Send us your product and line specs—we’ll engineer cartons that protect, comply, and present.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Cardboard Seal-End Cartons Built for Control',
@@ -3789,6 +2791,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Cardboard Auto Bottom Tray
   'cardboard-auto-bottom-tray': {
     name: 'Cardboard Auto Bottom Tray',
@@ -3804,64 +2807,39 @@ const rawProductData = {
       'Supports grease-resistant or moisture barriers for foodservice',
       'Ideal for tasting flights, welcome kits, merchandising, and retail bundles'
     ],
-    specifications: [
-      { label: 'Material Type', value: '18–26PT SBS or laminated micro-flute for extra rigidity' },
-      { label: 'Structure', value: 'Auto-bottom tray with open top or optional closers' },
-      { label: 'Finish', value: 'Matte AQ, gloss UV, soft-touch, or food-safe coatings' },
-      { label: 'Printing', value: 'Full interior/exterior CMYK plus spot enhancements' },
-      { label: 'Dimensions', value: 'Custom footprint, wall height, and flare angle per SKU' },
-      { label: 'Accessories', value: 'Partitions, risers, product wells, or collateral pockets' },
-      { label: 'MOQ', value: 'Starts at 500 trays with kitting and fulfillment services' }
-    ],
-    sizes: [
-      { name: 'Cafe Tray', dimensions: '9 × 6 × 2 in', price: 'Quote on request' },
-      { name: 'Merch Medium', dimensions: '11 × 8 × 3 in', price: 'Quote on request' },
-      { name: 'Event Display', dimensions: '13 × 9 × 4 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Tailored tray profile and inserts to your assortment', price: 'Collaborate with our team' }
-    ],
-    galleryImages: [
-      'Mailer-Box_1_ujqhhx',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Integrate grease-resistant liners or PE-free films',
-      'Add multi-compartment inserts or removable dividers',
-      'Include belly bands, ribbons, or branded sleeves',
-      'Design nested trays that stack for tiered presentations',
-      'Provide assembly guides and fulfillment packs for multi-location rollouts'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Auto-Bottom Trays',
-      description: 'Get trays that assemble fast, stay sturdy, and keep your brand at center stage.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Tray Geometry', value: 'Custom flare, depth, and base reinforcement tuned to contents' },
-        { label: 'Insert Strategy', value: 'Partitions, channels, or foam rails to organize product' },
-        { label: 'Brand Touches', value: 'Interior graphics, foil accents, or QR storytelling' },
-        { label: 'Protection', value: 'Barrier coatings, liners, and corner guards for travel' },
-        { label: 'Fulfillment', value: 'Pre-folding, kitting, and drop-ship staging included' },
-        { label: 'Sustainability', value: 'Mono-material construction and recyclable finishes' },
-        { label: 'Deployment', value: 'Bundled master shippers, pallet plans, and replenishment support' }
-      ],
-      footerNote: 'We design trays that keep pace with your service lines and campaign cadence.',
-      supportTitle: 'Need fast-deploy trays for your program?',
-      supportDescription: 'Work with our packaging specialists to tailor tray geometry, inserts, and logistics.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Prototype tray structures and accessories in a collaborative session.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive dielines, finish recommendations, and fulfillment plans.'
-        }
+        { label: 'Material Type', value: '20pt SBS or FBB with pre-glued crash-lock auto base' },
+        { label: 'Structure', value: 'Auto-bottom tray with optional tuck-top lid and reinforced side panels' },
+        { label: 'Thickness', value: '0.020" board with ability to add corrugated liners for heavier products' },
+        { label: 'Finish', value: 'Gloss or matte AQ, UV spot logos, anti-scuff coatings' },
+        { label: 'Printing', value: 'Litho CMYK with dieline-aligned graphics and sequential numbering' },
+        { label: 'Dimensions (L x W x H)', value: 'Trays from 5" x 4" x 2" kit packs to 12" x 9" x 4" displays' },
+        { label: 'Quantity', value: 'Crash-lock cardboard trays starting at 600 units' }
       ]
     },
-    ctaTitle: 'Ready for Snap-Open Trays?',
-    ctaDescription: 'Share your service or merchandising goals—we’ll craft auto-bottom trays that perform on cue.',
+    faq: buildFaq('Cardboard Auto Bottom Tray', [
+      {
+        question: 'How does the auto bottom mechanism work?',
+        answer:
+          'Crash-lock panels are pre-glued, so the base locks when you press the tray open. No tape or additional steps are required.'
+      },
+      {
+        question: 'Can I add lids or sleeves to the tray?',
+        answer:
+          'Yes. We design compatible lids, belly bands, or sleeves that slide over the tray for added protection or branding.'
+      },
+      {
+        question: 'Are these trays sturdy enough for transport?',
+        answer:
+          'We specify board caliper and reinforcement based on your load so the tray maintains shape through handling and shipping.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for Snap-Open Trays?',
+      description: 'Share your service or merchandising goals—we’ll craft auto-bottom trays that perform on cue.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Cardboard Auto-Bottom Trays Made for Momentum',
@@ -3872,6 +2850,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Cardboard Two Piece Box
   'cardboard-two-piece-box': {
     name: 'Cardboard Two Piece Box',
@@ -3887,64 +2866,39 @@ const rawProductData = {
       'Works with automated folding/gluing or hand assembly lines',
       'Eco-friendly board options support sustainability commitments'
     ],
-    specifications: [
-      { label: 'Material Type', value: '18–24PT C1S/C2S board with optional textured wraps' },
-      { label: 'Structure', value: 'Two-piece folding carton lid and base with tuck flaps' },
-      { label: 'Finish', value: 'Matte AQ, gloss UV, soft-touch, foil, or duplex color wraps' },
-      { label: 'Printing', value: 'Full-color litho, spot Pantone, emboss/deboss, or foil' },
-      { label: 'Dimensions', value: 'Custom lid depth and base clearance tailored to product' },
-      { label: 'Inserts', value: 'Die-cut SBS, foam, or pulp platforms for product presentation' },
-      { label: 'MOQ', value: 'Starts at 500 sets with fulfillment and kitting options' }
-    ],
-    sizes: [
-      { name: 'Accessory Set', dimensions: '6 × 6 × 2 in', price: 'Quote on request' },
-      { name: 'Retail Medium', dimensions: '10 × 8 × 3 in', price: 'Quote on request' },
-      { name: 'Limited Edition', dimensions: '12 × 10 × 4 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Tailored to assortment, weight, and unboxing plan', price: 'Work with our design studio' }
-    ],
-    galleryImages: [
-      'Mailer-Box_1_ujqhhx',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Add sleeves, belly bands, or slipcovers for segmentation',
-      'Integrate ribbon pulls, magnetic tabs, or adhesive seals',
-      'Line interiors with patterned, velvet, or metallic papers',
-      'Include literature pockets, sample wells, or accessory trays',
-      'Bundle with protective shippers or e-commerce mailers'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Two Piece Cardboard Boxes',
-      description: 'Deliver a polished reveal while keeping production nimble and sustainable.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Exterior Styling', value: 'Duplex colors, soft-touch, foil, or premium textures' },
-        { label: 'Interior Experience', value: 'Platforms, compartments, and storytelling panels' },
-        { label: 'Closure Enhancements', value: 'Ribbons, magnets, or seal tabs to secure the lid' },
-        { label: 'Personalization', value: 'Variable data, foiled monograms, or insert swaps by SKU' },
-        { label: 'Fulfillment', value: 'Pre-assembly, tissue wrapping, and drop-ship staging' },
-        { label: 'Sustainability', value: 'Recycled board, water-based inks, and recyclable structures' },
-        { label: 'Launch Planning', value: 'Material palettes, timeline management, and packaging playbooks' }
-      ],
-      footerNote: 'We choreograph every element so your two-piece boxes feel bespoke at any volume.',
-      supportTitle: 'Planning a collection launch or VIP send?',
-      supportDescription: 'Collaborate with our creative team to build two-piece cartons that elevate every reveal.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Explore wrap, insert, and closure combinations in a collaborative workshop.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive dielines, mockups, and pricing aligned to your rollout.'
-        }
+        { label: 'Material Type', value: '24pt SBS with optional wrapped chipboard inserts for high-end presentation' },
+        { label: 'Structure', value: 'Lift-off lid with friction-fit base and optional neck piece' },
+        { label: 'Thickness', value: '0.024" board with internal stiffeners for product cradling' },
+        { label: 'Finish', value: 'Soft-touch matte, foil stamping, spot UV textures, ribbon pull-tabs' },
+        { label: 'Printing', value: 'Offset CMYK with PMS spot hits and inside lid messaging' },
+        { label: 'Dimensions (L x W x H)', value: 'Two-piece sets from 5" x 5" x 2" to 14" x 10" x 5"' },
+        { label: 'Quantity', value: 'Premium cardboard two-piece runs starting at 400 sets' }
       ]
     },
-    ctaTitle: 'Ready to Elevate with Two Piece Cartons?',
-    ctaDescription: 'Tell us about your assortment and we’ll craft cardboard boxes that customers keep.',
+    faq: buildFaq('Cardboard Two Piece Box', [
+      {
+        question: 'Do folding two-piece boxes require assembly?',
+        answer:
+          'They ship flat and assemble quickly. Dust flaps and friction-fit walls keep the lid seated without adhesives.'
+      },
+      {
+        question: 'Can I include platforms or risers inside?',
+        answer:
+          'Yes. We design internal risers, inserts, or belly bands to stage products at the right reveal height.'
+      },
+      {
+        question: 'Are there eco-friendly material options?',
+        answer:
+          'We offer FSC-certified boards and water-based finishes so you can deliver a premium unboxing while meeting sustainability goals.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Elevate with Two Piece Cartons?',
+      description: 'Tell us about your assortment and we’ll craft cardboard boxes that customers keep.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Cardboard Two Piece Boxes Crafted for Premium Impact',
@@ -3955,6 +2909,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Cardboard Cigarette Box
   'cardboard-cigarette-box': {
     name: 'Cardboard Cigarette Box',
@@ -3970,64 +2925,39 @@ const rawProductData = {
       'Rigid board ensures packs withstand distribution and pocket wear',
       'Sustainably sourced options align with ESG commitments'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'High-density SBS with optional foil or moisture barrier liners' },
-      { label: 'Structure', value: 'Hinge-lid flip-top with inner frame and crush-resistant sides' },
-      { label: 'Finish', value: 'Soft-touch, matte, gloss, or specialty metallic coatings' },
-      { label: 'Printing', value: 'High-fidelity CMYK, metallic inks, security microtext, or emboss' },
-      { label: 'Dimensions', value: 'Custom pack depth and height for king, slim, or bespoke formats' },
-      { label: 'Compliance', value: 'Warning panels, UPC, tax stamp windows, and serialization zones' },
-      { label: 'MOQ', value: 'Starts at 25K units with multi-region regulatory support' }
-    ],
-    sizes: [
-      { name: 'King Size', dimensions: '3.5 × 2.2 × 0.9 in', price: 'Quote on request' },
-      { name: 'Slim Pack', dimensions: '3.9 × 2 × 0.75 in', price: 'Quote on request' },
-      { name: 'Limited Edition', dimensions: 'Custom collector profile', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Tailored to stick count, insert style, and overwrap', price: 'Coordinate with compliance team' }
-    ],
-    galleryImages: [
-      'Mailer-Box_1_ujqhhx',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Add foil crests, embossing, or tactile varnish for premium tiers',
-      'Integrate QR or NFC tags for authentication and loyalty programs',
-      'Offer perforated promo panels or collectible sleeves',
-      'Develop duty-free slipcases and gift-ready outer wraps',
-      'Bundle with display cartons or carton shippers for retail execution'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Cardboard Cigarette Boxes',
-      description: 'Meet regulatory obligations while delivering brand distinction in every pack.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Regulatory Layout', value: 'Panel engineering for local warnings, pictograms, and tax stamps' },
-        { label: 'Barrier Planning', value: 'Moisture and aroma barriers, foil inner liners, or sealed tear tape' },
-        { label: 'Security Features', value: 'Serialized labels, holograms, tamper stripes, or UV inks' },
-        { label: 'Premium Upgrades', value: 'Soft-touch, high-build varnish, foil, or duplex wraps' },
-        { label: 'Accessories', value: 'Carton outers, display trays, and travel sleeves' },
-        { label: 'Sustainability', value: 'FSC-certified board and recyclable finishes upon request' },
-        { label: 'Compliance Support', value: 'Artwork proofing, regulatory reviews, and documentation packs' }
-      ],
-      footerNote: 'We streamline design, compliance, and production so your packs stay consistent across markets.',
-      supportTitle: 'Balancing compliance with brand storytelling?',
-      supportDescription: 'Collaborate with our regulatory packaging team to align warnings, finishes, and supply chain.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Review panel layouts, security options, and finishing techniques with our specialists.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive dielines, compliance checklists, and pricing for multi-market deployments.'
-        }
+        { label: 'Material Type', value: '12pt SBS with metallized inner liner compatibility and tax stamp panels' },
+        { label: 'Structure', value: 'Hinge-lid folding carton with tear tape, soft crush bevels, and glued seam' },
+        { label: 'Thickness', value: '0.012" board calibrated for automated packing equipment' },
+        { label: 'Finish', value: 'High-gloss varnish, foil crests, embossing, tear tape ribbons' },
+        { label: 'Printing', value: 'Gravure or offset with metallic inks and mandatory health warnings' },
+        { label: 'Dimensions (L x W x H)', value: 'Standard 84 mm packs plus king and slim variants' },
+        { label: 'Quantity', value: 'Compliance-ready cardboard cigarette sleeves from 10,000 units' }
       ]
     },
-    ctaTitle: 'Ready to Refresh Your Cigarette Packaging?',
-    ctaDescription: 'Share your regulatory landscape and brand goals—we’ll craft cartons that deliver both.',
+    faq: buildFaq('Cardboard Cigarette Box', [
+      {
+        question: 'How do you handle different regional warning requirements?',
+        answer:
+          'We set up artwork templates for each region, ensuring warning panels, tax stamps, and duty markings meet local specifications.'
+      },
+      {
+        question: 'Can the hinge lid be customized with foil or embossing?',
+        answer:
+          'Yes. We apply foil, embossing, or soft-touch coatings to elevate the brand without interfering with overwrap or tear tape.'
+      },
+      {
+        question: 'Do you provide overwrap or tear tape integration?',
+        answer:
+          'We can supply cartons sized for automated overwrap lines and integrate tear-tape starter tabs directly into the structure.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Refresh Your Cigarette Packaging?',
+      description: 'Share your regulatory landscape and brand goals—we’ll craft cartons that deliver both.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Cardboard Cigarette Cartons with Conscious Craft',
@@ -4038,6 +2968,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Cardboard Bookend Box
   'cardboard-bookend-box': {
     name: 'Cardboard Bookend Box',
@@ -4053,64 +2984,39 @@ const rawProductData = {
       'Compatible with partial or full automation for folding and gluing',
       'Ideal for welcome kits, educational sets, electronics, and premium games'
     ],
-    specifications: [
-      { label: 'Material Type', value: '18–24PT SBS with optional wrapped boards for added rigidity' },
-      { label: 'Structure', value: 'Bookend wrap with side closures and tray or platform interior' },
-      { label: 'Finish', value: 'Soft-touch, linen, gloss, matte, or textured laminations' },
-      { label: 'Printing', value: 'Full-color litho, foil, emboss/deboss, or spot UV' },
-      { label: 'Dimensions', value: 'Custom spine depth and panel width built to your content' },
-      { label: 'Inserts', value: 'Foam, pulp, SBS, or fabric trays to stage products and literature' },
-      { label: 'MOQ', value: 'Starts at 500 kits with hand-assembly and drop-ship support' }
-    ],
-    sizes: [
-      { name: 'Accessory Book', dimensions: '8 × 6 × 2 in', price: 'Quote on request' },
-      { name: 'Wellness Journal', dimensions: '10 × 7 × 2.5 in', price: 'Quote on request' },
-      { name: 'Launch Compendium', dimensions: '12 × 9 × 3.5 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Engineered to your narrative flow and component mix', price: 'Plan with our experience team' }
-    ],
-    galleryImages: [
-      'Mailer-Box_1_ujqhhx',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Add magnetic closures, ribbon pulls, or elastic loops',
-      'Integrate compartments for literature, devices, or samples',
-      'Include augmented reality markers or NFC tags for digital content',
-      'Design split-color exteriors or foil titles for spine impact',
-      'Bundle with protective slipcases or retail display stands'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Cardboard Bookend Boxes',
-      description: 'Deliver immersive storytelling with book-style packaging engineered around your content.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Narrative Flow', value: 'Panels sequenced for onboarding, education, or product showcase' },
-        { label: 'Interior Design', value: 'Tiered trays, hidden compartments, or removable inserts' },
-        { label: 'Interactivity', value: 'QR, NFC, lighting, or audio triggers embedded in the cover' },
-        { label: 'Finishing Touches', value: 'Foil titles, linen textures, or spot gloss details' },
-        { label: 'Fulfillment', value: 'Hand assembly, collateral loading, and drop-ship logistics' },
-        { label: 'Sustainability', value: 'Recycled boards, water-based adhesives, and mono-material design' },
-        { label: 'Launch Support', value: 'Storyboards, mockups, and production scheduling assistance' }
-      ],
-      footerNote: 'We orchestrate materials, inserts, and finishing so every page-turn moment feels intentional.',
-      supportTitle: 'Planning an onboarding or influencer kit?',
-      supportDescription: 'Collaborate with our creative team to bring your narrative to life in bookend packaging.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Prototype inserts, closures, and storytelling panels with our specialists.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive dielines, storyboards, and pricing for your full experience.'
-        }
+        { label: 'Material Type', value: '18pt SBS with locking bookend flap and display-ready front' },
+        { label: 'Structure', value: 'Bookend style with glued spine, tuck closure, and optional window patch' },
+        { label: 'Thickness', value: '0.018" board with 0.022" upgrade for heavier electronics or glassware' },
+        { label: 'Finish', value: 'Matte soft-touch, foil stamped spine, spot UV patterns, resealable stickers' },
+        { label: 'Printing', value: 'Litho CMYK with PMS accents and interior brand messaging' },
+        { label: 'Dimensions (L x W x H)', value: 'Bookend packs from 4" x 2" x 7" to 10" x 3" x 12"' },
+        { label: 'Quantity', value: 'Display sets starting at 750 cardboard bookend boxes' }
       ]
     },
-    ctaTitle: 'Ready to Tell Your Story in Cardboard?',
-    ctaDescription: 'Share your content plan—we’ll craft bookend boxes that engage from the first touch.',
+    faq: buildFaq('Cardboard Bookend Box', [
+      {
+        question: 'How are bookend boxes different from standard tuck cartons?',
+        answer:
+          'Bookend cartons open along the side like a cover, giving you full interior panels for storytelling while keeping products secured inside.'
+      },
+      {
+        question: 'Can I include magnets or Velcro on the side flap?',
+        answer:
+          'Yes. We integrate magnets, Velcro, or adhesive dots to keep the flap closed while still allowing repeated opens.'
+      },
+      {
+        question: 'What inserts work best for bookend boxes?',
+        answer:
+          'We often pair them with molded pulp or foam trays that align with the interior layout, giving recipients a guided unboxing sequence.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Tell Your Story in Cardboard?',
+      description: 'Share your content plan—we’ll craft bookend boxes that engage from the first touch.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Cardboard Bookend Boxes Crafted for Engagement',
@@ -4121,6 +3027,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Cardboard Double Wall Frame Tray
   'cardboard-double-wall-frame-tray': {
     name: 'Cardboard Double Wall Frame Tray',
@@ -4136,64 +3043,39 @@ const rawProductData = {
       'Optional moisture or grease barriers protect contents',
       'Designed for palletization and cooler or ambient environments'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Laminated SBS/corrugate hybrids or heavy-gauge folding carton' },
-      { label: 'Structure', value: 'Double-wall frame tray with reinforced corners and walls' },
-      { label: 'Finish', value: 'Matte AQ, gloss UV, anti-scuff, or moisture-resistant coatings' },
-      { label: 'Printing', value: 'High-impact exterior and interior graphics with optional foil' },
-      { label: 'Dimensions', value: 'Custom base, wall height, and frame width tuned to product weight' },
-      { label: 'Accessories', value: 'Lids, partitions, bottle guards, or protective liners' },
-      { label: 'MOQ', value: 'Starts at 500 units with palletization and logistics planning' }
-    ],
-    sizes: [
-      { name: 'Bakery Display', dimensions: '14 × 10 × 3 in', price: 'Quote on request' },
-      { name: 'Produce Carrier', dimensions: '16 × 12 × 4 in', price: 'Quote on request' },
-      { name: 'Premium Gift', dimensions: '18 × 14 × 5 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Engineered to stacking, weight, and environmental requirements', price: 'Work with our engineering team' }
-    ],
-    galleryImages: [
-      'Mailer-Box_1_ujqhhx',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Add die-cut handles, finger notches, or reinforced grip areas',
-      'Integrate moisture-resistant liners or absorbent pads',
-      'Include partitions, bottle braces, or molded pulp inserts',
-      'Bundle with matching lids, sleeves, or shrink films',
-      'Coordinate master shippers and pallet patterns for national rollout'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Double Wall Trays',
-      description: 'Deliver heavyweight performance and elevated presentation with frame trays tuned to your program.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Structural Reinforcement', value: 'Dual walls, corner locks, and frame widths tailored to load' },
-        { label: 'Protection', value: 'Barrier coatings, liners, and insert solutions for delicate goods' },
-        { label: 'Branding', value: 'Edge-to-edge graphics, foil logos, or minimalist kraft aesthetics' },
-        { label: 'Handling', value: 'Grip cut-outs, ergonomic edges, or reinforced handles' },
-        { label: 'Logistics', value: 'Stack testing, pallet layouts, and cold-chain compatibility' },
-        { label: 'Sustainability', value: 'Recyclable materials and water-based finishes' },
-        { label: 'Support', value: 'On-site trials, packaging guides, and replenishment programs' }
-      ],
-      footerNote: 'We engineer trays that perform in the warehouse, cooler, and on display.',
-      supportTitle: 'Need rugged trays for premium assortments?',
-      supportDescription: 'Partner with our structural engineers to design trays that balance strength, sustainability, and shelf appeal.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Evaluate load requirements, inserts, and finishing options with our team.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive structural data, dielines, and logistics plans for your rollout.'
-        }
+        { label: 'Material Type', value: '22pt SBS double-wall construction with laminated frame edges' },
+        { label: 'Structure', value: 'Frame tray with built-in riser platform and optional clear lid compatibility' },
+        { label: 'Thickness', value: '0.022" board with 0.026" option for premium goods' },
+        { label: 'Finish', value: 'Gloss AQ, soft-touch interior, foil borders, window patching on top frame' },
+        { label: 'Printing', value: 'Offset CMYK with dieline-precise artwork across frame surfaces' },
+        { label: 'Dimensions (L x W x H)', value: 'Display trays from 6" x 6" x 2" to 14" x 10" x 4"' },
+        { label: 'Quantity', value: 'Cardboard frame tray programs from 500 units' }
       ]
     },
-    ctaTitle: 'Ready for Heavy-Duty Frame Trays?',
-    ctaDescription: 'Tell us about your product mix—we’ll build double-wall trays that stay strong and on-brand.',
+    faq: buildFaq('Cardboard Double Wall Frame Tray', [
+      {
+        question: 'What applications benefit from double-wall frame trays?',
+        answer:
+          'They excel for heavier bakery, electronics, and gift assortments where rigid walls and premium presentation are critical.'
+      },
+      {
+        question: 'Can these trays include clear lids or shrink wrapping?',
+        answer:
+          'Yes. We design the frame to accept lids, film, or shrink wraps so your products stay protected while on display.'
+      },
+      {
+        question: 'How are the trays reinforced for stacking?',
+        answer:
+          'The frame locks the walls into a rigid perimeter, and we can add support rails or thicker board to handle stacked merchandising.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for Heavy-Duty Frame Trays?',
+      description: 'Tell us about your product mix—we’ll build double-wall trays that stay strong and on-brand.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Cardboard Frame Trays Ready for Demanding Programs',
@@ -4220,64 +3102,39 @@ const rawProductData = {
       'Edge crush-tested for carrier networks and international shipping',
       'Sustainable board options keep unboxing eco-forward'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'E, B, or EB-flute corrugate with premium litho wraps' },
-      { label: 'Structure', value: 'Roll end tuck top (RETT) or roll end front tuck (REFT)' },
-      { label: 'Finish', value: 'Matte AQ, gloss UV, soft-touch, or kraft exterior' },
-      { label: 'Printing', value: 'Full-color litho-laminate, direct flexo, or digital short runs' },
-      { label: 'Dimensions', value: 'Engineered to SKU set and carrier dimensional weight tiers' },
-      { label: 'Inserts', value: 'Corrugate, SBS, foam, or molded pulp trays for secure staging' },
-      { label: 'MOQ', value: 'Starts at 250 units with scale to 100K+ for national programs' }
-    ],
-    sizes: [
-      { name: 'Starter Kit', dimensions: '10 × 7 × 3 in', price: 'Quote on request' },
-      { name: 'DTC Standard', dimensions: '12 × 9 × 4 in', price: 'Quote on request' },
-      { name: 'Premium Drop', dimensions: '15 × 10 × 5 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Tailored to SKU arrangement and fulfillment flow', price: 'Review with packaging engineer' }
-    ],
-    galleryImages: [
-      'Mailer-Box-3_oct2ws',
-      'products-box-img_x8vu4b',
-      'Box-5_pdb8xw',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Add magnetic closures, peel-and-seal tape, or reinforced tear strips',
-      'Integrate branded tissue, sleeves, or layered inserts for story-driven reveals',
-      'Embed QR codes, AR triggers, or NFC tags for post-unboxing engagement',
-      'Bundle with master shippers or fulfillment-ready kitting solutions',
-      'Offer personalization via variable-data sleeves or sticker packs'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Corrugated Mailer Boxes',
-      description: 'Deliver durable mailers that keep products safe, on brand, and ready for social sharing.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Box Strength', value: 'Flute selection, board grade, and compression testing aligned to your products' },
-        { label: 'Brand Reveal', value: 'Full interior graphics, layered inserts, and branded sealing moments' },
-        { label: 'Fulfillment Speed', value: 'Auto-locking closures, peel-and-seal tape, and pre-fold options' },
-        { label: 'Sustainability', value: 'FSC-certified board, water-based inks, and recyclable coatings' },
-        { label: 'Automation', value: 'Carton tolerances tuned for auto-erectors and pack stations' },
-        { label: 'Personalization', value: 'Edition-specific sleeves, printed dust covers, or gift notes' },
-        { label: 'Logistics', value: 'Inventory staging, drop shipping, and replenishment planning' }
-      ],
-      footerNote: 'We align structure, storytelling, and operations so every mailer arrives flawless.',
-      supportTitle: 'Launching a new subscription or influencer kit?',
-      supportDescription: 'Partner with our DTC specialists to synchronize mailer specs with your fulfillment roadmap.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Review dielines, inserts, and automation compatibility in a working session.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive packaging roadmaps, cost tiers, and rollout schedules tailored to your growth plan.'
-        }
+        { label: 'Material Type', value: 'E-flute corrugated with premium white or natural kraft liners' },
+        { label: 'Structure', value: 'Die-cut rollover mailer with integrated dust flaps, cherry locks, tear strips' },
+        { label: 'Thickness', value: '1/16" flute height tuned to subscription and ecommerce shipments' },
+        { label: 'Finish', value: 'Litho-lam gloss wraps, matte water-based coatings, scratch-resistant varnish' },
+        { label: 'Printing', value: 'Digital CMYK for agile runs or litho wraps with PMS accents' },
+        { label: 'Dimensions (L x W x H)', value: 'Mailer sizes from 7" x 5" x 2" to 14" x 10" x 4"' },
+        { label: 'Quantity', value: 'Corrugated mailer programs from 250 units with kitting add-ons' }
       ]
     },
-    ctaTitle: 'Ready to Elevate Your Corrugated Mailers?',
-    ctaDescription: 'Share your SKU mix and unboxing vision—we’ll engineer corrugated mailers that wow from doorstep to reveal.',
+    faq: buildFaq('Corrugated Mailer Box', [
+      {
+        question: 'How do you decide which flute profile to use?',
+        answer:
+          'We evaluate product weight, shipping method, and dimensional weight to recommend E, B, or combination flutes that balance protection and cost.'
+      },
+      {
+        question: 'Can corrugated mailers feature full interior graphics?',
+        answer:
+          'Yes. Litho-laminate and digital printing allow us to cover both exterior and interior surfaces with high-impact artwork.'
+      },
+      {
+        question: 'Do you provide custom inserts for corrugated mailers?',
+        answer:
+          'We design corrugated, foam, or molded pulp inserts that ship flat and assemble quickly, ensuring products stay secure through transit.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Elevate Your Corrugated Mailers?',
+      description: 'Share your SKU mix and unboxing vision—we’ll engineer corrugated mailers that wow from doorstep to reveal.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Corrugated Mailer Boxes Engineered for Impact',
@@ -4288,6 +3145,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Corrugated Gable Box
   'corrugated-gable-box': {
     name: 'Corrugated Gable Box',
@@ -4303,64 +3161,39 @@ const rawProductData = {
       'Custom inserts organize components, utensils, and collateral',
       'Designed to stack securely during transport and service'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'E or EB-flute corrugate with food-safe barrier options' },
-      { label: 'Structure', value: 'Auto-lock or snap-lock base with reinforced die-cut handle' },
-      { label: 'Finish', value: 'Kraft, matte AQ, gloss UV, or soft-touch film' },
-      { label: 'Printing', value: 'Full-color litho, spot Pantone, or direct flexo' },
-      { label: 'Dimensions', value: 'Custom width, depth, and roof pitch tailored to contents' },
-      { label: 'Accessories', value: 'Dividers, beverage cradles, utensil pockets, or menu sleeves' },
-      { label: 'MOQ', value: 'Starts at 500 units with multi-location fulfillment support' }
-    ],
-    sizes: [
-      { name: 'Food Carrier', dimensions: '9 × 6 × 7 in', price: 'Quote on request' },
-      { name: 'Corporate Gift', dimensions: '12 × 8 × 9 in', price: 'Quote on request' },
-      { name: 'Experiential Kit', dimensions: '14 × 10 × 10 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Engineered to weight, product mix, and delivery method', price: 'Plan with packaging strategist' }
-    ],
-    galleryImages: [
-      'Box-6_vm3fmh',
-      'Mailer-Box-3_oct2ws',
-      'products-box-img_x8vu4b',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Add ribbon closures, belly bands, or branded tape',
-      'Integrate venting or window panels for culinary applications',
-      'Include reusable keepsake trays or nested accessory boxes',
-      'Bundle with shipper cartons for direct-to-customer delivery',
-      'Provide assembly guides and kitting solutions for event rollouts'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Corrugated Gable Boxes',
-      description: 'Design corrugated carriers that balance durability, aesthetics, and operational efficiency.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Handle Comfort', value: 'Reinforced grips, rounded die-cuts, or wrapped handles' },
-        { label: 'Food Readiness', value: 'Grease-resistant linings, vents, and moisture guards' },
-        { label: 'Brand Experience', value: 'Interior storytelling, QR activations, or personalized inserts' },
-        { label: 'Protection', value: 'Rigid dividers, bottle guards, or foam supports' },
-        { label: 'Fulfillment', value: 'Flat-pack supply, pre-assembly, or fully kitted delivery' },
-        { label: 'Sustainability', value: 'Compostable liners, recyclable coatings, and FSC-certified board' },
-        { label: 'Deployment', value: 'Drop shipping, regional staging, and replenishment programs' }
-      ],
-      footerNote: 'We orchestrate design, manufacturing, and logistics so every gable box arrives service-ready.',
-      supportTitle: 'Planning a tasting, event, or corporate program?',
-      supportDescription: 'Work with our packaging engineers to craft gable boxes tailored to your experience.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Prototype handle strength, inserts, and finishes in a collaborative session.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive dielines, finish decks, and cost modeling for your rollout.'
-        }
+        { label: 'Material Type', value: 'B-flute or E-flute corrugated with kraft exterior and food-safe liners' },
+        { label: 'Structure', value: 'Carry gable with auto-lock bottom, fold-over handles, optional window' },
+        { label: 'Thickness', value: '3/32" B-flute or 1/16" E-flute for balanced strength and weight' },
+        { label: 'Finish', value: 'Kraft natural, flood white, spot gloss logos, grease-resistant coatings' },
+        { label: 'Printing', value: 'Flexo 2-3 colors for speed or litho-lam for photographic branding' },
+        { label: 'Dimensions (L x W x H)', value: 'Carry totes from 7" x 4" x 6" to 12" x 7" x 10"' },
+        { label: 'Quantity', value: 'Corrugated gable runs starting at 250 handled boxes' }
       ]
     },
-    ctaTitle: 'Ready to Carry Your Brand in Corrugate?',
-    ctaDescription: 'Share your service or gifting plans—we’ll build corrugated gable boxes that travel beautifully.',
+    faq: buildFaq('Corrugated Gable Box', [
+      {
+        question: 'How much weight can corrugated gable boxes handle?',
+        answer:
+          'We reinforce the handle region and specify flute grades to support your payload. Double-wall handles are available for heavy kits or meals.'
+      },
+      {
+        question: 'Can gable boxes include vents for hot food?',
+        answer:
+          'Yes. We add die-cut vents or moisture barriers to manage heat and condensation for foodservice applications.'
+      },
+      {
+        question: 'Do the boxes ship flat for staging?',
+        answer:
+          'They ship flat and fold together quickly, making them ideal for events and large-scale activations with limited prep time.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Carry Your Brand in Corrugate?',
+      description: 'Share your service or gifting plans—we’ll build corrugated gable boxes that travel beautifully.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Corrugated Gable Boxes Built for Portable Experiences',
@@ -4371,6 +3204,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Corrugated Double Locked Wall Lid Box
   'corrugated-double-locked-wall-lid-box': {
     name: 'Corrugated Double Locked Wall Lid Box',
@@ -4386,64 +3220,39 @@ const rawProductData = {
       'Compatible with custom inserts, EVA foam, or molded pulp platforms',
       'Stackable geometry simplifies storage and retail display'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Double-wall corrugate with premium printed wraps' },
-      { label: 'Structure', value: 'Interlocking lid and base with reinforced walls' },
-      { label: 'Finish', value: 'Matte, gloss, soft-touch, kraft, or luxury textured films' },
-      { label: 'Printing', value: 'Litho-lam, foil, emboss/deboss, or spot UV hits' },
-      { label: 'Dimensions', value: 'Custom width, depth, and wall thickness tailored to payload' },
-      { label: 'Inserts', value: 'Foam, molded pulp, SBS trays, or fabric-wrapped platforms' },
-      { label: 'MOQ', value: 'Starts at 500 units with specialty finishing available' }
-    ],
-    sizes: [
-      { name: 'Premium Keepsake', dimensions: '10 × 8 × 4 in', price: 'Quote on request' },
-      { name: 'Gourmet Hamper', dimensions: '14 × 12 × 5 in', price: 'Quote on request' },
-      { name: 'Luxury Electronics', dimensions: '16 × 12 × 6 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Engineered to product weight and presentation goals', price: 'Consult luxury packaging team' }
-    ],
-    galleryImages: [
-      'shipping-box_jyysru',
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'Mailer-Box-3_oct2ws'
-    ],
-    customizationOptions: [
-      'Add interior mirrors, accessory drawers, or hidden compartments',
-      'Integrate magnetic straps, ribbon pulls, or snap closures',
-      'Use contrasting lid/base wraps or duplex color schemes',
-      'Bundle with protective shippers, foam cradles, or presentation trays',
-      'Provide pre-assembly, kitting, and white-glove fulfillment programs'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Corrugated Lid Boxes',
-      description: 'Deliver keepsake packaging that blends corrugated strength with premium finishing.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Structural Integrity', value: 'Double-wall engineering, reinforced corners, and precision scoring' },
-        { label: 'Luxurious Touches', value: 'Soft-touch wraps, foil crests, or embossed emblems' },
-        { label: 'Interior Architecture', value: 'Tiered inserts, product platforms, or accessory drawers' },
-        { label: 'Personalization', value: 'Variable data sleeves, engraved plaques, or numbered editions' },
-        { label: 'Sustainability', value: 'Recycled board, recyclable finishes, and mono-material insert strategies' },
-        { label: 'Fulfillment', value: 'Hand assembly, QC checks, and drop-ship logistics' },
-        { label: 'Launch Support', value: 'Sampling, production scheduling, and inventory staging' }
-      ],
-      footerNote: 'We turn corrugated into an elevated portfolio piece that protects and impresses.',
-      supportTitle: 'Building a premium gifting or launch program?',
-      supportDescription: 'Collaborate with our luxury packaging team to orchestrate every detail from structure to delivery.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Explore wrap, insert, and closure combinations with our structural designers.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive mood boards, dielines, and pricing ladders aligned to your rollout.'
-        }
+        { label: 'Material Type', value: 'Double-wall corrugated BC flute with white printable liner or kraft exterior' },
+        { label: 'Structure', value: 'Interlocking lid with dual wall reinforcements and tuck-in security tabs' },
+        { label: 'Thickness', value: '1/4" combined board protecting fragile or heavy merchandise' },
+        { label: 'Finish', value: 'Matte aqueous, satin lamination, foil-banded branding on lid panels' },
+        { label: 'Printing', value: 'Litho lamination with CMYK + metallics or high-graphic flexo' },
+        { label: 'Dimensions (L x W x H)', value: 'Protective carriers from 12" x 10" x 4" to 20" x 14" x 8"' },
+        { label: 'Quantity', value: 'Protective corrugated sets from 200 units with inserts available' }
       ]
     },
-    ctaTitle: 'Ready to Elevate Heavyweight Packaging?',
-    ctaDescription: 'Share your product details—we’ll engineer corrugated lid boxes that feel as premium as they perform.',
+    faq: buildFaq('Corrugated Double Locked Wall Lid Box', [
+      {
+        question: 'Why choose corrugated double-wall lids over rigid boxes?',
+        answer:
+          'They deliver similar strength and presentation while shipping flat, reducing freight and storage costs for large programs.'
+      },
+      {
+        question: 'Can these boxes include foam or molded inserts?',
+        answer:
+          'Yes. We engineer custom inserts that lock into the base, supporting heavy or fragile items during shipping and unboxing.'
+      },
+      {
+        question: 'Are litho-laminate wraps available?',
+        answer:
+          'We offer high-end litho wraps and specialty finishes so the exterior feels premium without sacrificing corrugated durability.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Elevate Heavyweight Packaging?',
+      description: 'Share your product details—we’ll engineer corrugated lid boxes that feel as premium as they perform.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Corrugated Lid Boxes Crafted for Luxury Delivery',
@@ -4454,6 +3263,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Corrugated Seal End Auto Bottom Box
   'corrugated-seal-end-auto-bottom-box': {
     name: 'Corrugated Seal End Auto Bottom Box',
@@ -4469,64 +3279,39 @@ const rawProductData = {
       'Compatible with automated insertion of bottles, blisters, or pouches',
       'Ideal for CPG, household goods, nutraceuticals, and specialty foods'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'E or B-flute corrugate with liner options for barrier performance' },
-      { label: 'Structure', value: 'Seal-end top with auto-lock bottom and reinforced sidewalls' },
-      { label: 'Finish', value: 'Kraft, matte AQ, gloss UV, or laminated wraps' },
-      { label: 'Printing', value: 'High-fidelity litho, direct flexo, or hybrid digital' },
-      { label: 'Dimensions', value: 'Engineered to product weight and machinery tolerances' },
-      { label: 'Security', value: 'Glue seals, shrink wraps, void labels, and serialized codes' },
-      { label: 'MOQ', value: 'Starts at 5K units with compliance documentation support' }
-    ],
-    sizes: [
-      { name: 'Pantry SKU', dimensions: '5 × 3 × 7 in', price: 'Quote on request' },
-      { name: 'Household Tall', dimensions: '7 × 3 × 9 in', price: 'Quote on request' },
-      { name: 'Industrial Pack', dimensions: '9 × 4 × 11 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Tailored to production equipment and freight requirements', price: 'Review with automation team' }
-    ],
-    galleryImages: [
-      'Box-5_pdb8xw',
-      'shipping-box_jyysru',
-      'Box-6_vm3fmh',
-      'Mailer-Box-3_oct2ws'
-    ],
-    customizationOptions: [
-      'Integrate tear strips, recloseable zippers, or spout inserts',
-      'Add holographic or UV security elements for authentication',
-      'Include folded inserts, sachet channels, or blister retainers',
-      'Pair cartons with shelf-ready displays or master cases',
-      'Offer pallet pattern planning and regional warehousing programs'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Corrugated Seal-End Cartons',
-      description: 'Engineer cartons that keep pace with automation while safeguarding brand reputation.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Automation Alignment', value: 'Cartons tuned to erectors, fillers, sealers, and case packers' },
-        { label: 'Barrier Engineering', value: 'Grease, moisture, or UV protection layered into board selection' },
-        { label: 'Security & Compliance', value: 'Glue profiles, tear evidence, regulatory panel layouts, and serialization' },
-        { label: 'Brand Expression', value: 'High-impact graphics, foil, or tactile varnishes on corrugate' },
-        { label: 'Fulfillment', value: 'Kitting, palletization plans, and JIT inventory management' },
-        { label: 'Sustainability', value: 'Recycled liners, soy inks, and recyclable coatings' },
-        { label: 'Testing', value: 'Line trials, drop tests, and climate conditioning documented' }
-      ],
-      footerNote: 'We keep your seal-end cartons running fast, staying compliant, and looking premium.',
-      supportTitle: 'Scaling a corrugated seal-end program?',
-      supportDescription: 'Partner with our engineers to align specifications, testing, and rollout schedules.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Audit current packaging, review glue patterns, and optimize carton design together.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive die drawings, validation reports, and logistics recommendations.'
-        }
+        { label: 'Material Type', value: 'E-flute corrugated with high-burst strength liners for automation' },
+        { label: 'Structure', value: 'Seal-end closure with auto-bottom for quick setup and tamper control' },
+        { label: 'Thickness', value: '1/16" profile with optional double-wall front for heavier loads' },
+        { label: 'Finish', value: 'Matte AQ, spot UV seals, reinforced tear strips for easy opening' },
+        { label: 'Printing', value: 'Flexo or digital with regulatory panels and sequential barcoding' },
+        { label: 'Dimensions (L x W x H)', value: 'Cartons from 4" x 2" x 8" to 9" x 4" x 13"' },
+        { label: 'Quantity', value: 'Corrugated seal-end runs from 500 shippers' }
       ]
     },
-    ctaTitle: 'Ready for High-Speed Corrugated Cartons?',
-    ctaDescription: 'Send your line specs and let us craft seal-end packaging that performs under pressure.',
+    faq: buildFaq('Corrugated Seal End Auto Bottom Box', [
+      {
+        question: 'Do these cartons support automated filling lines?',
+        answer:
+          'Absolutely. Auto-bottom construction snaps open instantly, and seal-end flaps are sized for glue application on high-speed equipment.'
+      },
+      {
+        question: 'Can we add tamper-evident features?',
+        answer:
+          'We incorporate tear strips, perforated tabs, or security slits to give your customers confidence that the box hasn’t been opened.'
+      },
+      {
+        question: 'What coatings are available for corrugated seal-end boxes?',
+        answer:
+          'We can apply moisture, grease, or UV-resistant coatings to protect contents during storage and shipping.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for High-Speed Corrugated Cartons?',
+      description: 'Send your line specs and let us craft seal-end packaging that performs under pressure.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Corrugated Seal-End Cartons Built for Performance',
@@ -4537,6 +3322,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Corrugated Auto Bottom Tray
   'corrugated-auto-bottom-tray': {
     name: 'Corrugated Auto Bottom Tray',
@@ -4552,64 +3338,39 @@ const rawProductData = {
       'Optional grease or moisture barriers for food applications',
       'Excellent for fulfillment stations, co-packers, and retail merchandising'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'E or B-flute corrugate with optional barrier coatings' },
-      { label: 'Structure', value: 'Auto-bottom tray with open top or optional locking lid' },
-      { label: 'Finish', value: 'Natural kraft, matte AQ, gloss UV, or printed wraps' },
-      { label: 'Printing', value: 'Full-color litho, direct flexo, or hybrid digital' },
-      { label: 'Dimensions', value: 'Custom footprint, wall height, and flare tuned to product' },
-      { label: 'Accessories', value: 'Partitions, risers, product wells, or collateral slots' },
-      { label: 'MOQ', value: 'Starts at 500 trays with fulfillment services available' }
-    ],
-    sizes: [
-      { name: 'Meal Kit', dimensions: '11 × 8 × 3 in', price: 'Quote on request' },
-      { name: 'Retail Display', dimensions: '13 × 9 × 4 in', price: 'Quote on request' },
-      { name: 'Warehouse Tray', dimensions: '15 × 10 × 5 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Engineered to workflow, weight, and branding needs', price: 'Consult fulfillment team' }
-    ],
-    galleryImages: [
-      'shipping-box_jyysru',
-      'Box-6_vm3fmh',
-      'Mailer-Box-3_oct2ws',
-      'products-box-img_x8vu4b'
-    ],
-    customizationOptions: [
-      'Add grease-resistant liners, PE-free films, or absorbent pads',
-      'Design nested trays or modular inserts for multi-component kits',
-      'Include belly bands, sleeves, or lids for premium presentation',
-      'Pre-fold trays for immediate use on production lines',
-      'Bundle with master shippers or pallet programs for distribution'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Corrugated Auto-Bottom Trays',
-      description: 'Keep operations moving with trays built for speed, stability, and on-brand presentation.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Structural Geometry', value: 'Flare angles, wall height, and reinforcement tuned to product weights' },
-        { label: 'Insert Strategy', value: 'Partitions, utensil channels, or accessory compartments' },
-        { label: 'Branding', value: 'Bold exterior graphics, interior storytelling, or QR engagement' },
-        { label: 'Protection', value: 'Barrier coatings, liners, or moisture guards for culinary programs' },
-        { label: 'Fulfillment', value: 'Pre-folding, kitting, and drop-ship arrangements' },
-        { label: 'Sustainability', value: 'Recyclable corrugate and water-based inks as standard' },
-        { label: 'Deployment', value: 'Pallet planning, replenishment, and co-packer coordination' }
-      ],
-      footerNote: 'We make sure your trays pop open fast and stand strong through fulfillment and display.',
-      supportTitle: 'Launching a kit or merchandising refresh?',
-      supportDescription: 'Work with our operations team to tailor corrugated trays that keep pace with your workflow.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Prototype tray structures and inserts alongside our engineers.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive dielines, finish suggestions, and production timelines aligned to your launch.'
-        }
+        { label: 'Material Type', value: 'E- or B-flute corrugated with kraft interior and printable exterior' },
+        { label: 'Structure', value: 'Crash-lock auto bottom tray with roll-over top edge and optional lid' },
+        { label: 'Thickness', value: '1/16" E-flute or 3/32" B-flute for heavier items' },
+        { label: 'Finish', value: 'Kraft natural, varnish, or litho-lam wraps with foil edge accents' },
+        { label: 'Printing', value: 'Digital CMYK for short cycles or flexo branding for volume' },
+        { label: 'Dimensions (L x W x H)', value: 'Trays from 6" x 5" x 2" to 14" x 10" x 4"' },
+        { label: 'Quantity', value: 'Auto-bottom corrugated trays starting at 300 units' }
       ]
     },
-    ctaTitle: 'Ready for Corrugated Trays that Fly?',
-    ctaDescription: 'Share your throughput targets—we’ll craft auto-bottom trays that keep operations humming.',
+    faq: buildFaq('Corrugated Auto Bottom Tray', [
+      {
+        question: 'How fast do corrugated auto-bottom trays assemble?',
+        answer:
+          'The crash-lock base pops into place instantly, making them ideal for high-throughput kitting or meal prep lines.'
+      },
+      {
+        question: 'Can trays handle refrigerated or moist environments?',
+        answer:
+          'We select flute profiles and coatings that resist moisture, ensuring the tray stays rigid in cold or damp conditions.'
+      },
+      {
+        question: 'Are lids or film seals available?',
+        answer:
+          'Yes. We engineer compatible lids, film wraps, or shrink bands so you can seal trays for transport or retail display.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for Corrugated Trays that Fly?',
+      description: 'Share your throughput targets—we’ll craft auto-bottom trays that keep operations humming.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Corrugated Auto-Bottom Trays Made for Speed',
@@ -4620,6 +3381,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Corrugated Two Piece Box
   'corrugated-two-piece-box': {
     name: 'Corrugated Two Piece Box',
@@ -4635,64 +3397,39 @@ const rawProductData = {
       'Perfect for electronics, wellness kits, food and beverage assortments',
       'Corrugate strength ensures the keepsake box survives shipment'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'E or B-flute corrugate with litho-laminated wraps' },
-      { label: 'Structure', value: 'Two-piece lid and base with optional neck, shoulder, or locking tabs' },
-      { label: 'Finish', value: 'Matte, gloss, soft-touch, kraft, or specialty textured laminations' },
-      { label: 'Printing', value: 'Full-color litho, foil, emboss/deboss, or spot UV' },
-      { label: 'Dimensions', value: 'Custom lid depth and base clearance tuned to product presentation' },
-      { label: 'Inserts', value: 'Foam, molded pulp, corrugate platforms, or fabric-wrapped trays' },
-      { label: 'MOQ', value: 'Starts at 500 sets with premium finishing available' }
-    ],
-    sizes: [
-      { name: 'Premium Kit', dimensions: '12 × 9 × 4 in', price: 'Quote on request' },
-      { name: 'Luxury Hamper', dimensions: '15 × 11 × 5 in', price: 'Quote on request' },
-      { name: 'Collector Edition', dimensions: '18 × 12 × 6 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Tailored to assortment, weight, and unboxing narrative', price: 'Coordinate with creative studio' }
-    ],
-    galleryImages: [
-      'Box-5_pdb8xw',
-      'Box-6_vm3fmh',
-      'Mailer-Box-3_oct2ws',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Add ribbon pulls, magnetic straps, or belly bands',
-      'Integrate split-color wraps, foil crests, or textured papers',
-      'Include interior story panels, product guides, or tasting notes',
-      'Bundle with outer shippers, slipcovers, or dust covers',
-      'Offer kitting, tissue wrapping, and drop-ship fulfillment services'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Corrugated Two Piece Boxes',
-      description: 'Deliver premium unboxing moments backed by corrugated durability.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Exterior Finish', value: 'Soft-touch, linen, kraft, or high-gloss wraps with specialty accents' },
-        { label: 'Interior Stage', value: 'Custom inserts, platforms, and storytelling panels for each SKU' },
-        { label: 'Closure Enhancements', value: 'Ribbons, magnets, belly bands, or tamper seals' },
-        { label: 'Personalization', value: 'Variable sleeves, foiled initials, or edition numbering' },
-        { label: 'Fulfillment', value: 'Pre-assembly, pack-out, and drop-ship logistics across regions' },
-        { label: 'Sustainability', value: 'Recycled corrugate, water-based inks, and recyclable inserts' },
-        { label: 'Launch Planning', value: 'Sample approvals, production scheduling, and inventory staging' }
-      ],
-      footerNote: 'We deliver corrugated keepsake boxes that feel luxurious and arrive in perfect condition.',
-      supportTitle: 'Launching a premium kit or subscription?',
-      supportDescription: 'Collaborate with our creative and operations teams to build corrugated two-piece packaging that scales.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Review wrap options, insert concepts, and fulfillment workflows together.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive dielines, finish mockups, and pricing ladders tailored to your rollout.'
-        }
+        { label: 'Material Type', value: 'C-flute corrugated with double-coated liner for premium print and rigidity' },
+        { label: 'Structure', value: 'Lift-off lid over base tray with telescoping overlap and reinforced corners' },
+        { label: 'Thickness', value: '3/16" corrugated walls with optional foam or pulp inserts' },
+        { label: 'Finish', value: 'Gloss or matte litho-lam wraps, foil accents, satin AQ topcoats' },
+        { label: 'Printing', value: 'Litho CMYK with PMS, embossed lid logos, inside panel printing' },
+        { label: 'Dimensions (L x W x H)', value: 'Keepsake boxes from 10" x 8" x 4" to 18" x 14" x 6"' },
+        { label: 'Quantity', value: 'Custom corrugated two-piece runs from 200 sets' }
       ]
     },
-    ctaTitle: 'Ready to Elevate with Corrugated Lids?',
-    ctaDescription: 'Share your product story—we’ll craft two-piece boxes that customers keep long after unboxing.',
+    faq: buildFaq('Corrugated Two Piece Box', [
+      {
+        question: 'Why choose corrugated for a two-piece box?',
+        answer:
+          'You get the protective strength needed for shipping plus the premium presentation of a keepsake box, all while managing costs.'
+      },
+      {
+        question: 'Can the exterior be fully wrapped with artwork?',
+        answer:
+          'Yes. Litho-laminate wraps allow for edge-to-edge graphics, foil accents, and textures that elevate your brand.'
+      },
+      {
+        question: 'Do you provide inserts to hold products in place?',
+        answer:
+          'We design foam, corrugated, or molded pulp inserts that secure each component during transit and unboxing.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Elevate with Corrugated Lids?',
+      description: 'Share your product story—we’ll craft two-piece boxes that customers keep long after unboxing.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Corrugated Two Piece Boxes Crafted for Premium Unboxing',
@@ -4703,6 +3440,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Corrugated Brief Case Style Box
   'corrugated-brief-case-style-box': {
     name: 'Corrugated Brief Case Style Box',
@@ -4718,64 +3456,39 @@ const rawProductData = {
       'Ideal for sales enablement, influencer drop kits, and product demos',
       'Ships flat or pre-assembled depending on timeline and volume'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'EB or double-wall corrugate with premium wraps' },
-      { label: 'Structure', value: 'Briefcase form factor with reinforced handle and locking front flap' },
-      { label: 'Finish', value: 'Matte, gloss, soft-touch, or textured laminations' },
-      { label: 'Printing', value: 'Full-color litho, foil, spot UV, or duplex color schemes' },
-      { label: 'Dimensions', value: 'Custom width, depth, and spine width to suit contents' },
-      { label: 'Inserts', value: 'Foam, EVA, molded pulp, or SBS trays for kit organization' },
-      { label: 'MOQ', value: 'Starts at 250 kits with kitting and fulfillment available' }
-    ],
-    sizes: [
-      { name: 'Sales Kit', dimensions: '14 × 10 × 3 in', price: 'Quote on request' },
-      { name: 'Demo Case', dimensions: '16 × 12 × 4 in', price: 'Quote on request' },
-      { name: 'Executive Edition', dimensions: '18 × 13 × 5 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Engineered to component layout and travel requirements', price: 'Collaborate with kit designer' }
-    ],
-    galleryImages: [
-      'Box-6_vm3fmh',
-      'Mailer-Box-3_oct2ws',
-      'Box-5_pdb8xw',
-      'shipping-box_jyysru'
-    ],
-    customizationOptions: [
-      'Add magnetic locks, snap closures, or tamper-evident seals',
-      'Integrate interior pockets, literature holders, or card slots',
-      'Include LED lighting, sound modules, or digital screens',
-      'Bundle with outer shippers, palettes, or stands for event staging',
-      'Offer personalized nameplates, foil monograms, or serialized badges'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Corrugated Briefcase Kits',
-      description: 'Deliver a professional-grade presentation case that travels safely and leaves a lasting impression.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Exterior Styling', value: 'Soft-touch wraps, duplex color blocking, or metallic finishes' },
-        { label: 'Interior Layout', value: 'Foam cradles, removable trays, or modular compartments' },
-        { label: 'Security', value: 'Magnetic locks, tamper seals, or coded closures' },
-        { label: 'Interactive Elements', value: 'LED reveals, audio modules, or QR journeys' },
-        { label: 'Fulfillment', value: 'Hand assembly, collateral loading, and direct shipment to recipients' },
-        { label: 'Sustainability', value: 'Recyclable corrugate, soy inks, and reusable insert strategies' },
-        { label: 'Launch Support', value: 'Storyboards, mockups, and production scheduling aligned to events' }
-      ],
-      footerNote: 'We build corrugated briefcases that carry your brand message with confidence.',
-      supportTitle: 'Planning a sales or influencer tour?',
-      supportDescription: 'Work with our experiential packaging team to choreograph every element of your briefcase kit.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Prototype insert layouts, closures, and experiential touches together.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive dielines, finish inspiration, and cost scenarios tailored to your route.'
-        }
+        { label: 'Material Type', value: 'BC flute double-wall corrugated with laminated exterior wrap' },
+        { label: 'Structure', value: 'Suitcase-style folding case with die-cut handle and Velcro or snap closure' },
+        { label: 'Thickness', value: '1/4" combined board with spine reinforcements for presentation kits' },
+        { label: 'Finish', value: 'Matte lamination, textured films, foil logos, corner protectors' },
+        { label: 'Printing', value: 'Litho-lam CMYK, spot UV graphics, optional personalization' },
+        { label: 'Dimensions (L x W x H)', value: 'Presentation cases from 14" x 10" x 3" to 20" x 14" x 5"' },
+        { label: 'Quantity', value: 'Limited corrugated briefcase runs starting at 100 kits' }
       ]
     },
-    ctaTitle: 'Ready to Deploy Your Brand Briefcase?',
-    ctaDescription: 'Tell us about your activation—we’ll craft corrugated briefcase kits built to travel and impress.',
+    faq: buildFaq('Corrugated Brief Case Style Box', [
+      {
+        question: 'How durable are the handles on corrugated briefcase kits?',
+        answer:
+          'We reinforce handle cut-outs with laminated board or applied hardware so the case withstands repeated travel and presentations.'
+      },
+      {
+        question: 'Can I include foam or molded inserts for devices?',
+        answer:
+          'Yes. We custom-cut inserts for tablets, samples, and collateral, keeping everything organized and secure during transport.'
+      },
+      {
+        question: 'Do these cases ship assembled?',
+        answer:
+          'We typically ship them flat with pre-installed hardware for efficient freight, but fully assembled delivery is available for turnkey programs.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Deploy Your Brand Briefcase?',
+      description: 'Tell us about your activation—we’ll craft corrugated briefcase kits built to travel and impress.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Corrugated Briefcase Boxes Built for On-the-Go Presentations',
@@ -4786,6 +3499,7 @@ const rawProductData = {
       ]
     }
   },
+
   // Subcategory: Corrugated Full Flap Shipping Box
   'corrugated-full-flap-shipping-box': {
     name: 'Corrugated Full Flap Shipping Box',
@@ -4801,64 +3515,39 @@ const rawProductData = {
       'Meets or exceeds ISTA, ASTM, and carrier performance standards',
       'Ideal for furniture, industrial components, bulk shipments, and replenishment programs'
     ],
-    specifications: [
-      { label: 'Material Type', value: 'Single, double, or triple-wall corrugate certified for heavy loads' },
-      { label: 'Structure', value: 'Full overlap (FOL) or full over-flap (FOF) shipping carton' },
-      { label: 'Finish', value: 'Kraft, direct flexo print, or laminated labels' },
-      { label: 'Printing', value: '1-4 color flexo, digital print, or large-format labeling' },
-      { label: 'Dimensions', value: 'Custom footprints tuned to equipment, pallets, and trailer specs' },
-      { label: 'Reinforcement', value: 'Corner posts, edge guards, foam, or molded pulp blocking' },
-      { label: 'MOQ', value: 'Starts at 250 cartons with ongoing replenishment programs' }
-    ],
-    sizes: [
-      { name: 'Industrial Small', dimensions: '16 × 12 × 10 in', price: 'Quote on request' },
-      { name: 'Bulk Medium', dimensions: '24 × 18 × 14 in', price: 'Quote on request' },
-      { name: 'Oversize Freight', dimensions: '30 × 24 × 20 in', price: 'Quote on request' },
-      { name: 'Custom', dimensions: 'Engineered to product, pallet, and freight requirements', price: 'Consult logistics engineer' }
-    ],
-    galleryImages: [
-      'shipping-box_jyysru',
-      'Box-6_vm3fmh',
-      'Mailer-Box-3_oct2ws',
-      'Box-5_pdb8xw'
-    ],
-    customizationOptions: [
-      'Add foam blocking, honeycomb pads, or corrugate inserts',
-      'Include pallet skirts, slip sheets, or stretch-film programs',
-      'Apply branding via direct print, decals, or laminated panels',
-      'Integrate barcode, QR, or RFID labeling for inventory tracking',
-      'Offer custom linerboard grades for moisture or corrosion resistance'
-    ],
+
     customization: {
-      eyebrow: 'Customization',
-      heading: 'Customize Your Full Flap Shipping Boxes',
-      description: 'Keep heavy, oversized shipments safe with corrugated solutions engineered for demanding supply chains.',
-      detailsHeading: 'Tailor Every Detail',
       details: [
-        { label: 'Structural Strength', value: 'Board grades, flute combinations, and reinforcements matched to load requirements' },
-        { label: 'Product Protection', value: 'Blocking, foam, or hybrid solutions for fragile or high-value contents' },
-        { label: 'Brand Visibility', value: 'Large-format printing, decals, or color-coding for easy identification' },
-        { label: 'Logistics', value: 'Pallet utilization strategies, strap slots, and freight optimization' },
-        { label: 'Compliance', value: 'ISTA, ASTM, and carrier compliance testing documented' },
-        { label: 'Sustainability', value: 'Recycled liners, reusable blocking, and recycle-ready specs' },
-        { label: 'Fulfillment', value: 'On-demand production, regional warehouses, and replenishment programs' }
-      ],
-      footerNote: 'We engineer full flap cartons that thrive in the toughest shipping environments.',
-      supportTitle: 'Need heavy-duty corrugated solutions?',
-      supportDescription: 'Work with our logistics packaging engineers to optimize carton strength, cost, and supply chain performance.',
-      supportActions: [
-        {
-          label: 'Live Assistance',
-          description: 'Evaluate load specs, reinforcements, and pallet plans with our engineering team.'
-        },
-        {
-          label: 'Email Consultation',
-          description: 'Receive structural proposals, testing data, and replenishment strategies.'
-        }
+        { label: 'Material Type', value: '32ECT-44ECT corrugated kraft with extended flaps for double-layer strength' },
+        { label: 'Structure', value: 'Full-overlap slotted carton (FOL) with heavy-duty stapled or taped seams' },
+        { label: 'Thickness', value: 'Single or double wall board 3/16"-1/4" based on freight requirements' },
+        { label: 'Finish', value: 'Kraft exterior, flood color branding, moisture-resistant spray, warning marks' },
+        { label: 'Printing', value: 'Large-format flexo up to 3 colors or digital branding on top panels' },
+        { label: 'Dimensions (L x W x H)', value: 'Shippers from 10" x 8" x 6" to 30" x 18" x 16"' },
+        { label: 'Quantity', value: 'Logistics programs from 250 corrugated FOL cartons' }
       ]
     },
-    ctaTitle: 'Ready to Ship with Confidence?',
-    ctaDescription: 'Share your freight profile—we’ll build corrugated full flap cartons that arrive ready for the job.',
+    faq: buildFaq('Corrugated Full Flap Shipping Box', [
+      {
+        question: 'When should I choose a full flap shipping box?',
+        answer:
+          'Full overlap flaps add stacking strength and edge protection, making them ideal for heavy loads, industrial components, or long-haul freight.'
+      },
+      {
+        question: 'Can these boxes be pallet-optimized?',
+        answer:
+          'Yes. We engineer dimensions around your pallet configuration to maximize trailer space and reduce shipping costs.'
+      },
+      {
+        question: 'Do you offer internal bracing for fragile items?',
+        answer:
+          'We can add foam, corrugated partitions, or wood bracing to secure oversized or delicate products inside the shipper.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Ship with Confidence?',
+      description: 'Share your freight profile—we’ll build corrugated full flap cartons that arrive ready for the job.'
+    },
     overview: {
       heading: 'Product Overview',
       title: 'Corrugated Full Flap Cartons Built for Rugged Logistics',
@@ -4868,88 +3557,741 @@ const rawProductData = {
         'From industrial components to retail replenishment, your packaging performs reliably and efficiently.'
       ]
     }
-  }
+  },
+
+  // Subcategory: Stand Up Pouche
+  'stand-up-pouche': {
+    name: 'Stand Up Pouche',
+    description: 'Self-standing mylar pouches that combine barrier performance with shelf-ready presentation for food, wellness, and lifestyle brands.',
+    heroImage: 'standup-zip-lock-myler-box_dlgobk',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
+    customization: {
+      details: [
+        { label: 'Material Type', value: 'PET/VMPET/PE multi-layer laminations with high oxygen and moisture barrier' },
+        { label: 'Structure', value: 'Bottom gusset stand-up pouch with zipper, tear notch, and optional euro slot' },
+        { label: 'Thickness', value: '3 mil / 4 mil / 5 mil film stacks tuned to product shelf life' },
+        { label: 'Finish', value: 'Gloss, matte, soft-touch, or holographic film combinations' },
+        { label: 'Printing', value: 'Rotogravure or digital up to 9 colors with matte/gloss dual panels' },
+        { label: 'Dimensions (L x W x H)', value: 'Standard 4" x 6" x 2" to 12" x 15" x 4" pouch formats' },
+        { label: 'Quantity', value: 'Runs from 1,000 digitally printed pouches to 50,000+ gravure lots' }
+      ]
+    },
+    faq: buildFaq('Stand Up Pouches', [
+      {
+        question: 'What zipper options are available for stand up pouches?',
+        answer:
+          'We offer standard press-to-close, child-resistant, and slider zippers. Each option is tested for seal integrity to match your product requirements.'
+      },
+      {
+        question: 'Can stand up pouches support clear windows or metallic finishes?',
+        answer:
+          'Yes. We layer films to include transparent windows, metallics, or holographic effects while maintaining barrier performance.'
+      },
+      {
+        question: 'How are shelf-life requirements handled?',
+        answer:
+          'We select laminate structures based on oxygen and moisture sensitivity, then validate them through lab testing to confirm shelf-life goals.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Launch Stand-Up Pouches?',
+      description: 'Share your product requirements and we\'ll engineer stand-up pouches that protect freshness and elevate shelf appeal.'
+    },
+    overview: {
+      heading: 'Product Overview',
+      title: 'Stand-Up Pouches Built for Shelf Impact',
+      paragraphs: [
+        'Stand-up pouches balance barrier protection with flexible merchandising. We tailor laminate stacks, gusset styles, and closures so your products stay fresh while commanding attention on the shelf.',
+        'From small batch launches to national rollouts, we offer digital and gravure printing that keeps gradients crisp, metallic accents vibrant, and regulatory copy clear.',
+        'Whether you’re targeting retail aisles or e-commerce fulfillment, our team supports prototyping, testing, and production scaling to keep launches on schedule.'
+      ]
+    }
+  },
+
+  // Subcategory: Kraft Shopping Bag
+  'kraft-shopping-bag': {
+    name: 'Kraft Shopping Bag',
+    description: 'Durable kraft shopping bags with reinforced handles that deliver sustainable, on-the-go branding for retail and events.',
+    heroImage: 'kraft-shopping-bag_otahpn',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
+    customization: {
+      details: [
+        { label: 'Material Type', value: '120gsm-200gsm natural kraft paper with recycled fiber content' },
+        { label: 'Structure', value: 'Square-bottom kraft bag with twisted paper or flat handles' },
+        { label: 'Thickness', value: '120gsm / 157gsm / 200gsm with 600gsm reinforced base inserts' },
+        { label: 'Finish', value: 'Natural kraft, water-based varnish, spot white ink, foil logos' },
+        { label: 'Printing', value: 'Flexo 2-3 colors or offset full-bleed artwork on kraft stocks' },
+        { label: 'Dimensions (L x W x H)', value: 'Retail sizes from 8" x 4" x 10" to 16" x 6" x 14"' },
+        { label: 'Quantity', value: 'Custom kraft bag orders beginning at 250 units' }
+      ]
+    },
+    faq: buildFaq('Kraft Shopping Bags', [
+      {
+        question: 'Can kraft shopping bags support heavy merchandise?',
+        answer:
+          'We reinforce handles and bases to match your product weight, and can add cardboard inserts for extra support with heavier goods.'
+      },
+      {
+        question: 'Are there sustainable ink and coating options?',
+        answer:
+          'Yes. We print with water-based or soy inks and offer aqueous coatings to keep the bag recyclable and eco-friendly.'
+      },
+      {
+        question: 'Do you provide custom handle colors or materials?',
+        answer:
+          'We source twisted paper, flat handles, or specialty cords in custom colors to align with your brand palette.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Refresh Your Kraft Shopping Bags?',
+      description: 'Tell us about your retail program and we\'ll craft kraft shopping bags that carry weight while showcasing your brand.'
+    },
+    overview: {
+      heading: 'Product Overview',
+      title: 'Kraft Shopping Bags Made for Everyday Branding',
+      paragraphs: [
+        'Our kraft shopping bags extend your brand well beyond the checkout counter. We combine reinforced handles, sturdy gussets, and eco-friendly boards to keep every purchase secure and on-message.',
+        'Mix and match finishes, handle styles, and interior printing to create an experience customers love to reuse, multiplying brand impressions with every outing.',
+        'From boutique quantities to nationwide programs, we help you plan production, storage, and replenishment so each campaign stays on track and on budget.'
+      ]
+    }
+  },
+
+  // Subcategory: Paper Bag
+  'paper-bag': {
+    name: 'Paper Bag',
+    description: 'Versatile paper bags designed with custom printing, coatings, and handle options for hospitality, retail, and promotional use.',
+    heroImage: 'paper-bag_q7nlaf',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
+    customization: {
+      details: [
+        { label: 'Material Type', value: 'Bleached art paper 128gsm-210gsm with lamination options' },
+        { label: 'Structure', value: 'Pinch-bottom or euro tote construction with reinforced turn top' },
+        { label: 'Thickness', value: '128gsm / 157gsm / 210gsm paper with 900gsm base board' },
+        { label: 'Finish', value: 'Gloss or matte lamination, spot UV, foil, ribbon or PP rope handles' },
+        { label: 'Printing', value: 'Offset CMYK with Pantone precision and screen metallic overlays' },
+        { label: 'Dimensions (L x W x H)', value: 'Premium totes from 6" x 3" x 8" to 18" x 6" x 15"' },
+        { label: 'Quantity', value: 'Luxury paper bags starting at 300 units per design' }
+      ]
+    },
+    faq: buildFaq('Paper Bags', [
+      {
+        question: 'What handle styles are available for premium paper bags?',
+        answer:
+          'We offer ribbon, PP rope, cotton cord, and die-cut handles, each reinforced at the turn top to support your product weight.'
+      },
+      {
+        question: 'Can paper bags include special finishes like foil or spot UV?',
+        answer:
+          'Yes. We layer foils, spot UV, embossing, or soft-touch laminations to create a luxury feel that complements your brand.'
+      },
+      {
+        question: 'Do you provide custom interior printing?',
+        answer:
+          'We can print interiors with patterns, logos, or messaging, giving customers a branded moment when they look inside the bag.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Design Premium Paper Bags?',
+      description: 'Partner with our team to create printed paper bags that align with your hospitality or retail experience.'
+    },
+    overview: {
+      heading: 'Product Overview',
+      title: 'Premium Paper Bags that Deliver Luxury',
+      paragraphs: [
+        'Premium paper bags pair high-end materials with statement finishes. We layer laminations, foils, and specialty handles to create a tactile experience that mirrors your brand positioning.',
+        'Our structural team calibrates turn tops, bases, and gussets so each bag carries weight comfortably while maintaining crisp geometry.',
+        'With meticulous color management and proofing, you can roll out cohesive programs across multiple locations or seasonal activations without compromising quality.'
+      ]
+    }
+  },
+
+  // Subcategory: PVC Bag
+  'pvc-bag': {
+    name: 'PVC Bag',
+    description: 'Reusable PVC shopping bags that provide durable, wipe-clean performance and high-impact transparency for modern merchandising.',
+    heroImage: 'pvc-bag_jztehq',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
+    customization: {
+      details: [
+        { label: 'Material Type', value: '0.2 mm-0.4 mm clear, frosted, or tinted PVC film with optional fabric trims' },
+        { label: 'Structure', value: 'Heat-sealed tote or pouch with gusseted base and zipper, snap, or drawstring closures' },
+        { label: 'Thickness', value: '0.2 mm / 0.3 mm / 0.4 mm PVC calibrated for load and compliance needs' },
+        { label: 'Finish', value: 'Gloss clear, matte frost, metallic foil edging, and custom binding tape' },
+        { label: 'Printing', value: 'Silk-screen, UV digital, or hot stamping for durable branding on PVC surfaces' },
+        { label: 'Dimensions (L x W x H)', value: 'Formats from 8" x 3" x 6" cosmetic totes to 16" x 6" x 14" event-ready bags' },
+        { label: 'Quantity', value: 'PVC bag runs starting at 500 pieces with custom hardware sourcing' }
+      ]
+    },
+    faq: buildFaq('PVC Bags', [
+      {
+        question: 'Are PVC bags compliant with clear bag policies?',
+        answer:
+          'We can produce PVC bags to meet stadium, event, or workplace transparency requirements, including custom sizing and closures.'
+      },
+      {
+        question: 'Can PVC bags include colored trims or fabric handles?',
+        answer:
+          'Yes. We add fabric bindings, colored trims, and custom hardware so you can tailor the look while keeping wipe-clean performance.'
+      },
+      {
+        question: 'How durable is the printing on PVC surfaces?',
+        answer:
+          'We use silk-screen or UV digital processes that fuse ink to the material, ensuring graphics resist peeling and abrasion.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for Custom PVC Bags?',
+      description: 'Bring us your merchandising goals and we\'ll build PVC bags that stay durable, on-brand, and policy compliant.'
+    },
+    overview: {
+      heading: 'Product Overview',
+      title: 'PVC Bags Crafted for Modern Merchandising',
+      paragraphs: [
+        'PVC bags combine wipe-clean durability with transparent branding opportunities. We customize thickness, trim, and hardware so each bag withstands everyday use while staying stylish.',
+        'Whether you need event-ready totes, cosmetic pouches, or retail carriers, our finishing options—like colored binding and metallic accents—ensure your bags stand out.',
+        'We manage compliance requirements for venues and workplaces, delivering clear bags that pass inspections while showcasing your identity.'
+      ]
+    }
+  },
+
+  // Subcategory: Booklets
+  'booklets': {
+    name: 'Booklets',
+    description: 'Custom printed booklets that deliver product education, storytelling, and promotional content with premium finish options.',
+    heroImage: 'booklets_xu1ahx',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
+    customization: {
+      details: [
+        { label: 'Material Type', value: '70lb-100lb gloss, silk, or uncoated text stocks with optional 10pt-14pt covers' },
+        { label: 'Structure', value: 'Saddle-stitched, perfect bound, coil, or wire-o binding tailored to page count' },
+        { label: 'Thickness', value: 'Interior text weights paired with sturdy cover calipers for longevity' },
+        { label: 'Finish', value: 'Aqueous, soft-touch, spot UV, foil, or emboss to highlight key spreads' },
+        { label: 'Printing', value: 'Digital or offset CMYK with Pantone matches and variable data capability' },
+        { label: 'Dimensions (L x W x H)', value: 'Trim sizes from 5.5" x 8.5" to 9" x 12" plus custom dimensions' },
+        { label: 'Quantity', value: 'Runs from 100 premium booklets to 25,000+ catalogs' }
+      ]
+    },
+    faq: buildFaq('Booklets', [
+      {
+        question: 'Which binding style should I choose for my booklet?',
+        answer:
+          'Saddle-stitch works best for shorter programs, perfect binding adds a square spine for larger page counts, and coil or wire-o keeps manuals lay-flat. We help you pick the ideal format.'
+      },
+      {
+        question: 'Can I mix paper stocks within one booklet?',
+        answer:
+          'Yes. We can combine heavier covers with lighter interior pages or insert specialty sheets like vellum to highlight key sections.'
+      },
+      {
+        question: 'Do you support variable data printing?',
+        answer:
+          'Our digital presses handle variable names, codes, and regional content so each booklet can be personalized for its audience.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Print Custom Booklets?',
+      description: 'Share your content plan and we\'ll produce booklets with the binding, paper, and finishes that fit your brand story.'
+    },
+    overview: {
+      heading: 'Product Overview',
+      title: 'Booklets Tailored to Your Story',
+      paragraphs: [
+        'Booklets help you educate, inspire, and convert. We guide you through binding, page count, and stock selection so every spread reinforces your message.',
+        'Choose from premium covers, specialty coatings, and custom inserts to highlight hero content, callouts, or promotions.',
+        'With digital and offset production under one roof, we handle short runs, large campaigns, and versioned content while maintaining consistent color and quality.'
+      ]
+    }
+  },
+
+  // Subcategory: Brochures
+  'brochures': {
+    name: 'Brochures',
+    description: 'Tri-fold, bi-fold, and specialty brochures designed to communicate product benefits, pricing, and brand stories.',
+    heroImage: 'brochures_eal6ji',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
+    customization: {
+      details: [
+        { label: 'Material Type', value: '80lb-100lb gloss or silk text with optional 10pt cover wraps' },
+        { label: 'Structure', value: 'Tri-fold, bi-fold, gate-fold, roll-fold, or custom layouts to fit content' },
+        { label: 'Thickness', value: 'Text weights calibrated for fold integrity and premium feel' },
+        { label: 'Finish', value: 'Gloss AQ, satin varnish, spot UV, foil accents, or soft-touch options' },
+        { label: 'Printing', value: 'Digital for short runs or offset CMYK + PMS for high-accuracy branding' },
+        { label: 'Dimensions (L x W x H)', value: 'Standard 8.5" x 11" folds to 11" x 17" or custom panel sizes' },
+        { label: 'Quantity', value: 'Marketing runs from 250 brochures to large-scale event fulfillment' }
+      ]
+    },
+    faq: buildFaq('Brochures', [
+      {
+        question: 'Which fold style is best for my content?',
+        answer:
+          'Tri-folds organize information into simple panels, gate-folds create a reveal, and roll-folds handle long storytelling. We mock up options so you can see how content flows.'
+      },
+      {
+        question: 'Can brochures include spot finishes or foil?',
+        answer:
+          'Yes. Spot UV, foil, and soft-touch finishes highlight key visuals and give your brochure a premium touch.'
+      },
+      {
+        question: 'Do you handle direct-mail ready brochures?',
+        answer:
+          'We can trim, tab, and address brochures to meet postal regulations, making them ready for mail fulfillment.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Launch Your Next Brochure?',
+      description: 'Send us your messaging goals and we\'ll craft brochures with folds and finishes that capture attention.'
+    },
+    overview: {
+      heading: 'Product Overview',
+      title: 'Brochures Engineered for Conversion',
+      paragraphs: [
+        'Brochures translate complex offerings into digestible panels. We map your narrative to the right fold sequence, ensuring readers uncover information in a logical rhythm.',
+        'High-impact print techniques—spot UV, metallic hits, soft-touch coatings—ensure every surface feels deliberate and on-brand.',
+        'From trade shows to direct mail, we handle finishing, fulfillment, and logistics so your brochures arrive ready to deploy.'
+      ]
+    }
+  },
+
+  // Subcategory: Tags Printing
+  'tags-printing': {
+    name: 'Tags Printing',
+    description: 'Custom hang tags and product tags that reinforce branding, pricing, and care instructions across retail assortments.',
+    heroImage: 'tag-printing_mimtc4',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
+    customization: {
+      details: [
+        { label: 'Material Type', value: '14pt-22pt coated, uncoated, or kraft cover stocks with duplex options' },
+        { label: 'Structure', value: 'Die-cut hang tags with drill holes, eyelets, stringing, or specialty shapes' },
+        { label: 'Thickness', value: '0.014" / 0.018" / 0.022" boards matched to product weight' },
+        { label: 'Finish', value: 'Matte, gloss, soft-touch, foil, UV spot, painted edges, or varnished seams' },
+        { label: 'Printing', value: 'Offset CMYK, digital short-run, or letterpress with metallic and embossing' },
+        { label: 'Dimensions (L x W x H)', value: 'Custom die sizes from 1.5" x 2.5" to 4" x 6" storytelling tags' },
+        { label: 'Quantity', value: 'Tag programs from 500 pieces with pre-stringing services' }
+      ]
+    },
+    faq: buildFaq('Tags', [
+      {
+        question: 'Can you pre-string tags before shipping?',
+        answer:
+          'Yes. Our finishing team can apply strings, ribbons, or metal chains so tags arrive ready to attach on the production line.'
+      },
+      {
+        question: 'Are specialty shapes or die cuts available?',
+        answer:
+          'We can create custom silhouettes, layered tags, or fold-over designs that align with your product storytelling while staying production-friendly.'
+      },
+      {
+        question: 'Do you offer variable data or numbering on tags?',
+        answer:
+          'We support variable barcodes, numbering, and personalization for limited editions or inventory tracking.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for Custom Branded Tags?',
+      description: 'Let us design and finish hang tags that reinforce pricing, storytelling, and product presentation.'
+    },
+    overview: {
+      heading: 'Product Overview',
+      title: 'Tags that Reinforce Every Detail',
+      paragraphs: [
+        'Custom tags do more than display price—they communicate fit, care, and brand personality. We craft tags in bespoke shapes, stocks, and finishes that align with your merchandising vision.',
+        'Options like duplex boards, foil edges, and textured varnishes elevate perception while staying production-friendly.',
+        'Need rapid deployment? Our pre-stringing and kitting services streamline fulfillment so tags arrive ready for the retail floor.'
+      ]
+    }
+  },
+
+  // Subcategory: Business Cards
+  'business-cards': {
+    name: 'Business Cards',
+    description: 'Premium business cards crafted with distinctive stocks, finishes, and print techniques that leave a lasting impression.',
+    heroImage: 'business-cards_ggfnab',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
+    customization: {
+      details: [
+        { label: 'Material Type', value: '16pt-32pt premium card, cotton, or recycled boards with duplex options' },
+        { label: 'Structure', value: 'Standard 3.5" x 2" or custom die-cut shapes with square or rounded corners' },
+        { label: 'Thickness', value: '16pt / 24pt / 32pt multi-ply boards with color seam inserts' },
+        { label: 'Finish', value: 'Soft-touch, velvet, gloss UV, foil stamping, debossing, or painted edges' },
+        { label: 'Printing', value: 'Digital or offset CMYK with Pantone precision and specialty spot white' },
+        { label: 'Dimensions (L x W x H)', value: 'Classic 3.5" x 2", square 2.5" x 2.5", or bespoke brand contours' },
+        { label: 'Quantity', value: 'Custom card sets from 100 pieces with variable name personalization' }
+      ]
+    },
+    faq: buildFaq('Business Cards', [
+      {
+        question: 'Can you print different names within the same business card order?',
+        answer:
+          'Yes. We support variable data printing so each card in the run can be personalized with unique names and titles.'
+      },
+      {
+        question: 'What card stocks are available for premium finishes?',
+        answer:
+          'We offer cotton, suede, recycled, and multi-ply boards that pair beautifully with foil, letterpress, or painted edges.'
+      },
+      {
+        question: 'Do you provide design proofing before production?',
+        answer:
+          'We send digital proofs and can produce physical samples upon request to ensure color, finish, and tactile qualities meet expectations.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Elevate Your Business Cards?',
+      description: 'Collaborate with our team to create business cards with standout stocks, finishes, and personalization.'
+    },
+    overview: {
+      heading: 'Product Overview',
+      title: 'Business Cards Designed to Impress',
+      paragraphs: [
+        'Business cards are often a first tactile impression. We combine premium stocks, layered constructions, and refined finishing to make sure that moment sticks.',
+        'Choose from letterpress, foil, emboss, painted edges, and specialty laminations to mirror your brand tone and texture.',
+        'Our team manages variable data across large teams while preserving color consistency, ensuring every handoff feels personal and premium.'
+      ]
+    }
+  },
+
+  // Subcategory: Custom Tissue Paper
+  'custom-tissue-paper': {
+    name: 'Custom Tissue Paper',
+    description: 'Branded tissue paper that wraps products in a memorable layer, reinforcing your visual identity from unboxing onward.',
+    heroImage: 'cutom-tissue-paper_vlplnt',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
+    customization: {
+      details: [
+        { label: 'Material Type', value: '17gsm, 22gsm, or 28gsm acid-free tissue compatible with soy inks' },
+        { label: 'Structure', value: 'Sheeted or roll formats cut to size for wrapping, interleaving, or void fill' },
+        { label: 'Thickness', value: '17gsm lightweight, 22gsm midweight, or 28gsm premium layering tissue' },
+        { label: 'Finish', value: 'Matte translucent, metallic sheen, or pearlescent coatings' },
+        { label: 'Printing', value: 'Flexo or rotary up to 2 colors with repeating patterns or edge-to-edge branding' },
+        { label: 'Dimensions (L x W x H)', value: 'Standard 20" x 30" sheets with custom cuts from 10" squares to 40" rolls' },
+        { label: 'Quantity', value: 'Bulk packs from 1,000 sheets with color assortment or mixed pattern runs' }
+      ]
+    },
+    faq: buildFaq('Custom Tissue Paper', [
+      {
+        question: 'Can tissue paper be printed with multiple colors?',
+        answer:
+          'We can print up to two colors using flexo or rotary processes. For multi-color designs we layer inks strategically to maintain translucency.'
+      },
+      {
+        question: 'Is the tissue paper acid-free and colorfast?',
+        answer:
+          'Yes. Our tissues are acid-free to protect delicate products and we use colorfast inks that won’t transfer onto merchandise.'
+      },
+      {
+        question: 'Do you offer custom sheet sizes?',
+        answer:
+          'We cut sheets to your required dimensions or supply rolls, making it easy to integrate with gift-wrapping or fulfillment workflows.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Wrap with Custom Tissue?',
+      description: 'Tell us about your unboxing experience and we\'ll produce tissue paper that protects and reinforces your brand.'
+    },
+    overview: {
+      heading: 'Product Overview',
+      title: 'Custom Tissue Paper for Memorable Reveals',
+      paragraphs: [
+        'Custom tissue transforms every unboxing into a branded moment. We select weights and finishes that complement your packaging while shielding products in transit.',
+        'Repeat patterns, edge-to-edge designs, and metallic accents keep your visuals front and center even before products are fully revealed.',
+        'Whether you need seasonal runs or evergreen programs, we handle color matching and inventory planning so tissue arrives exactly when you need it.'
+      ]
+    }
+  },
+
+  // Subcategory: Butter Paper
+  'butter-paper': {
+    name: 'Butter Paper',
+    description: 'Food-safe butter paper that keeps confections, baked goods, and deli items fresh while highlighting your brand.',
+    heroImage: 'butter-paper_duhyqp',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
+    customization: {
+      details: [
+        { label: 'Material Type', value: '30gsm-60gsm greaseproof butter paper certified for direct food contact' },
+        { label: 'Structure', value: 'Flat sheets or perforated roll formats sized for bakery and deli operations' },
+        { label: 'Thickness', value: '30gsm sandwich wrap, 40gsm deli weight, 60gsm patisserie grade' },
+        { label: 'Finish', value: 'Smooth or ribbed textures with aqueous grease barrier and soy inks' },
+        { label: 'Printing', value: 'Flexographic 1-2 color repeats or digital short runs for seasonal menus' },
+        { label: 'Dimensions (L x W x H)', value: 'Sheets from 10" x 10" to 15" x 20" plus custom roll widths' },
+        { label: 'Quantity', value: 'Food-service orders from 5,000 sheets with scheduled replenishment' }
+      ]
+    },
+    faq: buildFaq('Butter Paper', [
+      {
+        question: 'Is butter paper safe for direct food contact?',
+        answer:
+          'Yes. Our butter paper meets FDA and EU food-contact standards, making it suitable for wrapping baked goods and confections.'
+      },
+      {
+        question: 'Can I print my logo on butter paper?',
+        answer:
+          'We print up to two colors with food-safe inks that resist grease, ensuring your branding stays vibrant even with oily foods.'
+      },
+      {
+        question: 'Do you offer perforated rolls or pre-cut sheets?',
+        answer:
+          'We can supply both. Choose pre-cut sheets for speed or perforated rolls for flexible back-of-house operations.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for Custom Printed Butter Paper?',
+      description: 'Share your menu and branding needs—we\'ll deliver butter paper that keeps food fresh and messaging clear.'
+    },
+    overview: {
+      heading: 'Product Overview',
+      title: 'Butter Paper that Keeps Food and Branding Fresh',
+      paragraphs: [
+        'Butter paper balances grease resistance with print fidelity, making it ideal for bakeries, cafes, and food manufacturers.',
+        'We calibrate coatings and ink selections so patterns stay vibrant without transferring to your culinary creations.',
+        'From sandwich wraps to patisserie sheets, we support multiple sizes, perforations, and replenishment schedules to keep operations running smoothly.'
+      ]
+    }
+  },
+
+  // Subcategory: Product Labels & Bottle Labels
+  'product-labels-bottle-labels': {
+    name: 'Product Labels & Bottle Labels',
+    description: 'High-adhesion product and bottle labels built to endure moisture, handling, and logistics while looking sharp on shelf.',
+    heroImage: 'product-label_t1kpzp',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
+    customization: {
+      details: [
+        { label: 'Material Type', value: 'Paper, BOPP, vinyl, and specialty films with permanent, removable, or freezer adhesives' },
+        { label: 'Structure', value: 'Roll or sheet labels, neck hangers, and multi-layer constructions for complex content' },
+        { label: 'Thickness', value: '2 mil films, 3.2 mil vinyl, or 60lb paper face stocks matched to application' },
+        { label: 'Finish', value: 'Gloss, matte, UV, soft-touch, foil, and lamination options for durability' },
+        { label: 'Printing', value: 'Digital HP Indigo for short runs or flexo up to 8 colors with varnish stations' },
+        { label: 'Dimensions (L x W x H)', value: 'Label sizes from 1" circles to 6" x 8" panels customized per bottle silhouette' },
+        { label: 'Quantity', value: 'Label programs from 500 rolls with lot coding and variable personalization' }
+      ]
+    },
+    faq: buildFaq('Product Labels', [
+      {
+        question: 'Which label materials work best for moisture-rich environments?',
+        answer:
+          'For refrigerated or wet applications we recommend BOPP or vinyl stocks paired with permanent, moisture-resistant adhesives.'
+      },
+      {
+        question: 'Can you add foil, emboss, or tactile finishes?',
+        answer:
+          'Yes. We apply foil stamping, embossing, tactile varnish, and spot gloss to help your labels stand out on crowded shelves.'
+      },
+      {
+        question: 'Do you support variable data or lot coding?',
+        answer:
+          'We can print variable data inline or leave dedicated zones for thermal transfer printing, ensuring compliance with traceability requirements.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Upgrade Your Product Labels?',
+      description: 'Send us your packaging specs and we\'ll engineer labels that stay vibrant and compliant on every surface.'
+    },
+    overview: {
+      heading: 'Product Overview',
+      title: 'Product Labels Engineered for Performance',
+      paragraphs: [
+        'Your labels must endure moisture, handling, and logistics—while staying on brand. We match materials, adhesives, and coatings to your application environment.',
+        'From matte textures to gloss finishes and tactile varnishes, we elevate shelf presence without sacrificing compliance.',
+        'Our variable data capabilities and finishing options support complex product lines, limited editions, and regulatory needs with ease.'
+      ]
+    }
+  },
+
+  // Subcategory: Table Tents
+  'table-tents': {
+    name: 'Table Tents',
+    description: 'Custom table tents that turn dining rooms, events, and checkout stations into storytelling touchpoints.',
+    heroImage: 'table-tents_xokzfv',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
+    customization: {
+      details: [
+        { label: 'Material Type', value: '14pt-18pt coated cover or laminated board for high-traffic environments' },
+        { label: 'Structure', value: 'Standard tent, pyramid, or tri-panel shapes with interlocking bases' },
+        { label: 'Thickness', value: '0.014" / 0.016" / 0.018" boards reinforced for repeated handling' },
+        { label: 'Finish', value: 'Gloss or matte lamination, UV spot highlights, scuff-resistant coatings' },
+        { label: 'Printing', value: 'Digital or offset CMYK with variable messaging for seasonal promotions' },
+        { label: 'Dimensions (L x W x H)', value: 'Displays from 4" x 6" standard tents to 5.5" x 8.5" signage' },
+        { label: 'Quantity', value: 'Table tent runs from 250 pieces with versioning by location or menu' }
+      ]
+    },
+    faq: buildFaq('Table Tents', [
+      {
+        question: 'Which table tent shape works best for my venue?',
+        answer:
+          'Classic A-frame tents suit quick-service settings, while pyramid and tri-panel designs provide more space for storytelling. We mock up sizes to match your tables.'
+      },
+      {
+        question: 'Can I laminate table tents for durability?',
+        answer:
+          'Yes. We offer gloss, matte, and scuff-resistant laminations that protect against spills and frequent handling.'
+      },
+      {
+        question: 'Do you support versioning by location or offer?',
+        answer:
+          'Our digital workflow lets us version artwork for different menus, regions, or promotions within the same production run.'
+      }
+    ]),
+    cta: {
+      title: 'Ready to Promote with Table Tents?',
+      description: 'Provide your campaign details and we\'ll print durable table tents that drive engagement at every touchpoint.'
+    },
+    overview: {
+      heading: 'Product Overview',
+      title: 'Table Tents that Drive On-Premise Engagement',
+      paragraphs: [
+        'Table tents turn every surface into a storytelling platform. We design structures that stay upright, resist spills, and reflect your brand aesthetic.',
+        'Versioned content allows you to tailor messaging to locations, dayparts, or promotions without retooling entire campaigns.',
+        'With durable coatings and quick-turn digital printing, your table tents arrive ready for high-traffic environments.'
+      ]
+    }
+  },
+
+  // Subcategory: Packing Tape
+  'packing-tape': {
+    name: 'Packing Tape',
+    description: 'Custom printed packing tape that secures shipments while extending brand visibility across every package.',
+    heroImage: 'packing-tape_v4prqu',
+    modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
+    customization: {
+      details: [
+        { label: 'Material Type', value: 'BOPP, kraft paper, or reinforced gummed tape with acrylic, hot melt, or starch adhesives' },
+        { label: 'Structure', value: 'Hand and machine rolls with 3" cores and custom width repeats' },
+        { label: 'Thickness', value: '2.0 mil / 2.5 mil / 3.0 mil film or 70gsm paper with fiberglass reinforcement' },
+        { label: 'Finish', value: 'Gloss, matte, writable surfaces, or water-activated coatings' },
+        { label: 'Printing', value: 'Flexo up to 3 colors, digital short runs, or rotogravure for complex patterns' },
+        { label: 'Dimensions (L x W x H)', value: 'Roll widths 48 mm, 72 mm, or custom cuts with lengths 50 m to 1000 m' },
+        { label: 'Quantity', value: 'Tape orders from 72 rolls per design with pallet replenishment programs' }
+      ]
+    },
+    faq: buildFaq('Packing Tape', [
+      {
+        question: 'Which tape material should I choose for my shipments?',
+        answer:
+          'BOPP tape is great for general e-commerce, reinforced gummed tape offers tamper evidence for heavier loads, and kraft tape is ideal for eco-forward programs. We help you match adhesive strength to your boxes.'
+      },
+      {
+        question: 'Can packing tape be printed in multiple colors?',
+        answer:
+          'Yes. We print up to three colors flexographically, and can run digital or rotogravure processes for complex patterns or gradients.'
+      },
+      {
+        question: 'Do you supply both hand and machine rolls?',
+        answer:
+          'We slit rolls to fit hand dispensers or automated case sealers, ensuring your tape integrates seamlessly with your fulfillment workflow.'
+      }
+    ]),
+    cta: {
+      title: 'Ready for Custom Branded Packing Tape?',
+      description: 'Let us produce packing tape that secures each shipment while keeping your brand front and center.'
+    },
+    overview: {
+      heading: 'Product Overview',
+      title: 'Packing Tape that Locks in Brand Recognition',
+      paragraphs: [
+        'Custom packing tape reinforces security and branding on every parcel. We match tape substrates and adhesives to your box style, weight, and fulfillment process.',
+        'Flexographic, digital, and rotogravure printing options ensure logos and messaging stay crisp, even across long runs.',
+        'From hand rolls to machine-compatible formats, we deliver tape ready to deploy, keeping your shipping workflow efficient and unmistakably yours.'
+      ]
+    }
+  },
+  ...industryPageEntries
 };
 
-const enrichProductEntry = (slug: string, entry: any) => {
-  const name = entry?.name || sentenceCase(slug.replace(/-/g, ' '));
-  const enriched = {
-    slug,
-    ...entry
-  } as any;
-
-  enriched.features = ensureArray(enriched.features, createDefaultFeatures(name));
-  enriched.keyFeatures = ensureArray(enriched.keyFeatures, createDefaultKeyFeatures(name));
-  enriched.specifications = ensureArray(enriched.specifications, createDefaultSpecifications(name));
-  enriched.sizes = ensureArray(enriched.sizes, createDefaultSizes());
-  enriched.galleryImages = ensureArray(enriched.galleryImages, createDefaultGallery());
-  enriched.customizationOptions = ensureArray(enriched.customizationOptions, createDefaultCustomizationOptions(name));
-
+const enrichProductEntry = (slug: string, entry: RawProductEntry): EnrichedProductEntry => {
+  const { ctaTitle, ctaDescription, ...restEntry } = entry;
+  const name = entry.name || sentenceCase(slug.replace(/-/g, ' '));
+  const features = ensureArray(entry.features, createDefaultFeatures(name));
+  const keyFeatures = ensureArray(entry.keyFeatures, createDefaultKeyFeatures(name));
   const defaultCustomization = createDefaultCustomization(name);
-  enriched.customization = {
+  const customizationOverrides = entry.customization ?? {};
+  const customization: DefaultCustomization = {
     ...defaultCustomization,
-    ...(enriched.customization || {})
+    ...customizationOverrides,
+    details: ensureArray(
+      customizationOverrides.details,
+      defaultCustomization.details
+    ),
+    supportActions: ensureArray(
+      customizationOverrides.supportActions,
+      defaultCustomization.supportActions
+    )
   };
-  enriched.customization.details = ensureArray(
-    enriched.customization.details,
-    defaultCustomization.details
-  );
-  enriched.customization.supportActions = ensureArray(
-    enriched.customization.supportActions,
-    defaultCustomization.supportActions
-  );
 
-  enriched.overview = enriched.overview || createDefaultOverview(name, enriched.description);
+  const defaultOverview = createDefaultOverview(name, entry.description);
+  const overviewParagraphs = ensureArray(
+    entry.overview?.paragraphs,
+    defaultOverview.paragraphs
+  );
+  const overview: ReturnType<typeof createDefaultOverview> = {
+    ...defaultOverview,
+    ...(entry.overview ?? {}),
+    paragraphs: overviewParagraphs
+  };
+
   const defaultWhyChooseUs = createDefaultWhyChooseUs(name);
-  enriched.whyChooseUs = {
+  const whyChooseUs: DefaultWhyChooseUs = {
     ...defaultWhyChooseUs,
-    ...(enriched.whyChooseUs || {})
+    ...(entry.whyChooseUs ?? {}),
+    features: ensureArray(
+      entry.whyChooseUs?.features,
+      defaultWhyChooseUs.features
+    )
   };
-  enriched.whyChooseUs.features = ensureArray(
-    enriched.whyChooseUs.features,
-    defaultWhyChooseUs.features
-  );
 
-  const defaultFaq = createDefaultFaq(name);
-  enriched.faq = {
-    ...defaultFaq,
-    ...(enriched.faq || {})
-  };
-  enriched.faq.items = ensureArray(enriched.faq.items, defaultFaq.items);
-
-  const defaultContact = createDefaultContactSection(name);
-  enriched.contactSection = {
-    ...defaultContact,
-    ...(enriched.contactSection || {})
-  };
-  enriched.contactSection.channels = ensureArray(
-    enriched.contactSection.channels,
-    defaultContact.channels
-  );
+  let faq: EnrichedProductEntry['faq'];
+  if (entry.faq) {
+    const items = ensureArray<ProductFAQItem>(
+      entry.faq.items,
+      [] as ProductFAQItem[]
+    );
+    if (items.length > 0) {
+      faq = {
+        ...entry.faq,
+        items
+      };
+    }
+  }
 
   const defaultCTA = createDefaultCTA(name);
-  enriched.ctaTitle = enriched.ctaTitle || defaultCTA.ctaTitle;
-  enriched.ctaDescription = enriched.ctaDescription || defaultCTA.ctaDescription;
+  const cta = {
+    title: entry.cta?.title ?? ctaTitle ?? defaultCTA.title,
+    description: entry.cta?.description ?? ctaDescription ?? defaultCTA.description
+  };
 
-  enriched.subcategoryCards = enriched.subcategoryCards || buildSubcategoryCards(slug);
+  const subcategoryCards = entry.subcategoryCards ?? buildSubcategoryCards(slug);
 
-  return enriched;
+  const enrichedProduct: EnrichedProductEntry = {
+    ...restEntry,
+    slug,
+    name,
+    features,
+    keyFeatures,
+    customization,
+    overview,
+    whyChooseUs,
+    faq,
+    cta,
+    subcategoryCards
+  };
+
+  return enrichedProduct;
 };
 
-const buildProductData = () =>
-  Object.entries(rawProductData).reduce((acc, [slug, entry]) => {
+const buildProductData = (): Record<string, EnrichedProductEntry> =>
+  Object.entries(rawProductData).reduce<Record<string, EnrichedProductEntry>>((acc, [slug, entry]) => {
     acc[slug] = enrichProductEntry(slug, entry);
     return acc;
-  }, {} as Record<string, any>);
+  }, {});
 
-const buildCompleteProductData = () => {
+const buildCompleteProductData = (): Record<string, EnrichedProductEntry> => {
   return buildProductData();
 };
 
 export const productData = buildCompleteProductData();
 
 // Helper function to get product data by slug exclusively from static data
-export const getProductDataBySlug = async (slug: string) => {
+export const getProductDataBySlug = async (slug: string): Promise<EnrichedProductEntry | undefined> => {
   if (productData[slug]) {
     return productData[slug];
   }
@@ -4958,11 +4300,10 @@ export const getProductDataBySlug = async (slug: string) => {
 };
 
 // Helper function to get all products exclusively from static data
-export const getAllProducts = async () =>
+export const getAllProducts = async (): Promise<EnrichedProductEntry[]> =>
   Object.entries(productData).map(([slug, product]) => ({
-    slug,
-    ...product
+    ...product,
+    slug
   }));
 
 export default productData;
-

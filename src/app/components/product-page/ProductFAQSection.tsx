@@ -16,11 +16,11 @@ interface ProductFAQSectionProps {
 }
 
 const ProductFAQSection: React.FC<ProductFAQSectionProps> = ({ faq }) => {
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
+
   if (!faq || !faq.items || faq.items.length === 0) {
     return null;
   }
-
-  const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   const toggleIndex = (index: number) => {
     setActiveIndex(prev => (prev === index ? null : index));
@@ -29,14 +29,20 @@ const ProductFAQSection: React.FC<ProductFAQSectionProps> = ({ faq }) => {
   return (
     <section className="py-24 bg-white">
       <div className="max-w-5xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <span className="inline-flex items-center text-xs tracking-[0.32em] uppercase font-semibold text-[#0c6b76] bg-[#0c6b76]/10 px-5 py-2 rounded-full">
-            {faq.eyebrow || 'FAQs'}
-          </span>
-          <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-[#171717]">
-            {faq.heading || 'Frequently Asked Questions'}
-          </h2>
-        </div>
+        {(faq.eyebrow || faq.heading) && (
+          <div className="text-center mb-14">
+            {faq.eyebrow && (
+              <span className="inline-flex items-center text-xs tracking-[0.32em] uppercase font-semibold text-[#0c6b76] bg-[#0c6b76]/10 px-5 py-2 rounded-full">
+                {faq.eyebrow}
+              </span>
+            )}
+            {faq.heading && (
+              <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-[#171717]">
+                {faq.heading}
+              </h2>
+            )}
+          </div>
+        )}
 
         <div className="space-y-4">
           {faq.items.map((item, index) => {

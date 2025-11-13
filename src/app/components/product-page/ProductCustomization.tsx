@@ -1,6 +1,6 @@
 import React from 'react';
-import GradientBackground from '../../UI/GradientBackground';
 import { Product } from '@/lib/hooks/useProducts';
+import GradientBackground from '../../UI/GradientBackground';
 
 interface ProductCustomizationProps {
   productData?: Product;
@@ -35,13 +35,25 @@ const ProductCustomization: React.FC<ProductCustomizationProps> = ({
   
   const eyebrow = customization?.eyebrow || 'Customization';
   const heading = customization?.heading || `Customize Your ${productData?.name || 'Packaging'}`;
-  const description = customization?.description || `Design and order custom ${productData?.name?.toLowerCase() || 'packaging'} to match your exact needs. Choose your materials, structures, and finishes that bring your brand vision to life.`;
+  const description =
+    customization?.description ||
+    `Design and order custom ${productData?.name?.toLowerCase() || 'packaging'} to match your exact needs. Choose your materials, structures, and finishes that bring your brand vision to life.`;
   const detailsHeading = customization?.detailsHeading || 'Tailor Every Detail';
-  const details = customization?.details || defaultDetails;
-  const footerNote = customization?.footerNote || 'Review your design, preview your sample, and place your order online.';
+  const details =
+    Array.isArray(customization?.details) && customization?.details.length
+      ? customization.details
+      : defaultDetails;
+  const footerNote =
+    customization?.footerNote || 'Review your design, preview your sample, and place your order online.';
   const supportTitle = customization?.supportTitle || 'Need help before ordering?';
-  const supportDescription = customization?.supportDescription || 'If you\'d like to talk before placing your order, our support team is ready.';
-  const supportActions = customization?.supportActions || defaultSupportActions;
+  const supportDescription =
+    customization?.supportDescription ||
+    'If you’d like to talk before placing your order, our support team is ready.';
+  const supportActions =
+    Array.isArray(customization?.supportActions) && customization.supportActions.length
+      ? customization.supportActions
+      : defaultSupportActions;
+
   return (
     <section className="py-24 bg-[#f0f7fb]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -63,21 +75,18 @@ const ProductCustomization: React.FC<ProductCustomizationProps> = ({
 
             <div className="space-y-6">
               <h3 className="text-2xl font-semibold text-[#171717]">{detailsHeading}</h3>
-              <div className="grid gap-4 md:grid-cols-2">
+              <dl className="grid gap-4 md:grid-cols-2">
                 {details.map(detail => (
-                  <div
-                    key={detail.label}
-                    className="bg-white border border-[#d2e4eb] rounded-3xl p-5 shadow-sm"
-                  >
-                    <p className="text-sm font-semibold uppercase tracking-wide text-[#0c6b76] mb-2">
+                  <div key={detail.label} className="bg-white border border-[#d2e4eb] rounded-3xl p-5 shadow-sm">
+                    <dt className="text-sm font-semibold uppercase tracking-wide text-[#0c6b76] mb-2">
                       {detail.label}
-                    </p>
-                    <p className="text-base md:text-lg leading-7 text-[#0c2a30] text-pretty">
+                    </dt>
+                    <dd className="text-base md:text-lg leading-7 text-[#0c2a30] text-pretty">
                       {detail.value}
-                    </p>
+                    </dd>
                   </div>
                 ))}
-              </div>
+              </dl>
             </div>
 
             <p className="text-lg md:text-xl leading-8 text-[#2f2f2f] text-pretty">
@@ -92,9 +101,6 @@ const ProductCustomization: React.FC<ProductCustomizationProps> = ({
                 <h3 className="text-2xl font-semibold">{supportTitle}</h3>
                 <div className="space-y-3 text-base md:text-lg leading-7 text-white/85 text-pretty">
                   <p>{supportDescription}</p>
-                  <p>
-                    If you’d like to talk before placing your order, our support team is ready. You can connect directly with an agent or get a quick email reply to discuss materials, pricing, or design options.
-                  </p>
                 </div>
               </div>
 

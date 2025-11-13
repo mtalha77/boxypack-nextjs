@@ -19,17 +19,17 @@ export interface Product {
     paragraphs?: string[];
     highlights?: string[];
   };
-  specifications: Array<{
+  specifications?: Array<{
     label: string;
     value: string;
   }>;
-  sizes: Array<{
+  sizes?: Array<{
     name: string;
     dimensions: string;
     price?: string;
   }>;
-  galleryImages: string[];
-  customizationOptions: string[];
+  galleryImages?: string[];
+  customizationOptions?: string[];
   customization?: {
     eyebrow?: string;
     heading?: string;
@@ -64,21 +64,6 @@ export interface Product {
       question: string;
       answer: string;
     }>;
-  };
-  contactSection?: {
-    eyebrow?: string;
-    heading?: string;
-    description?: string;
-    channels: Array<{
-      label: string;
-      value: string;
-      type?: 'phone' | 'email' | 'link';
-      href?: string;
-    }>;
-    cta?: {
-      label: string;
-      href?: string;
-    };
   };
   subcategoryCards?: {
     heading?: string;

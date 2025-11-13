@@ -13,28 +13,25 @@ interface ProductOverviewProps {
 }
 
 const ProductOverview: React.FC<ProductOverviewProps> = ({ productData }) => {
-  if (!productData) {
-    return null;
-  }
+  const name = productData?.name ?? '';
+  const description = productData?.description;
+  const overview = productData?.overview;
 
-  const {
-    name,
-    description,
-    overview
-  } = productData;
-
-  // Debug: Log to see what data we're receiving (only in development)
   React.useEffect(() => {
-    if (process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV === 'development' && productData) {
       console.log('ProductOverview Data:', {
-        name,
-        hasOverview: !!overview,
-        paragraphsCount: overview?.paragraphs?.length || 0,
-        paragraphs: overview?.paragraphs,
-        description
+        name: productData.name,
+        hasOverview: !!productData.overview,
+        paragraphsCount: productData.overview?.paragraphs?.length || 0,
+        paragraphs: productData.overview?.paragraphs,
+        description: productData.description
       });
     }
-  }, [name, overview, description]);
+  }, [productData]);
+
+  if (!productData || !name) {
+    return null;
+  }
 
   const overviewHeading = overview?.heading || 'Product Overview';
   const overviewTitle = overview?.title || `${name} at a Glance`;

@@ -37,7 +37,15 @@ const featuredProducts = [
     product: productData["two-piece-rigid-boxes"],
     image: "Mailer-Box-3_oct2ws",
   },
-];
+] as const;
+
+const getProductDescriptionSnippet = (index: number, length: number) => {
+  const description = featuredProducts[index]?.product?.description;
+  if (typeof description !== "string") {
+    return "";
+  }
+  return description.substring(0, length);
+};
 
 const BoxDesignGallery: React.FC = () => {
   return (
@@ -86,10 +94,7 @@ const BoxDesignGallery: React.FC = () => {
                       {featuredProducts[0].product.name}
                     </h3>
                     <p className="text-center text-body-small">
-                      {featuredProducts[0].product.description.substring(
-                        0,
-                        120
-                      )}
+                      {getProductDescriptionSnippet(0, 120)}
                       ...
                     </p>
                   </div>
@@ -117,10 +122,7 @@ const BoxDesignGallery: React.FC = () => {
                       {featuredProducts[1].product.name}
                     </h3>
                     <p className="text-center text-body-small">
-                      {featuredProducts[1].product.description.substring(
-                        0,
-                        120
-                      )}
+                      {getProductDescriptionSnippet(1, 120)}
                       ...
                     </p>
                   </div>
@@ -148,7 +150,7 @@ const BoxDesignGallery: React.FC = () => {
                     {featuredProducts[2].product.name}
                   </h3>
                   <p className="text-center text-body">
-                    {featuredProducts[2].product.description.substring(0, 150)}
+                    {getProductDescriptionSnippet(2, 150)}
                     ...
                   </p>
                 </div>
@@ -178,7 +180,7 @@ const BoxDesignGallery: React.FC = () => {
                     {featuredProducts[3].product.name}
                   </h3>
                   <p className="text-center text-body">
-                    {featuredProducts[3].product.description.substring(0, 150)}
+                    {getProductDescriptionSnippet(3, 150)}
                     ...
                   </p>
                 </div>
@@ -207,7 +209,7 @@ const BoxDesignGallery: React.FC = () => {
                       {featuredProducts[4].product.name}
                     </h3>
                     <p className="text-center text-body-small">
-                      {featuredProducts[4].product.description.substring(0, 120)}
+                      {getProductDescriptionSnippet(4, 120)}
                       ...
                     </p>
                   </div>
@@ -234,7 +236,7 @@ const BoxDesignGallery: React.FC = () => {
                       {featuredProducts[5].product.name}
                     </h3>
                     <p className="text-center text-body-small">
-                      {featuredProducts[5].product.description.substring(0, 120)}
+                      {getProductDescriptionSnippet(5, 120)}
                       ...
                     </p>
                   </div>

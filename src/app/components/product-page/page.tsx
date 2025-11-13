@@ -19,7 +19,72 @@ import ProductOverview from './ProductOverview';
 import ProductCustomization from './ProductCustomization';
 import ProductKeyFeatures from './ProductKeyFeatures';
 import ProductFAQSection from './ProductFAQSection';
-import ProductContactSection from './ProductContactSection';
+
+type EnrichedProduct = NonNullable<Awaited<ReturnType<typeof getProductDataBySlug>>>;
+
+const mapEnrichedToProduct = (enriched: EnrichedProduct): Product => {
+  if (!enriched) {
+    throw new Error('Cannot map an undefined product');
+  }
+
+  const description: string = typeof enriched.description === 'string' ? enriched.description : '';
+  const heroImage: string = typeof enriched.heroImage === 'string' ? enriched.heroImage : 'products-box-img_x8vu4b';
+  const modelPath: string = typeof enriched.modelPath === 'string' ? enriched.modelPath : 'Tuck_End_Auto_Bottom1_ttdsdf';
+  const features: Product['features'] = Array.isArray(enriched.features) ? enriched.features : [];
+  const keyFeatures: Product['keyFeatures'] = Array.isArray(enriched.keyFeatures) ? enriched.keyFeatures : [];
+  const customization: Product['customization'] = enriched.customization ?? {
+    eyebrow: 'Customization',
+    heading: 'Customize Your Packaging',
+    description: '',
+    detailsHeading: 'Customization Details',
+    details: [],
+    footerNote: ''
+  };
+  const overview: NonNullable<Product['overview']> = enriched.overview ?? {
+    heading: 'Product Overview',
+    title: `${enriched.name ?? ''} Overview`,
+    paragraphs: []
+  };
+  const whyChooseUs: NonNullable<Product['whyChooseUs']> = enriched.whyChooseUs ?? {
+    eyebrow: 'Why Choose Us',
+    heading: 'Packaging That Works',
+    description: '',
+    features: []
+  };
+  const faq: Product['faq'] = enriched.faq;
+  const subcategoryCards: Product['subcategoryCards'] = enriched.subcategoryCards;
+
+  const ctaTitle: string =
+    enriched?.cta?.title ?? enriched?.ctaTitle ?? 'Ready to Get Started?';
+
+  const ctaDescription: string =
+    enriched?.cta?.description ??
+    enriched?.ctaDescription ?? 'Get a custom quote today. Our team is ready to help you create the perfect packaging solution.';
+
+  const createdAt = enriched.createdAt instanceof Date ? enriched.createdAt : undefined;
+  const updatedAt = enriched.updatedAt instanceof Date ? enriched.updatedAt : undefined;
+
+  const mapped: Product = {
+    slug: enriched.slug,
+    name: enriched.name,
+    description,
+    heroImage,
+    modelPath,
+    features,
+    keyFeatures,
+    customization,
+    overview,
+    whyChooseUs,
+    faq,
+    subcategoryCards,
+    ctaTitle,
+    ctaDescription,
+    createdAt,
+    updatedAt
+  };
+
+  return mapped;
+};
 
 interface ProductPageTemplateProps {
   section?: NavigationSection;
@@ -52,7 +117,7 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
         setDbLoading(true);
         const product = await getProductDataBySlug(slug);
         if (product) {
-          setDbProduct(product);
+          setDbProduct(mapEnrichedToProduct(product));
         }
       } catch (error) {
         console.warn('Failed to fetch product from database:', error);
@@ -76,7 +141,7 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
     }
 
     if (legacyProductData) {
-      return legacyProductData as Product;
+      return mapEnrichedToProduct(legacyProductData);
     }
 
     return null;
@@ -214,13 +279,13 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
         )}
 
         {/* Related Products Section */}
-        <RelatedProducts
+        {/* <RelatedProducts
           currentSection={section}
           currentCategory={category}
           currentSubcategory={subcategory}
           pageType={pageType}
           maxItems={6}
-        />
+        /> */}
 
         {/* Testimonials Section */}
         <ClientTestamonials productData={productInfo} />
@@ -228,11 +293,8 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
         {/* Frequently Asked Questions */}
         <ProductFAQSection faq={productInfo.faq} />
 
-        {/* Contact Section */}
-        <ProductContactSection contactSection={productInfo.contactSection} />
-
         {/* CTA Section - Ready to Get Started */}
-        <CTASection />
+        <CTASection productData={{ cta: { title: productInfo.ctaTitle, description: productInfo.ctaDescription } }} />
       </main>
     </ErrorBoundary>
   );
