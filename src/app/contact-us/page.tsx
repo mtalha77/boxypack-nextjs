@@ -8,12 +8,7 @@ export default function ContactUsPage() {
     <main>
       <ContactHero />
       <ContactUs />
-      <CTASection 
-        productData={{
-          ctaTitle: "Get In Touch",
-          ctaDescription: "Reach out today for quick answers. Our friendly team guides every step, making custom box orders simple and stress-free."
-        }}
-      />
+      <CTASection />
     </main>
   );
 }

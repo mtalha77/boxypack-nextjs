@@ -518,8 +518,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                 Customize Your Packaging
               </h1>
               <p className="text-lg text-gray-600">
-                Design and order custom packaging boxes tailored to your exact specifications. 
-                Choose from our wide range of materials, sizes, and finishes.
+              Pick your box type, set dimensions, add finishes, and order fast. Get bespoke packaging boxes made to fit your brand without any issue.
               </p>
             </div>
             

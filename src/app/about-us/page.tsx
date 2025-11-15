@@ -12,12 +12,7 @@ export default function AboutUsPage() {
       <AboutStory />
       <AboutValues />
       {/* <AboutTeam /> */}
-      <CTASection 
-        productData={{
-          ctaTitle: "Ready to Work With BoxyPack?",
-          ctaDescription: "Join thousands of brands that trust BoxyPack for their packaging needs. Let's create something amazing together."
-        }}
-      />
+      <CTASection />
     </main>
   );
 }

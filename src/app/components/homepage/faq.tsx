@@ -38,46 +38,46 @@ const FAQ: React.FC = () => {
   const faqData = [
     // Left Column
     {
-      question: "What types of boxes can I order?",
-      answer: "We provide mailers, shipping, product, and rigid boxes. We also create pouches and shopping bags. Each option is designed for different business needs. You can choose by material or by industry type."
+      question: "Can I get an instant quote for my order?",
+      answer: "Yes, you can get an instant quote right from our website. Just choose your box size, material, and quantity, and our system will calculate pricing in real time. You can also upload your logo or artwork to see how it fits your design. This helps you know the exact cost before ordering, saving time and avoiding surprises later. Our support team can guide you through any special quote requests."
     },
     {
-      question: "Can I fully customize my box?",
-      answer: "Yes, every box can be customized. Select the size, material, and finish you prefer. Add your own design to reflect your brand identity. Inside and outside printing is also available for extra impact."
+      question: "What types of packaging can I order from BoxyPack?",
+      answer: "At BoxyPack, you can order a wide range of custom packaging boxes including mailer boxes, rigid boxes, folding cartons, and shipping boxes. Each style is fully customizable in size, color, and material. Whether you need strong packaging for deliveries or stylish retail boxes for store displays, we've got you covered. Every box type is designed to protect your products while reflecting your brand's identity."
     },
     {
-      question: "Do you offer sustainable box options?",
-      answer: "Yes, we provide boxes made from recyclable materials. These options give strength and style while showing care for the environment. Many brands use them to connect with responsible customers."
+      question: "How does the online 3D design tool work?",
+      answer: "Our 3D design tool helps you see your box come to life before you order. You can upload your artwork, add your logo, and choose colors or finishes. As you make changes, the preview updates instantly so you can see exactly how your custom packaging boxes will look. It also shows live pricing updates, giving you full control over both design and budget, all in one easy-to-use tool."
     },
     {
-      question: "How long does production take?",
-      answer: "Production time depends on order size and design details. We keep processes simple and steady to deliver on time. Urgent orders may qualify for faster completion options if needed."
+      question: "Can I submit my own design file?",
+      answer: "Yes, absolutely. Suppose you've already created a design using Adobe Illustrator or any other design software. In that case, you can upload your dieline directly through our website. Our design team reviews every file carefully for print accuracy, bleed areas, and resolution. If we notice anything that might affect print quality, we'll reach out before production starts. This ensures your custom boxes look exactly how you imagined: sharp, clean, and professional."
     },
     {
-      question: "Can I print inside and outside the box?",
-      answer: "Yes, both sides can be printed. This creates a more memorable unboxing moment. Your design will stand out clearly from every angle."
+      question: "Will I receive a proof before production?",
+      answer: "Yes, you'll always receive a digital proof before we print anything. Within 24 hours of placing your order, our prepress team will send you a 2D preview showing your final box layout. You can review every detail, logo placement, color alignment, and text spacing before giving approval. Once you're fully satisfied, production begins. This step ensures your custom packaging boxes are printed perfectly the first time."
     },
     // Right Column
     
     {
-      question: "What printing quality can I expect?",
-      answer: "We provide clear, sharp, and lasting results. Our methods ensure strong colors and smooth lines. Each project is reviewed to maintain steady and trusted quality."
+      question: "How long will my order take?",
+      answer: "Most standard orders take about 10 business days for production after proof approval. Rush orders can be completed in around 7 business days. Shipping time depends on your location, usually between 1 to 7 days. If you're working with a deadline, our team can help you plan your order to make sure it arrives on time. Every BoxyPack order is tracked from production to delivery."
     },
     {
-      question: "Can I review my design before production begins?",
-      answer: "Yes, each order includes a digital proof. You can review artwork, confirm details, and request changes. Printing starts only after you approve the proof."
+      question: "Can you print inside the boxes, too?",
+      answer: "Yes, we can print both inside and outside of your custom packaging boxes. Inside printing creates a great unboxing experience and adds an extra touch of creativity. You can print brand messages, patterns, or product instructions on the interior panels. It's perfect for brands that want customers to feel something special when opening their package. Our team can help you design both sides for a seamless, branded look."
     },
     {
-      question: "Is there a minimum order quantity?",
-      answer: "Order minimums vary by product type. We keep them fair for small and large businesses. Our team can guide you toward the most cost-effective quantity."
+      question: "How can I be sure my artwork is printable?",
+      answer: "Before printing, our expert prepress team reviews your artwork carefully. We check image resolution, color setup, alignment, and bleed areas to make sure every design prints clearly. If we spot any issues that might reduce print quality, we'll contact you with suggestions. You'll get a digital proof to approve before anything goes to print, ensuring your custom boxes look professional and match your brand colors perfectly."
     },
     {
-      question: "Do you provide design support?",
-      answer: "Yes, our team provides design help. We guide artwork preparation and offer layout advice. This support is available for both new and experienced customers."
+      question: "What factors affect my box pricing?",
+      answer: "The main factors that affect pricing include your box size, material type, ink coverage, and order quantity. Larger boxes or full-color prints may cost slightly more, while bulk orders often qualify for lower unit pricing. We also consider any custom add-ons like foil, embossing, or lamination. At BoxyPack, we're transparent about all pricing. You can get an instant estimate online or contact us for a tailored quote."
     },
     {
-      question: "How can I place my first order?",
-      answer: "Getting started is simple. Choose your box style, add design details, and review. Confirm your order, and our team will guide you through every step."
+      question: "What makes BoxyPack different from other packaging companies?",
+      answer: "BoxyPack focuses on both creativity and quality. We make every box to fit your product, not a standard template. Our team uses premium materials, modern printing, and detailed finishing to make sure every order looks professional and lasts long. We also provide personal support from design to delivery. Whether you're ordering 50 boxes or 5,000, you'll get the same attention, care, and consistent results that keep customers returning."
     }
   ];
 
@@ -88,7 +88,7 @@ const FAQ: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="text-h2 text-heading-primary mb-6">Frequently Asked Questions</h2>
           <p className="text-body-large text-body-primary max-w-4xl mx-auto">
-            Below are answers to common questions about custom boxes. Each project is unique, so feel free to contact our team anytime for more details or personal support.
+            Find quick answers to the most common questions about our custom packaging boxes. Every order is different, and we&apos;re here to help. If you need more details or personal guidance, our team is always ready to assist you.
           </p>
         </div>
 

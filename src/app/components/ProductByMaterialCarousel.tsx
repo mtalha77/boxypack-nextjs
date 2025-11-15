@@ -55,12 +55,11 @@ const ProductByMaterialCarousel: React.FC = () => {
               PRODUCT BY MATERIAL
             </div>
             <h2 className="text-h2 text-heading-primary mb-6 leading-tight max-w-3xl mx-auto lg:mx-0">
-            Find The Right Box By Your Material Choice
-
+            Choose the Perfect Box for Your Perfect Brand
             </h2>
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between">
               <p className="text-body-large text-body-primary max-w-3xl mx-auto lg:mx-0 leading-relaxed mb-8 lg:mb-0">
-              Browse premium boxes selected by material, each built to deliver strength, style, and brand impact.
+              Packaging boxes crafted from durable materials are designed to give your products strength, beauty, and your brand’s unique identity.
               </p>
 
               {/* Navigation Buttons - Hidden on mobile, shown on desktop */}

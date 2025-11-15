@@ -59,7 +59,7 @@ const ProductsDesignPage: React.FC<ProductPageProps> = ({ productData }) => {
       <ClientTestimonials productData={productData} />
       
       {/* CTA Section - Ready to Get Started */}
-      <CTASection productData={productData} />
+      <CTASection />
       
       {/* Contact Us Section */}
       <ContactUs />

@@ -205,9 +205,7 @@ const RequestQuote: React.FC = () => {
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0ca6c2] focus:border-transparent transition-all duration-200"
                   >
                     <option value="">Select Type</option>
-                    <option value="mailer-boxes">Mailer Boxes</option>
                     <option value="shipping-boxes">Shipping Boxes</option>
-                    <option value="product-boxes">Product Boxes</option>
                     <option value="custom-packaging">Custom Packaging</option>
                     <option value="other">Other</option>
                   </select>

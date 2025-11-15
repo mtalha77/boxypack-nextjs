@@ -44,12 +44,7 @@ const HomePage = () => {
       
       <MoreThanPackage />
       <FAQ />
-      <CTASection 
-        productData={{
-          ctaTitle: "Ready to Get Started?",
-          ctaDescription: "Let's create the perfect packaging solution for your brand. Our team is ready to help you every step of the way."
-        }}
-      />
+      <CTASection />
     </div>
   );
 };

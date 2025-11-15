@@ -4,15 +4,24 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import { Phone } from "lucide-react";
 
+interface CTAContent {
+  title?: string;
+  description?: string;
+}
+
 interface CTASectionProps {
-  productData: {
-    ctaTitle: string;
-    ctaDescription: string;
-  };
+  productData?: {
+    cta?: CTAContent;
+  } | null;
 }
 
 const CTASection: React.FC<CTASectionProps> = ({ productData }) => {
   const router = useRouter();
+
+  const defaultMessage = "Strong Designs, Lasting Impressions";
+
+  const ctaTitle = productData?.cta?.title || defaultMessage;
+  const ctaDescription = productData?.cta?.description || defaultMessage;
 
   // Handle Request Quote button click
   const handleRequestQuote = () => {
@@ -30,10 +39,10 @@ const CTASection: React.FC<CTASectionProps> = ({ productData }) => {
     <section className="py-20 bg-gradient-to-r from-[#0c6b76] to-[#0ca6c2]">
       <div className="max-w-4xl mx-auto px-6 text-center">
         <h2 className="text-h2 text-white mb-6">
-          {productData.ctaTitle}
+          {ctaTitle}
         </h2>
         <p className="text-body-large text-white/90 mb-8">
-          {productData.ctaDescription}
+          {ctaDescription}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button 

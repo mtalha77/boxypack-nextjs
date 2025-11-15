@@ -8,12 +8,7 @@ export default function PrivacyPolicyPage() {
     <main>
       <PrivacyHero />
       <PrivacyContent />
-      <CTASection 
-        productData={{
-          ctaTitle: "Questions About Our Privacy Policy?",
-          ctaDescription: "We're committed to protecting your privacy. If you have any questions or concerns, our team is here to help and provide clarity."
-        }}
-      />
+      <CTASection />
     </main>
   );
 }

@@ -6,6 +6,15 @@ import { mylarBoxesData } from '@/app/data/mylarBoxesData';
 import { shoppingBagsData } from '@/app/data/shoppingBagsData';
 import { otherData } from '@/app/data/otherData';
 
+type ProductDataRecord = typeof productData;
+type ProductDataItem = ProductDataRecord[keyof ProductDataRecord];
+type SeedableProduct = ProductDataItem & {
+  specifications?: Array<{ label: string; value: string }>;
+  sizes?: Array<{ name: string; dimensions: string; price?: string }>;
+  galleryImages?: string[];
+  customizationOptions?: string[];
+};
+
 // Helper function to generate product data from category/subcategory structure
 const generateProductFromCategory = (category: {
   name: string;
@@ -109,14 +118,55 @@ export async function POST() {
     
     // 1. Seed main productData (8 products)
     console.log('📦 Processing main product data...');
-    const mainProducts = Object.entries(productData).map(([slug, product]) => ({
-      slug,
-      ...product,
-      category: 'main',
-      subcategory: null,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }));
+    const mainProducts = Object.entries(productData).map(([slug, product]) => {
+      const seedable = product as SeedableProduct;
+
+      const safeString = (value: unknown, fallback: string) =>
+        typeof value === 'string' && value.trim().length > 0 ? value : fallback;
+
+      const safeArray = <T>(value: unknown): T[] =>
+        Array.isArray(value) ? (value as T[]) : [];
+
+      const { cta } = seedable;
+
+      const name = safeString(seedable.name, slug);
+      const description = safeString(seedable.description, '');
+      const heroImage = safeString(seedable.heroImage, 'products-box-img_x8vu4b');
+      const modelPath = safeString(seedable.modelPath, 'Tuck_End_Auto_Bottom1_ttdsdf');
+      const features = safeArray<{ icon: string; title: string; description: string }>(seedable.features);
+      const specifications = safeArray<{ label: string; value: string }>(seedable.specifications);
+      const sizes = safeArray<{ name: string; dimensions: string; price?: string }>(seedable.sizes).map(size => ({
+        name: safeString(size.name, 'Standard'),
+        dimensions: safeString(size.dimensions, 'Custom'),
+        price: safeString(size.price, '')
+      }));
+      const galleryImages = safeArray<string>(seedable.galleryImages);
+      const customizationOptions = safeArray<string>(seedable.customizationOptions);
+      const ctaTitle = safeString(cta?.title, 'Ready to Get Started?');
+      const ctaDescription = safeString(
+        cta?.description,
+        `Get a custom quote for your ${name.toLowerCase()} today. Our team is ready to help you create the perfect packaging solution.`
+      );
+
+      return {
+        slug,
+        name,
+        description,
+        heroImage,
+        modelPath,
+        features,
+        specifications,
+        sizes,
+        galleryImages,
+        customizationOptions,
+        ctaTitle,
+        ctaDescription,
+        category: 'main',
+        subcategory: null,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      };
+    });
     allProducts.push(...mainProducts);
     console.log(`   ✅ Added ${mainProducts.length} main products`);
     

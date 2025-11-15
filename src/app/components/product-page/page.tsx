@@ -3,7 +3,7 @@
 import React from 'react';
 import { NavigationSection, MainCategory, SubCategory } from '../../data/navigationData';
 import { productData, getProductDataBySlug } from '../../data/productPagesData';
-import { useProduct, Product } from '@/lib/hooks/useProducts';
+import { Product } from '@/lib/hooks/useProducts';
 import HeroSection, { BreadcrumbItem } from '../product-design-page/HeroSection';
 import CustomDimensionsForm from '../CustomDimensionsForm';
 import FeaturesSection from '../product-design-page/FeaturesSection';
@@ -15,6 +15,76 @@ import GradientBackground from '../../UI/GradientBackground';
 import ProductByMaterialCarousel from '../ProductByMaterialCarousel';
 import ProductByIndustryCarousel from '../ProductByIndustryCarousel';
 import RelatedProducts from '../RelatedProducts';
+import ProductOverview from './ProductOverview';
+import ProductCustomization from './ProductCustomization';
+import ProductKeyFeatures from './ProductKeyFeatures';
+import ProductFAQSection from './ProductFAQSection';
+
+type EnrichedProduct = NonNullable<Awaited<ReturnType<typeof getProductDataBySlug>>>;
+
+const mapEnrichedToProduct = (enriched: EnrichedProduct): Product => {
+  if (!enriched) {
+    throw new Error('Cannot map an undefined product');
+  }
+
+  const description: string = typeof enriched.description === 'string' ? enriched.description : '';
+  const heroImage: string = typeof enriched.heroImage === 'string' ? enriched.heroImage : 'products-box-img_x8vu4b';
+  const modelPath: string = typeof enriched.modelPath === 'string' ? enriched.modelPath : 'Tuck_End_Auto_Bottom1_ttdsdf';
+  const features: Product['features'] = Array.isArray(enriched.features) ? enriched.features : [];
+  const keyFeatures: Product['keyFeatures'] = Array.isArray(enriched.keyFeatures) ? enriched.keyFeatures : [];
+  const customization: Product['customization'] = enriched.customization ?? {
+    eyebrow: 'Customization',
+    heading: 'Customize Your Packaging',
+    description: '',
+    detailsHeading: 'Customization Details',
+    details: [],
+    footerNote: ''
+  };
+  const overview: NonNullable<Product['overview']> = enriched.overview ?? {
+    heading: 'Product Overview',
+    title: `${enriched.name ?? ''} Overview`,
+    paragraphs: []
+  };
+  const whyChooseUs: NonNullable<Product['whyChooseUs']> = enriched.whyChooseUs ?? {
+    eyebrow: 'Why Choose Us',
+    heading: 'Packaging That Works',
+    description: '',
+    features: []
+  };
+  const faq: Product['faq'] = enriched.faq;
+  const subcategoryCards: Product['subcategoryCards'] = enriched.subcategoryCards;
+
+  const ctaTitle: string =
+    enriched?.cta?.title ?? enriched?.ctaTitle ?? 'Ready to Get Started?';
+
+  const ctaDescription: string =
+    enriched?.cta?.description ??
+    enriched?.ctaDescription ?? 'Get a custom quote today. Our team is ready to help you create the perfect packaging solution.';
+
+  const createdAt = enriched.createdAt instanceof Date ? enriched.createdAt : undefined;
+  const updatedAt = enriched.updatedAt instanceof Date ? enriched.updatedAt : undefined;
+
+  const mapped: Product = {
+    slug: enriched.slug,
+    name: enriched.name,
+    description,
+    heroImage,
+    modelPath,
+    features,
+    keyFeatures,
+    customization,
+    overview,
+    whyChooseUs,
+    faq,
+    subcategoryCards,
+    ctaTitle,
+    ctaDescription,
+    createdAt,
+    updatedAt
+  };
+
+  return mapped;
+};
 
 interface ProductPageTemplateProps {
   section?: NavigationSection;
@@ -47,7 +117,7 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
         setDbLoading(true);
         const product = await getProductDataBySlug(slug);
         if (product) {
-          setDbProduct(product);
+          setDbProduct(mapEnrichedToProduct(product));
         }
       } catch (error) {
         console.warn('Failed to fetch product from database:', error);
@@ -65,80 +135,42 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
   const legacyProductData = productData[slug as keyof typeof productData];
 
   // Create dynamic product data based on the navigation structure
-  const getProductData = () => {
-    // Use database product if available
+  const getProductData = (): Product | null => {
     if (dbProduct) {
       return dbProduct;
     }
 
-    // Fallback to legacy data
     if (legacyProductData) {
-      return legacyProductData;
+      return mapEnrichedToProduct(legacyProductData);
     }
 
-    // Generate dynamic product data based on the page type and content
-    const name = subcategory?.name || category?.name || section?.name || 'Product';
-    const description = subcategory?.description || category?.description || section?.description || `Premium ${name.toLowerCase()} packaging solutions designed to protect and showcase your products.`;
-
-    return {
-      name,
-      description,
-      heroImage: 'products-box-img_x8vu4b',
-      modelPath: 'Tuck_End_Auto_Bottom1_ttdsdf',
-      features: [
-        {
-          icon: 'shield',
-          title: 'Premium Quality',
-          description: `High-grade materials ensure superior protection for your ${name.toLowerCase()}`
-        },
-        {
-          icon: 'palette',
-          title: 'Custom Design',
-          description: 'Full color printing and custom branding options available'
-        },
-        {
-          icon: 'truck',
-          title: 'Fast Delivery',
-          description: 'Quick turnaround times to meet your business needs'
-        },
-        {
-          icon: 'check',
-          title: 'Eco-Friendly',
-          description: 'Made from recyclable materials, sustainable packaging solution'
-        }
-      ],
-      specifications: [
-        { label: 'Material', value: 'Premium Cardboard' },
-        { label: 'Thickness', value: '200-500 GSM' },
-        { label: 'Printing', value: 'Full Color CMYK' },
-        { label: 'Finish', value: 'Matte/Glossy Available' },
-        { label: 'Assembly', value: 'Easy Assembly' },
-        { label: 'Customization', value: 'Full Brand Integration' }
-      ],
-      sizes: [
-        { name: 'Small', dimensions: '6×4×2 inches', price: '$0.45' },
-        { name: 'Medium', dimensions: '10×7×3 inches', price: '$0.65' },
-        { name: 'Large', dimensions: '12×9×4 inches', price: '$0.85' },
-        { name: 'X-Large', dimensions: '15×11×5 inches', price: '$1.15' }
-      ],
-      galleryImages: [
-        'products-box-img_x8vu4b',
-        'product-box-2',
-        'Product-Packaging-Boxes',
-        'shipping-box_jyysru'
-      ],
-      customizationOptions: [
-        'Full color printing',
-        'Custom logo placement',
-        'Multiple finish options',
-        'Various sizes available'
-      ],
-      ctaTitle: 'Ready to Get Started?',
-      ctaDescription: `Get a custom quote for your ${name.toLowerCase()} today. Our team is ready to help you create the perfect packaging solution.`
-    };
+    return null;
   };
 
   const productInfo = getProductData();
+
+  if (!productInfo) {
+    return (
+      <main className="min-h-screen flex items-center justify-center bg-slate-50 px-6 text-center">
+        <div className="space-y-4">
+          <h1 className="text-3xl font-semibold text-body-primary">Product content unavailable</h1>
+          <p className="text-body text-body-secondary max-w-xl">
+            We couldn’t find product details for this page. Please check the product configuration in `productPagesData.ts` or try again later.
+          </p>
+        </div>
+      </main>
+    );
+  }
+
+  const keyFeatures = productInfo.keyFeatures ?? [];
+  const customSubcategoryCards = productInfo.subcategoryCards && productInfo.subcategoryCards.items && productInfo.subcategoryCards.items.length > 0
+    ? productInfo.subcategoryCards
+    : undefined;
+  const navigationSubcategories = customSubcategoryCards ? [] : (category?.subcategories || []);
+  const shouldRenderSubcategories = (
+    !!customSubcategoryCards?.items?.length ||
+    ((pageType === 'category' || pageType === 'subcategory') && navigationSubcategories.length > 0)
+  );
 
   // Generate breadcrumb data - show full hierarchy
   const getBreadcrumbs = (): BreadcrumbItem[] => {
@@ -205,15 +237,29 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
           initialProductSlug={pageType === 'subcategory' && subcategory ? subcategory.slug : undefined}
         />
 
-        {/* Subcategory Cards Section - Show subcategories for category and subcategory pages */}
-        {(pageType === 'category' || pageType === 'subcategory') && category?.subcategories && section && (
+        {/* Product Overview */}
+        <ProductOverview productData={productInfo} />
+
+        {/* Customization Details */}
+        <ProductCustomization productData={productInfo} />
+
+        {/* Subcategory Cards Section */}
+        {shouldRenderSubcategories && (
           <SubcategoryCards
-            subcategories={category.subcategories}
-            parentCategoryName={category.name}
-            parentCategorySlug={category.slug}
-            sectionSlug={section.slug}
+            subcategories={navigationSubcategories}
+            parentCategoryName={category?.name || productInfo.name}
+            parentCategorySlug={category?.slug || slug}
+            sectionSlug={section?.slug || slug}
+            customCards={customSubcategoryCards}
           />
         )}
+
+        {/* Key Features */}
+        <ProductKeyFeatures
+          features={keyFeatures}
+          heading="Key Features"
+          subheading={productInfo.overview?.title || `${productInfo.name} Highlights`}
+        />
 
         {/* Features Section */}
         <FeaturesSection productData={productInfo} />
@@ -229,19 +275,22 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
         )}
 
         {/* Related Products Section */}
-        <RelatedProducts
+        {/* <RelatedProducts
           currentSection={section}
           currentCategory={category}
           currentSubcategory={subcategory}
           pageType={pageType}
           maxItems={6}
-        />
+        /> */}
 
         {/* Testimonials Section */}
         <ClientTestamonials productData={productInfo} />
 
+        {/* Frequently Asked Questions */}
+        <ProductFAQSection faq={productInfo.faq} />
+
         {/* CTA Section - Ready to Get Started */}
-        <CTASection productData={productInfo} />
+        <CTASection productData={{ cta: { title: productInfo.ctaTitle, description: productInfo.ctaDescription } }} />
       </main>
     </ErrorBoundary>
   );
