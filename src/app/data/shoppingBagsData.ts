@@ -2,6 +2,7 @@ export interface ShoppingBagSubCategory {
   name: string;
   slug: string;
   description?: string;
+  images?: string[]; // Array of Cloudinary public IDs for product images
 }
 
 export interface ShoppingBagCategory {
@@ -25,17 +26,20 @@ export const shoppingBagsData: ShoppingBagCategory = {
     { 
       name: "Kraft Shopping Bag", 
       slug: "kraft-shopping-bag",
-      description: "Eco-friendly kraft paper bags with handles, perfect for retail and promotional use"
+      description: "Eco-friendly kraft paper bags with handles, perfect for retail and promotional use",
+      images: ["Kraft-Shopping-Bag_xsxhwa", "Kraft-Shopping-Bag-2_i8xlbg", "Kraft-Shopping-Bag-3_bk6ap1"]
     },
     { 
       name: "Paper Bag", 
       slug: "paper-bag",
-      description: "Durable paper bags with custom printing for branding and marketing"
+      description: "Durable paper bags with custom printing for branding and marketing",
+      images: ["Paper-Bag_nwwfvz", "Paper-Bag-2_woe07z", "Paper-Bag-3_ek1s3k"]
     },
     { 
       name: "PVC Bag", 
       slug: "pvc-bag",
-      description: "Reusable PVC bags with custom designs for sustainable retail solutions"
+      description: "Reusable PVC bags with custom designs for sustainable retail solutions",
+      images: ["PVC-Bag_pagxtd", "PVC-Bag-2_emfevo", "PVC-Bag-3_eym0yw"]
     }
   ]
 };
