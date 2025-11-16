@@ -424,7 +424,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   };
 
   return (
-    <div className="custom-dimensions-form min-h-screen bg-white">
+    <div id="custom-dimensions-form" className="custom-dimensions-form min-h-screen bg-white">
       <div className="max-w-7xl mx-auto px-6 py-8 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Column - Product Image */}

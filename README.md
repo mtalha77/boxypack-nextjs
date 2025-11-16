@@ -31,28 +31,47 @@ Boxypack helps businesses create custom packaging and boxes that turn their bran
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm, yarn, pnpm, or bun
 
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone <your-repo-url>
 cd boxypack
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
-3. Run the development server:
+3. Set up environment variables:
+   Create a `.env.local` file in the root directory and add your EmailJS credentials:
+
+```env
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
+To get these credentials:
+
+- Sign up at [EmailJS](https://www.emailjs.com/)
+- Create an email service (Gmail, Outlook, etc.)
+- Create an email template with the following variables: `{{from_name}}`, `{{from_email}}`, `{{phone}}`, `{{company}}`, `{{project_type}}`, `{{message}}`, `{{to_name}}`
+- Copy your Service ID, Template ID, and Public Key
+
+4. Run the development server:
+
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 🎨 Customization
 
@@ -66,6 +85,7 @@ The website is built with customization in mind:
 ## 📱 Responsive Design
 
 The website is fully responsive and includes:
+
 - Mobile-first design approach
 - Responsive navigation
 - Adaptive layouts for all screen sizes
@@ -82,6 +102,7 @@ The website is fully responsive and includes:
 ### Other Platforms
 
 The project can be deployed to any platform that supports Node.js:
+
 - Netlify
 - Railway
 - DigitalOcean App Platform

@@ -12,7 +12,7 @@ const PrivacyHero: React.FC = () => {
           {/* Left Content */}
           <div className="space-y-6 flex flex-col">
             <div className="space-y-6">
-              <h1 className="text-h1 leading-tight">
+              <h1 className="text-h1 leading-tight text-[#0c6b76]">
                 Your <span className="text-heading-secondary">Privacy Matters</span> to Us
               </h1>
               

@@ -76,13 +76,8 @@ const Footer: React.FC = () => {
             <h3 className="text-h4 text-heading-primary mb-6">Product By Industry</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/products/product-by-industry/cosmetic-boxes" className="text-body-small text-body-secondary hover:text-[#0c6b76] hover:translate-x-1 transition-all duration-300 font-semibold inline-block">
-                  Cosmetic Boxes
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/product-by-industry/food-boxes" className="text-body-small text-body-secondary hover:text-[#0c6b76] hover:translate-x-1 transition-all duration-300 font-semibold inline-block">
-                  Food Boxes
+                <Link href="/products/product-by-industry/bakery-boxes" className="text-body-small text-body-secondary hover:text-[#0c6b76] hover:translate-x-1 transition-all duration-300 font-semibold inline-block">
+                  Bakery Boxes
                 </Link>
               </li>
               <li>
@@ -91,8 +86,8 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/products/product-by-industry/gift-boxes" className="text-body-small text-body-secondary hover:text-[#0c6b76] hover:translate-x-1 transition-all duration-300 font-semibold inline-block">
-                  Gift Boxes
+                <Link href="/products/product-by-industry/soap-boxes-industry" className="text-body-small text-body-secondary hover:text-[#0c6b76] hover:translate-x-1 transition-all duration-300 font-semibold inline-block">
+                  Soap Boxes
                 </Link>
               </li>
             </ul>
@@ -216,7 +211,7 @@ const Footer: React.FC = () => {
         <div className="text-center border-t border-gray-300 pt-8">        
           {/* Copyright Text */}
           <div className="text-caption text-heading-primary">
-            All rights reserved
+            © {new Date().getFullYear()} BoxyPack. All rights reserved.
           </div>
           
         </div>

@@ -13,7 +13,7 @@ const AboutHero: React.FC = () => {
           {/* Left Content */}
           <div className="space-y-6">
             <div className="space-y-6">
-              <h1 className="text-h1 leading-tight">
+              <h1 className="text-h1 leading-tight text-[#0c6b76]">
                 Boxes Built To <span className="text-heading-secondary">Grow Your Brand</span>
               </h1>
               

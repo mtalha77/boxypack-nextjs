@@ -1,42 +1,55 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { CldImage } from 'next-cloudinary';
+import React from "react";
+import { MessageCircle, Palette, Factory, Truck } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+
+interface Step {
+  number: number;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  bgColor: string;
+}
 
 const ProgressSteps: React.FC = () => {
-  const steps = [
+  const steps: Step[] = [
     {
       number: 1,
       title: "Consultation",
-      description: "We listen to your needs, goals, and product details, then guide you toward the right packaging solution.",
-      image: "products-box-img_x8vu4b",
-      bgColor: "bg-[#0c6b76]"
+      description:
+        "We listen to your needs, goals, and product details, then guide you toward the right packaging solution.",
+      icon: MessageCircle,
+      bgColor: "bg-[#0c6b76]",
     },
     {
       number: 2,
       title: "Design Setup",
-      description: "Our experts prepare dielines, templates, and artwork checks, ensuring your custom packaging looks perfect before production begins.",
-      image: "products-box-img_x8vu4b",
-      bgColor: "bg-[#0c6b76]"
+      description:
+        "Our experts prepare dielines, templates, and artwork checks, ensuring your custom packaging looks perfect before production begins.",
+      icon: Palette,
+      bgColor: "bg-[#0c6b76]",
     },
     {
       number: 3,
       title: "Production",
-      description: "We manufacture with precision, using strong materials and sharp printing to create boxes that protect and impress.",
-      image: "products-box-img_x8vu4b",
-      bgColor: "bg-[#0c6b76]"
+      description:
+        "We manufacture with precision, using strong materials and sharp printing to create boxes that protect and impress.",
+      icon: Factory,
+      bgColor: "bg-[#0c6b76]",
     },
     {
       number: 4,
       title: "Delivery",
-      description: "Your order arrives safely, on time, and ready to showcase your brand in front of customers with confidence.",
-      image: "products-box-img_x8vu4b",
-      bgColor: "bg-[#0c6b76]"
-    }
+      description:
+        "Your order arrives safely, on time, and ready to showcase your brand in front of customers with confidence.",
+      icon: Truck,
+      bgColor: "bg-[#0c6b76]",
+    },
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section id="our-process" className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Title */}
         <div className="text-center mb-12">
@@ -47,7 +60,7 @@ const ProgressSteps: React.FC = () => {
 
         {/* Steps */}
         <div className="space-y-8">
-          {steps.map((step, index) => (
+          {steps.map((step) => (
             <div key={step.number} className="relative">
               <div className={`${step.bgColor} rounded-2xl p-8 shadow-lg`}>
                 <div className="flex flex-col lg:flex-row items-start gap-8">
@@ -56,8 +69,10 @@ const ProgressSteps: React.FC = () => {
                     {/* Step Number and Title */}
                     <div className="flex items-start gap-6">
                       <div className="relative">
-                        <div className="w-16 h-16 bg-[#1e40af] border-4 border-white rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
-                          <span className="text-h3 font-bold text-white">{step.number}</span>
+                        <div className="w-16 h-16 bg-[#8B4513] border-4 border-white rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
+                          <span className="text-h3 font-bold text-white">
+                            {step.number}
+                          </span>
                         </div>
                         {/* Dotted line extending down from the number circle - only show if not last step */}
                         {step.number < steps.length && (
@@ -75,14 +90,12 @@ const ProgressSteps: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Right Side - Image */}
-                  <div className="lg:w-80 w-full">
-                    <div className="relative h-64 rounded-xl overflow-hidden shadow-xl bg-gray-800">
-                      <CldImage
-                        src={step.image}
-                        alt={step.title}
-                        fill
-                        className="object-cover"
+                  {/* Right Side - Icon */}
+                  <div className="lg:w-80 w-full flex items-center justify-center">
+                    <div className="relative h-64 w-full rounded-xl overflow-hidden shadow-xl bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                      <step.icon
+                        className="w-32 h-32 text-white"
+                        strokeWidth={1.5}
                       />
                     </div>
                   </div>
@@ -91,7 +104,6 @@ const ProgressSteps: React.FC = () => {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

@@ -4,18 +4,19 @@ import React from "react";
 import Link from "next/link";
 import { CldImage } from "next-cloudinary";
 import { productData } from "../../data/productPagesData";
+import LightBlueBackground from "../../UI/LightBlueBackground";
 
 // Featured products for the gallery - using actual product data
 const featuredProducts = [
   {
     key: "rigid-boxes",
     product: productData["rigid-boxes"],
-    image: "Box-6_vm3fmh",
+    image: "Rigid-Briefcase-Box_sfcpy7",
   },
   {
     key: "shipping-boxes",
     product: productData["shipping-boxes"],
-    image: "shipping-box_jyysru",
+    image: "Corrugated-Full-Flap-Shipping-Box-3_lo3cv7",
   },
   {
     key: "mylar-boxes",
@@ -30,12 +31,12 @@ const featuredProducts = [
   {
     key: "packaging-accessories",
     product: productData["packaging-accessories"],
-    image: "products-box-img_x8vu4b",
+    image: "Product-Bottle-Label-1_sq8eqg",
   },
   {
     key: "two-piece-rigid-boxes",
     product: productData["two-piece-rigid-boxes"],
-    image: "Mailer-Box-3_oct2ws",
+    image: "Magnetic-Closure-Rigid-Box_vtf07m",
   },
 ] as const;
 
@@ -49,7 +50,7 @@ const getProductDescriptionSnippet = (index: number, length: number) => {
 
 const BoxDesignGallery: React.FC = () => {
   return (
-    <section className="py-12 md:py-24 bg-white">
+    <LightBlueBackground className="py-12 md:py-24" id="box-design-gallery">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header Section */}
         <div className="text-center mb-8 md:mb-16">
@@ -246,7 +247,7 @@ const BoxDesignGallery: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
+    </LightBlueBackground>
   );
 };
 

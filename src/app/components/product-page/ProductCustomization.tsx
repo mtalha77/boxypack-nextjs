@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Product } from '@/lib/hooks/useProducts';
 import GradientBackground from '../../UI/GradientBackground';
 
@@ -129,9 +130,12 @@ const ProductCustomization: React.FC<ProductCustomizationProps> = ({
                     Send us your brief and we’ll follow up within one business day.
                   </p>
                 </div>
-                <button className="inline-flex items-center justify-center rounded-full bg-white/90 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[#013f4a] hover:bg-white transition">
+                <Link 
+                  href="/contact-us#contact-section"
+                  className="inline-flex items-center justify-center rounded-full bg-white/90 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[#013f4a] hover:bg-white transition"
+                >
                   Contact Support
-                </button>
+                </Link>
               </div>
             </div>
           </div>

@@ -13,7 +13,7 @@ const MoreThanPackage: React.FC = () => {
             {/* Left Side - Custom Packaging Image */}
             <div className="relative">
               <CldImage
-                src="Box-6_vm3fmh"
+                src="Box-4_lztqi7"
                 alt="Custom Packaging Boxes - BoxyPack kraft boxes with professional design"
                 width={300}
                 height={200}
