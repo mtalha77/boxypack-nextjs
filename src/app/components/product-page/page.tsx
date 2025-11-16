@@ -18,11 +18,11 @@ import ErrorBoundary from "../ErrorBoundary";
 import GradientBackground from "../../UI/GradientBackground";
 import ProductByMaterialCarousel from "../ProductByMaterialCarousel";
 import ProductByIndustryCarousel from "../ProductByIndustryCarousel";
-import RelatedProducts from "../RelatedProducts";
 import ProductOverview from "./ProductOverview";
 import ProductCustomization from "./ProductCustomization";
 import ProductKeyFeatures from "./ProductKeyFeatures";
 import ProductFAQSection from "./ProductFAQSection";
+import ComingSoon from "../ComingSoon";
 
 type EnrichedProduct = NonNullable<
   Awaited<ReturnType<typeof getProductDataBySlug>>
@@ -110,6 +110,17 @@ const mapEnrichedToProduct = (enriched: EnrichedProduct): Product => {
   return mapped;
 };
 
+// Extended types to allow optional image and modelPath properties
+type CategoryWithOptionalProps = MainCategory & {
+  image?: string;
+  modelPath?: string;
+};
+
+type SectionWithOptionalProps = NavigationSection & {
+  image?: string;
+  modelPath?: string;
+};
+
 interface ProductPageTemplateProps {
   section?: NavigationSection;
   category?: MainCategory;
@@ -171,22 +182,68 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
     return null;
   };
 
-  const productInfo = getProductData();
+  let productInfo = getProductData();
+  // If no explicit product content, but we have a category/section with subcategories (e.g., Bakery/Jewelry/Soap),
+  // synthesize a minimal product object so the page renders instead of "Coming Soon".
+  if (!productInfo && (category || section)) {
+    const fallbackName = category?.name || section?.name || "Products";
+    const fallbackDesc =
+      category?.description ||
+      section?.description ||
+      "Explore our curated selection of products crafted for your brand.";
+    const fallbackHero =
+      (category as CategoryWithOptionalProps)?.image ||
+      (section as SectionWithOptionalProps)?.image ||
+      "products-box-img_x8vu4b";
+    const fallbackModel =
+      (category as CategoryWithOptionalProps)?.modelPath ||
+      (section as SectionWithOptionalProps)?.modelPath ||
+      "Tuck_End_Auto_Bottom1_ttdsdf";
+    productInfo = {
+      slug: slug,
+      name: fallbackName,
+      description: fallbackDesc,
+      heroImage: fallbackHero,
+      modelPath: fallbackModel,
+      features: [],
+      keyFeatures: [],
+      customization: {
+        eyebrow: "Customization",
+        heading: "Customize Your Packaging",
+        description: "",
+        detailsHeading: "Customization Details",
+        details: [],
+        footerNote: "",
+      },
+      overview: {
+        heading: "Product Overview",
+        title: `${fallbackName} Overview`,
+        paragraphs: [],
+      },
+      whyChooseUs: {
+        eyebrow: "Why Choose Us",
+        heading: "Packaging That Works",
+        description: "",
+        features: [],
+      },
+      faq: undefined,
+      subcategoryCards: undefined,
+      ctaTitle: "Ready to Get Started?",
+      ctaDescription:
+        "Get a custom quote today. Our team is ready to help you create the perfect packaging solution.",
+      createdAt: undefined,
+      updatedAt: undefined,
+    };
+  }
 
+  if (!productInfo && !category && !section) {
+    return <ComingSoon />;
+  }
+
+  // At this point, productInfo should always be set (either from DB/legacy data or fallback)
+  // Add a type guard to satisfy TypeScript
   if (!productInfo) {
-    return (
-      <main className="min-h-screen flex items-center justify-center bg-slate-50 px-6 text-center">
-        <div className="space-y-4">
-          <h1 className="text-3xl font-semibold text-body-primary">
-            Product content unavailable
-          </h1>
-          <p className="text-body text-body-secondary max-w-xl">
-            We couldn’t find product details for this page. Please check the
-            product configuration in `productPagesData.ts` or try again later.
-          </p>
-        </div>
-      </main>
-    );
+    return <ComingSoon />;
   }
 
   const keyFeatures = productInfo.keyFeatures ?? [];

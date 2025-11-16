@@ -31,6 +31,23 @@ const ProductByMaterialCarousel: React.FC = () => {
     return () => window.removeEventListener("resize", updateCardWidth);
   }, []);
 
+  // Choose a representative image for each material category.
+  // Prefer the first image from the first subcategory that has images; otherwise use category.image.
+  const getCategoryDisplayImage = (
+    category: (typeof productByMaterialData)[number]
+  ): string => {
+    if (Array.isArray(category.subcategories)) {
+      for (const sub of category.subcategories) {
+        // Many subcategories include an images array with up to 3 Cloudinary IDs
+        if (Array.isArray(sub.images) && sub.images.length > 0) {
+          return sub.images[0]; // pick one image from the available 3
+        }
+      }
+    }
+    // Final fallback to top-level category image
+    return category.image;
+  };
+
   const slideLeft = () => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
@@ -136,7 +153,7 @@ const ProductByMaterialCarousel: React.FC = () => {
               >
                 <Link href={`/products/product-by-material/${category.slug}`}>
                   <CldImage
-                    src={category.image}
+                    src={getCategoryDisplayImage(category)}
                     alt={category.name}
                     width={400}
                     height={400}

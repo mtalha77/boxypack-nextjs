@@ -309,12 +309,286 @@ const buildFaq = (
 });
 
 const rawProductData: Record<string, RawProductEntry> = {
+  // Industry Main Category: Bakery Boxes
+  "bakery-boxes": {
+    name: "Bakery Boxes",
+    description:
+      "Fresh, elegant, and made to impress. Buy bakery boxes wholesale for cupcakes, pastries, and desserts that look as good as they taste.",
+    heroImage: "Box-4_lztqi7",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("bakery-boxes")
+    keyFeatures: [
+      "Food-grade materials that keep baked goods fresh",
+      "Grease-resistant and easy-to-handle design",
+      "Custom printing for logos and product details",
+      "Multiple sizes for cupcakes, cakes, and pastries",
+      "Window cutouts for visible product display",
+      "Recyclable and eco-friendly packaging options",
+      "Ideal for bakeries, cafés, and dessert shops",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Food-safe SBS/CUK board, kraft, or laminated paperboard",
+        },
+        {
+          label: "Structure",
+          value:
+            "Auto-lock bottoms, tuck lids, carry handles, or windowed panels",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt",
+        },
+        {
+          label: "Finish",
+          value: "Matte or gloss lamination or soft-touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L x W x H)",
+          value: "e.g., 10 × 6 × 4",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Bakery Boxes Wholesale",
+      paragraphs: [
+        "Our bakery boxes are designed to protect delicate baked goods while enhancing presentation. Whether you run a bakery, café, or home-based baking business, these boxes combine function and beauty. Each box ensures freshness, easy handling, and a delightful unboxing experience for your customers.",
+        "At BoxyPack, we craft custom bakery boxes wholesale that match your brand’s personality and care. From printed cake boxes to eco-friendly cupcake packaging, we tailor every box for your products and audience. Our designs help you stand out on the shelf and in customers’ memories.",
+        "As a printed bakery boxes supplier, we deliver superior print quality, durable structure, and food-grade materials at a competitive bakery boxes price that fits small and large businesses alike.",
+      ],
+    },
+    faq: buildFaq("Bakery Boxes", [
+      {
+        question: "What are bakery boxes used for?",
+        answer:
+          "They’re used for packaging cakes, cupcakes, pastries, cookies, and other baked treats.",
+      },
+      {
+        question: "Can I customize bakery boxes with my logo?",
+        answer:
+          "Yes, BoxyPack provides full-color printing for custom bakery boxes wholesale.",
+      },
+      {
+        question: "Are bakery boxes eco-friendly?",
+        answer:
+          "Yes, we offer eco-friendly bakery packaging boxes made from recyclable kraft materials.",
+      },
+      {
+        question: "Do you sell bakery boxes in bulk?",
+        answer:
+          "Absolutely, you can buy bakery boxes online in bulk at discounted rates.",
+      },
+      {
+        question: "What determines the bakery boxes price?",
+        answer:
+          "Pricing depends on size, printing type, coating, and order quantity.",
+      },
+    ]),
+    cta: {
+      title: "Fresh Designs, Sweet Packaging",
+      description:
+        "Get in touch with BoxyPack today for custom bakery boxes that protect and promote your baked goods with style. Our packaging experts are ready to design the perfect solution for your bakery. Contact us now to place your bulk order and make every treat look irresistible.",
+    },
+  },
+
+  // Industry Main Category: Jewelry Boxes
+  "jewelry-boxes": {
+    name: "Jewelry Boxes",
+    description:
+      "Elegant, durable, and made to shine. Buy jewelry boxes wholesale for secure storage, flawless gifting, and premium presentation that highlights every piece.",
+    heroImage: "Box-4_lztqi7",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Soft-touch interiors that protect delicate jewelry",
+      "Rigid structure for a premium look and long-term use",
+      "Custom printing and embossing for branding and elegance",
+      "Available in matte, gloss, or velvet finishes",
+      "Eco-friendly materials with sustainable design options",
+      "Magnetic and ribbon closures for a luxury feel",
+      "Perfect for jewelers, boutiques, and online sellers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid greyboard with wrapped papers or premium coated stocks",
+        },
+        {
+          label: "Structure",
+          value: "Lift-off lid, book-style, drawer/sleeve, magnetic closure",
+        },
+        {
+          label: "Thickness",
+          value: "2.0–3.0 mm rigid board with custom insert options",
+        },
+        {
+          label: "Finish",
+          value: "Soft-touch lamination, velvet wrap, foil, emboss/deboss",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L x W x H)",
+          value: "10 × 6 × 4",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Jewelry Packaging Boxes Wholesale",
+      paragraphs: [
+        "Our jewelry boxes are crafted to combine elegance and protection in every design. Ideal for rings, earrings, necklaces, and watches, these boxes enhance product appeal while ensuring safety during storage or transit. Every detail from lining to closure adds a touch of sophistication that your customers notice instantly.",
+        "At BoxyPack, we create custom jewelry packaging boxes wholesale that express your brand’s personality. Whether you need velvet-coated ring boxes, rigid necklace cases, or minimal kraft jewelry boxes, we customize each to suit your brand’s vision.",
+        "As a luxury jewelry boxes supplier near me, we offer fine finishes, durable materials, and affordable jewelry boxes prices that meet retail and wholesale needs with equal perfection.",
+      ],
+    },
+    faq: buildFaq("Jewelry Boxes", [
+      {
+        question: "What are jewelry boxes used for?",
+        answer:
+          "They are used for storing, protecting, and presenting jewelry items such as rings, earrings, and necklaces.",
+      },
+      {
+        question: "Can I add custom branding to jewelry boxes?",
+        answer:
+          "Yes, BoxyPack offers printing, embossing, and foil stamping for custom jewelry packaging boxes wholesale.",
+      },
+      {
+        question: "Are your jewelry boxes eco-friendly?",
+        answer:
+          "Yes, we produce eco-friendly jewelry packaging boxes using recyclable and sustainable materials.",
+      },
+      {
+        question: "Do you sell jewelry boxes in bulk?",
+        answer:
+          "Yes, you can buy jewelry boxes online in bulk at discounted wholesale prices.",
+      },
+      {
+        question: "What determines the jewelry boxes price?",
+        answer:
+          "The jewelry boxes price depends on the material type, finish, size, and order volume.",
+      },
+    ]),
+    cta: {
+      title: "Luxury Designs, Lasting Impressions",
+      description:
+        "Reach out to BoxyPack today for custom jewelry boxes that elevate your brand and protect your pieces in style. Our design team is ready to create elegant, durable, and sustainable packaging tailored to your needs. Contact us now to begin your order and showcase your jewelry the right way.",
+    },
+  },
+
+  // Industry Main Category: Soap Boxes
+  "soap-boxes": {
+    name: "Soap Boxes",
+    description:
+      "Stylish, strong, and ready to impress. Buy soap boxes wholesale for secure, eco-friendly, and elegant packaging that makes every bar stand out beautifully.",
+    heroImage: "Box-4_lztqi7",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Food-grade and skin-safe packaging materials",
+      "Custom printing for logos and product details",
+      "Window and die-cut designs for visual appeal",
+      "Multiple shapes and sizes for all soap types",
+      "Moisture-resistant coatings to protect texture",
+      "100% recyclable and eco friendly soap packaging boxes",
+      "Ideal for handmade, organic, and retail soaps",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid Board / Cardboard / Kraft",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end cartons, sleeves, windowed boxes, and wraps",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt",
+        },
+        {
+          label: "Finish",
+          value: "Matte/gloss lamination,soft-touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L x W x H)",
+          value: "10 × 6 × 4",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Printed Soap Packaging Boxes Wholesale",
+      paragraphs: [
+        "Our soap boxes are made to blend beauty, durability, and practicality. Designed for handmade, organic, and luxury soaps, these boxes keep products safe while enhancing shelf appeal. Each design helps your brand express care, creativity, and quality.",
+        "At BoxyPack, we craft custom printed soap packaging boxes wholesale that protect your soaps and promote your brand image. Whether you prefer kraft, window, or custom printed styles, we tailor each order to match your brand story and vision.",
+        "As a luxury soap boxes with logo supplier, we deliver premium finishes, sturdy build, and sustainable materials at a soap boxes price that fits every business—from small artisans to national brands.",
+      ],
+    },
+    faq: buildFaq("Soap Boxes", [
+      {
+        question: "What are soap boxes used for?",
+        answer:
+          "They’re used for packaging handmade, organic, and commercial soaps to keep them clean and protected.",
+      },
+      {
+        question: "Can I get my soap boxes printed with my logo?",
+        answer:
+          "Yes, BoxyPack offers full-color printing and logo customization for custom printed soap packaging boxes wholesale.",
+      },
+      {
+        question: "Are your soap boxes eco-friendly?",
+        answer:
+          "Absolutely. We produce eco friendly soap packaging boxes using recyclable kraft and cardboard materials.",
+      },
+      {
+        question: "Do you sell soap boxes in bulk?",
+        answer:
+          "Yes, you can buy soap packaging online in bulk at discounted wholesale rates.",
+      },
+      {
+        question: "What affects the soap boxes price?",
+        answer:
+          "The soap boxes price depends on size, printing type, coating, and order volume.",
+      },
+    ]),
+    cta: {
+      title: "Clean Designs, Fresh Packaging",
+      description:
+        "Get in touch with BoxyPack today for custom soap boxes that combine eco-conscious design with premium presentation. Our packaging experts are ready to help you create sustainable, beautiful packaging that adds value to every bar. Contact us now to begin your next order and make your soaps shine on every shelf.",
+    },
+  },
   // Product: Rigid Boxes
   "rigid-boxes": {
     name: "Rigid Boxes",
     description:
       "Strength meets elegance. Buy rigid boxes online for premium packaging that blends lasting protection, luxury style, and high-end presentation for every brand.",
-    heroImage: "products-box-img_x8vu4b",
+    heroImage: "Magnetic-Closure-Rigid-Box_vtf07m",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
       "Built from thick, durable, rigid paperboard",
@@ -327,49 +601,26 @@ const rawProductData: Record<string, RawProductEntry> = {
     ],
     customization: {
       details: [
-        {
-          label: "Material Type",
-          value:
-            "80pt-120pt rigid greyboard wrapped in coated, linen, or velvet paper",
-        },
+        { label: "Material Type", value: " Rigid Board / Cardboard / Kraft" },
         {
           label: "Structure",
-          value:
-            "Lift-off lids, shoulder necks, magnetic closures, or drawer formats",
+          value: "Magnetic / Two-Piece / Drawer / Foldable",
         },
-        {
-          label: "Thickness",
-          value:
-            "2.0 mm / 2.5 mm / 3.0 mm board with optional foam or molded inserts",
-        },
-        {
-          label: "Finish",
-          value:
-            "Soft-touch lamination, velvet wrap, foil stamping, and spot UV accents",
-        },
-        {
-          label: "Printing",
-          value:
-            "Offset CMYK plus Pantone, screen print textures, interior or exterior",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'Custom cavities from 3" x 3" x 1.5" up to 18" x 12" x 6"',
-        },
-        {
-          label: "Quantity",
-          value: "Starting at 100 units with staged and handcrafted production",
-        },
+        { label: "Thickness", value: "14PT / 18PT / 24PT" },
+        { label: "Finish", value: "Glossy / Matte / Soft Touch" },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L x W x H)", value: "e.g., 9.5 × 7.75 × 4" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Rigid Boxes Crafted for Premium Brands",
+      title: "Custom Rigid Boxes with Logo",
 
       paragraphs: [
-        "Rigid boxes form the backbone of elevated retail and gifting experiences. We craft every panel and seam to deliver a flawless first impression that mirrors the stature of your product.",
-        "From custom-engineered hinges to hand-applied finishes, our team obsesses over the tactile details that signal quality. Inserts, accessories, and reveal moments are tailored to your launch vision.",
-        "Whether you need limited-run influencer kits or global retail programs, our production workflow scales craftsmanship with speed so your brand story arrives intact every time.",
+        "Our custom rigid boxes with logo combine durability, sophistication, and brand appeal in one premium package. Designed to provide structure, stability, and luxury, these boxes are ideal for high-value products that demand attention.",
+        "At BoxyPack, we create packaging that makes an impression before the product is even revealed. As a leading rigid boxes wholesale supplier, we craft boxes using precision engineering and fine materials that reflect your brand’s quality. From jewelry and cosmetics to electronics and corporate gifts, rigid packaging gives products a distinctive premium feel.",
+        "Each box is fully customizable in size, shape, and design, ensuring your brand stands out while keeping products protected. With competitive luxury rigid packaging boxes price, we make high-end presentation accessible to every business.",
       ],
     },
     faq: buildFaq("Rigid Boxes", [
@@ -411,7 +662,7 @@ const rawProductData: Record<string, RawProductEntry> = {
     name: "Shipping Boxes",
     description:
       "Strong and reliable, our shipping boxes ensure products travel safely across any distance. Built for value and strength, they provide trusted protection and a perfect look.",
-    heroImage: "products-box-img_x8vu4b",
+    heroImage: "Corrugated-Full-Flap-Shipping-Box_fumlwz",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
       "Engineered corrugated fluting absorbs shocks during long hauls",
@@ -521,37 +772,13 @@ const rawProductData: Record<string, RawProductEntry> = {
     ],
     customization: {
       details: [
-        {
-          label: "Material Type",
-          value: "Unbleached kraft SBS, CCNB, and recycled paperboard blends",
-        },
-        {
-          label: "Structure",
-          value:
-            "Mailer, tuck-end, sleeve, and windowed dielines tailored to SKU",
-        },
-        {
-          label: "Thickness",
-          value: "14pt / 18pt / 24pt board with optional corrugated pads",
-        },
-        {
-          label: "Finish",
-          value:
-            "Water-based varnish, soy ink floods, white ink pops, foil touches",
-        },
-        {
-          label: "Printing",
-          value:
-            "Digital CMYK or offset spot colors that keep natural fibers visible",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'Die-lines from 3" x 3" x 1" favor boxes to 12" x 10" x 4"',
-        },
-        {
-          label: "Quantity",
-          value: "Eco-forward runs from 250 units with repeat program support",
-        },
+        { label: "Material Type", value: "Kraft Paperboard / Cardboard" },
+        { label: "Structure", value: " Lid and Base / Two-Piece Box" },
+        { label: "Thickness", value: "14PT / 18PT / 24PT" },
+        { label: "Finish", value: "Matte / Gloss / Uncoated" },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L x W x H)", value: " e.g., 9 × 6 × 3" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
@@ -621,10 +848,10 @@ const rawProductData: Record<string, RawProductEntry> = {
       details: [
         {
           label: "Material Type",
-          value: "Corrugated / Solid Board / Kraft Paper",
+          value: "Solid Board / Corrugated / Kraft Paperboard",
         },
-        { label: "Structure", value: "Mailer, Tuck-End, or Shipping Box" },
-        { label: "Thickness", value: "Single Wall / Double Wall" },
+        { label: "Structure", value: "Two-Piece Lid and Base" },
+        { label: "Thickness", value: "14PT / 18PT / 24PT" },
         { label: "Finish", value: "Matte / Gloss / Uncoated" },
         { label: "Printing", value: "Inside, Outside, or Both" },
         { label: "Dimensions (L x W x H)", value: "Custom sizes available" },
@@ -701,35 +928,31 @@ const rawProductData: Record<string, RawProductEntry> = {
       details: [
         {
           label: "Material Type",
-          value: "E, B, C, and BC flute corrugated with kraft or white liners",
+          value: "Corrugated Cardboard / Kraft / White Paperboard",
         },
         {
           label: "Structure",
-          value:
-            "Die-cut mailers, RSC, auto-bottom trays, FOL shippers, and inserts",
+          value: "Fold-Over Interlocking Mailer Design",
         },
         {
           label: "Thickness",
-          value:
-            'Single wall 1/16"-3/16", double wall 1/4", or triple wall options',
+          value: "E-Flute / B-Flute / Double-Wall Options",
         },
         {
           label: "Finish",
-          value:
-            "Litho-lam wraps, satin AQ, anti-abrasion coatings, and tear features",
+          value: "Gloss / Matte / Soft Touch",
         },
         {
           label: "Printing",
-          value:
-            "High-graphic digital, flexo spot colors, or litho wraps with foil",
+          value: "Inside, Outside, or Both",
         },
         {
           label: "Dimensions (L x W x H)",
-          value: 'Engineered footprints from 6" x 4" x 2" to 30" x 20" x 14"',
+          value: "Custom sizes available",
         },
         {
           label: "Quantity",
-          value: "MOQ from 250 shippers with truckload scaling and VMI options",
+          value: "250 units (Bulk discounts available)",
         },
       ],
     },
@@ -788,7 +1011,7 @@ const rawProductData: Record<string, RawProductEntry> = {
     name: "Mylar Boxes",
     description:
       "Premium mylar packaging solutions with excellent barrier properties and durability for various products.",
-    heroImage: "products-box-img_x8vu4b",
+    heroImage: "Stand-Up-Pouch_x47atr",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
       "High-barrier laminates extend shelf life for food and botanicals",
@@ -889,7 +1112,7 @@ const rawProductData: Record<string, RawProductEntry> = {
     name: "Shopping Bags",
     description:
       "Our stylish shopping bags combine strength with modern appeal. They extend your brand presence and keep customers engaged well beyond purchase.",
-    heroImage: "products-box-img_x8vu4b",
+    heroImage: "Kraft-Shopping-Bag_xsxhwa",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
       "Recycled and FSC-certified stocks reinforce sustainable messaging",
@@ -981,7 +1204,7 @@ const rawProductData: Record<string, RawProductEntry> = {
     name: "Packaging Accessories",
     description:
       "Essential accessories to complete your packaging needs. From protective materials to decorative elements, we have everything you need.",
-    heroImage: "products-box-img_x8vu4b",
+    heroImage: "Product-Bottle-Label-1_sq8eqg",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
       "Protective fillers: foam, molded pulp, and tissue tailored to your product",
@@ -1110,11 +1333,11 @@ const rawProductData: Record<string, RawProductEntry> = {
     },
     overview: {
       heading: "Product Overview",
-      title: "Magnetic Closure Rigid Boxes Designed for Luxury",
+      title: "Luxury Magnetic Closure Box Packaging",
       paragraphs: [
-        "Magnetic closure rigid boxes combine luxury appeal with secure magnets, offering protection and elegant unboxing in one design.",
-        "We offer a range of thicknesses and finishes to match your brand's style, from glossy to matte to soft-touch.",
-        "Custom printing is available inside and outside the box, and we offer bulk discounts for larger orders.",
+        "Our custom magnetic rigid boxes packaging blends durability with refined presentation. These boxes open effortlessly with concealed magnetic flaps, offering both strength and luxury. They’re perfect for high-value products where protection and first impressions matter equally.",
+        "At BoxyPack, we believe packaging defines the experience. As a trusted magnetic closure gift boxes supplier, we create designs that balance premium aesthetics with structural reliability. Each magnetic box is built from solid, rigid board, wrapped in fine paper, and finished with perfect edges.",
+        "Whether you sell jewelry, cosmetics, electronics, or luxury gifts, our boxes enhance product value while maintaining brand consistency. We also offer magnetic closure rigid boxes wholesale with complete customization. Choose your size, color, texture, and finish. Every box communicates quality, from its smooth exterior to the satisfying magnetic click on closure.",
       ],
     },
     faq: buildFaq("Magnetic Closure Rigid Box", [
@@ -1144,6 +1367,7 @@ const rawProductData: Record<string, RawProductEntry> = {
           "Absolutely. Our team assists with layout, artwork, and color matching for a perfect result.",
       },
     ]),
+    
     cta: {
       title: "Strong Designs, Lasting Impressions",
       description:
@@ -1156,7 +1380,7 @@ const rawProductData: Record<string, RawProductEntry> = {
     name: "Two Piece Rigid Boxes",
     description:
       "Classic strength meets refined design. Buy two-piece rigid boxes online for gifting, retail, or brand packaging. Durable, elegant, and built to leave a lasting impression.",
-    heroImage: "Mailer-Box-3_oct2ws",
+    heroImage: "Rigid-Two-Piece-Box_piyrzz",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
       "Two-piece lift-off lid for premium presentation",
@@ -1208,6 +1432,15 @@ const rawProductData: Record<string, RawProductEntry> = {
           "Absolutely. Choose from embossing, foiling, or spot UV to personalize your packaging.",
       },
     ]),
+    overview: {
+      heading: "Product Overview",
+      title: "Premium Two-Piece Rigid Box Packaging",
+      paragraphs: [
+        "Our custom magnetic rigid boxes packaging blends durability with refined presentation. These boxes open effortlessly with concealed magnetic flaps, offering both strength and luxury. They’re perfect for high-value products where protection and first impressions matter equally.",
+        "At BoxyPack, we believe packaging defines the experience. As a trusted magnetic closure gift boxes supplier, we create designs that balance premium aesthetics with structural reliability. Each magnetic box is built from solid, rigid board, wrapped in fine paper, and finished with perfect edges.",
+        "Whether you sell jewelry, cosmetics, electronics, or luxury gifts, our boxes enhance product value while maintaining brand consistency. We also offer magnetic closure rigid boxes wholesale with complete customization. Choose your size, color, texture, and finish. Every box communicates quality, from its smooth exterior to the satisfying magnetic click on closure",
+      ],
+    },
     cta: {
       title: "Strong Designs, Lasting Impressions",
       description:
@@ -1272,6 +1505,15 @@ const rawProductData: Record<string, RawProductEntry> = {
           "Yes, we provide foil stamping, embossing, or UV printing for elegant brand customization.",
       },
     ]),
+    overview: {
+      heading: "Product Overview",
+      title: "Luxury Sliding Rigid Box Packaging",
+      paragraphs: [
+        "Our custom sliding rigid gift boxes offer an elegant way to reveal your products while keeping them protected. Designed with a smooth sliding drawer and durable outer sleeve, they create a premium unboxing moment that adds value to every product.",
+        "At BoxyPack, every packaging piece is built with precision and care. As a reliable rigid sleeve packaging wholesale supplier, we combine sturdy structure with a refined finish to meet the needs of luxury brands and small businesses alike.",
+        "Whether you sell perfumes, cosmetics, watches, electronics, or handmade gifts, these boxes elevate presentation through simple yet striking design. Available in multiple styles, finishes, and colors, luxury sliding rigid boxes deliver elegance with function, creating an unforgettable customer experience.",
+      ],
+    },
     cta: {
       title: "Strong Designs, Lasting Impressions",
       description:
@@ -1336,6 +1578,15 @@ const rawProductData: Record<string, RawProductEntry> = {
           "Yes, we offer foil stamping, embossing, or full-color printing for your logo and artwork.",
       },
     ]),
+    overview: {
+      heading: "Product Overview",
+      title: "Luxury Briefcase Style Rigid Box Packaging",
+      paragraphs: [
+        "Our custom briefcase packaging box is designed to deliver sophistication with practicality. Inspired by the look of a real briefcase, these boxes include handles, secure closures, and a sturdy build that makes them ideal for luxury gifts, corporate presentations, and premium product kits.",
+        "At BoxyPack, we believe great packaging should protect, perform, and impress. As a printed briefcase packaging supplier, we build boxes that merge convenience with class. Each piece is crafted with precision edges, reinforced structure, and premium paper wrapping that enhances your brand’s image.",
+        "Whether you need custom packaging for electronics, accessories, or business gifts, our briefcase-style rigid boxes wholesale selection ensures an elegant unboxing experience. With flexible designs and affordable luxury briefcase-style rigid box prices, we deliver packaging that’s both memorable and durable.",
+      ],
+    },
     cta: {
       title: "Strong Designs, Lasting Impressions",
       description:
@@ -1400,6 +1651,15 @@ const rawProductData: Record<string, RawProductEntry> = {
           "Yes, you can add foil stamping, embossing, or full-color printing for brand visibility.",
       },
     ]),
+    overview: {
+      heading: "Product Overview",
+      title: "Luxury Book Style Rigid Box Packaging",
+      paragraphs: [
+        "Our custom rigid book boxes packaging offers a timeless and luxurious appeal. Designed to open like a hardcover book, these boxes combine structural strength with refined presentation. The magnetic closure ensures a seamless open-and-close motion, while the rigid build keeps your products safe and perfectly positioned.",
+        "At BoxyPack, every detail matters. As a leading supplier of wholesale book-style rigid boxes, we create packaging that blends creativity with precision. Each box is crafted with durable paperboard and wrapped in smooth paper for a premium finish that enhances your brand’s identity.",
+        "Whether used for jewelry, perfumes, gadgets, or gift sets, our luxury book-style gift boxes turn ordinary packaging into a premium unboxing experience. They’re also perfect for collectors’ editions, promotional kits, or high-end retail products. With BoxyPack, every book-style box tells a story of craftsmanship and class.",
+      ],
+    },
     cta: {
       title: "Strong Designs, Lasting Impressions",
       description:
@@ -5709,47 +5969,47 @@ const rawProductData: Record<string, RawProductEntry> = {
   "custom-donut-boxes": {
     name: "Custom Donut Boxes",
     description:
-      "Perfectly designed custom donut boxes that showcase your sweet treats with style. Food-safe, durable, and fully customizable packaging for bakeries and cafes.",
+      "Fresh, stylish, and reliable. Buy custom donut boxes online for packaging that keeps your treats protected, presentable, and ready to impress every customer.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Food-grade materials safe for direct contact with donuts",
-      "Windowed options showcase your donuts beautifully",
-      "Secure closure keeps treats fresh and protected",
-      "Fully customizable with your branding and colors",
-      "Eco-friendly and recyclable paperboard construction",
-      "Multiple sizes to fit single donuts or dozen packs",
-      "Quick assembly design for efficient packaging",
+      "Food-grade paperboard is safe for direct contact",
+      "Strong structure keeps donuts fresh and intact",
+      "Custom printing options for full branding flexibility",
+      "Optional clear windows for display appeal",
+      "Easy-to-assemble design for quick service",
+      "Eco-friendly and fully recyclable materials",
+      "Available in kraft, white, or printed finishes",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Food-grade kraft paperboard or white SBS board",
+          value: "Food-Grade Cardboard / Kraft / White Paperboard",
         },
         {
           label: "Structure",
-          value: "Window box, tuck-end, or gable top with viewing window",
+          value: "Tuck-Top or Lock-Bottom with Optional Window",
         },
         {
           label: "Thickness",
-          value: "14pt / 18pt / 24pt board for optimal protection",
+          value: "12PT / 16PT / 18PT",
         },
         {
           label: "Finish",
-          value: "Matte, gloss, or uncoated with food-safe inks",
+          value: "Gloss / Matte / Soft Touch",
         },
         {
           label: "Printing",
-          value: "Full-color CMYK printing with custom logo and designs",
+          value: "Inside, Outside, or Both",
         },
         {
-          label: "Dimensions (L x W x H)",
-          value: 'Standard 6" x 6" x 3" to 12" x 12" x 4" for dozen packs',
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
         },
         {
           label: "Quantity",
-          value: "Starting at 250 units with bulk pricing available",
+          value: "250 units (Bulk discounts available)",
         },
       ],
     },
@@ -5757,38 +6017,38 @@ const rawProductData: Record<string, RawProductEntry> = {
       heading: "Product Overview",
       title: "Custom Donut Boxes That Make Every Treat Special",
       paragraphs: [
-        "Our custom donut boxes are designed to protect and present your sweet creations with elegance. Made from food-safe materials, these boxes ensure your donuts arrive fresh while showcasing your brand beautifully.",
-        "Whether you need window boxes that let customers see your artisanal donuts or classic tuck-end designs for grab-and-go service, we create packaging that matches your bakery's style. Every box can be customized with your logo, colors, and messaging to reinforce brand recognition.",
-        "At BoxyPack, we understand that presentation matters in the bakery business. Our donut boxes combine functionality with aesthetics, making them perfect for retail display, delivery, and special events.",
+        "Our custom donut boxes are designed to preserve freshness and elevate presentation. Built from durable food-grade paperboard, these boxes protect your baked goods while showcasing them beautifully. Ideal for bakeries, cafes, and dessert shops, they combine strength, hygiene, and brand appeal in one solution.",
+        "At BoxyPack, we craft custom printed donut boxes tailored to your flavor, size, and style. Choose single-donut, half-dozen, or dozen-box configurations in kraft or white materials. Add your logo, color theme, or window cut-outs for a premium touch that boosts shelf appeal.",
+        "As a donut packaging wholesale supplier, we focus on delivering quality, consistency, and cost efficiency. Each box ensures product safety, clean presentation, and affordability, making our packaging the perfect fit for bakeries of all sizes seeking the best donut boxes price.",
       ],
     },
     faq: buildFaq(
       "Custom Donut Boxes",
       [
         {
-          question: "Are donut boxes food-safe?",
+          question: "What are custom donut boxes made of?",
           answer:
-            "Yes, all our donut boxes are made from food-grade materials that are safe for direct contact with baked goods. We use FDA-approved inks and coatings.",
+            "They’re made from food-safe, recyclable cardboard or kraft paperboard.",
         },
         {
-          question: "Can I add a window to my donut boxes?",
+          question: "Can I add my bakery logo?",
           answer:
-            "Absolutely. Windowed donut boxes are one of our most popular options, allowing customers to see your beautiful donuts while keeping them protected.",
+            "Yes, BoxyPack offers full-color logo printing and branding customization.",
         },
         {
-          question: "What sizes are available for donut boxes?",
+          question: "Do you make boxes with transparent windows?",
           answer:
-            'We offer custom sizes from single donut boxes (4" x 4" x 2") to dozen packs (12" x 12" x 4"). Tell us your needs and we\'ll create the perfect fit.',
+            "Absolutely, you can add clear display windows to your donut packaging.",
         },
         {
-          question: "Can I print my bakery logo on the boxes?",
+          question: "Do you offer bulk pricing?",
           answer:
-            "Yes, we offer full-color printing with your logo, branding, and custom designs. You can print on the top, sides, or both for maximum brand visibility.",
+            "Yes, our donut packaging wholesale supplier program includes bulk discounts.",
         },
         {
-          question: "What is the minimum order quantity?",
+          question: "Are these boxes eco-friendly?",
           answer:
-            "Our minimum order is 250 boxes, with bulk discounts available for larger quantities. This makes it affordable for both small bakeries and large operations.",
+            "Yes, all our materials are recyclable, biodegradable, and food safe.",
         },
       ],
       {
@@ -5797,9 +6057,9 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Ready to Package Your Donuts Beautifully?",
+      title: "Sweet Packaging, Fresh Impressions",
       description:
-        "Contact BoxyPack today to create custom donut boxes that showcase your treats and strengthen your brand. Get a quote and see how we can elevate your bakery packaging.",
+        "Partner with BoxyPack to create custom donut boxes that protect, display, and promote your baked delights. Our packaging experts ensure every box you order keeps freshness locked in and your brand looking irresistible.",
     },
   },
 
@@ -5807,86 +6067,83 @@ const rawProductData: Record<string, RawProductEntry> = {
   "custom-pastry-boxes": {
     name: "Custom Pastry Boxes",
     description:
-      "Elegant custom pastry boxes designed to protect delicate pastries while showcasing your bakery's premium quality. Food-safe, stylish, and fully branded packaging solutions.",
+      "Elegant, durable, and food-safe. Buy custom pastry boxes online for bakery packaging that keeps pastries protected, fresh, and beautifully presented every time.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Food-grade materials protect pastries during transport",
-      "Elegant designs that reflect premium bakery quality",
-      "Secure closures prevent damage to delicate items",
-      "Window options for visual appeal and product display",
-      "Customizable with your bakery branding and colors",
-      "Multiple sizes for individual pastries or assortments",
+      "Food-grade paperboard ensures product freshness and safety",
+      "Rigid construction prevents bending or tearing",
+      "Full-color printing for brand identity and marketing",
+      "Optional clear window for product visibility",
+      "Lightweight and stackable for storage and transport",
       "Eco-friendly and recyclable materials",
+      "Available in matte, gloss, or kraft finishes",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value:
-            "Food-safe kraft or white paperboard with grease-resistant options",
+          value: "Food-Grade Cardboard / Kraft / White Paperboard",
         },
         {
           label: "Structure",
-          value: "Tuck-end, window box, or sleeve with insert trays",
+          value: "Tuck-Top / Lock-Bottom / Windowed Options",
         },
         {
           label: "Thickness",
-          value: "18pt / 24pt board for sturdy protection",
+          value: "12PT / 16PT / 18PT",
         },
         {
           label: "Finish",
-          value:
-            "Matte, gloss, or soft-touch lamination with food-safe coatings",
+          value: "Gloss / Matte / Soft Touch",
         },
         {
           label: "Printing",
-          value:
-            "Full-color printing with metallic accents and custom branding",
+          value: "Inside, Outside, or Both",
         },
         {
-          label: "Dimensions (L x W x H)",
-          value: 'Custom sizes from 4" x 4" x 2" to 10" x 10" x 3"',
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
         },
-        { label: "Quantity", value: "Minimum 250 units with volume discounts" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
       title: "Custom Pastry Boxes for Premium Presentation",
       paragraphs: [
-        "Our custom pastry boxes are crafted to protect your delicate baked goods while presenting them with elegance. These boxes are perfect for croissants, éclairs, tarts, and other premium pastries that deserve special packaging.",
-        "Every box is designed with your bakery in mind, featuring food-safe materials and customizable branding that reinforces your quality standards. Windowed options let customers see your beautiful pastries, while secure closures ensure they arrive in perfect condition.",
-        "Whether you're packaging individual pastries for retail or creating gift boxes for special occasions, our pastry boxes combine functionality with sophisticated design to elevate your brand experience.",
+        "Our custom pastry boxes are designed to balance presentation and protection. Made from sturdy, food-grade cardboard, these boxes prevent crushing, preserve texture, and make every pastry look delightful. Ideal for cafes, bakeries, and dessert shops, they provide easy handling and visual appeal for display and delivery.",
+        "At BoxyPack, we specialize in crafting custom printed pastry boxes that perfectly reflect your bakery’s brand identity. Choose kraft for a natural aesthetic or go with full-color printed finishes for a premium branded experience. Whether for croissants, eclairs, or tarts, each box is precision-cut to maintain freshness and stability.",
+        "As a custom printed pastry boxes supplier, we provide reliable materials, consistent printing, and affordable bulk rates. Our durable construction and food-safe design make us a trusted choice for businesses seeking premium packaging at the best pastry boxes price",
       ],
     },
     faq: buildFaq(
       "Custom Pastry Boxes",
       [
         {
-          question: "Are pastry boxes suitable for delicate items?",
+          question: "What are custom pastry boxes made from?",
           answer:
-            "Yes, our pastry boxes are designed with reinforced corners and secure closures to protect delicate pastries during transport and handling.",
+            "They’re made from food-grade cardboard or kraft that’s safe and recyclable.",
         },
         {
-          question: "Can I get boxes with dividers for multiple pastries?",
+          question: "Can I print my bakery logo on the boxes?",
           answer:
-            "Absolutely. We can create custom insert trays and dividers to keep multiple pastries separated and protected in a single box.",
+            "Yes, BoxyPack offers full-color custom printing inside and outside.",
         },
         {
-          question: "Do you offer grease-resistant options?",
+          question: "Are these boxes suitable for warm pastries?",
           answer:
-            "Yes, we can provide grease-resistant coatings and materials to prevent oil from seeping through the box, keeping your pastries looking fresh.",
+            "Yes, the paperboard material retains structure and prevents sogginess.",
         },
         {
-          question: "What printing options are available?",
+          question: "Do you provide bulk discounts?",
           answer:
-            "We offer full-color CMYK printing, metallic accents, spot UV, and foil stamping to create premium-looking pastry boxes that match your brand aesthetic.",
+            "Yes, we offer pastry packaging boxes wholesale pricing for large orders.",
         },
         {
-          question: "Can I order small quantities for testing?",
+          question: "Are these boxes eco-friendly?",
           answer:
-            "Our minimum order is 250 boxes, which is perfect for testing designs before committing to larger production runs.",
+            "Absolutely. Every box is recyclable and crafted from sustainable materials.",
         },
       ],
       {
@@ -5895,9 +6152,9 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Elevate Your Pastry Presentation",
+      title: "Fresh Look, Lasting Impression",
       description:
-        "Partner with BoxyPack to create custom pastry boxes that protect your delicate treats and showcase your bakery's premium quality. Request a quote today.",
+        "Partner with BoxyPack to design custom pastry boxes that protect your pastries while showcasing your brand’s charm. Our experts deliver bakery packaging that looks inviting, feels professional, and keeps every bite as fresh as the first.",
     },
   },
 
@@ -5905,91 +6162,91 @@ const rawProductData: Record<string, RawProductEntry> = {
   "custom-cake-boxes": {
     name: "Custom Cake Boxes",
     description:
-      "Sturdy and stylish custom cake boxes designed to protect cakes of all sizes. Food-safe, secure, and beautifully branded packaging for bakeries and cake shops.",
+      "Elegant, protective, and ready to impress. Buy custom cake boxes online for packaging that keeps your cakes secure, fresh, and beautifully presented for every occasion..",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Heavy-duty construction supports cakes of all sizes",
-      "Food-grade materials safe for direct food contact",
-      "Secure closures prevent shifting during transport",
-      "Window options showcase your cake designs",
-      "Fully customizable with bakery branding",
-      "Multiple sizes from single slices to full sheet cakes",
-      "Reinforced corners for extra protection",
+      "Food-grade, durable cardboard construction",
+      "Secure lock or tuck-top structure for protection",
+      "Ideal for single, multi-layer, or custom cake sizes",
+      "Full-color printing for brand presentation",
+      "Optional handle or window for product display",
+      "Eco-friendly and recyclable materials",
+      "Available in matte, gloss, or kraft finishes",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Heavy-duty food-grade paperboard or corrugated board",
+          value: "Food-Grade Cardboard / Kraft / White Paperboard",
         },
         {
           label: "Structure",
-          value: "Tuck-end, window box, or reinforced bottom with handles",
+          value: "Tuck-Top / Lock-Bottom / Window or Handle Options",
         },
         {
           label: "Thickness",
-          value: "24pt / 32pt board or single-wall corrugated for larger cakes",
+          value: "16PT / 18PT / 24PT",
         },
         {
           label: "Finish",
-          value: "Matte, gloss, or uncoated with food-safe inks",
+          value: "Gloss / Matte / Soft Touch",
         },
         {
           label: "Printing",
-          value: "Full-color printing with custom designs and logo placement",
+          value: "Inside, Outside, or Both",
         },
         {
-          label: "Dimensions (L x W x H)",
-          value: 'From 6" x 6" x 3" round to 18" x 18" x 6" sheet cakes',
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
         },
-        { label: "Quantity", value: "Starting at 250 units with bulk pricing" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
       title: "Custom Cake Boxes Built for Protection and Presentation",
       paragraphs: [
-        "Our custom cake boxes are engineered to protect your cakes from the bakery to the customer's table. Built with heavy-duty materials and secure closures, these boxes ensure your cakes arrive in perfect condition.",
-        "Whether you're packaging individual slices, round cakes, or full sheet cakes, we offer sizes and structures that match your needs. Windowed options let customers admire your cake designs, while reinforced corners provide extra protection for delicate decorations.",
-        "Every box can be customized with your bakery's branding, creating a memorable unboxing experience that reinforces your quality standards and builds customer loyalty.",
+        "Our custom cake boxes are crafted for elegance and strength. Built from food-grade cardboard, they protect delicate cakes during transport while maintaining their perfect presentation. Ideal for bakeries, catering, and special events, these boxes balance durability, hygiene, and premium style.",
+        "At BoxyPack, we specialize in creating luxury custom cake packaging boxes tailored to your brand and product line. Choose classic white or natural kraft finishes, or go bold with full-color printed designs that reflect your bakery’s identity. Each box is precision-engineered for smooth assembly and strong structure that holds your cake securely in place.",
+        "As a cake boxes wholesale supplier, we provide high-quality materials, custom printing, and affordable bulk options. Whether you need large, small, or multi-tier cake boxes, we offer reliable performance and a competitive cake boxes price that fits your bakery’s needs.",
       ],
     },
     faq: buildFaq(
       "Custom Cake Boxes",
       [
         {
-          question: "What sizes are available for cake boxes?",
+          question: "What materials are used for custom cake boxes?",
           answer:
-            'We offer custom sizes from small slice boxes (4" x 4" x 2") to large sheet cake boxes (18" x 18" x 6"). Tell us your cake dimensions and we\'ll create the perfect fit.',
+            "We use premium, food-grade cardboard and kraft paperboard for safe packaging.",
         },
         {
-          question: "Can cake boxes support heavy or multi-tiered cakes?",
+          question: "Can I print my bakery logo and artwork?",
           answer:
-            "Yes, we can create reinforced boxes with extra-thick board and structural supports for heavy or multi-tiered cakes. Our engineering team will recommend the best solution.",
+            "Yes, BoxyPack provides full-color custom printing for both inside and outside surfaces.",
         },
         {
-          question: "Do you offer boxes with handles?",
+          question: "Are these boxes suitable for large cakes?",
           answer:
-            "Absolutely. We can add die-cut handles or rope handles to make it easier to carry larger cake boxes safely.",
+            "Yes, we offer sturdy structures that support single or multi-tier cakes securely.",
         },
         {
-          question: "Are the boxes suitable for refrigerated cakes?",
+          question: "Do you offer wholesale rates?",
           answer:
-            "Yes, our food-grade materials are safe for refrigerated storage. We can also add moisture-resistant coatings if needed.",
+            "Absolutely, our cake boxes wholesale supplier program includes volume-based discounts.",
         },
         {
-          question: "Can I get window boxes for round cakes?",
+          question: "Are your cake boxes eco-friendly?",
           answer:
-            "Yes, we offer windowed cake boxes in round, square, and rectangular shapes to showcase your cake designs beautifully.",
+            "Yes, all materials are recyclable, biodegradable, and safe for food use.",
         },
       ],
       { heading: "Questions about Custom Cake Boxes", eyebrow: "Cake Box FAQs" }
     ),
     cta: {
-      title: "Protect Your Cakes with Style",
+      title: "Celebrate Every Slice in Style",
       description:
-        "Get custom cake boxes that protect your creations and showcase your bakery's brand. Contact BoxyPack for a quote tailored to your cake packaging needs.",
+        "Partner with BoxyPack to design custom cake boxes that combine elegance and strength. Our packaging experts ensure your cakes are delivered with freshness, beauty, and brand consistency because every box should be as special as the treat inside.",
     },
   },
 
@@ -5997,86 +6254,86 @@ const rawProductData: Record<string, RawProductEntry> = {
   "custom-cookie-boxes": {
     name: "Custom Cookie Boxes",
     description:
-      "Perfect packaging for cookies of all types. Custom cookie boxes that keep treats fresh, showcase your brand, and create memorable unboxing experiences for your customers.",
+      "Charming, sturdy, and food-safe. Buy custom cookie boxes online for packaging that keeps cookies fresh, flavorful, and ready to delight customers every time",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Food-safe materials keep cookies fresh and protected",
-      "Secure closures maintain cookie integrity",
-      "Window options let customers see your cookies",
-      "Customizable designs with your branding",
-      "Multiple sizes for single cookies or gift sets",
-      "Eco-friendly and recyclable materials",
-      "Stackable design for efficient storage",
+      "Food-grade paperboard for direct contact safety",
+      "Keeps cookies fresh and protected during delivery",
+      "Optional window cut-outs for product visibility",
+      "Full-color printing for brand and design enhancement",
+      "Eco-friendly, recyclable, and biodegradable materials",
+      "Ideal for bakeries, gift packaging, and retail sales",
+      "Available in kraft, white, or custom finishes",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Food-grade kraft or white paperboard",
+          value: "Food-Grade Cardboard / Kraft / White Paperboard",
         },
         {
           label: "Structure",
-          value: "Tuck-end, window box, or gable top with dividers",
+          value: "Tuck-Top / Lock-Bottom / Window Options",
         },
         {
           label: "Thickness",
-          value: "14pt / 18pt board for optimal protection",
+          value: "12PT / 16PT / 18PT",
         },
         {
           label: "Finish",
-          value: "Matte, gloss, or uncoated with food-safe inks",
+          value: "Gloss / Matte / Soft Touch",
         },
         {
           label: "Printing",
-          value: "Full-color CMYK printing with custom cookie designs",
+          value: "Inside, Outside, or Both",
         },
         {
-          label: "Dimensions (L x W x H)",
-          value: 'From 4" x 4" x 1.5" to 12" x 8" x 3" for gift sets',
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
         },
         {
           label: "Quantity",
-          value: "Starting at 250 units with volume discounts",
+          value: "250 units (Bulk discounts available)",
         },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Custom Cookie Boxes That Keep Treats Fresh",
+      title: "Custom Printed Cookie Boxes for Bakeries and Brands",
       paragraphs: [
-        "Our custom cookie boxes are designed to protect your cookies while showcasing your brand. Made from food-safe materials, these boxes keep cookies fresh and maintain their texture during transport.",
-        "Whether you're packaging individual cookies, cookie assortments, or gift sets, we offer sizes and structures that match your needs. Windowed options let customers see your beautiful cookies, while secure closures ensure they stay intact.",
-        "Every box can be customized with your bakery's branding, colors, and messaging, creating a cohesive brand experience that customers remember. Perfect for retail, e-commerce, and special events.",
+        "Our custom cookie boxes are crafted to protect freshness while enhancing presentation. Built from food-grade, eco-safe paperboard, they maintain flavor and shape, making them perfect for bakeries, cafés, and gourmet snack brands. These boxes combine clean design, secure structure, and vibrant branding options to elevate your product display.",
+        "At BoxyPack, we design custom printed cookie boxes tailored to your brand’s image and packaging goals. Choose from kraft textures for a rustic look or full-color printed finishes for a polished retail feel. Add a window to showcase your cookies and attract instant attention. Each box is precision-made for durability, easy assembly, and strong visual impact.",
+        "As a custom printed cookie boxes supplier, we focus on quality, affordability, and sustainability. From small batch orders to cookie packaging boxes wholesale, we ensure consistent quality at the best cookie boxes price in the market.",
       ],
     },
     faq: buildFaq(
       "Custom Cookie Boxes",
       [
         {
-          question: "Do cookie boxes keep cookies fresh?",
+          question: "What are custom cookie boxes made of?",
           answer:
-            "Yes, our food-grade materials and secure closures help maintain cookie freshness. We can also add moisture-resistant barriers if needed for extended freshness.",
+            "They’re made from durable, food-grade cardboard or kraft materials.",
         },
         {
-          question: "Can I add dividers for cookie assortments?",
+          question: "Can I add a window to my cookie boxes?",
           answer:
-            "Absolutely. We can create custom insert trays and dividers to keep different cookie types separated and protected in gift boxes.",
+            "Yes, BoxyPack offers eco friendly cookie boxes with window options.",
         },
         {
-          question: "What sizes work best for cookie boxes?",
+          question: "Do you offer printing for logos and artwork?",
           answer:
-            'We offer sizes from small individual boxes (4" x 4" x 1.5") to large gift boxes (12" x 8" x 3"). The best size depends on your cookie dimensions and quantity.',
+            "Absolutely. Full-color custom printing is available inside and outside.",
         },
         {
-          question: "Can I print nutritional information on the boxes?",
+          question: "Are these boxes suitable for gifting or retail?",
           answer:
-            "Yes, we can print any text, including nutritional information, ingredient lists, and branding on your cookie boxes.",
+            "Yes, they’re perfect for both bakery sales and gift packaging.",
         },
         {
-          question: "Are the boxes suitable for shipping?",
+          question: "Do you provide wholesale discounts?",
           answer:
-            "Yes, our cookie boxes are designed to withstand shipping. We can add extra reinforcement for long-distance shipping if needed.",
+            "Yes, our cookie packaging boxes wholesale program includes discounted bulk pricing.",
         },
       ],
       {
@@ -6085,9 +6342,9 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Package Your Cookies with Care",
+      title: "Fresh Look, Delicious Impression",
       description:
-        "Create custom cookie boxes that protect your treats and strengthen your brand. Contact BoxyPack today for a quote and see how we can elevate your cookie packaging.",
+        "Partner with BoxyPack to create custom cookie boxes that protect your treats and promote your brand. Our team designs packaging that keeps freshness locked in and makes every cookie feel special from first glance to final bite.",
     },
   },
 
@@ -6095,80 +6352,80 @@ const rawProductData: Record<string, RawProductEntry> = {
   "custom-gable-boxes": {
     name: "Custom Gable Boxes",
     description:
-      "Versatile custom gable boxes perfect for bakery items, gifts, and retail. Easy-to-carry handles, secure closures, and fully customizable designs that elevate your brand.",
+      "Convenient, durable, and bakery-ready. Buy custom gable boxes online for packaging that combines easy handling, strong protection, and stylish presentation for every product.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Built-in handles for easy carrying",
-      "Secure closure keeps contents protected",
-      "Food-safe materials for bakery use",
-      "Spacious design accommodates various items",
-      "Fully customizable with branding and colors",
-      "Eco-friendly and recyclable construction",
-      "Quick assembly for efficient packaging",
+      "Built-in handle for easy carrying and storage",
+      "Food-grade, sturdy paperboard structure",
+      "Full-color printing options for strong brand identity",
+      "Ideal for bakery, food, and retail packaging",
+      "Eco-friendly and recyclable materials",
+      "Available in kraft, white, or printed finishes",
+      "Flat-packed for easy shipping and assembly",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Food-grade kraft or white paperboard",
+          value: "Food-Grade Cardboard / Kraft / White Paperboard",
         },
         {
           label: "Structure",
-          value: "Gable top with reinforced handles and secure closure",
+          value: "Fold-Over Gable Style with Handle",
         },
-        { label: "Thickness", value: "18pt / 24pt board for durability" },
+        { label: "Thickness", value: "12PT / 16PT / 18PT" },
         {
           label: "Finish",
-          value: "Matte, gloss, or uncoated with food-safe inks",
+          value: "Gloss / Matte / Soft Touch",
         },
         {
           label: "Printing",
-          value: "Full-color printing on all sides with custom designs",
+          value: "Inside, Outside, or Both",
         },
         {
-          label: "Dimensions (L x W x H)",
-          value: 'From 6" x 4" x 6" to 12" x 8" x 10"',
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
         },
-        { label: "Quantity", value: "Minimum 250 units with bulk pricing" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Custom Gable Boxes for Versatile Packaging",
+      title: "Custom Printed Gable Boxes for Bakery and Retail",
       paragraphs: [
-        "Our custom gable boxes combine functionality with style, featuring built-in handles that make them perfect for bakery items, gifts, and retail products. The gable top design provides ample space while maintaining a compact footprint.",
-        "These boxes are ideal for bakeries, cafes, and retail stores that need versatile packaging that works for multiple product types. The secure closure keeps contents protected, while the handles make them convenient for customers to carry.",
-        "Every gable box can be customized with your branding, creating a cohesive look across your product line. Perfect for donuts, pastries, cookies, or any bakery items that need convenient, attractive packaging.",
+        "Our custom gable boxes are designed to provide functionality with flair. Featuring a built-in handle and secure interlocking design, they make transport effortless while keeping products fresh and protected. Ideal for bakeries, takeout, gifts, and promotional packaging, they deliver versatility with a polished look.",
+        "At BoxyPack, we produce custom printed gable boxes wholesale for bakeries, cafes, and retail brands that value both strength and style. You can choose kraft for a natural appearance or printed finishes for vibrant branding. Every box is crafted from food-grade paperboard, ensuring freshness and safety in every delivery.",
+        "As a trusted gable boxes supplier for bakeries, we guarantee consistent quality, eco-friendly materials, and competitive pricing. Whether you need small quantities or large bulk orders, we offer flexibility and the best bakery gable boxes price on the market.",
       ],
     },
     faq: buildFaq(
       "Custom Gable Boxes",
       [
         {
-          question: "What are gable boxes best used for?",
+          question: "What are bakery gable boxes used for?",
           answer:
-            "Gable boxes are versatile and perfect for bakery items, gifts, party favors, and retail products. The built-in handles make them ideal for items customers carry away.",
+            "They’re ideal for bakery packaging, takeout meals, and gift boxes.",
         },
         {
-          question: "How strong are the handles?",
+          question: "Can I print my bakery logo on the gable boxes?",
           answer:
-            "Our gable box handles are reinforced and designed to support the weight of typical bakery items. We can add extra reinforcement for heavier contents if needed.",
+            "Yes, BoxyPack offers full-color custom printing for branding.",
         },
         {
-          question: "Can I add windows to gable boxes?",
+          question: "Are these boxes made from food-safe material?",
           answer:
-            "Yes, we can add window panels to gable boxes so customers can see the contents while maintaining the convenient handle design.",
+            "Absolutely. All boxes are made from certified food-grade paperboard.",
         },
         {
-          question: "What sizes are available?",
+          question: "Do you provide bulk order discounts?",
           answer:
-            'We offer custom sizes from small (6" x 4" x 6") to large (12" x 8" x 10"). Tell us your needs and we\'ll recommend the perfect size.',
+            "Yes, we offer custom printed gable boxes wholesale pricing for large quantities.",
         },
         {
-          question: "Are gable boxes food-safe?",
+          question: "Are the boxes eco-friendly?",
           answer:
-            "Yes, we use food-grade materials for all gable boxes intended for bakery use, ensuring they're safe for direct food contact.",
+            "Yes, our gable boxes are recyclable and crafted from sustainable materials.",
         },
       ],
       {
@@ -6177,9 +6434,9 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Choose Versatile Gable Box Packaging",
+      title: "Carry Your Brand with Confidence",
       description:
-        "Get custom gable boxes that combine convenience with style. Contact BoxyPack today to create packaging that works for your bakery, retail, or gift business.",
+        "Design custom gable boxes that are easy to carry and built to impress. Request a quote today.",
     },
   },
 
@@ -6187,44 +6444,44 @@ const rawProductData: Record<string, RawProductEntry> = {
   "custom-candy-boxes": {
     name: "Custom Candy Boxes",
     description:
-      "Sweet custom candy boxes designed to showcase confections beautifully. Food-safe, attractive, and fully branded packaging that makes every candy purchase special.",
+      "Colorful, durable, and sweetly designed. Buy custom candy boxes online for packaging that keeps candies fresh, secure, and beautifully displayed for every occasion.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Food-grade materials safe for candy storage",
-      "Attractive designs that enhance candy presentation",
-      "Secure closures keep candies fresh and protected",
-      "Window options showcase colorful candies",
-      "Customizable with your confectionery branding",
-      "Multiple sizes for individual pieces or gift sets",
-      "Eco-friendly and recyclable materials",
+      "Food-grade material keeps candies safe and fresh",
+      "Available with clear window or divider inserts",
+      "Full-color printing for branding and visual impact",
+      "Lightweight, strong, and easy to assemble",
+      "Eco-friendly and recyclable paperboard",
+      "Perfect for bakery, retail, and gift packaging",
+      "Available in kraft, white, or premium printed finishes",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Food-safe kraft or white paperboard",
+          value: "Food-Grade Cardboard / Kraft / White Paperboard",
         },
         {
           label: "Structure",
-          value: "Tuck-end, window box, or gift box with dividers",
+          value: "Tuck-Top / Lock-Bottom / Window or Divider Options",
         },
-        { label: "Thickness", value: "14pt / 18pt board for protection" },
+        { label: "Thickness", value: "12PT / 16PT / 18PT" },
         {
           label: "Finish",
-          value: "Matte, gloss, or metallic finishes with food-safe inks",
+          value: "Gloss / Matte / Soft Touch",
         },
         {
           label: "Printing",
-          value: "Vibrant full-color printing with custom candy-themed designs",
+          value: "Inside, Outside, or Both",
         },
         {
-          label: "Dimensions (L x W x H)",
-          value: 'From 3" x 3" x 1" to 10" x 8" x 3" for assortments',
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
         },
         {
           label: "Quantity",
-          value: "Starting at 250 units with bulk discounts",
+          value: "250 units (Bulk discounts available)",
         },
       ],
     },
@@ -6232,38 +6489,38 @@ const rawProductData: Record<string, RawProductEntry> = {
       heading: "Product Overview",
       title: "Custom Candy Boxes for Sweet Presentation",
       paragraphs: [
-        "Our custom candy boxes are designed to make every candy purchase feel special. Made from food-safe materials, these boxes protect your confections while showcasing them beautifully.",
-        "Whether you're packaging individual candies, chocolate boxes, or candy assortments, we offer sizes and designs that match your needs. Windowed options let customers see the colorful candies inside, while secure closures keep them fresh.",
-        "Every box can be customized with vibrant colors, playful designs, and your confectionery branding, creating an experience that delights customers and reinforces your brand identity.",
+        "Our custom candy boxes are crafted to blend visual appeal with reliable protection. Built from sturdy, food-grade paperboard, they keep candies, chocolates, and sweets fresh while giving your brand a premium look. Perfect for bakeries, candy shops, and gift retailers, these boxes make every treat feel special.",
+        "At BoxyPack, we design custom printed candy boxes that fit your product range and brand image. Choose from classic kraft boxes for natural charm or full-color printed options for a bold retail-ready appearance. Add transparent windows, inserts, or dividers for professional organization and presentation.",
+        "As a custom printed candy boxes supplier, we ensure quality, affordability, and sustainable production. From small retail runs to candy packaging boxes wholesale orders, you get dependable craftsmanship and an attractive candy boxes price that suits your packaging needs.",
       ],
     },
     faq: buildFaq(
       "Custom Candy Boxes",
       [
         {
-          question: "Are candy boxes suitable for chocolate?",
+          question: "What are custom candy boxes made of?",
           answer:
-            "Yes, our food-safe materials are perfect for chocolate and other candies. We can add moisture-resistant barriers to protect chocolate from humidity.",
+            "They’re made from premium, food-safe cardboard and kraft materials.",
         },
         {
-          question: "Can I create boxes with multiple compartments?",
+          question: "Can I customize my box design and printing?",
           answer:
-            "Absolutely. We can design custom insert trays and dividers to create compartments for different candy types in a single box.",
+            "Yes, BoxyPack offers full-color custom printing and window options.",
         },
         {
-          question: "What printing options work best for candy boxes?",
+          question: "Are these boxes suitable for gifting?",
           answer:
-            "Vibrant full-color printing, metallic accents, and glossy finishes work great for candy boxes, creating an attractive, premium look that appeals to customers.",
+            "Absolutely. They’re perfect for luxury candy and bakery gift packaging.",
         },
         {
-          question: "Do you offer boxes for seasonal candies?",
+          question: "Do you provide wholesale pricing?",
           answer:
-            "Yes, we can create seasonal designs and limited-edition boxes for holidays and special occasions, helping you capitalize on seasonal sales opportunities.",
+            "Yes, our candy packaging boxes wholesale program includes competitive bulk rates.",
         },
         {
-          question: "Are the boxes suitable for gift sets?",
+          question: "Are these boxes eco-friendly?",
           answer:
-            "Absolutely. Our candy boxes are perfect for creating gift sets, with options for ribbons, gift tags, and premium finishes that make them ideal for gifting.",
+            "Yes, all our boxes are recyclable and made from sustainable materials.",
         },
       ],
       {
@@ -6272,9 +6529,9 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Package Your Candies Beautifully",
+      title: "Sweet Packaging That Sells",
       description:
-        "Create custom candy boxes that showcase your confections and delight customers. Contact BoxyPack today to get a quote for your candy packaging needs.",
+        "Partner with BoxyPack to design custom candy boxes that keep your treats safe, stylish, and irresistible. Our team creates packaging that adds sweetness to your brand story, crafted to impress, protect, and delight in every unboxing.",
     },
   },
 
@@ -6282,83 +6539,83 @@ const rawProductData: Record<string, RawProductEntry> = {
   "mini-cupcake-boxes": {
     name: "Mini Cupcake Boxes",
     description:
-      "Perfectly sized mini cupcake boxes designed for individual treats. Food-safe, secure, and beautifully branded packaging that makes every mini cupcake special.",
+      "Cute, sturdy, and perfectly crafted. Buy mini cupcake boxes online for packaging that keeps every bite safe, fresh, and beautifully presented for your customers.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Compact design perfect for mini cupcakes",
-      "Food-grade materials safe for direct contact",
-      "Secure closure protects delicate frosting",
-      "Window options showcase your mini cupcakes",
-      "Customizable with your bakery branding",
-      "Stackable design for efficient storage",
-      "Eco-friendly and recyclable materials",
+      "Food-grade, sturdy material ensures freshness and safety",
+      "Includes optional inserts for secure cupcake placement",
+      "Full-color printing for branding and display appeal",
+      "Available with a clear window for product visibility",
+      "Eco-friendly, recyclable, and easy to assemble",
+      "Ideal for bakeries, events, and party favors",
+      "Available in matte, gloss, or kraft finishes",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Food-safe kraft or white paperboard",
+          value: "Food-Grade Cardboard / Kraft / White Paperboard",
         },
         {
           label: "Structure",
-          value: "Tuck-end or window box with secure closure",
+          value: "Lock-Bottom / Tuck-Top / Window and Insert Options",
         },
-        { label: "Thickness", value: "14pt / 18pt board for protection" },
+        { label: "Thickness", value: "12PT / 16PT / 18PT" },
         {
           label: "Finish",
-          value: "Matte, gloss, or uncoated with food-safe inks",
+          value: "Gloss / Matte / Soft Touch",
         },
         {
           label: "Printing",
-          value: "Full-color printing with custom designs and logo",
+          value: "Inside, Outside, or Both",
         },
         {
-          label: "Dimensions (L x W x H)",
-          value: 'Standard 3.5" x 3.5" x 2.5" for mini cupcakes',
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
         },
         {
           label: "Quantity",
-          value: "Starting at 250 units with volume pricing",
+          value: "250 units (Bulk discounts available)",
         },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Mini Cupcake Boxes for Individual Treats",
+      title: "Mini Cupcake Packaging Boxes for Bakeries and Events",
       paragraphs: [
-        "Our mini cupcake boxes are perfectly sized for individual mini cupcakes, providing protection while showcasing your beautiful creations. These compact boxes are ideal for bakeries, cafes, and events where customers want to take home single treats.",
-        "Made from food-safe materials, these boxes protect delicate frosting and decorations during transport. Windowed options let customers see your mini cupcakes, while secure closures ensure they arrive in perfect condition.",
-        "Every box can be customized with your bakery's branding, creating a professional presentation that reinforces your quality standards. Perfect for retail, catering, and special events.",
+        "Our mini cupcake boxes are designed to protect delicate cupcakes while showcasing their charm. Built from durable food-grade cardboard, they maintain freshness, shape, and presentation for bakery counters, events, and deliveries. These compact boxes combine structure, convenience, and visual appeal for professional packaging.",
+        "At BoxyPack, we produce custom-printed cupcake boxes wholesale that reflect your brand’s personality. Whether you need natural kraft tones, white clean finishes, or full-color printed options, we offer precision design for every order. Each box can include inserts to hold cupcakes securely in place and prevent sliding.",
+        "As a trusted mini cupcake boxes supplier, we focus on durability, consistency, and eco-friendly production. From boutique bakeries to large wholesale orders, we deliver premium quality at an affordable mini cupcake boxes price to suit every business size.",
       ],
     },
     faq: buildFaq(
       "Mini Cupcake Boxes",
       [
         {
-          question: "What size are mini cupcake boxes?",
+          question: "What materials are used for mini cupcake boxes?",
           answer:
-            'Our standard mini cupcake boxes are 3.5" x 3.5" x 2.5", perfect for individual mini cupcakes. We can customize sizes to fit your specific mini cupcake dimensions.',
+            "We use food-safe kraft and cardboard materials suitable for direct contact.",
         },
         {
-          question: "Do the boxes protect frosting?",
+          question: "Can I include a clear window on my boxes?",
           answer:
-            "Yes, our boxes are designed with secure closures and appropriate height to protect delicate frosting and decorations during transport and handling.",
+            "Yes, BoxyPack offers window options for visibility and presentation.",
         },
         {
-          question: "Can I order boxes for multiple mini cupcakes?",
+          question: "Do the boxes include cupcake inserts?",
           answer:
-            "Yes, we can create boxes that hold 2, 4, 6, or 12 mini cupcakes with custom dividers to keep them separated and protected.",
+            "Yes, optional inserts are available for single or multi-cupcake layouts.",
         },
         {
-          question: "Are the boxes suitable for delivery?",
+          question: "Do you offer wholesale pricing?",
           answer:
-            "Absolutely. Our mini cupcake boxes are designed to withstand delivery, with secure closures that prevent shifting and damage during transport.",
+            "Absolutely, our custom printed cupcake boxes wholesale program offers bulk discounts.",
         },
         {
-          question: "Can I add windows to mini cupcake boxes?",
+          question: "Are these boxes eco-friendly?",
           answer:
-            "Yes, windowed mini cupcake boxes are available, allowing customers to see your beautiful mini cupcakes while keeping them protected.",
+            "Yes, our mini cupcake packaging boxes are recyclable and sustainable.",
         },
       ],
       {
@@ -6367,9 +6624,9 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Package Mini Cupcakes Perfectly",
+      title: "Small Box, Big Impression",
       description:
-        "Get custom mini cupcake boxes that protect your treats and showcase your brand. Contact BoxyPack today for a quote tailored to your mini cupcake packaging needs.",
+        "Partner with BoxyPack to design mini cupcake boxes that make your desserts shine. Our packaging experts deliver quality, precision, and style so every cupcake arrives fresh, flawless, and ready to delight.",
     },
   },
 
@@ -6377,80 +6634,79 @@ const rawProductData: Record<string, RawProductEntry> = {
   "pink-donut-boxes": {
     name: "Pink Donut Boxes",
     description:
-      "Beautiful pink donut boxes that add a touch of elegance to your bakery packaging. Food-safe, stylish, and fully customizable with your branding for a memorable presentation.",
+      "Bright, stylish, and bakery-perfect. Buy pink donut boxes online for packaging that adds charm, freshness, and brand appeal to every sweet treat you serve.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Attractive pink color adds visual appeal",
-      "Food-grade materials safe for donuts",
-      "Window options showcase your donuts beautifully",
-      "Secure closure keeps treats fresh",
-      "Customizable with your bakery branding",
-      "Multiple sizes for single or dozen donuts",
-      "Eco-friendly and recyclable construction",
+      "Food-grade material for safety and freshness",
+      "Strong structure ideal for bakery and retail use",
+      "Full-color pink or branded printing options",
+      "Available in multiple sizes for single or a dozen donuts",
+      "Eco-friendly, recyclable, and lightweight",
+      "Flat-packed for easy storage and assembly",
+      "Gloss, matte, or soft-touch finish options",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Food-grade pink paperboard or white board with pink printing",
+          value: "Food-Grade Cardboard / Kraft / White Paperboard",
         },
         {
           label: "Structure",
-          value: "Window box, tuck-end, or gable top with pink finish",
+          value: "Tuck-Top / Lock-Bottom / Window Options",
         },
-        { label: "Thickness", value: "14pt / 18pt / 24pt board" },
+        { label: "Thickness", value: "12PT / 16PT / 18PT" },
         {
           label: "Finish",
-          value: "Matte or gloss pink finish with food-safe inks",
+          value: "Gloss / Matte / Soft Touch",
         },
         {
           label: "Printing",
-          value: "Full-color printing with custom designs on pink background",
+          value: "Inside, Outside, or Both",
         },
         {
-          label: "Dimensions (L x W x H)",
-          value: 'From 6" x 6" x 3" to 12" x 12" x 4"',
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
         },
-        { label: "Quantity", value: "Starting at 250 units with bulk pricing" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
       title: "Pink Donut Boxes for Elegant Presentation",
       paragraphs: [
-        "Our pink donut boxes add a touch of elegance and femininity to your bakery packaging. The attractive pink color creates a memorable brand experience that stands out on retail shelves and in customers' hands.",
-        "Made from food-safe materials, these boxes protect your donuts while showcasing them beautifully. Windowed options let customers see your artisanal donuts, while the pink color adds a premium, stylish touch.",
-        "Perfect for bakeries, cafes, and donut shops that want to create a distinctive brand identity. Every box can be customized with your logo and designs, creating a cohesive look that customers remember.",
+        "Our pink donut boxes are made for bakeries that want packaging as delightful as their donuts. Crafted from durable, food-grade cardboard, these boxes protect freshness while creating an eye-catching presentation. Perfect for cafés, bakeries, and dessert shops, they add color and personality to your product display.",
+        "At BoxyPack, we produce custom-printed pink donut boxes designed to match your bakery’s style and brand. Whether you prefer soft pastel tones or vibrant shades of pink, every box is precision-cut, strong, and visually appealing. Choose from plain designs or printed logos for an extra professional finish.",
+        "As a donut gift boxes wholesale supplier, we focus on delivering quality and consistency at scale. Each order offers durable construction, clean folds, and smooth surfaces at a competitive pink donut boxes price, making them ideal for retail and bulk packaging.",
       ],
     },
     faq: buildFaq(
       "Pink Donut Boxes",
       [
         {
-          question: "Why choose pink donut boxes?",
+          question: "What are pink donut boxes made from?",
           answer:
-            "Pink donut boxes add a distinctive, elegant touch to your packaging that helps your brand stand out. The color creates a memorable, premium experience that customers associate with quality.",
+            "They’re made from food-safe cardboard or kraft paperboard with pink printing.",
         },
         {
-          question: "Can I customize the shade of pink?",
-          answer:
-            "Yes, we can match specific pink shades to align with your brand colors. We offer various pink tones from soft pastels to vibrant magentas.",
+          question: "Can I print my logo on the pink donut boxes?",
+          answer: "Yes, BoxyPack offers custom logo and artwork printing.",
         },
         {
-          question: "Are pink boxes food-safe?",
+          question: "Are these boxes suitable for gifting or display?",
           answer:
-            "Absolutely. All our pink donut boxes use food-grade materials and FDA-approved inks, ensuring they're safe for direct contact with donuts.",
+            "Absolutely. They’re perfect for retail display and gift packaging.",
         },
         {
-          question: "Can I add windows to pink donut boxes?",
+          question: "Do you offer bulk pricing?",
           answer:
-            "Yes, windowed pink donut boxes are available, combining the attractive pink color with clear windows that showcase your donuts beautifully.",
+            "Yes, our donut gift boxes wholesale supplier program includes volume discounts.",
         },
         {
-          question: "What sizes are available in pink?",
+          question: "Are these boxes eco-friendly?",
           answer:
-            "We offer pink donut boxes in all standard sizes, from single donut boxes to dozen packs. Custom sizes are also available.",
+            "Yes, all our pink donut boxes are recyclable and sustainably produced.",
         },
       ],
       {
@@ -6459,9 +6715,9 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Add Elegance with Pink Donut Boxes",
+      title: "Pretty Packaging, Perfect Presentation",
       description:
-        "Create distinctive pink donut boxes that elevate your brand. Contact BoxyPack today to get a quote for your pink bakery packaging needs.",
+        "Partner with BoxyPack to design pink donut boxes that make every treat irresistible. Our team helps you create packaging that enhances freshness, strengthens your brand, and delivers smiles with every box opened.",
     },
   },
 
@@ -6469,89 +6725,71 @@ const rawProductData: Record<string, RawProductEntry> = {
   "window-bakery-boxes": {
     name: "Window Bakery Boxes",
     description:
-      "Beautiful window bakery boxes that showcase your baked goods while keeping them protected. Food-safe, secure, and fully customizable packaging that lets customers see what they're buying.",
+      "Fresh, functional, and display-ready. Buy bakery boxes with windows online for packaging that highlights your baked goods while keeping them fresh, safe, and beautifully presented.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Clear windows showcase your baked goods",
-      "Food-grade materials safe for direct contact",
-      "Secure closures protect contents",
-      "Customizable window sizes and placements",
-      "Full-color printing with your branding",
-      "Multiple sizes for various bakery items",
-      "Eco-friendly and recyclable materials",
+      "Transparent window for clear product visibility",
+      "Food-grade paperboard ensures safety and freshness",
+      "Full-color printing for brand identity and style",
+      "Strong and foldable structure for durability",
+      "Eco-friendly and recyclable packaging materials",
+      "Available in kraft, white, or custom finishes",
+      "Perfect for cakes, cupcakes, pastries, and cookies",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Food-safe paperboard with clear window film",
+          value: "Food-Grade Cardboard / Kraft / White Paperboard",
         },
         {
           label: "Structure",
-          value: "Tuck-end or gable top with custom window placement",
+          value: "Tuck-Top / Lock-Bottom / Window Options",
         },
-        {
-          label: "Thickness",
-          value: "14pt / 18pt / 24pt board with clear window",
-        },
-        { label: "Finish", value: "Matte or gloss with food-safe inks" },
-        {
-          label: "Printing",
-          value: "Full-color printing around windows with custom designs",
-        },
-        {
-          label: "Window Size",
-          value:
-            "Custom window sizes from small peek windows to full-top windows",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: "Custom sizes to fit your bakery items",
-        },
-        {
-          label: "Quantity",
-          value: "Starting at 250 units with volume discounts",
-        },
+        { label: "Thickness", value: "12PT / 16PT / 18PT" },
+        { label: "Finish", value: "Gloss / Matte / Soft Touch" },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Window Bakery Boxes That Showcase Your Products",
+      title: "Custom Bakery Boxes with Window for Baked Goods Display",
       paragraphs: [
-        "Our window bakery boxes combine protection with visibility, allowing customers to see your beautiful baked goods while keeping them safe. The clear windows create an immediate visual connection that increases sales and customer satisfaction.",
-        "Whether you're packaging donuts, pastries, cookies, or cakes, window boxes let customers see exactly what they're buying. This transparency builds trust and helps showcase the quality and artistry of your baked goods.",
-        "Every window box can be customized with your branding, window size, and placement, creating packaging that perfectly matches your products and brand aesthetic. Perfect for retail display, delivery, and special events.",
+        "Our window bakery boxes are designed to show off your creations while keeping them secure. Made from premium food-grade cardboard, these boxes combine strength, visibility, and elegance, ideal for cakes, cupcakes, pastries, and other bakery items. The transparent window lets customers see the freshness inside, making every sale more appealing.",
+        "At BoxyPack, we specialize in custom window packaging boxes wholesale for bakeries, cafés, and dessert brands. Choose Kraft for rustic charm or go with printed designs for a professional presentation. Each box is precision-cut with clean edges, strong locks, and clear windows for display perfection.",
+        "As a printed bakery window boxes supplier, we provide dependable materials, consistent print quality, and competitive pricing. Whether you’re ordering for a boutique bakery or bulk retail packaging, we offer flexibility and the best window bakery boxes price available.",
       ],
     },
     faq: buildFaq(
       "Window Bakery Boxes",
       [
         {
-          question: "What types of windows are available?",
+          question: "What are window bakery boxes made of?",
           answer:
-            "We offer various window options including small peek windows, side windows, full-top windows, and custom window placements to best showcase your specific baked goods.",
+            "They’re made from food-grade kraft or cardboard with a clear PET window.",
         },
         {
-          question: "Are the windows food-safe?",
+          question: "Can I customize the window size or shape?",
           answer:
-            "Yes, we use food-grade clear film that is safe for direct contact with baked goods and meets FDA requirements.",
+            "Yes, BoxyPack offers custom die-cut window shapes and placements.",
         },
         {
-          question: "Can I customize the window size?",
+          question: "Are these boxes suitable for cakes and pastries?",
           answer:
-            "Absolutely. We can create custom window sizes and placements to best showcase your specific bakery items, whether you want a small peek or a full-top window.",
+            "Absolutely, they’re ideal for cupcakes, pastries, and cake slices.",
         },
         {
-          question:
-            "Do window boxes protect contents as well as regular boxes?",
+          question: "Do you provide bulk discounts?",
           answer:
-            "Yes, our window boxes provide the same protection as regular boxes. The clear film is durable and the secure closures keep contents protected during transport.",
+            "Yes, our custom window packaging boxes wholesale program offers bulk pricing.",
         },
         {
-          question: "What bakery items work best in window boxes?",
+          question: "Are these boxes eco-friendly?",
           answer:
-            "Window boxes are perfect for donuts, pastries, cookies, cupcakes, and any baked goods where visual appeal is important. They're especially effective for retail display.",
+            "Yes, all boxes are recyclable, and the windows can be made from eco PET film.",
         },
       ],
       {
@@ -6560,9 +6798,9 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Showcase Your Baked Goods with Window Boxes",
+      title: "See the Quality Inside",
       description:
-        "Create window bakery boxes that let customers see your quality. Contact BoxyPack today to get a quote for your window packaging needs.",
+        "Partner with BoxyPack to create window bakery boxes that blend visibility and freshness. Our team designs packaging that makes your baked goods stand out while protecting their texture, taste, and presentation, perfect for every bakery display and delivery.",
     },
   },
 
@@ -6570,85 +6808,70 @@ const rawProductData: Record<string, RawProductEntry> = {
   "bakery-gift-boxes": {
     name: "Bakery Gift Boxes",
     description:
-      "Elegant bakery gift boxes perfect for special occasions and gift-giving. Premium designs, secure closures, and fully customizable branding that makes every gift memorable.",
+      "Elegant, durable, and designed to impress. Buy bakery gift boxes online for packaging that turns every baked good into a beautiful, gift-worthy experience.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Premium designs perfect for gift-giving",
-      "Food-safe materials for bakery items",
-      "Secure closures protect gift contents",
-      "Customizable with elegant branding",
-      "Multiple sizes for various gift assortments",
-      "Optional ribbon slots and gift tag areas",
+      "Food-grade paperboard for freshness and safety",
+      "Strong, foldable structure for reliable support",
+      "Full-color custom printing for branding",
+      "Optional window or ribbon for presentation appeal",
       "Eco-friendly and recyclable materials",
+      "Ideal for cakes, cookies, cupcakes, and pastry gifts",
+      "Available in matte, gloss, or soft-touch finishes",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Premium food-grade paperboard with optional lamination",
+          value: "Food-Grade Cardboard / Kraft / White Paperboard",
         },
         {
           label: "Structure",
-          value: "Gift box with lid, tuck-end, or sleeve with insert trays",
+          value: "Tuck-Top / Lock-Bottom / Window or Ribbon Options",
         },
-        { label: "Thickness", value: "18pt / 24pt board for premium feel" },
-        {
-          label: "Finish",
-          value: "Matte, gloss, soft-touch, or velvet lamination",
-        },
-        {
-          label: "Printing",
-          value:
-            "Premium printing with metallic accents, foil stamping, or embossing",
-        },
-        {
-          label: "Special Features",
-          value: "Ribbon slots, gift tag areas, and custom inserts available",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'From 6" x 6" x 3" to 12" x 10" x 5"',
-        },
-        { label: "Quantity", value: "Starting at 250 units with bulk pricing" },
+        { label: "Thickness", value: "12PT / 16PT / 18PT" },
+        { label: "Finish", value: "Gloss / Matte / Soft Touch" },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Bakery Gift Boxes for Special Occasions",
+      title: "Custom Bakery Gift Packaging for Every Occasion",
       paragraphs: [
-        "Our bakery gift boxes are designed to make every gift feel special. With premium designs, elegant finishes, and customizable branding, these boxes elevate your bakery items into memorable gifts.",
-        "Perfect for holidays, birthdays, corporate gifts, and special occasions, these boxes create an unboxing experience that delights recipients. Optional features like ribbon slots and gift tag areas make them ready for gifting.",
-        "Every gift box can be customized with your bakery's branding, creating a cohesive look that reinforces your quality standards. Premium finishes like soft-touch lamination and foil stamping add an extra touch of elegance.",
+        "Our bakery gift boxes are made to combine presentation and protection. Crafted from strong, food-grade cardboard, they keep baked goods fresh while giving your products a luxurious appearance. Perfect for cakes, cookies, cupcakes, or assorted gift packs, these boxes make every order feel special.",
+        "At BoxyPack, we create custom bakery gift packaging tailored to your brand and style. Choose from kraft for natural charm or glossy printed finishes for a premium retail look. Add window panels, dividers, or ribbons for that extra touch of class that enhances your customer experience.",
+        "As a trusted bakery gift boxes supplier near me, we offer high-quality printing, durable materials, and competitive bulk pricing. Whether you’re ordering small runs or full-scale printed bakery gift boxes wholesale, you’ll get flawless craftsmanship at the best bakery gift boxes price available.",
       ],
     },
     faq: buildFaq(
       "Bakery Gift Boxes",
       [
         {
-          question: "What makes a box suitable for gifting?",
-          answer:
-            "Gift boxes feature premium designs, elegant finishes, secure closures, and optional features like ribbon slots and gift tag areas that make them perfect for special occasions.",
+          question: "What are bakery gift boxes made from?",
+          answer: "They’re made from food-grade cardboard or kraft paperboard.",
         },
         {
-          question: "Can I add custom inserts for gift assortments?",
+          question: "Can I add windows or ribbons to my boxes?",
           answer:
-            "Yes, we can create custom insert trays and dividers to organize different bakery items in gift boxes, keeping them separated and beautifully presented.",
+            "Yes, BoxyPack offers full customization with add-ons like windows or ribbons.",
         },
         {
-          question: "What premium finishes are available?",
+          question: "Are these boxes suitable for multiple items?",
           answer:
-            "We offer soft-touch lamination, velvet wrap, foil stamping, embossing, and metallic accents to create premium gift boxes that feel luxurious.",
+            "Yes, dividers and inserts can be added for assorted bakery gift sets.",
         },
         {
-          question: "Can I order seasonal gift box designs?",
+          question: "Do you provide bulk order discounts?",
           answer:
-            "Absolutely. We can create seasonal designs for holidays and special occasions, helping you capitalize on gift-giving seasons.",
+            "Yes, our printed bakery gift boxes wholesale program includes flexible bulk pricing.",
         },
         {
-          question: "What sizes work best for gift boxes?",
+          question: "Are your boxes eco-friendly?",
           answer:
-            'Gift boxes range from small (6" x 6" x 3") for individual items to large (12" x 10" x 5") for comprehensive gift assortments. We can customize sizes to fit your needs.',
+            "Yes, all materials are recyclable, biodegradable, and food-safe.",
         },
       ],
       {
@@ -6657,9 +6880,9 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Create Memorable Gift Experiences",
+      title: "Gift Packaging That Speaks Quality",
       description:
-        "Design bakery gift boxes that make every occasion special. Contact BoxyPack today to create premium gift packaging that delights recipients and strengthens your brand.",
+        "Partner with BoxyPack to create bakery gift boxes that blend luxury and reliability. Our experts design packaging that protects your baked goods, highlights your craftsmanship, and makes every box a memorable unboxing experience.",
     },
   },
 
@@ -6667,83 +6890,71 @@ const rawProductData: Record<string, RawProductEntry> = {
   "custom-cupcake-boxes": {
     name: "Custom Cupcake Boxes",
     description:
-      "Perfect custom cupcake boxes designed to protect delicate cupcakes and their beautiful frosting. Food-safe, secure, and fully branded packaging that showcases your cupcake artistry.",
+      "Stylish, sturdy, and bakery-ready. Buy custom cupcake boxes online for packaging that protects your cupcakes, enhances freshness, and delivers a premium presentation every time.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Tall design protects delicate frosting",
-      "Food-grade materials safe for cupcakes",
-      "Secure closure prevents shifting",
-      "Window options showcase your cupcakes",
-      "Customizable with your bakery branding",
-      "Multiple sizes for single or multiple cupcakes",
-      "Eco-friendly and recyclable materials",
+      "Food-grade cardboard for freshness and safety",
+      "Optional inserts for multiple cupcake layouts",
+      "Clear window option for attractive product display",
+      "Full-color printing for strong brand visibility",
+      "Eco-friendly and recyclable material options",
+      "Available in kraft, white, or glossy finishes",
+      "Perfect for bakeries, events, and retail use",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Food-safe kraft or white paperboard",
+          value: "Food-Grade Cardboard / Kraft / White Paperboard",
         },
         {
           label: "Structure",
-          value: "Tuck-end or window box with tall design for frosting",
+          value: "Lock-Bottom / Tuck-Top / Window or Insert Options",
         },
-        {
-          label: "Thickness",
-          value: "18pt / 24pt board for sturdy protection",
-        },
-        {
-          label: "Finish",
-          value: "Matte, gloss, or uncoated with food-safe inks",
-        },
-        {
-          label: "Printing",
-          value: "Full-color printing with custom cupcake designs",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'From 4" x 4" x 3" single to 12" x 8" x 4" for 6-pack',
-        },
-        { label: "Quantity", value: "Starting at 250 units with bulk pricing" },
+        { label: "Thickness", value: "12PT / 16PT / 18PT" },
+        { label: "Finish", value: "Gloss / Matte / Soft Touch" },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Custom Cupcake Boxes That Protect Your Artistry",
+      title: "Custom Printed Cupcake Boxes for Bakeries and Dessert Brands",
       paragraphs: [
-        "Our custom cupcake boxes are engineered to protect your beautiful cupcakes and their delicate frosting. The tall design provides ample clearance for elaborate decorations while keeping cupcakes secure during transport.",
-        "Whether you're packaging individual cupcakes, pairs, or half-dozen packs, we offer sizes and structures that match your needs. Windowed options let customers admire your cupcake artistry, while secure closures ensure they arrive in perfect condition.",
-        "Every box can be customized with your bakery's branding, creating a professional presentation that reinforces your quality standards. Perfect for retail, delivery, catering, and special events.",
+        "Our custom cupcake boxes combine durability with design. Built from food-grade cardboard, they keep cupcakes fresh, secure, and picture-perfect during transport and display. Ideal for bakeries, cafés, and dessert shops, these boxes add both charm and reliability to your packaging.",
+        "At BoxyPack, we specialize in custom-printed cupcake boxes that reflect your bakery’s personality. Choose Kraft for a natural aesthetic or full-color printed options for a bold retail presence. Add clear windows or inserts for added elegance and function—perfect for single or multi-cupcake packaging.",
+        "As a custom printed cupcake boxes supplier, we ensure professional printing, eco-safe materials, and dependable build quality. Whether you need small runs or cupcake packaging boxes wholesale, we offer the best balance of presentation, protection, and cupcake boxes price for every bakery size.",
       ],
     },
     faq: buildFaq(
       "Custom Cupcake Boxes",
       [
         {
-          question: "How tall should cupcake boxes be?",
+          question: "What are custom cupcake boxes made from?",
           answer:
-            "Our cupcake boxes are typically 3-4 inches tall to accommodate elaborate frosting and decorations. We can customize height based on your specific cupcake designs.",
+            "They’re made from food-safe, recyclable cardboard or kraft paperboard.",
         },
         {
-          question: "Do the boxes protect frosting during transport?",
+          question: "Can I add a window or inserts to my cupcake boxes?",
           answer:
-            "Yes, our boxes are designed with secure closures and appropriate height to protect delicate frosting and decorations. The structure prevents shifting and damage.",
+            "Yes, BoxyPack offers window and insert options for added presentation.",
         },
         {
-          question: "Can I order boxes for multiple cupcakes?",
+          question: "Are these boxes suitable for shipping?",
           answer:
-            "Absolutely. We offer boxes for 2, 4, 6, or 12 cupcakes with custom dividers to keep them separated and protected.",
+            "Yes, their sturdy design ensures cupcakes remain safe and stable during transport.",
         },
         {
-          question: "Are window cupcake boxes available?",
+          question: "Do you offer wholesale pricing?",
           answer:
-            "Yes, windowed cupcake boxes let customers see your beautiful cupcakes while keeping them protected. Windows can be placed on the top or sides.",
+            "Absolutely, our cupcake packaging boxes wholesale program includes bulk discounts.",
         },
         {
-          question: "What sizes work best for standard cupcakes?",
+          question: "Are these boxes eco-friendly?",
           answer:
-            'Standard cupcake boxes are typically 4" x 4" x 3" for individual cupcakes. We can customize sizes to fit your specific cupcake dimensions.',
+            "Yes, all boxes are recyclable and made from sustainable materials.",
         },
       ],
       {
@@ -6752,9 +6963,9 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Protect Your Cupcake Creations",
+      title: "Perfect Presentation in Every Box",
       description:
-        "Get custom cupcake boxes that protect your artistry and showcase your brand. Contact BoxyPack today for a quote tailored to your cupcake packaging needs.",
+        "Partner with BoxyPack to create custom cupcake boxes that combine function and finesse. Our packaging experts design boxes that keep your cupcakes secure, stylish, and irresistibly displayed for every customer.",
     },
   },
 
@@ -6762,83 +6973,69 @@ const rawProductData: Record<string, RawProductEntry> = {
   "small-cake-boxes": {
     name: "Small Cake Boxes",
     description:
-      "Perfectly sized small cake boxes for individual slices, personal cakes, and mini cakes. Food-safe, secure, and beautifully branded packaging that protects smaller cake portions.",
+      "Compact, strong, and elegant. Buy small cake boxes online for packaging that protects, preserves, and presents your cakes beautifully from the bakery to the table.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Compact design perfect for small cakes",
-      "Food-grade materials safe for cakes",
-      "Secure closure protects cake integrity",
-      "Window options showcase your cakes",
-      "Customizable with your bakery branding",
-      "Multiple sizes for slices to personal cakes",
+      "Food-grade paperboard for freshness and hygiene",
+      "Durable design suitable for mini cakes and slices",
+      "Full-color printing for branding and personalization",
+      "Optional clear windows for product visibility",
       "Eco-friendly and recyclable materials",
+      "Available in kraft, white, or glossy finishes",
+      "Easy-to-assemble and stackable structure",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Food-safe kraft or white paperboard",
+          value: "Food-Grade Cardboard / Kraft / White Paperboard",
         },
         {
           label: "Structure",
-          value: "Tuck-end or window box with secure closure",
+          value: "Tuck-Top / Lock-Bottom / Window Options",
         },
-        { label: "Thickness", value: "18pt / 24pt board for protection" },
-        {
-          label: "Finish",
-          value: "Matte, gloss, or uncoated with food-safe inks",
-        },
-        {
-          label: "Printing",
-          value: "Full-color printing with custom designs and logo",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'From 4" x 4" x 2" slices to 8" x 8" x 4" personal cakes',
-        },
-        {
-          label: "Quantity",
-          value: "Starting at 250 units with volume pricing",
-        },
+        { label: "Thickness", value: "12PT / 16PT / 18PT" },
+        { label: "Finish", value: "Gloss / Matte / Soft Touch" },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Small Cake Boxes for Individual Portions",
+      title: "Custom Printed Small Cake Boxes for Bakeries and Events",
       paragraphs: [
-        "Our small cake boxes are perfectly sized for individual cake slices, personal cakes, and mini cakes. These compact boxes provide protection while maintaining a manageable size for customers.",
-        "Made from food-safe materials, these boxes keep cakes fresh and protected during transport. Windowed options let customers see your beautiful cakes, while secure closures ensure they arrive in perfect condition.",
-        "Perfect for bakeries, cafes, and restaurants that offer individual cake portions. Every box can be customized with your branding, creating a professional presentation that reinforces your quality standards.",
+        "Our small cake boxes are crafted for bakeries that value freshness and presentation. Made from premium food-grade cardboard, these boxes ensure your cakes stay intact and visually appealing during transport or display. Perfect for single slices, mini cakes, or small desserts, they deliver quality and convenience with every use.",
+        "At BoxyPack, we create custom printed small cake boxes wholesale to fit your bakery’s style and product range. Choose natural kraft for a rustic touch or full-color printed options for a polished retail look. Each box is easy to assemble, strong in structure, and crafted for a smooth, professional finish.",
+        "As a reliable cake packaging supplier near me, we offer consistent quality, eco-friendly materials, and competitive rates. Whether you’re ordering for retail or large bakery production, you’ll receive superior craftsmanship at the best small cake boxes price available.",
       ],
     },
     faq: buildFaq(
       "Small Cake Boxes",
       [
         {
-          question: "What sizes are considered small cake boxes?",
+          question: "What are small cake boxes made from?",
           answer:
-            'Small cake boxes typically range from 4" x 4" x 2" for individual slices to 8" x 8" x 4" for personal-sized cakes. We can customize sizes to fit your specific needs.',
+            "They’re made from food-grade, recyclable cardboard or kraft paperboard.",
         },
         {
-          question: "Can small cake boxes support heavy decorations?",
-          answer:
-            "Yes, our small cake boxes use sturdy board construction that can support typical cake decorations. For very heavy decorations, we can add reinforcement.",
+          question: "Can I add a window to my small cake boxes?",
+          answer: "Yes, BoxyPack offers window options for product visibility.",
         },
         {
-          question: "Are the boxes suitable for round cakes?",
+          question: "Are these boxes suitable for delivery?",
           answer:
-            "Yes, we offer both square and round small cake boxes to match your cake shapes. Round boxes are perfect for personal-sized round cakes.",
+            "Absolutely. Their sturdy build keeps small cakes intact during transport.",
         },
         {
-          question: "Can I add windows to small cake boxes?",
+          question: "Do you offer wholesale discounts?",
           answer:
-            "Absolutely. Windowed small cake boxes are available, allowing customers to see your beautiful cakes while keeping them protected.",
+            "Yes, our custom-printed small cake boxes wholesale pricing includes bulk order savings.",
         },
         {
-          question: "What is the minimum order quantity?",
-          answer:
-            "Our minimum order is 250 boxes, making it affordable for both small bakeries and larger operations. Bulk discounts are available for larger quantities.",
+          question: "Are these boxes eco-friendly?",
+          answer: "Yes, all materials are sustainable and recyclable.",
         },
       ],
       {
@@ -6849,7 +7046,7 @@ const rawProductData: Record<string, RawProductEntry> = {
     cta: {
       title: "Package Small Cakes Perfectly",
       description:
-        "Get custom small cake boxes that protect your cakes and showcase your brand. Contact BoxyPack today for a quote tailored to your small cake packaging needs.",
+        "Partner with BoxyPack to design small cake boxes that combine charm and strength. Our team ensures every box delivers freshness, beauty, and brand value, making your cakes as delightful to look at as they are to taste.",
     },
   },
 
@@ -6857,85 +7054,70 @@ const rawProductData: Record<string, RawProductEntry> = {
   "sweet-gift-boxes": {
     name: "Sweet Gift Boxes",
     description:
-      "Delightful sweet gift boxes perfect for confectionery gifts and sweet treats. Attractive designs, secure closures, and fully customizable branding that makes every sweet gift special.",
+      "Charming, durable, and crafted to impress. Buy sweet gift boxes online for packaging that enhances your treats’ beauty while keeping them fresh and perfectly protected.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Attractive designs perfect for sweet gifts",
-      "Food-safe materials for confectionery items",
-      "Secure closures protect gift contents",
-      "Customizable with sweet-themed branding",
-      "Multiple sizes for various gift assortments",
-      "Optional dividers for mixed sweet selections",
-      "Eco-friendly and recyclable materials",
+      "Food-grade material for freshness and hygiene",
+      "Elegant gift-style structure for premium presentation",
+      "Full-color printing for branding and customization",
+      "Optional window or ribbon for display appeal",
+      "Eco-friendly and recyclable packaging materials",
+      "Available in kraft, white, or glossy finishes",
+      "Perfect for sweets, desserts, and bakery gifting",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Food-grade paperboard with optional premium finishes",
+          value: "Food-Grade Cardboard / Kraft / White Paperboard",
         },
         {
           label: "Structure",
-          value: "Gift box with lid, tuck-end, or gable top",
+          value: "Tuck-Top / Lock-Bottom / Window or Ribbon Options",
         },
-        { label: "Thickness", value: "18pt / 24pt board for durability" },
-        {
-          label: "Finish",
-          value: "Matte, gloss, or soft-touch with vibrant printing",
-        },
-        {
-          label: "Printing",
-          value:
-            "Full-color printing with sweet-themed designs and custom branding",
-        },
-        {
-          label: "Special Features",
-          value: "Dividers, ribbon slots, and gift tag areas available",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'From 6" x 6" x 3" to 12" x 10" x 4"',
-        },
-        { label: "Quantity", value: "Starting at 250 units with bulk pricing" },
+        { label: "Thickness", value: "12PT / 16PT / 18PT" },
+        { label: "Finish", value: "Gloss / Matte / Soft Touch" },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Sweet Gift Boxes for Delightful Gifting",
+      title: "Custom Sweet Gift Packaging Boxes for Bakeries and Brands",
       paragraphs: [
-        "Our sweet gift boxes are designed to make every confectionery gift feel special. With attractive designs, vibrant colors, and customizable branding, these boxes create memorable gift experiences.",
-        "Perfect for chocolates, candies, cookies, and mixed sweet assortments, these boxes protect your treats while presenting them beautifully. Optional dividers help organize different sweet types, creating an appealing gift presentation.",
-        "Every sweet gift box can be customized with your branding and sweet-themed designs, creating a cohesive look that delights recipients and reinforces your brand identity.",
+        "Our sweet gift boxes combine strength, style, and freshness in every fold. Made from premium food-grade cardboard, these boxes are perfect for gifting sweets, chocolates, and desserts. Their elegant design and sturdy structure make them ideal for bakeries, confectioneries, and specialty stores.",
+        "At BoxyPack, we design custom sweet gift packaging boxes tailored to your brand and audience. Choose Kraft for a natural finish or printed versions for vibrant branding. Add windows, ribbons, or inserts to create packaging that delights customers from the first glance to the final bite.",
+        "As a printed sweet boxes wholesale supplier, we focus on quality, sustainability, and cost efficiency. Whether you need small gift boxes for boutique shops or large-volume orders for retail, we offer excellent durability and the best sweet gift boxes price to fit your needs.",
       ],
     },
     faq: buildFaq(
       "Sweet Gift Boxes",
       [
         {
-          question: "What sweets work best in sweet gift boxes?",
+          question: "What materials are used for sweet gift boxes?",
           answer:
-            "Sweet gift boxes are perfect for chocolates, candies, cookies, truffles, and mixed confectionery assortments. We can customize boxes to fit any sweet treat.",
+            "We use food-grade cardboard or kraft paperboard for all sweet packaging.",
         },
         {
-          question: "Can I add dividers for mixed sweet selections?",
+          question: "Can I customize the color or design?",
           answer:
-            "Yes, we can create custom insert trays and dividers to organize different sweet types in gift boxes, keeping them separated and beautifully presented.",
+            "Yes, BoxyPack offers full-color custom printing and finish options.",
         },
         {
-          question: "What designs work best for sweet gift boxes?",
+          question: "Are these boxes suitable for gifting?",
           answer:
-            "Vibrant colors, playful patterns, and sweet-themed designs work great for gift boxes. We can create custom designs that match your brand and appeal to gift recipients.",
+            "Absolutely. They’re perfect for bakeries, candy shops, and festive gifts.",
         },
         {
-          question: "Are the boxes suitable for seasonal gifts?",
+          question: "Do you provide wholesale discounts?",
           answer:
-            "Absolutely. We can create seasonal designs for holidays and special occasions, helping you capitalize on gift-giving seasons with themed sweet gift boxes.",
+            "Yes, our printed sweet boxes wholesale supplier program includes bulk pricing.",
         },
         {
-          question: "What sizes are available for sweet gift boxes?",
-          answer:
-            'We offer sizes from small (6" x 6" x 3") for individual gifts to large (12" x 10" x 4") for comprehensive sweet assortments. Custom sizes are also available.',
+          question: "Are these boxes eco-friendly?",
+          answer: "Yes, all materials are recyclable and sustainably sourced.",
         },
       ],
       {
@@ -6944,9 +7126,9 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Create Delightful Sweet Gift Experiences",
+      title: "Packaging That Adds Joy to Every Bite",
       description:
-        "Design sweet gift boxes that make every confectionery gift special. Contact BoxyPack today to create attractive gift packaging that delights recipients.",
+        "Partner with BoxyPack to design sweet gift boxes that blend freshness, beauty, and brand value. Our team creates packaging that transforms your sweets into unforgettable gifts crafted to impress at first glance and every taste.",
     },
   },
 
@@ -6954,87 +7136,74 @@ const rawProductData: Record<string, RawProductEntry> = {
   "custom-truffle-boxes": {
     name: "Custom Truffle Boxes",
     description:
-      "Elegant custom truffle boxes designed to showcase premium chocolates beautifully. Food-safe, luxurious, and fully branded packaging that elevates your truffle presentation.",
+      "Elegant, protective, and indulgent. Buy custom truffle boxes online for packaging that preserves freshness, adds luxury, and showcases your chocolates with style.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Luxurious designs perfect for premium truffles",
-      "Food-grade materials safe for chocolate",
-      "Custom insert trays keep truffles organized",
-      "Window options showcase your truffles",
-      "Premium finishes with metallic accents",
-      "Multiple sizes for individual or gift sets",
-      "Eco-friendly and recyclable materials",
+      "Food-grade, rigid paperboard for strength and freshness",
+      "Optional inserts or partitions for multiple truffle arrangements",
+      "Full-color or metallic printing for luxury appeal",
+      "Eco-friendly, recyclable, and premium materials",
+      "Available in matte, gloss, or soft-touch finishes",
+      "Perfect for chocolate shops, bakeries, and gift packaging",
+      "Custom sizes and printing for brand visibility",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Premium food-grade paperboard with optional lamination",
+          value: "Food-Grade Cardboard / Kraft / Rigid Paperboard",
         },
         {
           label: "Structure",
-          value:
-            "Gift box with lid, tuck-end, or drawer-style with custom inserts",
+          value: "Lid and Base / Magnetic Closure / Partitioned Inserts",
         },
-        { label: "Thickness", value: "18pt / 24pt board for premium feel" },
+        { label: "Thickness", value: "16PT / 18PT / 24PT" },
         {
           label: "Finish",
-          value: "Matte, gloss, soft-touch, or velvet with metallic accents",
+          value: "Matte / Gloss / Soft Touch / Metallic Foil",
         },
-        {
-          label: "Printing",
-          value:
-            "Premium printing with foil stamping, embossing, and metallic inks",
-        },
-        {
-          label: "Insert Trays",
-          value:
-            "Custom molded or paperboard inserts to hold individual truffles",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'From 4" x 4" x 2" to 10" x 8" x 3" for gift sets',
-        },
-        { label: "Quantity", value: "Starting at 250 units with bulk pricing" },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Custom Truffle Boxes for Premium Presentation",
+      title: "Luxury Chocolate Truffle Gift Boxes for Premium Presentation",
       paragraphs: [
-        "Our custom truffle boxes are designed to showcase your premium chocolates with elegance and sophistication. These luxurious boxes protect delicate truffles while presenting them in a way that reflects their premium quality.",
-        "Custom insert trays keep individual truffles organized and protected, preventing damage during transport. Windowed options let customers see your beautiful truffles, while premium finishes like foil stamping and soft-touch lamination add an extra touch of luxury.",
-        "Perfect for chocolatiers, specialty confectioners, and gift shops. Every truffle box can be customized with your branding, creating a cohesive look that reinforces your premium brand identity.",
+        "Our custom truffle boxes are designed to reflect the richness of your chocolates. Made from sturdy, food-grade cardboard, they protect delicate truffles while giving them a refined, high-end display. Perfect for chocolatiers, bakeries, and gift shops, these boxes add sophistication to every product you serve.",
+        "At BoxyPack, we craft custom printed truffle boxes that align with your brand’s personality and product design. Choose kraft for natural simplicity or luxury finishes like matte black or gold for a premium touch. Each box is precisely cut and printed to deliver visual appeal and structural perfection.",
+        "As a custom printed truffle boxes supplier, we focus on quality, detail, and affordability. From boutique gifting to truffle packaging boxes wholesale, every order comes with reliable construction, professional printing, and the best truffle boxes price tailored to your business.",
       ],
     },
     faq: buildFaq(
       "Custom Truffle Boxes",
       [
         {
-          question: "What are truffle boxes typically used for?",
+          question: "What are custom truffle boxes made of?",
           answer:
-            "Truffle boxes are designed for premium chocolate truffles, providing elegant packaging that protects delicate confections while showcasing their quality.",
+            "They’re made from premium food-grade cardboard or rigid paperboard.",
         },
         {
-          question: "Can I get custom insert trays for truffles?",
+          question: "Can I include inserts or dividers for my truffles?",
           answer:
-            "Yes, we can create custom molded or paperboard insert trays that hold individual truffles securely, keeping them separated and protected.",
+            "Yes, BoxyPack offers customizable inserts for multi-piece truffle sets.",
         },
         {
-          question: "What premium finishes are available?",
+          question: "Are these boxes suitable for luxury gifting?",
           answer:
-            "We offer soft-touch lamination, velvet wrap, foil stamping, embossing, and metallic accents to create luxurious truffle boxes that feel premium.",
+            "Absolutely. Our luxury chocolate truffle gift boxes are perfect for retail or premium gifting.",
         },
         {
-          question: "Are window truffle boxes available?",
+          question: "Do you offer bulk discounts?",
           answer:
-            "Yes, windowed truffle boxes let customers see your beautiful truffles while keeping them protected. Windows can be placed strategically to showcase the truffles.",
+            "Yes, our truffle packaging boxes wholesale program includes special rates for large orders.",
         },
         {
-          question: "What sizes work best for truffle boxes?",
+          question: "Are these boxes eco-friendly?",
           answer:
-            'Truffle boxes range from small (4" x 4" x 2") for individual gifts to larger (10" x 8" x 3") for comprehensive gift sets. We can customize sizes based on your truffle count and arrangement.',
+            "Yes, all materials used are recyclable and sustainably produced.",
         },
       ],
       {
@@ -7043,9 +7212,9 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Elevate Your Truffle Presentation",
+      title: "Luxury You Can Feel in Every Box",
       description:
-        "Create custom truffle boxes that showcase your premium chocolates beautifully. Contact BoxyPack today to design luxurious packaging that reflects your brand's quality.",
+        "Partner with BoxyPack to create custom truffle boxes that blend elegance, quality, and strength. Our packaging experts help you design boxes that preserve flavor, elevate presentation, and give your truffles the attention they deserve.",
     },
   },
 
@@ -7054,95 +7223,82 @@ const rawProductData: Record<string, RawProductEntry> = {
   "anklet-boxes": {
     name: "Anklet Boxes",
     description:
-      "Elegant custom anklet boxes designed to showcase delicate jewelry beautifully. Premium materials, secure closures, and fully branded packaging that protects and presents your anklets.",
+      "Elegant, secure, and crafted for presentation. Buy anklet boxes online for packaging that protects your jewelry while highlighting its beauty with a premium touch.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Premium materials protect delicate anklets",
-      "Secure closures prevent jewelry from shifting",
-      "Custom insert pads hold anklets in place",
-      "Luxurious finishes with velvet or satin lining",
-      "Fully customizable with your jewelry brand",
-      "Multiple sizes for single or multiple anklets",
+      "Rigid or cardboard material for lasting durability",
+      "Soft inserts or cushions to protect delicate ankles",
+      "Full-color or metallic printing for premium branding",
+      "Optional magnetic closure or ribbon detail",
       "Eco-friendly and recyclable materials",
+      "Perfect for jewelry stores and gift packaging",
+      "Available in matte, gloss, or textured finishes",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Premium paperboard with velvet or satin lining",
+          value: "Rigid Cardboard / Kraft / Art Paperboard",
         },
         {
           label: "Structure",
-          value: "Hinged lid box, tuck-end, or drawer-style with insert pad",
+          value: "Magnetic Lid / Two-Piece / Drawer Style",
         },
-        { label: "Thickness", value: "18pt / 24pt board for durability" },
+        { label: "Thickness", value: "16PT / 18PT / 24PT" },
         {
           label: "Finish",
-          value:
-            "Matte, gloss, soft-touch, or velvet wrap with metallic accents",
+          value: "Matte / Gloss / Soft Touch / Foil Embossing",
         },
-        {
-          label: "Printing",
-          value:
-            "Premium printing with foil stamping, embossing, and custom branding",
-        },
-        {
-          label: "Insert Pad",
-          value: "Custom foam or velvet insert pad to hold anklet securely",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'From 3" x 3" x 1" to 6" x 4" x 2"',
-        },
-        { label: "Quantity", value: "Starting at 100 units with bulk pricing" },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
       title: "Anklet Boxes for Elegant Jewelry Presentation",
       paragraphs: [
-        "Our custom anklet boxes are designed to showcase your delicate jewelry with elegance and sophistication. These premium boxes protect anklets while presenting them in a way that reflects their quality and value.",
-        "Every box features secure closures and custom insert pads that hold anklets in place, preventing damage during transport. Luxurious finishes like velvet lining and foil stamping add an extra touch of luxury that customers appreciate.",
-        "Perfect for jewelry retailers, online stores, and gift shops. Every anklet box can be customized with your branding, creating a cohesive look that reinforces your premium brand identity.",
+        "Our anklet boxes are designed to showcase fine jewelry with style and safety. Made from sturdy, high-quality cardboard or rigid materials, these boxes ensure every anklet stays untangled and protected. Ideal for jewelry stores, boutiques, and e-commerce brands, they blend luxury, durability, and aesthetic appeal.",
+        "At BoxyPack, we create custom anklet packaging boxes wholesale that perfectly match your brand’s elegance. Choose minimalist kraft for natural appeal or glossy printed finishes for a sophisticated retail look. Each box is built with precision to maintain product integrity and enhance your customer’s unboxing experience.",
+        "As a trusted jewelry anklet gift boxes supplier, we focus on quality craftsmanship, consistent branding, and competitive pricing. Whether for single pieces or jewelry sets, every design balances luxury and value at an affordable anklet boxes price.",
       ],
     },
     faq: buildFaq(
       "Anklet Boxes",
       [
         {
-          question:
-            "What makes anklet boxes different from other jewelry boxes?",
+          question: "What materials are used in custom anklet boxes?",
           answer:
-            "Anklet boxes are specifically designed with longer, narrower dimensions to accommodate anklet chains. They often feature custom insert pads that hold the anklet in a curved or straight position.",
+            "We use rigid cardboard, kraft, or specialty paperboard for premium strength.",
         },
         {
-          question: "Can I get boxes with velvet lining?",
+          question: "Can I include a logo or brand design?",
           answer:
-            "Yes, we offer premium velvet or satin lining options that protect your anklets while adding a luxurious feel to the unboxing experience.",
+            "Yes, BoxyPack offers full-color, foil, and embossed logo printing options.",
         },
         {
-          question: "What sizes work best for anklets?",
+          question: "Do you offer inserts for holding jewelry?",
           answer:
-            'Anklet boxes typically range from 3" x 3" x 1" for single anklets to 6" x 4" x 2" for multiple anklets or gift sets. We can customize sizes based on your specific anklet dimensions.',
+            "Absolutely, we provide soft inserts, cushions, or foam bases for delicate items.",
         },
         {
-          question: "Can I add custom insert pads?",
+          question: "Are bulk discounts available?",
           answer:
-            "Absolutely. We can create custom foam or velvet insert pads that hold your anklets securely in place, preventing tangling and damage during transport.",
+            "Yes, our custom anklet packaging boxes wholesale program includes competitive bulk pricing.",
         },
         {
-          question: "What premium finishes are available?",
+          question: "Are these boxes eco-friendly?",
           answer:
-            "We offer soft-touch lamination, velvet wrap, foil stamping, embossing, and metallic accents to create luxurious anklet boxes that feel premium.",
+            "Yes, all our jewelry boxes are made from sustainable and recyclable materials.",
         },
       ],
       { heading: "Questions about Anklet Boxes", eyebrow: "Anklet Box FAQs" }
     ),
     cta: {
-      title: "Present Your Anklets Beautifully",
+      title: "Packaging That Reflects Elegance",
       description:
-        "Create custom anklet boxes that showcase your jewelry and strengthen your brand. Contact BoxyPack today to design elegant packaging that reflects your brand's quality.",
+        "Partner with BoxyPack to design anklet boxes that match the beauty of your jewelry. Our packaging experts help you create luxurious, protective, and stylish boxes that make every piece shine from store to unboxing.",
     },
   },
 
@@ -7150,92 +7306,86 @@ const rawProductData: Record<string, RawProductEntry> = {
   "velvet-bags": {
     name: "Velvet Bags",
     description:
-      "Luxurious velvet jewelry bags that protect and present your jewelry elegantly. Soft, protective, and fully customizable with your branding for a premium unboxing experience.",
+      "Soft, elegant, and luxurious. Buy velvet bags online for packaging that adds sophistication, protection, and premium appeal to your jewelry and gift collections.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Premium velvet material protects jewelry",
-      "Drawstring closure keeps items secure",
-      "Soft interior prevents scratches",
-      "Customizable with logo printing or embroidery",
-      "Multiple sizes for various jewelry types",
-      "Elegant presentation for gifts and retail",
-      "Reusable and eco-friendly materials",
+      "Soft, premium velvet fabric with smooth texture",
+      "Durable stitching and secure drawstring closure",
+      "Full-color or foil logo printing options",
+      "Ideal for jewelry, watches, and luxury gift packaging",
+      "Reusable, lightweight, and travel-friendly design",
+      "Eco-friendly and sustainable fabric options",
+      "Available in multiple colors and custom sizes",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Premium velvet fabric with satin or cotton lining",
+          value: "Premium Velvet / Micro-Velvet / Suede Finish",
         },
         {
           label: "Structure",
-          value: "Drawstring bag with cord or ribbon closure",
+          value: "Drawstring / Flap / Button / Custom Shape",
         },
         {
-          label: "Size Options",
-          value:
-            'Small (2" x 3"), Medium (3" x 4"), Large (4" x 6"), or custom sizes',
+          label: "Sizes",
+          value: "Small, Medium, Large (Custom sizes available)",
         },
         {
-          label: "Closure",
-          value: "Drawstring cord, ribbon, or zipper closure options",
+          label: "Colors",
+          value: "Black / Red / Royal Blue / Pink / Custom Shades",
         },
         {
-          label: "Printing",
-          value: "Screen printing, embroidery, or heat transfer for logos",
+          label: "Logo Options",
+          value: "Embroidery / Foil Stamping / Screen Printing",
         },
-        {
-          label: "Color Options",
-          value: "Black, navy, burgundy, or custom color matching",
-        },
-        { label: "Quantity", value: "Starting at 100 units with bulk pricing" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Velvet Bags for Luxurious Jewelry Protection",
+      title: "Custom Velvet Jewelry Bags Wholesale for Luxury Presentation",
       paragraphs: [
-        "Our velvet jewelry bags combine elegance with functionality, providing a soft, protective environment for your jewelry pieces. The premium velvet material prevents scratches while creating a luxurious unboxing experience.",
-        "Perfect for rings, necklaces, bracelets, and earrings, these bags are ideal for retail packaging, gift sets, and online orders. The drawstring closure keeps jewelry secure while allowing easy access.",
-        "Every velvet bag can be customized with your logo through printing or embroidery, creating a branded experience that customers remember. The reusable nature of these bags also extends your brand's reach beyond the initial purchase.",
+        "Our velvet bags are designed to give your jewelry packaging a refined, upscale touch. Crafted from premium velvet fabric, these bags offer softness, strength, and style—ideal for rings, bracelets, anklets, and necklaces. They protect delicate pieces while elevating your brand’s presentation.",
+        "At BoxyPack, we manufacture custom velvet jewelry bags wholesale for jewelers, boutiques, and gift brands. Choose from drawstring, flap, or pouch styles in various sizes and colors. Add your logo with embroidery, foil stamping, or screen printing for a personalized look.",
+        "As a trusted printed velvet pouch supplier, we ensure consistent quality, rich textures, and long-lasting stitching. Whether for retail or gifting, our products provide elegance at the best velvet bags price, suitable for both small and large orders.",
       ],
     },
     faq: buildFaq(
       "Velvet Bags",
       [
         {
-          question: "What jewelry items work best in velvet bags?",
+          question: "What materials are used in velvet bags?",
           answer:
-            "Velvet bags are perfect for rings, necklaces, bracelets, earrings, and watches. They provide excellent protection for delicate jewelry pieces.",
+            "We use soft premium velvet and micro-velvet for a smooth and durable texture.",
         },
         {
-          question: "Can I add my logo to velvet bags?",
+          question: "Can I print or embroider my logo on the bags?",
           answer:
-            "Yes, we offer screen printing, embroidery, or heat transfer options to add your logo or branding to velvet bags.",
+            "Yes, BoxyPack offers embroidery, foil, and printed logo options.",
         },
         {
-          question: "What sizes are available?",
+          question: "Are these bags suitable for jewelry packaging?",
           answer:
-            'We offer standard sizes from small (2" x 3") for rings to large (4" x 6") for necklaces. Custom sizes are also available to fit your specific jewelry pieces.',
+            "Absolutely. They’re ideal for rings, earrings, bracelets, and small gifts.",
         },
         {
-          question: "Are velvet bags suitable for gift packaging?",
+          question: "Do you offer wholesale pricing?",
           answer:
-            "Absolutely. Velvet bags create an elegant, premium gift presentation that makes jewelry gifts feel special and luxurious.",
+            "Yes, our custom velvet jewelry bags wholesale pricing includes bulk discounts.",
         },
         {
-          question: "Can I get custom colors?",
+          question: "Are the bags eco-friendly?",
           answer:
-            "Yes, we can match custom colors to align with your brand. Popular options include black, navy, burgundy, and various shades of blue and purple.",
+            "Yes, our velvet fabrics are reusable, washable, and sustainably sourced.",
         },
       ],
       { heading: "Questions about Velvet Bags", eyebrow: "Velvet Bag FAQs" }
     ),
     cta: {
-      title: "Protect Your Jewelry with Elegance",
       description:
-        "Get custom velvet bags that protect your jewelry and create memorable unboxing experiences. Contact BoxyPack today for a quote on your velvet jewelry packaging needs.",
+        "Partner with BoxyPack to design velvet bags that combine luxury and practicality. Our expert team delivers premium packaging solutions that protect your jewelry and elevate your brand’s elegance with every order.",
     },
   },
 
@@ -7243,84 +7393,67 @@ const rawProductData: Record<string, RawProductEntry> = {
   "kraft-jewelry-boxes": {
     name: "Kraft Jewelry Boxes",
     description:
-      "Eco-friendly kraft jewelry boxes that combine sustainability with style. Natural, recyclable, and fully customizable packaging perfect for jewelry brands that value the environment.",
+      "Natural, elegant, and durable. Buy kraft jewelry boxes online for eco-friendly packaging that protects your jewelry while highlighting your brand’s sustainable touch.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Eco-friendly kraft paperboard construction",
-      "Natural brown finish with optional lining",
-      "Fully recyclable and biodegradable",
-      "Customizable with your jewelry brand",
-      "Secure closures protect jewelry",
-      "Multiple sizes for various jewelry types",
-      "Affordable packaging solution",
+      "Made from 100% recycled and biodegradable materials",
+      "Strong cardboard construction with smooth matte texture",
+      "Full-color or logo printing available",
+      "Ideal for jewelry shops, boutiques, and online stores",
+      "Optional inserts or cushions for added protection",
+      "Eco-friendly and recyclable packaging",
+      "Available in natural brown or custom colors",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Unbleached kraft paperboard with optional satin lining",
+          value: "Recycled Kraft Paperboard / Cardboard",
         },
-        {
-          label: "Structure",
-          value: "Tuck-end, hinged lid, or drawer-style box",
-        },
-        { label: "Thickness", value: "18pt / 24pt kraft board" },
-        {
-          label: "Finish",
-          value: "Natural kraft, white ink printing, or optional satin lining",
-        },
-        {
-          label: "Printing",
-          value: "Eco-friendly inks with custom logo and designs",
-        },
-        {
-          label: "Lining",
-          value: "Optional satin or velvet lining for premium feel",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'From 2" x 2" x 1" to 6" x 4" x 2"',
-        },
-        { label: "Quantity", value: "Starting at 100 units with bulk pricing" },
+        { label: "Structure", value: "Two-Piece / Flip-Top / Drawer Style" },
+        { label: "Thickness", value: "12PT / 16PT / 18PT" },
+        { label: "Finish", value: "Matte / Natural / Soft Touch" },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Kraft Jewelry Boxes for Sustainable Packaging",
+      title: "Luxury Cardboard Jewelry Packaging for Premium Brands",
       paragraphs: [
-        "Our kraft jewelry boxes offer an eco-friendly alternative to traditional jewelry packaging. Made from unbleached, recyclable kraft paperboard, these boxes appeal to environmentally conscious customers while maintaining quality and protection.",
-        "The natural brown finish creates a rustic, authentic look that works well for artisanal and sustainable jewelry brands. Optional satin or velvet lining adds a touch of luxury while keeping the eco-friendly appeal.",
-        "Perfect for jewelry brands that prioritize sustainability. Every kraft box can be customized with your branding using eco-friendly inks, creating packaging that aligns with your brand values.",
+        "Our kraft jewelry boxes combine simplicity, strength, and sustainability. Made from premium recycled kraft paperboard, they offer a natural look that’s perfect for eco-conscious brands. Ideal for rings, earrings, bracelets, and necklaces, these boxes provide secure protection with timeless style.",
+        "At BoxyPack, we design custom printed kraft jewelry gift boxes that align with your brand’s aesthetic. Choose from plain brown tones for a minimal feel or printed designs for professional branding. Each box is carefully made to deliver durability, clean edges, and smooth finishing for a refined presentation.",
+        "As a kraft jewelry boxes wholesale supplier, we focus on combining eco safety with cost efficiency. Whether for small boutique packaging or bulk retail use, we deliver consistent quality at the best kraft jewelry boxes price on the market.",
       ],
     },
     faq: buildFaq(
       "Kraft Jewelry Boxes",
       [
         {
-          question: "Are kraft boxes suitable for premium jewelry?",
-          answer:
-            "Yes, kraft boxes can be elevated with premium linings, foil stamping, and embossing to create a luxurious feel while maintaining the eco-friendly appeal.",
+          question: "What materials are used for kraft jewelry boxes?",
+          answer: "They’re made from durable recycled kraft paperboard.",
         },
         {
-          question: "Can I add lining to kraft boxes?",
+          question: "Can I customize my kraft jewelry boxes with a logo?",
           answer:
-            "Absolutely. We can add satin or velvet lining to kraft boxes, combining the natural aesthetic with a premium interior feel.",
+            "Yes, BoxyPack offers full-color printing and foil stamping options.",
         },
         {
-          question: "Are kraft boxes recyclable?",
+          question: "Are these boxes suitable for high-end jewelry?",
           answer:
-            "Yes, all our kraft jewelry boxes are fully recyclable and biodegradable, making them an excellent choice for sustainable packaging.",
+            "Absolutely. With soft-touch finishes or inserts, they look elegant and professional.",
         },
         {
-          question: "What printing options are available?",
+          question: "Do you provide wholesale discounts?",
           answer:
-            "We offer eco-friendly ink printing, white ink for contrast, and optional foil stamping or embossing for premium branding on kraft boxes.",
+            "Yes, our kraft jewelry boxes wholesale supplier program includes bulk pricing benefits.",
         },
         {
-          question: "What sizes are available?",
+          question: "Are the boxes eco-friendly?",
           answer:
-            'We offer custom sizes from small (2" x 2" x 1") for rings to larger (6" x 4" x 2") for necklaces. Tell us your needs and we\'ll create the perfect fit.',
+            "Yes, every kraft jewelry box is biodegradable and recyclable.",
         },
       ],
       {
@@ -7329,9 +7462,9 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Choose Sustainable Jewelry Packaging",
+      title: "Packaging That Elevates Every Jewel",
       description:
-        "Get eco-friendly kraft jewelry boxes that protect your jewelry and align with your sustainability values. Contact BoxyPack today for a quote.",
+        "Partner with BoxyPack to design kraft jewelry boxes that combine beauty, protection, and environmental care. Our team helps you create eco-friendly packaging that enhances your jewelry and reflects your brand’s sustainable promise.",
     },
   },
 
@@ -7339,84 +7472,70 @@ const rawProductData: Record<string, RawProductEntry> = {
   "cardboard-jewelry-boxes": {
     name: "Cardboard Jewelry Boxes",
     description:
-      "Affordable and durable cardboard jewelry boxes perfect for retail and e-commerce. Strong, customizable, and cost-effective packaging that protects your jewelry beautifully.",
+      "Elegant, protective, and perfectly crafted. Buy cardboard jewelry boxes online for packaging that keeps every piece secure, stylish, and ready for presentation.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Durable cardboard construction",
-      "Affordable packaging solution",
-      "Fully customizable with branding",
-      "Secure closures protect jewelry",
-      "Multiple sizes for various jewelry types",
-      "Eco-friendly and recyclable",
-      "Perfect for bulk orders",
+      "Durable and high-quality cardboard construction",
+      "Full-color or metallic foil logo printing",
+      "Optional foam, velvet, or satin inserts for protection",
+      "Eco-friendly and recyclable materials",
+      "Available in kraft, white, or custom printed finishes",
+      "Perfect for jewelry sets, gifting, or retail display",
+      "Lightweight, rigid, and easy to store",
     ],
     customization: {
       details: [
-        {
-          label: "Material Type",
-          value: "White or brown cardboard with optional lining",
-        },
+        { label: "Material Type", value: "Cardboard / Kraft / Art Paperboard" },
         {
           label: "Structure",
-          value: "Tuck-end, hinged lid, or sleeve with insert",
+          value: "Two-Piece / Drawer / Flip-Top / Magnetic Lid",
         },
-        { label: "Thickness", value: "18pt / 24pt cardboard" },
+        { label: "Thickness", value: "14PT / 18PT / 24PT" },
         {
           label: "Finish",
-          value: "Matte, gloss, or uncoated with custom printing",
+          value: "Matte / Gloss / Soft Touch / Foil Embossing",
         },
-        {
-          label: "Printing",
-          value: "Full-color CMYK printing with custom logo and designs",
-        },
-        { label: "Lining", value: "Optional satin or paper lining" },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'From 2" x 2" x 1" to 6" x 4" x 2"',
-        },
-        {
-          label: "Quantity",
-          value: "Starting at 100 units with bulk discounts",
-        },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
       title: "Cardboard Jewelry Boxes for Reliable Protection",
       paragraphs: [
-        "Our cardboard jewelry boxes provide a cost-effective packaging solution without compromising on quality or protection. These durable boxes are perfect for jewelry retailers, online stores, and businesses that need reliable packaging at scale.",
-        "Made from strong cardboard, these boxes protect your jewelry during shipping and handling. The customizable design allows you to add your branding, creating a professional presentation that reinforces your brand identity.",
-        "Perfect for businesses that need affordable, bulk packaging solutions. Every cardboard box can be customized with your logo, colors, and messaging, creating packaging that works for both retail and e-commerce.",
+        "Our cardboard jewelry boxes are built for strength, sophistication, and durability. Made from premium-grade cardboard, they ensure your jewelry pieces remain safe from scratches, moisture, and damage. Perfect for rings, earrings, bracelets, and necklaces, these boxes elevate your brand image while protecting your products.",
+        "At BoxyPack, we design custom printed jewelry boxes that align with your store’s personality and product line. Whether you prefer a minimalist matte look or a luxurious printed design, every box is precision-cut for structure and smooth edges. Available with inserts, cushions, or velvet linings, they bring a refined, elegant presentation to every jewelry item.",
+        "As a custom printed jewelry boxes supplier, we deliver reliability, beauty, and value. From small boutiques to large-scale retailers, we offer consistent quality and competitive cardboard jewelry boxes price for bulk and retail packaging.",
       ],
     },
     faq: buildFaq(
       "Cardboard Jewelry Boxes",
       [
         {
-          question: "Are cardboard boxes strong enough for jewelry?",
+          question: "What materials are used for cardboard jewelry boxes?",
           answer:
-            "Yes, our cardboard jewelry boxes use sturdy board construction that provides excellent protection for jewelry pieces during shipping and handling.",
+            "We use high-grade cardboard and art paper for strength and beauty.",
         },
         {
-          question: "Can I add custom inserts to cardboard boxes?",
+          question: "Can I add foam or velvet inserts?",
           answer:
-            "Absolutely. We can create custom foam or cardboard inserts to hold specific jewelry pieces securely in place.",
+            "Yes, BoxyPack offers multiple insert options for jewelry safety and display.",
         },
         {
-          question: "What printing options are available?",
+          question: "Are these boxes suitable for gifting?",
           answer:
-            "We offer full-color CMYK printing, spot colors, and custom logo placement on cardboard jewelry boxes.",
+            "Absolutely. They’re perfect for both personal gifts and retail packaging.",
         },
         {
-          question: "Are cardboard boxes recyclable?",
+          question: "Do you offer wholesale pricing?",
           answer:
-            "Yes, all our cardboard jewelry boxes are fully recyclable, making them an eco-friendly packaging choice.",
+            "Yes, our cardboard jewelry packaging boxes wholesale program includes bulk discounts.",
         },
         {
-          question: "What is the minimum order quantity?",
-          answer:
-            "Our minimum order is 100 boxes, with bulk discounts available for larger quantities, making them perfect for businesses of all sizes.",
+          question: "Are these boxes eco-friendly?",
+          answer: "Yes, all materials are recyclable and sustainably produced.",
         },
       ],
       {
@@ -7425,9 +7544,8 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Get Affordable Jewelry Packaging",
       description:
-        "Choose cardboard jewelry boxes that protect your jewelry and fit your budget. Contact BoxyPack today for a quote on your jewelry packaging needs.",
+        "Partner with BoxyPack to design cardboard jewelry boxes that combine luxury, strength, and sustainability. Our team helps you create elegant packaging that protects your products and highlights your brand’s craftsmanship at every glance.",
     },
   },
 
@@ -7435,90 +7553,71 @@ const rawProductData: Record<string, RawProductEntry> = {
   "jewelry-subscription-box": {
     name: "Jewelry Subscription Box",
     description:
-      "Custom jewelry subscription boxes designed for monthly delivery programs. Durable, branded, and perfectly sized for subscription services that delight customers every month.",
+      "Stylish, strong, and subscription-ready. Buy jewelry subscription boxes online for packaging that adds luxury, protection, and excitement to every monthly delivery.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Durable construction for shipping",
-      "Customizable for monthly themes",
-      "Perfect size for subscription items",
-      "Branded with your subscription service",
-      "Eco-friendly and recyclable materials",
-      "Cost-effective for recurring orders",
-      "Professional presentation every month",
+      "Strong cardboard or rigid paperboard construction",
+      "Full-color and foil printing for brand consistency",
+      "Optional inserts for rings, necklaces, or earrings",
+      "Magnetic closure or drawer-style options available",
+      "Eco-friendly and recyclable packaging materials",
+      "Available in matte, gloss, or luxury soft-touch finishes",
+      "Perfect for subscription, retail, or gift packaging",
     ],
     customization: {
       details: [
-        {
-          label: "Material Type",
-          value: "Sturdy paperboard or corrugated board for shipping",
-        },
+        { label: "Material Type", value: "Cardboard / Rigid / Art Paperboard" },
         {
           label: "Structure",
-          value: "Tuck-end, mailer box, or sleeve with insert",
+          value: "Magnetic Closure / Drawer / Two-Piece / Flip-Top",
         },
-        {
-          label: "Thickness",
-          value: "18pt / 24pt board or single-wall corrugated",
-        },
+        { label: "Thickness", value: "14PT / 18PT / 24PT" },
         {
           label: "Finish",
-          value: "Matte, gloss, or uncoated with custom printing",
+          value: "Matte / Gloss / Soft Touch / Foil Embossing",
         },
-        {
-          label: "Printing",
-          value: "Full-color printing with monthly theme customization options",
-        },
-        {
-          label: "Insert Options",
-          value: "Custom inserts, tissue paper, or product cards",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'Standard 6" x 4" x 2" or custom sizes',
-        },
-        {
-          label: "Quantity",
-          value: "Monthly subscription quantities with volume pricing",
-        },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
       title: "Jewelry Subscription Boxes for Monthly Delights",
       paragraphs: [
-        "Our jewelry subscription boxes are designed specifically for monthly delivery programs. These durable boxes protect jewelry during shipping while creating an exciting unboxing experience that keeps subscribers engaged.",
-        "Perfect for jewelry subscription services, these boxes can be customized with monthly themes, seasonal designs, or consistent branding. The structure is optimized for shipping, ensuring jewelry arrives in perfect condition.",
-        "Every subscription box can be tailored to your service, with options for custom inserts, product cards, and branding that reinforces your subscription value. Ideal for businesses that ship jewelry regularly to subscribers.",
+        "Our jewelry subscription boxes are designed to impress from the moment they arrive. Built from sturdy, high-quality cardboard, they protect jewelry pieces while providing a polished, elegant presentation. Perfect for monthly or seasonal subscription services, they balance durability, design, and brand identity.",
+        "At BoxyPack, we specialize in creating custom jewelry subscription packaging tailored to your brand. Choose matte, gloss, or textured finishes to match your jewelry style. Add magnetic closures, printed interiors, or inserts for an elevated unboxing experience that keeps subscribers excited every month.",
+        "As a subscription boxes for jewelry wholesale manufacturer, we deliver premium materials, precise printing, and affordable bulk pricing. Each order offers a refined balance between beauty and practicality, with flexible options and the best jewelry subscription boxes price available.",
       ],
     },
     faq: buildFaq(
       "Jewelry Subscription Box",
       [
         {
-          question: "Can I customize boxes for different monthly themes?",
+          question: "What are jewelry subscription boxes made from?",
           answer:
-            "Yes, we can create versioned designs for different months or seasons, allowing you to keep your subscription boxes fresh and exciting for subscribers.",
+            "They’re crafted from premium cardboard or rigid paperboard for strength.",
         },
         {
-          question: "Are subscription boxes durable enough for shipping?",
+          question: "Can I add custom printing and interior designs?",
           answer:
-            "Absolutely. Our subscription boxes are designed with shipping in mind, using sturdy materials that protect jewelry during transit.",
+            "Yes, BoxyPack offers full customization, including inner prints and inserts.",
         },
         {
-          question: "Can I add custom inserts or product cards?",
+          question: "Are these boxes suitable for shipping?",
           answer:
-            "Yes, we can create custom inserts, tissue paper, product cards, and other elements that enhance the unboxing experience for your subscribers.",
+            "Absolutely. They’re designed for both protection and presentation.",
         },
         {
-          question: "What sizes work best for subscription boxes?",
+          question: "Do you provide wholesale pricing?",
           answer:
-            'Standard subscription boxes are typically 6" x 4" x 2", but we can customize sizes based on your specific jewelry items and subscription model.',
+            "Yes, our subscription boxes for jewelry wholesale program includes bulk discounts.",
         },
         {
-          question: "Do you offer volume pricing for recurring orders?",
+          question: "Are the boxes eco-friendly?",
           answer:
-            "Yes, we offer special pricing for subscription services with recurring monthly orders, making it cost-effective to maintain your subscription program.",
+            "Yes, all our jewelry subscription boxes are recyclable and sustainably made.",
         },
       ],
       {
@@ -7527,9 +7626,8 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Start Your Jewelry Subscription Program",
       description:
-        "Get custom subscription boxes that delight your customers every month. Contact BoxyPack today to design packaging for your jewelry subscription service.",
+        "Partner with BoxyPack to design jewelry subscription boxes that elevate your unboxing experience. Our packaging experts craft premium boxes that protect your jewelry, impress subscribers, and strengthen your brand with every delivery.",
     },
   },
 
@@ -7537,98 +7635,87 @@ const rawProductData: Record<string, RawProductEntry> = {
   "pendant-boxes": {
     name: "Pendant Boxes",
     description:
-      "Elegant custom pendant boxes designed to showcase necklaces and pendants beautifully. Premium materials, secure closures, and fully branded packaging that protects your jewelry.",
+      "Elegant, secure, and crafted with precision. Buy pendant boxes online for packaging that protects, presents, and enhances your jewelry with timeless appeal.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Premium materials protect pendants",
-      "Custom insert pads hold necklaces securely",
-      "Secure closures prevent jewelry from shifting",
-      "Luxurious finishes with velvet or satin lining",
-      "Fully customizable with your jewelry brand",
-      "Multiple sizes for various pendant styles",
-      "Window options showcase pendants beautifully",
+      "High-quality cardboard or rigid box structure",
+      "Soft velvet or foam inserts for jewelry protection",
+      "Full-color, foil, or embossed logo printing",
+      "Eco-friendly and recyclable materials",
+      "Ideal for jewelry stores, boutiques, and gift packaging",
+      "Available in matte, gloss, or soft-touch finishes",
+      "Custom sizes and branding available",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Premium paperboard with velvet or satin lining",
+          value: "Rigid Cardboard / Kraft / Paperboard",
         },
         {
           label: "Structure",
-          value: "Hinged lid box, tuck-end, or drawer-style with insert pad",
+          value: "Flip-Top / Magnetic Lid / Two-Piece Box",
         },
-        { label: "Thickness", value: "18pt / 24pt board for durability" },
+        { label: "Thickness", value: "16PT / 18PT / 24PT" },
         {
           label: "Finish",
-          value:
-            "Matte, gloss, soft-touch, or velvet wrap with metallic accents",
+          value: "Matte / Gloss / Soft Touch / Foil Embossing",
         },
         {
           label: "Printing",
-          value:
-            "Premium printing with foil stamping, embossing, and custom branding",
+          value: "Inside, Outside, or Both",
         },
         {
-          label: "Insert Pad",
-          value: "Custom foam or velvet insert pad to hold pendant and chain",
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
         },
-        {
-          label: "Window Options",
-          value: "Optional clear window to showcase pendant",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'From 3" x 3" x 1.5" to 6" x 4" x 2"',
-        },
-        { label: "Quantity", value: "Starting at 100 units with bulk pricing" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Pendant Boxes for Elegant Jewelry Presentation",
+      title: "Custom Pendant Packaging Boxes Wholesale for Jewelry Brands",
       paragraphs: [
-        "Our custom pendant boxes are designed to showcase your necklaces and pendants with elegance and sophistication. These premium boxes protect pendants while presenting them in a way that highlights their beauty and value.",
-        "Every box features custom insert pads that hold pendants and chains securely, preventing tangling and damage. Luxurious finishes like velvet lining and foil stamping add an extra touch of luxury that customers appreciate.",
-        "Perfect for jewelry retailers, online stores, and gift shops. Every pendant box can be customized with your branding, creating a cohesive look that reinforces your premium brand identity.",
+        "Our pendant boxes are designed to bring sophistication and safety together. Built from durable, high-quality cardboard or rigid materials, they protect delicate pendants from damage while adding a premium touch to presentation. Perfect for jewelry stores, boutiques, and gift packaging, these boxes combine practicality with elegance.",
+        "At BoxyPack, we specialize in custom pendant packaging boxes wholesale tailored to your brand’s design and standards. Choose from soft-touch finishes, printed interiors, or velvet linings to elevate your jewelry display. Each box is engineered for long-lasting use, offering a refined look and flawless structure.",
+        "As a reliable pendant gift boxes supplier near me, we provide consistent quality, fast turnaround, and affordable bulk options. Every design delivers protection, presentation, and value making our pendant boxes price the best fit for jewelry businesses of all sizes.",
       ],
     },
     faq: buildFaq(
       "Pendant Boxes",
       [
         {
-          question: "How do pendant boxes prevent chain tangling?",
+          question: "What materials are used in pendant boxes?",
           answer:
-            "Our pendant boxes feature custom insert pads with grooves or channels that hold the chain in place, preventing tangling during transport and storage.",
+            "We use rigid cardboard, kraft, or specialty paperboard for strength and luxury.",
         },
         {
-          question: "Can I add windows to pendant boxes?",
+          question: "Can I print my brand logo on the boxes?",
           answer:
-            "Yes, we can add clear windows to pendant boxes, allowing customers to see the pendant while keeping it protected.",
+            "Yes, BoxyPack offers foil, emboss, and full-color logo printing.",
         },
         {
-          question: "What sizes work best for pendants?",
+          question: "Do the boxes include inserts for jewelry?",
           answer:
-            'Pendant boxes typically range from 3" x 3" x 1.5" for small pendants to 6" x 4" x 2" for larger pendants or longer chains. We can customize sizes based on your specific pendant dimensions.',
+            "Yes, soft velvet or foam inserts are included for secure display.",
         },
         {
-          question: "Can I get boxes with velvet lining?",
+          question: "Do you provide bulk discounts?",
           answer:
-            "Absolutely. We offer premium velvet or satin lining options that protect your pendants while adding a luxurious feel to the unboxing experience.",
+            "Yes, our custom pendant packaging boxes wholesale program includes flexible bulk pricing.",
         },
         {
-          question: "What premium finishes are available?",
-          answer:
-            "We offer soft-touch lamination, velvet wrap, foil stamping, embossing, and metallic accents to create luxurious pendant boxes that feel premium.",
+          question: "Are these boxes eco-friendly?",
+          answer: "Yes, all materials are recyclable and responsibly sourced.",
         },
       ],
       { heading: "Questions about Pendant Boxes", eyebrow: "Pendant Box FAQs" }
     ),
     cta: {
-      title: "Present Your Pendants Beautifully",
+      title: "Elegant Protection for Every Pendant",
       description:
-        "Create custom pendant boxes that showcase your jewelry and strengthen your brand. Contact BoxyPack today to design elegant packaging that reflects your brand's quality.",
+        "Partner with BoxyPack to create pendant boxes that combine luxury, strength, and brand identity. Our team crafts packaging that protects your jewelry, enhances presentation, and adds elegance to every unboxing experience.",
     },
   },
 
@@ -7636,90 +7723,74 @@ const rawProductData: Record<string, RawProductEntry> = {
   "bracelet-boxes": {
     name: "Bracelet Boxes",
     description:
-      "Perfect custom bracelet boxes designed to showcase bracelets and bangles elegantly. Premium materials, secure closures, and fully branded packaging that protects your jewelry.",
+      "Stylish, durable, and designed for elegance. Buy bracelet boxes online for packaging that combines strength, beauty, and premium jewelry presentation.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Premium materials protect bracelets",
-      "Custom insert pads hold bracelets securely",
-      "Secure closures prevent jewelry from shifting",
-      "Luxurious finishes with velvet or satin lining",
-      "Fully customizable with your jewelry brand",
-      "Multiple sizes for various bracelet styles",
-      "Window options showcase bracelets beautifully",
+      "Rigid cardboard construction ensures long-lasting strength",
+      "Soft velvet or foam inserts for jewelry protection",
+      "Full-color, foil, or embossed logo printing options",
+      "Eco-friendly, recyclable, and premium materials",
+      "Available in multiple shapes, sizes, and finishes",
+      "Perfect for bracelets, bangles, and jewelry sets",
+      "Lightweight and stackable design for retail storage",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Premium paperboard with velvet or satin lining",
+          value: "Rigid Cardboard / Kraft / Paperboard",
         },
         {
           label: "Structure",
-          value: "Hinged lid box, tuck-end, or drawer-style with insert pad",
+          value: "Two-Piece / Magnetic Lid / Drawer Style",
         },
-        { label: "Thickness", value: "18pt / 24pt board for durability" },
+        { label: "Thickness", value: "16PT / 18PT / 24PT" },
         {
           label: "Finish",
-          value:
-            "Matte, gloss, soft-touch, or velvet wrap with metallic accents",
+          value: "Matte / Gloss / Soft Touch / Foil Embossing",
         },
-        {
-          label: "Printing",
-          value:
-            "Premium printing with foil stamping, embossing, and custom branding",
-        },
-        {
-          label: "Insert Pad",
-          value: "Custom foam or velvet insert pad to hold bracelet in place",
-        },
-        {
-          label: "Window Options",
-          value: "Optional clear window to showcase bracelet",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'From 4" x 3" x 1.5" to 8" x 4" x 2"',
-        },
-        { label: "Quantity", value: "Starting at 100 units with bulk pricing" },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Bracelet Boxes for Elegant Jewelry Presentation",
+      title: "Custom Printed Bracelet Gift Boxes for Jewelry Brands",
       paragraphs: [
-        "Our custom bracelet boxes are designed to showcase your bracelets and bangles with elegance and sophistication. These premium boxes protect bracelets while presenting them in a way that highlights their beauty and craftsmanship.",
-        "Every box features custom insert pads that hold bracelets securely, preventing movement and damage. Luxurious finishes like velvet lining and foil stamping add an extra touch of luxury that customers appreciate.",
-        "Perfect for jewelry retailers, online stores, and gift shops. Every bracelet box can be customized with your branding, creating a cohesive look that reinforces your premium brand identity.",
+        "Our bracelet boxes are crafted to protect your jewelry while enhancing its appeal. Built from strong cardboard or rigid paperboard, these boxes provide both durability and a luxurious touch. Perfect for jewelry stores, boutiques, and gift packaging, they highlight your bracelets with a refined and professional look.",
+        "At BoxyPack, we produce custom printed bracelet gift boxes that reflect your brand identity. Choose from matte, gloss, or soft-touch finishes and add your logo through foil stamping or embossing for a distinctive appearance. Every box is carefully constructed for strength, style, and smooth finishing.",
+        "As a bracelet packaging boxes wholesale supplier, we provide exceptional quality, eco-friendly materials, and cost-effective pricing. Whether you need small batches or large bulk orders, we ensure your products arrive with elegance at a competitive bracelet boxes price.",
       ],
     },
     faq: buildFaq(
       "Bracelet Boxes",
       [
         {
-          question: "How do bracelet boxes hold different bracelet styles?",
+          question: "What materials are used for bracelet boxes?",
           answer:
-            "Our custom insert pads can be designed with grooves or channels to accommodate various bracelet styles, from delicate chains to chunky bangles, keeping them secure and protected.",
+            "We use premium rigid cardboard or paperboard for strength and quality.",
         },
         {
-          question: "Can I add windows to bracelet boxes?",
+          question: "Can I print my logo on the bracelet boxes?",
           answer:
-            "Yes, we can add clear windows to bracelet boxes, allowing customers to see the bracelet while keeping it protected.",
+            "Yes, BoxyPack offers custom foil, emboss, and color printing options.",
         },
         {
-          question: "What sizes work best for bracelets?",
+          question: "Do these boxes include jewelry inserts?",
           answer:
-            'Bracelet boxes typically range from 4" x 3" x 1.5" for delicate bracelets to 8" x 4" x 2" for chunky bangles or multiple bracelets. We can customize sizes based on your specific bracelet dimensions.',
+            "Yes, soft velvet or foam inserts can be added for added protection.",
         },
         {
-          question: "Can I get boxes with velvet lining?",
+          question: "Are bulk order discounts available?",
           answer:
-            "Absolutely. We offer premium velvet or satin lining options that protect your bracelets while adding a luxurious feel to the unboxing experience.",
+            "Yes, our bracelet packaging boxes wholesale supplier program includes competitive bulk pricing.",
         },
         {
-          question: "What premium finishes are available?",
+          question: "Are these boxes eco-friendly?",
           answer:
-            "We offer soft-touch lamination, velvet wrap, foil stamping, embossing, and metallic accents to create luxurious bracelet boxes that feel premium.",
+            "Yes, all our bracelet boxes are recyclable and made from sustainable materials.",
         },
       ],
       {
@@ -7728,9 +7799,9 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Present Your Bracelets Beautifully",
+      title: "Elegant Packaging, Timeless Appeal",
       description:
-        "Create custom bracelet boxes that showcase your jewelry and strengthen your brand. Contact BoxyPack today to design elegant packaging that reflects your brand's quality.",
+        "Partner with BoxyPack to create bracelet boxes that merge style and protection. Our packaging experts deliver designs that elevate your jewelry presentation, enhance your brand, and leave a lasting impression with every purchase.",
     },
   },
 
@@ -7738,98 +7809,82 @@ const rawProductData: Record<string, RawProductEntry> = {
   "ring-boxes": {
     name: "Ring Boxes",
     description:
-      "Classic custom ring boxes designed to showcase rings beautifully. Premium materials, secure closures, and fully branded packaging perfect for engagement rings, wedding bands, and fine jewelry.",
+      "Elegant, compact, and made to impress. Buy ring boxes online for jewelry packaging that combines luxury, strength, and timeless design for every special occasion.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Premium materials protect rings",
-      "Custom ring insert holds ring securely",
-      "Secure closures prevent jewelry from shifting",
-      "Luxurious finishes with velvet or satin lining",
-      "Fully customizable with your jewelry brand",
-      "Multiple sizes for various ring styles",
-      "Classic presentation for special moments",
+      "Rigid or cardboard build for premium strength",
+      "Soft velvet or foam inserts for jewelry support",
+      "Full-color, foil, or embossed logo printing",
+      "Eco-friendly and recyclable materials",
+      "Available in matte, gloss, or soft-touch finishes",
+      "Ideal for engagement, wedding, and gift packaging",
+      "Lightweight, durable, and reusable design",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Premium paperboard with velvet or satin lining",
+          value: "Rigid Cardboard / Kraft / Paperboard",
         },
         {
           label: "Structure",
-          value: "Hinged lid box with ring insert or drawer-style",
+          value: "Two-Piece / Flip-Top / Magnetic Closure",
         },
-        { label: "Thickness", value: "18pt / 24pt board for durability" },
+        { label: "Thickness", value: "16PT / 18PT / 24PT" },
         {
           label: "Finish",
-          value:
-            "Matte, gloss, soft-touch, or velvet wrap with metallic accents",
+          value: "Matte / Gloss / Soft Touch / Foil Embossing",
         },
-        {
-          label: "Printing",
-          value:
-            "Premium printing with foil stamping, embossing, and custom branding",
-        },
-        {
-          label: "Ring Insert",
-          value: "Custom foam or velvet ring insert to hold ring securely",
-        },
-        {
-          label: "Window Options",
-          value: "Optional clear window to showcase ring",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'From 2" x 2" x 1" to 4" x 3" x 1.5"',
-        },
-        { label: "Quantity", value: "Starting at 100 units with bulk pricing" },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
       title: "Ring Boxes for Special Moments",
       paragraphs: [
-        "Our custom ring boxes are designed to create memorable moments for your customers. Whether it's an engagement ring, wedding band, or fine jewelry piece, these premium boxes protect rings while presenting them beautifully.",
-        "Every box features a custom ring insert that holds the ring securely in place, preventing movement and damage. Luxurious finishes like velvet lining and foil stamping add an extra touch of luxury that makes special moments even more memorable.",
-        "Perfect for jewelry retailers, engagement ring stores, and fine jewelry brands. Every ring box can be customized with your branding, creating a cohesive look that reinforces your premium brand identity.",
+        "Our ring boxes are crafted to add sophistication to every proposal, gift, or jewelry purchase. Made from sturdy cardboard or rigid material, they keep rings secure while offering a premium presentation. Ideal for jewelry shops, boutiques, and gift packaging, these boxes bring elegance to every display.",
+        "At BoxyPack, we design custom ring packaging boxes wholesale that perfectly match your brand’s personality. Choose from kraft for eco simplicity or soft-touch finishes for luxury appeal. Add velvet inserts, foil stamping, or embossing to make every ring box unique and memorable.",
+        "As a luxury ring gift boxes supplier, we deliver quality craftsmanship, consistent printing, and eco-friendly materials. Whether you order for retail, gifting, or e-commerce packaging, we provide top-quality solutions at the most competitive ring boxes price.",
       ],
     },
     faq: buildFaq(
       "Ring Boxes",
       [
         {
-          question: "What makes ring boxes special for engagement rings?",
+          question: "What materials are used for ring boxes?",
           answer:
-            "Ring boxes are designed with custom inserts that hold rings securely and present them beautifully, making them perfect for engagement rings and other special jewelry pieces.",
+            "We use rigid cardboard, kraft, or paperboard with soft inserts.",
         },
         {
-          question: "Can I add windows to ring boxes?",
+          question: "Can I print my logo on the ring boxes?",
           answer:
-            "Yes, we can add clear windows to ring boxes, allowing customers to see the ring while keeping it protected.",
+            "Yes, BoxyPack offers foil, embossing, and full-color logo printing.",
         },
         {
-          question: "What sizes work best for rings?",
+          question: "Do you offer velvet or foam inserts?",
           answer:
-            'Ring boxes typically range from 2" x 2" x 1" for single rings to 4" x 3" x 1.5" for ring sets or larger rings. We can customize sizes based on your specific ring dimensions.',
+            "Absolutely. We provide multiple insert types for premium jewelry display.",
         },
         {
-          question: "Can I get boxes with velvet lining?",
+          question: "Are bulk discounts available?",
           answer:
-            "Absolutely. We offer premium velvet or satin lining options that protect your rings while adding a luxurious feel to the unboxing experience.",
+            "Yes, our custom ring packaging boxes wholesale program includes wholesale pricing.",
         },
         {
-          question: "What premium finishes are available?",
+          question: "Are these boxes eco-friendly?",
           answer:
-            "We offer soft-touch lamination, velvet wrap, foil stamping, embossing, and metallic accents to create luxurious ring boxes that feel premium.",
+            "Yes, our eco friendly ring packaging boxes are recyclable and sustainably made.",
         },
       ],
       { heading: "Questions about Ring Boxes", eyebrow: "Ring Box FAQs" }
     ),
     cta: {
-      title: "Create Memorable Ring Presentations",
+      title: "Small Box, Big Moment",
       description:
-        "Get custom ring boxes that make every ring purchase special. Contact BoxyPack today to design elegant packaging that reflects your brand's quality.",
+        "Partner with BoxyPack to create ring boxes that add luxury and meaning to every unboxing. Our packaging experts design elegant, durable, and eco-conscious boxes that showcase your jewelry beautifully and leave a lasting impression.",
     },
   },
 
@@ -7837,99 +7892,82 @@ const rawProductData: Record<string, RawProductEntry> = {
   "earring-boxes": {
     name: "Earring Boxes",
     description:
-      "Perfect custom earring boxes designed to showcase earrings beautifully. Premium materials, secure closures, and fully branded packaging that protects your jewelry.",
+      "Stylish, protective, and made to impress. Buy earring boxes online for packaging that blends luxury, durability, and elegance for every jewelry collection.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Premium materials protect earrings",
-      "Custom insert pads hold earrings securely",
-      "Secure closures prevent jewelry from shifting",
-      "Luxurious finishes with velvet or satin lining",
-      "Fully customizable with your jewelry brand",
-      "Multiple sizes for various earring styles",
-      "Window options showcase earrings beautifully",
+      "Durable cardboard or rigid structure for strength",
+      "Soft velvet or foam inserts for earring protection",
+      "Full-color, foil, or embossed logo printing",
+      "Eco-friendly, recyclable, and lightweight design",
+      "Available in matte, gloss, or soft-touch finishes",
+      "Perfect for jewelry shops, boutiques, and gifting",
+      "Customizable sizes and layouts",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Premium paperboard with velvet or satin lining",
+          value: "Rigid Cardboard / Kraft / Paperboard",
         },
         {
           label: "Structure",
-          value: "Hinged lid box, tuck-end, or drawer-style with insert pad",
+          value: "Two-Piece / Drawer / Magnetic Lid / Flip-Top",
         },
-        { label: "Thickness", value: "18pt / 24pt board for durability" },
+        { label: "Thickness", value: "14PT / 18PT / 24PT" },
         {
           label: "Finish",
-          value:
-            "Matte, gloss, soft-touch, or velvet wrap with metallic accents",
+          value: "Matte / Gloss / Soft Touch / Foil Embossing",
         },
-        {
-          label: "Printing",
-          value:
-            "Premium printing with foil stamping, embossing, and custom branding",
-        },
-        {
-          label: "Insert Pad",
-          value:
-            "Custom foam or velvet insert pad with holes or channels for earrings",
-        },
-        {
-          label: "Window Options",
-          value: "Optional clear window to showcase earrings",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'From 2" x 2" x 1" to 4" x 3" x 1.5"',
-        },
-        { label: "Quantity", value: "Starting at 100 units with bulk pricing" },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Earring Boxes for Elegant Jewelry Presentation",
+      title: "Custom Earring Packaging Boxes Wholesale for Jewelry Brands",
       paragraphs: [
-        "Our custom earring boxes are designed to showcase your earrings with elegance and sophistication. These premium boxes protect earrings while presenting them in a way that highlights their beauty and craftsmanship.",
-        "Every box features custom insert pads with holes or channels that hold earrings securely, preventing movement and damage. Luxurious finishes like velvet lining and foil stamping add an extra touch of luxury that customers appreciate.",
-        "Perfect for jewelry retailers, online stores, and gift shops. Every earring box can be customized with your branding, creating a cohesive look that reinforces your premium brand identity.",
+        "Our earring boxes are designed to keep your jewelry safe while enhancing its presentation. Crafted from strong, high-quality cardboard or rigid materials, they protect delicate earrings and add a premium look to your display. Perfect for jewelry stores, gift packaging, and online boutiques, these boxes provide elegance and reliability.",
+        "At BoxyPack, we specialize in custom earring packaging boxes wholesale that suit your brand’s unique style. Choose from kraft for eco appeal, matte finishes for simplicity, or luxury velvet linings for premium retail packaging. Each box is crafted to perfection to showcase your earrings beautifully.",
+        "As a luxury earring gift boxes supplier, we ensure every product combines quality, consistency, and affordability. From small orders to large wholesale batches, we deliver dependable craftsmanship at the best earring boxes price in the market.",
       ],
     },
     faq: buildFaq(
       "Earring Boxes",
       [
         {
-          question: "How do earring boxes hold different earring styles?",
+          question: "What materials are used for earring boxes?",
           answer:
-            "Our custom insert pads can be designed with holes for studs, channels for hoops, or slots for drop earrings, keeping them secure and protected regardless of style.",
+            "We use premium rigid cardboard or kraft paperboard for strength and style.",
         },
         {
-          question: "Can I add windows to earring boxes?",
+          question: "Can I add my brand logo to the boxes?",
           answer:
-            "Yes, we can add clear windows to earring boxes, allowing customers to see the earrings while keeping them protected.",
+            "Yes, BoxyPack offers foil, embossing, and full-color printing options.",
         },
         {
-          question: "What sizes work best for earrings?",
+          question: "Do these boxes include inserts?",
           answer:
-            'Earring boxes typically range from 2" x 2" x 1" for studs to 4" x 3" x 1.5" for drop earrings or pairs. We can customize sizes based on your specific earring dimensions.',
+            "Yes, we offer velvet, foam, or fabric inserts for secure jewelry placement.",
         },
         {
-          question: "Can I get boxes with velvet lining?",
+          question: "Are bulk discounts available?",
           answer:
-            "Absolutely. We offer premium velvet or satin lining options that protect your earrings while adding a luxurious feel to the unboxing experience.",
+            "Yes, our custom earring packaging boxes wholesale program includes competitive bulk pricing.",
         },
         {
-          question: "What premium finishes are available?",
+          question: "Are these boxes eco-friendly?",
           answer:
-            "We offer soft-touch lamination, velvet wrap, foil stamping, embossing, and metallic accents to create luxurious earring boxes that feel premium.",
+            "Absolutely. Our materials are recyclable and responsibly sourced.",
         },
       ],
       { heading: "Questions about Earring Boxes", eyebrow: "Earring Box FAQs" }
     ),
     cta: {
-      title: "Present Your Earrings Beautifully",
+      title: "Delicate Design, Strong Impression",
       description:
-        "Create custom earring boxes that showcase your jewelry and strengthen your brand. Contact BoxyPack today to design elegant packaging that reflects your brand's quality.",
+        "Partner with BoxyPack to create earring boxes that elevate your jewelry presentation. Our team crafts elegant, durable, and eco-friendly packaging that protects your products and strengthens your brand with every unboxing.",
     },
   },
 
@@ -8040,91 +8078,74 @@ const rawProductData: Record<string, RawProductEntry> = {
   "necklace-boxes": {
     name: "Necklace Boxes",
     description:
-      "Elegant custom necklace boxes designed to showcase necklaces beautifully. Premium materials, secure closures, and fully branded packaging that protects your jewelry.",
+      "Elegant, secure, and beautifully crafted. Buy necklace boxes online for packaging that protects your jewelry while highlighting its beauty with a premium presentation.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Premium materials protect necklaces",
-      "Custom insert pads hold necklaces securely",
-      "Secure closures prevent chain tangling",
-      "Luxurious finishes with velvet or satin lining",
-      "Fully customizable with your jewelry brand",
-      "Multiple sizes for various necklace styles",
-      "Window options showcase necklaces beautifully",
+      "Rigid cardboard or paperboard for premium durability",
+      "Soft velvet or satin inserts for jewelry protection",
+      "Full-color or foil logo printing options",
+      "Eco-friendly and recyclable materials",
+      "Available in kraft, matte, or glossy finishes",
+      "Ideal for necklaces, pendants, and jewelry",
+      "Optional magnetic or drawer-style design",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Premium paperboard with velvet or satin lining",
+          value: "Rigid Cardboard / Kraft / Art Paperboard",
         },
         {
           label: "Structure",
-          value: "Hinged lid box, tuck-end, or drawer-style with insert pad",
+          value: "Flip-Top / Magnetic Lid / Drawer / Two-Piece",
         },
-        { label: "Thickness", value: "18pt / 24pt board for durability" },
+        { label: "Thickness", value: "16PT / 18PT / 24PT" },
         {
           label: "Finish",
-          value:
-            "Matte, gloss, soft-touch, or velvet wrap with metallic accents",
+          value: "Matte / Gloss / Soft Touch / Foil Embossing",
         },
-        {
-          label: "Printing",
-          value:
-            "Premium printing with foil stamping, embossing, and custom branding",
-        },
-        {
-          label: "Insert Pad",
-          value:
-            "Custom foam or velvet insert pad to hold necklace and prevent tangling",
-        },
-        {
-          label: "Window Options",
-          value: "Optional clear window to showcase necklace",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'From 4" x 3" x 1.5" to 8" x 5" x 2"',
-        },
-        { label: "Quantity", value: "Starting at 100 units with bulk pricing" },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Necklace Boxes for Elegant Jewelry Presentation",
+      title: "Custom Necklace Packaging Boxes Wholesale for Jewelry Brands",
       paragraphs: [
-        "Our custom necklace boxes are designed to showcase your necklaces with elegance and sophistication. These premium boxes protect necklaces while presenting them in a way that highlights their beauty and craftsmanship.",
-        "Every box features custom insert pads with grooves or channels that hold necklaces securely, preventing tangling and damage. Luxurious finishes like velvet lining and foil stamping add an extra touch of luxury that customers appreciate.",
-        "Perfect for jewelry retailers, online stores, and gift shops. Every necklace box can be customized with your branding, creating a cohesive look that reinforces your premium brand identity.",
+        "Our necklace boxes are designed to balance protection and style. Made from high-quality rigid or cardboard material, they keep necklaces tangle-free, secure, and display-ready. Ideal for jewelers, boutiques, and gifting, these boxes deliver elegance and reliability for every piece you showcase.",
+        "At BoxyPack, we craft custom necklace packaging boxes wholesale to suit your brand’s personality and product line. Choose from kraft, matte, or luxury soft-touch finishes, and add inserts, ribbons, or logo printing for a refined, personalized touch. Every box is precisely constructed to give your jewelry the sophistication it deserves.",
+        "As a necklace gift boxes supplier near me, we provide exceptional build quality, premium materials, and flexible bulk pricing. Whether for individual items or full jewelry sets, our packaging delivers style and protection at the best necklace boxes price.",
       ],
     },
     faq: buildFaq(
       "Necklace Boxes",
       [
         {
-          question: "How do necklace boxes prevent chain tangling?",
+          question: "What materials are used for necklace boxes?",
           answer:
-            "Our custom insert pads feature grooves or channels that hold the necklace chain in place, preventing tangling during transport and storage.",
+            "We use rigid cardboard, kraft, or paperboard for lasting strength and elegance.",
         },
         {
-          question: "Can I add windows to necklace boxes?",
+          question: "Can I print my logo on the necklace boxes?",
           answer:
-            "Yes, we can add clear windows to necklace boxes, allowing customers to see the necklace while keeping it protected.",
+            "Yes, BoxyPack offers foil stamping, embossing, and full-color logo printing.",
         },
         {
-          question: "What sizes work best for necklaces?",
+          question: "Do you provide inserts for necklaces?",
           answer:
-            'Necklace boxes typically range from 4" x 3" x 1.5" for shorter necklaces to 8" x 5" x 2" for longer necklaces or statement pieces. We can customize sizes based on your specific necklace dimensions.',
+            "Absolutely. We offer velvet, foam, or satin inserts for secure placement.",
         },
         {
-          question: "Can I get boxes with velvet lining?",
+          question: "Are bulk discounts available?",
           answer:
-            "Absolutely. We offer premium velvet or satin lining options that protect your necklaces while adding a luxurious feel to the unboxing experience.",
+            "Yes, our custom necklace packaging boxes wholesale program includes bulk pricing.",
         },
         {
-          question: "What premium finishes are available?",
+          question: "Are the boxes eco-friendly?",
           answer:
-            "We offer soft-touch lamination, velvet wrap, foil stamping, embossing, and metallic accents to create luxurious necklace boxes that feel premium.",
+            "Yes, all our boxes are recyclable and produced from sustainable materials.",
         },
       ],
       {
@@ -8133,9 +8154,9 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Present Your Necklaces Beautifully",
+      title: "Elegant Design, Exceptional Protection",
       description:
-        "Create custom necklace boxes that showcase your jewelry and strengthen your brand. Contact BoxyPack today to design elegant packaging that reflects your brand's quality.",
+        "Partner with BoxyPack to create necklace boxes that elevate your jewelry’s presentation. Our experts design packaging that safeguards your pieces while adding the luxury and professionalism your brand deserves.",
     },
   },
 
@@ -8143,86 +8164,74 @@ const rawProductData: Record<string, RawProductEntry> = {
   "small-jewelry-boxes": {
     name: "Small Jewelry Boxes",
     description:
-      "Compact custom small jewelry boxes perfect for rings, earrings, and small jewelry pieces. Premium materials, secure closures, and fully branded packaging that protects your jewelry.",
+      "Compact, elegant, and built for beauty. Buy small jewelry boxes online for packaging that adds charm and protection to every jewelry piece you sell or gift.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Compact design perfect for small jewelry",
-      "Premium materials protect delicate pieces",
-      "Secure closures prevent jewelry from shifting",
-      "Luxurious finishes with velvet or satin lining",
-      "Fully customizable with your jewelry brand",
-      "Multiple sizes for various small jewelry types",
-      "Cost-effective packaging solution",
+      "High-quality cardboard or rigid structure for strength",
+      "Compact design ideal for rings and earrings",
+      "Soft velvet or foam inserts for jewelry protection",
+      "Eco-friendly and recyclable materials",
+      "Full-color or foil logo printing options",
+      "Available in matte, gloss, or soft-touch finishes",
+      "Lightweight and perfect for retail and gifting",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Premium paperboard with velvet or satin lining",
+          value: "Rigid Cardboard / Kraft / Paperboard",
         },
         {
           label: "Structure",
-          value: "Hinged lid box, tuck-end, or drawer-style with insert",
+          value: "Two-Piece / Flip-Top / Drawer / Magnetic Lid",
         },
-        { label: "Thickness", value: "18pt / 24pt board for durability" },
+        { label: "Thickness", value: "14PT / 18PT / 24PT" },
         {
           label: "Finish",
-          value:
-            "Matte, gloss, soft-touch, or velvet wrap with metallic accents",
+          value: "Matte / Gloss / Soft Touch / Foil Embossing",
         },
-        {
-          label: "Printing",
-          value:
-            "Premium printing with foil stamping, embossing, and custom branding",
-        },
-        {
-          label: "Insert Options",
-          value: "Custom foam or velvet inserts for small jewelry pieces",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'From 1.5" x 1.5" x 0.75" to 3" x 3" x 1.5"',
-        },
-        { label: "Quantity", value: "Starting at 100 units with bulk pricing" },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Small Jewelry Boxes for Delicate Pieces",
+      title: "Mini Jewelry Gift Packaging Boxes for Jewelry Brands",
       paragraphs: [
-        "Our custom small jewelry boxes are perfectly sized for rings, earrings, and other delicate jewelry pieces. These compact boxes provide protection while maintaining a manageable size for customers.",
-        "Made from premium materials, these boxes protect small jewelry pieces during shipping and handling. The customizable design allows you to add your branding, creating a professional presentation that reinforces your brand identity.",
-        "Perfect for jewelry retailers, online stores, and businesses that need compact packaging for small items. Every small jewelry box can be customized with your logo, colors, and messaging, creating packaging that works for both retail and e-commerce.",
+        "Our small jewelry boxes are designed to showcase your jewelry with sophistication and care. Made from durable cardboard or rigid material, they provide protection while keeping a sleek, minimal profile. Ideal for rings, earrings, and small accessories, these boxes make every piece feel special.",
+        "At BoxyPack, we create custom printed small jewelry boxes that align with your brand’s identity. Choose your preferred finish, color, and logo placement to add a personal touch to your packaging. Each box is engineered for precision and presentation perfect for boutiques, online stores, and retail counters.",
+        "As a small jewelry boxes wholesale supplier, we combine quality materials, creative design, and cost-effective solutions. Whether you need eco-friendly kraft boxes or luxury rigid packaging, we offer dependable products at the most competitive small jewelry boxes price.",
       ],
     },
     faq: buildFaq(
       "Small Jewelry Boxes",
       [
         {
-          question: "What jewelry items fit in small boxes?",
+          question: "What materials are used for small jewelry boxes?",
           answer:
-            "Small jewelry boxes are perfect for rings, earrings, small pendants, charms, and other delicate jewelry pieces that don't require larger packaging.",
+            "We use rigid cardboard, kraft, or paperboard for strong and lasting protection.",
         },
         {
-          question: "Can I add custom inserts to small boxes?",
+          question: "Can I print my brand logo on the boxes?",
           answer:
-            "Absolutely. We can create custom foam or velvet inserts that hold small jewelry pieces securely in place.",
+            "Yes, BoxyPack offers custom printing, embossing, and foil stamping.",
         },
         {
-          question: "What sizes are available?",
+          question: "Do these boxes include inserts?",
           answer:
-            'Small jewelry boxes range from 1.5" x 1.5" x 0.75" for tiny items to 3" x 3" x 1.5" for slightly larger pieces. We can customize sizes based on your specific jewelry dimensions.',
+            "Yes, we offer soft velvet or foam inserts for jewelry display and safety.",
         },
         {
-          question: "Are small boxes cost-effective?",
+          question: "Are wholesale discounts available?",
           answer:
-            "Yes, small jewelry boxes are an affordable packaging solution, especially when ordered in bulk, making them perfect for businesses of all sizes.",
+            "Yes, our small jewelry boxes wholesale supplier program includes competitive bulk rates.",
         },
         {
-          question: "Can I get boxes with velvet lining?",
+          question: "Are these boxes eco-friendly?",
           answer:
-            "Absolutely. We offer premium velvet or satin lining options that protect your small jewelry pieces while adding a luxurious feel.",
+            "Absolutely. All our packaging is recyclable and made from sustainable sources.",
         },
       ],
       {
@@ -8231,9 +8240,8 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Package Small Jewelry Perfectly",
       description:
-        "Get custom small jewelry boxes that protect your delicate pieces and showcase your brand. Contact BoxyPack today for a quote on your small jewelry packaging needs.",
+        "Partner with BoxyPack to design small jewelry boxes that combine simplicity, elegance, and strength. Our team delivers packaging that protects your jewelry and enhances your brand’s image with every sale or gift.",
     },
   },
 
@@ -8241,78 +8249,73 @@ const rawProductData: Record<string, RawProductEntry> = {
   "necklace-cards": {
     name: "Necklace Cards",
     description:
-      "Professional necklace display cards perfect for retail and e-commerce. Durable, customizable, and designed to showcase necklaces beautifully while keeping them organized.",
+      "Sleek, stylish, and practical. Buy necklace cards online for elegant jewelry display and professional presentation that highlights your brand’s charm.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Durable cardstock construction",
-      "Custom holes or slots for necklaces",
-      "Full-color printing with your branding",
-      "Perfect for retail display",
+      "High-quality and thick cardstock for durability",
+      "Pre-cut holes and slits for necklace display",
+      "Full-color or foil logo printing options",
       "Eco-friendly and recyclable materials",
-      "Multiple sizes for various necklace styles",
-      "Cost-effective display solution",
+      "Available in kraft, matte, or glossy finishes",
+      "Perfect for retail, boutiques, and online stores",
+      "Custom shapes, sizes, and designs available",
     ],
     customization: {
       details: [
-        { label: "Material Type", value: "Premium cardstock or paperboard" },
+        {
+          label: "Material Type",
+          value: "Kraft / White Cardstock / Recycled Paperboard",
+        },
         {
           label: "Structure",
-          value: "Flat card with custom holes or slots for necklaces",
+          value: "Flat Display Card / Folded / Hanging Style",
         },
-        { label: "Thickness", value: "14pt / 18pt cardstock" },
+        { label: "Thickness", value: "14PT / 16PT / 18PT" },
         {
           label: "Finish",
-          value: "Matte, gloss, or uncoated with custom printing",
+          value: "Matte / Gloss / Soft Touch / Foil Embossing",
         },
-        {
-          label: "Printing",
-          value: "Full-color CMYK printing with custom logo and designs",
-        },
-        {
-          label: "Hole Options",
-          value: "Custom holes, slots, or notches for necklace placement",
-        },
-        { label: "Dimensions", value: 'Standard 4" x 6" or custom sizes' },
-        { label: "Quantity", value: "Starting at 250 units with bulk pricing" },
+        { label: "Printing", value: "Single Side / Double Side / Full Color" },
+        { label: "Dimensions (L × W)", value: "Custom sizes available" },
+        { label: "Quantity", value: "500 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Necklace Cards for Professional Display",
+      title: "Custom Necklace Display Cards Wholesale for Jewelry Brands",
       paragraphs: [
-        "Our custom necklace cards are designed to showcase necklaces professionally in retail and e-commerce settings. These durable cards keep necklaces organized and displayed beautifully while protecting them from tangling.",
-        "Perfect for jewelry retailers, online stores, and trade shows. The customizable design allows you to add your branding, creating a professional presentation that reinforces your brand identity.",
-        "Every necklace card can be customized with your logo, colors, and messaging, creating packaging that works for both retail display and shipping. The eco-friendly materials make them a sustainable choice for jewelry businesses.",
+        "Our necklace cards are crafted to showcase your jewelry beautifully while keeping it organized and secure. Made from durable, high-quality cardstock, these display cards are perfect for retail shops, craft fairs, or e-commerce packaging. Each card combines strength with style to enhance your brand’s visual appeal.",
+        "At BoxyPack, we produce custom necklace display cards wholesale tailored to your branding and jewelry style. Choose from plain kraft for minimal design or printed cards with full-color logos for professional retail packaging. Every piece is made with precision to help your products stand out on shelves or online.",
+        "As a jewelry necklace cards supplier, we deliver exceptional quality, eco-friendly materials, and flexible pricing. Whether you need small batches for boutique displays or bulk quantities for retail chains, we ensure consistent quality at a competitive necklace cards price.",
       ],
     },
     faq: buildFaq(
       "Necklace Cards",
       [
         {
-          question: "How do necklace cards prevent tangling?",
+          question: "What materials are used for necklace cards?",
           answer:
-            "Necklace cards feature custom holes or slots that hold necklaces securely in place, preventing tangling during display, storage, and shipping.",
+            "We use premium cardstock or recycled paperboard for durability and style.",
         },
         {
-          question: "Can I customize the hole placement?",
+          question: "Can I add my logo and branding?",
           answer:
-            "Yes, we can create custom hole placements, slots, or notches based on your specific necklace styles and display needs.",
+            "Yes, BoxyPack offers full-color and foil logo printing options.",
         },
         {
-          question: "What sizes are available?",
-          answer:
-            'Standard necklace cards are 4" x 6", but we can customize sizes to fit your specific necklace styles and retail display requirements.',
+          question: "Do these cards fit all necklace types?",
+          answer: "Yes, they can be customized for pendants, chains, or sets.",
         },
         {
-          question: "Are necklace cards suitable for shipping?",
+          question: "Are wholesale discounts available?",
           answer:
-            "Yes, necklace cards are perfect for shipping, keeping necklaces organized and protected during transit while maintaining a professional presentation.",
+            "Yes, our custom necklace display cards wholesale program includes bulk pricing benefits.",
         },
         {
-          question: "Can I print product information on cards?",
+          question: "Are these necklace cards eco-friendly?",
           answer:
-            "Absolutely. We can print product information, care instructions, pricing, and any other details you need on your necklace cards.",
+            "Yes, all materials are recyclable and sourced from sustainable suppliers.",
         },
       ],
       {
@@ -8321,9 +8324,8 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Display Your Necklaces Professionally",
       description:
-        "Get custom necklace cards that showcase your jewelry and keep it organized. Contact BoxyPack today for a quote on your necklace display card needs.",
+        "Partner with BoxyPack to create necklace cards that combine elegance and practicality. Our team crafts premium-quality display cards that highlight your jewelry, strengthen your branding, and deliver professional presentation in every collection.",
     },
   },
 
@@ -8331,92 +8333,82 @@ const rawProductData: Record<string, RawProductEntry> = {
   "jewelry-bags": {
     name: "Jewelry Bags",
     description:
-      "Versatile jewelry bags perfect for protecting and presenting jewelry. Soft, protective, and fully customizable with your branding for retail, e-commerce, and gift packaging.",
+      "Elegant, practical, and brand-ready. Buy jewelry bags online for premium packaging that adds a refined finishing touch to every purchase or gift.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Soft materials protect jewelry",
-      "Drawstring or zipper closures",
-      "Customizable with logo printing",
-      "Multiple sizes for various jewelry types",
-      "Eco-friendly and reusable materials",
-      "Perfect for retail and e-commerce",
-      "Cost-effective packaging solution",
+      "Durable and eco-friendly paper, kraft, or fabric materials",
+      "Full-color, foil, or embossed logo printing",
+      "Available with ribbon handles, rope cords, or drawstrings",
+      "Perfect for retail packaging and gifting",
+      "Available in matte, gloss, or textured finishes",
+      "Reusable, recyclable, and lightweight",
+      "Custom sizes and colors available",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Velvet, satin, cotton, or organza fabric",
+          value: "Paper / Kraft / Velvet / Cotton / Fabric",
         },
         {
           label: "Structure",
-          value: "Drawstring bag, zipper bag, or pouch with closure",
+          value: "Flat Bag / Gusset Bag / Pouch / Drawstring Style",
         },
         {
-          label: "Size Options",
-          value:
-            'Small (2" x 3"), Medium (3" x 4"), Large (4" x 6"), or custom sizes',
+          label: "Thickness",
+          value: "120 GSM – 300 GSM (paper) / 180 GSM – 220 GSM (fabric)",
         },
-        {
-          label: "Closure",
-          value: "Drawstring cord, ribbon, or zipper closure options",
-        },
-        {
-          label: "Printing",
-          value: "Screen printing, embroidery, or heat transfer for logos",
-        },
-        {
-          label: "Color Options",
-          value: "Black, navy, white, or custom color matching",
-        },
-        { label: "Quantity", value: "Starting at 100 units with bulk pricing" },
+        { label: "Finish", value: "Matte / Gloss / Textured / Foil Stamping" },
+        { label: "Printing", value: "Single Side / Double Side / Full Color" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "500 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Jewelry Bags for Versatile Packaging",
+      title: "Custom Jewelry Packaging Bags Wholesale for Premium Brands",
       paragraphs: [
-        "Our jewelry bags provide a versatile packaging solution for jewelry retailers and online stores. These soft, protective bags keep jewelry safe while creating a professional presentation.",
-        "Perfect for rings, necklaces, bracelets, earrings, and other jewelry pieces. The customizable design allows you to add your branding, creating a cohesive look that reinforces your brand identity.",
-        "Every jewelry bag can be customized with your logo through printing or embroidery, creating packaging that works for both retail and e-commerce. The reusable nature of these bags also extends your brand's reach beyond the initial purchase.",
+        "Our jewelry bags combine sophistication and strength to deliver elegant packaging for necklaces, earrings, bracelets, and rings. Made from high-quality kraft, paper, or fabric materials, they’re perfect for retail stores, gift boutiques, and jewelry exhibitions. Each bag enhances your brand’s presentation while ensuring convenience and protection.",
+        "At BoxyPack, we specialize in custom jewelry packaging bags wholesale designed around your brand’s aesthetic. Choose from printed paper bags with handles, velvet pouches for luxury gifting, or eco-friendly kraft bags for sustainable presentation. Every design is made with care to elevate your customer experience.",
+        "As a printed jewelry gift bags supplier, we provide premium quality, flawless finishing, and flexible order options. Whether you’re restocking your boutique or fulfilling large retail orders, we offer consistent craftsmanship at a competitive jewelry bags price.",
       ],
     },
     faq: buildFaq(
       "Jewelry Bags",
       [
         {
-          question: "What jewelry items work best in jewelry bags?",
+          question: "What materials are available for jewelry bags?",
           answer:
-            "Jewelry bags are perfect for rings, necklaces, bracelets, earrings, and watches. They provide excellent protection for delicate jewelry pieces.",
+            "We offer kraft, paper, velvet, and cotton options for all jewelry types.",
         },
         {
-          question: "Can I add my logo to jewelry bags?",
+          question: "Can I add my brand logo to the bags?",
           answer:
-            "Yes, we offer screen printing, embroidery, or heat transfer options to add your logo or branding to jewelry bags.",
+            "Yes, BoxyPack offers foil stamping, embossing, and full-color printing.",
         },
         {
-          question: "What sizes are available?",
+          question: "Do these bags come with handles or drawstrings?",
           answer:
-            'We offer standard sizes from small (2" x 3") for rings to large (4" x 6") for necklaces. Custom sizes are also available to fit your specific jewelry pieces.',
+            "Yes, choose from ribbon handles, rope cords, or fabric drawstrings.",
         },
         {
-          question: "Are jewelry bags suitable for gift packaging?",
+          question: "Do you provide wholesale discounts?",
           answer:
-            "Absolutely. Jewelry bags create an elegant, professional gift presentation that makes jewelry gifts feel special.",
+            "Yes, our custom jewelry packaging bags wholesale program includes bulk pricing.",
         },
         {
-          question: "Can I get custom colors?",
+          question: "Are these bags eco-friendly?",
           answer:
-            "Yes, we can match custom colors to align with your brand. Popular options include black, navy, white, and various other colors.",
+            "Absolutely. All our jewelry bags are recyclable and reusable.",
         },
       ],
       { heading: "Questions about Jewelry Bags", eyebrow: "Jewelry Bag FAQs" }
     ),
     cta: {
-      title: "Protect Your Jewelry with Versatile Bags",
+      title: "Luxury in Every Detail",
       description:
-        "Get custom jewelry bags that protect your jewelry and create professional presentations. Contact BoxyPack today for a quote on your jewelry bag needs.",
+        "Partner with BoxyPack to design jewelry bags that combine class, sustainability, and functionality. Our team helps you create custom packaging that protects your jewelry, delights customers, and enhances your brand’s image with every order.",
     },
   },
 
@@ -8433,6 +8425,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       "Customizable with your soap brand",
       "Moisture-resistant materials",
       "Easy to open and reseal",
+
       "Full-color printing options",
       "Multiple sizes for various soap bars",
       "Eco-friendly and recyclable materials",
@@ -8466,7 +8459,7 @@ const rawProductData: Record<string, RawProductEntry> = {
     },
     overview: {
       heading: "Product Overview",
-      title: "Soap Sleeve Packaging for Beautiful Presentation",
+      title: "Custom Soap Sleeve Boxes Wholesale for Modern Brands",
       paragraphs: [
         "Our soap sleeve packaging provides an elegant way to wrap and protect your soap bars. These customizable sleeves keep soaps clean and protected while showcasing your brand beautifully.",
         "Perfect for handmade soaps, artisanal products, and retail displays. The sleeve design allows customers to see your soap while keeping it protected from moisture and handling.",
@@ -8508,7 +8501,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Wrap Your Soaps Beautifully",
+      title: "Sustainable Style, Perfect Fit",
       description:
         "Get custom soap sleeve packaging that protects your products and showcases your brand. Contact BoxyPack today for a quote on your soap packaging needs.",
     },
@@ -8518,58 +8511,45 @@ const rawProductData: Record<string, RawProductEntry> = {
   "custom-bath-bomb-boxes": {
     name: "Custom Bath Bomb Boxes",
     description:
-      "Perfect custom bath bomb boxes designed to protect and showcase your bath bombs beautifully. Durable, moisture-resistant, and fully branded packaging for bath and body products.",
+      "Vibrant, secure, and beautifully designed. Buy bath bomb boxes online for packaging that keeps products safe while adding luxury and style to every display.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Moisture-resistant materials protect bath bombs",
-      "Secure closures prevent breakage",
-      "Customizable with your bath bomb brand",
-      "Window options showcase colorful bath bombs",
-      "Multiple sizes for single or multiple bath bombs",
+      "Strong cardboard or kraft build for moisture protection",
+      "Full-color, foil, or embossed logo printing",
+      "Available with single or multi-product compartments",
       "Eco-friendly and recyclable materials",
-      "Perfect for retail and e-commerce",
+      "Optional die-cut windows for product display",
+      "Matte, gloss, or soft-touch finish options",
+      "Perfect for retail, spa, or gift packaging",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Moisture-resistant paperboard or corrugated board",
+          value: "Cardboard / Kraft / Rigid Paperboard",
         },
         {
           label: "Structure",
-          value: "Tuck-end, window box, or gable top with secure closure",
+          value: "Tuck-End / Two-Piece / Window Cut / Sleeve Style",
         },
-        {
-          label: "Thickness",
-          value: "18pt / 24pt board or single-wall corrugated",
-        },
+        { label: "Thickness", value: "14PT / 18PT / 24PT" },
         {
           label: "Finish",
-          value: "Matte, gloss, or moisture-resistant coating",
+          value: "Matte / Gloss / Soft Touch / Foil Embossing",
         },
-        {
-          label: "Printing",
-          value: "Full-color CMYK printing with custom designs and logo",
-        },
-        {
-          label: "Window Options",
-          value: "Optional clear window to showcase bath bomb",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'From 3" x 3" x 3" to 6" x 6" x 4" for multiple bath bombs',
-        },
-        { label: "Quantity", value: "Starting at 250 units with bulk pricing" },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Custom Bath Bomb Boxes for Perfect Protection",
+      title: "Bath Bomb Packaging Boxes Wholesale Supplier for Premium Brands",
       paragraphs: [
-        "Our custom bath bomb boxes are engineered to protect your bath bombs during shipping and handling. Made from moisture-resistant materials, these boxes keep bath bombs fresh and intact until customers use them.",
-        "Whether you're packaging single bath bombs or gift sets, we offer sizes and structures that match your needs. Windowed options let customers see your colorful bath bombs, while secure closures ensure they arrive in perfect condition.",
-        "Every box can be customized with your branding, creating a professional presentation that reinforces your brand identity. Perfect for bath and body brands, spas, and gift shops.",
+        "Our bath bomb boxes are crafted to combine strength, style, and sustainability. Made from durable cardboard or kraft material, they keep bath bombs secure from moisture, impact, and deformation while enhancing shelf appeal. Perfect for retail stores, spa products, and gift packaging, these boxes add a refined touch to your brand.",
+        "At BoxyPack, we design custom printed bath bomb gift boxes that fit your product dimensions and brand personality. Choose from single or multi-insert layouts, window cutouts for product visibility, and matte or glossy finishes to match your branding. Each box is carefully built for protection and presentation.",
+        "As a trusted bath bomb packaging boxes wholesale supplier, we deliver top-quality printing, eco-friendly materials, and flexible bulk pricing. Whether you sell handcrafted or luxury bath bombs, we provide durable packaging at a competitive bath bomb boxes price.",
       ],
     },
     faq: buildFaq(
@@ -8607,9 +8587,9 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Protect Your Bath Bombs Perfectly",
+      title: "Packaging That Soothes and Shines",
       description:
-        "Get custom bath bomb boxes that protect your products and showcase your brand. Contact BoxyPack today for a quote on your bath bomb packaging needs.",
+        "Partner with BoxyPack to create bath bomb boxes that combine protection, elegance, and sustainability. Our packaging team builds premium designs that highlight your products and strengthen your brand’s presence in every market",
     },
   },
 
@@ -8617,80 +8597,68 @@ const rawProductData: Record<string, RawProductEntry> = {
   "soap-wrapping-paper": {
     name: "Soap Wrapping Paper",
     description:
-      "Beautiful custom soap wrapping paper perfect for individual soap bars. Decorative, protective, and fully customizable with your branding for elegant soap presentation.",
+      "Eco-friendly, smooth, and visually appealing. Buy soap wrapping paper online for premium-quality wraps that protect your soap and elevate your brand presentation.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Decorative wrapping paper for soap bars",
-      "Moisture-resistant options available",
-      "Customizable with your soap brand",
-      "Full-color printing options",
-      "Multiple sizes for various soap bars",
-      "Eco-friendly and recyclable materials",
-      "Perfect for retail and gift wrapping",
+      "Made from biodegradable, recyclable, and food-safe materials",
+      "Full-color printing and custom logo designs available",
+      "Smooth, tear-resistant texture for secure wrapping",
+      "Lightweight, breathable paper keeps soaps fresh",
+      "Available in kraft, white, or custom-printed sheets",
+      "Ideal for handmade, organic, and luxury soaps",
+      "Eco-friendly packaging with a premium look",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Kraft paper, white paper, or moisture-resistant paper",
+          value: "Kraft Paper / Tissue Paper / Recycled Paper",
         },
-        { label: "Structure", value: "Flat wrapping paper sheets" },
-        { label: "Thickness", value: "Standard wrapping paper weight" },
-        {
-          label: "Finish",
-          value: "Matte, gloss, or uncoated with custom printing",
-        },
-        {
-          label: "Printing",
-          value: "Full-color CMYK printing with custom designs and logo",
-        },
-        {
-          label: "Size Options",
-          value: "Standard sizes or custom dimensions to fit your soap bars",
-        },
-        {
-          label: "Quantity",
-          value: "Starting at 500 sheets with bulk pricing",
-        },
+        { label: "Structure", value: "Flat Sheets / Rolls / Pre-Cut Wraps" },
+        { label: "Thickness", value: "17 GSM / 30 GSM / 60 GSM" },
+        { label: "Finish", value: "Matte / Natural / Gloss / Printed Pattern" },
+        { label: "Printing", value: "Single Side / Double Side / Full Color" },
+        { label: "Dimensions (L × W)", value: "Custom sizes available" },
+        { label: "Quantity", value: "1,000 sheets (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Soap Wrapping Paper for Elegant Presentation",
+      title: "Custom Soap Wrapping Paper Wholesale for Artisan Brands",
       paragraphs: [
-        "Our custom soap wrapping paper provides a beautiful way to wrap individual soap bars. These decorative papers keep soaps protected while showcasing your brand with vibrant colors and designs.",
-        "Perfect for handmade soaps, artisanal products, and gift wrapping. The customizable design allows you to add your branding, creating a cohesive look that reinforces your brand identity.",
-        "Every wrapping paper can be customized with your logo, colors, and messaging, creating packaging that works for both retail and e-commerce. The eco-friendly materials make them a sustainable choice for soap businesses.",
+        "Our soap wrapping paper is designed to combine style and sustainability. Made from lightweight yet durable paper, it provides an eco-friendly way to package handmade and natural soaps. Perfect for boutique, spa, and organic soap brands, these wraps protect products while maintaining their fragrance and quality.",
+        "At BoxyPack, we specialize in custom soap wrapping paper wholesale that reflects your brand’s aesthetic. Choose kraft, tissue, or printed wrapping sheets with your logo or pattern for a professional finish. Each sheet is crafted for easy folding and smooth coverage that keeps every bar looking fresh and refined.",
+        "As an eco friendly soap wrap packaging supplier, we focus on recyclable materials, clean printing, and affordable bulk pricing. Whether you sell single soaps or gift sets, our wrapping solutions combine beauty, protection, and cost efficiency with the best soap wrapping paper price available.",
       ],
     },
     faq: buildFaq(
       "Soap Wrapping Paper",
       [
         {
-          question: "Is wrapping paper moisture-resistant?",
+          question: "What materials are used for soap wrapping paper?",
           answer:
-            "We can provide moisture-resistant wrapping paper options that protect your soap from humidity while maintaining the decorative appeal.",
+            "We use kraft, tissue, or recycled paper for durable and sustainable packaging.",
         },
         {
-          question: "Can I customize the wrapping paper design?",
+          question: "Can I print my brand name and design?",
           answer:
-            "Absolutely. We offer full-color printing, custom logos, and design options to create wrapping paper that matches your brand aesthetic perfectly.",
+            "Yes, BoxyPack offers full-color and eco-friendly printing options.",
         },
         {
-          question: "What sizes are available?",
+          question: "Is the wrapping paper safe for handmade soaps?",
           answer:
-            "We offer standard sizes or custom dimensions to fit your specific soap bar sizes. Tell us your needs and we'll create the perfect fit.",
+            "Absolutely. Our paper is breathable and non-toxic for natural products.",
         },
         {
-          question: "Is wrapping paper recyclable?",
+          question: "Do you offer wholesale pricing?",
           answer:
-            "Yes, our wrapping paper is made from recyclable materials, making it an eco-friendly choice for soap packaging.",
+            "Yes, our custom soap wrapping paper wholesale program includes bulk discounts.",
         },
         {
-          question: "What is the minimum order quantity?",
+          question: "Are these wraps eco-friendly?",
           answer:
-            "Our minimum order is 500 sheets, with bulk discounts available for larger quantities, making it affordable for both small and large soap makers.",
+            "Yes, all our soap wrapping papers are recyclable and biodegradable.",
         },
       ],
       {
@@ -8701,7 +8669,7 @@ const rawProductData: Record<string, RawProductEntry> = {
     cta: {
       title: "Wrap Your Soaps Beautifully",
       description:
-        "Get custom soap wrapping paper that protects your products and showcases your brand. Contact BoxyPack today for a quote on your soap wrapping needs.",
+        "Partner with BoxyPack to create soap wrapping paper that blends eco-conscious design with professional appeal. Our experts deliver premium-quality wraps that protect your soaps, highlight your branding, and keep your products fresh and stylish.",
     },
   },
 
@@ -8709,55 +8677,42 @@ const rawProductData: Record<string, RawProductEntry> = {
   "handmade-soap-boxes": {
     name: "Handmade Soap Boxes",
     description:
-      "Perfect custom handmade soap boxes designed for artisanal and handcrafted soaps. Natural, eco-friendly, and fully customizable packaging that reflects the quality of handmade products.",
+      "Natural, elegant, and sustainable. Buy handmade soap boxes online for packaging that protects your soaps and highlights your brand’s authentic craftsmanship.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Natural materials perfect for handmade soaps",
-      "Eco-friendly and recyclable construction",
-      "Customizable with your handmade soap brand",
-      "Moisture-resistant options available",
-      "Multiple sizes for various soap bars",
-      "Window options showcase natural soaps",
-      "Affordable packaging for small businesses",
+      "Durable and eco-friendly cardboard or kraft material",
+      "Custom logo printing for personalized branding",
+      "Available with or without cut-out display windows",
+      "Smooth matte, gloss, or natural kraft finishes",
+      "Fully recyclable and biodegradable design",
+      "Ideal for organic, herbal, or scented soaps",
+      "Perfect for retail shelves or gift packaging",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Kraft paperboard, recycled paperboard, or natural paper",
+          value: "Kraft / Cardboard / Recycled Paperboard",
         },
         {
           label: "Structure",
-          value: "Tuck-end, window box, or sleeve with insert",
+          value: "Tuck-End / Sleeve / Window Cut / Two-Piece",
         },
-        { label: "Thickness", value: "18pt / 24pt board" },
-        {
-          label: "Finish",
-          value: "Natural kraft, matte, or uncoated with eco-friendly inks",
-        },
-        {
-          label: "Printing",
-          value: "Eco-friendly ink printing with custom logo and designs",
-        },
-        {
-          label: "Window Options",
-          value: "Optional clear window to showcase handmade soap",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'From 3" x 2" x 1.5" to 6" x 4" x 2.5"',
-        },
-        { label: "Quantity", value: "Starting at 100 units with bulk pricing" },
+        { label: "Thickness", value: "14PT / 18PT / 24PT" },
+        { label: "Finish", value: "Matte / Gloss / Natural / Soft Touch" },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Handmade Soap Boxes for Artisanal Products",
+      title: "Custom Handmade Soap Packaging Boxes for Artisan Brands",
       paragraphs: [
-        "Our handmade soap boxes are designed specifically for artisanal and handcrafted soaps. These natural, eco-friendly boxes reflect the quality and care that goes into handmade products.",
-        "Perfect for small-batch soap makers, craft fairs, and artisanal brands. The customizable design allows you to add your branding, creating a cohesive look that reinforces your handmade brand identity.",
-        "Every box can be customized with your logo, colors, and messaging, creating packaging that works for both retail and e-commerce. The eco-friendly materials align with the values of handmade soap businesses.",
+        "Our handmade soap boxes are designed to complement the charm and purity of natural soaps. Made from premium kraft, cardboard, or recycled paperboard, these boxes provide durability, eco-friendliness, and an appealing shelf presence. Perfect for handmade and organic soap makers, they enhance both presentation and protection.",
+        "At BoxyPack, we create custom handmade soap packaging boxes tailored to your product size and branding. Choose from open-window designs for visibility or full-cover boxes for luxury presentation. With multiple finishes and print options, each box is made to align perfectly with your brand’s eco-conscious image.",
+        "As a wholesale handmade soap boxes supplier, we ensure consistent quality, affordable pricing, and timely delivery. Whether you’re packaging artisanal soaps or spa collections, we deliver strong, elegant solutions at the best handmade soap boxes price.",
       ],
     },
     faq: buildFaq(
@@ -8795,9 +8750,9 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Package Your Handmade Soaps Beautifully",
+      title: "Natural Packaging, Beautifully Crafted",
       description:
-        "Get custom handmade soap boxes that protect your products and showcase your artisanal brand. Contact BoxyPack today for a quote.",
+        "Partner with BoxyPack to create handmade soap boxes that reflect your brand’s authenticity and care. Our packaging experts design eco-friendly, durable, and elegant boxes that protect your soaps and enhance your product’s presentation.",
     },
   },
 
@@ -8805,98 +8760,82 @@ const rawProductData: Record<string, RawProductEntry> = {
   "luxury-soap-packaging": {
     name: "Luxury Soap Packaging",
     description:
-      "Premium luxury soap packaging designed to elevate your brand. Sophisticated materials, elegant finishes, and fully customized packaging that creates unforgettable unboxing experiences.",
+      "Natural, elegant, and sustainable. Buy handmade soap boxes online for packaging that protects your soaps and highlights your brand’s authentic craftsmanship.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Premium materials and finishes",
-      "Luxurious designs for high-end soaps",
-      "Foil stamping and embossing options",
-      "Moisture-resistant premium materials",
-      "Fully customizable with premium branding",
-      "Multiple styles and sizes available",
-      "Unforgettable unboxing experiences",
+      "Durable and eco-friendly cardboard or kraft material",
+      "Custom logo printing for personalized branding",
+      "Available with or without cut-out display windows",
+      "Smooth matte, gloss, or natural kraft finishes",
+      "Fully recyclable and biodegradable design",
+      "Ideal for organic, herbal, or scented soaps",
+      "Perfect for retail shelves or gift packaging",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Premium paperboard with optional lamination",
+          value: "Kraft / Cardboard / Recycled Paperboard",
         },
         {
           label: "Structure",
-          value: "Hinged lid, drawer-style, or sleeve with premium closure",
+          value: "Tuck-End / Sleeve / Window Cut / Two-Piece",
         },
-        { label: "Thickness", value: "24pt / 32pt board for premium feel" },
-        {
-          label: "Finish",
-          value: "Soft-touch, velvet wrap, or premium lamination",
-        },
-        {
-          label: "Printing",
-          value: "Foil stamping, embossing, debossing, and metallic accents",
-        },
-        {
-          label: "Special Features",
-          value: "Magnetic closures, ribbon ties, and custom inserts",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: "Custom sizes for all soap types",
-        },
-        {
-          label: "Quantity",
-          value: "Starting at 50 units with premium pricing",
-        },
+        { label: "Thickness", value: "14PT / 18PT / 24PT" },
+        { label: "Finish", value: "Matte / Gloss / Natural / Soft Touch" },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Luxury Soap Packaging for Premium Brands",
+      title: "Custom Square Soap Packaging Boxes Wholesale for Modern Brands",
       paragraphs: [
-        "Our luxury soap packaging is designed for brands that demand the highest level of sophistication and elegance. Every detail, from the premium materials to the luxurious finishes, is crafted to create an unforgettable unboxing experience.",
-        "Perfect for high-end soap brands, luxury spas, and premium gift shops. These packaging solutions combine premium materials with sophisticated finishes like foil stamping and embossing.",
-        "Every luxury package can be fully customized with your branding, creating a cohesive look that reinforces your premium brand identity. The attention to detail in luxury packaging elevates your brand and creates lasting impressions.",
+        "Our handmade soap boxes are designed to complement the charm and purity of natural soaps. Made from premium kraft, cardboard, or recycled paperboard, these boxes provide durability, eco-friendliness, and an appealing shelf presence. Perfect for handmade and organic soap makers, they enhance both presentation and protection.",
+        "At BoxyPack, we create custom handmade soap packaging boxes tailored to your product size and branding. Choose from open-window designs for visibility or full-cover boxes for luxury presentation. With multiple finishes and print options, each box is made to align perfectly with your brand’s eco-conscious image.",
+        "As a wholesale handmade soap boxes supplier, we ensure consistent quality, affordable pricing, and timely delivery. Whether you’re packaging artisanal soaps or spa collections, we deliver strong, elegant solutions at the best handmade soap boxes price.",
       ],
     },
     faq: buildFaq(
-      "Luxury Soap Packaging",
+      "Handmade Soap Boxes",
       [
         {
-          question: "What makes packaging luxury?",
+          question: "What materials are used for handmade soap boxes?",
           answer:
-            "Luxury packaging features premium materials, sophisticated finishes like foil stamping and embossing, high-quality construction, and attention to detail that creates an exceptional unboxing experience.",
+            "We use kraft, cardboard, and recycled paperboard for durable, eco-friendly packaging.",
         },
         {
-          question: "What premium finishes are available?",
+          question: "Can I print my brand logo and design?",
           answer:
-            "We offer foil stamping, embossing, debossing, soft-touch lamination, velvet wrap, and metallic accents to create truly luxurious packaging.",
+            "Yes, BoxyPack offers full-color printing, foil stamping, and embossing options.",
         },
         {
-          question: "Are luxury boxes moisture-resistant?",
+          question: "Do you offer window or sleeve styles?",
           answer:
-            "Yes, we can provide moisture-resistant premium materials and coatings that protect your luxury soaps while maintaining the sophisticated appearance.",
+            "Yes, choose from open-window, sleeve, tuck-end, or two-piece styles.",
         },
         {
-          question: "What is the minimum order for luxury packaging?",
+          question: "Do you provide wholesale pricing?",
           answer:
-            "Our minimum order for luxury packaging is 50 units, allowing you to create premium packaging even for smaller production runs.",
+            "Yes, our handmade soap boxes wholesale program includes flexible bulk pricing.",
         },
         {
-          question: "Can I add custom inserts?",
+          question: "Are these boxes eco-friendly?",
           answer:
-            "Absolutely. We can create custom inserts, tissue paper, and other elements that enhance the luxury unboxing experience.",
+            "Absolutely. Our boxes are fully recyclable and can be produced with recycled materials.",
         },
       ],
       {
-        heading: "Questions about Luxury Soap Packaging",
-        eyebrow: "Luxury Soap Packaging FAQs",
+        heading: "Questions about Handmade Soap Boxes",
+        eyebrow: "Handmade Soap Box FAQs",
       }
     ),
     cta: {
-      title: "Elevate Your Brand with Luxury Packaging",
+      title: "Natural Packaging, Beautifully Crafted",
       description:
-        "Create luxury soap packaging that reflects your brand's sophistication. Contact BoxyPack today to design premium packaging that creates unforgettable experiences.",
+        "Partner with BoxyPack to create handmade soap boxes that reflect your brand’s authenticity and care. Our packaging experts design eco-friendly, durable, and elegant boxes that protect your soaps and enhance your product’s presentation.",
     },
   },
 
@@ -8904,65 +8843,54 @@ const rawProductData: Record<string, RawProductEntry> = {
   "square-soap-boxes": {
     name: "Square Soap Boxes",
     description:
-      "Perfect square soap boxes designed to fit square and rectangular soap bars beautifully. Durable, customizable, and fully branded packaging that protects your soaps.",
+      "Compact, sturdy, and visually refined. Buy square soap boxes online for premium packaging that protects your soaps and elevates your brand presentation.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Square design perfect for square soap bars",
-      "Secure closures protect soaps",
-      "Customizable with your soap brand",
-      "Moisture-resistant materials",
-      "Multiple sizes for various soap bars",
-      "Window options showcase soaps",
+      "Durable cardboard or kraft build for strong structure",
+      "Customizable printing and logo options",
+      "Optional window cutouts for product visibility",
       "Eco-friendly and recyclable materials",
+      "Available in matte, gloss, or natural finishes",
+      "Ideal for retail shelves or gift packaging",
+      "Lightweight yet protective design",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value:
-            "Kraft paperboard, white paperboard, or moisture-resistant board",
+          value: "Kraft / Cardboard / Recycled Paperboard",
         },
         {
           label: "Structure",
-          value: "Tuck-end, window box, or sleeve with secure closure",
+          value: "Tuck-End / Two-Piece / Sleeve / Window Cut",
         },
-        { label: "Thickness", value: "18pt / 24pt board" },
+        { label: "Thickness", value: "14PT / 18PT / 24PT" },
         {
           label: "Finish",
-          value: "Matte, gloss, or uncoated with custom printing",
+          value: "Matte / Gloss / Soft Touch / Natural Kraft",
         },
-        {
-          label: "Printing",
-          value: "Full-color CMYK printing with custom logo and designs",
-        },
-        {
-          label: "Window Options",
-          value: "Optional clear window to showcase soap",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'Square sizes from 3" x 3" x 1.5" to 5" x 5" x 2.5"',
-        },
-        { label: "Quantity", value: "Starting at 250 units with bulk pricing" },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
       title: "Square Soap Boxes for Perfect Fit",
       paragraphs: [
-        "Our square soap boxes are specifically designed to fit square and rectangular soap bars perfectly. These boxes provide a snug fit that protects soaps while showcasing them beautifully.",
-        "Perfect for square soap bars, artisanal soaps, and retail displays. The square design creates a clean, modern look that works well for both individual soaps and gift sets.",
-        "Every box can be customized with your branding, creating a professional presentation that reinforces your brand identity. The secure closures ensure soaps stay protected during shipping and handling.",
+        "Our square soap boxes are designed for style, protection, and sustainability. Crafted from durable cardboard or kraft paper, they offer a perfect fit for standard soap sizes while maintaining a sleek, elegant appearance. Ideal for handmade, organic, and luxury soaps, these boxes balance practicality with brand sophistication.",
+        "At BoxyPack, we produce custom square soap packaging boxes wholesale that highlight your product’s quality and character. Choose from window cutouts for visibility or full-cover styles for premium gifting. With matte, gloss, or kraft finishes, every box is made to showcase your soap beautifully.",
+        "As a printed square soap boxes supplier, we combine eco-friendly materials, precision printing, and bulk affordability. Whether you sell single bars or gift sets, our packaging ensures presentation and protection at the best square soap boxes price.",
       ],
     },
     faq: buildFaq(
       "Square Soap Boxes",
       [
         {
-          question: "What sizes are available for square soap boxes?",
+          question: "What materials are used for square soap boxes?",
           answer:
-            'Square soap boxes typically range from 3" x 3" x 1.5" for small bars to 5" x 5" x 2.5" for larger bars. We can customize sizes based on your specific soap dimensions.',
+            "We use kraft, cardboard, or recycled paperboard for durability and eco-safety.",
         },
         {
           question: "Can I add windows to square soap boxes?",
@@ -8980,9 +8908,9 @@ const rawProductData: Record<string, RawProductEntry> = {
             "Absolutely. We offer full-color printing, custom logos, and design options to create square soap boxes that match your brand aesthetic perfectly.",
         },
         {
-          question: "What is the minimum order quantity?",
+          question: "Do you provide wholesale discounts?",
           answer:
-            "Our minimum order is 250 boxes, with bulk discounts available for larger quantities, making it affordable for both small and large soap makers.",
+            "Yes, our custom square soap packaging boxes wholesale program includes bulk pricing.",
         },
       ],
       {
@@ -8991,9 +8919,9 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Package Your Square Soaps Perfectly",
+      title: "Perfect Shape, Perfect Presentation",
       description:
-        "Get custom square soap boxes that protect your products and showcase your brand. Contact BoxyPack today for a quote on your square soap packaging needs.",
+        "Partner with BoxyPack to create square soap boxes that combine structure, sustainability, and elegance. Our experts craft eco-friendly, beautifully printed packaging that highlights your soaps and strengthens your brand image with every sale.",
     },
   },
 
@@ -9001,85 +8929,71 @@ const rawProductData: Record<string, RawProductEntry> = {
   "soap-bar-box": {
     name: "Soap Bar Box",
     description:
-      "Classic soap bar boxes designed to protect and present your soap bars beautifully. Durable, customizable, and fully branded packaging perfect for retail and e-commerce.",
+      "Strong, elegant, and eco-friendly. Buy soap bar boxes online for packaging that protects every bar while showcasing your brand with a refined finish.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Classic box design for soap bars",
-      "Secure closures protect soaps",
-      "Customizable with your soap brand",
-      "Moisture-resistant materials",
-      "Multiple sizes for various soap bars",
-      "Window options showcase soaps",
-      "Eco-friendly and recyclable materials",
+      "Durable and eco-friendly kraft or cardboard structure",
+      "Customizable designs and logo printing",
+      "Optional window cutouts for product display",
+      "Available in matte, gloss, or natural kraft finish",
+      "Fully recyclable and biodegradable materials",
+      "Ideal for handmade, organic, or luxury soaps",
+      "Perfect for retail shelves or gift packaging",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value:
-            "Kraft paperboard, white paperboard, or moisture-resistant board",
+          value: "Kraft / Cardboard / Recycled Paperboard",
         },
         {
           label: "Structure",
-          value: "Tuck-end, window box, or sleeve with secure closure",
+          value: "Tuck-End / Sleeve / Two-Piece / Window Cut",
         },
-        { label: "Thickness", value: "18pt / 24pt board" },
-        {
-          label: "Finish",
-          value: "Matte, gloss, or uncoated with custom printing",
-        },
-        {
-          label: "Printing",
-          value: "Full-color CMYK printing with custom logo and designs",
-        },
-        {
-          label: "Window Options",
-          value: "Optional clear window to showcase soap bar",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'From 3" x 2" x 1.5" to 6" x 4" x 2.5"',
-        },
-        { label: "Quantity", value: "Starting at 250 units with bulk pricing" },
+        { label: "Thickness", value: "14PT / 18PT / 24PT" },
+        { label: "Finish", value: "Matte / Gloss / Natural / Soft Touch" },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Soap Bar Boxes for Reliable Protection",
+      title: "Custom Soap Bar Packaging Boxes Wholesale for Artisan Brands",
       paragraphs: [
-        "Our soap bar boxes provide reliable protection for your soap bars during shipping and handling. These durable boxes keep soaps clean and protected while showcasing your brand beautifully.",
-        "Perfect for soap manufacturers, retailers, and e-commerce businesses. The customizable design allows you to add your branding, creating a professional presentation that reinforces your brand identity.",
-        "Every box can be customized with your logo, colors, and messaging, creating packaging that works for both retail and e-commerce. The secure closures ensure soaps stay protected until customers use them.",
+        "Our soap bar boxes combine durability, sustainability, and professional appeal. Made from high-quality kraft or cardboard, they preserve freshness, prevent damage, and enhance shelf presentation. Perfect for handmade, organic, and luxury soap makers, they balance functionality and design.",
+        "At BoxyPack, we create custom soap bar packaging boxes wholesale that perfectly fit your product and brand image. Choose from matte, gloss, or kraft finishes with optional die-cut windows for product visibility. Each box is printed with precision to represent your soap’s natural and authentic character.",
+        "As a printed soap bar boxes supplier, we provide eco-friendly materials, reliable production, and flexible order volumes. Whether for retail or gifting, our packaging ensures quality and style at the best soap bar boxes price.",
       ],
     },
     faq: buildFaq(
       "Soap Bar Box",
       [
         {
-          question: "What sizes are available for soap bar boxes?",
+          question: "What materials are used for soap bar boxes?",
           answer:
-            'Soap bar boxes typically range from 3" x 2" x 1.5" for small bars to 6" x 4" x 2.5" for larger bars. We can customize sizes based on your specific soap bar dimensions.',
+            "We use kraft, cardboard, or recycled paperboard for strength and eco safety.",
         },
         {
-          question: "Are soap bar boxes moisture-resistant?",
+          question: "Can I add my logo and design?",
           answer:
-            "Yes, we can provide moisture-resistant materials and coatings that protect your soaps from humidity and maintain product quality.",
+            "Yes, BoxyPack offers foil, embossing, and full-color printing options.",
         },
         {
-          question: "Can I add windows to soap bar boxes?",
+          question: "Are these boxes suitable for handmade soaps?",
           answer:
-            "Absolutely. Windowed soap bar boxes let customers see your soap while keeping it protected.",
+            "Absolutely. They’re perfect for artisan and organic soap brands.",
         },
         {
-          question: "Can I customize the box design?",
+          question: "Do you offer wholesale pricing?",
           answer:
-            "Yes, we offer full-color printing, custom logos, and design options to create soap bar boxes that match your brand aesthetic perfectly.",
+            "Yes, our custom soap bar packaging boxes wholesale program includes bulk discounts.",
         },
         {
-          question: "What is the minimum order quantity?",
+          question: "Are these boxes eco-friendly?",
           answer:
-            "Our minimum order is 250 boxes, with bulk discounts available for larger quantities, making it affordable for both small and large soap makers.",
+            "Yes, all our soap bar boxes are fully recyclable and biodegradable.",
         },
       ],
       {
@@ -9088,9 +9002,9 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Protect Your Soap Bars Perfectly",
+      title: "Crafted Protection, Beautiful Presentation",
       description:
-        "Get custom soap bar boxes that protect your products and showcase your brand. Contact BoxyPack today for a quote on your soap bar packaging needs.",
+        "Partner with BoxyPack to create soap bar boxes that blend protection, style, and eco-conscious design. Our experts deliver durable, customizable packaging that reflects your brand’s quality in every box.",
     },
   },
 
@@ -9098,84 +9012,71 @@ const rawProductData: Record<string, RawProductEntry> = {
   "paper-soap-boxes": {
     name: "Paper Soap Boxes",
     description:
-      "Eco-friendly paper soap boxes perfect for sustainable soap packaging. Natural, recyclable, and fully customizable with your branding for environmentally conscious brands.",
+      "Lightweight, sustainable, and elegant. Buy paper soap boxes online for packaging that blends eco-friendliness, durability, and visual appeal for every soap bar.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Eco-friendly paper construction",
-      "Fully recyclable and biodegradable",
-      "Customizable with your soap brand",
-      "Natural paper finish",
-      "Multiple sizes for various soap bars",
-      "Affordable packaging solution",
-      "Perfect for sustainable brands",
+      "Eco-friendly, recyclable, and biodegradable paperboard",
+      "Full-color or minimal printed designs available",
+      "Optional cut-out windows for product visibility",
+      "Available in kraft, white, or matte finishes",
+      "Lightweight yet strong construction for safe packaging",
+      "Perfect for handmade, organic, or retail soaps",
+      "Flat-packed for convenient shipping and storage",
     ],
     customization: {
       details: [
         {
           label: "Material Type",
-          value: "Recycled paperboard or natural paper",
+          value: "Kraft / Paperboard / Recycled Cardboard",
         },
         {
           label: "Structure",
-          value: "Tuck-end, window box, or sleeve with secure closure",
+          value: "Tuck-End / Sleeve / Window Cut / Two-Piece",
         },
-        { label: "Thickness", value: "18pt / 24pt paperboard" },
-        {
-          label: "Finish",
-          value: "Natural paper, matte, or uncoated with eco-friendly inks",
-        },
-        {
-          label: "Printing",
-          value: "Eco-friendly ink printing with custom logo and designs",
-        },
-        {
-          label: "Window Options",
-          value: "Optional clear window to showcase soap",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'From 3" x 2" x 1.5" to 6" x 4" x 2.5"',
-        },
-        { label: "Quantity", value: "Starting at 250 units with bulk pricing" },
+        { label: "Thickness", value: "12PT / 14PT / 18PT" },
+        { label: "Finish", value: "Matte / Gloss / Natural / Soft Touch" },
+        { label: "Printing", value: "Inside, Outside, or Both" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Paper Soap Boxes for Sustainable Packaging",
+      title: "Custom Paper Soap Packaging Boxes Wholesale for Artisan Brands",
       paragraphs: [
-        "Our paper soap boxes offer an eco-friendly alternative to traditional soap packaging. Made from recyclable and biodegradable materials, these boxes appeal to environmentally conscious customers while maintaining quality and protection.",
-        "Perfect for sustainable soap brands, natural product lines, and eco-conscious businesses. The natural paper finish creates an authentic look that works well for organic and natural soap products.",
-        "Every box can be customized with your branding using eco-friendly inks, creating packaging that aligns with your sustainability values. The recyclable nature of these boxes makes them an excellent choice for environmentally conscious brands.",
+        "Our paper soap boxes are designed to protect and promote your soaps with a clean, eco-conscious design. Made from recyclable and biodegradable paperboard, they’re ideal for handmade, organic, and luxury soap brands. These boxes combine strength, sustainability, and stylish presentation for retail and gifting purposes.",
+        "At BoxyPack, we create custom paper soap packaging boxes wholesale, tailored to your product dimensions and branding. Choose from natural kraft, white, or printed styles to match your aesthetic. Each box is made with precision for secure fitting and professional finishing.",
+        "As a printed paper soap gift boxes supplier, we focus on premium quality, crisp printing, and flexible order options. Whether for boutique production or large-scale retail, we deliver consistent results at the best paper soap boxes price.",
       ],
     },
     faq: buildFaq(
       "Paper Soap Boxes",
       [
         {
-          question: "Are paper soap boxes recyclable?",
+          question: "What materials are used for paper soap boxes?",
           answer:
-            "Yes, all our paper soap boxes are fully recyclable and biodegradable, making them an excellent choice for sustainable packaging.",
+            "We use recyclable kraft, paperboard, or cardboard for durable and eco-safe packaging.",
         },
         {
-          question: "Can I add windows to paper soap boxes?",
+          question: "Can I customize the design and logo?",
           answer:
-            "Yes, we can add clear windows to paper soap boxes, allowing customers to see your soap while keeping it protected.",
+            "Yes, BoxyPack offers full-color printing, embossing, and foil stamping.",
         },
         {
-          question: "What printing options are available?",
+          question: "Do you offer window cutout options?",
           answer:
-            "We offer eco-friendly ink printing, white ink for contrast, and optional foil stamping or embossing for premium branding on paper boxes.",
+            "Absolutely. Custom die-cut windows can be added for product visibility.",
         },
         {
-          question: "Are paper boxes moisture-resistant?",
+          question: "Are wholesale discounts available?",
           answer:
-            "We can provide moisture-resistant coatings for paper boxes that protect your soaps from humidity while maintaining the eco-friendly appeal.",
+            "Yes, our custom paper soap packaging boxes wholesale program includes bulk pricing.",
         },
         {
-          question: "What sizes are available?",
+          question: "Are these boxes recyclable?",
           answer:
-            'We offer custom sizes from small (3" x 2" x 1.5") for small bars to larger (6" x 4" x 2.5") for larger bars. Tell us your needs and we\'ll create the perfect fit.',
+            "Yes, our eco-friendly paper soap packaging is 100% recyclable and biodegradable.",
         },
       ],
       {
@@ -9186,7 +9087,7 @@ const rawProductData: Record<string, RawProductEntry> = {
     cta: {
       title: "Choose Sustainable Soap Packaging",
       description:
-        "Get eco-friendly paper soap boxes that protect your products and align with your sustainability values. Contact BoxyPack today for a quote.",
+        "Partner with BoxyPack to design paper soap boxes that combine eco-conscious materials with elegant presentation. Our team creates custom packaging that protects your soaps, promotes your brand, and supports sustainable business growth.",
     },
   },
 
@@ -9194,81 +9095,71 @@ const rawProductData: Record<string, RawProductEntry> = {
   "kraft-soap-boxes": {
     name: "Kraft Soap Boxes",
     description:
-      "Natural kraft soap boxes that combine sustainability with style. Eco-friendly, recyclable, and fully customizable packaging perfect for natural and artisanal soap brands.",
+      "Natural, strong, and sustainable. Buy Kraft soap boxes online for packaging that combines eco-friendliness, durability, and authentic brand presentation.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "Natural kraft paperboard construction",
-      "Eco-friendly and fully recyclable",
-      "Customizable with your soap brand",
-      "Natural brown finish with optional printing",
-      "Multiple sizes for various soap bars",
-      "Window options showcase soaps",
-      "Affordable packaging solution",
+      "Eco-friendly and biodegradable kraft material",
+      "Durable construction for reliable protection",
+      "Custom logo and full-color printing options",
+      "Available with or without window cutouts",
+      "Natural matte or textured finish options",
+      "Perfect for handmade, organic, or herbal soaps",
+      "Lightweight and fully recyclable packaging",
     ],
     customization: {
       details: [
-        { label: "Material Type", value: "Unbleached kraft paperboard" },
+        {
+          label: "Material Type",
+          value: "Kraft Paper / Recycled Cardboard / Paperboard",
+        },
         {
           label: "Structure",
-          value: "Tuck-end, window box, or sleeve with secure closure",
+          value: "Tuck-End / Sleeve / Window Cut / Two-Piece",
         },
-        { label: "Thickness", value: "18pt / 24pt kraft board" },
-        {
-          label: "Finish",
-          value: "Natural kraft, white ink printing, or optional coating",
-        },
-        {
-          label: "Printing",
-          value: "Eco-friendly inks with custom logo and designs",
-        },
-        {
-          label: "Window Options",
-          value: "Optional clear window to showcase soap",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: 'From 3" x 2" x 1.5" to 6" x 4" x 2.5"',
-        },
-        { label: "Quantity", value: "Starting at 250 units with bulk pricing" },
+        { label: "Thickness", value: "14PT / 18PT / 24PT" },
+        { label: "Finish", value: "Matte / Natural / Soft Touch" },
+        { label: "Printing", value: "Single Side / Double Side / Full Color" },
+        { label: "Dimensions (L × W × H)", value: "Custom sizes available" },
+        { label: "Quantity", value: "250 units (Bulk discounts available)" },
       ],
     },
     overview: {
       heading: "Product Overview",
-      title: "Kraft Soap Boxes for Natural Presentation",
+      title: "Eco-Friendly Kraft Soap Packaging Boxes for Handmade Brands",
       paragraphs: [
-        "Our kraft soap boxes offer a natural, eco-friendly alternative to traditional soap packaging. Made from unbleached, recyclable kraft paperboard, these boxes appeal to environmentally conscious customers while maintaining quality and protection.",
-        "The natural brown finish creates a rustic, authentic look that works well for natural, organic, and artisanal soap brands. Optional white ink printing or coatings can add branding while maintaining the eco-friendly appeal.",
-        "Perfect for natural soap brands, artisanal products, and eco-conscious businesses. Every kraft box can be customized with your branding using eco-friendly inks, creating packaging that aligns with your sustainability values.",
+        "Our kraft soap boxes are crafted to protect and present soaps in their purest form. Made from recyclable and biodegradable kraft paperboard, they provide an earthy look that reflects eco-conscious values. Perfect for handmade, organic, or herbal soaps, these boxes offer both style and sustainability.",
+        "At BoxyPack, we design custom printed kraft soap packaging that perfectly fits your soap size and brand design. Choose from window styles for product visibility or full-cover options for a clean and classic appearance. Each box is built with precision to ensure durability and an appealing finish.",
+        "As a kraft soap boxes wholesale supplier, we offer consistent quality, sustainable materials, and cost-effective pricing for small and large-scale soap makers. Every design delivers charm, protection, and value at the best kraft soap boxes price.",
       ],
     },
     faq: buildFaq(
       "Kraft Soap Boxes",
       [
         {
-          question: "Are kraft soap boxes recyclable?",
+          question: "What materials are used for kraft soap boxes?",
           answer:
-            "Yes, all our kraft soap boxes are fully recyclable and biodegradable, making them an excellent choice for sustainable packaging.",
+            "We use premium kraft paperboard and recycled materials for durability and eco-safety.",
         },
         {
-          question: "Can I add windows to kraft soap boxes?",
+          question: "Can I print my logo and brand design?",
           answer:
-            "Yes, we can add clear windows to kraft soap boxes, allowing customers to see your soap while keeping it protected.",
+            "Yes, BoxyPack offers full-color and foil logo printing options.",
         },
         {
-          question: "What printing options are available?",
+          question: "Are these boxes suitable for handmade soaps?",
           answer:
-            "We offer eco-friendly ink printing, white ink for contrast, and optional foil stamping or embossing for premium branding on kraft boxes.",
+            "Absolutely. They’re ideal for handmade, organic, or herbal soap packaging.",
         },
         {
-          question: "Are kraft boxes moisture-resistant?",
+          question: "Do you provide wholesale discounts?",
           answer:
-            "We can provide moisture-resistant coatings for kraft boxes that protect your soaps from humidity while maintaining the natural aesthetic.",
+            "Yes, our kraft soap boxes wholesale supplier program includes bulk pricing.",
         },
         {
-          question: "What sizes are available?",
+          question: "Are these boxes eco-friendly?",
           answer:
-            'We offer custom sizes from small (3" x 2" x 1.5") for small bars to larger (6" x 4" x 2.5") for larger bars. Tell us your needs and we\'ll create the perfect fit.',
+            "Yes, all Kraft soap boxes are fully recyclable and biodegradable.",
         },
       ],
       {
@@ -9277,9 +9168,9 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Choose Natural Soap Packaging",
+      title: "Naturally Strong, Simply Beautiful",
       description:
-        "Get eco-friendly kraft soap boxes that protect your products and align with your sustainability values. Contact BoxyPack today for a quote.",
+        "Partner with BoxyPack to design kraft soap boxes that combine eco-friendly materials with premium craftsmanship. Our experts create sustainable, stylish packaging that protects your soaps and reflects your brand’s natural elegance.",
     },
   },
 
@@ -9389,13 +9280,21 @@ const buildCompleteProductData = (): Record<string, EnrichedProductEntry> => {
 
 export const productData = buildCompleteProductData();
 
+// Map slugs that should resolve to existing product entries.
+// This allows industry/category routes to reuse core product content.
+const slugAliases: Record<string, string> = {
+  "soap-boxes-industry": "soap-boxes",
+};
+
 // Helper function to get product data by slug exclusively from static data
 export const getProductDataBySlug = async (
   slug: string
 ): Promise<EnrichedProductEntry | undefined> => {
-  if (productData[slug]) {
-    return productData[slug];
-  }
+  if (productData[slug]) return productData[slug];
+
+  // Resolve via alias if present (e.g., soap-boxes-industry -> soap-boxes)
+  const alias = slugAliases[slug];
+  if (alias && productData[alias]) return productData[alias];
 
   return undefined;
 };

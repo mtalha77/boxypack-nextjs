@@ -5,6 +5,7 @@ import { CldImage } from "next-cloudinary";
 import { useRouter, usePathname } from "next/navigation";
 import {
   ChevronDown,
+  ArrowRight,
   Search,
   Menu,
   X,
@@ -279,6 +280,21 @@ const Header: React.FC = () => {
   // Helper function to get navigation section by slug
   const getNavSection = (slug: string): NavigationSection | undefined => {
     return navigationData.find((section) => section.slug === slug);
+  };
+
+  // Restrict visible categories for industries until content is ready
+  const allowedIndustryCategoryNames = new Set<string>([
+    "Bakery Boxes",
+    "Jewelry Boxes",
+    "Soap Boxes",
+  ]);
+  const getVisibleCategories = (section: NavigationSection) => {
+    if (section.slug === "product-by-industry" && section.categories) {
+      return section.categories.filter((c) =>
+        allowedIndustryCategoryNames.has(c.name)
+      );
+    }
+    return section.categories || [];
   };
 
   return (
@@ -580,8 +596,17 @@ const Header: React.FC = () => {
                                               onClick={() =>
                                                 setIsMobileMenuOpen(false)
                                               }
-                                              className="block py-2 px-3 text-sm text-gray-600 hover:text-[#0c6b76] hover:bg-gray-50 rounded-md transition-colors"
+                                                  className="flex items-center gap-2 py-2 px-3 text-sm text-gray-600 hover:text-[#0c6b76] hover:bg-gray-50 rounded-md transition-colors"
                                             >
+                                                  <CldImage
+                                                    src={getSubcategoryIcon(
+                                                      subcategory.name
+                                                    )}
+                                                    alt={subcategory.name}
+                                                    width={24}
+                                                    height={24}
+                                                    className="w-6 h-6 flex-shrink-0"
+                                                  />
                                               {subcategory.name}
                                             </Link>
                                           )
@@ -589,18 +614,22 @@ const Header: React.FC = () => {
                                       );
                                     } else {
                                       // For Materials and Industries, show categories
-                                      return (
+                                      const categoriesToShow =
+                                        section.slug === "product-by-industry"
+                                          ? getVisibleCategories(section)
+                                          : section.categories;
+                                      return (categoriesToShow || []).map((cat) => (
                                         <Link
-                                          key={category.slug}
-                                          href={`/products/${section.slug}/${category.slug}`}
+                                          key={cat.slug}
+                                          href={`/products/${section.slug}/${cat.slug}`}
                                           onClick={() =>
                                             setIsMobileMenuOpen(false)
                                           }
                                           className="block py-2 px-3 text-sm text-gray-600 hover:text-[#0c6b76] hover:bg-gray-50 rounded-md transition-colors"
                                         >
-                                          {category.name}
+                                          {cat.name}
                                         </Link>
-                                      );
+                                      ));
                                     }
                                   })
                                 : // Fallback for sections with direct subcategories
@@ -609,9 +638,12 @@ const Header: React.FC = () => {
                                       key={subcategory.slug}
                                       href={`/products/${section.slug}/${subcategory.slug}`}
                                       onClick={() => setIsMobileMenuOpen(false)}
-                                      className="block py-2 px-3 text-sm text-gray-600 hover:text-[#0c6b76] hover:bg-gray-50 rounded-md transition-colors"
+                                      className="group flex items-center gap-2 py-2 px-3 text-gray-600 hover:text-[#0c6b76] hover:bg-gray-50 rounded-md transition-colors"
                                     >
-                                      {subcategory.name}
+                                      <ArrowRight className="w-4 h-4 text-black" />
+                                      <span className="text-sm font-medium">
+                                        {subcategory.name}
+                                      </span>
                                     </Link>
                                   ))}
                             </div>
@@ -752,9 +784,13 @@ const Header: React.FC = () => {
                                     {/* Left Column - Categories */}
                                     <div className="w-1/3 px-6 border-r border-gray-200 max-h-[60vh] overflow-y-auto">
                                       <div className="space-y-2 pt-4 pb-4">
-                                        {section.categories.map((category) => (
-                                          <div
+                                        {(section.slug === "product-by-industry"
+                                          ? getVisibleCategories(section)
+                                          : section.categories
+                                        )?.map((category) => (
+                                          <Link
                                             key={category.slug}
+                                            href={`/products/${section.slug}/${category.slug}`}
                                             onMouseEnter={() =>
                                               setHoveredCategory(category.slug)
                                             }
@@ -776,7 +812,7 @@ const Header: React.FC = () => {
                                             <span className="font-medium text-sm">
                                               {category.name}
                                             </span>
-                                          </div>
+                                          </Link>
                                         ))}
                                       </div>
                                     </div>
@@ -788,7 +824,14 @@ const Header: React.FC = () => {
                                           <div>
                                             <h3 className="text-lg font-semibold text-[#0c6b76] mb-4">
                                               {
-                                                section.categories.find(
+                                                (
+                                                  (section.slug ===
+                                                  "product-by-industry"
+                                                    ? getVisibleCategories(
+                                                        section
+                                                      )
+                                                    : section.categories) || []
+                                                ).find(
                                                   (cat) =>
                                                     cat.slug === hoveredCategory
                                                 )?.name
@@ -796,7 +839,14 @@ const Header: React.FC = () => {
                                               Products
                                             </h3>
                                             <div className="grid grid-cols-2 gap-3">
-                                              {section.categories
+                                              {(
+                                                (section.slug ===
+                                                "product-by-industry"
+                                                  ? getVisibleCategories(
+                                                      section
+                                                    )
+                                                  : section.categories) || []
+                                              )
                                                 .find(
                                                   (cat) =>
                                                     cat.slug === hoveredCategory
@@ -809,18 +859,10 @@ const Header: React.FC = () => {
                                                       onClick={
                                                         handleSmoothClose
                                                       }
-                                                      className="flex items-start px-3 py-2 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] hover:bg-[#0c6b76]/5 group"
+                                                    className="flex items-start px-3 py-2 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] hover:bg-[#0c6b76]/5 group"
                                                     >
-                                                      <CldImage
-                                                        src={getSubcategoryIcon(
-                                                          subcategory.name
-                                                        )}
-                                                        alt={subcategory.name}
-                                                        width={24}
-                                                        height={24}
-                                                        className="w-6 h-6 mr-2 flex-shrink-0 mt-0.5"
-                                                      />
-                                                      <span className="text-sm leading-tight">
+                                                      <ArrowRight className="w-4 h-4 mr-2 text-black mt-0.5" />
+                                                      <span className="text-sm leading-tight font-medium">
                                                         {subcategory.name}
                                                       </span>
                                                     </Link>
@@ -932,15 +974,19 @@ const Header: React.FC = () => {
                                           onClick={handleSmoothClose}
                                           className="flex items-center px-4 py-3 rounded-lg transition-colors text-gray-700 hover:text-[#0c6b76] group"
                                         >
-                                          <CldImage
-                                            src={getSubcategoryIcon(
-                                              subcategory.name
-                                            )}
-                                            alt={subcategory.name}
-                                            width={32}
-                                            height={32}
-                                            className="w-8 h-8 mr-3 flex-shrink-0"
-                                          />
+                                          {["mylar-boxes","shopping-bags","other"].includes(section.slug) ? (
+                                            <CldImage
+                                              src={getSubcategoryIcon(
+                                                subcategory.name
+                                              )}
+                                              alt={subcategory.name}
+                                              width={32}
+                                              height={32}
+                                              className="w-8 h-8 mr-3 flex-shrink-0"
+                                            />
+                                          ) : (
+                                            <ArrowRight className="w-4 h-4 mr-2 text-black" />
+                                          )}
                                           <span className="font-medium text-sm">
                                             {subcategory.name}
                                           </span>
@@ -985,9 +1031,10 @@ const Header: React.FC = () => {
                                       key={subcategory.slug}
                                       href={`/products/${section.slug}/${subcategory.slug}`}
                                       onClick={handleSmoothClose}
-                                      className="flex items-center px-3 py-2 text-sm text-gray-600 hover:text-[#0c6b76] hover:bg-[#0c6b76]/5 rounded-md transition-colors"
+                                      className="group flex items-center px-3 py-2 text-gray-600 hover:text-[#0c6b76] hover:bg-[#0c6b76]/5 rounded-md transition-colors"
                                     >
-                                      <span className="truncate">
+                                      <ArrowRight className="w-4 h-4 mr-2 text-black" />
+                                      <span className="truncate text-sm font-medium">
                                         {subcategory.name}
                                       </span>
                                     </Link>

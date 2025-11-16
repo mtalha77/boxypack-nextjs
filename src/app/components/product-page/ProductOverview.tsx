@@ -1,4 +1,10 @@
 import React from "react";
+import Image from "next/image";
+import { productByMaterialData } from "@/app/data/productByMaterialData";
+import { productByIndustryData } from "@/app/data/productByIndustryData";
+import { mylarBoxesData } from "@/app/data/mylarBoxesData";
+import { shoppingBagsData } from "@/app/data/shoppingBagsData";
+import { otherData } from "@/app/data/otherData";
 
 interface ProductOverviewProps {
   productData: {
@@ -9,6 +15,10 @@ interface ProductOverviewProps {
       title?: string;
       paragraphs?: string[];
     };
+    // Optional explicit images if caller provides them; otherwise we will try to resolve
+    images?: string[];
+    // Optional hero image (from data files) used as a last-resort fallback
+    heroImage?: string;
   };
 }
 
@@ -16,6 +26,8 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productData }) => {
   const name = productData?.name ?? "";
   const description = productData?.description;
   const overview = productData?.overview;
+  const explicitImages = productData?.images;
+  const heroImage = productData?.heroImage;
 
   React.useEffect(() => {
     if (process.env.NODE_ENV === "development" && productData) {
@@ -25,6 +37,7 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productData }) => {
         paragraphsCount: productData.overview?.paragraphs?.length || 0,
         paragraphs: productData.overview?.paragraphs,
         description: productData.description,
+        explicitImages: productData.images,
       });
     }
   }, [productData]);
@@ -83,6 +96,226 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productData }) => {
     }
   }
 
+  // Resolve up to 3 images:
+  // 1) Use explicit images if provided
+  // 2) Try to match product name in productByMaterialData subcategories and use their images
+  // 3) Try to match product name in productByIndustryData subcategories and use their images
+  // If none found, images array stays empty (text-only cards will render).
+  function normalize(value: string): string {
+    return value
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function resolveImagesByName(productName: string): string[] {
+    if (
+      explicitImages &&
+      Array.isArray(explicitImages) &&
+      explicitImages.length > 0
+    ) {
+      return explicitImages.slice(0, 3);
+    }
+
+    const normalized = normalize(productName);
+
+    // If this is a top-level "Product by Material" category (e.g., Rigid Boxes, Kraft Boxes, etc.),
+    // build an images array from that category's own subcategory images to avoid duplicates.
+    for (const category of productByMaterialData) {
+      const categoryNorm = normalize(category.name);
+      if (
+        categoryNorm === normalized ||
+        categoryNorm.includes(normalized) ||
+        normalized.includes(categoryNorm)
+      ) {
+        const collected: string[] = [];
+        if (Array.isArray(category.subcategories)) {
+          for (const sub of category.subcategories) {
+            if (Array.isArray(sub.images)) {
+              for (const img of sub.images) {
+                if (
+                  typeof img === "string" &&
+                  img &&
+                  !collected.includes(img)
+                ) {
+                  collected.push(img);
+                  if (collected.length >= 3) break;
+                }
+              }
+            }
+            if (collected.length >= 3) break;
+          }
+        }
+        // Fallback to category.image if we couldn't assemble 3 images
+        if (collected.length === 0 && category.image) {
+          collected.push(category.image);
+        }
+        while (collected.length < 3 && collected.length > 0) {
+          // pad with available images but avoid immediate duplicates when possible
+          const next = collected[collected.length - 1];
+          collected.push(next);
+        }
+        if (collected.length > 0) {
+          return collected.slice(0, 3);
+        }
+      }
+    }
+
+    // Handle top-level special categories: Mylar, Shopping Bags, Other
+    const specialCategories = [
+      mylarBoxesData,
+      shoppingBagsData,
+      otherData,
+    ] as const;
+    for (const special of specialCategories) {
+      const specialNorm = normalize(special.name);
+      if (
+        specialNorm === normalized ||
+        specialNorm.includes(normalized) ||
+        normalized.includes(specialNorm)
+      ) {
+        const collected: string[] = [];
+        if (Array.isArray(special.subcategories)) {
+          for (const sub of special.subcategories) {
+            if (Array.isArray(sub.images)) {
+              for (const img of sub.images) {
+                if (
+                  typeof img === "string" &&
+                  img &&
+                  !collected.includes(img)
+                ) {
+                  collected.push(img);
+                  if (collected.length >= 3) break;
+                }
+              }
+            }
+            if (collected.length >= 3) break;
+          }
+        }
+        if (collected.length === 0 && special.image) {
+          collected.push(special.image);
+        }
+        while (collected.length < 3 && collected.length > 0) {
+          const next = collected[collected.length - 1];
+          collected.push(next);
+        }
+        if (collected.length > 0) {
+          return collected.slice(0, 3);
+        }
+      }
+    }
+
+    // Explicit fallbacks by common product names (ensures images for "remaining boxes")
+    const explicitNameFallbacks: Record<string, string[]> = {
+      "display cosmetic boxes": ["Display-Cosmetic-Boxes-1_qorgwe"],
+      "food boxes": ["Custom-Burger-Boxes-1_k09ujk"],
+      "large gift boxes": ["Large-Gift-Boxes-2_tlo55s"],
+      "retail boxes": ["Retail-Boxes-1_e0snxl"],
+      "candle boxes": ["Candle-Boxes-3_jwwwiz"],
+      "black shipping boxes": ["Black-Shipping-Boxes-2_qxrrap"],
+    };
+    if (explicitNameFallbacks[normalized]) {
+      const list = explicitNameFallbacks[normalized];
+      // Repeat to ensure up to 3 slots
+      return [list[0], list[1] ?? list[0], list[2] ?? list[0]];
+    }
+
+    // Keyword-based best match selection for card images
+    const keywordToImage: Array<{ key: string; id: string }> = [
+      { key: "display cosmetic", id: "Display-Cosmetic-Boxes-1_qorgwe" },
+      { key: "cosmetic", id: "Display-Cosmetic-Boxes-1_qorgwe" },
+      { key: "food boxes", id: "Custom-Burger-Boxes-1_k09ujk" },
+      { key: "burger", id: "Custom-Burger-Boxes-1_k09ujk" },
+      { key: "gift boxes", id: "Large-Gift-Boxes-2_tlo55s" },
+      { key: "large gift", id: "Large-Gift-Boxes-2_tlo55s" },
+      { key: "retail boxes", id: "Retail-Boxes-1_e0snxl" },
+      { key: "retail", id: "Retail-Boxes-1_e0snxl" },
+      { key: "candle boxes", id: "Candle-Boxes-3_jwwwiz" },
+      { key: "candle", id: "Candle-Boxes-3_jwwwiz" },
+      { key: "black shipping", id: "Black-Shipping-Boxes-2_qxrrap" },
+      { key: "shipping boxes", id: "Black-Shipping-Boxes-2_qxrrap" },
+    ];
+    let best: { score: number; id: string } | null = null;
+    for (const item of keywordToImage) {
+      const key = normalize(item.key);
+      // simple scoring by longest matching keyword contained
+      const matches =
+        normalized.includes(key) || key.includes(normalized) ? key.length : 0;
+      if (matches > 0 && (!best || matches > best.score)) {
+        best = { score: matches, id: item.id };
+      }
+    }
+    if (best) {
+      return [best.id, best.id, best.id];
+    }
+
+    // Search in material data
+    for (const category of productByMaterialData) {
+      for (const sub of category.subcategories) {
+        const subNorm = normalize(sub.name);
+        if (
+          (subNorm === normalized ||
+            subNorm.includes(normalized) ||
+            normalized.includes(subNorm)) &&
+          Array.isArray(sub.images) &&
+          sub.images.length > 0
+        ) {
+          return sub.images.slice(0, 3);
+        }
+      }
+    }
+
+    // Search in special datasets: Mylar, Shopping Bags, Other
+    for (const special of specialCategories) {
+      for (const sub of special.subcategories) {
+        const subNorm = normalize(sub.name);
+        if (
+          (subNorm === normalized ||
+            subNorm.includes(normalized) ||
+            normalized.includes(subNorm)) &&
+          Array.isArray(sub.images) &&
+          sub.images.length > 0
+        ) {
+          return sub.images.slice(0, 3);
+        }
+      }
+    }
+
+    // Search in industry data
+    for (const category of productByIndustryData) {
+      for (const sub of category.subcategories) {
+        const subNorm = normalize(sub.name);
+        if (
+          (subNorm === normalized ||
+            subNorm.includes(normalized) ||
+            normalized.includes(subNorm)) &&
+          Array.isArray(sub.images) &&
+          sub.images.length > 0
+        ) {
+          return sub.images.slice(0, 3);
+        }
+      }
+    }
+
+    // Fallback: use provided hero image (repeat to ensure 3 slots)
+    if (
+      heroImage &&
+      typeof heroImage === "string" &&
+      heroImage.trim().length > 0
+    ) {
+      return [heroImage, heroImage, heroImage];
+    }
+
+    return [];
+  }
+
+  const overviewImages: string[] = resolveImagesByName(name);
+  const cloudName =
+    process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME ?? "du5lyrqvz";
+  const buildCldUrl = (publicId: string) =>
+    `https://res.cloudinary.com/${cloudName}/image/upload/f_auto,q_auto/${publicId}`;
+
   // If no valid paragraphs found, don't render the section
   if (overviewParagraphs.length === 0) {
     return null;
@@ -102,53 +335,119 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productData }) => {
           <div className="w-24 h-1 bg-gradient-to-r from-[#0c6b76] to-[#0ca6c2] mx-auto rounded-full" />
         </div>
 
-        {/* Paragraph Layout - Enhanced Card Design */}
-        <div
-          className={`grid gap-8 md:gap-10 ${
-            overviewParagraphs.length === 1
-              ? "lg:grid-cols-1 max-w-3xl mx-auto"
-              : overviewParagraphs.length === 2
-              ? "lg:grid-cols-2"
-              : "lg:grid-cols-3"
-          }`}
-        >
-          {overviewParagraphs.map((paragraph, index) => {
-            // Only render if paragraph has content
-            if (!paragraph || !paragraph.trim()) {
-              return null;
-            }
+        {/* Alternating Paragraph/Image Rows */}
+        <div className="space-y-12 md:space-y-16">
+          {overviewParagraphs.slice(0, 3).map((paragraph, index) => {
+            if (!paragraph || !paragraph.trim()) return null;
+            const isEven = index % 2 === 0; // 0 and 2 -> text left, image right; 1 -> image left, text right
+            const imageId = overviewImages[index];
+            const hasImage =
+              typeof imageId === "string" && imageId.trim().length > 0;
+            // Force second row (index === 1) to be image left, text right.
+            const forceSecondRowLayout = index === 1;
+            const leftShowsImage = forceSecondRowLayout
+              ? true
+              : !isEven && hasImage;
+            const rightShowsImage = forceSecondRowLayout
+              ? false
+              : isEven && hasImage;
+            // Build final image src with fallback for row 2 if missing
+            const finalImageSrc = hasImage
+              ? buildCldUrl(imageId)
+              : forceSecondRowLayout
+              ? "/favicon.png"
+              : null;
 
             return (
               <div
-                key={`overview-paragraph-${index}`}
-                className="group relative bg-white rounded-3xl border border-slate-200/60 shadow-sm hover:shadow-xl transition-all duration-500 p-8 md:p-10 overflow-hidden"
+                key={`overview-row-${index}`}
+                className={`grid items-center gap-8 md:gap-12 ${
+                  leftShowsImage || rightShowsImage
+                    ? "lg:grid-cols-2"
+                    : "lg:grid-cols-1 max-w-4xl mx-auto"
+                }`}
               >
-                {/* Animated background gradient on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0c6b76]/5 via-transparent to-[#0ca6c2]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* Left Column (Text when isEven, Image when odd) */}
+                <div
+                  className={`order-1 ${
+                    forceSecondRowLayout
+                      ? "lg:order-1"
+                      : isEven
+                      ? "lg:order-1"
+                      : hasImage
+                      ? "lg:order-2"
+                      : "lg:order-1"
+                  }`}
+                >
+                  {leftShowsImage ? (
+                    <div className="relative w-full aspect-[4/3] overflow-hidden">
+                      {finalImageSrc ? (
+                        <Image
+                          src={finalImageSrc}
+                          alt={`${name} overview ${index + 1}`}
+                          fill
+                          sizes="(min-width:1280px) 640px, (min-width:1024px) 560px, (min-width:768px) 720px, 100vw"
+                          quality={70}
+                          className="object-cover"
+                          priority={index === 0}
+                        />
+                      ) : null}
+                    </div>
+                  ) : (
+                    <div className="relative space-y-6 p-0">
+                      <div className="flex items-center gap-4">
+                        <span className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-[#0c6b76] to-[#0ca6c2] text-white font-bold text-lg shadow-lg">
+                          {index + 1}
+                        </span>
+                        <div className="h-px flex-1 bg-gradient-to-r from-[#0c6b76]/30 via-[#0ca6c2]/30 to-transparent" />
+                      </div>
+                      <p className="text-[1.125rem] md:text-[1.1875rem] leading-[1.9] text-[#2f2f2f] text-pretty whitespace-normal break-words">
+                        {paragraph.trim()}
+                      </p>
+                    </div>
+                  )}
+                </div>
 
-                {/* Top accent bar */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0c6b76] via-[#0ca6c2] to-[#0c6b76] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-
-                {/* Paragraph number indicator with enhanced design */}
-                <div className="relative mb-8 flex items-center gap-4">
-                  <div className="relative">
-                    <span className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-[#0c6b76] to-[#0ca6c2] text-white font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      {index + 1}
-                    </span>
-                    <div className="absolute inset-0 rounded-full bg-[#0c6b76] opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-300" />
+                {/* Right Column (Image when isEven, Text when odd) */}
+                {(leftShowsImage || rightShowsImage) && (
+                  <div
+                    className={`order-2 ${
+                      forceSecondRowLayout
+                        ? "lg:order-2"
+                        : isEven
+                        ? "lg:order-2"
+                        : "lg:order-1"
+                    }`}
+                  >
+                    {rightShowsImage ? (
+                      <div className="relative w-full aspect-[4/3] overflow-hidden">
+                        {finalImageSrc ? (
+                          <Image
+                            src={finalImageSrc}
+                            alt={`${name} overview ${index + 1}`}
+                            fill
+                            sizes="(min-width:1280px) 640px, (min-width:1024px) 560px, (min-width:768px) 720px, 100vw"
+                            quality={70}
+                            className="object-cover"
+                            priority={index === 0}
+                          />
+                        ) : null}
+                      </div>
+                    ) : (
+                      <div className="relative space-y-6 p-0">
+                        <div className="flex items-center gap-4">
+                          <span className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-[#0c6b76] to-[#0ca6c2] text-white font-bold text-lg shadow-lg">
+                            {index + 1}
+                          </span>
+                          <div className="h-px flex-1 bg-gradient-to-r from-[#0c6b76]/30 via-[#0ca6c2]/30 to-transparent" />
+                        </div>
+                        <p className="text-[1.125rem] md:text-[1.1875rem] leading-[1.9] text-[#2f2f2f] text-pretty whitespace-normal break-words">
+                          {paragraph.trim()}
+                        </p>
+                      </div>
+                    )}
                   </div>
-                  <div className="h-px flex-1 bg-gradient-to-r from-[#0c6b76]/30 via-[#0ca6c2]/30 to-transparent" />
-                </div>
-
-                {/* Paragraph content with enhanced typography */}
-                <div className="relative z-10">
-                  <p className="text-[1.125rem] md:text-[1.1875rem] leading-[1.9] text-[#2f2f2f] text-pretty font-normal group-hover:text-[#1a1a1a] transition-colors duration-300 whitespace-normal break-words">
-                    {paragraph.trim()}
-                  </p>
-                </div>
-
-                {/* Decorative corner element */}
-                <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-[#0c6b76]/5 to-transparent rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                )}
               </div>
             );
           })}
