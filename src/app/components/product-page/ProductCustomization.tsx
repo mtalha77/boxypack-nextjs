@@ -64,7 +64,7 @@ const ProductCustomization: React.FC<ProductCustomizationProps> = ({
                 {eyebrow}
               </span>
               <div className="space-y-4">
-                <h2 className="text-4xl md:text-[2.85rem] font-semibold leading-tight text-[#171717]">
+                <h2 className="text-4xl md:text-5xl lg:text-[3rem] font-bold leading-tight text-[#0c6b76] tracking-tight">
                   {heading}
                 </h2>
                 <p className="text-lg md:text-xl leading-8 text-[#2f2f2f] text-pretty">

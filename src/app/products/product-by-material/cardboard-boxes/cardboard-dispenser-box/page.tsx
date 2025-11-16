@@ -1,24 +1,24 @@
 import React from 'react';
-import { Metadata } from 'next';
-import CustomDimensionsForm from '../../../../components/CustomDimensionsForm';
-import ClientTestimonials from '../../../../components/product-design-page/ClientTestamonials';
+import { navigationData } from '../../../../data/navigationData';
+import ProductPageTemplate from '../../../../components/product-page/page';
 
-export const metadata: Metadata = {
-  title: 'Cardboard Dispenser Box - Custom Packaging | BoxyPack',
-  description: 'Premium cardboard dispenser box packaging solutions with convenient dispensing features. Custom versatile packaging designed for optimal protection and presentation.',
-  keywords: 'cardboard dispenser box, custom packaging, dispenser boxes, versatile packaging',
-};
-
-const CardboardDispenserBoxPage: React.FC = () => {
-  const productData = {
-    name: 'Cardboard Dispenser Box'
-  };
+const CardboardDispenserBoxPage = () => {
+  const section = navigationData.find(s => s.slug === 'product-by-material');
+  const category = section?.categories?.find(c => c.slug === 'cardboard-boxes');
+  const subcategory = category?.subcategories.find(sc => sc.slug === 'cardboard-dispenser-box');
+  
+  if (!section || !category || !subcategory) {
+    return <div>Subcategory not found</div>;
+  }
 
   return (
-    <div>
-      <CustomDimensionsForm />
-      <ClientTestimonials productData={productData} />
-    </div>
+    <ProductPageTemplate
+      section={section}
+      category={category}
+      subcategory={subcategory}
+      slug="cardboard-dispenser-box"
+      pageType="subcategory"
+    />
   );
 };
 

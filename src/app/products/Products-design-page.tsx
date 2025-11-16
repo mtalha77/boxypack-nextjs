@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import React from 'react';
-import HeroSection from '../components/product-design-page/HeroSection';
-import CustomDimensionsForm from '../components/CustomDimensionsForm';
-import FeaturesSection from '../components/product-design-page/FeaturesSection';
-import CTASection from '../components/product-design-page/CTASection';
-import ClientTestimonials from '../components/product-design-page/ClientTestamonials';
-import RelatedProducts from '../components/RelatedProducts';
-import ContactUs from '../components/contactUs/ContactUs';
+import React from "react";
+import HeroSection from "../components/HeroSection";
+import CustomDimensionsForm from "../components/CustomDimensionsForm";
+import FeaturesSection from "../components/product-page/WhyChooseUs";
+import CTASection from "../components/product-page/CTASection";
+import ClientTestimonials from "../components/product-page/ClientTestaminials";
+import RelatedProducts from "../components/RelatedProducts";
+import ContactUs from "../components/contactUs/ContactUs";
 
 interface ProductPageProps {
   productData: {
@@ -44,8 +44,8 @@ const ProductsDesignPage: React.FC<ProductPageProps> = ({ productData }) => {
       <CustomDimensionsForm initialProductSlug={productData.slug} />
       {/* <ProductGallery /> */}
       <FeaturesSection productData={productData} />
-      {/* <SpecificationsSection productData={productData} */} 
-      
+      {/* <SpecificationsSection productData={productData} */}
+
       {/* Related Products Section */}
       <RelatedProducts
         currentSection={undefined}
@@ -54,13 +54,13 @@ const ProductsDesignPage: React.FC<ProductPageProps> = ({ productData }) => {
         pageType="section"
         maxItems={6}
       />
-      
+
       {/* Testimonials Section */}
       <ClientTestimonials productData={productData} />
-      
+
       {/* CTA Section - Ready to Get Started */}
       <CTASection />
-      
+
       {/* Contact Us Section */}
       <ContactUs />
     </div>

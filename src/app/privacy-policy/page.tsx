@@ -1,7 +1,7 @@
-import React from 'react';
-import PrivacyHero from '../components/privacy/PrivacyHero';
-import PrivacyContent from '../components/privacy/PrivacyContent';
-import CTASection from '../components/product-design-page/CTASection';
+import React from "react";
+import PrivacyHero from "../components/privacy/PrivacyHero";
+import PrivacyContent from "../components/privacy/PrivacyContent";
+import CTASection from "../components/product-page/CTASection";
 
 export default function PrivacyPolicyPage() {
   return (

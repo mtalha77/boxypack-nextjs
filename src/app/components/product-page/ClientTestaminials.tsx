@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface Testimonial {
   id: number;
@@ -18,7 +18,9 @@ interface ClientTestimonialsProps {
   };
 }
 
-const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({ productData }) => {
+const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({
+  productData,
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
@@ -28,41 +30,46 @@ const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({ productData }) 
       name: "Sarah Johnson",
       company: "EcoFashion Co.",
       role: "Marketing Director",
-      content: "The custom packaging boxes from BoxyPack transformed our brand presentation. The quality is exceptional and our customers love the unboxing experience. Highly recommended!",
-      rating: 5
+      content:
+        "The custom packaging boxes from BoxyPack transformed our brand presentation. The quality is exceptional and our customers love the unboxing experience. Highly recommended!",
+      rating: 5,
     },
     {
       id: 2,
       name: "Michael Chen",
       company: "TechGadgets Inc.",
       role: "CEO",
-      content: "Outstanding service and premium quality packaging. BoxyPack helped us create a memorable first impression that our customers rave about. The attention to detail is remarkable.",
-      rating: 5
+      content:
+        "Outstanding service and premium quality packaging. BoxyPack helped us create a memorable first impression that our customers rave about. The attention to detail is remarkable.",
+      rating: 5,
     },
     {
       id: 3,
       name: "Emily Rodriguez",
       company: "Beauty Essentials",
       role: "Founder",
-      content: "Working with BoxyPack has been a game-changer for our beauty brand. Their custom designs perfectly capture our brand essence and the packaging quality is top-notch.",
-      rating: 5
+      content:
+        "Working with BoxyPack has been a game-changer for our beauty brand. Their custom designs perfectly capture our brand essence and the packaging quality is top-notch.",
+      rating: 5,
     },
     {
       id: 4,
       name: "David Thompson",
       company: "Luxury Goods Ltd.",
       role: "Operations Manager",
-      content: "The premium packaging solutions from BoxyPack elevated our product presentation to new heights. Professional service, fast delivery, and exceptional quality every time.",
-      rating: 5
+      content:
+        "The premium packaging solutions from BoxyPack elevated our product presentation to new heights. Professional service, fast delivery, and exceptional quality every time.",
+      rating: 5,
     },
     {
       id: 5,
       name: "Lisa Wang",
       company: "Artisan Crafts",
       role: "Creative Director",
-      content: "BoxyPack understood our vision perfectly and delivered packaging that truly represents our brand. The craftsmanship and attention to detail exceeded our expectations.",
-      rating: 5
-    }
+      content:
+        "BoxyPack understood our vision perfectly and delivered packaging that truly represents our brand. The craftsmanship and attention to detail exceeded our expectations.",
+      rating: 5,
+    },
   ];
 
   const nextTestimonial = () => {
@@ -70,7 +77,9 @@ const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({ productData }) 
   };
 
   const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentIndex(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
   };
 
   // Auto-play functionality
@@ -106,34 +115,32 @@ const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({ productData }) 
       <Star
         key={index}
         className={`w-5 h-5 ${
-          index < rating ? 'text-yellow-400 fill-current' : 'text-gray-300'
+          index < rating ? "text-yellow-400 fill-current" : "text-gray-300"
         }`}
       />
     ));
   };
 
   return (
-    <section className="py-24 relative overflow-hidden" style={{ backgroundImage: 'url(https://res.cloudinary.com/du5lyrqvz/image/upload/spray-paint_bwq0bs)', backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
-      {/* Background Overlay */}
-      <div className="absolute inset-0 bg-white/80"></div>
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <section className="py-24 bg-gradient-to-b from-[#f9f2eb] to-white">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Header Section */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center font-bold px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full text-brown-dark2 text-sm font-semibold border-2 border-brown-dark2 mb-6 shadow-lg">
-            <div className="w-2 h-2 bg-brown-dark2 rounded-full mr-3"></div>
+        <div className="text-center mb-16 space-y-6">
+          <span className="inline-flex items-center text-xs tracking-[0.32em] uppercase font-semibold text-[#0c6b76] bg-[#0c6b76]/10 px-5 py-2 rounded-full">
             Client Reviews
-          </div>
-          <h2 className="text-h2 text-heading-primary mb-6 leading-tight">
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-[3rem] font-bold leading-tight text-[#0c6b76] tracking-tight">
             What Our Clients Say
           </h2>
           <p className="text-body-large text-body-primary max-w-4xl mx-auto">
-            Don&apos;t just take our word for it. Hear from our satisfied clients who have transformed their packaging with our premium solutions.
+            Don&apos;t just take our word for it. Hear from our satisfied
+            clients who have transformed their packaging with our premium
+            solutions.
           </p>
         </div>
 
         {/* Testimonials Carousel */}
-        <div 
+        <div
           className="relative"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
@@ -213,13 +220,12 @@ const ClientTestimonials: React.FC<ClientTestimonialsProps> = ({ productData }) 
                 }}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? 'bg-[#0c6b76] scale-125'
-                    : 'bg-gray-300 hover:bg-[#0ca6c2]'
+                    ? "bg-[#0c6b76] scale-125"
+                    : "bg-gray-300 hover:bg-[#0ca6c2]"
                 }`}
               />
             ))}
           </div>
-
         </div>
 
         {/* Stats Section */}

@@ -25,91 +25,147 @@ export const productByIndustryData: IndustryCategory[] = [
     subcategoriesCount: 14,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
-      { 
-        name: "Custom Donut Boxes", 
-        slug: "custom-donut-boxes", 
+      {
+        name: "Custom Donut Boxes",
+        slug: "custom-donut-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
-        images: ["Custom-Donut-Boxes-1_dmj5t9", "Custom-Donut-Boxes-2_u8p8yt", "Custom-Donut-Boxes-3_xbgzfn"]
+        images: [
+          "Custom-Donut-Boxes-1_dmj5t9",
+          "Custom-Donut-Boxes-2_u8p8yt",
+          "Custom-Donut-Boxes-3_xbgzfn",
+        ],
       },
-      { 
-        name: "Custom Pastry Boxes", 
-        slug: "custom-pastry-boxes", 
+      {
+        name: "Custom Pastry Boxes",
+        slug: "custom-pastry-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
-        images: ["Custom-Pastery-Boxes-1_rvriqm", "Custom-Pastery-Boxes-2_iypxuu", "Custom-Pastery-Boxes-1_rvriqm"]
+        images: [
+          "Custom-Pastery-Boxes-1_rvriqm",
+          "Custom-Pastery-Boxes-2_iypxuu",
+          "Custom-Pastery-Boxes-1_rvriqm",
+        ],
       },
-      { 
-        name: "Custom Cake Boxes", 
-        slug: "custom-cake-boxes", 
+      {
+        name: "Custom Cake Boxes",
+        slug: "custom-cake-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
-        images: ["Custom-Cake-Boxes-1_keqqir", "Custom-Cake-Boxes-2_ft4dsr", "Custom-Cake-Boxes-2_ft4dsr"]
+        images: [
+          "Custom-Cake-Boxes-1_keqqir",
+          "Custom-Cake-Boxes-2_ft4dsr",
+          "Custom-Cake-Boxes-2_ft4dsr",
+        ],
       },
-      { 
-        name: "Custom Cookie Boxes", 
-        slug: "custom-cookie-boxes", 
+      {
+        name: "Custom Cookie Boxes",
+        slug: "custom-cookie-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
-        images: ["Custom-Cookies-Boxes-1_cdfbrr", "Custom-Cookies-Boxes-1_cdfbrr", "Custom-Cookies-Boxes-2_wdiict"]
+        images: [
+          "Custom-Cookies-Boxes-1_cdfbrr",
+          "Custom-Cookies-Boxes-1_cdfbrr",
+          "Custom-Cookies-Boxes-2_wdiict",
+        ],
       },
-      { 
-        name: "Custom Gable Boxes", 
-        slug: "custom-gable-boxes", 
+      {
+        name: "Custom Gable Boxes",
+        slug: "custom-gable-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
-        images: ["Custom-Gable-Boxes-1_qxlget", "Custom-Gable-Boxes-2_h4ragc", "Custom-Gable-Boxes-3_tbc0f3"]
+        images: [
+          "Custom-Gable-Boxes-1_qxlget",
+          "Custom-Gable-Boxes-2_h4ragc",
+          "Custom-Gable-Boxes-3_tbc0f3",
+        ],
       },
-      { 
-        name: "Custom Candy Boxes", 
-        slug: "custom-candy-boxes", 
+      {
+        name: "Custom Candy Boxes",
+        slug: "custom-candy-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
-        images: ["Custom-Candy-Boxes-1_ghf8o8", "Custom-Candy-Boxes-2_umzwww", "Custom-Candy-Boxes-3_abnfuf"]
+        images: [
+          "Custom-Candy-Boxes-1_ghf8o8",
+          "Custom-Candy-Boxes-2_umzwww",
+          "Custom-Candy-Boxes-3_abnfuf",
+        ],
       },
-      { 
-        name: "Mini Cupcake Boxes", 
-        slug: "mini-cupcake-boxes", 
+      {
+        name: "Mini Cupcake Boxes",
+        slug: "mini-cupcake-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
-        images: ["Mini-Cupcake-Boxes-1_gk2oxp", "Mini-Cupcake-Boxes-1_gk2oxp", "Mini-Cupcake-Boxes-2_b7tsvq"]
+        images: [
+          "Mini-Cupcake-Boxes-1_gk2oxp",
+          "Mini-Cupcake-Boxes-1_gk2oxp",
+          "Mini-Cupcake-Boxes-2_b7tsvq",
+        ],
       },
-      { 
-        name: "Pink Donut Boxes", 
-        slug: "pink-donut-boxes", 
+      {
+        name: "Pink Donut Boxes",
+        slug: "pink-donut-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
-        images: ["Pink-Donut-Boxes-1_marj9f", "Pink-Donut-Boxes-2_ltiufw", "Pink-Donut-Boxes-3_vo4cpt"]
+        images: [
+          "Pink-Donut-Boxes-1_marj9f",
+          "Pink-Donut-Boxes-2_ltiufw",
+          "Pink-Donut-Boxes-3_vo4cpt",
+        ],
       },
-      { 
-        name: "Window Bakery Boxes", 
-        slug: "window-bakery-boxes", 
+      {
+        name: "Window Bakery Boxes",
+        slug: "window-bakery-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
-        images: ["Window-Bakery-Boxes-1_rbhg0r", "Window-Bakery-Boxes-2_xx5swh", "Window-Bakery-Boxes-3_gazrye"]
+        images: [
+          "Window-Bakery-Boxes-1_rbhg0r",
+          "Window-Bakery-Boxes-2_xx5swh",
+          "Window-Bakery-Boxes-3_gazrye",
+        ],
       },
-      { 
-        name: "Bakery Gift Boxes", 
-        slug: "bakery-gift-boxes", 
+      {
+        name: "Bakery Gift Boxes",
+        slug: "bakery-gift-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
-        images: ["Bakery-Gift-Boxes-1_aorpnn", "Bakery-Gift-Boxes-2_t3kwx8", "Bakery-Gift-Boxes-3_enypsh"]
+        images: [
+          "Bakery-Gift-Boxes-1_aorpnn",
+          "Bakery-Gift-Boxes-2_t3kwx8",
+          "Bakery-Gift-Boxes-3_enypsh",
+        ],
       },
-      { 
-        name: "Custom Cupcake Boxes", 
-        slug: "custom-cupcake-boxes", 
+      {
+        name: "Custom Cupcake Boxes",
+        slug: "custom-cupcake-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
-        images: ["Custom-Cupcake-Boxes-1_ak1dkc", "Custom-Cupcake-Boxes-2_lhirzg", "Custom-Cupcake-Boxes-3_o0xhpd"]
+        images: [
+          "Custom-Cupcake-Boxes-1_ak1dkc",
+          "Custom-Cupcake-Boxes-2_lhirzg",
+          "Custom-Cupcake-Boxes-3_o0xhpd",
+        ],
       },
-      { 
-        name: "Small Cake Boxes", 
-        slug: "small-cake-boxes", 
+      {
+        name: "Small Cake Boxes",
+        slug: "small-cake-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
-        images: ["Small-Cake-Boxes-1_th13oz", "Small-Cake-Boxes-2_pzmikh", "Small-Cake-Boxes-3_dampkl"]
+        images: [
+          "Small-Cake-Boxes-1_th13oz",
+          "Small-Cake-Boxes-2_pzmikh",
+          "Small-Cake-Boxes-3_dampkl",
+        ],
       },
-      { 
-        name: "Custom Truffle Boxes", 
-        slug: "custom-truffle-boxes", 
+      {
+        name: "Custom Truffle Boxes",
+        slug: "custom-truffle-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
-        images: ["Custom-Truffle-Boxes-1_imolco", "Custom-Truffle-Boxes-2_dznjjn", "Custom-Truffle-Boxes-3_omyri7"]
+        images: [
+          "Custom-Truffle-Boxes-1_imolco",
+          "Custom-Truffle-Boxes-2_dznjjn",
+          "Custom-Truffle-Boxes-3_omyri7",
+        ],
       },
-      { 
-        name: "Sweet Gift Boxes", 
-        slug: "sweet-gift-boxes", 
+      {
+        name: "Sweet Gift Boxes",
+        slug: "sweet-gift-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
-        images: ["Sweet-Gift-Boxes-1_hc5cct", "Sweet-Gift-Boxes-2_mctoex", "Sweet-Gift-Boxes-3_tfmxok"]
-      }
-    ]
+        images: [
+          "Sweet-Gift-Boxes-1_hc5cct",
+          "Sweet-Gift-Boxes-2_mctoex",
+          "Sweet-Gift-Boxes-3_tfmxok",
+        ],
+      },
+    ],
   },
   {
     name: "Cosmetic Boxes",
@@ -139,8 +195,8 @@ export const productByIndustryData: IndustryCategory[] = [
       { name: "Olive Oil Boxes", slug: "olive-oil-boxes" },
       { name: "Essential Oil Boxes", slug: "essential-oil-boxes" },
       { name: "Beard Oil Boxes", slug: "beard-oil-boxes" },
-      { name: "Serum Boxes", slug: "serum-boxes" }
-    ]
+      { name: "Serum Boxes", slug: "serum-boxes" },
+    ],
   },
   {
     name: "Food Boxes",
@@ -155,13 +211,16 @@ export const productByIndustryData: IndustryCategory[] = [
       { name: "Custom Coffee Cups", slug: "custom-coffee-cups" },
       { name: "Custom Coffee Cup Sleeves", slug: "custom-coffee-cup-sleeves" },
       { name: "Custom Noodle Boxes", slug: "custom-noodle-boxes" },
-      { name: "Custom Chinese Takeout Boxes", slug: "custom-chinese-takeout-boxes" },
+      {
+        name: "Custom Chinese Takeout Boxes",
+        slug: "custom-chinese-takeout-boxes",
+      },
       { name: "Custom Popcorn Boxes", slug: "custom-popcorn-boxes" },
       { name: "Custom Snack Boxes", slug: "custom-snack-boxes" },
       { name: "Custom Tea Boxes", slug: "custom-tea-boxes" },
       { name: "Custom Burger Boxes", slug: "custom-burger-boxes" },
-      { name: "Sandwich Boxes", slug: "sandwich-boxes" }
-    ]
+      { name: "Sandwich Boxes", slug: "sandwich-boxes" },
+    ],
   },
   {
     name: "Gift Boxes",
@@ -180,8 +239,8 @@ export const productByIndustryData: IndustryCategory[] = [
       { name: "Custom Deluxe Gift Boxes", slug: "custom-deluxe-gift-boxes" },
       { name: "Custom Square Gift Boxes", slug: "custom-square-gift-boxes" },
       { name: "Small Gift Boxes", slug: "small-gift-boxes" },
-      { name: "Large Gift Boxes", slug: "large-gift-boxes" }
-    ]
+      { name: "Large Gift Boxes", slug: "large-gift-boxes" },
+    ],
   },
   {
     name: "Jewelry Boxes",
@@ -191,21 +250,147 @@ export const productByIndustryData: IndustryCategory[] = [
     subcategoriesCount: 15,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
-      { name: "Anklet Boxes", slug: "anklet-boxes" },
-      { name: "Velvet Bags", slug: "velvet-bags" },
-      { name: "Kraft Jewelry Boxes", slug: "kraft-jewelry-boxes" },
-      { name: "Cardboard Jewelry Boxes", slug: "cardboard-jewelry-boxes" },
-      { name: "Jewelry Subscription Box", slug: "jewelry-subscription-box" },
-      { name: "Pendant Boxes", slug: "pendant-boxes" },
-      { name: "Bracelet Boxes", slug: "bracelet-boxes" },
-      { name: "Ring Boxes", slug: "ring-boxes" },
-      { name: "Earring Boxes", slug: "earring-boxes" },
-      { name: "Luxury Jewelry Packaging", slug: "luxury-jewelry-packaging" },
-      { name: "Necklace Boxes", slug: "necklace-boxes" },
-      { name: "Small Jewelry Boxes", slug: "small-jewelry-boxes" },
-      { name: "Necklace Cards", slug: "necklace-cards" },
-      { name: "Jewelry Bags", slug: "jewelry-bags" }
-    ]
+      {
+        name: "Anklet Boxes",
+        slug: "anklet-boxes",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Anklet-Boxes-1_gyudbb",
+          "Anklet-Boxes-2_egsudf",
+          "Anklet-Boxes-3_mfldff",
+        ],
+      },
+      {
+        name: "Velvet Bags",
+        slug: "velvet-bags",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Velvet-Bags-1_ngwiar",
+          "Velvet-Bags-2_y3szxp",
+          "Velvet-Bags-3_z5pe1a",
+        ],
+      },
+      {
+        name: "Kraft Jewelry Boxes",
+        slug: "kraft-jewelry-boxes",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Kraft-Jewelry-Boxes-1_h7kkxi",
+          "Kraft-Jewelry-Boxes-2_tiddus",
+          "Kraft-Jewelry-Boxes-3_xpciol",
+        ],
+      },
+      {
+        name: "Cardboard Jewelry Boxes",
+        slug: "cardboard-jewelry-boxes",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Cardboard-Jewelry-Boxes-1_jabvfd",
+          "Cardboard-Jewelry-Boxes-2_ac6eyr",
+          "Cardboard-Jewelry-Boxes-3_avdwpf",
+        ],
+      },
+      {
+        name: "Jewelry Subscription Box",
+        slug: "jewelry-subscription-box",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Jewelry-Subsciption-Boxes-1_sjdvux",
+          "Jewelry-Subsciption-Boxes-2_ms7ese",
+          "Jewelry-Subsciption-Boxes-3_izpwwg",
+        ],
+      },
+      {
+        name: "Pendant Boxes",
+        slug: "pendant-boxes",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Pendant-Boxes-1_yvedvy",
+          "Pendant-Boxes-2_exjntx",
+          "Pendant-Boxes-2_exjntx",
+        ],
+      },
+      {
+        name: "Bracelet Boxes",
+        slug: "bracelet-boxes",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Bracelet-Boxes-1_dvpgmf",
+          "Bracelet-Boxes-1_dvpgmf",
+          "Bracelet-Boxes-2_p8mxcl",
+        ],
+      },
+      {
+        name: "Ring Boxes",
+        slug: "ring-boxes",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Ring-Boxes-1_jtxaap",
+          "Ring-Boxes-2_nmkoka",
+          "Ring-Boxes-3_gaktn8",
+        ],
+      },
+      {
+        name: "Earring Boxes",
+        slug: "earring-boxes",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Earring-Boxes-1_wukhzh",
+          "Earring-Boxes-2_yhn4ze",
+          "Earring-Boxes-3_mgvtbu",
+        ],
+      },
+      {
+        name: "Luxury Jewelry Packaging",
+        slug: "luxury-jewelry-packaging",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Luxury-Jewelry-Box-1_y9dzqv",
+          "Luxury-Jewelry-Box-2_md80hw",
+          "Luxury-Jewelry-Box-3_xvaroq",
+        ],
+      },
+      {
+        name: "Necklace Boxes",
+        slug: "necklace-boxes",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Necklace-Boxes-1_fuwcyk",
+          "Necklace-Boxes-2_j7n2hk",
+          "Necklace-Boxes-3_hlrzyc",
+        ],
+      },
+      {
+        name: "Small Jewelry Boxes",
+        slug: "small-jewelry-boxes",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Small-Jewelry-Boxes-1_nmu722",
+          "Small-Jewelry-Boxes-2_ndwodv",
+          "Small-Jewelry-Boxes-3_lstkmh",
+        ],
+      },
+      {
+        name: "Necklace Cards",
+        slug: "necklace-cards",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Necklace-Card-1_n2alyw",
+          "Necklace-Card-2_tmg4cx",
+          "Necklace-Card-3_m5kfm8",
+        ],
+      },
+      {
+        name: "Jewelry Bags",
+        slug: "jewelry-bags",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Jewelry-Bag-1_g4qqob",
+          "Jewelry-Bag-2_xcep4w",
+          "Jewelry-Bag-3_bg3ovo",
+        ],
+      },
+    ],
   },
   {
     name: "Retail Boxes",
@@ -219,8 +404,8 @@ export const productByIndustryData: IndustryCategory[] = [
       { name: "Custom Toy Boxes", slug: "custom-toy-boxes" },
       { name: "Business Card Boxes", slug: "business-card-boxes" },
       { name: "Custom Dispenser Boxes", slug: "custom-dispenser-boxes" },
-      { name: "Custom Mailer Boxes", slug: "custom-mailer-boxes" }
-    ]
+      { name: "Custom Mailer Boxes", slug: "custom-mailer-boxes" },
+    ],
   },
   {
     name: "Candle Boxes",
@@ -238,8 +423,8 @@ export const productByIndustryData: IndustryCategory[] = [
       { name: "Custom Jar Candle Boxes", slug: "custom-jar-candle-boxes" },
       { name: "Wax Melt Boxes", slug: "wax-melt-boxes" },
       { name: "Kraft Candle Boxes", slug: "kraft-candle-boxes" },
-      { name: "Candle Subscription Boxes", slug: "candle-subscription-boxes" }
-    ]
+      { name: "Candle Subscription Boxes", slug: "candle-subscription-boxes" },
+    ],
   },
   {
     name: "Shipping Boxes",
@@ -252,8 +437,8 @@ export const productByIndustryData: IndustryCategory[] = [
       { name: "Black Shipping Boxes", slug: "black-shipping-boxes" },
       { name: "Candle Shipping Boxes", slug: "candle-shipping-boxes-industry" },
       { name: "Corrugated Shipping Boxes", slug: "corrugated-shipping-boxes" },
-      { name: "Custom Shipping Boxes", slug: "custom-shipping-boxes" }
-    ]
+      { name: "Custom Shipping Boxes", slug: "custom-shipping-boxes" },
+    ],
   },
   {
     name: "Soap Boxes",
@@ -263,17 +448,107 @@ export const productByIndustryData: IndustryCategory[] = [
     subcategoriesCount: 10,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
-      { name: "Soap Sleeve Packaging", slug: "soap-sleeve-packaging" },
-      { name: "Custom Bath Bomb Boxes", slug: "custom-bath-bomb-boxes" },
-      { name: "Soap Wrapping Paper", slug: "soap-wrapping-paper" },
-      { name: "Handmade Soap Boxes", slug: "handmade-soap-boxes" },
-      { name: "Luxury Soap Packaging", slug: "luxury-soap-packaging" },
-      { name: "Square Soap Boxes", slug: "square-soap-boxes" },
-      { name: "Soap Bar Box", slug: "soap-bar-box" },
-      { name: "Paper Soap Boxes", slug: "paper-soap-boxes" },
-      { name: "Kraft Soap Boxes", slug: "kraft-soap-boxes" },
-      { name: "Kraft Pillow Soap Boxes", slug: "kraft-pillow-soap-boxes-industry" }
-    ]
+      {
+        name: "Soap Sleeve Packaging",
+        slug: "soap-sleeve-packaging",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Sleeve-Soap-Packaging-1_iywhz6",
+          "Sleeve-Soap-Packaging-2_jn6hdo",
+          "Sleeve-Soap-Packaging-3_c46zle",
+        ],
+      },
+      {
+        name: "Custom Bath Bomb Boxes",
+        slug: "custom-bath-bomb-boxes",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Custom-Bath-Bomb-Boxes-1_lo9ugk",
+          "Custom-Bath-Bomb-Boxes-2_cilnwx",
+          "Custom-Bath-Bomb-Boxes-3_ekaikb",
+        ],
+      },
+      {
+        name: "Soap Wrapping Paper",
+        slug: "soap-wrapping-paper",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Soap-Wrapping-Paper-1_dc69r2",
+          "Soap-Wrapping-Paper-2_bxoyeg",
+          "Soap-Wrapping-Paper-3_ct3oet",
+        ],
+      },
+      {
+        name: "Handmade Soap Boxes",
+        slug: "handmade-soap-boxes",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Handmade-Soap-Boxes-1_bhxor2",
+          "Handmade-Soap-Boxes-2_jzfzmd",
+          "Handmade-Soap-Boxes-3_fuoicn",
+        ],
+      },
+      {
+        name: "Luxury Soap Packaging",
+        slug: "luxury-soap-packaging",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Luxury-Soap-Packaging-1_r8qsmo",
+          "Luxury-Soap-Packaging-2_bec6oc",
+          "Luxury-Soap-Packaging-3_kzkhna",
+        ],
+      },
+      {
+        name: "Square Soap Boxes",
+        slug: "square-soap-boxes",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Square-Soap-Boxes-1_mourkd",
+          "Square-Soap-Boxes-2_epdi7m",
+          "Square-Soap-Boxes-3_bpogyr",
+        ],
+      },
+      {
+        name: "Soap Bar Box",
+        slug: "soap-bar-box",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Soap-Bar-Boxes-1_xk9r2d",
+          "Soap-Bar-Boxes-2_qrcsvw",
+          "Soap-Bar-Boxes-3_npidpe",
+        ],
+      },
+      {
+        name: "Paper Soap Boxes",
+        slug: "paper-soap-boxes",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Paper-Soap-Boxes-1_uwidvu",
+          "Paper-Soap-Boxes-2_eoaop8",
+          "Paper-Soap-Boxes-3_eulzjw",
+        ],
+      },
+      {
+        name: "Kraft Soap Boxes",
+        slug: "kraft-soap-boxes",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Kraft-Soap-Boxes-1_cqobeh",
+          "Kraft-Soap-Boxes-2_hnskyc",
+          "Kraft-Soap-Boxes-3_xzse7x",
+        ],
+      },
+      {
+        name: "Kraft Pillow Soap Boxes",
+        slug: "kraft-pillow-soap-boxes-industry",
+        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        images: [
+          "Pillow-Soap-Boxes-1_kw6rxk",
+          "Pillow-Soap-Boxes-2_ojetko",
+          "Pillow-Soap-Boxes-3_ofqolm",
+        ],
+      },
+    ],
   },
 
   // Apparel Boxes
@@ -285,47 +560,79 @@ export const productByIndustryData: IndustryCategory[] = [
     subcategoriesCount: 8,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
-      { 
-        name: "Cufflink Boxes", 
+      {
+        name: "Cufflink Boxes",
         slug: "cufflink-boxes",
-        images: ["Cufflink-Boxes-1_rz2wcf", "Cufflink-Boxes-2_f55tgq", "Cufflink-Boxes-3_nppvwy"]
+        images: [
+          "Cufflink-Boxes-1_rz2wcf",
+          "Cufflink-Boxes-2_f55tgq",
+          "Cufflink-Boxes-3_nppvwy",
+        ],
       },
-      { 
-        name: "Tie Boxes", 
+      {
+        name: "Tie Boxes",
         slug: "tie-boxes",
-        images: ["Tie-Boxes-1_t8zvuk", "Tie-Boxes-2_j26x06", "Tie-Boxes-3_zmp4vi"]
+        images: [
+          "Tie-Boxes-1_t8zvuk",
+          "Tie-Boxes-2_j26x06",
+          "Tie-Boxes-3_zmp4vi",
+        ],
       },
-      { 
-        name: "Belt Boxes", 
+      {
+        name: "Belt Boxes",
         slug: "belt-boxes",
-        images: ["Belt-Boxes-1_px70gk", "Belt-Boxes-2_wirvg5", "Belt-Boxes-3_aj08pm"]
+        images: [
+          "Belt-Boxes-1_px70gk",
+          "Belt-Boxes-2_wirvg5",
+          "Belt-Boxes-3_aj08pm",
+        ],
       },
-      { 
-        name: "Clothing Boxes", 
+      {
+        name: "Clothing Boxes",
         slug: "clothing-boxes",
-        images: ["Clothing-Boxes-1_ygtjdo", "Clothing-Boxes-2_gytu8n", "Clothing-Boxes-3_pvbpno"]
+        images: [
+          "Clothing-Boxes-1_ygtjdo",
+          "Clothing-Boxes-2_gytu8n",
+          "Clothing-Boxes-3_pvbpno",
+        ],
       },
-      { 
-        name: "Lingerie Boxes", 
+      {
+        name: "Lingerie Boxes",
         slug: "lingerie-boxes",
-        images: ["Lingerie-Boxes-1_bq2nfw", "Lingerie-Boxes-2_jsjglj", "Lingerie-Boxes-3_syday7"]
+        images: [
+          "Lingerie-Boxes-1_bq2nfw",
+          "Lingerie-Boxes-2_jsjglj",
+          "Lingerie-Boxes-3_syday7",
+        ],
       },
-      { 
-        name: "Underwear Boxes", 
+      {
+        name: "Underwear Boxes",
         slug: "underwear-boxes",
-        images: ["Underwear-Boxes-1_ou16f4", "Underwear-Boxes-2_qfi8ft", "Underwear-Boxes-3_pyzny2"]
+        images: [
+          "Underwear-Boxes-1_ou16f4",
+          "Underwear-Boxes-2_qfi8ft",
+          "Underwear-Boxes-3_pyzny2",
+        ],
       },
-      { 
-        name: "T-Shirt Boxes", 
+      {
+        name: "T-Shirt Boxes",
         slug: "tshirt-boxes",
-        images: ["T-Shirt-Boxes-1_lqopuq", "T-Shirt-Boxes-2_zwzm3i", "T-Shirt-Boxes-3_th84gq"]
+        images: [
+          "T-Shirt-Boxes-1_lqopuq",
+          "T-Shirt-Boxes-2_zwzm3i",
+          "T-Shirt-Boxes-3_th84gq",
+        ],
       },
-      { 
-        name: "Socks Boxes", 
+      {
+        name: "Socks Boxes",
         slug: "socks-boxes",
-        images: ["Socks-Boxes-1_lbh2hf", "Socks-Boxes-2_zpmm81", "Socks-Boxes-3_oh0wgo"]
-      }
-    ]
+        images: [
+          "Socks-Boxes-1_lbh2hf",
+          "Socks-Boxes-2_zpmm81",
+          "Socks-Boxes-3_oh0wgo",
+        ],
+      },
+    ],
   },
 
   // Sports Boxes
@@ -337,37 +644,61 @@ export const productByIndustryData: IndustryCategory[] = [
     subcategoriesCount: 6,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
-      { 
-        name: "Cardboard Shoe Boxes", 
+      {
+        name: "Cardboard Shoe Boxes",
         slug: "cardboard-shoe-boxes",
-        images: ["Cardboard-Shoe-Boxes-1_bmgptg", "Cardboard-Shoe-Boxes-2_yfsmt4", "Cardboard-Shoe-Boxes-3_bxecvk"]
+        images: [
+          "Cardboard-Shoe-Boxes-1_bmgptg",
+          "Cardboard-Shoe-Boxes-2_yfsmt4",
+          "Cardboard-Shoe-Boxes-3_bxecvk",
+        ],
       },
-      { 
-        name: "Shoe Shipping Boxes", 
+      {
+        name: "Shoe Shipping Boxes",
         slug: "shoe-shipping-boxes",
-        images: ["Shoe-Shipping-Boxes-1_fltdr4", "Shoe-Shipping-Boxes-2_fqqwa0", "Shoe-Shipping-Boxes-3_w1jmxg"]
+        images: [
+          "Shoe-Shipping-Boxes-1_fltdr4",
+          "Shoe-Shipping-Boxes-2_fqqwa0",
+          "Shoe-Shipping-Boxes-3_w1jmxg",
+        ],
       },
-      { 
-        name: "Custom Shoe Boxes", 
+      {
+        name: "Custom Shoe Boxes",
         slug: "custom-shoe-boxes",
-        images: ["Custom-Shoe-Boxes-1_ujniht", "Custom-Shoe-Boxes-2_s1rzhj", "Custom-Shoe-Boxes-3_bpnxxb"]
+        images: [
+          "Custom-Shoe-Boxes-1_ujniht",
+          "Custom-Shoe-Boxes-2_s1rzhj",
+          "Custom-Shoe-Boxes-3_bpnxxb",
+        ],
       },
-      { 
-        name: "Shoe Boxes with Lid", 
+      {
+        name: "Shoe Boxes with Lid",
         slug: "shoe-boxes-with-lid",
-        images: ["Shoe-Boxes-With-Lid-1_fxn9tx", "Shoe-Boxes-With-Lid-2_fk3jt1", "Shoe-Boxes-With-Lid-3_upegeh"]
+        images: [
+          "Shoe-Boxes-With-Lid-1_fxn9tx",
+          "Shoe-Boxes-With-Lid-2_fk3jt1",
+          "Shoe-Boxes-With-Lid-3_upegeh",
+        ],
       },
-      { 
-        name: "Golf Ball Boxes", 
+      {
+        name: "Golf Ball Boxes",
         slug: "golf-ball-boxes",
-        images: ["Golf-Ball-Boxes-1_kaxgvt", "Golf-Ball-Boxes-2_hyeiff", "Golf-Ball-Boxes-3_y5wiqn"]
+        images: [
+          "Golf-Ball-Boxes-1_kaxgvt",
+          "Golf-Ball-Boxes-2_hyeiff",
+          "Golf-Ball-Boxes-3_y5wiqn",
+        ],
       },
-      { 
-        name: "Football Boxes", 
+      {
+        name: "Football Boxes",
         slug: "football-boxes",
-        images: ["Football-Boxes-1_ehlokr", "Football-Boxes-2_gqln0i", "Football-Boxes-3_wmzpfc"]
-      }
-    ]
+        images: [
+          "Football-Boxes-1_ehlokr",
+          "Football-Boxes-2_gqln0i",
+          "Football-Boxes-3_wmzpfc",
+        ],
+      },
+    ],
   },
 
   // Cigarette Boxes
@@ -379,37 +710,61 @@ export const productByIndustryData: IndustryCategory[] = [
     subcategoriesCount: 6,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
-      { 
-        name: "Paper Cigarette Boxes", 
+      {
+        name: "Paper Cigarette Boxes",
         slug: "paper-cigarette-boxes",
-        images: ["Paper-Cigarette-Boxes-1_wtiu7e", "Paper-Cigarette-Boxes-2_rnnux2", "Paper-Cigarette-Boxes-3_pa6wa9"]
+        images: [
+          "Paper-Cigarette-Boxes-1_wtiu7e",
+          "Paper-Cigarette-Boxes-2_rnnux2",
+          "Paper-Cigarette-Boxes-3_pa6wa9",
+        ],
       },
-      { 
-        name: "Custom Cigarette Boxes", 
+      {
+        name: "Custom Cigarette Boxes",
         slug: "custom-cigarette-boxes",
-        images: ["Custom-Cigarette-Boxes-1_f0abbv", "Custom-Cigarette-Boxes-2_r0ywev", "Custom-Cigarette-Boxes-3_ftlaow"]
+        images: [
+          "Custom-Cigarette-Boxes-1_f0abbv",
+          "Custom-Cigarette-Boxes-2_r0ywev",
+          "Custom-Cigarette-Boxes-3_ftlaow",
+        ],
       },
-      { 
-        name: "Empty Cigarette Boxes", 
+      {
+        name: "Empty Cigarette Boxes",
         slug: "empty-cigarette-boxes",
-        images: ["Empty-Cigarette-Boxes-1_t4kzi9", "Empty-Cigarette-Boxes-2_vszvgt", "Empty-Cigarette-Boxes-2_vszvgt"]
+        images: [
+          "Empty-Cigarette-Boxes-1_t4kzi9",
+          "Empty-Cigarette-Boxes-2_vszvgt",
+          "Empty-Cigarette-Boxes-2_vszvgt",
+        ],
       },
-      { 
-        name: "Cardboard Cigarette Boxes", 
+      {
+        name: "Cardboard Cigarette Boxes",
         slug: "cardboard-cigarette-boxes",
-        images: ["Cardboard-Cigarette-Boxes-1_b7xr8l", "Cardboard-Cigarette-Boxes-2_hfnzvm", "Cardboard-Cigarette-Boxes-3_vryuig"]
+        images: [
+          "Cardboard-Cigarette-Boxes-1_b7xr8l",
+          "Cardboard-Cigarette-Boxes-2_hfnzvm",
+          "Cardboard-Cigarette-Boxes-3_vryuig",
+        ],
       },
-      { 
-        name: "Blank Cigarette Boxes", 
+      {
+        name: "Blank Cigarette Boxes",
         slug: "blank-cigarette-boxes",
-        images: ["Blank-Cigarette-Boxes-1_evdnrk", "Blank-Cigarette-Boxes-2_zsjo5n", "Blank-Cigarette-Boxes-3_zekskp"]
+        images: [
+          "Blank-Cigarette-Boxes-1_evdnrk",
+          "Blank-Cigarette-Boxes-2_zsjo5n",
+          "Blank-Cigarette-Boxes-3_zekskp",
+        ],
       },
-      { 
-        name: "Flip Top Cigarette Boxes", 
+      {
+        name: "Flip Top Cigarette Boxes",
         slug: "flip-top-cigarette-boxes",
-        images: ["Flip-Top-Cigarette-Boxes-1_se8s4v", "Flip-Top-Cigarette-Boxes-2_k632a9", "Flip-Top-Cigarette-Boxes-3_v8cy7g"]
-      }
-    ]
+        images: [
+          "Flip-Top-Cigarette-Boxes-1_se8s4v",
+          "Flip-Top-Cigarette-Boxes-2_k632a9",
+          "Flip-Top-Cigarette-Boxes-3_v8cy7g",
+        ],
+      },
+    ],
   },
 
   // CBD Boxes
@@ -421,42 +776,70 @@ export const productByIndustryData: IndustryCategory[] = [
     subcategoriesCount: 7,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
-      { 
-        name: "CBD Gift Boxes", 
+      {
+        name: "CBD Gift Boxes",
         slug: "cbd-gift-boxes",
-        images: ["CBD-Gift-Boxes-1_k9295s", "CBD-Gift-Boxes-2_qi65ks", "CBD-Gift-Boxes-3_tcvuva"]
+        images: [
+          "CBD-Gift-Boxes-1_k9295s",
+          "CBD-Gift-Boxes-2_qi65ks",
+          "CBD-Gift-Boxes-3_tcvuva",
+        ],
       },
-      { 
-        name: "CBD Gummies Boxes", 
+      {
+        name: "CBD Gummies Boxes",
         slug: "cbd-gummies-boxes",
-        images: ["CBD-Gummies-Boxes-1_wd25va", "CBD-Gummies-Boxes-2_o1bk7c", "CBD-Gummies-Boxes-3_f6coos"]
+        images: [
+          "CBD-Gummies-Boxes-1_wd25va",
+          "CBD-Gummies-Boxes-2_o1bk7c",
+          "CBD-Gummies-Boxes-3_f6coos",
+        ],
       },
-      { 
-        name: "Custom Cannabis Boxes", 
+      {
+        name: "Custom Cannabis Boxes",
         slug: "custom-cannabis-boxes",
-        images: ["Cusotm-Cannabis-Boxes-1_idflye", "Cusotm-Cannabis-Boxes-2_go3nc3", "Cusotm-Cannabis-Boxes-3_qpaksl"]
+        images: [
+          "Cusotm-Cannabis-Boxes-1_idflye",
+          "Cusotm-Cannabis-Boxes-2_go3nc3",
+          "Cusotm-Cannabis-Boxes-3_qpaksl",
+        ],
       },
-      { 
-        name: "CBD Oil Boxes", 
+      {
+        name: "CBD Oil Boxes",
         slug: "cbd-oil-boxes",
-        images: ["CBD-Oil-Boxes-1_qgrbrh", "CBD-Oil-Boxes-2_asnbzp", "CBD-Oil-Boxes-3_o9hvx6"]
+        images: [
+          "CBD-Oil-Boxes-1_qgrbrh",
+          "CBD-Oil-Boxes-2_asnbzp",
+          "CBD-Oil-Boxes-3_o9hvx6",
+        ],
       },
-      { 
-        name: "Hemp Oil Boxes", 
+      {
+        name: "Hemp Oil Boxes",
         slug: "hemp-oil-boxes",
-        images: ["Hemp-Oil-Boxes-1_q7mzbh", "Hemp-Oil-Boxes-2_qwlw6w", "Hemp-Oil-Boxes-3_nzq3jo"]
+        images: [
+          "Hemp-Oil-Boxes-1_q7mzbh",
+          "Hemp-Oil-Boxes-2_qwlw6w",
+          "Hemp-Oil-Boxes-3_nzq3jo",
+        ],
       },
-      { 
-        name: "Pre Roll Boxes", 
+      {
+        name: "Pre Roll Boxes",
         slug: "pre-roll-boxes",
-        images: ["Pre-Roll-Boxes-1_fvwba7", "Pre-Roll-Boxes-2_gevxu5", "Pre-Roll-Boxes-3_akskaw"]
+        images: [
+          "Pre-Roll-Boxes-1_fvwba7",
+          "Pre-Roll-Boxes-2_gevxu5",
+          "Pre-Roll-Boxes-3_akskaw",
+        ],
       },
-      { 
-        name: "CBD Tincture Boxes", 
+      {
+        name: "CBD Tincture Boxes",
         slug: "cbd-tincture-boxes",
-        images: ["CBD-Tincture-Boxes-1_daue3r", "CBD-Tincture-Boxes-2_xcrq3q", "CBD-Tincture-Boxes-3_esviaz"]
-      }
-    ]
+        images: [
+          "CBD-Tincture-Boxes-1_daue3r",
+          "CBD-Tincture-Boxes-2_xcrq3q",
+          "CBD-Tincture-Boxes-3_esviaz",
+        ],
+      },
+    ],
   },
   {
     name: "Vape Boxes",
@@ -467,11 +850,14 @@ export const productByIndustryData: IndustryCategory[] = [
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       { name: "Vape Boxes", slug: "vape-boxes" },
-      { name: "Empty Vape Cartridge Packaging", slug: "empty-vape-cartridge-packaging" },
+      {
+        name: "Empty Vape Cartridge Packaging",
+        slug: "empty-vape-cartridge-packaging",
+      },
       { name: "Vape Cartridge Packaging", slug: "vape-cartridge-packaging" },
       { name: "Custom Vape Boxes", slug: "custom-vape-boxes" },
-      { name: "Disposable Vape Packaging", slug: "disposable-vape-packaging" }
-    ]
+      { name: "Disposable Vape Packaging", slug: "disposable-vape-packaging" },
+    ],
   },
   {
     name: "E-liquid Boxes",
@@ -483,8 +869,8 @@ export const productByIndustryData: IndustryCategory[] = [
     subcategories: [
       { name: "E-liquid Bottle Boxes", slug: "e-liquid-bottle-boxes" },
       { name: "E-liquid Display Boxes", slug: "e-liquid-display-boxes" },
-      { name: "E-liquid Gift Boxes", slug: "e-liquid-gift-boxes" }
-    ]
+      { name: "E-liquid Gift Boxes", slug: "e-liquid-gift-boxes" },
+    ],
   },
   {
     name: "Stationery Boxes",
@@ -498,10 +884,13 @@ export const productByIndustryData: IndustryCategory[] = [
       { name: "Cardboard Pen Boxes", slug: "cardboard-pen-boxes" },
       { name: "Cardboard Pencil Boxes", slug: "cardboard-pencil-boxes" },
       { name: "Custom Book Boxes", slug: "custom-book-boxes" },
-      { name: "Custom Presentation Folders", slug: "custom-presentation-folders" },
+      {
+        name: "Custom Presentation Folders",
+        slug: "custom-presentation-folders",
+      },
       { name: "Pen Gift Boxes", slug: "pen-gift-boxes" },
-      { name: "Custom Pen Boxes", slug: "custom-pen-boxes" }
-    ]
+      { name: "Custom Pen Boxes", slug: "custom-pen-boxes" },
+    ],
   },
   {
     name: "Christmas Boxes",
@@ -522,8 +911,8 @@ export const productByIndustryData: IndustryCategory[] = [
       { name: "Christmas Paper Bags", slug: "christmas-paper-bags" },
       { name: "Christmas Gift Bags", slug: "christmas-gift-bags" },
       { name: "Christmas Favor Boxes", slug: "christmas-favor-boxes" },
-      { name: "Christmas Mailer Boxes", slug: "christmas-mailer-boxes" }
-    ]
+      { name: "Christmas Mailer Boxes", slug: "christmas-mailer-boxes" },
+    ],
   },
   {
     name: "Chocolate Boxes",
@@ -541,8 +930,8 @@ export const productByIndustryData: IndustryCategory[] = [
       { name: "Chocolate Bomb Boxes", slug: "chocolate-bomb-boxes" },
       { name: "Chocolate Gift Boxes", slug: "chocolate-gift-boxes" },
       { name: "Christmas Chocolate Boxes", slug: "christmas-chocolate-boxes" },
-      { name: "Chocolate Bar Boxes", slug: "chocolate-bar-boxes" }
-    ]
+      { name: "Chocolate Bar Boxes", slug: "chocolate-bar-boxes" },
+    ],
   },
   {
     name: "Cereal Boxes",
@@ -563,8 +952,8 @@ export const productByIndustryData: IndustryCategory[] = [
       { name: "Retro Cereal Boxes", slug: "retro-cereal-boxes" },
       { name: "90s Cereal Boxes", slug: "90s-cereal-boxes" },
       { name: "80s Cereal Boxes", slug: "80s-cereal-boxes" },
-      { name: "Funny Cereal Boxes", slug: "funny-cereal-boxes" }
-    ]
+      { name: "Funny Cereal Boxes", slug: "funny-cereal-boxes" },
+    ],
   },
   {
     name: "Pre Roll Boxes",
@@ -574,13 +963,16 @@ export const productByIndustryData: IndustryCategory[] = [
     subcategoriesCount: 6,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
-      { name: "Cannabis Pre Roll Packaging", slug: "cannabis-pre-roll-packaging" },
+      {
+        name: "Cannabis Pre Roll Packaging",
+        slug: "cannabis-pre-roll-packaging",
+      },
       { name: "Pre Roll Display Boxes", slug: "pre-roll-display-boxes" },
       { name: "Pre Roll Packaging", slug: "pre-roll-packaging" },
       { name: "Custom Delta 8 Boxes", slug: "custom-delta-8-boxes" },
       { name: "Pre Roll Packaging Labels", slug: "pre-roll-packaging-labels" },
-      { name: "Luxury Pre Roll Packaging", slug: "luxury-pre-roll-packaging" }
-    ]
+      { name: "Luxury Pre Roll Packaging", slug: "luxury-pre-roll-packaging" },
+    ],
   },
   {
     name: "Pizza Boxes",
@@ -597,9 +989,9 @@ export const productByIndustryData: IndustryCategory[] = [
       { name: "Flatbread Pizza Boxes", slug: "flatbread-pizza-boxes" },
       { name: "16 Inch Pizza Boxes", slug: "16-inch-pizza-boxes" },
       { name: "14 Inch Pizza Boxes", slug: "14-inch-pizza-boxes" },
-      { name: "Blank Pizza Boxes", slug: "blank-pizza-boxes" }
-    ]
-  }
+      { name: "Blank Pizza Boxes", slug: "blank-pizza-boxes" },
+    ],
+  },
 ];
 
 export default productByIndustryData;

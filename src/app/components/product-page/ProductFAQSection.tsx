@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import LightBlueBackground from '../../UI/LightBlueBackground';
 
 interface FAQItem {
   question: string;
@@ -27,17 +28,17 @@ const ProductFAQSection: React.FC<ProductFAQSectionProps> = ({ faq }) => {
   };
 
   return (
-    <section className="py-24 bg-white">
+    <LightBlueBackground>
       <div className="max-w-5xl mx-auto px-6 lg:px-8">
         {(faq.eyebrow || faq.heading) && (
-          <div className="text-center mb-14">
+          <div className="text-center mb-14 space-y-6">
             {faq.eyebrow && (
               <span className="inline-flex items-center text-xs tracking-[0.32em] uppercase font-semibold text-[#0c6b76] bg-[#0c6b76]/10 px-5 py-2 rounded-full">
                 {faq.eyebrow}
               </span>
             )}
             {faq.heading && (
-              <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-[#171717]">
+              <h2 className="text-4xl md:text-5xl lg:text-[3rem] font-bold leading-tight text-[#0c6b76] tracking-tight">
                 {faq.heading}
               </h2>
             )}
@@ -69,7 +70,7 @@ const ProductFAQSection: React.FC<ProductFAQSectionProps> = ({ faq }) => {
           })}
         </div>
       </div>
-    </section>
+    </LightBlueBackground>
   );
 };
 

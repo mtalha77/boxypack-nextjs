@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { CldImage } from 'next-cloudinary';
 import { SubCategory } from '../../data/navigationData';
-import LightBlueBackground from '../../UI/LightBlueBackground';
 
 interface CustomSubcategoryCard {
   name: string;
@@ -102,12 +101,12 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
   const descriptionText = customDescription || `Explore our comprehensive range of ${parentCategoryName.toLowerCase()} packaging solutions. Each category is designed to meet specific industry needs and requirements.`;
 
   return (
-    <LightBlueBackground className={className}>
+    <section className={`py-24 bg-white ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-labelledby="subcategories-heading">
         <div className="text-center mb-12">
           <h2 
             id="subcategories-heading"
-            className="text-h2 text-body-primary mb-4"
+            className="text-4xl md:text-5xl lg:text-[3rem] font-bold leading-tight text-[#0c6b76] tracking-tight mb-4"
           >
             {headingText}
           </h2>
@@ -191,7 +190,7 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
           </div>
         )}
       </div>
-    </LightBlueBackground>
+    </section>
   );
 };
 

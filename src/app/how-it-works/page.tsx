@@ -1,7 +1,7 @@
-import React from 'react';
-import HowItWorksHero from '../components/HowItWorks/HeroSection';
-import ProgressSteps from '../components/HowItWorks/ProgressSteps';
-import CTASection from '../components/product-design-page/CTASection';
+import React from "react";
+import HowItWorksHero from "../components/HowItWorks/HeroSection";
+import ProgressSteps from "../components/HowItWorks/ProgressSteps";
+import CTASection from "../components/product-page/CTASection";
 
 export default function HowItWorksPage() {
   return (
