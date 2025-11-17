@@ -1,10 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useMemo } from "react";
 import { useRouter } from "next/navigation";
-import Model3D from "./Model3D";
+import { CldImage } from "next-cloudinary";
 import GradientBackground from "../UI/GradientBackground";
-import ClientOnly from "./ClientOnly";
+import { productByMaterialData } from "@/app/data/productByMaterialData";
+import { productByIndustryData } from "@/app/data/productByIndustryData";
+import { mylarBoxesData } from "@/app/data/mylarBoxesData";
+import { shoppingBagsData } from "@/app/data/shoppingBagsData";
+import { otherData } from "@/app/data/otherData";
 
 export interface BreadcrumbItem {
   name: string;
@@ -22,13 +26,180 @@ interface HeroSectionProps {
   breadcrumbs?: BreadcrumbItem[];
 }
 
+// Helper function to find the best matched subcategory (not just the first one)
+const findBestMatchedSubcategory = (subcategories: Array<{ name: string; slug: string; images?: string[] }>): { images: string[] } | null => {
+  // Get all subcategories with images
+  const subcategoriesWithImages = subcategories.filter(
+    sub => sub.images && sub.images.length > 0
+  );
+
+  if (subcategoriesWithImages.length === 0) {
+    return null;
+  }
+
+  // Keywords that indicate more generic/representative subcategories
+  const preferredKeywords = [
+    'two piece', 'two-piece', 'mailer', 'box with lid', 'boxes with lid',
+    'gable', 'tuck end', 'sleeve', 'custom', 'standard', 'regular'
+  ];
+
+  // Keywords that indicate very specific/niche subcategories (to avoid)
+  const avoidKeywords = [
+    'magnetic', 'brief case', 'briefcase', 'book style', 'book-style',
+    'hexagon', 'round', 'child resistant', 'pillow', 'mini', 'pink',
+    'window', 'zipper', 'stand up', 'stand-up'
+  ];
+
+  // Score each subcategory
+  const scored = subcategoriesWithImages.map(sub => {
+    const nameLower = sub.name.toLowerCase();
+    let score = 0;
+
+    // Higher score for preferred keywords
+    preferredKeywords.forEach(keyword => {
+      if (nameLower.includes(keyword)) {
+        score += 10;
+      }
+    });
+
+    // Lower score for very specific keywords
+    avoidKeywords.forEach(keyword => {
+      if (nameLower.includes(keyword)) {
+        score -= 5;
+      }
+    });
+
+    return { subcategory: sub, score };
+  });
+
+  // Sort by score (highest first), then by position (middle positions preferred)
+  scored.sort((a, b) => {
+    if (b.score !== a.score) {
+      return b.score - a.score;
+    }
+    // If scores are equal, prefer middle positions
+    const indexA = subcategoriesWithImages.indexOf(a.subcategory);
+    const indexB = subcategoriesWithImages.indexOf(b.subcategory);
+    const middle = Math.floor(subcategoriesWithImages.length / 2);
+    const distanceA = Math.abs(indexA - middle);
+    const distanceB = Math.abs(indexB - middle);
+    return distanceA - distanceB;
+  });
+
+  // Return the best matched subcategory
+  return scored[0]?.subcategory as { images: string[] } | null;
+};
+
+// Utility function to get product image from subcategory data
+const getProductImage = (slug: string | undefined, fallbackImage: string): string => {
+  if (!slug) {
+    return fallbackImage;
+  }
+
+  // Search in productByMaterialData
+  for (const category of productByMaterialData) {
+    // First check if it's a subcategory match
+    const subcategory = category.subcategories.find(sub => sub.slug === slug);
+    if (subcategory?.images && subcategory.images.length > 0) {
+      return subcategory.images[0];
+    }
+    // If slug matches the category itself, get image from best matched subcategory
+    if (category.slug === slug) {
+      const bestMatched = findBestMatchedSubcategory(category.subcategories);
+      if (bestMatched?.images && bestMatched.images.length > 0) {
+        return bestMatched.images[0];
+      }
+      // Fallback to category image if no subcategories have images
+      if (category.image) {
+        return category.image;
+      }
+    }
+  }
+
+  // Search in productByIndustryData
+  for (const category of productByIndustryData) {
+    // First check if it's a subcategory match
+    const subcategory = category.subcategories.find(sub => sub.slug === slug);
+    if (subcategory?.images && subcategory.images.length > 0) {
+      return subcategory.images[0];
+    }
+    // If slug matches the category itself, get image from best matched subcategory
+    if (category.slug === slug) {
+      const bestMatched = findBestMatchedSubcategory(category.subcategories);
+      if (bestMatched?.images && bestMatched.images.length > 0) {
+        return bestMatched.images[0];
+      }
+      // Fallback to category image if no subcategories have images
+      if (category.image) {
+        return category.image;
+      }
+    }
+  }
+
+  // Search in mylarBoxesData
+  const mylarSubcategory = mylarBoxesData.subcategories.find(sub => sub.slug === slug);
+  if (mylarSubcategory?.images && mylarSubcategory.images.length > 0) {
+    return mylarSubcategory.images[0];
+  }
+  // If slug matches the category itself, get image from best matched subcategory
+  if (mylarBoxesData.slug === slug) {
+    const bestMatched = findBestMatchedSubcategory(mylarBoxesData.subcategories);
+    if (bestMatched?.images && bestMatched.images.length > 0) {
+      return bestMatched.images[0];
+    }
+    // Fallback to category image
+    if (mylarBoxesData.image) {
+      return mylarBoxesData.image;
+    }
+  }
+
+  // Search in shoppingBagsData
+  const shoppingBagSubcategory = shoppingBagsData.subcategories.find(sub => sub.slug === slug);
+  if (shoppingBagSubcategory?.images && shoppingBagSubcategory.images.length > 0) {
+    return shoppingBagSubcategory.images[0];
+  }
+  // If slug matches the category itself, get image from best matched subcategory
+  if (shoppingBagsData.slug === slug) {
+    const bestMatched = findBestMatchedSubcategory(shoppingBagsData.subcategories);
+    if (bestMatched?.images && bestMatched.images.length > 0) {
+      return bestMatched.images[0];
+    }
+    // Fallback to category image
+    if (shoppingBagsData.image) {
+      return shoppingBagsData.image;
+    }
+  }
+
+  // Search in otherData
+  const otherSubcategory = otherData.subcategories.find(sub => sub.slug === slug);
+  if (otherSubcategory?.images && otherSubcategory.images.length > 0) {
+    return otherSubcategory.images[0];
+  }
+  // If slug matches the category itself, get image from best matched subcategory
+  if (otherData.slug === slug) {
+    const bestMatched = findBestMatchedSubcategory(otherData.subcategories);
+    if (bestMatched?.images && bestMatched.images.length > 0) {
+      return bestMatched.images[0];
+    }
+    // Fallback to category image
+    if (otherData.image) {
+      return otherData.image;
+    }
+  }
+
+  return fallbackImage;
+};
+
 const HeroSection: React.FC<HeroSectionProps> = ({
   productData,
   breadcrumbs = [],
 }) => {
-  const [isModelReady, setIsModelReady] = useState(false);
-  const [hasModelError, setHasModelError] = useState(false);
   const router = useRouter();
+
+  // Get the product image - prefer subcategory image, fallback to heroImage
+  const productImage = useMemo(() => {
+    return getProductImage(productData.slug, productData.heroImage);
+  }, [productData.slug, productData.heroImage]);
 
   // Handle Order Now button click
   const handleOrderNow = () => {
@@ -96,42 +267,24 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         )}
 
         <div
-          className={`flex-1 grid grid-cols-1 ${
-            hasModelError ? "lg:grid-cols-1" : "lg:grid-cols-2"
-          } gap-6 sm:gap-8 lg:gap-12 ${
-            hasModelError ? "items-start" : "items-center"
-          }`}
+          className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center"
         >
-          {/* 3D Model - Top on mobile, Right on desktop - Only show if no error */}
-          {!hasModelError && (
-            <div className="relative flex justify-center items-center order-1 lg:order-2 -mt-8 sm:-mt-4 md:mt-0 lg:-mt-8">
-              <div className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] xl:h-[750px]">
-                <ClientOnly>
-                  {!isModelReady && (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <div className="text-white/70 text-body">
-                        Loading Model...
-                      </div>
-                    </div>
-                  )}
-                  <Model3D
-                    modelPath={productData.modelPath}
-                    className="w-full h-full"
-                    onModelReady={() => setIsModelReady(true)}
-                    onError={() => setHasModelError(true)}
-                  />
-                </ClientOnly>
-              </div>
-            </div>
-          )}
+          {/* Product Image - Top on mobile, Right on desktop */}
+          <div className="relative flex justify-center items-center order-1 lg:order-2">
+            <CldImage
+              src={productImage}
+              alt={productData.name}
+              width={600}
+              height={600}
+              className="w-full max-w-md h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] object-contain"
+              quality={90}
+              priority
+            />
+          </div>
 
           {/* Content - Bottom on mobile, Left on desktop */}
           <div
-            className={`text-white flex flex-col justify-center -mt-[30px] sm:-mt-4 md:mt-0 lg:-mt-48 ${
-              hasModelError
-                ? "order-2 lg:order-1 items-center lg:items-start" // Center content when model is hidden
-                : "order-2 lg:order-1 items-center lg:items-start" // Left align when model is visible
-            }`}
+            className="text-white flex flex-col justify-center order-2 lg:order-1 items-center lg:items-start"
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-3 sm:mb-4 leading-tight font-bold text-center lg:text-left">
               {productData.name}
