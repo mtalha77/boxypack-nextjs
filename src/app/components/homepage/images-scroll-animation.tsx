@@ -73,7 +73,7 @@ const ScrollVideoSection = () => {
   // Set canvas dimensions based on viewport and device pixel ratio for high-DPI displays
   useEffect(() => {
     const updateCanvasDimensions = () => {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== 'undefined' && canvasRef.current) {
         const dpr = window.devicePixelRatio || 1;
         const width = window.innerWidth;
         const height = window.innerHeight;
@@ -83,14 +83,20 @@ const ScrollVideoSection = () => {
           width: width * dpr,
           height: height * dpr
         });
+        
+        // Set canvas display size (CSS pixels) to ensure proper scaling
+        canvasRef.current.style.width = `${width}px`;
+        canvasRef.current.style.height = `${height}px`;
       }
     };
 
     updateCanvasDimensions();
     window.addEventListener('resize', updateCanvasDimensions);
+    window.addEventListener('orientationchange', updateCanvasDimensions);
 
     return () => {
       window.removeEventListener('resize', updateCanvasDimensions);
+      window.removeEventListener('orientationchange', updateCanvasDimensions);
     };
   }, []);
 
@@ -122,41 +128,90 @@ const ScrollVideoSection = () => {
     };
   }, []);
  
+  // Helper function to extract background color from image corner
+  const getImageBackgroundColor = useCallback((img: HTMLImageElement): string => {
+    try {
+      // Create a temporary canvas to sample pixel color
+      const tempCanvas = document.createElement('canvas');
+      tempCanvas.width = 1;
+      tempCanvas.height = 1;
+      const tempCtx = tempCanvas.getContext('2d');
+      
+      if (tempCtx && img.complete && img.naturalWidth > 0) {
+        // Draw a small portion from the top-left corner (or center of top edge for better accuracy)
+        tempCtx.drawImage(img, 0, 0, Math.min(10, img.width), Math.min(10, img.height), 0, 0, 1, 1);
+        const imageData = tempCtx.getImageData(0, 0, 1, 1);
+        const [r, g, b] = imageData.data;
+        // Convert to hex color
+        return `rgb(${r}, ${g}, ${b})`;
+      }
+    } catch (error) {
+      console.warn('Could not extract image background color:', error);
+    }
+    // Fallback to light gray if extraction fails
+    return '#f3f4f6';
+  }, []);
+
   const render = useCallback(
     (index: number) => {
-      if (canvasRef.current) {
+      if (canvasRef.current && typeof window !== 'undefined') {
         const ctx = canvasRef.current.getContext('2d', { alpha: false });
         if (ctx) {
           const canvas = canvasRef.current;
           const img = images[index - 1];
           
+          // Get display dimensions for mobile detection
+          const displayWidth = window.innerWidth;
+          const isMobile = displayWidth < 768;
+          
           // Enable image smoothing for better quality
           ctx.imageSmoothingEnabled = true;
           ctx.imageSmoothingQuality = 'high';
           
-          // Clear canvas
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          
           // Check if image is loaded and has dimensions
           if (img && img.complete && img.naturalWidth > 0) {
-            // Calculate aspect ratios
+            // Extract background color from image (for mobile view)
+            const backgroundColor = isMobile ? getImageBackgroundColor(img) : '#f3f4f6';
+            
+            // Fill canvas with image background color (especially for mobile)
+            ctx.fillStyle = backgroundColor;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Calculate aspect ratios using canvas internal dimensions
             const canvasAspect = canvas.width / canvas.height;
             const imgAspect = img.width / img.height;
             
             let drawWidth, drawHeight, offsetX, offsetY;
             
-            if (imgAspect > canvasAspect) {
-              // Image is wider than canvas - fit to height, center horizontally
-              drawHeight = canvas.height;
-              drawWidth = drawHeight * imgAspect;
+            if (isMobile) {
+              // Mobile: Use "contain" mode - fit image entirely within canvas (no corner cropping)
+              // Calculate scale to fit both width and height
+              const scaleX = canvas.width / img.width;
+              const scaleY = canvas.height / img.height;
+              // Use smaller scale to ensure entire image fits (contain mode)
+              const scale = Math.min(scaleX, scaleY);
+              
+              drawWidth = img.width * scale;
+              drawHeight = img.height * scale;
+              
+              // Center the image (no cropping, fits entirely within canvas)
               offsetX = (canvas.width - drawWidth) / 2;
-              offsetY = 0;
-            } else {
-              // Image is taller than canvas - fit to width, center vertically
-              drawWidth = canvas.width;
-              drawHeight = drawWidth / imgAspect;
-              offsetX = 0;
               offsetY = (canvas.height - drawHeight) / 2;
+            } else {
+              // Desktop: Original logic - fit based on aspect ratios
+              if (imgAspect > canvasAspect) {
+                // Image is wider than canvas - fit to height, center horizontally
+                drawHeight = canvas.height;
+                drawWidth = drawHeight * imgAspect;
+                offsetX = (canvas.width - drawWidth) / 2;
+                offsetY = 0;
+              } else {
+                // Image is taller than canvas - fit to width, center vertically
+                drawWidth = canvas.width;
+                drawHeight = drawWidth / imgAspect;
+                offsetX = 0;
+                offsetY = (canvas.height - drawHeight) / 2;
+              }
             }
             
             // Draw the image centered and maintaining aspect ratio
@@ -169,7 +224,7 @@ const ScrollVideoSection = () => {
         }
       }
     },
-    [images]
+    [images, getImageBackgroundColor]
   );
  
   // Transform scroll progress to image index (1 to 150)
@@ -202,6 +257,13 @@ const ScrollVideoSection = () => {
     render(1);
   }, [render]);
 
+  // Re-render when canvas dimensions change (e.g., on resize or orientation change)
+  useEffect(() => {
+    if (canvasDimensions.width > 0 && canvasDimensions.height > 0) {
+      render(currentImageIndex);
+    }
+  }, [canvasDimensions, render, currentImageIndex]);
+
   // Fallback: Force animation to start after a delay
   useEffect(() => {
     const fallbackTimer = setTimeout(() => {
@@ -228,9 +290,12 @@ const ScrollVideoSection = () => {
             ref={canvasRef}
             width={canvasDimensions.width}
             height={canvasDimensions.height}
-            className="w-full h-full md:h-full h-screen"
+            className="w-full h-full"
             style={{
-              display: 'block'
+              display: 'block',
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain'
             }}
           />  
         </div>

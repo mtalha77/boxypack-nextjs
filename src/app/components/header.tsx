@@ -55,6 +55,9 @@ const Header: React.FC = () => {
   const [mobileExpandedSections, setMobileExpandedSections] = useState<
     Set<string>
   >(new Set());
+  const [mobileExpandedPages, setMobileExpandedPages] = useState<
+    Set<string>
+  >(new Set());
 
   // Cart state
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -83,6 +86,8 @@ const Header: React.FC = () => {
   const [useEnhancedSearch, setUseEnhancedSearch] = useState(true);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
+  const [headerHeight, setHeaderHeight] = useState(88);
   const router = useRouter();
 
   // Initialize search data
@@ -92,6 +97,25 @@ const Header: React.FC = () => {
     setAllSearchData(searchData);
     setAllEnhancedSearchData(enhancedData);
   }, []);
+
+  // Calculate header height for mobile menu positioning
+  useEffect(() => {
+    const updateHeaderHeight = () => {
+      if (headerRef.current && typeof window !== 'undefined' && window.innerWidth < 768) {
+        setHeaderHeight(headerRef.current.offsetHeight);
+      }
+    };
+    updateHeaderHeight();
+    window.addEventListener('resize', updateHeaderHeight);
+    return () => window.removeEventListener('resize', updateHeaderHeight);
+  }, []);
+
+  // Recalculate header height when mobile menu opens
+  useEffect(() => {
+    if (isMobileMenuOpen && headerRef.current && typeof window !== 'undefined' && window.innerWidth < 768) {
+      setHeaderHeight(headerRef.current.offsetHeight);
+    }
+  }, [isMobileMenuOpen]);
 
   // Search functionality
   useEffect(() => {
@@ -290,15 +314,30 @@ const Header: React.FC = () => {
   ]);
   const getVisibleCategories = (section: NavigationSection) => {
     if (section.slug === "product-by-industry" && section.categories) {
-      return section.categories.filter((c) =>
-        allowedIndustryCategoryNames.has(c.name)
-      );
+      // Filter and deduplicate industries
+      const seen = new Set<string>();
+      return section.categories.filter((c) => {
+        if (seen.has(c.slug)) return false;
+        seen.add(c.slug);
+        return allowedIndustryCategoryNames.has(c.name);
+      });
+    }
+    if (section.slug === "product-by-material" && section.categories) {
+      // Limit to 4 materials and deduplicate
+      const seen = new Set<string>();
+      return section.categories
+        .filter((c) => {
+          if (seen.has(c.slug)) return false;
+          seen.add(c.slug);
+          return true;
+        })
+        .slice(0, 4);
     }
     return section.categories || [];
   };
 
   return (
-    <header className="bg-white">
+    <header ref={headerRef} className="bg-white sticky top-0 z-50 md:relative">
       {/* Main Header Bar */}
       <div className="md:px-12 lg:px-16 px-6 py-4">
         <div className="flex items-center justify-between">
@@ -449,33 +488,15 @@ const Header: React.FC = () => {
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div
-          className={`md:hidden fixed inset-0 bg-black ${headerConfig.mobile.overlayOpacity} z-50`}
+          className={`md:hidden fixed left-0 right-0 bottom-0 bg-black ${headerConfig.mobile.overlayOpacity} z-40`}
+          style={{ top: `${headerHeight}px` }}
           onClick={() => setIsMobileMenuOpen(false)}
         >
           <div
-            className={`absolute top-0 right-0 ${headerConfig.mobile.menuWidth} h-full bg-white shadow-lg overflow-y-auto`}
+            className="absolute top-0 left-0 right-0 w-full h-full bg-white shadow-lg overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="p-6 pb-20">
-              <div className="flex items-center justify-between mb-6">
-                {/* mobile logo */}
-                <Link href="/" className="flex items-center">
-                  <CldImage
-                    src={headerConfig.logo.iconPath}
-                    alt={headerConfig.logo.alt}
-                    width={headerConfig.logo.width}
-                    height={headerConfig.logo.height}
-                    priority
-                  />
-                </Link>
-                <button
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-gray-500 hover:text-gray-700"
-                >
-                  <X className="w-6 h-6" />
-                </button>
-              </div>
-
               {/* Mobile Search Bar */}
               <div className="mb-6">
                 <div className="relative">
@@ -578,47 +599,14 @@ const Header: React.FC = () => {
                           <div className="px-4 pb-4">
                             <div className="pt-3 space-y-2">
                               {section.categories
-                                ? section.categories.flatMap((category) => {
-                                    // For Mylar Boxes, Shopping Bags, and Others, show subcategories directly
+                                ? (() => {
+                                    // For Materials and Industries, use getVisibleCategories and map directly
                                     if (
-                                      [
-                                        "mylar-boxes",
-                                        "shopping-bags",
-                                        "other",
-                                      ].includes(section.slug)
+                                      section.slug === "product-by-material" ||
+                                      section.slug === "product-by-industry"
                                     ) {
-                                      return (
-                                        category.subcategories?.map(
-                                          (subcategory) => (
-                                            <Link
-                                              key={subcategory.slug}
-                                              href={`/products/${section.slug}/${subcategory.slug}`}
-                                              onClick={() =>
-                                                setIsMobileMenuOpen(false)
-                                              }
-                                                  className="flex items-center gap-2 py-2 px-3 text-sm text-gray-600 hover:text-[#0c6b76] hover:bg-gray-50 rounded-md transition-colors"
-                                            >
-                                                  <CldImage
-                                                    src={getSubcategoryIcon(
-                                                      subcategory.name
-                                                    )}
-                                                    alt={subcategory.name}
-                                                    width={24}
-                                                    height={24}
-                                                    className="w-6 h-6 flex-shrink-0"
-                                                  />
-                                              {subcategory.name}
-                                            </Link>
-                                          )
-                                        ) || []
-                                      );
-                                    } else {
-                                      // For Materials and Industries, show categories
-                                      const categoriesToShow =
-                                        section.slug === "product-by-industry"
-                                          ? getVisibleCategories(section)
-                                          : section.categories;
-                                      return (categoriesToShow || []).map((cat) => (
+                                      const categoriesToShow = getVisibleCategories(section);
+                                      return categoriesToShow.map((cat) => (
                                         <Link
                                           key={cat.slug}
                                           href={`/products/${section.slug}/${cat.slug}`}
@@ -631,7 +619,55 @@ const Header: React.FC = () => {
                                         </Link>
                                       ));
                                     }
-                                  })
+                                    // For Mylar Boxes, Shopping Bags, and Others, show subcategories directly using flatMap
+                                    if (
+                                      [
+                                        "mylar-boxes",
+                                        "shopping-bags",
+                                        "other",
+                                      ].includes(section.slug)
+                                    ) {
+                                      return section.categories.flatMap(
+                                        (category) =>
+                                          category.subcategories?.map(
+                                            (subcategory) => (
+                                              <Link
+                                                key={subcategory.slug}
+                                                href={`/products/${section.slug}/${subcategory.slug}`}
+                                                onClick={() =>
+                                                  setIsMobileMenuOpen(false)
+                                                }
+                                                className="flex items-center gap-2 py-2 px-3 text-sm text-gray-600 hover:text-[#0c6b76] hover:bg-gray-50 rounded-md transition-colors"
+                                              >
+                                                <CldImage
+                                                  src={getSubcategoryIcon(
+                                                    subcategory.name
+                                                  )}
+                                                  alt={subcategory.name}
+                                                  width={24}
+                                                  height={24}
+                                                  className="w-6 h-6 flex-shrink-0"
+                                                />
+                                                {subcategory.name}
+                                              </Link>
+                                            )
+                                          ) || []
+                                      );
+                                    }
+                                    // Fallback for other sections
+                                    return section.categories.map((cat) => (
+                                      <Link
+                                        key={cat.slug}
+                                        href={`/products/${section.slug}/${cat.slug}`}
+                                        onClick={() =>
+                                          setIsMobileMenuOpen(false)
+                                        }
+                                        className="block py-2 px-3 text-sm text-gray-600 hover:text-[#0c6b76] hover:bg-gray-50 rounded-md transition-colors"
+                                      >
+                                        {cat.name}
+                                      </Link>
+                                    ));
+                                  })()
                                 : // Fallback for sections with direct subcategories
                                   section.subcategories?.map((subcategory) => (
                                     <Link
@@ -662,20 +698,46 @@ const Header: React.FC = () => {
                 </h3>
                 {headerConfig.navigation.items.map((item) =>
                   item.hasDropdown && item.dropdownItems ? (
-                    <div key={item.name} className="space-y-2">
-                      <div className="font-semibold text-gray-900 px-4 py-2 bg-gray-100 rounded-lg">
-                        {item.name}
-                      </div>
-                      {item.dropdownItems.map((dropdownItem) => (
-                        <Link
-                          key={dropdownItem.href}
-                          href={dropdownItem.href}
-                          className="block py-2 px-6 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {dropdownItem.name}
-                        </Link>
-                      ))}
+                    <div key={item.name} className="border-b border-gray-200">
+                      <button
+                        onClick={() => {
+                          setMobileExpandedPages((prev) => {
+                            const newSet = new Set(prev);
+                            if (newSet.has(item.name)) {
+                              newSet.delete(item.name);
+                            } else {
+                              newSet.add(item.name);
+                            }
+                            return newSet;
+                          });
+                        }}
+                        className="w-full p-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                      >
+                        <h4 className="font-medium text-gray-900">
+                          {item.name}
+                        </h4>
+                        <ChevronDown
+                          className={`w-5 h-5 text-gray-500 transition-transform duration-200 ${
+                            mobileExpandedPages.has(item.name) ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
+                      {mobileExpandedPages.has(item.name) && (
+                        <div className="px-4 pb-4">
+                          <div className="pt-3 space-y-2">
+                            {item.dropdownItems.map((dropdownItem) => (
+                              <Link
+                                key={dropdownItem.href}
+                                href={dropdownItem.href}
+                                className="block py-2 px-3 text-sm text-gray-600 hover:text-[#0c6b76] hover:bg-gray-50 rounded-md transition-colors"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                {dropdownItem.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   ) : (
                     <Link

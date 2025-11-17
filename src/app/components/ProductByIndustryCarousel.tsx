@@ -10,19 +10,23 @@ const ProductByIndustryCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardWidth, setCardWidth] = useState(324);
   const [isMobile, setIsMobile] = useState(false);
+  const [gap, setGap] = useState(24);
 
-  // Calculate card width based on screen size
+  // Calculate card width and gap based on screen size
   React.useEffect(() => {
     const updateCardWidth = () => {
       const isMobileView = window.innerWidth < 768;
       setIsMobile(isMobileView);
 
       if (isMobileView) {
-        // Mobile: full viewport width minus container padding
-        setCardWidth(window.innerWidth - 32); // 32px for container padding (16px left + 16px right)
+        // Mobile: full viewport width minus container padding (16px on each side = 32px total)
+        const viewportWidth = window.innerWidth;
+        setCardWidth(viewportWidth - 32); // 32px for container padding
+        setGap(16); // Smaller gap on mobile
       } else {
-        // Desktop: fixed width
+        // Desktop: fixed width and gap
         setCardWidth(300);
+        setGap(24);
       }
     };
 
@@ -174,29 +178,33 @@ const ProductByIndustryCarousel: React.FC = () => {
         </div>
 
         {/* Cards Container */}
-        <div className="w-full mb-8 overflow-hidden px-4">
-          <div
-            ref={cardsContainerRef}
-            className="flex gap-6 transition-transform duration-500 ease-in-out"
-            style={{
-              transform: `translateX(-${currentIndex * (cardWidth + 24)}px)`,
-            }}
-          >
-            {productByIndustryData.map((category, cardIndex) => (
-              <div
-                key={cardIndex}
-                className="group max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 flex-shrink-0"
-                style={{
-                  width: isMobile ? `${cardWidth}px` : "300px",
-                }}
-              >
+        <div className="w-full mb-8 overflow-hidden">
+          <div className={isMobile ? "px-4" : "md:px-0"}>
+            <div
+              ref={cardsContainerRef}
+              className="flex transition-transform duration-500 ease-in-out md:justify-center"
+              style={{
+                transform: isMobile 
+                  ? `translateX(-${currentIndex * (cardWidth + gap)}px)`
+                  : `translateX(-${currentIndex * (cardWidth + gap)}px)`,
+                gap: `${gap}px`,
+              }}
+            >
+              {productByIndustryData.map((category, cardIndex) => (
+                <div
+                  key={cardIndex}
+                  className="group bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 flex-shrink-0"
+                  style={{
+                    width: isMobile ? `${cardWidth}px` : "300px",
+                  }}
+                >
                 <Link href={`/products/product-by-industry/${category.slug}`}>
                   <CldImage
                     src={getCategoryDisplayImage(category)}
                     alt={category.name}
                     width={400}
                     height={400}
-                    className="w-full h-64 object-cover rounded-t-lg"
+                    className="w-full h-80 sm:h-96 md:h-64 object-cover rounded-t-lg"
                   />
                 </Link>
                 <div className="p-5">
@@ -231,8 +239,9 @@ const ProductByIndustryCarousel: React.FC = () => {
                     </svg>
                   </Link>
                 </div>
-              </div>
-            ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 

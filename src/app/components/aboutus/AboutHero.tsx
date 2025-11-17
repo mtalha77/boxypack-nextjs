@@ -7,11 +7,11 @@ import { Award, Users, Clock, Heart } from 'lucide-react';
 
 const AboutHero: React.FC = () => {
   return (
-    <LightBlueBackground className="relative min-h-[80vh] overflow-hidden">
+    <LightBlueBackground className="relative min-h-[60vh] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-0">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-stretch">
           {/* Left Content */}
-          <div className="space-y-6">
+          <div className="space-y-6 flex flex-col">
             <div className="space-y-6">
               <h1 className="text-h1 leading-tight text-[#0c6b76]">
                 Boxes Built To <span className="text-heading-secondary">Grow Your Brand</span>
@@ -19,38 +19,63 @@ const AboutHero: React.FC = () => {
               
               <div className="space-y-4 text-body-large text-body-primary max-w-lg">
                 <p>
-                  <span className="font-semibold text-[var(--color-teal-deep)]">BoxyPack</span> is where box and packaging meet passion. We make boxes that protect, present, and promote your products. Select a box by material or industry type, set quantity, and design with colors. Our instant quotes bring clarity while our finishing choices add uniqueness.
+                  <span className="font-semibold text-[var(--color-teal-deep)]">BoxyPack</span> is where box and packaging meet passion. We make boxes that protect, present, and promote your products. Select a box by material or industry type, set quantity, and design with colors.
                 </p>
                 
                 <p>
-                  Every box is made to match your brand needs and create lasting impressions that customers remember.
+                  Our <span className="font-semibold text-[var(--color-turquoise-bright)]">instant quotes</span> bring clarity while our finishing choices add uniqueness. Every box is made to match your brand needs.
                 </p>
               </div>
             </div>
 
-            {/* Design Made Simple Section */}
-            <div className="mt-8 p-6 bg-white/50 rounded-2xl backdrop-blur-sm border border-white/20">
-              <h3 className="text-h4 font-bold text-heading-secondary mb-3">
-                Design Made Simple For Everyone
-              </h3>
-              <p className="text-body text-body-secondary">
-                Choose your box type, select quantity, and start designing. Add colors or text, then view instant pricing. BoxyPack makes custom packaging simple, creative, and easy.
-              </p>
+            {/* Key Features - Flow Icons */}
+            <div className="grid grid-cols-2 gap-4 pt-6">
+              <div className="text-center p-4 bg-white/50 rounded-2xl backdrop-blur-sm">
+                <div className="w-12 h-12 bg-[var(--color-turquoise-bright)] rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Award className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-h4 font-bold text-heading-secondary">Quality</div>
+                <div className="text-caption text-body-secondary">Premium Products</div>
+              </div>
+              
+              <div className="text-center p-4 bg-white/50 rounded-2xl backdrop-blur-sm">
+                <div className="w-12 h-12 bg-[var(--color-teal-deep)] rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Users className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-h4 font-bold text-heading-secondary">Expert</div>
+                <div className="text-caption text-body-secondary">Dedicated Team</div>
+              </div>
+              
+              <div className="text-center p-4 bg-white/50 rounded-2xl backdrop-blur-sm">
+                <div className="w-12 h-12 bg-[var(--color-brown-golden)] rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Clock className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-h4 font-bold text-heading-secondary">Fast</div>
+                <div className="text-caption text-body-secondary">Quick Delivery</div>
+              </div>
+              
+              <div className="text-center p-4 bg-white/50 rounded-2xl backdrop-blur-sm">
+                <div className="w-12 h-12 bg-[var(--color-brown-rustic)] rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Heart className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-h4 font-bold text-heading-secondary">Passionate</div>
+                <div className="text-caption text-body-secondary">Brand Building</div>
+              </div>
             </div>
-
           </div>
 
           {/* Right Content - Image */}
-          <div className="relative flex justify-center items-center h-full">
-            <div className="relative w-full h-full max-h-[600px]">
-              <CldImage
-                src="Product-Packaging-Boxes"
-                alt="Custom packaging boxes that build brands - BoxyPack product showcase"
-                width={600}
-                height={600}
-                className="w-full h-full object-cover relative z-20 rounded-2xl shadow-2xl"
-                priority
-              />
+          <div className="relative flex justify-center">
+            <div className="relative w-full h-full">
+              <div className="w-full h-full bg-gradient-to-br from-[var(--color-turquoise-bright)]/10 to-[var(--color-teal-deep)]/10 rounded-2xl flex items-center justify-center">
+                <div className="text-center space-y-4 p-8">
+                  <Award className="w-24 h-24 text-[var(--color-teal-deep)] mx-auto" />
+                  <h3 className="text-h3 font-bold text-heading-secondary">Building Brands</h3>
+                  <p className="text-body-secondary max-w-sm">
+                    Quality boxes that protect your products and showcase your brand
+                  </p>
+                </div>
+              </div>
               {/* Decorative elements */}
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-[var(--color-turquoise-bright)]/20 rounded-full blur-xl"></div>
               <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-[var(--color-teal-deep)]/20 rounded-full blur-xl"></div>
@@ -58,7 +83,6 @@ const AboutHero: React.FC = () => {
           </div>
         </div>
       </div>
-
     </LightBlueBackground>
   );
 };

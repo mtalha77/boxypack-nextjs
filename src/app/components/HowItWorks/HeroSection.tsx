@@ -7,9 +7,9 @@ import LightBlueBackground from '../../UI/LightBlueBackground';
 
 const HowItWorksHero: React.FC = () => {
   return (
-    <LightBlueBackground className="relative overflow-hidden !py-4 md:!py-6">
+    <LightBlueBackground className="relative overflow-hidden !py-12 md:!py-16 lg:!py-24 min-h-[60vh] md:min-h-[70vh]">
       <div className="max-w-7xl mx-auto px-6 md:px-0">
-        <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center min-h-[50vh] md:min-h-[60vh]">
           {/* Left Content */}
           <div className="space-y-3 md:space-y-4">
             <div className="space-y-2 md:space-y-3 text-body-large text-body-primary">
