@@ -306,20 +306,14 @@ const Header: React.FC = () => {
     return navigationData.find((section) => section.slug === slug);
   };
 
-  // Restrict visible categories for industries until content is ready
-  const allowedIndustryCategoryNames = new Set<string>([
-    "Bakery Boxes",
-    "Jewelry Boxes",
-    "Soap Boxes",
-  ]);
   const getVisibleCategories = (section: NavigationSection) => {
     if (section.slug === "product-by-industry" && section.categories) {
-      // Filter and deduplicate industries
+      // Show all industries with deduplication
       const seen = new Set<string>();
       return section.categories.filter((c) => {
         if (seen.has(c.slug)) return false;
         seen.add(c.slug);
-        return allowedIndustryCategoryNames.has(c.name);
+        return true;
       });
     }
     if (section.slug === "product-by-material" && section.categories) {

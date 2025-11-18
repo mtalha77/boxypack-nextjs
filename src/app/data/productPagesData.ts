@@ -583,6 +583,1663 @@ const rawProductData: Record<string, RawProductEntry> = {
         "Get in touch with BoxyPack today for custom soap boxes that combine eco-conscious design with premium presentation. Our packaging experts are ready to help you create sustainable, beautiful packaging that adds value to every bar. Contact us now to begin your next order and make your soaps shine on every shelf.",
     },
   },
+
+  // Industry Main Category: Cosmetic Boxes
+  "cosmetic-boxes": {
+    name: "Cosmetic Boxes",
+    description:
+      "Stylish, elegant, and made to impress. Buy cosmetic boxes wholesale for beauty products that look as good as they perform, with packaging that elevates your brand.",
+    heroImage: "Box-5_pdb8xw",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("cosmetic-boxes")
+    keyFeatures: [
+      "Premium materials that protect and showcase beauty products",
+      "Custom printing for logos, branding, and product details",
+      "Multiple sizes and styles for all cosmetic items",
+      "Window cutouts and display options for visual appeal",
+      "Eco-friendly and recyclable packaging options",
+      "Luxury finishes including matte, gloss, and soft-touch",
+      "Ideal for makeup brands, beauty retailers, and cosmetic companies",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, lift-off lid, or drawer style",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L x W x H)",
+          value: "e.g., 10 × 6 × 4",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Cosmetic Boxes Wholesale",
+      paragraphs: [
+        "Our cosmetic boxes are designed to protect and showcase beauty products with elegance and style. Whether you're packaging makeup, skincare, perfumes, or beauty accessories, these boxes combine premium presentation with durable protection. Each box ensures your products arrive safely while creating a memorable unboxing experience for your customers.",
+        "At BoxyPack, we craft custom cosmetic boxes wholesale that match your brand's personality and vision. From printed makeup boxes to luxury perfume packaging, we tailor every box for your products and audience. Our designs help you stand out on shelves and in customers' memories with premium finishes and thoughtful details.",
+        "As a cosmetic packaging boxes supplier, we deliver superior print quality, durable structure, and luxury materials at a competitive cosmetic boxes price that fits small and large businesses alike.",
+      ],
+    },
+    faq: buildFaq("Cosmetic Boxes", [
+      {
+        question: "What are cosmetic boxes used for?",
+        answer:
+          "They're used for packaging makeup, skincare products, perfumes, nail polish, and other beauty items.",
+      },
+      {
+        question: "Can I customize cosmetic boxes with my logo?",
+        answer:
+          "Yes, BoxyPack provides full-color printing, embossing, and foil stamping for custom cosmetic boxes wholesale.",
+      },
+      {
+        question: "Are cosmetic boxes eco-friendly?",
+        answer:
+          "Yes, we offer eco-friendly cosmetic packaging boxes made from recyclable and sustainable materials.",
+      },
+      {
+        question: "Do you sell cosmetic boxes in bulk?",
+        answer:
+          "Absolutely, you can buy cosmetic boxes online in bulk at discounted wholesale rates.",
+      },
+      {
+        question: "What determines the cosmetic boxes price?",
+        answer:
+          "Pricing depends on size, material type, printing complexity, finish options, and order quantity.",
+      },
+    ]),
+    cta: {
+      title: "Beautiful Designs, Premium Packaging",
+      description:
+        "Get in touch with BoxyPack today for custom cosmetic boxes that protect and promote your beauty products with style. Our packaging experts are ready to design the perfect solution for your brand. Contact us now to place your bulk order and make every product look irresistible.",
+    },
+  },
+
+  // Industry Main Category: Food Boxes
+  "food-boxes": {
+    name: "Food Boxes",
+    description:
+      "Safe, smart, and sustainable. Buy food boxes wholesale for takeout, delivery, and retail food packaging that keeps meals fresh and customers satisfied.",
+    heroImage: "Box-6_vm3fmh",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("food-boxes")
+    keyFeatures: [
+      "Food-grade materials that keep meals fresh and safe",
+      "Grease-resistant and leak-proof designs",
+      "Custom printing for logos and branding",
+      "Multiple sizes for various food items",
+      "Eco-friendly and recyclable packaging options",
+      "Microwave-safe options available",
+      "Ideal for restaurants, cafés, food trucks, and delivery services",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Food-safe cardboard, kraft, or laminated paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, auto-lock bottom, windowed panels, or gable style",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt",
+        },
+        {
+          label: "Finish",
+          value: "Matte or gloss lamination or uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L x W x H)",
+          value: "e.g., 10 × 6 × 4",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Food Boxes Wholesale",
+      paragraphs: [
+        "Our food boxes are designed to protect and preserve meals while maintaining freshness and quality. Whether you're packaging hot takeout, cold snacks, or prepared meals, these boxes combine food safety with practical design. Each box ensures your food arrives at the perfect temperature and condition, creating a positive experience for your customers.",
+        "At BoxyPack, we craft custom food boxes wholesale that match your restaurant's brand and menu needs. From printed takeout boxes to eco-friendly snack containers, we tailor every box for your food items and customer expectations. Our designs help you stand out in delivery and takeout while maintaining food quality.",
+        "As a food packaging boxes supplier, we deliver superior print quality, durable structure, and food-grade materials at a competitive food boxes price that fits small eateries and large restaurant chains alike.",
+      ],
+    },
+    faq: buildFaq("Food Boxes", [
+      {
+        question: "What are food boxes used for?",
+        answer:
+          "They're used for packaging takeout meals, delivery orders, snacks, and prepared foods from restaurants and food service businesses.",
+      },
+      {
+        question: "Can I customize food boxes with my restaurant logo?",
+        answer:
+          "Yes, BoxyPack provides full-color printing for custom food boxes wholesale with your logo and branding.",
+      },
+      {
+        question: "Are food boxes eco-friendly?",
+        answer:
+          "Yes, we offer eco-friendly food packaging boxes made from recyclable kraft and cardboard materials.",
+      },
+      {
+        question: "Do you sell food boxes in bulk?",
+        answer:
+          "Absolutely, you can buy food boxes online in bulk at discounted wholesale rates.",
+      },
+      {
+        question: "What determines the food boxes price?",
+        answer:
+          "Pricing depends on size, material type, printing complexity, coating options, and order quantity.",
+      },
+    ]),
+    cta: {
+      title: "Fresh Designs, Fresh Food",
+      description:
+        "Get in touch with BoxyPack today for custom food boxes that protect and promote your meals with style. Our packaging experts are ready to design the perfect solution for your restaurant. Contact us now to place your bulk order and make every meal look irresistible.",
+    },
+  },
+
+  // Industry Main Category: Gift Boxes
+  "gift-boxes": {
+    name: "Gift Boxes",
+    description:
+      "Elegant, memorable, and perfectly designed. Buy gift boxes wholesale for gifting that creates unforgettable moments and showcases your brand with style.",
+    heroImage: "shipping-box_jyysru",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("gift-boxes")
+    keyFeatures: [
+      "Premium materials that protect and showcase gifts",
+      "Custom printing for logos, messages, and branding",
+      "Multiple sizes and styles for various gift types",
+      "Luxury finishes including matte, gloss, and soft-touch",
+      "Eco-friendly and recyclable packaging options",
+      "Magnetic closures and elegant lids for premium feel",
+      "Perfect for retailers, gift shops, and special occasions",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, lift-off lid, or pillow style",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L x W x H)",
+          value: "e.g., 10 × 6 × 4",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Gift Boxes Wholesale",
+      paragraphs: [
+        "Our gift boxes are designed to create memorable unboxing experiences while protecting and showcasing gifts with elegance. Whether you're packaging jewelry, cosmetics, food items, or special occasion gifts, these boxes combine premium presentation with durable protection. Each box ensures your gifts arrive safely while creating a delightful moment that customers remember.",
+        "At BoxyPack, we craft custom gift boxes wholesale that match your brand's personality and occasion needs. From printed birthday boxes to luxury deluxe gift cases, we tailor every box for your products and audience. Our designs help you stand out and create lasting impressions with premium finishes and thoughtful details.",
+        "As a gift boxes supplier, we deliver superior print quality, durable structure, and luxury materials at a competitive gift boxes price that fits small businesses and large retailers alike.",
+      ],
+    },
+    faq: buildFaq("Gift Boxes", [
+      {
+        question: "What are gift boxes used for?",
+        answer:
+          "They're used for packaging gifts for birthdays, holidays, special occasions, and retail gifting.",
+      },
+      {
+        question: "Can I customize gift boxes with my logo?",
+        answer:
+          "Yes, BoxyPack provides full-color printing, embossing, and foil stamping for custom gift boxes wholesale.",
+      },
+      {
+        question: "Are gift boxes eco-friendly?",
+        answer:
+          "Yes, we offer eco-friendly gift packaging boxes made from recyclable and sustainable materials.",
+      },
+      {
+        question: "Do you sell gift boxes in bulk?",
+        answer:
+          "Absolutely, you can buy gift boxes online in bulk at discounted wholesale rates.",
+      },
+      {
+        question: "What determines the gift boxes price?",
+        answer:
+          "Pricing depends on size, material type, printing complexity, finish options, and order quantity.",
+      },
+    ]),
+    cta: {
+      title: "Elegant Designs, Memorable Moments",
+      description:
+        "Get in touch with BoxyPack today for custom gift boxes that create unforgettable gifting experiences. Our packaging experts are ready to design the perfect solution for your brand. Contact us now to place your bulk order and make every gift moment special.",
+    },
+  },
+
+  // Industry Main Category: Retail Boxes
+  "retail-boxes": {
+    name: "Retail Boxes",
+    description:
+      "Smart, versatile, and brand-forward. Buy retail boxes wholesale for modern retail packaging that protects products and elevates your brand presence.",
+    heroImage: "Box-5_pdb8xw",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("retail-boxes")
+    keyFeatures: [
+      "Versatile designs for various retail products",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes and styles for different product types",
+      "Eco-friendly and recyclable packaging options",
+      "Durable construction for retail display and shipping",
+      "Window and die-cut options for product visibility",
+      "Perfect for retailers, e-commerce, and product brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard, kraft paperboard, or rigid board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, auto-lock bottom, mailer style, or die-cut",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, or uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L x W x H)",
+          value: "e.g., 10 × 6 × 4",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Retail Boxes Wholesale",
+      paragraphs: [
+        "Our retail boxes are designed to protect and showcase products while maintaining brand presence in retail environments. Whether you're packaging toys, electronics, accessories, or general merchandise, these boxes combine functionality with attractive presentation. Each box ensures your products arrive safely while creating a professional appearance that customers trust.",
+        "At BoxyPack, we craft custom retail boxes wholesale that match your brand's identity and product needs. From printed mailer boxes to die-cut display boxes, we tailor every box for your products and retail environment. Our designs help you stand out on shelves and in customers' hands with professional finishes and thoughtful details.",
+        "As a retail boxes supplier, we deliver superior print quality, durable structure, and versatile designs at a competitive retail boxes price that fits small businesses and large retailers alike.",
+      ],
+    },
+    faq: buildFaq("Retail Boxes", [
+      {
+        question: "What are retail boxes used for?",
+        answer:
+          "They're used for packaging products sold in retail stores, e-commerce, and general merchandise for display and shipping.",
+      },
+      {
+        question: "Can I customize retail boxes with my brand logo?",
+        answer:
+          "Yes, BoxyPack provides full-color printing for custom retail boxes wholesale with your logo and branding.",
+      },
+      {
+        question: "Are retail boxes eco-friendly?",
+        answer:
+          "Yes, we offer eco-friendly retail packaging boxes made from recyclable cardboard and kraft materials.",
+      },
+      {
+        question: "Do you sell retail boxes in bulk?",
+        answer:
+          "Absolutely, you can buy retail boxes online in bulk at discounted wholesale rates.",
+      },
+      {
+        question: "What determines the retail boxes price?",
+        answer:
+          "Pricing depends on size, material type, printing complexity, die-cut options, and order quantity.",
+      },
+    ]),
+    cta: {
+      title: "Smart Packaging for Smart Brands",
+      description:
+        "Get in touch with BoxyPack today for custom retail boxes that protect and promote your products with style. Our packaging experts are ready to design the perfect solution for your retail brand. Contact us now to place your bulk order and make every product look professional.",
+    },
+  },
+
+  // Industry Main Category: Candle Boxes
+  "candle-boxes": {
+    name: "Candle Boxes",
+    description:
+      "Warm, elegant, and perfectly designed. Buy candle boxes wholesale for fragrant candle packaging that protects candles and creates memorable unboxing experiences.",
+    heroImage: "Box-6_vm3fmh",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("candle-boxes")
+    keyFeatures: [
+      "Premium materials that protect candles from damage",
+      "Custom printing for logos, scents, and brand identity",
+      "Multiple sizes for various candle types",
+      "Window options for product visibility",
+      "Eco-friendly and recyclable packaging options",
+      "Luxury finishes including matte, gloss, and soft-touch",
+      "Perfect for candle makers, retailers, and gift shops",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, lift-off lid, or mailer style",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L x W x H)",
+          value: "e.g., 10 × 6 × 4",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Candle Boxes Wholesale",
+      paragraphs: [
+        "Our candle boxes are designed to protect and showcase candles while maintaining their fragrance and quality. Whether you're packaging jar candles, taper candles, or wax melts, these boxes combine premium presentation with durable protection. Each box ensures your candles arrive safely while creating a warm, inviting unboxing experience for your customers.",
+        "At BoxyPack, we craft custom candle boxes wholesale that match your brand's personality and candle types. From printed gift boxes to luxury candle cases, we tailor every box for your products and audience. Our designs help you stand out on shelves and in customers' memories with premium finishes and thoughtful details.",
+        "As a candle boxes supplier, we deliver superior print quality, durable structure, and luxury materials at a competitive candle boxes price that fits small artisans and large candle companies alike.",
+      ],
+    },
+    faq: buildFaq("Candle Boxes", [
+      {
+        question: "What are candle boxes used for?",
+        answer:
+          "They're used for packaging candles, jar candles, taper candles, and wax melts for retail sale, gifting, and shipping.",
+      },
+      {
+        question: "Can I customize candle boxes with my brand logo?",
+        answer:
+          "Yes, BoxyPack provides full-color printing, embossing, and foil stamping for custom candle boxes wholesale.",
+      },
+      {
+        question: "Are candle boxes eco-friendly?",
+        answer:
+          "Yes, we offer eco-friendly candle packaging boxes made from recyclable and sustainable materials.",
+      },
+      {
+        question: "Do you sell candle boxes in bulk?",
+        answer:
+          "Absolutely, you can buy candle boxes online in bulk at discounted wholesale rates.",
+      },
+      {
+        question: "What determines the candle boxes price?",
+        answer:
+          "Pricing depends on size, material type, printing complexity, finish options, and order quantity.",
+      },
+    ]),
+    cta: {
+      title: "Warm Designs, Fragrant Memories",
+      description:
+        "Get in touch with BoxyPack today for custom candle boxes that protect and promote your candles with style. Our packaging experts are ready to design the perfect solution for your candle brand. Contact us now to place your bulk order and make every candle look irresistible.",
+    },
+  },
+
+  // Industry Main Category: Shipping Boxes
+  "shipping-boxes-industry": {
+    name: "Shipping Boxes",
+    description:
+      "Strong, reliable, and perfectly designed. Buy shipping boxes wholesale for delivery packaging that protects products during transit and showcases your brand.",
+    heroImage: "shipping-box_jyysru",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("shipping-boxes-industry")
+    keyFeatures: [
+      "Durable construction for shipping protection",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various product types",
+      "Secure closures for safe transit",
+      "Eco-friendly and recyclable packaging options",
+      "Easy assembly and sealing",
+      "Perfect for e-commerce, shipping, and product delivery",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard, kraft paperboard, or corrugated",
+        },
+        {
+          label: "Structure",
+          value: "Mailer style, tuck-end, auto-lock bottom, or RSC",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, or uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L x W x H)",
+          value: "e.g., 12 × 8 × 6",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Shipping Boxes Wholesale",
+      paragraphs: [
+        "Our shipping boxes are designed to protect products during transit while maintaining brand presence throughout the delivery process. Whether you're shipping small items or large products, these boxes combine durable construction with attractive presentation. Each box ensures your products arrive safely while creating a professional unboxing experience for your customers.",
+        "At BoxyPack, we craft custom shipping boxes wholesale that match your brand's identity and shipping needs. From printed mailer boxes to corrugated shipping cases, we tailor every box for your products and delivery requirements. Our designs help you stand out in customers' mailboxes with professional finishes and thoughtful details.",
+        "As a shipping boxes supplier, we deliver superior quality, durable structure, and versatile designs at a competitive shipping boxes price that fits small businesses and large e-commerce operations alike.",
+      ],
+    },
+    faq: buildFaq("Shipping Boxes", [
+      {
+        question: "What are shipping boxes used for?",
+        answer:
+          "They're used for shipping products via mail, e-commerce delivery, and product distribution with secure packaging.",
+      },
+      {
+        question: "Can I customize shipping boxes with my brand logo?",
+        answer:
+          "Yes, BoxyPack provides full-color printing for custom shipping boxes wholesale with your logo and branding.",
+      },
+      {
+        question: "Are shipping boxes eco-friendly?",
+        answer:
+          "Yes, we offer eco-friendly shipping packaging boxes made from recyclable cardboard and kraft materials.",
+      },
+      {
+        question: "Do you sell shipping boxes in bulk?",
+        answer:
+          "Absolutely, you can buy shipping boxes online in bulk at discounted wholesale rates.",
+      },
+      {
+        question: "What determines the shipping boxes price?",
+        answer:
+          "Pricing depends on size, material type, printing complexity, corrugated options, and order quantity.",
+      },
+    ]),
+    cta: {
+      title: "Strong Boxes, Reliable Delivery",
+      description:
+        "Get in touch with BoxyPack today for custom shipping boxes that protect and promote your products with style. Our packaging experts are ready to design the perfect solution for your shipping needs. Contact us now to place your bulk order and make every delivery look professional.",
+    },
+  },
+
+  // Industry Main Category: Apparel Boxes
+  "apparel-boxes": {
+    name: "Apparel Boxes",
+    description:
+      "Premium, elegant, and perfectly designed. Buy apparel boxes wholesale for fashion and clothing packaging that protects garments and showcases your brand.",
+    heroImage: "Box-5_pdb8xw",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("apparel-boxes")
+    keyFeatures: [
+      "Premium materials that protect clothing and accessories",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various apparel types",
+      "Eco-friendly and recyclable packaging options",
+      "Luxury finishes including matte, gloss, and soft-touch",
+      "Window and display options for product visibility",
+      "Perfect for fashion brands, clothing retailers, and apparel stores",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, lift-off lid, or mailer style",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L x W x H)",
+          value: "e.g., 12 × 8 × 4",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Apparel Boxes Wholesale",
+      paragraphs: [
+        "Our apparel boxes are designed to protect and showcase clothing and fashion accessories while maintaining brand presence. Whether you're packaging shirts, ties, belts, or accessories, these boxes combine premium presentation with durable protection. Each box ensures your apparel arrives safely while creating a professional unboxing experience for your customers.",
+        "At BoxyPack, we craft custom apparel boxes wholesale that match your brand's identity and clothing needs. From printed clothing boxes to luxury accessory cases, we tailor every box for your products and audience. Our designs help you stand out on shelves and in customers' closets with premium finishes and thoughtful details.",
+        "As an apparel boxes supplier, we deliver superior print quality, durable structure, and luxury materials at a competitive apparel boxes price that fits small boutiques and large fashion retailers alike.",
+      ],
+    },
+    faq: buildFaq("Apparel Boxes", [
+      {
+        question: "What are apparel boxes used for?",
+        answer:
+          "They're used for packaging clothing, fashion accessories, and apparel items for retail sale, gifting, and shipping.",
+      },
+      {
+        question: "Can I customize apparel boxes with my brand logo?",
+        answer:
+          "Yes, BoxyPack provides full-color printing, embossing, and foil stamping for custom apparel boxes wholesale.",
+      },
+      {
+        question: "Are apparel boxes eco-friendly?",
+        answer:
+          "Yes, we offer eco-friendly apparel packaging boxes made from recyclable and sustainable materials.",
+      },
+      {
+        question: "Do you sell apparel boxes in bulk?",
+        answer:
+          "Absolutely, you can buy apparel boxes online in bulk at discounted wholesale rates.",
+      },
+      {
+        question: "What determines the apparel boxes price?",
+        answer:
+          "Pricing depends on size, material type, printing complexity, finish options, and order quantity.",
+      },
+    ]),
+    cta: {
+      title: "Premium Packaging for Premium Fashion",
+      description:
+        "Get in touch with BoxyPack today for custom apparel boxes that protect and promote your clothing with style. Our packaging experts are ready to design the perfect solution for your fashion brand. Contact us now to place your bulk order and make every garment look irresistible.",
+    },
+  },
+
+  // Industry Main Category: Sports Boxes
+  "sports-boxes": {
+    name: "Sports Boxes",
+    description:
+      "Durable, protective, and perfectly designed. Buy sports boxes wholesale for active lifestyle gear packaging that protects equipment and showcases your brand.",
+    heroImage: "Box-6_vm3fmh",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("sports-boxes")
+    keyFeatures: [
+      "Durable construction for sports equipment protection",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various sports gear types",
+      "Eco-friendly and recyclable packaging options",
+      "Strong materials for heavy-duty use",
+      "Window and display options for product visibility",
+      "Perfect for sports retailers, athletic brands, and equipment stores",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard, kraft paperboard, or corrugated",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, auto-lock bottom, mailer style, or RSC",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, or uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L x W x H)",
+          value: "e.g., 14 × 10 × 6",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Sports Boxes Wholesale",
+      paragraphs: [
+        "Our sports boxes are designed to protect and showcase sports equipment and active lifestyle gear while maintaining brand presence. Whether you're packaging shoes, balls, or athletic equipment, these boxes combine durable construction with attractive presentation. Each box ensures your sports gear arrives safely while creating a professional unboxing experience for your customers.",
+        "At BoxyPack, we craft custom sports boxes wholesale that match your brand's identity and equipment needs. From printed shoe boxes to athletic equipment cases, we tailor every box for your products and audience. Our designs help you stand out on shelves and in customers' hands with durable finishes and thoughtful details.",
+        "As a sports boxes supplier, we deliver superior quality, durable structure, and versatile designs at a competitive sports boxes price that fits small retailers and large athletic brands alike.",
+      ],
+    },
+    faq: buildFaq("Sports Boxes", [
+      {
+        question: "What are sports boxes used for?",
+        answer:
+          "They're used for packaging sports equipment, athletic gear, shoes, and active lifestyle products for retail sale, gifting, and shipping.",
+      },
+      {
+        question: "Can I customize sports boxes with my brand logo?",
+        answer:
+          "Yes, BoxyPack provides full-color printing for custom sports boxes wholesale with your logo and branding.",
+      },
+      {
+        question: "Are sports boxes eco-friendly?",
+        answer:
+          "Yes, we offer eco-friendly sports packaging boxes made from recyclable cardboard and kraft materials.",
+      },
+      {
+        question: "Do you sell sports boxes in bulk?",
+        answer:
+          "Absolutely, you can buy sports boxes online in bulk at discounted wholesale rates.",
+      },
+      {
+        question: "What determines the sports boxes price?",
+        answer:
+          "Pricing depends on size, material type, printing complexity, corrugated options, and order quantity.",
+      },
+    ]),
+    cta: {
+      title: "Durable Packaging for Active Lifestyles",
+      description:
+        "Get in touch with BoxyPack today for custom sports boxes that protect and promote your athletic gear with style. Our packaging experts are ready to design the perfect solution for your sports brand. Contact us now to place your bulk order and make every piece of equipment look professional.",
+    },
+  },
+
+  // Industry Main Category: Cigarette Boxes
+  "cigarette-boxes-industry": {
+    name: "Cigarette Boxes",
+    description:
+      "Sleek, protective, and perfectly designed. Buy cigarette boxes wholesale for tobacco product packaging that protects products and showcases your brand.",
+    heroImage: "shipping-box_jyysru",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("cigarette-boxes-industry")
+    keyFeatures: [
+      "Durable construction for product protection",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various product types",
+      "Eco-friendly and recyclable packaging options",
+      "Compliant with packaging regulations",
+      "Window and display options for product visibility",
+      "Perfect for tobacco brands, retailers, and product manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard, kraft paperboard, or paper",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, flip-top, auto-lock bottom, or rigid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, or uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L x W x H)",
+          value: "e.g., 9 × 5 × 2",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Cigarette Boxes Wholesale",
+      paragraphs: [
+        "Our cigarette boxes are designed to protect and showcase tobacco products while maintaining brand presence and regulatory compliance. Whether you're packaging cigarettes, cigars, or tobacco products, these boxes combine durable construction with attractive presentation. Each box ensures your products arrive safely while creating a professional appearance that customers trust.",
+        "At BoxyPack, we craft custom cigarette boxes wholesale that match your brand's identity and product needs. From printed flip-top boxes to rigid cigarette cases, we tailor every box for your products and audience. Our designs help you stand out on shelves with professional finishes and thoughtful details.",
+        "As a cigarette boxes supplier, we deliver superior quality, durable structure, and compliant designs at a competitive cigarette boxes price that fits small retailers and large tobacco brands alike.",
+      ],
+    },
+    faq: buildFaq("Cigarette Boxes", [
+      {
+        question: "What are cigarette boxes used for?",
+        answer:
+          "They're used for packaging cigarettes, cigars, and tobacco products for retail sale, distribution, and brand presentation.",
+      },
+      {
+        question: "Can I customize cigarette boxes with my brand logo?",
+        answer:
+          "Yes, BoxyPack provides full-color printing for custom cigarette boxes wholesale with your logo and branding.",
+      },
+      {
+        question: "Are cigarette boxes compliant with regulations?",
+        answer:
+          "Yes, we ensure our cigarette boxes meet packaging regulations and requirements for tobacco products.",
+      },
+      {
+        question: "Do you sell cigarette boxes in bulk?",
+        answer:
+          "Absolutely, you can buy cigarette boxes online in bulk at discounted wholesale rates.",
+      },
+      {
+        question: "What determines the cigarette boxes price?",
+        answer:
+          "Pricing depends on size, material type, printing complexity, finish options, and order quantity.",
+      },
+    ]),
+    cta: {
+      title: "Sleek Packaging for Tobacco Brands",
+      description:
+        "Get in touch with BoxyPack today for custom cigarette boxes that protect and promote your tobacco products with style. Our packaging experts are ready to design the perfect solution for your brand. Contact us now to place your bulk order and make every product look professional.",
+    },
+  },
+
+  // Industry Main Category: CBD Boxes
+  "cbd-boxes": {
+    name: "CBD Boxes",
+    description:
+      "Eco-friendly, protective, and perfectly designed. Buy CBD boxes wholesale for CBD and hemp product packaging that protects products and showcases your brand.",
+    heroImage: "Box-4_lztqi7",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("cbd-boxes")
+    keyFeatures: [
+      "Eco-friendly materials for sustainable packaging",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various CBD product types",
+      "Compliant with packaging regulations",
+      "Premium materials that protect CBD products",
+      "Window and display options for product visibility",
+      "Perfect for CBD brands, hemp retailers, and cannabis product manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Eco-friendly cardboard, kraft paperboard, or rigid board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, lift-off lid, or mailer style",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L x W x H)",
+          value: "e.g., 8 × 4 × 3",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom CBD Boxes Wholesale",
+      paragraphs: [
+        "Our CBD boxes are designed to protect and showcase CBD and hemp products while maintaining brand presence and regulatory compliance. Whether you're packaging oils, gummies, tinctures, or pre-rolls, these boxes combine eco-friendly materials with attractive presentation. Each box ensures your CBD products arrive safely while creating a professional appearance that customers trust.",
+        "At BoxyPack, we craft custom CBD boxes wholesale that match your brand's identity and product needs. From printed gift boxes to tincture cases, we tailor every box for your products and audience. Our designs help you stand out on shelves with eco-friendly finishes and thoughtful details.",
+        "As a CBD boxes supplier, we deliver superior quality, eco-friendly structure, and compliant designs at a competitive CBD boxes price that fits small retailers and large CBD brands alike.",
+      ],
+    },
+    faq: buildFaq("CBD Boxes", [
+      {
+        question: "What are CBD boxes used for?",
+        answer:
+          "They're used for packaging CBD products, hemp products, oils, gummies, tinctures, and cannabis products for retail sale, gifting, and shipping.",
+      },
+      {
+        question: "Can I customize CBD boxes with my brand logo?",
+        answer:
+          "Yes, BoxyPack provides full-color printing for custom CBD boxes wholesale with your logo and branding.",
+      },
+      {
+        question: "Are CBD boxes eco-friendly?",
+        answer:
+          "Yes, we offer eco-friendly CBD packaging boxes made from recyclable and sustainable materials.",
+      },
+      {
+        question: "Do you sell CBD boxes in bulk?",
+        answer:
+          "Absolutely, you can buy CBD boxes online in bulk at discounted wholesale rates.",
+      },
+      {
+        question: "What determines the CBD boxes price?",
+        answer:
+          "Pricing depends on size, material type, printing complexity, finish options, and order quantity.",
+      },
+    ]),
+    cta: {
+      title: "Eco-Friendly Packaging for CBD Brands",
+      description:
+        "Get in touch with BoxyPack today for custom CBD boxes that protect and promote your CBD products with style. Our packaging experts are ready to design the perfect solution for your CBD brand. Contact us now to place your bulk order and make every product look professional.",
+    },
+  },
+
+  // Industry Main Category: Vape Boxes
+  "vape-boxes": {
+    name: "Vape Boxes",
+    description:
+      "Modern, protective, and perfectly designed. Buy vape boxes wholesale for vape product packaging that protects devices and showcases your brand.",
+    heroImage: "Box-5_pdb8xw",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("vape-boxes")
+    keyFeatures: [
+      "Durable construction for vape device protection",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various vape product types",
+      "Eco-friendly and recyclable packaging options",
+      "Compliant with packaging regulations",
+      "Window and display options for product visibility",
+      "Perfect for vape brands, retailers, and device manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard, kraft paperboard, or rigid board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, lift-off lid, or mailer style",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L x W x H)",
+          value: "e.g., 8 × 4 × 2",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Vape Boxes Wholesale",
+      paragraphs: [
+        "Our vape boxes are designed to protect and showcase vape products and devices while maintaining brand presence and regulatory compliance. Whether you're packaging vape pens, cartridges, or disposable devices, these boxes combine durable construction with attractive presentation. Each box ensures your vape products arrive safely while creating a professional appearance that customers trust.",
+        "At BoxyPack, we craft custom vape boxes wholesale that match your brand's identity and product needs. From printed cartridge boxes to device cases, we tailor every box for your products and audience. Our designs help you stand out on shelves with professional finishes and thoughtful details.",
+        "As a vape boxes supplier, we deliver superior quality, durable structure, and compliant designs at a competitive vape boxes price that fits small retailers and large vape brands alike.",
+      ],
+    },
+    faq: buildFaq("Vape Boxes", [
+      {
+        question: "What are vape boxes used for?",
+        answer:
+          "They're used for packaging vape products, devices, cartridges, and disposable vapes for retail sale, distribution, and brand presentation.",
+      },
+      {
+        question: "Can I customize vape boxes with my brand logo?",
+        answer:
+          "Yes, BoxyPack provides full-color printing for custom vape boxes wholesale with your logo and branding.",
+      },
+      {
+        question: "Are vape boxes compliant with regulations?",
+        answer:
+          "Yes, we ensure our vape boxes meet packaging regulations and requirements for vape products.",
+      },
+      {
+        question: "Do you sell vape boxes in bulk?",
+        answer:
+          "Absolutely, you can buy vape boxes online in bulk at discounted wholesale rates.",
+      },
+      {
+        question: "What determines the vape boxes price?",
+        answer:
+          "Pricing depends on size, material type, printing complexity, finish options, and order quantity.",
+      },
+    ]),
+    cta: {
+      title: "Modern Packaging for Modern Brands",
+      description:
+        "Get in touch with BoxyPack today for custom vape boxes that protect and promote your vape products with style. Our packaging experts are ready to design the perfect solution for your vape brand. Contact us now to place your bulk order and make every product look professional.",
+    },
+  },
+
+  // Industry Main Category: E-liquid Boxes
+  "e-liquid-boxes": {
+    name: "E-liquid Boxes",
+    description:
+      "Trendy, protective, and perfectly designed. Buy e-liquid boxes wholesale for e-juice product packaging that protects bottles and showcases your brand.",
+    heroImage: "Box-6_vm3fmh",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("e-liquid-boxes")
+    keyFeatures: [
+      "Durable construction for e-liquid bottle protection",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various bottle types",
+      "Eco-friendly and recyclable packaging options",
+      "Compliant with packaging regulations",
+      "Window and display options for product visibility",
+      "Perfect for e-liquid brands, vape retailers, and e-juice manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard, kraft paperboard, or rigid board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, lift-off lid, or mailer style",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L x W x H)",
+          value: "e.g., 6 × 4 × 2",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom E-liquid Boxes Wholesale",
+      paragraphs: [
+        "Our e-liquid boxes are designed to protect and showcase e-juice products and bottles while maintaining brand presence and regulatory compliance. Whether you're packaging e-liquid bottles, gift sets, or display collections, these boxes combine durable construction with attractive presentation. Each box ensures your e-liquid products arrive safely while creating a professional appearance that customers trust.",
+        "At BoxyPack, we craft custom e-liquid boxes wholesale that match your brand's identity and product needs. From printed bottle boxes to gift sets, we tailor every box for your products and audience. Our designs help you stand out on shelves with trendy finishes and thoughtful details.",
+        "As an e-liquid boxes supplier, we deliver superior quality, durable structure, and compliant designs at a competitive e-liquid boxes price that fits small retailers and large e-liquid brands alike.",
+      ],
+    },
+    faq: buildFaq("E-liquid Boxes", [
+      {
+        question: "What are e-liquid boxes used for?",
+        answer:
+          "They're used for packaging e-liquid bottles, e-juice products, and collections for retail sale, gifting, and brand presentation.",
+      },
+      {
+        question: "Can I customize e-liquid boxes with my brand logo?",
+        answer:
+          "Yes, BoxyPack provides full-color printing for custom e-liquid boxes wholesale with your logo and branding.",
+      },
+      {
+        question: "Are e-liquid boxes compliant with regulations?",
+        answer:
+          "Yes, we ensure our e-liquid boxes meet packaging regulations and requirements for e-liquid products.",
+      },
+      {
+        question: "Do you sell e-liquid boxes in bulk?",
+        answer:
+          "Absolutely, you can buy e-liquid boxes online in bulk at discounted wholesale rates.",
+      },
+      {
+        question: "What determines the e-liquid boxes price?",
+        answer:
+          "Pricing depends on size, material type, printing complexity, finish options, and order quantity.",
+      },
+    ]),
+    cta: {
+      title: "Trendy Packaging for E-juice Collections",
+      description:
+        "Get in touch with BoxyPack today for custom e-liquid boxes that protect and promote your e-juice products with style. Our packaging experts are ready to design the perfect solution for your e-liquid brand. Contact us now to place your bulk order and make every product look professional.",
+    },
+  },
+
+  // Industry Main Category: Stationery Boxes
+  "stationery-boxes": {
+    name: "Stationery Boxes",
+    description:
+      "Creative, organized, and perfectly designed. Buy stationery boxes wholesale for office essentials packaging that protects supplies and showcases your brand.",
+    heroImage: "shipping-box_jyysru",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("stationery-boxes")
+    keyFeatures: [
+      "Durable construction for office supply protection",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various stationery items",
+      "Eco-friendly and recyclable packaging options",
+      "Organized compartments for different supplies",
+      "Window and display options for product visibility",
+      "Perfect for office supply brands, retailers, and stationery manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard, kraft paperboard, or rigid board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, lift-off lid, or mailer style",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L x W x H)",
+          value: "e.g., 10 × 6 × 2",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Stationery Boxes Wholesale",
+      paragraphs: [
+        "Our stationery boxes are designed to protect and organize office essentials and stationery supplies while maintaining brand presence. Whether you're packaging pens, pencils, books, or presentation folders, these boxes combine durable construction with attractive presentation. Each box ensures your stationery products arrive safely while creating a professional appearance that customers trust.",
+        "At BoxyPack, we craft custom stationery boxes wholesale that match your brand's identity and product needs. From printed pen boxes to book packaging, we tailor every box for your products and audience. Our designs help you stand out on shelves with creative finishes and thoughtful organization.",
+        "As a stationery boxes supplier, we deliver superior quality, durable structure, and organized designs at a competitive stationery boxes price that fits small retailers and large office supply brands alike.",
+      ],
+    },
+    faq: buildFaq("Stationery Boxes", [
+      {
+        question: "What are stationery boxes used for?",
+        answer:
+          "They're used for packaging office essentials like pens, pencils, books, and presentation folders for retail sale, gifting, and brand presentation.",
+      },
+      {
+        question: "Can I customize stationery boxes with my brand logo?",
+        answer:
+          "Yes, BoxyPack provides full-color printing for custom stationery boxes wholesale with your logo and branding.",
+      },
+      {
+        question: "Do stationery boxes have compartments?",
+        answer:
+          "Yes, we can design stationery boxes with organized compartments for different supplies and items.",
+      },
+      {
+        question: "Do you sell stationery boxes in bulk?",
+        answer:
+          "Absolutely, you can buy stationery boxes online in bulk at discounted wholesale rates.",
+      },
+      {
+        question: "What determines the stationery boxes price?",
+        answer:
+          "Pricing depends on size, material type, printing complexity, finish options, and order quantity.",
+      },
+    ]),
+    cta: {
+      title: "Creative Packaging for Office Essentials",
+      description:
+        "Get in touch with BoxyPack today for custom stationery boxes that protect and promote your office supplies with style. Our packaging experts are ready to design the perfect solution for your stationery brand. Contact us now to place your bulk order and make every product look professional.",
+    },
+  },
+
+  // Industry Main Category: Christmas Boxes
+  "christmas-boxes": {
+    name: "Christmas Boxes",
+    description:
+      "Festive, joyful, and perfectly designed. Buy Christmas boxes wholesale for holiday gift packaging that spreads cheer and showcases your brand.",
+    heroImage: "Box-4_lztqi7",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("christmas-boxes")
+    keyFeatures: [
+      "Festive holiday designs and seasonal themes",
+      "Durable construction for gift protection",
+      "Custom printing for logos and holiday branding",
+      "Multiple sizes for various gift types",
+      "Eco-friendly and recyclable packaging options",
+      "Window and display options for product visibility",
+      "Perfect for holiday retailers, gift shops, and festive brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard, kraft paperboard, or rigid board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, lift-off lid, or mailer style",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L x W x H)",
+          value: "e.g., 8 × 6 × 3",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Christmas Boxes Wholesale",
+      paragraphs: [
+        "Our Christmas boxes are designed to spread holiday cheer and protect festive gifts while maintaining brand presence. Whether you're packaging holiday treats, gifts, or seasonal products, these boxes combine durable construction with festive presentation. Each box ensures your Christmas gifts arrive safely while creating a joyful appearance that customers love.",
+        "At BoxyPack, we craft custom Christmas boxes wholesale that match your brand's identity and holiday needs. From printed gift boxes to treat containers, we tailor every box for your products and audience. Our designs help you stand out during the holiday season with festive finishes and thoughtful details.",
+        "As a Christmas boxes supplier, we deliver superior quality, durable structure, and festive designs at a competitive Christmas boxes price that fits small retailers and large holiday brands alike.",
+      ],
+    },
+    faq: buildFaq("Christmas Boxes", [
+      {
+        question: "What are Christmas boxes used for?",
+        answer:
+          "They're used for packaging holiday gifts, treats, and festive products for retail sale, gifting, and brand presentation during the Christmas season.",
+      },
+      {
+        question: "Can I customize Christmas boxes with my brand logo?",
+        answer:
+          "Yes, BoxyPack provides full-color printing for custom Christmas boxes wholesale with your logo and holiday branding.",
+      },
+      {
+        question: "Do you offer festive holiday designs?",
+        answer:
+          "Yes, we offer various festive designs and seasonal themes for Christmas boxes to match the holiday spirit.",
+      },
+      {
+        question: "Do you sell Christmas boxes in bulk?",
+        answer:
+          "Absolutely, you can buy Christmas boxes online in bulk at discounted wholesale rates.",
+      },
+      {
+        question: "What determines the Christmas boxes price?",
+        answer:
+          "Pricing depends on size, material type, printing complexity, finish options, and order quantity.",
+      },
+    ]),
+    cta: {
+      title: "Festive Packaging for Joyful Holiday Gifts",
+      description:
+        "Get in touch with BoxyPack today for custom Christmas boxes that protect and promote your holiday products with festive style. Our packaging experts are ready to design the perfect solution for your Christmas brand. Contact us now to place your bulk order and make every gift look joyful.",
+    },
+  },
+
+  // Industry Main Category: Chocolate Boxes
+  "chocolate-boxes": {
+    name: "Chocolate Boxes",
+    description:
+      "Elegant, protective, and perfectly designed. Buy chocolate boxes wholesale for gourmet chocolate packaging that protects treats and showcases your brand.",
+    heroImage: "Box-5_pdb8xw",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("chocolate-boxes")
+    keyFeatures: [
+      "Food-safe materials for direct chocolate contact",
+      "Elegant designs for gourmet presentation",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various chocolate types",
+      "Eco-friendly and recyclable packaging options",
+      "Window and display options for product visibility",
+      "Perfect for chocolatiers, gourmet brands, and chocolate retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard, kraft paperboard, or rigid board (food-safe)",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, lift-off lid, or mailer style",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L x W x H)",
+          value: "e.g., 8 × 6 × 2",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Chocolate Boxes Wholesale",
+      paragraphs: [
+        "Our chocolate boxes are designed to protect and showcase gourmet chocolates while maintaining brand presence and food safety. Whether you're packaging chocolate bars, truffles, or gift sets, these boxes combine durable construction with elegant presentation. Each box ensures your chocolates arrive safely while creating a premium appearance that customers trust.",
+        "At BoxyPack, we craft custom chocolate boxes wholesale that match your brand's identity and chocolate needs. From printed bar boxes to luxury gift sets, we tailor every box for your products and audience. Our designs help you stand out on shelves with elegant finishes and thoughtful details.",
+        "As a chocolate boxes supplier, we deliver superior quality, food-safe structure, and elegant designs at a competitive chocolate boxes price that fits small chocolatiers and large gourmet brands alike.",
+      ],
+    },
+    faq: buildFaq("Chocolate Boxes", [
+      {
+        question: "What are chocolate boxes used for?",
+        answer:
+          "They're used for packaging gourmet chocolates, chocolate bars, truffles, and gift sets for retail sale, gifting, and brand presentation.",
+      },
+      {
+        question: "Are chocolate boxes food-safe?",
+        answer:
+          "Yes, our chocolate boxes are made from food-safe materials suitable for direct food contact with chocolates.",
+      },
+      {
+        question: "Can I customize chocolate boxes with my brand logo?",
+        answer:
+          "Yes, BoxyPack provides full-color printing for custom chocolate boxes wholesale with your logo and branding.",
+      },
+      {
+        question: "Do you sell chocolate boxes in bulk?",
+        answer:
+          "Absolutely, you can buy chocolate boxes online in bulk at discounted wholesale rates.",
+      },
+      {
+        question: "What determines the chocolate boxes price?",
+        answer:
+          "Pricing depends on size, material type, printing complexity, finish options, and order quantity.",
+      },
+    ]),
+    cta: {
+      title: "Elegant Packaging for Gourmet Chocolates",
+      description:
+        "Get in touch with BoxyPack today for custom chocolate boxes that protect and promote your gourmet chocolates with elegant style. Our packaging experts are ready to design the perfect solution for your chocolate brand. Contact us now to place your bulk order and make every chocolate look premium.",
+    },
+  },
+
+  // Industry Main Category: Cereal Boxes
+  "cereal-boxes": {
+    name: "Cereal Boxes",
+    description:
+      "Vibrant, protective, and perfectly designed. Buy cereal boxes wholesale for breakfast cereal packaging that protects products and showcases your brand.",
+    heroImage: "Box-6_vm3fmh",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("cereal-boxes")
+    keyFeatures: [
+      "Food-safe materials for direct cereal contact",
+      "Vibrant designs for breakfast brand appeal",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various cereal types",
+      "Eco-friendly and recyclable packaging options",
+      "Window and display options for product visibility",
+      "Perfect for cereal manufacturers, breakfast brands, and food retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard, kraft paperboard, or corrugated board (food-safe)",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, auto-lock bottom, or mailer style",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L x W x H)",
+          value: "e.g., 10 × 6 × 3",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Cereal Boxes Wholesale",
+      paragraphs: [
+        "Our cereal boxes are designed to protect and showcase breakfast cereals while maintaining brand presence and food safety. Whether you're packaging corn flakes, granola, or specialty cereals, these boxes combine durable construction with vibrant presentation. Each box ensures your cereals arrive safely while creating an appealing appearance that customers trust.",
+        "At BoxyPack, we craft custom cereal boxes wholesale that match your brand's identity and cereal needs. From printed breakfast boxes to colorful designs, we tailor every box for your products and audience. Our designs help you stand out on shelves with vibrant finishes and thoughtful details.",
+        "As a cereal boxes supplier, we deliver superior quality, food-safe structure, and vibrant designs at a competitive cereal boxes price that fits small manufacturers and large breakfast brands alike.",
+      ],
+    },
+    faq: buildFaq("Cereal Boxes", [
+      {
+        question: "What are cereal boxes used for?",
+        answer:
+          "They're used for packaging breakfast cereals, corn flakes, granola, and cereal products for retail sale, distribution, and brand presentation.",
+      },
+      {
+        question: "Are cereal boxes food-safe?",
+        answer:
+          "Yes, our cereal boxes are made from food-safe materials suitable for direct food contact with cereals.",
+      },
+      {
+        question: "Can I customize cereal boxes with my brand logo?",
+        answer:
+          "Yes, BoxyPack provides full-color printing for custom cereal boxes wholesale with your logo and branding.",
+      },
+      {
+        question: "Do you sell cereal boxes in bulk?",
+        answer:
+          "Absolutely, you can buy cereal boxes online in bulk at discounted wholesale rates.",
+      },
+      {
+        question: "What determines the cereal boxes price?",
+        answer:
+          "Pricing depends on size, material type, printing complexity, finish options, and order quantity.",
+      },
+    ]),
+    cta: {
+      title: "Vibrant Packaging for Breakfast Cereal Brands",
+      description:
+        "Get in touch with BoxyPack today for custom cereal boxes that protect and promote your breakfast cereals with vibrant style. Our packaging experts are ready to design the perfect solution for your cereal brand. Contact us now to place your bulk order and make every product look appealing.",
+    },
+  },
+
+  // Industry Main Category: Pre Roll Boxes
+  "pre-roll-boxes-industry": {
+    name: "Pre Roll Boxes",
+    description:
+      "Secure, protective, and perfectly designed. Buy pre roll boxes wholesale for pre-roll product packaging that protects products and showcases your brand.",
+    heroImage: "shipping-box_jyysru",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("pre-roll-boxes-industry")
+    keyFeatures: [
+      "Secure construction for pre-roll product protection",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various pre-roll types",
+      "Eco-friendly and recyclable packaging options",
+      "Compliant with packaging regulations",
+      "Window and display options for product visibility",
+      "Perfect for cannabis brands, pre-roll manufacturers, and retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard, kraft paperboard, or rigid board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, lift-off lid, or mailer style",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L x W x H)",
+          value: "e.g., 6 × 4 × 1",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Pre Roll Boxes Wholesale",
+      paragraphs: [
+        "Our pre roll boxes are designed to protect and showcase pre-roll products while maintaining brand presence and regulatory compliance. Whether you're packaging cannabis pre-rolls, delta 8 products, or specialty pre-rolls, these boxes combine durable construction with attractive presentation. Each box ensures your pre-roll products arrive safely while creating a professional appearance that customers trust.",
+        "At BoxyPack, we craft custom pre roll boxes wholesale that match your brand's identity and product needs. From printed display boxes to luxury packaging, we tailor every box for your products and audience. Our designs help you stand out on shelves with professional finishes and thoughtful details.",
+        "As a pre roll boxes supplier, we deliver superior quality, durable structure, and compliant designs at a competitive pre roll boxes price that fits small retailers and large cannabis brands alike.",
+      ],
+    },
+    faq: buildFaq("Pre Roll Boxes", [
+      {
+        question: "What are pre roll boxes used for?",
+        answer:
+          "They're used for packaging pre-roll products, cannabis pre-rolls, and delta 8 products for retail sale, distribution, and brand presentation.",
+      },
+      {
+        question: "Can I customize pre roll boxes with my brand logo?",
+        answer:
+          "Yes, BoxyPack provides full-color printing for custom pre roll boxes wholesale with your logo and branding.",
+      },
+      {
+        question: "Are pre roll boxes compliant with regulations?",
+        answer:
+          "Yes, we ensure our pre roll boxes meet packaging regulations and requirements for pre-roll products.",
+      },
+      {
+        question: "Do you sell pre roll boxes in bulk?",
+        answer:
+          "Absolutely, you can buy pre roll boxes online in bulk at discounted wholesale rates.",
+      },
+      {
+        question: "What determines the pre roll boxes price?",
+        answer:
+          "Pricing depends on size, material type, printing complexity, finish options, and order quantity.",
+      },
+    ]),
+    cta: {
+      title: "Secure Packaging for Pre-Roll Products",
+      description:
+        "Get in touch with BoxyPack today for custom pre roll boxes that protect and promote your pre-roll products with style. Our packaging experts are ready to design the perfect solution for your pre-roll brand. Contact us now to place your bulk order and make every product look professional.",
+    },
+  },
+
+  // Industry Main Category: Pizza Boxes
+  "pizza-boxes": {
+    name: "Pizza Boxes",
+    description:
+      "Sturdy, heat-resistant, and perfectly designed. Buy pizza boxes wholesale for hot and fresh pizza packaging that keeps pizzas warm and beautifully presented.",
+    heroImage: "Box-4_lztqi7",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("pizza-boxes")
+    keyFeatures: [
+      "Heat-resistant materials for hot pizza",
+      "Sturdy construction for pizza protection",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various pizza sizes",
+      "Eco-friendly and recyclable packaging options",
+      "Ventilation options for steam release",
+      "Perfect for pizzerias, restaurants, and food delivery services",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Corrugated cardboard, kraft paperboard (food-safe)",
+        },
+        {
+          label: "Structure",
+          value: "Standard pizza box, window options, or custom shapes",
+        },
+        {
+          label: "Thickness",
+          value: "Single-wall / Double-wall corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, or uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Outside, Inside, or Both",
+        },
+        {
+          label: "Dimensions (L x W x H)",
+          value: "e.g., 16 × 16 × 2",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Pizza Boxes Wholesale",
+      paragraphs: [
+        "Our pizza boxes are designed to keep pizzas hot and fresh while maintaining brand presence and food safety. Whether you're packaging whole pizzas, slices, or specialty pizzas, these boxes combine sturdy construction with heat-resistant materials. Each box ensures your pizzas arrive safely while creating a professional appearance that customers trust.",
+        "At BoxyPack, we craft custom pizza boxes wholesale that match your brand's identity and pizza needs. From printed boxes to blank options, we tailor every box for your pizzeria and audience. Our designs help you stand out with professional finishes and thoughtful details.",
+        "As a pizza boxes supplier, we deliver superior quality, heat-resistant structure, and sturdy designs at a competitive pizza boxes price that fits small pizzerias and large restaurant chains alike.",
+      ],
+    },
+    faq: buildFaq("Pizza Boxes", [
+      {
+        question: "What are pizza boxes used for?",
+        answer:
+          "They're used for packaging hot pizzas, pizza slices, and flatbread pizzas for delivery, takeout, and brand presentation.",
+      },
+      {
+        question: "Are pizza boxes heat-resistant?",
+        answer:
+          "Yes, our pizza boxes are made from heat-resistant materials suitable for hot pizza packaging.",
+      },
+      {
+        question: "Can I customize pizza boxes with my brand logo?",
+        answer:
+          "Yes, BoxyPack provides full-color printing for custom pizza boxes wholesale with your logo and branding.",
+      },
+      {
+        question: "Do you sell pizza boxes in bulk?",
+        answer:
+          "Absolutely, you can buy pizza boxes online in bulk at discounted wholesale rates.",
+      },
+      {
+        question: "What determines the pizza boxes price?",
+        answer:
+          "Pricing depends on size, material type, printing complexity, finish options, and order quantity.",
+      },
+    ]),
+    cta: {
+      title: "Sturdy Packaging for Hot and Fresh Pizza",
+      description:
+        "Get in touch with BoxyPack today for custom pizza boxes that protect and promote your pizzas with sturdy style. Our packaging experts are ready to design the perfect solution for your pizzeria. Contact us now to place your bulk order and make every pizza look professional.",
+    },
+  },
+
   // Product: Rigid Boxes
   "rigid-boxes": {
     name: "Rigid Boxes",
@@ -9171,6 +10828,14606 @@ const rawProductData: Record<string, RawProductEntry> = {
       title: "Naturally Strong, Simply Beautiful",
       description:
         "Partner with BoxyPack to design kraft soap boxes that combine eco-friendly materials with premium craftsmanship. Our experts create sustainable, stylish packaging that protects your soaps and reflects your brand’s natural elegance.",
+    },
+  },
+
+  // Subcategory: Cosmetic Display Boxes
+  "cosmetic-display-boxes": {
+    name: "Cosmetic Display Boxes",
+    description:
+      "Elegant, eye-catching, and designed to showcase. Buy cosmetic display boxes online for retail presentation that highlights your beauty products and attracts customers.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Premium materials that protect and showcase beauty products",
+      "Clear window panels for product visibility",
+      "Custom printing for branding and product information",
+      "Multiple sizes for various cosmetic items",
+      "Eco-friendly and recyclable packaging options",
+      "Luxury finishes including matte, gloss, and soft-touch",
+      "Perfect for retail displays, counters, and store shelves",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Display box with window, tuck-end, or magnetic closure",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Cosmetic Display Boxes for Retail Excellence",
+      paragraphs: [
+        "Our cosmetic display boxes are designed to showcase beauty products while protecting them in retail environments. Built with clear windows and premium materials, these boxes create an attractive presentation that draws customers' attention. Perfect for makeup counters, beauty stores, and retail displays, they combine functionality with elegant design.",
+        "At BoxyPack, we craft custom cosmetic display boxes that match your brand's aesthetic and product needs. Whether you need windowed boxes for visibility or fully printed designs for branding, we tailor each box to enhance your product presentation and boost sales.",
+        "As a cosmetic display boxes supplier, we deliver superior quality, eye-catching designs, and durable construction at competitive pricing that fits retail businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Cosmetic Display Boxes",
+      [
+        {
+          question: "What are cosmetic display boxes used for?",
+          answer:
+            "They're used for retail display of makeup, skincare, perfumes, and other beauty products in stores and counters.",
+        },
+        {
+          question: "Can I add windows to my display boxes?",
+          answer:
+            "Yes, BoxyPack offers clear window panels for product visibility in cosmetic display boxes.",
+        },
+        {
+          question: "Are these boxes suitable for retail environments?",
+          answer:
+            "Absolutely, they're designed specifically for retail displays, counters, and store shelves.",
+        },
+        {
+          question: "Do you offer custom printing for display boxes?",
+          answer:
+            "Yes, we provide full-color printing, logos, and branding for custom cosmetic display boxes.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly cosmetic display boxes made from recyclable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Cosmetic Display Boxes",
+        eyebrow: "Display Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Showcase Your Beauty Products",
+      description:
+        "Partner with BoxyPack to design cosmetic display boxes that attract customers and showcase your products beautifully. Our packaging experts create eye-catching displays that enhance your retail presence and drive sales.",
+    },
+  },
+
+  // Subcategory: Custom Perfume Boxes
+  "custom-perfume-boxes": {
+    name: "Custom Perfume Boxes",
+    description:
+      "Luxurious, elegant, and made to impress. Buy custom perfume boxes online for fragrance packaging that reflects the sophistication of your brand and protects every bottle.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Premium rigid construction for luxury presentation",
+      "Custom printing and embossing for brand elegance",
+      "Magnetic closures and lift-off lids for premium feel",
+      "Multiple sizes to fit various perfume bottle dimensions",
+      "Soft-touch and velvet finishes for sophisticated appeal",
+      "Eco-friendly and recyclable material options",
+      "Perfect for perfume brands, retailers, and gift sets",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid greyboard with wrapped papers or premium coated stocks",
+        },
+        {
+          label: "Structure",
+          value: "Lift-off lid, magnetic closure, or drawer/sleeve style",
+        },
+        {
+          label: "Thickness",
+          value: "2.0–3.0 mm rigid board with custom insert options",
+        },
+        {
+          label: "Finish",
+          value: "Soft-touch lamination, velvet wrap, foil, emboss/deboss",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Perfume Boxes for Luxury Fragrance Packaging",
+      paragraphs: [
+        "Our custom perfume boxes are crafted to combine elegance and protection for luxury fragrance products. Designed with premium materials and sophisticated finishes, these boxes enhance the perceived value of your perfumes while ensuring safe storage and transit. Every detail from closure to finish adds a touch of luxury that customers notice instantly.",
+        "At BoxyPack, we create custom perfume packaging boxes that express your brand's personality and sophistication. Whether you need velvet-coated boxes, rigid magnetic closure cases, or minimal elegant designs, we customize each to suit your brand's vision and product requirements.",
+        "As a luxury perfume boxes supplier, we offer fine finishes, durable materials, and premium presentation at competitive pricing that meets retail and wholesale needs with equal perfection.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Perfume Boxes",
+      [
+        {
+          question: "What are custom perfume boxes used for?",
+          answer:
+            "They're used for packaging and presenting perfume bottles, fragrance sets, and luxury scented products.",
+        },
+        {
+          question: "Can I add custom branding to perfume boxes?",
+          answer:
+            "Yes, BoxyPack offers printing, embossing, foil stamping, and custom finishes for luxury perfume boxes.",
+        },
+        {
+          question: "Are your perfume boxes suitable for gift sets?",
+          answer:
+            "Absolutely, our custom perfume boxes are perfect for individual bottles and gift set packaging.",
+        },
+        {
+          question: "Do you offer magnetic closure options?",
+          answer:
+            "Yes, we provide magnetic closures, lift-off lids, and drawer-style boxes for premium presentation.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we produce eco-friendly perfume packaging boxes using recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Perfume Boxes",
+        eyebrow: "Perfume Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Luxury Packaging for Fragrant Memories",
+      description:
+        "Partner with BoxyPack to design custom perfume boxes that elevate your brand and protect your fragrances in style. Our design team creates elegant, durable, and sophisticated packaging tailored to your luxury brand needs.",
+    },
+  },
+
+  // Subcategory: Custom Makeup Boxes
+  "custom-makeup-boxes": {
+    name: "Custom Makeup Boxes",
+    description:
+      "Stylish, protective, and brand-forward. Buy custom makeup boxes online for cosmetics packaging that showcases your products and elevates your beauty brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Premium materials that protect makeup products",
+      "Custom printing for logos, colors, and brand identity",
+      "Multiple sizes for palettes, compacts, and individual items",
+      "Window cutouts for product visibility",
+      "Eco-friendly and recyclable packaging options",
+      "Luxury finishes including matte, gloss, and soft-touch",
+      "Perfect for makeup brands, retailers, and beauty companies",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, lift-off lid, or drawer style",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Makeup Boxes for Beauty Brand Packaging",
+      paragraphs: [
+        "Our custom makeup boxes are designed to protect and showcase cosmetics with style and elegance. Whether you're packaging eyeshadow palettes, foundation, lipstick, or makeup accessories, these boxes combine premium presentation with durable protection. Each box ensures your products arrive safely while creating a memorable unboxing experience.",
+        "At BoxyPack, we craft custom makeup packaging boxes that match your brand's personality and vision. From printed palette boxes to luxury compact cases, we tailor every box for your products and audience. Our designs help you stand out on shelves and in customers' memories with premium finishes and thoughtful details.",
+        "As a makeup boxes supplier, we deliver superior print quality, durable structure, and luxury materials at competitive pricing that fits small and large beauty businesses alike.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Makeup Boxes",
+      [
+        {
+          question: "What are custom makeup boxes used for?",
+          answer:
+            "They're used for packaging eyeshadow palettes, foundation, lipstick, compacts, and other makeup products.",
+        },
+        {
+          question: "Can I customize makeup boxes with my brand colors?",
+          answer:
+            "Yes, BoxyPack provides full-color printing, custom colors, and branding for makeup boxes wholesale.",
+        },
+        {
+          question: "Are makeup boxes suitable for palettes?",
+          answer:
+            "Absolutely, our custom makeup boxes are perfect for eyeshadow palettes, compacts, and individual items.",
+        },
+        {
+          question: "Do you offer window options for product visibility?",
+          answer:
+            "Yes, we provide clear window panels and cutouts for showcasing makeup products in boxes.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly makeup packaging boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Makeup Boxes",
+        eyebrow: "Makeup Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Beautiful Packaging for Beautiful Products",
+      description:
+        "Partner with BoxyPack to design custom makeup boxes that protect and promote your cosmetics with style. Our packaging experts create elegant, durable, and brand-forward packaging tailored to your beauty brand needs.",
+    },
+  },
+
+  // Subcategory: Hair Extension Boxes
+  "hair-extension-boxes": {
+    name: "Hair Extension Boxes",
+    description:
+      "Stylish, protective, and designed for beauty. Buy hair extension boxes online for packaging that keeps extensions safe, organized, and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Durable construction to protect hair extensions",
+      "Custom printing for branding and product information",
+      "Multiple sizes for various extension types and lengths",
+      "Window options for product visibility",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for premium presentation",
+      "Perfect for hair salons, beauty retailers, and extension brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, or lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Hair Extension Boxes for Professional Beauty Packaging",
+      paragraphs: [
+        "Our hair extension boxes are designed to protect and organize hair extensions while maintaining their quality and presentation. Built with durable materials and thoughtful design, these boxes keep extensions safe from damage, tangling, and environmental factors. Perfect for salons, beauty retailers, and extension brands, they combine functionality with elegant design.",
+        "At BoxyPack, we craft custom hair extension packaging boxes that match your brand's aesthetic and product needs. Whether you need boxes for clip-ins, tape-ins, or sew-in extensions, we tailor each box to ensure proper protection and attractive presentation.",
+        "As a hair extension boxes supplier, we deliver superior quality, durable construction, and custom branding at competitive pricing that fits beauty businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Hair Extension Boxes",
+      [
+        {
+          question: "What are hair extension boxes used for?",
+          answer:
+            "They're used for packaging and protecting hair extensions including clip-ins, tape-ins, and sew-in extensions.",
+        },
+        {
+          question: "Can I customize hair extension boxes with my logo?",
+          answer:
+            "Yes, BoxyPack provides full-color printing and branding for custom hair extension boxes.",
+        },
+        {
+          question: "Are these boxes suitable for different extension types?",
+          answer:
+            "Absolutely, our boxes are designed to accommodate various extension types, lengths, and styles.",
+        },
+        {
+          question: "Do you offer window options for product visibility?",
+          answer:
+            "Yes, we provide clear window panels for showcasing hair extensions in boxes.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly hair extension boxes made from recyclable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Hair Extension Boxes",
+        eyebrow: "Hair Extension Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Protect and Present Your Hair Extensions",
+      description:
+        "Partner with BoxyPack to design hair extension boxes that keep your products safe and beautifully presented. Our packaging experts create durable, stylish packaging tailored to your beauty brand needs.",
+    },
+  },
+
+  // Subcategory: Custom Lipstick Boxes
+  "custom-lipstick-boxes": {
+    name: "Custom Lipstick Boxes",
+    description:
+      "Elegant, compact, and perfectly sized. Buy custom lipstick boxes online for lipstick packaging that protects each tube and showcases your brand beautifully.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for standard and jumbo lipstick tubes",
+      "Premium materials that protect lipstick from damage",
+      "Custom printing for logos, colors, and brand identity",
+      "Window options for product visibility",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for premium presentation",
+      "Perfect for makeup brands, retailers, and beauty companies",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, sleeve, or magnetic closure",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Lipstick Boxes for Beauty Brand Packaging",
+      paragraphs: [
+        "Our custom lipstick boxes are designed to protect and showcase lipstick tubes with elegance and precision. Built with premium materials and thoughtful sizing, these boxes keep lipsticks safe from damage while creating an attractive presentation. Perfect for makeup brands, beauty retailers, and cosmetic companies, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom lipstick packaging boxes that match your brand's personality and vision. Whether you need boxes for individual tubes or gift sets, we tailor each box to ensure proper protection and attractive presentation that reflects your brand's quality.",
+        "As a lipstick boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits beauty businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Lipstick Boxes",
+      [
+        {
+          question: "What are custom lipstick boxes used for?",
+          answer:
+            "They're used for packaging and protecting individual lipstick tubes and lipstick gift sets.",
+        },
+        {
+          question: "Can I customize lipstick boxes with my brand colors?",
+          answer:
+            "Yes, BoxyPack provides full-color printing, custom colors, and branding for lipstick boxes wholesale.",
+        },
+        {
+          question: "Are these boxes suitable for different lipstick sizes?",
+          answer:
+            "Absolutely, our boxes are designed to accommodate standard, jumbo, and mini lipstick tubes.",
+        },
+        {
+          question: "Do you offer window options for product visibility?",
+          answer:
+            "Yes, we provide clear window panels and cutouts for showcasing lipstick colors in boxes.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly lipstick boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Lipstick Boxes",
+        eyebrow: "Lipstick Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Perfect Packaging for Perfect Lips",
+      description:
+        "Partner with BoxyPack to design custom lipstick boxes that protect and showcase your products beautifully. Our packaging experts create elegant, perfectly-sized packaging tailored to your beauty brand needs.",
+    },
+  },
+
+  // Subcategory: Custom Lip Gloss Boxes
+  "custom-lip-gloss-boxes": {
+    name: "Custom Lip Gloss Boxes",
+    description:
+      "Compact, protective, and beautifully designed. Buy custom lip gloss boxes online for lip gloss packaging that keeps each tube safe and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for standard and jumbo lip gloss tubes",
+      "Premium materials that protect lip gloss from damage",
+      "Custom printing for logos, colors, and brand identity",
+      "Window options for product visibility",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for premium presentation",
+      "Perfect for makeup brands, retailers, and beauty companies",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, sleeve, or magnetic closure",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Lip Gloss Boxes for Beauty Brand Packaging",
+      paragraphs: [
+        "Our custom lip gloss boxes are designed to protect and showcase lip gloss tubes with elegance and precision. Built with premium materials and thoughtful sizing, these boxes keep lip glosses safe from damage while creating an attractive presentation. Perfect for makeup brands, beauty retailers, and cosmetic companies, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom lip gloss packaging boxes that match your brand's personality and vision. Whether you need boxes for individual tubes or gift sets, we tailor each box to ensure proper protection and attractive presentation that reflects your brand's quality.",
+        "As a lip gloss boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits beauty businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Lip Gloss Boxes",
+      [
+        {
+          question: "What are custom lip gloss boxes used for?",
+          answer:
+            "They're used for packaging and protecting individual lip gloss tubes and lip gloss gift sets.",
+        },
+        {
+          question: "Can I customize lip gloss boxes with my brand colors?",
+          answer:
+            "Yes, BoxyPack provides full-color printing, custom colors, and branding for lip gloss boxes wholesale.",
+        },
+        {
+          question: "Are these boxes suitable for different lip gloss sizes?",
+          answer:
+            "Absolutely, our boxes are designed to accommodate standard, jumbo, and mini lip gloss tubes.",
+        },
+        {
+          question: "Do you offer window options for product visibility?",
+          answer:
+            "Yes, we provide clear window panels and cutouts for showcasing lip gloss colors in boxes.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly lip gloss boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Lip Gloss Boxes",
+        eyebrow: "Lip Gloss Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Shine Bright with Perfect Packaging",
+      description:
+        "Partner with BoxyPack to design custom lip gloss boxes that protect and showcase your products beautifully. Our packaging experts create elegant, perfectly-sized packaging tailored to your beauty brand needs.",
+    },
+  },
+
+  // Subcategory: Custom Eye Shadow Boxes
+  "custom-eye-shadow-boxes": {
+    name: "Custom Eye Shadow Boxes",
+    description:
+      "Elegant, protective, and perfectly designed. Buy custom eye shadow boxes online for eyeshadow packaging that keeps palettes and singles safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for eyeshadow palettes and single shadows",
+      "Premium materials that protect eyeshadow from damage",
+      "Custom printing for logos, colors, and brand identity",
+      "Window options for product visibility",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for premium presentation",
+      "Perfect for makeup brands, retailers, and beauty companies",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, or lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Eye Shadow Boxes for Beauty Brand Packaging",
+      paragraphs: [
+        "Our custom eye shadow boxes are designed to protect and showcase eyeshadow palettes and singles with elegance and precision. Built with premium materials and thoughtful sizing, these boxes keep eyeshadows safe from damage while creating an attractive presentation. Perfect for makeup brands, beauty retailers, and cosmetic companies, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom eyeshadow packaging boxes that match your brand's personality and vision. Whether you need boxes for palettes or individual shadows, we tailor each box to ensure proper protection and attractive presentation that reflects your brand's quality.",
+        "As an eyeshadow boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits beauty businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Eye Shadow Boxes",
+      [
+        {
+          question: "What are custom eye shadow boxes used for?",
+          answer:
+            "They're used for packaging and protecting eyeshadow palettes and individual eyeshadow singles.",
+        },
+        {
+          question: "Can I customize eye shadow boxes with my brand colors?",
+          answer:
+            "Yes, BoxyPack provides full-color printing, custom colors, and branding for eyeshadow boxes wholesale.",
+        },
+        {
+          question: "Are these boxes suitable for different palette sizes?",
+          answer:
+            "Absolutely, our boxes are designed to accommodate various eyeshadow palette sizes and configurations.",
+        },
+        {
+          question: "Do you offer window options for product visibility?",
+          answer:
+            "Yes, we provide clear window panels and cutouts for showcasing eyeshadow colors in boxes.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly eyeshadow boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Eye Shadow Boxes",
+        eyebrow: "Eye Shadow Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Eye-Catching Packaging for Eye Shadows",
+      description:
+        "Partner with BoxyPack to design custom eye shadow boxes that protect and showcase your products beautifully. Our packaging experts create elegant, perfectly-sized packaging tailored to your beauty brand needs.",
+    },
+  },
+
+  // Subcategory: Custom Cream Boxes
+  "custom-cream-boxes": {
+    name: "Custom Cream Boxes",
+    description:
+      "Protective, elegant, and perfectly sized. Buy custom cream boxes online for skincare packaging that keeps jars and tubes safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for cream jars and tubes",
+      "Premium materials that protect skincare products",
+      "Custom printing for logos, colors, and brand identity",
+      "Window options for product visibility",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for premium presentation",
+      "Perfect for skincare brands, retailers, and beauty companies",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, or lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Cream Boxes for Skincare Brand Packaging",
+      paragraphs: [
+        "Our custom cream boxes are designed to protect and showcase skincare products with elegance and precision. Built with premium materials and thoughtful sizing, these boxes keep cream jars and tubes safe from damage while creating an attractive presentation. Perfect for skincare brands, beauty retailers, and cosmetic companies, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom cream packaging boxes that match your brand's personality and vision. Whether you need boxes for jars or tubes, we tailor each box to ensure proper protection and attractive presentation that reflects your brand's quality.",
+        "As a cream boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits beauty businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Cream Boxes",
+      [
+        {
+          question: "What are custom cream boxes used for?",
+          answer:
+            "They're used for packaging and protecting cream jars, tubes, and skincare products.",
+        },
+        {
+          question: "Can I customize cream boxes with my brand colors?",
+          answer:
+            "Yes, BoxyPack provides full-color printing, custom colors, and branding for cream boxes wholesale.",
+        },
+        {
+          question: "Are these boxes suitable for different cream sizes?",
+          answer:
+            "Absolutely, our boxes are designed to accommodate various jar and tube sizes.",
+        },
+        {
+          question: "Do you offer window options for product visibility?",
+          answer:
+            "Yes, we provide clear window panels and cutouts for showcasing cream products in boxes.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly cream boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Cream Boxes",
+        eyebrow: "Cream Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Smooth Packaging for Smooth Creams",
+      description:
+        "Partner with BoxyPack to design custom cream boxes that protect and showcase your skincare products beautifully. Our packaging experts create elegant, perfectly-sized packaging tailored to your beauty brand needs.",
+    },
+  },
+
+  // Subcategory: Custom Mascara Boxes
+  "custom-mascara-boxes": {
+    name: "Custom Mascara Boxes",
+    description:
+      "Compact, protective, and perfectly designed. Buy custom mascara boxes online for mascara packaging that keeps each tube safe and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for standard and jumbo mascara tubes",
+      "Premium materials that protect mascara from damage",
+      "Custom printing for logos, colors, and brand identity",
+      "Window options for product visibility",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for premium presentation",
+      "Perfect for makeup brands, retailers, and beauty companies",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, sleeve, or magnetic closure",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Mascara Boxes for Beauty Brand Packaging",
+      paragraphs: [
+        "Our custom mascara boxes are designed to protect and showcase mascara tubes with elegance and precision. Built with premium materials and thoughtful sizing, these boxes keep mascaras safe from damage while creating an attractive presentation. Perfect for makeup brands, beauty retailers, and cosmetic companies, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom mascara packaging boxes that match your brand's personality and vision. Whether you need boxes for individual tubes or gift sets, we tailor each box to ensure proper protection and attractive presentation that reflects your brand's quality.",
+        "As a mascara boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits beauty businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Mascara Boxes",
+      [
+        {
+          question: "What are custom mascara boxes used for?",
+          answer:
+            "They're used for packaging and protecting individual mascara tubes and mascara gift sets.",
+        },
+        {
+          question: "Can I customize mascara boxes with my brand colors?",
+          answer:
+            "Yes, BoxyPack provides full-color printing, custom colors, and branding for mascara boxes wholesale.",
+        },
+        {
+          question: "Are these boxes suitable for different mascara sizes?",
+          answer:
+            "Absolutely, our boxes are designed to accommodate standard, jumbo, and mini mascara tubes.",
+        },
+        {
+          question: "Do you offer window options for product visibility?",
+          answer:
+            "Yes, we provide clear window panels and cutouts for showcasing mascara products in boxes.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly mascara boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Mascara Boxes",
+        eyebrow: "Mascara Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Lash Out with Perfect Packaging",
+      description:
+        "Partner with BoxyPack to design custom mascara boxes that protect and showcase your products beautifully. Our packaging experts create elegant, perfectly-sized packaging tailored to your beauty brand needs.",
+    },
+  },
+
+  // Subcategory: Custom Nail Polish Boxes
+  "custom-nail-polish-boxes": {
+    name: "Custom Nail Polish Boxes",
+    description:
+      "Compact, protective, and beautifully designed. Buy custom nail polish boxes online for nail polish packaging that keeps each bottle safe and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for standard and mini nail polish bottles",
+      "Premium materials that protect nail polish from damage",
+      "Custom printing for logos, colors, and brand identity",
+      "Window options for product visibility",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for premium presentation",
+      "Perfect for nail polish brands, retailers, and beauty companies",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, sleeve, or magnetic closure",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Nail Polish Boxes for Beauty Brand Packaging",
+      paragraphs: [
+        "Our custom nail polish boxes are designed to protect and showcase nail polish bottles with elegance and precision. Built with premium materials and thoughtful sizing, these boxes keep nail polishes safe from damage while creating an attractive presentation. Perfect for nail polish brands, beauty retailers, and cosmetic companies, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom nail polish packaging boxes that match your brand's personality and vision. Whether you need boxes for individual bottles or gift sets, we tailor each box to ensure proper protection and attractive presentation that reflects your brand's quality.",
+        "As a nail polish boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits beauty businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Nail Polish Boxes",
+      [
+        {
+          question: "What are custom nail polish boxes used for?",
+          answer:
+            "They're used for packaging and protecting individual nail polish bottles and nail polish gift sets.",
+        },
+        {
+          question: "Can I customize nail polish boxes with my brand colors?",
+          answer:
+            "Yes, BoxyPack provides full-color printing, custom colors, and branding for nail polish boxes wholesale.",
+        },
+        {
+          question: "Are these boxes suitable for different bottle sizes?",
+          answer:
+            "Absolutely, our boxes are designed to accommodate standard, mini, and jumbo nail polish bottles.",
+        },
+        {
+          question: "Do you offer window options for product visibility?",
+          answer:
+            "Yes, we provide clear window panels and cutouts for showcasing nail polish colors in boxes.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly nail polish boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Nail Polish Boxes",
+        eyebrow: "Nail Polish Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Nail the Perfect Packaging",
+      description:
+        "Partner with BoxyPack to design custom nail polish boxes that protect and showcase your products beautifully. Our packaging experts create elegant, perfectly-sized packaging tailored to your beauty brand needs.",
+    },
+  },
+
+  // Subcategory: Custom Lip Balm Boxes
+  "custom-lip-balm-boxes": {
+    name: "Custom Lip Balm Boxes",
+    description:
+      "Compact, protective, and perfectly designed. Buy custom lip balm boxes online for lip balm packaging that keeps each tube safe and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for standard and jumbo lip balm tubes",
+      "Premium materials that protect lip balm from damage",
+      "Custom printing for logos, colors, and brand identity",
+      "Window options for product visibility",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for premium presentation",
+      "Perfect for skincare brands, retailers, and beauty companies",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, sleeve, or magnetic closure",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Lip Balm Boxes for Skincare Brand Packaging",
+      paragraphs: [
+        "Our custom lip balm boxes are designed to protect and showcase lip balm tubes with elegance and precision. Built with premium materials and thoughtful sizing, these boxes keep lip balms safe from damage while creating an attractive presentation. Perfect for skincare brands, beauty retailers, and cosmetic companies, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom lip balm packaging boxes that match your brand's personality and vision. Whether you need boxes for individual tubes or gift sets, we tailor each box to ensure proper protection and attractive presentation that reflects your brand's quality.",
+        "As a lip balm boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits beauty businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Lip Balm Boxes",
+      [
+        {
+          question: "What are custom lip balm boxes used for?",
+          answer:
+            "They're used for packaging and protecting individual lip balm tubes and lip balm gift sets.",
+        },
+        {
+          question: "Can I customize lip balm boxes with my brand colors?",
+          answer:
+            "Yes, BoxyPack provides full-color printing, custom colors, and branding for lip balm boxes wholesale.",
+        },
+        {
+          question: "Are these boxes suitable for different lip balm sizes?",
+          answer:
+            "Absolutely, our boxes are designed to accommodate standard, jumbo, and mini lip balm tubes.",
+        },
+        {
+          question: "Do you offer window options for product visibility?",
+          answer:
+            "Yes, we provide clear window panels and cutouts for showcasing lip balm products in boxes.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly lip balm boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Lip Balm Boxes",
+        eyebrow: "Lip Balm Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Smooth Packaging for Smooth Lips",
+      description:
+        "Partner with BoxyPack to design custom lip balm boxes that protect and showcase your products beautifully. Our packaging experts create elegant, perfectly-sized packaging tailored to your beauty brand needs.",
+    },
+  },
+
+  // Subcategory: Custom Eyeliner Boxes
+  "custom-eyeliner-boxes": {
+    name: "Custom Eyeliner Boxes",
+    description:
+      "Compact, protective, and perfectly designed. Buy custom eyeliner boxes online for eyeliner packaging that keeps each pencil or pen safe and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for eyeliner pencils and pens",
+      "Premium materials that protect eyeliner from damage",
+      "Custom printing for logos, colors, and brand identity",
+      "Window options for product visibility",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for premium presentation",
+      "Perfect for makeup brands, retailers, and beauty companies",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, sleeve, or magnetic closure",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Eyeliner Boxes for Beauty Brand Packaging",
+      paragraphs: [
+        "Our custom eyeliner boxes are designed to protect and showcase eyeliner pencils and pens with elegance and precision. Built with premium materials and thoughtful sizing, these boxes keep eyeliners safe from damage while creating an attractive presentation. Perfect for makeup brands, beauty retailers, and cosmetic companies, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom eyeliner packaging boxes that match your brand's personality and vision. Whether you need boxes for individual pencils or gift sets, we tailor each box to ensure proper protection and attractive presentation that reflects your brand's quality.",
+        "As an eyeliner boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits beauty businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Eyeliner Boxes",
+      [
+        {
+          question: "What are custom eyeliner boxes used for?",
+          answer:
+            "They're used for packaging and protecting individual eyeliner pencils, pens, and eyeliner gift sets.",
+        },
+        {
+          question: "Can I customize eyeliner boxes with my brand colors?",
+          answer:
+            "Yes, BoxyPack provides full-color printing, custom colors, and branding for eyeliner boxes wholesale.",
+        },
+        {
+          question: "Are these boxes suitable for different eyeliner types?",
+          answer:
+            "Absolutely, our boxes are designed to accommodate pencils, pens, and liquid eyeliners.",
+        },
+        {
+          question: "Do you offer window options for product visibility?",
+          answer:
+            "Yes, we provide clear window panels and cutouts for showcasing eyeliner products in boxes.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly eyeliner boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Eyeliner Boxes",
+        eyebrow: "Eyeliner Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Line Up Perfect Packaging",
+      description:
+        "Partner with BoxyPack to design custom eyeliner boxes that protect and showcase your products beautifully. Our packaging experts create elegant, perfectly-sized packaging tailored to your beauty brand needs.",
+    },
+  },
+
+  // Subcategory: Foundation Boxes
+  "foundation-boxes": {
+    name: "Foundation Boxes",
+    description:
+      "Protective, elegant, and perfectly sized. Buy foundation boxes online for foundation packaging that keeps bottles and compacts safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for foundation bottles and compacts",
+      "Premium materials that protect foundation from damage",
+      "Custom printing for logos, colors, and brand identity",
+      "Window options for product visibility",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for premium presentation",
+      "Perfect for makeup brands, retailers, and beauty companies",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, or lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Foundation Boxes for Beauty Brand Packaging",
+      paragraphs: [
+        "Our foundation boxes are designed to protect and showcase foundation bottles and compacts with elegance and precision. Built with premium materials and thoughtful sizing, these boxes keep foundations safe from damage while creating an attractive presentation. Perfect for makeup brands, beauty retailers, and cosmetic companies, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom foundation packaging boxes that match your brand's personality and vision. Whether you need boxes for bottles or compacts, we tailor each box to ensure proper protection and attractive presentation that reflects your brand's quality.",
+        "As a foundation boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits beauty businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Foundation Boxes",
+      [
+        {
+          question: "What are foundation boxes used for?",
+          answer:
+            "They're used for packaging and protecting foundation bottles, compacts, and foundation gift sets.",
+        },
+        {
+          question: "Can I customize foundation boxes with my brand colors?",
+          answer:
+            "Yes, BoxyPack provides full-color printing, custom colors, and branding for foundation boxes wholesale.",
+        },
+        {
+          question: "Are these boxes suitable for different foundation types?",
+          answer:
+            "Absolutely, our boxes are designed to accommodate liquid, cream, and powder foundations.",
+        },
+        {
+          question: "Do you offer window options for product visibility?",
+          answer:
+            "Yes, we provide clear window panels and cutouts for showcasing foundation products in boxes.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly foundation boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Foundation Boxes",
+        eyebrow: "Foundation Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Build the Perfect Foundation for Your Brand",
+      description:
+        "Partner with BoxyPack to design foundation boxes that protect and showcase your products beautifully. Our packaging experts create elegant, perfectly-sized packaging tailored to your beauty brand needs.",
+    },
+  },
+
+  // Subcategory: Lotion Boxes
+  "lotion-boxes": {
+    name: "Lotion Boxes",
+    description:
+      "Protective, elegant, and perfectly sized. Buy lotion boxes online for lotion packaging that keeps bottles safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for lotion bottles of various sizes",
+      "Premium materials that protect lotion from damage",
+      "Custom printing for logos, colors, and brand identity",
+      "Window options for product visibility",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for premium presentation",
+      "Perfect for skincare brands, retailers, and beauty companies",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, or lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Lotion Boxes for Skincare Brand Packaging",
+      paragraphs: [
+        "Our lotion boxes are designed to protect and showcase lotion bottles with elegance and precision. Built with premium materials and thoughtful sizing, these boxes keep lotions safe from damage while creating an attractive presentation. Perfect for skincare brands, beauty retailers, and cosmetic companies, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom lotion packaging boxes that match your brand's personality and vision. Whether you need boxes for individual bottles or gift sets, we tailor each box to ensure proper protection and attractive presentation that reflects your brand's quality.",
+        "As a lotion boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits beauty businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Lotion Boxes",
+      [
+        {
+          question: "What are lotion boxes used for?",
+          answer:
+            "They're used for packaging and protecting lotion bottles and lotion gift sets.",
+        },
+        {
+          question: "Can I customize lotion boxes with my brand colors?",
+          answer:
+            "Yes, BoxyPack provides full-color printing, custom colors, and branding for lotion boxes wholesale.",
+        },
+        {
+          question: "Are these boxes suitable for different bottle sizes?",
+          answer:
+            "Absolutely, our boxes are designed to accommodate various lotion bottle sizes.",
+        },
+        {
+          question: "Do you offer window options for product visibility?",
+          answer:
+            "Yes, we provide clear window panels and cutouts for showcasing lotion products in boxes.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly lotion boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Lotion Boxes",
+        eyebrow: "Lotion Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Smooth Packaging for Smooth Skin",
+      description:
+        "Partner with BoxyPack to design lotion boxes that protect and showcase your products beautifully. Our packaging experts create elegant, perfectly-sized packaging tailored to your beauty brand needs.",
+    },
+  },
+
+  // Subcategory: Lip Balm Display Boxes
+  "lip-balm-display-boxes": {
+    name: "Lip Balm Display Boxes",
+    description:
+      "Eye-catching, elegant, and designed to showcase. Buy lip balm display boxes online for retail presentation that highlights your products and attracts customers.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Clear window panels for product visibility",
+      "Premium materials that protect lip balm products",
+      "Custom printing for branding and product information",
+      "Multiple sizes for various lip balm types",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for premium presentation",
+      "Perfect for retail displays, counters, and store shelves",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Display box with window, tuck-end, or magnetic closure",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Lip Balm Display Boxes for Retail Excellence",
+      paragraphs: [
+        "Our lip balm display boxes are designed to showcase lip balm products while protecting them in retail environments. Built with clear windows and premium materials, these boxes create an attractive presentation that draws customers' attention. Perfect for makeup counters, beauty stores, and retail displays, they combine functionality with elegant design.",
+        "At BoxyPack, we craft custom lip balm display boxes that match your brand's aesthetic and product needs. Whether you need windowed boxes for visibility or fully printed designs for branding, we tailor each box to enhance your product presentation and boost sales.",
+        "As a lip balm display boxes supplier, we deliver superior quality, eye-catching designs, and durable construction at competitive pricing that fits retail businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Lip Balm Display Boxes",
+      [
+        {
+          question: "What are lip balm display boxes used for?",
+          answer:
+            "They're used for retail display of lip balm products in stores, counters, and beauty retailers.",
+        },
+        {
+          question: "Can I add windows to my display boxes?",
+          answer:
+            "Yes, BoxyPack offers clear window panels for product visibility in lip balm display boxes.",
+        },
+        {
+          question: "Are these boxes suitable for retail environments?",
+          answer:
+            "Absolutely, they're designed specifically for retail displays, counters, and store shelves.",
+        },
+        {
+          question: "Do you offer custom printing for display boxes?",
+          answer:
+            "Yes, we provide full-color printing, logos, and branding for custom lip balm display boxes.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly lip balm display boxes made from recyclable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Lip Balm Display Boxes",
+        eyebrow: "Display Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Showcase Your Lip Balm Products",
+      description:
+        "Partner with BoxyPack to design lip balm display boxes that attract customers and showcase your products beautifully. Our packaging experts create eye-catching displays that enhance your retail presence and drive sales.",
+    },
+  },
+
+  // Subcategory: Eye Lash Boxes
+  "eye-lash-boxes": {
+    name: "Eye Lash Boxes",
+    description:
+      "Elegant, protective, and perfectly designed. Buy eye lash boxes online for eyelash packaging that keeps lashes safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for individual and strip eyelashes",
+      "Premium materials that protect eyelashes from damage",
+      "Custom printing for logos, colors, and brand identity",
+      "Window options for product visibility",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for premium presentation",
+      "Perfect for beauty brands, retailers, and lash companies",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, or lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Eye Lash Boxes for Beauty Brand Packaging",
+      paragraphs: [
+        "Our eye lash boxes are designed to protect and showcase eyelashes with elegance and precision. Built with premium materials and thoughtful sizing, these boxes keep lashes safe from damage while creating an attractive presentation. Perfect for beauty brands, lash retailers, and cosmetic companies, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom eyelash packaging boxes that match your brand's personality and vision. Whether you need boxes for individual lashes or strip lashes, we tailor each box to ensure proper protection and attractive presentation that reflects your brand's quality.",
+        "As an eyelash boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits beauty businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Eye Lash Boxes",
+      [
+        {
+          question: "What are eye lash boxes used for?",
+          answer:
+            "They're used for packaging and protecting individual and strip eyelashes.",
+        },
+        {
+          question: "Can I customize eye lash boxes with my brand colors?",
+          answer:
+            "Yes, BoxyPack provides full-color printing, custom colors, and branding for eyelash boxes wholesale.",
+        },
+        {
+          question: "Are these boxes suitable for different lash types?",
+          answer:
+            "Absolutely, our boxes are designed to accommodate individual lashes, strip lashes, and lash sets.",
+        },
+        {
+          question: "Do you offer window options for product visibility?",
+          answer:
+            "Yes, we provide clear window panels and cutouts for showcasing eyelashes in boxes.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly eyelash boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Eye Lash Boxes",
+        eyebrow: "Eyelash Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Lash Out with Perfect Packaging",
+      description:
+        "Partner with BoxyPack to design eye lash boxes that protect and showcase your products beautifully. Our packaging experts create elegant, perfectly-sized packaging tailored to your beauty brand needs.",
+    },
+  },
+
+  // Subcategory: Cosmetic Gift Boxes
+  "cosmetic-gift-boxes": {
+    name: "Cosmetic Gift Boxes",
+    description:
+      "Elegant, luxurious, and perfect for gifting. Buy cosmetic gift boxes online for beauty gift sets that create memorable unboxing experiences.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Premium rigid construction for luxury presentation",
+      "Custom printing and embossing for brand elegance",
+      "Magnetic closures and lift-off lids for premium feel",
+      "Multiple sizes for various gift set configurations",
+      "Soft-touch and velvet finishes for sophisticated appeal",
+      "Eco-friendly and recyclable material options",
+      "Perfect for beauty gift sets, holiday collections, and special promotions",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid greyboard with wrapped papers or premium coated stocks",
+        },
+        {
+          label: "Structure",
+          value: "Lift-off lid, magnetic closure, or drawer/sleeve style",
+        },
+        {
+          label: "Thickness",
+          value: "2.0–3.0 mm rigid board with custom insert options",
+        },
+        {
+          label: "Finish",
+          value: "Soft-touch lamination, velvet wrap, foil, emboss/deboss",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Cosmetic Gift Boxes for Luxury Beauty Packaging",
+      paragraphs: [
+        "Our cosmetic gift boxes are crafted to combine elegance and protection for luxury beauty gift sets. Designed with premium materials and sophisticated finishes, these boxes enhance the perceived value of your gift collections while ensuring safe storage and transit. Every detail from closure to finish adds a touch of luxury that customers notice instantly.",
+        "At BoxyPack, we create custom cosmetic gift boxes that express your brand's personality and sophistication. Whether you need velvet-coated boxes, rigid magnetic closure cases, or minimal elegant designs, we customize each to suit your brand's vision and gift set requirements.",
+        "As a luxury cosmetic gift boxes supplier, we offer fine finishes, durable materials, and premium presentation at competitive pricing that meets retail and wholesale needs with equal perfection.",
+      ],
+    },
+    faq: buildFaq(
+      "Cosmetic Gift Boxes",
+      [
+        {
+          question: "What are cosmetic gift boxes used for?",
+          answer:
+            "They're used for packaging beauty gift sets, holiday collections, and special promotional bundles.",
+        },
+        {
+          question: "Can I add custom branding to gift boxes?",
+          answer:
+            "Yes, BoxyPack offers printing, embossing, foil stamping, and custom finishes for luxury cosmetic gift boxes.",
+        },
+        {
+          question: "Are your gift boxes suitable for various product combinations?",
+          answer:
+            "Absolutely, our custom cosmetic gift boxes are perfect for various gift set configurations and sizes.",
+        },
+        {
+          question: "Do you offer magnetic closure options?",
+          answer:
+            "Yes, we provide magnetic closures, lift-off lids, and drawer-style boxes for premium presentation.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we produce eco-friendly cosmetic gift boxes using recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Cosmetic Gift Boxes",
+        eyebrow: "Gift Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Gift Beautifully, Package Perfectly",
+      description:
+        "Partner with BoxyPack to design cosmetic gift boxes that elevate your brand and create memorable gifting experiences. Our design team creates elegant, durable, and sophisticated packaging tailored to your luxury brand needs.",
+    },
+  },
+
+  // Subcategory: Olive Oil Boxes
+  "olive-oil-boxes": {
+    name: "Olive Oil Boxes",
+    description:
+      "Elegant, protective, and perfectly designed. Buy olive oil boxes online for olive oil packaging that keeps bottles safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for olive oil bottles of various sizes",
+      "Premium materials that protect bottles from damage",
+      "Custom printing for logos, colors, and brand identity",
+      "Window options for product visibility",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for premium presentation",
+      "Perfect for olive oil brands, retailers, and gourmet companies",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, or lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Olive Oil Boxes for Gourmet Brand Packaging",
+      paragraphs: [
+        "Our olive oil boxes are designed to protect and showcase olive oil bottles with elegance and precision. Built with premium materials and thoughtful sizing, these boxes keep bottles safe from damage while creating an attractive presentation. Perfect for olive oil brands, gourmet retailers, and specialty food companies, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom olive oil packaging boxes that match your brand's personality and vision. Whether you need boxes for individual bottles or gift sets, we tailor each box to ensure proper protection and attractive presentation that reflects your brand's quality.",
+        "As an olive oil boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits gourmet businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Olive Oil Boxes",
+      [
+        {
+          question: "What are olive oil boxes used for?",
+          answer:
+            "They're used for packaging and protecting olive oil bottles and olive oil gift sets.",
+        },
+        {
+          question: "Can I customize olive oil boxes with my brand colors?",
+          answer:
+            "Yes, BoxyPack provides full-color printing, custom colors, and branding for olive oil boxes wholesale.",
+        },
+        {
+          question: "Are these boxes suitable for different bottle sizes?",
+          answer:
+            "Absolutely, our boxes are designed to accommodate various olive oil bottle sizes.",
+        },
+        {
+          question: "Do you offer window options for product visibility?",
+          answer:
+            "Yes, we provide clear window panels and cutouts for showcasing olive oil products in boxes.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly olive oil boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Olive Oil Boxes",
+        eyebrow: "Olive Oil Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Premium Packaging for Premium Oils",
+      description:
+        "Partner with BoxyPack to design olive oil boxes that protect and showcase your products beautifully. Our packaging experts create elegant, perfectly-sized packaging tailored to your gourmet brand needs.",
+    },
+  },
+
+  // Subcategory: Essential Oil Boxes
+  "essential-oil-boxes": {
+    name: "Essential Oil Boxes",
+    description:
+      "Elegant, protective, and perfectly designed. Buy essential oil boxes online for essential oil packaging that keeps bottles safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for essential oil bottles of various sizes",
+      "Premium materials that protect bottles from damage",
+      "Custom printing for logos, colors, and brand identity",
+      "Window options for product visibility",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for premium presentation",
+      "Perfect for essential oil brands, retailers, and wellness companies",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, or lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Essential Oil Boxes for Wellness Brand Packaging",
+      paragraphs: [
+        "Our essential oil boxes are designed to protect and showcase essential oil bottles with elegance and precision. Built with premium materials and thoughtful sizing, these boxes keep bottles safe from damage while creating an attractive presentation. Perfect for essential oil brands, wellness retailers, and natural product companies, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom essential oil packaging boxes that match your brand's personality and vision. Whether you need boxes for individual bottles or gift sets, we tailor each box to ensure proper protection and attractive presentation that reflects your brand's quality.",
+        "As an essential oil boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits wellness businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Essential Oil Boxes",
+      [
+        {
+          question: "What are essential oil boxes used for?",
+          answer:
+            "They're used for packaging and protecting essential oil bottles and essential oil gift sets.",
+        },
+        {
+          question: "Can I customize essential oil boxes with my brand colors?",
+          answer:
+            "Yes, BoxyPack provides full-color printing, custom colors, and branding for essential oil boxes wholesale.",
+        },
+        {
+          question: "Are these boxes suitable for different bottle sizes?",
+          answer:
+            "Absolutely, our boxes are designed to accommodate various essential oil bottle sizes.",
+        },
+        {
+          question: "Do you offer window options for product visibility?",
+          answer:
+            "Yes, we provide clear window panels and cutouts for showcasing essential oil products in boxes.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly essential oil boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Essential Oil Boxes",
+        eyebrow: "Essential Oil Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Natural Packaging for Natural Products",
+      description:
+        "Partner with BoxyPack to design essential oil boxes that protect and showcase your products beautifully. Our packaging experts create elegant, perfectly-sized packaging tailored to your wellness brand needs.",
+    },
+  },
+
+  // Subcategory: Beard Oil Boxes
+  "beard-oil-boxes": {
+    name: "Beard Oil Boxes",
+    description:
+      "Elegant, protective, and perfectly designed. Buy beard oil boxes online for beard oil packaging that keeps bottles safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for beard oil bottles of various sizes",
+      "Premium materials that protect bottles from damage",
+      "Custom printing for logos, colors, and brand identity",
+      "Window options for product visibility",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for premium presentation",
+      "Perfect for grooming brands, retailers, and men's care companies",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, or lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Beard Oil Boxes for Grooming Brand Packaging",
+      paragraphs: [
+        "Our beard oil boxes are designed to protect and showcase beard oil bottles with elegance and precision. Built with premium materials and thoughtful sizing, these boxes keep bottles safe from damage while creating an attractive presentation. Perfect for grooming brands, men's care retailers, and personal care companies, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom beard oil packaging boxes that match your brand's personality and vision. Whether you need boxes for individual bottles or gift sets, we tailor each box to ensure proper protection and attractive presentation that reflects your brand's quality.",
+        "As a beard oil boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits grooming businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Beard Oil Boxes",
+      [
+        {
+          question: "What are beard oil boxes used for?",
+          answer:
+            "They're used for packaging and protecting beard oil bottles and beard oil gift sets.",
+        },
+        {
+          question: "Can I customize beard oil boxes with my brand colors?",
+          answer:
+            "Yes, BoxyPack provides full-color printing, custom colors, and branding for beard oil boxes wholesale.",
+        },
+        {
+          question: "Are these boxes suitable for different bottle sizes?",
+          answer:
+            "Absolutely, our boxes are designed to accommodate various beard oil bottle sizes.",
+        },
+        {
+          question: "Do you offer window options for product visibility?",
+          answer:
+            "Yes, we provide clear window panels and cutouts for showcasing beard oil products in boxes.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly beard oil boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Beard Oil Boxes",
+        eyebrow: "Beard Oil Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Groomed Packaging for Groomed Beards",
+      description:
+        "Partner with BoxyPack to design beard oil boxes that protect and showcase your products beautifully. Our packaging experts create elegant, perfectly-sized packaging tailored to your grooming brand needs.",
+    },
+  },
+
+  // Subcategory: Serum Boxes
+  "serum-boxes": {
+    name: "Serum Boxes",
+    description:
+      "Elegant, protective, and perfectly designed. Buy serum boxes online for serum packaging that keeps bottles safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for serum bottles of various sizes",
+      "Premium materials that protect bottles from damage",
+      "Custom printing for logos, colors, and brand identity",
+      "Window options for product visibility",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for premium presentation",
+      "Perfect for skincare brands, retailers, and beauty companies",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, or lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Serum Boxes for Skincare Brand Packaging",
+      paragraphs: [
+        "Our serum boxes are designed to protect and showcase serum bottles with elegance and precision. Built with premium materials and thoughtful sizing, these boxes keep bottles safe from damage while creating an attractive presentation. Perfect for skincare brands, beauty retailers, and cosmetic companies, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom serum packaging boxes that match your brand's personality and vision. Whether you need boxes for individual bottles or gift sets, we tailor each box to ensure proper protection and attractive presentation that reflects your brand's quality.",
+        "As a serum boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits beauty businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Serum Boxes",
+      [
+        {
+          question: "What are serum boxes used for?",
+          answer:
+            "They're used for packaging and protecting serum bottles and serum gift sets.",
+        },
+        {
+          question: "Can I customize serum boxes with my brand colors?",
+          answer:
+            "Yes, BoxyPack provides full-color printing, custom colors, and branding for serum boxes wholesale.",
+        },
+        {
+          question: "Are these boxes suitable for different bottle sizes?",
+          answer:
+            "Absolutely, our boxes are designed to accommodate various serum bottle sizes.",
+        },
+        {
+          question: "Do you offer window options for product visibility?",
+          answer:
+            "Yes, we provide clear window panels and cutouts for showcasing serum products in boxes.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly serum boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Serum Boxes",
+        eyebrow: "Serum Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Serum Packaging That Shines",
+      description:
+        "Partner with BoxyPack to design serum boxes that protect and showcase your products beautifully. Our packaging experts create elegant, perfectly-sized packaging tailored to your beauty brand needs.",
+    },
+  },
+
+  // Subcategory: Custom French Fry Boxes
+  "custom-french-fry-boxes": {
+    name: "Custom French Fry Boxes",
+    description:
+      "Grease-resistant, sturdy, and perfectly sized. Buy custom French fry boxes online for fry packaging that keeps your crispy fries hot and fresh for delivery.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Food-grade, grease-resistant material keeps fries fresh",
+      "Ventilation holes for steam release and crispiness",
+      "Custom printing for logos and restaurant branding",
+      "Multiple sizes for small, medium, and large portions",
+      "Eco-friendly and recyclable packaging materials",
+      "Easy-to-handle design for quick service",
+      "Perfect for fast-food restaurants, food trucks, and cafés",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Food-Grade Cardboard / Kraft / Grease-Resistant Paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-Top / Auto-Lock Bottom / Ventilation Holes",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom French Fry Boxes for Fast Food Packaging",
+      paragraphs: [
+        "Our custom French fry boxes are designed to keep fries crispy and hot while maintaining their quality during delivery and takeout. Built with grease-resistant materials and ventilation features, these boxes prevent sogginess and preserve the perfect texture. Perfect for fast-food restaurants, food trucks, and cafés, they combine functionality with brand presentation.",
+        "At BoxyPack, we craft custom printed French fry boxes that match your restaurant's style and portion sizes. Whether you need small snack sizes or large family portions, we tailor each box to ensure proper ventilation and heat retention. Add your logo and branding for a professional finish that customers remember.",
+        "As a French fry boxes wholesale supplier, we focus on delivering quality, consistency, and cost efficiency. Each box ensures food safety, clean presentation, and affordability, making our packaging the perfect fit for restaurants of all sizes seeking the best French fry boxes price.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom French Fry Boxes",
+      [
+        {
+          question: "What are custom French fry boxes made of?",
+          answer:
+            "They're made from food-safe, grease-resistant cardboard or kraft paperboard with ventilation features.",
+        },
+        {
+          question: "Can I add my restaurant logo?",
+          answer:
+            "Yes, BoxyPack offers full-color logo printing and branding customization for French fry boxes.",
+        },
+        {
+          question: "Do the boxes have ventilation holes?",
+          answer:
+            "Yes, our French fry boxes include ventilation holes to keep fries crispy and prevent sogginess.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our French fry boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, all our materials are recyclable, biodegradable, and food safe.",
+        },
+      ],
+      {
+        heading: "Questions about Custom French Fry Boxes",
+        eyebrow: "French Fry Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Crispy Packaging for Crispy Fries",
+      description:
+        "Partner with BoxyPack to create custom French fry boxes that keep your fries hot, crispy, and perfectly presented. Our packaging experts ensure every box you order maintains freshness and showcases your brand with style.",
+    },
+  },
+
+  // Subcategory: Custom Coffee Boxes
+  "custom-coffee-boxes": {
+    name: "Custom Coffee Boxes",
+    description:
+      "Aromatic, protective, and brand-forward. Buy custom coffee boxes online for coffee packaging that keeps beans fresh and showcases your roastery's identity.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Airtight construction to preserve coffee freshness",
+      "Custom printing for logos, roast information, and branding",
+      "Multiple sizes for various coffee bag weights",
+      "Window options for product visibility",
+      "Eco-friendly and recyclable packaging materials",
+      "Moisture-resistant coatings to protect beans",
+      "Perfect for coffee roasters, cafés, and specialty coffee shops",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Food-Grade Cardboard / Kraft / Laminated Paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Coffee Boxes for Roastery Packaging",
+      paragraphs: [
+        "Our custom coffee boxes are designed to protect and showcase coffee products while maintaining freshness and aroma. Built with premium materials and thoughtful design, these boxes keep coffee beans or bags safe from light, moisture, and air exposure. Perfect for coffee roasters, specialty cafés, and coffee retailers, they combine functionality with elegant brand presentation.",
+        "At BoxyPack, we craft custom printed coffee boxes that match your roastery's personality and product needs. Whether you need boxes for whole beans, ground coffee, or coffee gift sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, roast information, and branding for a professional finish that coffee lovers appreciate.",
+        "As a coffee boxes wholesale supplier, we focus on delivering quality, freshness protection, and custom branding at competitive pricing that fits coffee businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Coffee Boxes",
+      [
+        {
+          question: "What are custom coffee boxes used for?",
+          answer:
+            "They're used for packaging coffee beans, ground coffee, and coffee gift sets from roasteries and cafés.",
+        },
+        {
+          question: "Can I customize coffee boxes with my roastery logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for coffee boxes wholesale.",
+        },
+        {
+          question: "Do these boxes protect coffee freshness?",
+          answer:
+            "Yes, our coffee boxes are designed with airtight features and moisture-resistant materials to preserve coffee quality.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our coffee boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, all our materials are recyclable, biodegradable, and food safe.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Coffee Boxes",
+        eyebrow: "Coffee Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Brew Perfect Packaging for Perfect Coffee",
+      description:
+        "Partner with BoxyPack to create custom coffee boxes that protect your beans and showcase your roastery's brand. Our packaging experts ensure every box maintains freshness and presents your coffee with style.",
+    },
+  },
+
+  // Subcategory: Custom Coffee Cups
+  "custom-coffee-cups": {
+    name: "Custom Coffee Cups",
+    description:
+      "Insulated, branded, and perfectly designed. Buy custom coffee cups online for hot beverage packaging that keeps drinks warm and showcases your café's identity.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Insulated design keeps hot beverages warm",
+      "Custom printing for logos and café branding",
+      "Multiple sizes for various drink volumes",
+      "Leak-proof lids and secure closures",
+      "Eco-friendly and recyclable cup materials",
+      "Compostable options available",
+      "Perfect for cafés, coffee shops, and beverage retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Paper / Cardboard / Compostable Materials",
+        },
+        {
+          label: "Structure",
+          value: "Single-Wall / Double-Wall Insulated / With Lid",
+        },
+        {
+          label: "Thickness",
+          value: "Standard / Insulated",
+        },
+        {
+          label: "Finish",
+          value: "Matte / Gloss / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Full-Color / Single-Color / Logo Only",
+        },
+        {
+          label: "Dimensions (Size)",
+          value: "8oz / 12oz / 16oz / 20oz / Custom sizes",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Coffee Cups for Café Branding",
+      paragraphs: [
+        "Our custom coffee cups are designed to keep hot beverages at the perfect temperature while showcasing your café's brand. Built with insulated materials and thoughtful design, these cups protect hands from heat while maintaining drink quality. Perfect for cafés, coffee shops, and beverage retailers, they combine functionality with brand presentation.",
+        "At BoxyPack, we craft custom printed coffee cups that match your café's personality and drink menu. Whether you need single-wall or double-wall insulated cups, we tailor each cup to ensure proper heat retention and attractive branding. Add your logo, colors, and messaging for a professional finish that customers remember.",
+        "As a coffee cups wholesale supplier, we focus on delivering quality, insulation, and custom branding at competitive pricing that fits beverage businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Coffee Cups",
+      [
+        {
+          question: "What are custom coffee cups used for?",
+          answer:
+            "They're used for serving hot beverages like coffee, tea, and hot chocolate in cafés and coffee shops.",
+        },
+        {
+          question: "Can I customize coffee cups with my café logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for coffee cups wholesale.",
+        },
+        {
+          question: "Do you offer insulated coffee cups?",
+          answer:
+            "Yes, we provide both single-wall and double-wall insulated coffee cups for better heat retention.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our coffee cups wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these cups eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly and compostable coffee cup options made from sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Coffee Cups",
+        eyebrow: "Coffee Cup FAQs",
+      }
+    ),
+    cta: {
+      title: "Serve Perfect Drinks in Perfect Cups",
+      description:
+        "Partner with BoxyPack to create custom coffee cups that keep drinks warm and showcase your café's brand. Our packaging experts ensure every cup maintains temperature and presents your beverages with style.",
+    },
+  },
+
+  // Subcategory: Custom Coffee Cup Sleeves
+  "custom-coffee-cup-sleeves": {
+    name: "Custom Coffee Cup Sleeves",
+    description:
+      "Protective, branded, and perfectly fitted. Buy custom coffee cup sleeves online for heat protection that keeps hands safe and showcases your café's brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Heat-resistant material protects hands from hot cups",
+      "Custom printing for logos and café branding",
+      "Multiple sizes to fit various cup diameters",
+      "Easy-to-apply design for quick service",
+      "Eco-friendly and recyclable sleeve materials",
+      "Corrugated construction for insulation",
+      "Perfect for cafés, coffee shops, and beverage retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Corrugated Cardboard / Kraft / Recycled Paper",
+        },
+        {
+          label: "Structure",
+          value: "Single-Wall Corrugated / Double-Wall Corrugated",
+        },
+        {
+          label: "Thickness",
+          value: "Standard / Extra Thick",
+        },
+        {
+          label: "Finish",
+          value: "Matte / Gloss / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Full-Color / Single-Color / Logo Only",
+        },
+        {
+          label: "Dimensions (Size)",
+          value: "Fits 8oz / 12oz / 16oz / 20oz cups / Custom sizes",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Coffee Cup Sleeves for Café Branding",
+      paragraphs: [
+        "Our custom coffee cup sleeves are designed to protect customers' hands from hot beverages while showcasing your café's brand. Built with corrugated materials and thoughtful design, these sleeves provide insulation and comfort. Perfect for cafés, coffee shops, and beverage retailers, they combine functionality with brand presentation.",
+        "At BoxyPack, we craft custom printed coffee cup sleeves that match your café's personality and cup sizes. Whether you need standard or extra-thick sleeves, we tailor each sleeve to ensure proper fit and attractive branding. Add your logo, colors, and messaging for a professional finish that customers appreciate.",
+        "As a coffee cup sleeves wholesale supplier, we focus on delivering quality, heat protection, and custom branding at competitive pricing that fits beverage businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Coffee Cup Sleeves",
+      [
+        {
+          question: "What are custom coffee cup sleeves used for?",
+          answer:
+            "They're used to protect customers' hands from hot coffee cups and provide a surface for café branding.",
+        },
+        {
+          question: "Can I customize coffee cup sleeves with my café logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for coffee cup sleeves wholesale.",
+        },
+        {
+          question: "Do you offer different sizes for various cup diameters?",
+          answer:
+            "Yes, we provide sleeves that fit 8oz, 12oz, 16oz, 20oz, and custom cup sizes.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our coffee cup sleeves wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these sleeves eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly coffee cup sleeves made from recyclable and biodegradable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Coffee Cup Sleeves",
+        eyebrow: "Coffee Cup Sleeve FAQs",
+      }
+    ),
+    cta: {
+      title: "Protect Hands, Promote Your Brand",
+      description:
+        "Partner with BoxyPack to create custom coffee cup sleeves that protect customers and showcase your café's brand. Our packaging experts ensure every sleeve fits perfectly and presents your brand with style.",
+    },
+  },
+
+  // Subcategory: Custom Noodle Boxes
+  "custom-noodle-boxes": {
+    name: "Custom Noodle Boxes",
+    description:
+      "Leak-proof, sturdy, and perfectly designed. Buy custom noodle boxes online for noodle packaging that keeps meals hot and fresh for delivery.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Food-grade, leak-proof material keeps noodles fresh",
+      "Custom printing for logos and restaurant branding",
+      "Multiple sizes for various portion sizes",
+      "Secure closures to prevent spills",
+      "Eco-friendly and recyclable packaging materials",
+      "Microwave-safe options available",
+      "Perfect for Asian restaurants, food trucks, and delivery services",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Food-Grade Cardboard / Kraft / Leak-Resistant Paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-Top / Auto-Lock Bottom / Secure Closure",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Noodle Boxes for Asian Food Packaging",
+      paragraphs: [
+        "Our custom noodle boxes are designed to keep noodles hot and fresh while preventing leaks during delivery and takeout. Built with leak-proof materials and secure closures, these boxes maintain food quality and presentation. Perfect for Asian restaurants, food trucks, and delivery services, they combine functionality with brand presentation.",
+        "At BoxyPack, we craft custom printed noodle boxes that match your restaurant's style and portion sizes. Whether you need boxes for ramen, lo mein, or pad thai, we tailor each box to ensure proper sealing and attractive branding. Add your logo and restaurant information for a professional finish that customers remember.",
+        "As a noodle boxes wholesale supplier, we focus on delivering quality, leak protection, and custom branding at competitive pricing that fits restaurants of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Noodle Boxes",
+      [
+        {
+          question: "What are custom noodle boxes made of?",
+          answer:
+            "They're made from food-safe, leak-resistant cardboard or kraft paperboard with secure closures.",
+        },
+        {
+          question: "Can I add my restaurant logo?",
+          answer:
+            "Yes, BoxyPack offers full-color logo printing and branding customization for noodle boxes.",
+        },
+        {
+          question: "Are these boxes leak-proof?",
+          answer:
+            "Yes, our noodle boxes are designed with leak-resistant materials and secure closures to prevent spills.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our noodle boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, all our materials are recyclable, biodegradable, and food safe.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Noodle Boxes",
+        eyebrow: "Noodle Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Perfect Packaging for Perfect Noodles",
+      description:
+        "Partner with BoxyPack to create custom noodle boxes that keep your meals hot, fresh, and perfectly presented. Our packaging experts ensure every box prevents leaks and showcases your brand with style.",
+    },
+  },
+
+  // Subcategory: Custom Chinese Takeout Boxes
+  "custom-chinese-takeout-boxes": {
+    name: "Custom Chinese Takeout Boxes",
+    description:
+      "Classic, functional, and perfectly designed. Buy custom Chinese takeout boxes online for authentic takeout packaging that keeps meals fresh and showcases your restaurant's brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Classic Chinese takeout box design",
+      "Food-grade material keeps meals fresh",
+      "Custom printing for logos and restaurant branding",
+      "Secure fold-and-lock closure system",
+      "Eco-friendly and recyclable packaging materials",
+      "Multiple sizes for various portion sizes",
+      "Perfect for Chinese restaurants, Asian eateries, and food delivery",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Food-Grade Cardboard / Kraft / White Paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Fold-and-Lock / Tuck-Top / Secure Closure",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Chinese Takeout Boxes for Authentic Packaging",
+      paragraphs: [
+        "Our custom Chinese takeout boxes feature the classic design that customers recognize and love. Built with food-grade materials and secure fold-and-lock closures, these boxes keep meals fresh and prevent spills. Perfect for Chinese restaurants, Asian eateries, and food delivery services, they combine authentic style with modern functionality.",
+        "At BoxyPack, we craft custom printed Chinese takeout boxes that match your restaurant's brand and menu needs. Whether you need boxes for rice dishes, stir-fries, or combination meals, we tailor each box to ensure proper sealing and attractive branding. Add your logo, restaurant name, and contact information for a professional finish.",
+        "As a Chinese takeout boxes wholesale supplier, we focus on delivering quality, authentic design, and custom branding at competitive pricing that fits restaurants of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Chinese Takeout Boxes",
+      [
+        {
+          question: "What are custom Chinese takeout boxes made of?",
+          answer:
+            "They're made from food-safe cardboard or kraft paperboard with the classic fold-and-lock design.",
+        },
+        {
+          question: "Can I add my restaurant logo?",
+          answer:
+            "Yes, BoxyPack offers full-color logo printing and branding customization for Chinese takeout boxes.",
+        },
+        {
+          question: "Do these boxes have secure closures?",
+          answer:
+            "Yes, our Chinese takeout boxes feature fold-and-lock closures that keep food secure during transport.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our Chinese takeout boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, all our materials are recyclable, biodegradable, and food safe.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Chinese Takeout Boxes",
+        eyebrow: "Chinese Takeout Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Authentic Packaging for Authentic Flavors",
+      description:
+        "Partner with BoxyPack to create custom Chinese takeout boxes that keep your meals fresh and showcase your restaurant's brand. Our packaging experts ensure every box maintains the classic design and presents your food with style.",
+    },
+  },
+
+  // Subcategory: Custom Popcorn Boxes
+  "custom-popcorn-boxes": {
+    name: "Custom Popcorn Boxes",
+    description:
+      "Classic, functional, and perfectly sized. Buy custom popcorn boxes online for popcorn packaging that keeps snacks fresh and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Classic popcorn box design",
+      "Food-grade material keeps popcorn fresh",
+      "Custom printing for logos and branding",
+      "Multiple sizes for small, medium, and large portions",
+      "Eco-friendly and recyclable packaging materials",
+      "Easy-to-handle design for events and concessions",
+      "Perfect for movie theaters, events, and snack retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Food-Grade Cardboard / Kraft / White Paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-Top / Fold-and-Lock / Classic Popcorn Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Popcorn Boxes for Events and Concessions",
+      paragraphs: [
+        "Our custom popcorn boxes feature the classic design that customers recognize at movie theaters and events. Built with food-grade materials and thoughtful sizing, these boxes keep popcorn fresh and easy to handle. Perfect for movie theaters, events, concessions, and snack retailers, they combine functionality with brand presentation.",
+        "At BoxyPack, we craft custom printed popcorn boxes that match your brand and event needs. Whether you need boxes for small snacks or large portions, we tailor each box to ensure proper capacity and attractive branding. Add your logo, event information, and colors for a professional finish.",
+        "As a popcorn boxes wholesale supplier, we focus on delivering quality, classic design, and custom branding at competitive pricing that fits businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Popcorn Boxes",
+      [
+        {
+          question: "What are custom popcorn boxes made of?",
+          answer:
+            "They're made from food-safe cardboard or kraft paperboard with the classic popcorn box design.",
+        },
+        {
+          question: "Can I add my logo or event branding?",
+          answer:
+            "Yes, BoxyPack offers full-color logo printing and branding customization for popcorn boxes.",
+        },
+        {
+          question: "Do you offer different sizes?",
+          answer:
+            "Yes, we provide popcorn boxes in small, medium, large, and custom sizes to fit your needs.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our popcorn boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, all our materials are recyclable, biodegradable, and food safe.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Popcorn Boxes",
+        eyebrow: "Popcorn Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Classic Packaging for Classic Snacks",
+      description:
+        "Partner with BoxyPack to create custom popcorn boxes that keep your snacks fresh and showcase your brand. Our packaging experts ensure every box maintains the classic design and presents your popcorn with style.",
+    },
+  },
+
+  // Subcategory: Custom Snack Boxes
+  "custom-snack-boxes": {
+    name: "Custom Snack Boxes",
+    description:
+      "Versatile, protective, and perfectly designed. Buy custom snack boxes online for snack packaging that keeps treats fresh and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Food-grade material keeps snacks fresh",
+      "Custom printing for logos and branding",
+      "Multiple sizes for various snack types",
+      "Window options for product visibility",
+      "Eco-friendly and recyclable packaging materials",
+      "Secure closures to maintain freshness",
+      "Perfect for snack retailers, convenience stores, and food businesses",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Food-Grade Cardboard / Kraft / Laminated Paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Snack Boxes for Retail Packaging",
+      paragraphs: [
+        "Our custom snack boxes are designed to protect and showcase various snack products while maintaining freshness. Built with food-grade materials and thoughtful design, these boxes keep snacks safe from damage and environmental factors. Perfect for snack retailers, convenience stores, and food businesses, they combine functionality with brand presentation.",
+        "At BoxyPack, we craft custom printed snack boxes that match your brand and product needs. Whether you need boxes for chips, cookies, nuts, or mixed snacks, we tailor each box to ensure proper protection and attractive branding. Add your logo, product information, and colors for a professional finish.",
+        "As a snack boxes wholesale supplier, we focus on delivering quality, freshness protection, and custom branding at competitive pricing that fits businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Snack Boxes",
+      [
+        {
+          question: "What are custom snack boxes used for?",
+          answer:
+            "They're used for packaging various snack products like chips, cookies, nuts, and mixed snacks.",
+        },
+        {
+          question: "Can I customize snack boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for snack boxes wholesale.",
+        },
+        {
+          question: "Do you offer window options for product visibility?",
+          answer:
+            "Yes, we provide clear window panels and cutouts for showcasing snack products in boxes.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our snack boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly snack boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Snack Boxes",
+        eyebrow: "Snack Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Perfect Packaging for Perfect Snacks",
+      description:
+        "Partner with BoxyPack to create custom snack boxes that protect your products and showcase your brand. Our packaging experts ensure every box maintains freshness and presents your snacks with style.",
+    },
+  },
+
+  // Subcategory: Custom Tea Boxes
+  "custom-tea-boxes": {
+    name: "Custom Tea Boxes",
+    description:
+      "Aromatic, protective, and elegantly designed. Buy custom tea boxes online for tea packaging that keeps leaves fresh and showcases your tea brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Airtight construction to preserve tea freshness",
+      "Custom printing for logos, tea information, and branding",
+      "Multiple sizes for various tea bag quantities",
+      "Window options for product visibility",
+      "Eco-friendly and recyclable packaging materials",
+      "Moisture-resistant coatings to protect tea",
+      "Perfect for tea companies, specialty shops, and retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Food-Grade Cardboard / Kraft / Laminated Paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Tea Boxes for Tea Brand Packaging",
+      paragraphs: [
+        "Our custom tea boxes are designed to protect and showcase tea products while maintaining freshness and aroma. Built with premium materials and thoughtful design, these boxes keep tea bags or loose leaves safe from light, moisture, and air exposure. Perfect for tea companies, specialty shops, and retailers, they combine functionality with elegant brand presentation.",
+        "At BoxyPack, we craft custom printed tea boxes that match your tea brand's personality and product needs. Whether you need boxes for tea bags, loose leaf tea, or tea gift sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, tea information, and branding for a professional finish that tea lovers appreciate.",
+        "As a tea boxes wholesale supplier, we focus on delivering quality, freshness protection, and custom branding at competitive pricing that fits tea businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Tea Boxes",
+      [
+        {
+          question: "What are custom tea boxes used for?",
+          answer:
+            "They're used for packaging tea bags, loose leaf tea, and tea gift sets from tea companies and specialty shops.",
+        },
+        {
+          question: "Can I customize tea boxes with my tea brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for tea boxes wholesale.",
+        },
+        {
+          question: "Do these boxes protect tea freshness?",
+          answer:
+            "Yes, our tea boxes are designed with airtight features and moisture-resistant materials to preserve tea quality.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our tea boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, all our materials are recyclable, biodegradable, and food safe.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Tea Boxes",
+        eyebrow: "Tea Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Steep Perfect Packaging for Perfect Tea",
+      description:
+        "Partner with BoxyPack to create custom tea boxes that protect your tea and showcase your brand. Our packaging experts ensure every box maintains freshness and presents your tea with style.",
+    },
+  },
+
+  // Subcategory: Custom Burger Boxes
+  "custom-burger-boxes": {
+    name: "Custom Burger Boxes",
+    description:
+      "Sturdy, grease-resistant, and perfectly designed. Buy custom burger boxes online for burger packaging that keeps meals fresh and showcases your restaurant's brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Food-grade, grease-resistant material keeps burgers fresh",
+      "Custom printing for logos and restaurant branding",
+      "Multiple sizes for single, double, and triple burgers",
+      "Ventilation features to prevent sogginess",
+      "Eco-friendly and recyclable packaging materials",
+      "Secure closures to maintain burger integrity",
+      "Perfect for burger restaurants, fast-food chains, and food trucks",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Food-Grade Cardboard / Kraft / Grease-Resistant Paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-Top / Auto-Lock Bottom / Ventilation Holes",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Burger Boxes for Fast Food Packaging",
+      paragraphs: [
+        "Our custom burger boxes are designed to keep burgers fresh and intact while maintaining their quality during delivery and takeout. Built with grease-resistant materials and ventilation features, these boxes prevent sogginess and preserve burger presentation. Perfect for burger restaurants, fast-food chains, and food trucks, they combine functionality with brand presentation.",
+        "At BoxyPack, we craft custom printed burger boxes that match your restaurant's style and burger sizes. Whether you need boxes for single patties or triple burgers, we tailor each box to ensure proper ventilation and heat retention. Add your logo and branding for a professional finish that customers remember.",
+        "As a burger boxes wholesale supplier, we focus on delivering quality, grease resistance, and custom branding at competitive pricing that fits restaurants of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Burger Boxes",
+      [
+        {
+          question: "What are custom burger boxes made of?",
+          answer:
+            "They're made from food-safe, grease-resistant cardboard or kraft paperboard with ventilation features.",
+        },
+        {
+          question: "Can I add my restaurant logo?",
+          answer:
+            "Yes, BoxyPack offers full-color logo printing and branding customization for burger boxes.",
+        },
+        {
+          question: "Do the boxes have ventilation features?",
+          answer:
+            "Yes, our burger boxes include ventilation features to prevent sogginess and maintain burger quality.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our burger boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, all our materials are recyclable, biodegradable, and food safe.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Burger Boxes",
+        eyebrow: "Burger Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Perfect Packaging for Perfect Burgers",
+      description:
+        "Partner with BoxyPack to create custom burger boxes that keep your burgers fresh, intact, and perfectly presented. Our packaging experts ensure every box maintains quality and showcases your brand with style.",
+    },
+  },
+
+  // Subcategory: Sandwich Boxes
+  "sandwich-boxes": {
+    name: "Sandwich Boxes",
+    description:
+      "Protective, functional, and perfectly designed. Buy sandwich boxes online for sandwich packaging that keeps meals fresh and showcases your deli's brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Food-grade material keeps sandwiches fresh",
+      "Custom printing for logos and deli branding",
+      "Multiple sizes for various sandwich types",
+      "Secure closures to maintain sandwich integrity",
+      "Eco-friendly and recyclable packaging materials",
+      "Window options for product visibility",
+      "Perfect for delis, sandwich shops, and food service businesses",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Food-Grade Cardboard / Kraft / Laminated Paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Sandwich Boxes for Deli Packaging",
+      paragraphs: [
+        "Our sandwich boxes are designed to protect and showcase sandwiches while maintaining freshness and presentation. Built with food-grade materials and thoughtful design, these boxes keep sandwiches safe from damage and environmental factors. Perfect for delis, sandwich shops, and food service businesses, they combine functionality with brand presentation.",
+        "At BoxyPack, we craft custom printed sandwich boxes that match your deli's personality and sandwich types. Whether you need boxes for subs, wraps, or classic sandwiches, we tailor each box to ensure proper protection and attractive branding. Add your logo, deli information, and colors for a professional finish.",
+        "As a sandwich boxes wholesale supplier, we focus on delivering quality, freshness protection, and custom branding at competitive pricing that fits food service businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Sandwich Boxes",
+      [
+        {
+          question: "What are sandwich boxes used for?",
+          answer:
+            "They're used for packaging sandwiches, subs, wraps, and deli items from sandwich shops and delis.",
+        },
+        {
+          question: "Can I customize sandwich boxes with my deli logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for sandwich boxes wholesale.",
+        },
+        {
+          question: "Do you offer window options for product visibility?",
+          answer:
+            "Yes, we provide clear window panels and cutouts for showcasing sandwiches in boxes.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our sandwich boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly sandwich boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Sandwich Boxes",
+        eyebrow: "Sandwich Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Perfect Packaging for Perfect Sandwiches",
+      description:
+        "Partner with BoxyPack to create sandwich boxes that protect your sandwiches and showcase your deli's brand. Our packaging experts ensure every box maintains freshness and presents your sandwiches with style.",
+    },
+  },
+
+  // Subcategory: Gift Pillow Boxes
+  "gift-pillow-boxes": {
+    name: "Gift Pillow Boxes",
+    description:
+      "Elegant, curved, and perfectly designed. Buy gift pillow boxes online for unique gift packaging that creates memorable unboxing experiences.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Unique curved pillow shape for elegant presentation",
+      "Premium materials that protect and showcase gifts",
+      "Custom printing for logos, messages, and branding",
+      "Multiple sizes for various gift types",
+      "Eco-friendly and recyclable packaging materials",
+      "Easy-to-open design for delightful unboxing",
+      "Perfect for jewelry, cosmetics, and small gifts",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Pillow shape with tuck-end or magnetic closure",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Gift Pillow Boxes for Elegant Gift Packaging",
+      paragraphs: [
+        "Our gift pillow boxes feature a unique curved design that creates an elegant and memorable presentation. Built with premium materials and thoughtful design, these boxes protect gifts while offering a distinctive shape that stands out. Perfect for jewelry, cosmetics, small gifts, and special occasions, they combine functionality with sophisticated style.",
+        "At BoxyPack, we craft custom printed gift pillow boxes that match your brand's personality and gift needs. Whether you need boxes for small items or larger gifts, we tailor each box to ensure proper protection and attractive presentation. Add your logo, messages, and branding for a professional finish that customers remember.",
+        "As a gift pillow boxes supplier, we deliver superior quality, unique design, and custom branding at competitive pricing that fits gift businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Gift Pillow Boxes",
+      [
+        {
+          question: "What are gift pillow boxes used for?",
+          answer:
+            "They're used for packaging small gifts, jewelry, cosmetics, and special occasion items with an elegant curved design.",
+        },
+        {
+          question: "Can I customize gift pillow boxes with my logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for gift pillow boxes wholesale.",
+        },
+        {
+          question: "What makes pillow boxes different from regular boxes?",
+          answer:
+            "Pillow boxes feature a unique curved, pillow-like shape that creates an elegant and distinctive presentation.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our gift pillow boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly gift pillow boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Gift Pillow Boxes",
+        eyebrow: "Gift Pillow Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Elegant Curves, Memorable Gifts",
+      description:
+        "Partner with BoxyPack to create gift pillow boxes that protect your gifts and create unforgettable unboxing experiences. Our packaging experts ensure every box maintains the elegant design and presents your gifts with style.",
+    },
+  },
+
+  // Subcategory: Birthday Gift Boxes
+  "birthday-gift-boxes": {
+    name: "Birthday Gift Boxes",
+    description:
+      "Celebratory, festive, and perfectly designed. Buy birthday gift boxes online for birthday packaging that makes every celebration memorable.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Festive designs perfect for birthday celebrations",
+      "Premium materials that protect and showcase gifts",
+      "Custom printing for birthday messages and branding",
+      "Multiple sizes for various gift types",
+      "Eco-friendly and recyclable packaging materials",
+      "Colorful and vibrant finish options",
+      "Perfect for birthday parties, celebrations, and retail gifting",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, or lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Birthday Gift Boxes for Celebratory Packaging",
+      paragraphs: [
+        "Our birthday gift boxes are designed to make every birthday celebration special with festive and vibrant designs. Built with premium materials and thoughtful design, these boxes protect gifts while creating a joyful presentation. Perfect for birthday parties, celebrations, and retail gifting, they combine functionality with celebratory style.",
+        "At BoxyPack, we craft custom printed birthday gift boxes that match your brand and celebration needs. Whether you need boxes for small party favors or larger birthday gifts, we tailor each box to ensure proper protection and attractive presentation. Add your logo, birthday messages, and festive colors for a memorable finish.",
+        "As a birthday gift boxes supplier, we deliver superior quality, festive design, and custom branding at competitive pricing that fits gift businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Birthday Gift Boxes",
+      [
+        {
+          question: "What are birthday gift boxes used for?",
+          answer:
+            "They're used for packaging birthday gifts, party favors, and celebration items with festive designs.",
+        },
+        {
+          question: "Can I customize birthday gift boxes with my logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for birthday gift boxes wholesale.",
+        },
+        {
+          question: "Do you offer festive color options?",
+          answer:
+            "Yes, we provide vibrant and colorful finish options perfect for birthday celebrations.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our birthday gift boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly birthday gift boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Birthday Gift Boxes",
+        eyebrow: "Birthday Gift Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Celebrate with Perfect Packaging",
+      description:
+        "Partner with BoxyPack to create birthday gift boxes that make every celebration memorable. Our packaging experts ensure every box maintains the festive design and presents your gifts with style.",
+    },
+  },
+
+  // Subcategory: Sweet Gift Boxes
+  "sweet-gift-boxes-industry": {
+    name: "Sweet Gift Boxes",
+    description:
+      "Delightful, charming, and perfectly designed. Buy sweet gift boxes online for candy and treat packaging that creates joyful gifting experiences.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Charming designs perfect for sweets and treats",
+      "Food-grade materials that keep treats fresh",
+      "Custom printing for sweet messages and branding",
+      "Multiple sizes for various treat types",
+      "Eco-friendly and recyclable packaging materials",
+      "Window options for product visibility",
+      "Perfect for candy shops, bakeries, and sweet gift retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Food-Grade Cardboard / Kraft / Laminated Paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Sweet Gift Boxes for Treat Packaging",
+      paragraphs: [
+        "Our sweet gift boxes are designed to package candies, chocolates, and treats with charm and delight. Built with food-grade materials and thoughtful design, these boxes keep treats fresh while creating an attractive presentation. Perfect for candy shops, bakeries, and sweet gift retailers, they combine functionality with delightful style.",
+        "At BoxyPack, we craft custom printed sweet gift boxes that match your brand and treat needs. Whether you need boxes for individual candies or gift sets, we tailor each box to ensure proper protection and attractive branding. Add your logo, sweet messages, and colors for a memorable finish.",
+        "As a sweet gift boxes supplier, we deliver superior quality, charming design, and custom branding at competitive pricing that fits sweet businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Sweet Gift Boxes",
+      [
+        {
+          question: "What are sweet gift boxes used for?",
+          answer:
+            "They're used for packaging candies, chocolates, treats, and sweet gift sets with charming designs.",
+        },
+        {
+          question: "Can I customize sweet gift boxes with my logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for sweet gift boxes wholesale.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our sweet gift boxes are made from food-grade materials suitable for direct contact with treats.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our sweet gift boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly sweet gift boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Sweet Gift Boxes",
+        eyebrow: "Sweet Gift Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Sweet Packaging for Sweet Moments",
+      description:
+        "Partner with BoxyPack to create sweet gift boxes that protect your treats and create joyful gifting experiences. Our packaging experts ensure every box maintains the charming design and presents your sweets with style.",
+    },
+  },
+
+  // Subcategory: Party Favor Boxes
+  "party-favor-boxes": {
+    name: "Party Favor Boxes",
+    description:
+      "Festive, fun, and perfectly sized. Buy party favor boxes online for party favor packaging that makes every celebration memorable.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Festive designs perfect for parties and celebrations",
+      "Premium materials that protect party favors",
+      "Custom printing for party themes and branding",
+      "Multiple sizes for various favor types",
+      "Eco-friendly and recyclable packaging materials",
+      "Easy-to-handle design for party distribution",
+      "Perfect for birthday parties, weddings, and events",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, or lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Party Favor Boxes for Celebration Packaging",
+      paragraphs: [
+        "Our party favor boxes are designed to package party favors and gifts with festive and fun designs. Built with premium materials and thoughtful sizing, these boxes protect favors while creating an attractive presentation. Perfect for birthday parties, weddings, and events, they combine functionality with celebratory style.",
+        "At BoxyPack, we craft custom printed party favor boxes that match your party theme and favor needs. Whether you need boxes for small trinkets or larger favors, we tailor each box to ensure proper protection and attractive branding. Add your logo, party messages, and theme colors for a memorable finish.",
+        "As a party favor boxes supplier, we deliver superior quality, festive design, and custom branding at competitive pricing that fits event businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Party Favor Boxes",
+      [
+        {
+          question: "What are party favor boxes used for?",
+          answer:
+            "They're used for packaging party favors, small gifts, and celebration items for parties and events.",
+        },
+        {
+          question: "Can I customize party favor boxes with my party theme?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for party favor boxes wholesale.",
+        },
+        {
+          question: "Do you offer different sizes for various favors?",
+          answer:
+            "Yes, we provide party favor boxes in multiple sizes to accommodate different favor types.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our party favor boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly party favor boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Party Favor Boxes",
+        eyebrow: "Party Favor Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Party Perfect Packaging",
+      description:
+        "Partner with BoxyPack to create party favor boxes that make every celebration memorable. Our packaging experts ensure every box maintains the festive design and presents your favors with style.",
+    },
+  },
+
+  // Subcategory: Round Gift Boxes
+  "round-gift-boxes": {
+    name: "Round Gift Boxes",
+    description:
+      "Elegant, unique, and perfectly circular. Buy round gift boxes online for distinctive gift packaging that stands out with style.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Unique circular shape for distinctive presentation",
+      "Premium materials that protect and showcase gifts",
+      "Custom printing for logos, messages, and branding",
+      "Multiple sizes for various gift types",
+      "Eco-friendly and recyclable packaging materials",
+      "Lift-off lids for elegant opening",
+      "Perfect for jewelry, cosmetics, and special gifts",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Round shape with lift-off lid or magnetic closure",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (Diameter × Height)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Round Gift Boxes for Distinctive Gift Packaging",
+      paragraphs: [
+        "Our round gift boxes feature a unique circular design that creates an elegant and distinctive presentation. Built with premium materials and thoughtful design, these boxes protect gifts while offering a shape that stands out. Perfect for jewelry, cosmetics, special gifts, and occasions, they combine functionality with sophisticated style.",
+        "At BoxyPack, we craft custom printed round gift boxes that match your brand's personality and gift needs. Whether you need boxes for small items or larger gifts, we tailor each box to ensure proper protection and attractive presentation. Add your logo, messages, and branding for a professional finish that customers remember.",
+        "As a round gift boxes supplier, we deliver superior quality, unique design, and custom branding at competitive pricing that fits gift businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Round Gift Boxes",
+      [
+        {
+          question: "What are round gift boxes used for?",
+          answer:
+            "They're used for packaging gifts with a unique circular design, perfect for jewelry, cosmetics, and special items.",
+        },
+        {
+          question: "Can I customize round gift boxes with my logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for round gift boxes wholesale.",
+        },
+        {
+          question: "What makes round boxes different from square boxes?",
+          answer:
+            "Round boxes feature a circular shape that creates a distinctive and elegant presentation different from traditional square boxes.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our round gift boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly round gift boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Round Gift Boxes",
+        eyebrow: "Round Gift Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Round Design, Perfect Gifts",
+      description:
+        "Partner with BoxyPack to create round gift boxes that protect your gifts and create unforgettable unboxing experiences. Our packaging experts ensure every box maintains the elegant circular design and presents your gifts with style.",
+    },
+  },
+
+  // Subcategory: Gift Boxes with Lid
+  "gift-boxes-with-lid": {
+    name: "Gift Boxes with Lid",
+    description:
+      "Elegant, secure, and perfectly designed. Buy gift boxes with lid online for premium gift packaging that creates memorable unboxing experiences.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Lift-off lids for elegant and secure closure",
+      "Premium materials that protect and showcase gifts",
+      "Custom printing for logos, messages, and branding",
+      "Multiple sizes for various gift types",
+      "Eco-friendly and recyclable packaging materials",
+      "Perfect fit between base and lid",
+      "Perfect for luxury gifts, jewelry, and special occasions",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Two-piece box with lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Gift Boxes with Lid for Premium Gift Packaging",
+      paragraphs: [
+        "Our gift boxes with lid feature an elegant two-piece design that creates a premium and secure presentation. Built with premium materials and perfect fit between base and lid, these boxes protect gifts while offering an elegant opening experience. Perfect for luxury gifts, jewelry, cosmetics, and special occasions, they combine functionality with sophisticated style.",
+        "At BoxyPack, we craft custom printed gift boxes with lid that match your brand's personality and gift needs. Whether you need boxes for small items or larger gifts, we tailor each box to ensure perfect fit and attractive presentation. Add your logo, messages, and branding for a professional finish that customers remember.",
+        "As a gift boxes with lid supplier, we deliver superior quality, elegant design, and custom branding at competitive pricing that fits gift businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Gift Boxes with Lid",
+      [
+        {
+          question: "What are gift boxes with lid used for?",
+          answer:
+            "They're used for packaging gifts with an elegant two-piece design featuring a lift-off lid, perfect for luxury items and special occasions.",
+        },
+        {
+          question: "Can I customize gift boxes with lid with my logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for gift boxes with lid wholesale.",
+        },
+        {
+          question: "Do the lids fit securely?",
+          answer:
+            "Yes, our gift boxes with lid are designed with perfect fit between base and lid for secure closure.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our gift boxes with lid wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly gift boxes with lid made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Gift Boxes with Lid",
+        eyebrow: "Gift Box with Lid FAQs",
+      }
+    ),
+    cta: {
+      title: "Elegant Lids, Perfect Gifts",
+      description:
+        "Partner with BoxyPack to create gift boxes with lid that protect your gifts and create unforgettable unboxing experiences. Our packaging experts ensure every box maintains the elegant design and presents your gifts with style.",
+    },
+  },
+
+  // Subcategory: Custom Deluxe Gift Boxes
+  "custom-deluxe-gift-boxes": {
+    name: "Custom Deluxe Gift Boxes",
+    description:
+      "Luxurious, premium, and exquisitely designed. Buy custom deluxe gift boxes online for high-end gift packaging that creates unforgettable luxury experiences.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Premium rigid construction for luxury presentation",
+      "Custom printing and embossing for brand elegance",
+      "Magnetic closures and lift-off lids for premium feel",
+      "Multiple sizes for various gift configurations",
+      "Soft-touch and velvet finishes for sophisticated appeal",
+      "Eco-friendly and recyclable material options",
+      "Perfect for luxury brands, high-end gifts, and special occasions",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid greyboard with wrapped papers or premium coated stocks",
+        },
+        {
+          label: "Structure",
+          value: "Lift-off lid, magnetic closure, or drawer/sleeve style",
+        },
+        {
+          label: "Thickness",
+          value: "2.0–3.0 mm rigid board with custom insert options",
+        },
+        {
+          label: "Finish",
+          value: "Soft-touch lamination, velvet wrap, foil, emboss/deboss",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Deluxe Gift Boxes for Luxury Gift Packaging",
+      paragraphs: [
+        "Our custom deluxe gift boxes are crafted to combine elegance and protection for luxury gift experiences. Designed with premium materials and sophisticated finishes, these boxes enhance the perceived value of your gifts while ensuring safe storage and transit. Every detail from closure to finish adds a touch of luxury that customers notice instantly.",
+        "At BoxyPack, we create custom deluxe gift boxes that express your brand's personality and sophistication. Whether you need velvet-coated boxes, rigid magnetic closure cases, or minimal elegant designs, we customize each to suit your brand's vision and gift requirements.",
+        "As a luxury deluxe gift boxes supplier, we offer fine finishes, durable materials, and premium presentation at competitive pricing that meets retail and wholesale needs with equal perfection.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Deluxe Gift Boxes",
+      [
+        {
+          question: "What are custom deluxe gift boxes used for?",
+          answer:
+            "They're used for packaging luxury gifts, high-end products, and special occasion items with premium presentation.",
+        },
+        {
+          question: "Can I add custom branding to deluxe gift boxes?",
+          answer:
+            "Yes, BoxyPack offers printing, embossing, foil stamping, and custom finishes for luxury deluxe gift boxes.",
+        },
+        {
+          question: "Are your deluxe gift boxes suitable for various gift types?",
+          answer:
+            "Absolutely, our custom deluxe gift boxes are perfect for various gift configurations and luxury items.",
+        },
+        {
+          question: "Do you offer magnetic closure options?",
+          answer:
+            "Yes, we provide magnetic closures, lift-off lids, and drawer-style boxes for premium presentation.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we produce eco-friendly deluxe gift boxes using recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Deluxe Gift Boxes",
+        eyebrow: "Deluxe Gift Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Luxury Packaging for Luxury Gifts",
+      description:
+        "Partner with BoxyPack to design custom deluxe gift boxes that elevate your brand and create memorable luxury gifting experiences. Our design team creates elegant, durable, and sophisticated packaging tailored to your luxury brand needs.",
+    },
+  },
+
+  // Subcategory: Custom Square Gift Boxes
+  "custom-square-gift-boxes": {
+    name: "Custom Square Gift Boxes",
+    description:
+      "Classic, elegant, and perfectly proportioned. Buy custom square gift boxes online for timeless gift packaging that creates memorable unboxing experiences.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Classic square shape for timeless presentation",
+      "Premium materials that protect and showcase gifts",
+      "Custom printing for logos, messages, and branding",
+      "Multiple sizes for various gift types",
+      "Eco-friendly and recyclable packaging materials",
+      "Lift-off lids or magnetic closures",
+      "Perfect for jewelry, cosmetics, and classic gifts",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Square shape with lift-off lid or magnetic closure",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Square Gift Boxes for Classic Gift Packaging",
+      paragraphs: [
+        "Our custom square gift boxes feature a classic square design that creates a timeless and elegant presentation. Built with premium materials and perfect proportions, these boxes protect gifts while offering a traditional shape that never goes out of style. Perfect for jewelry, cosmetics, classic gifts, and occasions, they combine functionality with sophisticated style.",
+        "At BoxyPack, we craft custom printed square gift boxes that match your brand's personality and gift needs. Whether you need boxes for small items or larger gifts, we tailor each box to ensure proper protection and attractive presentation. Add your logo, messages, and branding for a professional finish that customers remember.",
+        "As a square gift boxes supplier, we deliver superior quality, classic design, and custom branding at competitive pricing that fits gift businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Square Gift Boxes",
+      [
+        {
+          question: "What are custom square gift boxes used for?",
+          answer:
+            "They're used for packaging gifts with a classic square design, perfect for jewelry, cosmetics, and timeless gifts.",
+        },
+        {
+          question: "Can I customize square gift boxes with my logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for square gift boxes wholesale.",
+        },
+        {
+          question: "What makes square boxes a popular choice?",
+          answer:
+            "Square boxes feature a classic, timeless shape that creates an elegant and traditional presentation.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our square gift boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly square gift boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Square Gift Boxes",
+        eyebrow: "Square Gift Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Classic Shape, Perfect Gifts",
+      description:
+        "Partner with BoxyPack to create custom square gift boxes that protect your gifts and create unforgettable unboxing experiences. Our packaging experts ensure every box maintains the classic design and presents your gifts with style.",
+    },
+  },
+
+  // Subcategory: Small Gift Boxes
+  "small-gift-boxes": {
+    name: "Small Gift Boxes",
+    description:
+      "Compact, elegant, and perfectly sized. Buy small gift boxes online for petite gift packaging that creates memorable moments for small items.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Compact size perfect for small gifts and items",
+      "Premium materials that protect and showcase gifts",
+      "Custom printing for logos, messages, and branding",
+      "Multiple small sizes for various item types",
+      "Eco-friendly and recyclable packaging materials",
+      "Elegant design despite compact size",
+      "Perfect for jewelry, small accessories, and petite gifts",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, or lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Small sizes available (e.g., 3 × 3 × 2)",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Small Gift Boxes for Petite Gift Packaging",
+      paragraphs: [
+        "Our small gift boxes are designed to package petite gifts and small items with elegance and precision. Built with premium materials and compact sizing, these boxes protect small gifts while creating an attractive presentation. Perfect for jewelry, small accessories, rings, and petite gifts, they combine functionality with sophisticated style despite their compact size.",
+        "At BoxyPack, we craft custom printed small gift boxes that match your brand's personality and gift needs. Whether you need boxes for rings, earrings, or small trinkets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, messages, and branding for a professional finish that customers remember.",
+        "As a small gift boxes supplier, we deliver superior quality, compact design, and custom branding at competitive pricing that fits gift businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Small Gift Boxes",
+      [
+        {
+          question: "What are small gift boxes used for?",
+          answer:
+            "They're used for packaging small gifts, jewelry, rings, earrings, and petite items with compact, elegant designs.",
+        },
+        {
+          question: "Can I customize small gift boxes with my logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for small gift boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for small gift boxes?",
+          answer:
+            "We provide small gift boxes in various compact sizes, typically ranging from 2 × 2 × 2 to 5 × 5 × 3 inches.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our small gift boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly small gift boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Small Gift Boxes",
+        eyebrow: "Small Gift Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Small Size, Big Impact",
+      description:
+        "Partner with BoxyPack to create small gift boxes that protect your petite gifts and create unforgettable unboxing experiences. Our packaging experts ensure every box maintains elegance despite its compact size and presents your gifts with style.",
+    },
+  },
+
+  // Subcategory: Large Gift Boxes
+  "large-gift-boxes": {
+    name: "Large Gift Boxes",
+    description:
+      "Spacious, elegant, and perfectly designed. Buy large gift boxes online for big gift packaging that creates memorable moments for larger items.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Spacious size perfect for large gifts and items",
+      "Premium materials that protect and showcase gifts",
+      "Custom printing for logos, messages, and branding",
+      "Multiple large sizes for various item types",
+      "Eco-friendly and recyclable packaging materials",
+      "Sturdy construction for heavy items",
+      "Perfect for clothing, electronics, and large gifts",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, or lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "18 pt / 24 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Large sizes available (e.g., 12 × 12 × 8)",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Large Gift Boxes for Big Gift Packaging",
+      paragraphs: [
+        "Our large gift boxes are designed to package big gifts and larger items with elegance and strength. Built with premium materials and sturdy construction, these boxes protect large gifts while creating an attractive presentation. Perfect for clothing, electronics, large accessories, and big gifts, they combine functionality with sophisticated style despite their spacious size.",
+        "At BoxyPack, we craft custom printed large gift boxes that match your brand's personality and gift needs. Whether you need boxes for clothing, electronics, or large gift sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, messages, and branding for a professional finish that customers remember.",
+        "As a large gift boxes supplier, we deliver superior quality, sturdy design, and custom branding at competitive pricing that fits gift businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Large Gift Boxes",
+      [
+        {
+          question: "What are large gift boxes used for?",
+          answer:
+            "They're used for packaging large gifts, clothing, electronics, and bigger items with spacious, elegant designs.",
+        },
+        {
+          question: "Can I customize large gift boxes with my logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for large gift boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for large gift boxes?",
+          answer:
+            "We provide large gift boxes in various spacious sizes, typically ranging from 10 × 10 × 6 to 16 × 16 × 12 inches.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our large gift boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly large gift boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Large Gift Boxes",
+        eyebrow: "Large Gift Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Big Size, Bigger Impact",
+      description:
+        "Partner with BoxyPack to create large gift boxes that protect your big gifts and create unforgettable unboxing experiences. Our packaging experts ensure every box maintains elegance and strength despite its spacious size and presents your gifts with style.",
+    },
+  },
+
+  // Subcategory: Custom Die Cut Boxes
+  "custom-die-cut-boxes": {
+    name: "Custom Die Cut Boxes",
+    description:
+      "Unique, eye-catching, and perfectly shaped. Buy custom die cut boxes online for distinctive packaging that stands out with custom shapes and designs.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Custom die-cut shapes for unique presentation",
+      "Premium materials that protect and showcase products",
+      "Custom printing for logos and brand identity",
+      "Multiple custom shapes and sizes available",
+      "Eco-friendly and recyclable packaging materials",
+      "Window and cutout options for product visibility",
+      "Perfect for retail display, e-commerce, and product brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Laminated Paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Custom Die-Cut Shape / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (Custom Shape)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Die Cut Boxes for Distinctive Retail Packaging",
+      paragraphs: [
+        "Our custom die cut boxes feature unique shapes and designs that create eye-catching presentations for your products. Built with precision cutting and premium materials, these boxes protect products while offering distinctive shapes that stand out on shelves. Perfect for retail display, e-commerce, and product brands, they combine functionality with creative design.",
+        "At BoxyPack, we craft custom printed die cut boxes that match your brand's identity and product needs. Whether you need custom shapes, window cutouts, or unique designs, we tailor each box to ensure proper protection and attractive presentation. Add your logo and branding for a professional finish that customers remember.",
+        "As a die cut boxes wholesale supplier, we deliver superior quality, unique design, and custom branding at competitive pricing that fits retail businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Die Cut Boxes",
+      [
+        {
+          question: "What are custom die cut boxes used for?",
+          answer:
+            "They're used for packaging products with unique custom shapes and designs, perfect for retail display and distinctive presentation.",
+        },
+        {
+          question: "Can I customize die cut boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for die cut boxes wholesale.",
+        },
+        {
+          question: "What shapes are available for die cut boxes?",
+          answer:
+            "We can create virtually any custom shape based on your design requirements and product needs.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our die cut boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly die cut boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Die Cut Boxes",
+        eyebrow: "Die Cut Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Unique Shapes, Unique Brands",
+      description:
+        "Partner with BoxyPack to create custom die cut boxes that protect your products and showcase your brand with distinctive designs. Our packaging experts ensure every box maintains the unique shape and presents your products with style.",
+    },
+  },
+
+  // Subcategory: Custom Toy Boxes
+  "custom-toy-boxes": {
+    name: "Custom Toy Boxes",
+    description:
+      "Fun, protective, and perfectly designed. Buy custom toy boxes online for toy packaging that keeps playthings safe and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Durable construction to protect toys",
+      "Custom printing for logos and toy branding",
+      "Multiple sizes for various toy types",
+      "Window options for product visibility",
+      "Eco-friendly and recyclable packaging materials",
+      "Child-safe materials and design",
+      "Perfect for toy manufacturers, retailers, and toy stores",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Laminated Paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Toy Boxes for Toy Retail Packaging",
+      paragraphs: [
+        "Our custom toy boxes are designed to protect and showcase toys while maintaining safety and fun presentation. Built with durable materials and thoughtful design, these boxes keep toys safe from damage while creating an attractive display. Perfect for toy manufacturers, retailers, and toy stores, they combine functionality with playful branding.",
+        "At BoxyPack, we craft custom printed toy boxes that match your brand's personality and toy types. Whether you need boxes for action figures, board games, or plush toys, we tailor each box to ensure proper protection and attractive presentation. Add your logo, toy information, and colors for a professional finish that appeals to both kids and parents.",
+        "As a toy boxes wholesale supplier, we deliver superior quality, durable design, and custom branding at competitive pricing that fits toy businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Toy Boxes",
+      [
+        {
+          question: "What are custom toy boxes used for?",
+          answer:
+            "They're used for packaging toys, action figures, board games, and playthings for retail sale and display.",
+        },
+        {
+          question: "Can I customize toy boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for toy boxes wholesale.",
+        },
+        {
+          question: "Are these boxes safe for children?",
+          answer:
+            "Yes, our toy boxes are made from child-safe, non-toxic materials suitable for toy packaging.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our toy boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly toy boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Toy Boxes",
+        eyebrow: "Toy Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Playful Packaging for Playful Products",
+      description:
+        "Partner with BoxyPack to create custom toy boxes that protect your toys and showcase your brand. Our packaging experts ensure every box maintains durability and presents your toys with style.",
+    },
+  },
+
+  // Subcategory: Business Card Boxes
+  "business-card-boxes": {
+    name: "Business Card Boxes",
+    description:
+      "Professional, compact, and perfectly sized. Buy business card boxes online for business card packaging that keeps cards organized and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for standard business cards",
+      "Premium materials that protect cards from damage",
+      "Custom printing for logos and company branding",
+      "Multiple sizes for various card quantities",
+      "Eco-friendly and recyclable packaging materials",
+      "Professional design for corporate use",
+      "Perfect for businesses, corporate events, and networking",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Premium Coated Stocks",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Sleeve Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Standard business card size (3.5 × 2 × variable)",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Business Card Boxes for Professional Packaging",
+      paragraphs: [
+        "Our business card boxes are designed to protect and organize business cards with a professional and elegant presentation. Built with premium materials and perfect sizing, these boxes keep cards safe from damage while creating an attractive display. Perfect for businesses, corporate events, and networking, they combine functionality with professional branding.",
+        "At BoxyPack, we craft custom printed business card boxes that match your company's identity and card needs. Whether you need boxes for individual card sets or bulk quantities, we tailor each box to ensure proper protection and attractive presentation. Add your logo, company information, and branding for a professional finish that makes a great impression.",
+        "As a business card boxes wholesale supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Business Card Boxes",
+      [
+        {
+          question: "What are business card boxes used for?",
+          answer:
+            "They're used for packaging and organizing business cards for distribution, corporate events, and professional networking.",
+        },
+        {
+          question: "Can I customize business card boxes with my company logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for business card boxes wholesale.",
+        },
+        {
+          question: "What size are business card boxes?",
+          answer:
+            "Our business card boxes are designed to fit standard business cards (3.5 × 2 inches) with various height options.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our business card boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly business card boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Business Card Boxes",
+        eyebrow: "Business Card Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Professional Packaging for Professional Cards",
+      description:
+        "Partner with BoxyPack to create business card boxes that protect your cards and showcase your company brand. Our packaging experts ensure every box maintains professionalism and presents your cards with style.",
+    },
+  },
+
+  // Subcategory: Custom Dispenser Boxes
+  "custom-dispenser-boxes": {
+    name: "Custom Dispenser Boxes",
+    description:
+      "Functional, convenient, and perfectly designed. Buy custom dispenser boxes online for product packaging that combines storage with easy dispensing.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Dispenser design for easy product access",
+      "Premium materials that protect products",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various product types",
+      "Eco-friendly and recyclable packaging materials",
+      "Convenient dispensing mechanism",
+      "Perfect for retail products, snacks, and consumables",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Laminated Paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Dispenser Style / Tuck-End / Auto-Lock Bottom",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Dispenser Boxes for Convenient Retail Packaging",
+      paragraphs: [
+        "Our custom dispenser boxes feature a convenient dispensing design that allows easy access to products while maintaining protection and organization. Built with premium materials and thoughtful engineering, these boxes keep products safe while offering a user-friendly dispensing mechanism. Perfect for retail products, snacks, consumables, and items that need easy access, they combine functionality with attractive branding.",
+        "At BoxyPack, we craft custom printed dispenser boxes that match your brand's identity and product needs. Whether you need boxes for snacks, tissues, or retail items, we tailor each box to ensure proper protection and convenient dispensing. Add your logo and branding for a professional finish that customers appreciate.",
+        "As a dispenser boxes wholesale supplier, we deliver superior quality, functional design, and custom branding at competitive pricing that fits retail businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Dispenser Boxes",
+      [
+        {
+          question: "What are custom dispenser boxes used for?",
+          answer:
+            "They're used for packaging products that need easy dispensing, such as snacks, tissues, and retail consumables.",
+        },
+        {
+          question: "Can I customize dispenser boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for dispenser boxes wholesale.",
+        },
+        {
+          question: "How does the dispenser mechanism work?",
+          answer:
+            "Our dispenser boxes feature a convenient opening mechanism that allows easy access to products while maintaining box integrity.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our dispenser boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly dispenser boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Dispenser Boxes",
+        eyebrow: "Dispenser Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Convenient Packaging for Convenient Products",
+      description:
+        "Partner with BoxyPack to create custom dispenser boxes that protect your products and offer convenient dispensing. Our packaging experts ensure every box maintains functionality and presents your products with style.",
+    },
+  },
+
+  // Subcategory: Custom Mailer Boxes
+  "custom-mailer-boxes": {
+    name: "Custom Mailer Boxes",
+    description:
+      "Durable, secure, and perfectly designed. Buy custom mailer boxes online for shipping packaging that protects products during transit and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Durable construction for shipping protection",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various product types",
+      "Secure closures for safe transit",
+      "Eco-friendly and recyclable packaging materials",
+      "Easy assembly and sealing",
+      "Perfect for e-commerce, shipping, and product delivery",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Corrugated",
+        },
+        {
+          label: "Structure",
+          value: "Mailer Style / Tuck-End / Auto-Lock Bottom",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Mailer Boxes for E-commerce Shipping",
+      paragraphs: [
+        "Our custom mailer boxes are designed to protect products during shipping while maintaining brand presence throughout the delivery process. Built with durable materials and secure closures, these boxes keep products safe during transit while creating a professional unboxing experience. Perfect for e-commerce, shipping, and product delivery, they combine functionality with attractive branding.",
+        "At BoxyPack, we craft custom printed mailer boxes that match your brand's identity and shipping needs. Whether you need boxes for small items or larger products, we tailor each box to ensure proper protection and attractive presentation. Add your logo, shipping information, and branding for a professional finish that customers appreciate.",
+        "As a mailer boxes wholesale supplier, we deliver superior quality, durable design, and custom branding at competitive pricing that fits e-commerce businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Mailer Boxes",
+      [
+        {
+          question: "What are custom mailer boxes used for?",
+          answer:
+            "They're used for shipping products via mail, e-commerce delivery, and product distribution with secure packaging.",
+        },
+        {
+          question: "Can I customize mailer boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for mailer boxes wholesale.",
+        },
+        {
+          question: "Are these boxes durable for shipping?",
+          answer:
+            "Yes, our mailer boxes are designed with durable construction and secure closures to protect products during transit.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our mailer boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly mailer boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Mailer Boxes",
+        eyebrow: "Mailer Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Secure Shipping, Strong Branding",
+      description:
+        "Partner with BoxyPack to create custom mailer boxes that protect your products during shipping and showcase your brand. Our packaging experts ensure every box maintains durability and presents your products with style.",
+    },
+  },
+
+  // Subcategory: Candle Gift Boxes
+  "candle-gift-boxes": {
+    name: "Candle Gift Boxes",
+    description:
+      "Elegant, luxurious, and perfect for gifting. Buy candle gift boxes online for candle gift packaging that creates memorable unboxing experiences.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Premium rigid construction for luxury presentation",
+      "Custom printing and embossing for brand elegance",
+      "Magnetic closures and lift-off lids for premium feel",
+      "Multiple sizes for various candle types",
+      "Soft-touch and velvet finishes for sophisticated appeal",
+      "Eco-friendly and recyclable material options",
+      "Perfect for candle gift sets, holidays, and special occasions",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid greyboard with wrapped papers or premium coated stocks",
+        },
+        {
+          label: "Structure",
+          value: "Lift-off lid, magnetic closure, or drawer/sleeve style",
+        },
+        {
+          label: "Thickness",
+          value: "2.0–3.0 mm rigid board with custom insert options",
+        },
+        {
+          label: "Finish",
+          value: "Soft-touch lamination, velvet wrap, foil, emboss/deboss",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Candle Gift Boxes for Luxury Candle Packaging",
+      paragraphs: [
+        "Our candle gift boxes are crafted to combine elegance and protection for luxury candle gift experiences. Designed with premium materials and sophisticated finishes, these boxes enhance the perceived value of your candle gifts while ensuring safe storage and transit. Every detail from closure to finish adds a touch of luxury that customers notice instantly.",
+        "At BoxyPack, we create custom candle gift boxes that express your brand's personality and sophistication. Whether you need velvet-coated boxes, rigid magnetic closure cases, or minimal elegant designs, we customize each to suit your brand's vision and gift requirements.",
+        "As a luxury candle gift boxes supplier, we offer fine finishes, durable materials, and premium presentation at competitive pricing that meets retail and wholesale needs with equal perfection.",
+      ],
+    },
+    faq: buildFaq(
+      "Candle Gift Boxes",
+      [
+        {
+          question: "What are candle gift boxes used for?",
+          answer:
+            "They're used for packaging candle gift sets, holiday collections, and special occasion candle gifts with premium presentation.",
+        },
+        {
+          question: "Can I add custom branding to candle gift boxes?",
+          answer:
+            "Yes, BoxyPack offers printing, embossing, foil stamping, and custom finishes for luxury candle gift boxes.",
+        },
+        {
+          question: "Are your gift boxes suitable for various candle types?",
+          answer:
+            "Absolutely, our custom candle gift boxes are perfect for various candle types and gift set configurations.",
+        },
+        {
+          question: "Do you offer magnetic closure options?",
+          answer:
+            "Yes, we provide magnetic closures, lift-off lids, and drawer-style boxes for premium presentation.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we produce eco-friendly candle gift boxes using recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Candle Gift Boxes",
+        eyebrow: "Candle Gift Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Gift Beautifully, Package Perfectly",
+      description:
+        "Partner with BoxyPack to design candle gift boxes that elevate your brand and create memorable gifting experiences. Our design team creates elegant, durable, and sophisticated packaging tailored to your luxury candle brand needs.",
+    },
+  },
+
+  // Subcategory: Luxury Candle Boxes
+  "luxury-candle-boxes": {
+    name: "Luxury Candle Boxes",
+    description:
+      "Premium, sophisticated, and exquisitely designed. Buy luxury candle boxes online for high-end candle packaging that creates unforgettable luxury experiences.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Premium rigid construction for luxury presentation",
+      "Custom printing and embossing for brand elegance",
+      "Magnetic closures and lift-off lids for premium feel",
+      "Multiple sizes for various candle types",
+      "Soft-touch and velvet finishes for sophisticated appeal",
+      "Eco-friendly and recyclable material options",
+      "Perfect for luxury candle brands and high-end retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid greyboard with wrapped papers or premium coated stocks",
+        },
+        {
+          label: "Structure",
+          value: "Lift-off lid, magnetic closure, or drawer/sleeve style",
+        },
+        {
+          label: "Thickness",
+          value: "2.0–3.0 mm rigid board with custom insert options",
+        },
+        {
+          label: "Finish",
+          value: "Soft-touch lamination, velvet wrap, foil, emboss/deboss",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Luxury Candle Boxes for Premium Candle Packaging",
+      paragraphs: [
+        "Our luxury candle boxes are crafted to combine elegance and protection for high-end candle experiences. Designed with premium materials and sophisticated finishes, these boxes enhance the perceived value of your candles while ensuring safe storage and transit. Every detail from closure to finish adds a touch of luxury that customers notice instantly.",
+        "At BoxyPack, we create custom luxury candle boxes that express your brand's personality and sophistication. Whether you need velvet-coated boxes, rigid magnetic closure cases, or minimal elegant designs, we customize each to suit your brand's vision and candle requirements.",
+        "As a luxury candle boxes supplier, we offer fine finishes, durable materials, and premium presentation at competitive pricing that meets retail and wholesale needs with equal perfection.",
+      ],
+    },
+    faq: buildFaq(
+      "Luxury Candle Boxes",
+      [
+        {
+          question: "What are luxury candle boxes used for?",
+          answer:
+            "They're used for packaging high-end candles, luxury candle brands, and premium candle products with sophisticated presentation.",
+        },
+        {
+          question: "Can I add custom branding to luxury candle boxes?",
+          answer:
+            "Yes, BoxyPack offers printing, embossing, foil stamping, and custom finishes for luxury candle boxes.",
+        },
+        {
+          question: "Are your luxury boxes suitable for various candle types?",
+          answer:
+            "Absolutely, our custom luxury candle boxes are perfect for various candle types and premium configurations.",
+        },
+        {
+          question: "Do you offer magnetic closure options?",
+          answer:
+            "Yes, we provide magnetic closures, lift-off lids, and drawer-style boxes for premium presentation.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we produce eco-friendly luxury candle boxes using recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Luxury Candle Boxes",
+        eyebrow: "Luxury Candle Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Luxury Packaging for Luxury Candles",
+      description:
+        "Partner with BoxyPack to design luxury candle boxes that elevate your brand and create memorable luxury experiences. Our design team creates elegant, durable, and sophisticated packaging tailored to your premium candle brand needs.",
+    },
+  },
+
+  // Subcategory: Candle Boxes with Inserts
+  "candle-boxes-with-inserts": {
+    name: "Candle Boxes with Inserts",
+    description:
+      "Secure, protective, and perfectly fitted. Buy candle boxes with inserts online for candle packaging that keeps candles safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Custom inserts to secure candles in place",
+      "Premium materials that protect candles from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various candle types",
+      "Eco-friendly and recyclable packaging materials",
+      "Perfect fit between candle and insert",
+      "Perfect for jar candles, taper candles, and candle sets",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Box with custom insert / Tuck-end / Lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Candle Boxes with Inserts for Secure Candle Packaging",
+      paragraphs: [
+        "Our candle boxes with inserts feature custom-fitted inserts that keep candles secure and protected during transit and storage. Built with premium materials and thoughtful engineering, these boxes prevent candles from shifting or breaking while creating an attractive presentation. Perfect for jar candles, taper candles, and candle sets, they combine functionality with elegant design.",
+        "At BoxyPack, we craft custom printed candle boxes with inserts that match your brand's personality and candle sizes. Whether you need boxes for single candles or candle sets, we tailor each box and insert to ensure perfect fit and attractive presentation. Add your logo and branding for a professional finish that customers appreciate.",
+        "As a candle boxes with inserts supplier, we deliver superior quality, secure design, and custom branding at competitive pricing that fits candle businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Candle Boxes with Inserts",
+      [
+        {
+          question: "What are candle boxes with inserts used for?",
+          answer:
+            "They're used for packaging candles with custom inserts that keep candles secure and protected during transit and storage.",
+        },
+        {
+          question: "Can I customize candle boxes with inserts with my logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for candle boxes with inserts wholesale.",
+        },
+        {
+          question: "How do the inserts keep candles secure?",
+          answer:
+            "Our custom inserts are designed to fit perfectly around candles, preventing movement and protecting them from damage.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our candle boxes with inserts wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly candle boxes with inserts made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Candle Boxes with Inserts",
+        eyebrow: "Candle Box with Inserts FAQs",
+      }
+    ),
+    cta: {
+      title: "Secure Packaging for Secure Candles",
+      description:
+        "Partner with BoxyPack to create candle boxes with inserts that protect your candles and showcase your brand. Our packaging experts ensure every box and insert maintains perfect fit and presents your candles with style.",
+    },
+  },
+
+  // Subcategory: Candle Shipping Boxes
+  "candle-shipping-boxes": {
+    name: "Candle Shipping Boxes",
+    description:
+      "Durable, protective, and perfectly designed. Buy candle shipping boxes online for shipping packaging that protects candles during transit and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Durable construction for shipping protection",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various candle types",
+      "Secure closures for safe transit",
+      "Eco-friendly and recyclable packaging materials",
+      "Easy assembly and sealing",
+      "Perfect for e-commerce, shipping, and candle delivery",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Corrugated",
+        },
+        {
+          label: "Structure",
+          value: "Mailer Style / Tuck-End / Auto-Lock Bottom",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Candle Shipping Boxes for E-commerce Candle Delivery",
+      paragraphs: [
+        "Our candle shipping boxes are designed to protect candles during shipping while maintaining brand presence throughout the delivery process. Built with durable materials and secure closures, these boxes keep candles safe during transit while creating a professional unboxing experience. Perfect for e-commerce, shipping, and candle delivery, they combine functionality with attractive branding.",
+        "At BoxyPack, we craft custom printed candle shipping boxes that match your brand's identity and shipping needs. Whether you need boxes for jar candles, taper candles, or candle sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, shipping information, and branding for a professional finish that customers appreciate.",
+        "As a candle shipping boxes wholesale supplier, we deliver superior quality, durable design, and custom branding at competitive pricing that fits e-commerce candle businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Candle Shipping Boxes",
+      [
+        {
+          question: "What are candle shipping boxes used for?",
+          answer:
+            "They're used for shipping candles via mail, e-commerce delivery, and candle distribution with secure packaging.",
+        },
+        {
+          question: "Can I customize candle shipping boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for candle shipping boxes wholesale.",
+        },
+        {
+          question: "Are these boxes durable for shipping?",
+          answer:
+            "Yes, our candle shipping boxes are designed with durable construction and secure closures to protect candles during transit.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our candle shipping boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly candle shipping boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Candle Shipping Boxes",
+        eyebrow: "Candle Shipping Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Secure Shipping, Strong Branding",
+      description:
+        "Partner with BoxyPack to create candle shipping boxes that protect your candles during shipping and showcase your brand. Our packaging experts ensure every box maintains durability and presents your candles with style.",
+    },
+  },
+
+  // Subcategory: Taper Candle Boxes
+  "taper-candle-boxes": {
+    name: "Taper Candle Boxes",
+    description:
+      "Elegant, protective, and perfectly sized. Buy taper candle boxes online for taper candle packaging that keeps long candles safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for long taper candles",
+      "Premium materials that protect candles from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various taper candle lengths",
+      "Eco-friendly and recyclable packaging materials",
+      "Secure closures to maintain candle integrity",
+      "Perfect for taper candle manufacturers and retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Laminated Paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Long Rectangular",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for taper candle lengths",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Taper Candle Boxes for Long Candle Packaging",
+      paragraphs: [
+        "Our taper candle boxes are designed to protect and showcase long taper candles with elegance and precision. Built with premium materials and thoughtful sizing, these boxes keep taper candles safe from damage while creating an attractive presentation. Perfect for taper candle manufacturers, retailers, and candle stores, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom printed taper candle boxes that match your brand's personality and candle lengths. Whether you need boxes for standard or extra-long taper candles, we tailor each box to ensure proper protection and attractive presentation. Add your logo, candle information, and branding for a professional finish that customers appreciate.",
+        "As a taper candle boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits candle businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Taper Candle Boxes",
+      [
+        {
+          question: "What are taper candle boxes used for?",
+          answer:
+            "They're used for packaging long taper candles with elongated box designs that accommodate candle length.",
+        },
+        {
+          question: "Can I customize taper candle boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for taper candle boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for taper candle boxes?",
+          answer:
+            "We provide taper candle boxes in various lengths to accommodate different taper candle sizes, typically ranging from 6 to 12 inches.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our taper candle boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly taper candle boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Taper Candle Boxes",
+        eyebrow: "Taper Candle Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Long Candles, Perfect Packaging",
+      description:
+        "Partner with BoxyPack to create taper candle boxes that protect your long candles and showcase your brand. Our packaging experts ensure every box maintains the perfect fit and presents your taper candles with style.",
+    },
+  },
+
+  // Subcategory: Custom Jar Candle Boxes
+  "custom-jar-candle-boxes": {
+    name: "Custom Jar Candle Boxes",
+    description:
+      "Protective, elegant, and perfectly sized. Buy custom jar candle boxes online for jar candle packaging that keeps candles safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for various jar candle dimensions",
+      "Premium materials that protect jar candles from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for different jar sizes",
+      "Eco-friendly and recyclable packaging materials",
+      "Secure closures to maintain candle integrity",
+      "Perfect for jar candle manufacturers and retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Laminated Paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Square or Round",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for jar candle dimensions",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Jar Candle Boxes for Jar Candle Packaging",
+      paragraphs: [
+        "Our custom jar candle boxes are designed to protect and showcase jar candles with elegance and precision. Built with premium materials and thoughtful sizing, these boxes keep jar candles safe from damage while creating an attractive presentation. Perfect for jar candle manufacturers, retailers, and candle stores, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom printed jar candle boxes that match your brand's personality and jar sizes. Whether you need boxes for small or large jar candles, we tailor each box to ensure proper protection and attractive presentation. Add your logo, candle information, and branding for a professional finish that customers appreciate.",
+        "As a jar candle boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits candle businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Jar Candle Boxes",
+      [
+        {
+          question: "What are custom jar candle boxes used for?",
+          answer:
+            "They're used for packaging jar candles with box designs that accommodate various jar sizes and shapes.",
+        },
+        {
+          question: "Can I customize jar candle boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for jar candle boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for jar candle boxes?",
+          answer:
+            "We provide jar candle boxes in various sizes to accommodate different jar candle dimensions, from small 4oz jars to large 16oz jars.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our jar candle boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly jar candle boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Jar Candle Boxes",
+        eyebrow: "Jar Candle Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Perfect Fit for Perfect Jars",
+      description:
+        "Partner with BoxyPack to create custom jar candle boxes that protect your jar candles and showcase your brand. Our packaging experts ensure every box maintains the perfect fit and presents your jar candles with style.",
+    },
+  },
+
+  // Subcategory: Wax Melt Boxes
+  "wax-melt-boxes": {
+    name: "Wax Melt Boxes",
+    description:
+      "Compact, protective, and perfectly designed. Buy wax melt boxes online for wax melt packaging that keeps melts safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for wax melt cubes and shapes",
+      "Premium materials that protect wax melts from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various melt quantities",
+      "Eco-friendly and recyclable packaging materials",
+      "Secure closures to maintain melt integrity",
+      "Perfect for wax melt manufacturers and retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Laminated Paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Compact Design",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for wax melt quantities",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Wax Melt Boxes for Wax Melt Packaging",
+      paragraphs: [
+        "Our wax melt boxes are designed to protect and showcase wax melts with elegance and precision. Built with premium materials and compact sizing, these boxes keep wax melts safe from damage while creating an attractive presentation. Perfect for wax melt manufacturers, retailers, and candle stores, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom printed wax melt boxes that match your brand's personality and melt quantities. Whether you need boxes for individual melts or multi-pack sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, scent information, and branding for a professional finish that customers appreciate.",
+        "As a wax melt boxes supplier, we deliver superior quality, compact design, and custom branding at competitive pricing that fits candle businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Wax Melt Boxes",
+      [
+        {
+          question: "What are wax melt boxes used for?",
+          answer:
+            "They're used for packaging wax melt cubes and shapes with compact box designs that accommodate various melt quantities.",
+        },
+        {
+          question: "Can I customize wax melt boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for wax melt boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for wax melt boxes?",
+          answer:
+            "We provide wax melt boxes in various sizes to accommodate different melt quantities, from single melts to multi-pack sets.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our wax melt boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly wax melt boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Wax Melt Boxes",
+        eyebrow: "Wax Melt Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Melt Perfect Packaging",
+      description:
+        "Partner with BoxyPack to create wax melt boxes that protect your melts and showcase your brand. Our packaging experts ensure every box maintains the perfect fit and presents your wax melts with style.",
+    },
+  },
+
+  // Subcategory: Kraft Candle Boxes
+  "kraft-candle-boxes": {
+    name: "Kraft Candle Boxes",
+    description:
+      "Natural, eco-friendly, and perfectly designed. Buy kraft candle boxes online for sustainable candle packaging that keeps candles safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Eco-friendly kraft material for sustainable packaging",
+      "Premium materials that protect candles from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various candle types",
+      "100% recyclable and biodegradable materials",
+      "Natural matte finish for authentic appeal",
+      "Perfect for eco-conscious candle brands and retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Kraft Paper / Recycled Cardboard / Paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Kraft Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 18PT / 24PT",
+        },
+        {
+          label: "Finish",
+          value: "Matte / Natural / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Single Side / Double Side / Full Color",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Kraft Candle Boxes for Eco-Friendly Candle Packaging",
+      paragraphs: [
+        "Our kraft candle boxes are crafted to protect and present candles in their most natural form. Made from recyclable and biodegradable kraft paperboard, they provide an earthy look that reflects eco-conscious values. Perfect for eco-friendly candle brands, natural candle makers, and sustainable retailers, these boxes offer both style and sustainability.",
+        "At BoxyPack, we design custom printed kraft candle boxes that perfectly fit your candle size and brand design. Choose from window styles for product visibility or full-cover options for a clean and classic appearance. Each box is built with precision to ensure durability and an appealing finish.",
+        "As a kraft candle boxes wholesale supplier, we offer consistent quality, sustainable materials, and cost-effective pricing for small and large-scale candle makers. Every design delivers charm, protection, and value at the best kraft candle boxes price.",
+      ],
+    },
+    faq: buildFaq(
+      "Kraft Candle Boxes",
+      [
+        {
+          question: "What are kraft candle boxes made of?",
+          answer:
+            "We use premium kraft paperboard and recycled materials for durability and eco-safety.",
+        },
+        {
+          question: "Can I customize kraft candle boxes with my logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing and branding customization for kraft candle boxes.",
+        },
+        {
+          question: "Are these boxes 100% recyclable?",
+          answer:
+            "Yes, all kraft candle boxes are fully recyclable and biodegradable.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our kraft candle boxes wholesale supplier program includes bulk pricing.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, all Kraft candle boxes are fully recyclable and biodegradable.",
+        },
+      ],
+      {
+        heading: "Questions about Kraft Candle Boxes",
+        eyebrow: "Kraft Candle Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Naturally Strong, Simply Beautiful",
+      description:
+        "Partner with BoxyPack to design kraft candle boxes that combine eco-friendly materials with premium craftsmanship. Our experts create sustainable, stylish packaging that protects your candles and reflects your brand's natural elegance.",
+    },
+  },
+
+  // Subcategory: Candle Subscription Boxes
+  "candle-subscription-boxes": {
+    name: "Candle Subscription Boxes",
+    description:
+      "Reusable, elegant, and perfectly designed. Buy candle subscription boxes online for subscription candle packaging that creates memorable monthly experiences.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Durable construction for multiple shipments",
+      "Custom printing for subscription branding",
+      "Multiple sizes for various candle types",
+      "Secure closures for safe monthly delivery",
+      "Eco-friendly and recyclable packaging materials",
+      "Reusable design for subscription programs",
+      "Perfect for candle subscription services and monthly boxes",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Corrugated",
+        },
+        {
+          label: "Structure",
+          value: "Mailer Style / Tuck-End / Auto-Lock Bottom",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Candle Subscription Boxes for Monthly Candle Delivery",
+      paragraphs: [
+        "Our candle subscription boxes are designed to protect candles during monthly shipping while maintaining brand presence throughout the subscription experience. Built with durable materials and secure closures, these boxes keep candles safe during transit while creating a professional unboxing experience. Perfect for candle subscription services and monthly boxes, they combine functionality with attractive branding.",
+        "At BoxyPack, we craft custom printed candle subscription boxes that match your brand's identity and subscription needs. Whether you need boxes for single candles or candle sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, subscription information, and branding for a professional finish that customers appreciate.",
+        "As a candle subscription boxes wholesale supplier, we deliver superior quality, durable design, and custom branding at competitive pricing that fits subscription candle businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Candle Subscription Boxes",
+      [
+        {
+          question: "What are candle subscription boxes used for?",
+          answer:
+            "They're used for monthly candle subscription services, delivering candles to subscribers with consistent, branded packaging.",
+        },
+        {
+          question: "Can I customize candle subscription boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for candle subscription boxes wholesale.",
+        },
+        {
+          question: "Are these boxes durable for multiple shipments?",
+          answer:
+            "Yes, our candle subscription boxes are designed with durable construction to withstand multiple shipping cycles.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our candle subscription boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly candle subscription boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Candle Subscription Boxes",
+        eyebrow: "Candle Subscription Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Monthly Candles, Monthly Memories",
+      description:
+        "Partner with BoxyPack to create candle subscription boxes that protect your candles during monthly delivery and showcase your brand. Our packaging experts ensure every box maintains durability and presents your candles with style.",
+    },
+  },
+
+  // Subcategory: Black Shipping Boxes
+  "black-shipping-boxes": {
+    name: "Black Shipping Boxes",
+    description:
+      "Sleek, professional, and perfectly designed. Buy black shipping boxes online for premium shipping packaging that creates a sophisticated unboxing experience.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Sleek black finish for premium presentation",
+      "Durable construction for shipping protection",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various product types",
+      "Eco-friendly and recyclable packaging materials",
+      "Secure closures for safe transit",
+      "Perfect for luxury brands, e-commerce, and premium shipping",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Corrugated",
+        },
+        {
+          label: "Structure",
+          value: "Mailer Style / Tuck-End / Auto-Lock Bottom",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Black Matte / Black Gloss / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Black Shipping Boxes for Premium Shipping Packaging",
+      paragraphs: [
+        "Our black shipping boxes feature a sleek black finish that creates a sophisticated and premium presentation for your shipped products. Built with durable materials and secure closures, these boxes protect products during transit while creating an elegant unboxing experience. Perfect for luxury brands, e-commerce, and premium shipping, they combine functionality with sophisticated style.",
+        "At BoxyPack, we craft custom printed black shipping boxes that match your brand's identity and shipping needs. Whether you need boxes for small items or larger products, we tailor each box to ensure proper protection and attractive presentation. Add your logo, shipping information, and branding for a professional finish that customers appreciate.",
+        "As a black shipping boxes wholesale supplier, we deliver superior quality, durable design, and custom branding at competitive pricing that fits e-commerce businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Black Shipping Boxes",
+      [
+        {
+          question: "What are black shipping boxes used for?",
+          answer:
+            "They're used for shipping products with a premium black finish, perfect for luxury brands and sophisticated packaging needs.",
+        },
+        {
+          question: "Can I customize black shipping boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for black shipping boxes wholesale.",
+        },
+        {
+          question: "Are these boxes durable for shipping?",
+          answer:
+            "Yes, our black shipping boxes are designed with durable construction and secure closures to protect products during transit.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our black shipping boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly black shipping boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Black Shipping Boxes",
+        eyebrow: "Black Shipping Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Sleek Black, Strong Protection",
+      description:
+        "Partner with BoxyPack to create black shipping boxes that protect your products during shipping and showcase your brand with sophistication. Our packaging experts ensure every box maintains durability and presents your products with style.",
+    },
+  },
+
+  // Subcategory: Candle Shipping Boxes (Industry)
+  "candle-shipping-boxes-industry": {
+    name: "Candle Shipping Boxes",
+    description:
+      "Durable, protective, and perfectly designed. Buy candle shipping boxes online for shipping packaging that protects candles during transit and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Durable construction for shipping protection",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various candle types",
+      "Secure closures for safe transit",
+      "Eco-friendly and recyclable packaging materials",
+      "Easy assembly and sealing",
+      "Perfect for e-commerce, shipping, and candle delivery",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Corrugated",
+        },
+        {
+          label: "Structure",
+          value: "Mailer Style / Tuck-End / Auto-Lock Bottom",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Candle Shipping Boxes for E-commerce Candle Delivery",
+      paragraphs: [
+        "Our candle shipping boxes are designed to protect candles during shipping while maintaining brand presence throughout the delivery process. Built with durable materials and secure closures, these boxes keep candles safe during transit while creating a professional unboxing experience. Perfect for e-commerce, shipping, and candle delivery, they combine functionality with attractive branding.",
+        "At BoxyPack, we craft custom printed candle shipping boxes that match your brand's identity and shipping needs. Whether you need boxes for jar candles, taper candles, or candle sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, shipping information, and branding for a professional finish that customers appreciate.",
+        "As a candle shipping boxes wholesale supplier, we deliver superior quality, durable design, and custom branding at competitive pricing that fits e-commerce candle businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Candle Shipping Boxes",
+      [
+        {
+          question: "What are candle shipping boxes used for?",
+          answer:
+            "They're used for shipping candles via mail, e-commerce delivery, and candle distribution with secure packaging.",
+        },
+        {
+          question: "Can I customize candle shipping boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for candle shipping boxes wholesale.",
+        },
+        {
+          question: "Are these boxes durable for shipping?",
+          answer:
+            "Yes, our candle shipping boxes are designed with durable construction and secure closures to protect candles during transit.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our candle shipping boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly candle shipping boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Candle Shipping Boxes",
+        eyebrow: "Candle Shipping Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Secure Shipping, Strong Branding",
+      description:
+        "Partner with BoxyPack to create candle shipping boxes that protect your candles during shipping and showcase your brand. Our packaging experts ensure every box maintains durability and presents your candles with style.",
+    },
+  },
+
+  // Subcategory: Corrugated Shipping Boxes
+  "corrugated-shipping-boxes": {
+    name: "Corrugated Shipping Boxes",
+    description:
+      "Strong, durable, and perfectly designed. Buy corrugated shipping boxes online for heavy-duty shipping packaging that protects products during transit.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Heavy-duty corrugated construction for maximum protection",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various product types",
+      "Secure closures for safe transit",
+      "Eco-friendly and recyclable packaging materials",
+      "Excellent strength-to-weight ratio",
+      "Perfect for heavy items, fragile products, and long-distance shipping",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Corrugated Cardboard / Single Wall / Double Wall",
+        },
+        {
+          label: "Structure",
+          value: "RSC (Regular Slotted Container) / FOL / HSC",
+        },
+        {
+          label: "Thickness",
+          value: "Single Wall (B-Flute) / Double Wall (BC-Flute)",
+        },
+        {
+          label: "Finish",
+          value: "Kraft / White / Printed",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Corrugated Shipping Boxes for Heavy-Duty Shipping",
+      paragraphs: [
+        "Our corrugated shipping boxes are designed with heavy-duty construction to provide maximum protection for products during transit. Built with corrugated cardboard and reinforced structures, these boxes offer excellent strength-to-weight ratio while ensuring products arrive safely. Perfect for heavy items, fragile products, and long-distance shipping, they combine durability with reliable protection.",
+        "At BoxyPack, we craft custom printed corrugated shipping boxes that match your brand's identity and shipping needs. Whether you need boxes for electronics, heavy items, or fragile products, we tailor each box to ensure proper protection and attractive presentation. Add your logo, shipping information, and branding for a professional finish that customers appreciate.",
+        "As a corrugated shipping boxes wholesale supplier, we deliver superior quality, heavy-duty design, and custom branding at competitive pricing that fits shipping businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Corrugated Shipping Boxes",
+      [
+        {
+          question: "What are corrugated shipping boxes used for?",
+          answer:
+            "They're used for shipping heavy items, fragile products, and items requiring maximum protection during transit.",
+        },
+        {
+          question: "Can I customize corrugated shipping boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for corrugated shipping boxes wholesale.",
+        },
+        {
+          question: "How strong are corrugated shipping boxes?",
+          answer:
+            "Our corrugated shipping boxes are designed with heavy-duty construction and excellent strength-to-weight ratio for maximum protection.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our corrugated shipping boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly corrugated shipping boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Corrugated Shipping Boxes",
+        eyebrow: "Corrugated Shipping Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Heavy-Duty Protection, Strong Branding",
+      description:
+        "Partner with BoxyPack to create corrugated shipping boxes that protect your products during shipping and showcase your brand. Our packaging experts ensure every box maintains durability and presents your products with style.",
+    },
+  },
+
+  // Subcategory: Custom Shipping Boxes
+  "custom-shipping-boxes": {
+    name: "Custom Shipping Boxes",
+    description:
+      "Personalized, durable, and perfectly designed. Buy custom shipping boxes online for branded shipping packaging that protects products and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Fully customizable design for your brand",
+      "Durable construction for shipping protection",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various product types",
+      "Eco-friendly and recyclable packaging materials",
+      "Secure closures for safe transit",
+      "Perfect for e-commerce, shipping, and branded delivery",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Corrugated",
+        },
+        {
+          label: "Structure",
+          value: "Mailer Style / Tuck-End / Auto-Lock Bottom / RSC",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated / Custom Colors",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Shipping Boxes for Branded Shipping Packaging",
+      paragraphs: [
+        "Our custom shipping boxes are fully customizable to match your brand's identity and shipping needs. Built with durable materials and secure closures, these boxes protect products during transit while creating a professional unboxing experience. Perfect for e-commerce, shipping, and branded delivery, they combine functionality with attractive branding.",
+        "At BoxyPack, we craft custom printed shipping boxes that match your brand's personality and product requirements. Whether you need boxes for small items or larger products, we tailor each box to ensure proper protection and attractive presentation. Add your logo, shipping information, colors, and branding for a professional finish that customers remember.",
+        "As a custom shipping boxes wholesale supplier, we deliver superior quality, durable design, and full customization at competitive pricing that fits e-commerce businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Shipping Boxes",
+      [
+        {
+          question: "What are custom shipping boxes used for?",
+          answer:
+            "They're used for shipping products with fully customized branding, perfect for e-commerce and branded delivery needs.",
+        },
+        {
+          question: "Can I fully customize shipping boxes with my brand?",
+          answer:
+            "Yes, BoxyPack offers full customization including colors, designs, logos, and branding for custom shipping boxes wholesale.",
+        },
+        {
+          question: "Are these boxes durable for shipping?",
+          answer:
+            "Yes, our custom shipping boxes are designed with durable construction and secure closures to protect products during transit.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our custom shipping boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly custom shipping boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Shipping Boxes",
+        eyebrow: "Custom Shipping Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Fully Custom, Fully Protected",
+      description:
+        "Partner with BoxyPack to create custom shipping boxes that protect your products during shipping and showcase your brand with complete customization. Our packaging experts ensure every box maintains durability and presents your products with style.",
+    },
+  },
+
+  // Subcategory: Cufflink Boxes
+  "cufflink-boxes": {
+    name: "Cufflink Boxes",
+    description:
+      "Elegant, compact, and perfectly sized. Buy cufflink boxes online for cufflink packaging that keeps accessories safe and beautifully presented.",
+    heroImage: "Cufflink-Boxes-1_rz2wcf",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for cufflinks and accessories",
+      "Premium materials that protect accessories from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various cufflink types",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for sophisticated appeal",
+      "Perfect for jewelry stores, fashion retailers, and accessory brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, or lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for cufflinks",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Cufflink Boxes for Accessory Packaging",
+      paragraphs: [
+        "Our cufflink boxes are designed to protect and showcase cufflinks and small accessories with elegance and precision. Built with premium materials and compact sizing, these boxes keep accessories safe from damage while creating an attractive presentation. Perfect for jewelry stores, fashion retailers, and accessory brands, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom printed cufflink boxes that match your brand's personality and accessory needs. Whether you need boxes for single pairs or gift sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, accessory information, and branding for a professional finish that customers appreciate.",
+        "As a cufflink boxes supplier, we deliver superior quality, compact design, and custom branding at competitive pricing that fits accessory businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Cufflink Boxes",
+      [
+        {
+          question: "What are cufflink boxes used for?",
+          answer:
+            "They're used for packaging cufflinks and small accessories with compact, elegant designs perfect for jewelry and fashion retail.",
+        },
+        {
+          question: "Can I customize cufflink boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for cufflink boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for cufflink boxes?",
+          answer:
+            "We provide cufflink boxes in various compact sizes to accommodate different cufflink types and gift set configurations.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our cufflink boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly cufflink boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Cufflink Boxes",
+        eyebrow: "Cufflink Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Elegant Packaging for Elegant Accessories",
+      description:
+        "Partner with BoxyPack to create cufflink boxes that protect your accessories and showcase your brand. Our packaging experts ensure every box maintains elegance and presents your cufflinks with style.",
+    },
+  },
+
+  // Subcategory: Tie Boxes
+  "tie-boxes": {
+    name: "Tie Boxes",
+    description:
+      "Elegant, elongated, and perfectly sized. Buy tie boxes online for tie packaging that keeps neckties safe and beautifully presented.",
+    heroImage: "Tie-Boxes-1_t8zvuk",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for neckties and ties",
+      "Premium materials that protect ties from damage",
+      "Custom printing for logos and brand identity",
+      "Elongated design for tie length",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for sophisticated appeal",
+      "Perfect for fashion retailers, menswear stores, and tie brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, or lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for ties (elongated)",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Tie Boxes for Necktie Packaging",
+      paragraphs: [
+        "Our tie boxes are designed to protect and showcase neckties with elegance and precision. Built with premium materials and elongated sizing, these boxes keep ties safe from damage while creating an attractive presentation. Perfect for fashion retailers, menswear stores, and tie brands, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom printed tie boxes that match your brand's personality and tie needs. Whether you need boxes for single ties or gift sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, tie information, and branding for a professional finish that customers appreciate.",
+        "As a tie boxes supplier, we deliver superior quality, elongated design, and custom branding at competitive pricing that fits fashion businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Tie Boxes",
+      [
+        {
+          question: "What are tie boxes used for?",
+          answer:
+            "They're used for packaging neckties with elongated box designs that accommodate tie length, perfect for menswear retail.",
+        },
+        {
+          question: "Can I customize tie boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for tie boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for tie boxes?",
+          answer:
+            "We provide tie boxes in various elongated sizes to accommodate different tie lengths and gift set configurations.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our tie boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly tie boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Tie Boxes",
+        eyebrow: "Tie Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Elegant Packaging for Elegant Ties",
+      description:
+        "Partner with BoxyPack to create tie boxes that protect your neckties and showcase your brand. Our packaging experts ensure every box maintains elegance and presents your ties with style.",
+    },
+  },
+
+  // Subcategory: Belt Boxes
+  "belt-boxes": {
+    name: "Belt Boxes",
+    description:
+      "Elegant, elongated, and perfectly sized. Buy belt boxes online for belt packaging that keeps belts safe and beautifully presented.",
+    heroImage: "Belt-Boxes-1_px70gk",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for belts and accessories",
+      "Premium materials that protect belts from damage",
+      "Custom printing for logos and brand identity",
+      "Elongated design for belt length",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for sophisticated appeal",
+      "Perfect for fashion retailers, menswear stores, and belt brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, or lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for belts (elongated)",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Belt Boxes for Belt Packaging",
+      paragraphs: [
+        "Our belt boxes are designed to protect and showcase belts with elegance and precision. Built with premium materials and elongated sizing, these boxes keep belts safe from damage while creating an attractive presentation. Perfect for fashion retailers, menswear stores, and belt brands, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom printed belt boxes that match your brand's personality and belt needs. Whether you need boxes for single belts or gift sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, belt information, and branding for a professional finish that customers appreciate.",
+        "As a belt boxes supplier, we deliver superior quality, elongated design, and custom branding at competitive pricing that fits fashion businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Belt Boxes",
+      [
+        {
+          question: "What are belt boxes used for?",
+          answer:
+            "They're used for packaging belts with elongated box designs that accommodate belt length, perfect for fashion retail.",
+        },
+        {
+          question: "Can I customize belt boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for belt boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for belt boxes?",
+          answer:
+            "We provide belt boxes in various elongated sizes to accommodate different belt lengths and gift set configurations.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our belt boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly belt boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Belt Boxes",
+        eyebrow: "Belt Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Elegant Packaging for Elegant Belts",
+      description:
+        "Partner with BoxyPack to create belt boxes that protect your belts and showcase your brand. Our packaging experts ensure every box maintains elegance and presents your belts with style.",
+    },
+  },
+
+  // Subcategory: Clothing Boxes
+  "clothing-boxes": {
+    name: "Clothing Boxes",
+    description:
+      "Spacious, elegant, and perfectly designed. Buy clothing boxes online for clothing packaging that keeps garments safe and beautifully presented.",
+    heroImage: "Clothing-Boxes-1_ygtjdo",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Spacious size perfect for clothing and garments",
+      "Premium materials that protect clothing from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various clothing types",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for sophisticated appeal",
+      "Perfect for fashion retailers, clothing stores, and apparel brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, lift-off lid, or mailer style",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for clothing",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Clothing Boxes for Garment Packaging",
+      paragraphs: [
+        "Our clothing boxes are designed to protect and showcase clothing and garments with elegance and precision. Built with premium materials and spacious sizing, these boxes keep clothing safe from damage while creating an attractive presentation. Perfect for fashion retailers, clothing stores, and apparel brands, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom printed clothing boxes that match your brand's personality and clothing needs. Whether you need boxes for shirts, dresses, or other garments, we tailor each box to ensure proper protection and attractive presentation. Add your logo, clothing information, and branding for a professional finish that customers appreciate.",
+        "As a clothing boxes supplier, we deliver superior quality, spacious design, and custom branding at competitive pricing that fits fashion businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Clothing Boxes",
+      [
+        {
+          question: "What are clothing boxes used for?",
+          answer:
+            "They're used for packaging clothing and garments with spacious box designs, perfect for fashion retail and apparel brands.",
+        },
+        {
+          question: "Can I customize clothing boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for clothing boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for clothing boxes?",
+          answer:
+            "We provide clothing boxes in various sizes to accommodate different clothing types, from shirts to dresses and outerwear.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our clothing boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly clothing boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Clothing Boxes",
+        eyebrow: "Clothing Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Elegant Packaging for Elegant Clothing",
+      description:
+        "Partner with BoxyPack to create clothing boxes that protect your garments and showcase your brand. Our packaging experts ensure every box maintains elegance and presents your clothing with style.",
+    },
+  },
+
+  // Subcategory: Lingerie Boxes
+  "lingerie-boxes": {
+    name: "Lingerie Boxes",
+    description:
+      "Elegant, delicate, and perfectly designed. Buy lingerie boxes online for lingerie packaging that keeps intimate apparel safe and beautifully presented.",
+    heroImage: "Lingerie-Boxes-1_bq2nfw",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Elegant design perfect for intimate apparel",
+      "Premium materials that protect lingerie from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various lingerie types",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for sophisticated appeal",
+      "Perfect for lingerie retailers, intimate apparel stores, and fashion brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, or lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for lingerie",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Lingerie Boxes for Intimate Apparel Packaging",
+      paragraphs: [
+        "Our lingerie boxes are designed to protect and showcase intimate apparel with elegance and precision. Built with premium materials and thoughtful sizing, these boxes keep lingerie safe from damage while creating an attractive presentation. Perfect for lingerie retailers, intimate apparel stores, and fashion brands, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom printed lingerie boxes that match your brand's personality and lingerie needs. Whether you need boxes for bras, panties, or lingerie sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, lingerie information, and branding for a professional finish that customers appreciate.",
+        "As a lingerie boxes supplier, we deliver superior quality, elegant design, and custom branding at competitive pricing that fits intimate apparel businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Lingerie Boxes",
+      [
+        {
+          question: "What are lingerie boxes used for?",
+          answer:
+            "They're used for packaging intimate apparel and lingerie with elegant box designs, perfect for lingerie retail and fashion brands.",
+        },
+        {
+          question: "Can I customize lingerie boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for lingerie boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for lingerie boxes?",
+          answer:
+            "We provide lingerie boxes in various sizes to accommodate different lingerie types, from bras to panties and sets.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our lingerie boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly lingerie boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Lingerie Boxes",
+        eyebrow: "Lingerie Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Elegant Packaging for Elegant Lingerie",
+      description:
+        "Partner with BoxyPack to create lingerie boxes that protect your intimate apparel and showcase your brand. Our packaging experts ensure every box maintains elegance and presents your lingerie with style.",
+    },
+  },
+
+  // Subcategory: Underwear Boxes
+  "underwear-boxes": {
+    name: "Underwear Boxes",
+    description:
+      "Elegant, comfortable, and perfectly designed. Buy underwear boxes online for underwear packaging that keeps intimate apparel safe and beautifully presented.",
+    heroImage: "Underwear-Boxes-1_ou16f4",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Elegant design perfect for underwear",
+      "Premium materials that protect underwear from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various underwear types",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for sophisticated appeal",
+      "Perfect for underwear retailers, intimate apparel stores, and fashion brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, or lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for underwear",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Underwear Boxes for Intimate Apparel Packaging",
+      paragraphs: [
+        "Our underwear boxes are designed to protect and showcase underwear with elegance and precision. Built with premium materials and thoughtful sizing, these boxes keep underwear safe from damage while creating an attractive presentation. Perfect for underwear retailers, intimate apparel stores, and fashion brands, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom printed underwear boxes that match your brand's personality and underwear needs. Whether you need boxes for men's or women's underwear, we tailor each box to ensure proper protection and attractive presentation. Add your logo, underwear information, and branding for a professional finish that customers appreciate.",
+        "As an underwear boxes supplier, we deliver superior quality, elegant design, and custom branding at competitive pricing that fits intimate apparel businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Underwear Boxes",
+      [
+        {
+          question: "What are underwear boxes used for?",
+          answer:
+            "They're used for packaging underwear and intimate apparel with elegant box designs, perfect for underwear retail and fashion brands.",
+        },
+        {
+          question: "Can I customize underwear boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for underwear boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for underwear boxes?",
+          answer:
+            "We provide underwear boxes in various sizes to accommodate different underwear types, from briefs to boxers and sets.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our underwear boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly underwear boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Underwear Boxes",
+        eyebrow: "Underwear Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Elegant Packaging for Comfortable Apparel",
+      description:
+        "Partner with BoxyPack to create underwear boxes that protect your intimate apparel and showcase your brand. Our packaging experts ensure every box maintains elegance and presents your underwear with style.",
+    },
+  },
+
+  // Subcategory: T-Shirt Boxes
+  "tshirt-boxes": {
+    name: "T-Shirt Boxes",
+    description:
+      "Spacious, versatile, and perfectly designed. Buy t-shirt boxes online for t-shirt packaging that keeps shirts safe and beautifully presented.",
+    heroImage: "T-Shirt-Boxes-1_lqopuq",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Spacious size perfect for t-shirts and shirts",
+      "Premium materials that protect t-shirts from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various t-shirt types",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for sophisticated appeal",
+      "Perfect for clothing retailers, t-shirt brands, and apparel stores",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, lift-off lid, or mailer style",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for t-shirts",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "T-Shirt Boxes for Shirt Packaging",
+      paragraphs: [
+        "Our t-shirt boxes are designed to protect and showcase t-shirts and shirts with elegance and precision. Built with premium materials and spacious sizing, these boxes keep t-shirts safe from damage while creating an attractive presentation. Perfect for clothing retailers, t-shirt brands, and apparel stores, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom printed t-shirt boxes that match your brand's personality and t-shirt needs. Whether you need boxes for single shirts or gift sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, t-shirt information, and branding for a professional finish that customers appreciate.",
+        "As a t-shirt boxes supplier, we deliver superior quality, spacious design, and custom branding at competitive pricing that fits clothing businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "T-Shirt Boxes",
+      [
+        {
+          question: "What are t-shirt boxes used for?",
+          answer:
+            "They're used for packaging t-shirts and shirts with spacious box designs, perfect for clothing retail and t-shirt brands.",
+        },
+        {
+          question: "Can I customize t-shirt boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for t-shirt boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for t-shirt boxes?",
+          answer:
+            "We provide t-shirt boxes in various sizes to accommodate different t-shirt sizes, from small to extra-large.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our t-shirt boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly t-shirt boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about T-Shirt Boxes",
+        eyebrow: "T-Shirt Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Elegant Packaging for Every Shirt",
+      description:
+        "Partner with BoxyPack to create t-shirt boxes that protect your shirts and showcase your brand. Our packaging experts ensure every box maintains elegance and presents your t-shirts with style.",
+    },
+  },
+
+  // Subcategory: Socks Boxes
+  "socks-boxes": {
+    name: "Socks Boxes",
+    description:
+      "Compact, elegant, and perfectly sized. Buy socks boxes online for socks packaging that keeps hosiery safe and beautifully presented.",
+    heroImage: "Socks-Boxes-1_lbh2hf",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for socks and hosiery",
+      "Premium materials that protect socks from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various sock types",
+      "Eco-friendly and recyclable packaging materials",
+      "Luxury finishes for sophisticated appeal",
+      "Perfect for clothing retailers, sock brands, and apparel stores",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-end, magnetic closure, or lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for socks",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Socks Boxes for Hosiery Packaging",
+      paragraphs: [
+        "Our socks boxes are designed to protect and showcase socks and hosiery with elegance and precision. Built with premium materials and compact sizing, these boxes keep socks safe from damage while creating an attractive presentation. Perfect for clothing retailers, sock brands, and apparel stores, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom printed socks boxes that match your brand's personality and sock needs. Whether you need boxes for single pairs or multi-pack sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, sock information, and branding for a professional finish that customers appreciate.",
+        "As a socks boxes supplier, we deliver superior quality, compact design, and custom branding at competitive pricing that fits clothing businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Socks Boxes",
+      [
+        {
+          question: "What are socks boxes used for?",
+          answer:
+            "They're used for packaging socks and hosiery with compact, elegant box designs, perfect for clothing retail and sock brands.",
+        },
+        {
+          question: "Can I customize socks boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for socks boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for socks boxes?",
+          answer:
+            "We provide socks boxes in various compact sizes to accommodate different sock types, from single pairs to multi-pack sets.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our socks boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly socks boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Socks Boxes",
+        eyebrow: "Socks Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Elegant Packaging for Every Pair",
+      description:
+        "Partner with BoxyPack to create socks boxes that protect your hosiery and showcase your brand. Our packaging experts ensure every box maintains elegance and presents your socks with style.",
+    },
+  },
+
+  // Subcategory: Cardboard Shoe Boxes
+  "cardboard-shoe-boxes": {
+    name: "Cardboard Shoe Boxes",
+    description:
+      "Durable, protective, and perfectly sized. Buy cardboard shoe boxes online for shoe packaging that keeps footwear safe and beautifully presented.",
+    heroImage: "Cardboard-Shoe-Boxes-1_bmgptg",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for shoes and footwear",
+      "Durable cardboard construction for protection",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various shoe types",
+      "Eco-friendly and recyclable packaging materials",
+      "Strong construction for heavy shoes",
+      "Perfect for shoe retailers, footwear brands, and sports stores",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Corrugated",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / RSC",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for shoes",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Cardboard Shoe Boxes for Footwear Packaging",
+      paragraphs: [
+        "Our cardboard shoe boxes are designed to protect and showcase shoes and footwear with durability and precision. Built with strong cardboard materials and proper sizing, these boxes keep shoes safe from damage while creating an attractive presentation. Perfect for shoe retailers, footwear brands, and sports stores, they combine functionality with reliable protection.",
+        "At BoxyPack, we craft custom printed cardboard shoe boxes that match your brand's personality and shoe needs. Whether you need boxes for athletic shoes, casual footwear, or dress shoes, we tailor each box to ensure proper protection and attractive presentation. Add your logo, shoe information, and branding for a professional finish that customers appreciate.",
+        "As a cardboard shoe boxes supplier, we deliver superior quality, durable design, and custom branding at competitive pricing that fits footwear businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Cardboard Shoe Boxes",
+      [
+        {
+          question: "What are cardboard shoe boxes used for?",
+          answer:
+            "They're used for packaging shoes and footwear with durable cardboard box designs, perfect for shoe retail and footwear brands.",
+        },
+        {
+          question: "Can I customize cardboard shoe boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for cardboard shoe boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for cardboard shoe boxes?",
+          answer:
+            "We provide cardboard shoe boxes in various sizes to accommodate different shoe sizes, from children's to adult sizes.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our cardboard shoe boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly cardboard shoe boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Cardboard Shoe Boxes",
+        eyebrow: "Cardboard Shoe Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Durable Packaging for Every Step",
+      description:
+        "Partner with BoxyPack to create cardboard shoe boxes that protect your footwear and showcase your brand. Our packaging experts ensure every box maintains durability and presents your shoes with style.",
+    },
+  },
+
+  // Subcategory: Shoe Shipping Boxes
+  "shoe-shipping-boxes": {
+    name: "Shoe Shipping Boxes",
+    description:
+      "Durable, protective, and perfectly designed. Buy shoe shipping boxes online for shipping packaging that protects shoes during transit and showcases your brand.",
+    heroImage: "Shoe-Shipping-Boxes-1_fltdr4",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Durable construction for shipping protection",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various shoe types",
+      "Secure closures for safe transit",
+      "Eco-friendly and recyclable packaging materials",
+      "Easy assembly and sealing",
+      "Perfect for e-commerce, shipping, and shoe delivery",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Corrugated",
+        },
+        {
+          label: "Structure",
+          value: "Mailer Style / Tuck-End / Auto-Lock Bottom / RSC",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for shoes",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Shoe Shipping Boxes for E-commerce Shoe Delivery",
+      paragraphs: [
+        "Our shoe shipping boxes are designed to protect shoes during shipping while maintaining brand presence throughout the delivery process. Built with durable materials and secure closures, these boxes keep shoes safe during transit while creating a professional unboxing experience. Perfect for e-commerce, shipping, and shoe delivery, they combine functionality with attractive branding.",
+        "At BoxyPack, we craft custom printed shoe shipping boxes that match your brand's identity and shipping needs. Whether you need boxes for athletic shoes, casual footwear, or dress shoes, we tailor each box to ensure proper protection and attractive presentation. Add your logo, shipping information, and branding for a professional finish that customers appreciate.",
+        "As a shoe shipping boxes wholesale supplier, we deliver superior quality, durable design, and custom branding at competitive pricing that fits e-commerce shoe businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Shoe Shipping Boxes",
+      [
+        {
+          question: "What are shoe shipping boxes used for?",
+          answer:
+            "They're used for shipping shoes via mail, e-commerce delivery, and shoe distribution with secure packaging.",
+        },
+        {
+          question: "Can I customize shoe shipping boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for shoe shipping boxes wholesale.",
+        },
+        {
+          question: "Are these boxes durable for shipping?",
+          answer:
+            "Yes, our shoe shipping boxes are designed with durable construction and secure closures to protect shoes during transit.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our shoe shipping boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly shoe shipping boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Shoe Shipping Boxes",
+        eyebrow: "Shoe Shipping Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Secure Shipping, Strong Branding",
+      description:
+        "Partner with BoxyPack to create shoe shipping boxes that protect your shoes during shipping and showcase your brand. Our packaging experts ensure every box maintains durability and presents your shoes with style.",
+    },
+  },
+
+  // Subcategory: Custom Shoe Boxes
+  "custom-shoe-boxes": {
+    name: "Custom Shoe Boxes",
+    description:
+      "Personalized, durable, and perfectly designed. Buy custom shoe boxes online for branded shoe packaging that protects footwear and showcases your brand.",
+    heroImage: "Custom-Shoe-Boxes-1_ujniht",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Fully customizable design for your brand",
+      "Durable construction for shoe protection",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various shoe types",
+      "Eco-friendly and recyclable packaging materials",
+      "Strong construction for heavy shoes",
+      "Perfect for shoe retailers, footwear brands, and sports stores",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Corrugated",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / RSC / Mailer Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated / Custom Colors",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for shoes",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Shoe Boxes for Branded Footwear Packaging",
+      paragraphs: [
+        "Our custom shoe boxes are fully customizable to match your brand's identity and shoe needs. Built with durable materials and secure closures, these boxes protect shoes while creating a professional unboxing experience. Perfect for shoe retailers, footwear brands, and sports stores, they combine functionality with attractive branding.",
+        "At BoxyPack, we craft custom printed shoe boxes that match your brand's personality and shoe requirements. Whether you need boxes for athletic shoes, casual footwear, or dress shoes, we tailor each box to ensure proper protection and attractive presentation. Add your logo, shoe information, colors, and branding for a professional finish that customers remember.",
+        "As a custom shoe boxes wholesale supplier, we deliver superior quality, durable design, and full customization at competitive pricing that fits footwear businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Shoe Boxes",
+      [
+        {
+          question: "What are custom shoe boxes used for?",
+          answer:
+            "They're used for packaging shoes with fully customized branding, perfect for shoe retail and footwear brands.",
+        },
+        {
+          question: "Can I fully customize shoe boxes with my brand?",
+          answer:
+            "Yes, BoxyPack offers full customization including colors, designs, logos, and branding for custom shoe boxes wholesale.",
+        },
+        {
+          question: "Are these boxes durable for shoes?",
+          answer:
+            "Yes, our custom shoe boxes are designed with durable construction to protect shoes from damage.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our custom shoe boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly custom shoe boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Shoe Boxes",
+        eyebrow: "Custom Shoe Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Fully Custom, Fully Protected",
+      description:
+        "Partner with BoxyPack to create custom shoe boxes that protect your footwear and showcase your brand with complete customization. Our packaging experts ensure every box maintains durability and presents your shoes with style.",
+    },
+  },
+
+  // Subcategory: Shoe Boxes with Lid
+  "shoe-boxes-with-lid": {
+    name: "Shoe Boxes with Lid",
+    description:
+      "Elegant, secure, and perfectly designed. Buy shoe boxes with lid online for premium shoe packaging that creates memorable unboxing experiences.",
+    heroImage: "Shoe-Boxes-With-Lid-1_fxn9tx",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Lift-off lids for elegant and secure closure",
+      "Premium materials that protect and showcase shoes",
+      "Custom printing for logos, messages, and branding",
+      "Multiple sizes for various shoe types",
+      "Eco-friendly and recyclable packaging materials",
+      "Perfect fit between base and lid",
+      "Perfect for luxury shoe brands, retailers, and special occasions",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid board, premium coated stocks, or kraft paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Two-piece box with lift-off lid",
+        },
+        {
+          label: "Thickness",
+          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte, gloss, soft-touch lamination, or velvet wrap",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for shoes",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Shoe Boxes with Lid for Premium Footwear Packaging",
+      paragraphs: [
+        "Our shoe boxes with lid feature an elegant two-piece design that creates a premium and secure presentation. Built with premium materials and perfect fit between base and lid, these boxes protect shoes while offering an elegant opening experience. Perfect for luxury shoe brands, retailers, and special occasions, they combine functionality with sophisticated style.",
+        "At BoxyPack, we craft custom printed shoe boxes with lid that match your brand's personality and shoe needs. Whether you need boxes for athletic shoes, casual footwear, or dress shoes, we tailor each box to ensure perfect fit and attractive presentation. Add your logo, messages, and branding for a professional finish that customers remember.",
+        "As a shoe boxes with lid supplier, we deliver superior quality, elegant design, and custom branding at competitive pricing that fits footwear businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Shoe Boxes with Lid",
+      [
+        {
+          question: "What are shoe boxes with lid used for?",
+          answer:
+            "They're used for packaging shoes with an elegant two-piece design featuring a lift-off lid, perfect for luxury shoes and special occasions.",
+        },
+        {
+          question: "Can I customize shoe boxes with lid with my logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for shoe boxes with lid wholesale.",
+        },
+        {
+          question: "Do the lids fit securely?",
+          answer:
+            "Yes, our shoe boxes with lid are designed with perfect fit between base and lid for secure closure.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our shoe boxes with lid wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly shoe boxes with lid made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Shoe Boxes with Lid",
+        eyebrow: "Shoe Box with Lid FAQs",
+      }
+    ),
+    cta: {
+      title: "Elegant Lids, Perfect Fit",
+      description:
+        "Partner with BoxyPack to create shoe boxes with lid that protect your shoes and create unforgettable unboxing experiences. Our packaging experts ensure every box maintains the elegant design and presents your shoes with style.",
+    },
+  },
+
+  // Subcategory: Golf Ball Boxes
+  "golf-ball-boxes": {
+    name: "Golf Ball Boxes",
+    description:
+      "Compact, protective, and perfectly designed. Buy golf ball boxes online for golf ball packaging that keeps balls safe and beautifully presented.",
+    heroImage: "Golf-Ball-Boxes-1_kaxgvt",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for golf balls",
+      "Premium materials that protect golf balls from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various ball quantities",
+      "Eco-friendly and recyclable packaging materials",
+      "Secure closures to maintain ball integrity",
+      "Perfect for golf retailers, sports stores, and golf brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Laminated Paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Compact Design",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for golf ball quantities",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Golf Ball Boxes for Golf Ball Packaging",
+      paragraphs: [
+        "Our golf ball boxes are designed to protect and showcase golf balls with precision and durability. Built with premium materials and compact sizing, these boxes keep golf balls safe from damage while creating an attractive presentation. Perfect for golf retailers, sports stores, and golf brands, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom printed golf ball boxes that match your brand's personality and ball needs. Whether you need boxes for single sleeves or multi-pack sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, ball information, and branding for a professional finish that customers appreciate.",
+        "As a golf ball boxes supplier, we deliver superior quality, compact design, and custom branding at competitive pricing that fits golf businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Golf Ball Boxes",
+      [
+        {
+          question: "What are golf ball boxes used for?",
+          answer:
+            "They're used for packaging golf balls with compact box designs that accommodate various ball quantities, perfect for golf retail and sports stores.",
+        },
+        {
+          question: "Can I customize golf ball boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for golf ball boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for golf ball boxes?",
+          answer:
+            "We provide golf ball boxes in various compact sizes to accommodate different ball quantities, from single sleeves to multi-pack sets.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our golf ball boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly golf ball boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Golf Ball Boxes",
+        eyebrow: "Golf Ball Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Perfect Fit for Perfect Shots",
+      description:
+        "Partner with BoxyPack to create golf ball boxes that protect your balls and showcase your brand. Our packaging experts ensure every box maintains the perfect fit and presents your golf balls with style.",
+    },
+  },
+
+  // Subcategory: Football Boxes
+  "football-boxes": {
+    name: "Football Boxes",
+    description:
+      "Spacious, protective, and perfectly designed. Buy football boxes online for football packaging that keeps balls safe and beautifully presented.",
+    heroImage: "Football-Boxes-1_ehlokr",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Spacious size perfect for footballs",
+      "Premium materials that protect footballs from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various football types",
+      "Eco-friendly and recyclable packaging materials",
+      "Secure closures to maintain ball integrity",
+      "Perfect for sports retailers, football brands, and athletic stores",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Corrugated",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / RSC",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for footballs",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Football Boxes for Football Packaging",
+      paragraphs: [
+        "Our football boxes are designed to protect and showcase footballs with durability and precision. Built with premium materials and spacious sizing, these boxes keep footballs safe from damage while creating an attractive presentation. Perfect for sports retailers, football brands, and athletic stores, they combine functionality with reliable protection.",
+        "At BoxyPack, we craft custom printed football boxes that match your brand's personality and football needs. Whether you need boxes for standard footballs, mini footballs, or football sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, football information, and branding for a professional finish that customers appreciate.",
+        "As a football boxes supplier, we deliver superior quality, spacious design, and custom branding at competitive pricing that fits sports businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Football Boxes",
+      [
+        {
+          question: "What are football boxes used for?",
+          answer:
+            "They're used for packaging footballs with spacious box designs, perfect for sports retail and football brands.",
+        },
+        {
+          question: "Can I customize football boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for football boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for football boxes?",
+          answer:
+            "We provide football boxes in various sizes to accommodate different football types, from mini to standard sizes.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our football boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly football boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Football Boxes",
+        eyebrow: "Football Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Strong Packaging for Strong Games",
+      description:
+        "Partner with BoxyPack to create football boxes that protect your footballs and showcase your brand. Our packaging experts ensure every box maintains durability and presents your footballs with style.",
+    },
+  },
+
+  // Subcategory: Paper Cigarette Boxes
+  "paper-cigarette-boxes": {
+    name: "Paper Cigarette Boxes",
+    description:
+      "Lightweight, eco-friendly, and perfectly designed. Buy paper cigarette boxes online for cigarette packaging that keeps products safe and beautifully presented.",
+    heroImage: "Paper-Cigarette-Boxes-1_wtiu7e",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Lightweight paper construction for easy handling",
+      "Premium materials that protect cigarettes from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various cigarette types",
+      "Eco-friendly and recyclable packaging materials",
+      "Compliant with packaging regulations",
+      "Perfect for tobacco brands, retailers, and cigarette manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Paper / Cardboard / Kraft Paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Flip-Top / Auto-Lock Bottom",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for cigarettes",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Paper Cigarette Boxes for Cigarette Packaging",
+      paragraphs: [
+        "Our paper cigarette boxes are designed to protect and showcase cigarettes with lightweight and eco-friendly materials. Built with premium paper and proper sizing, these boxes keep cigarettes safe from damage while creating an attractive presentation. Perfect for tobacco brands, retailers, and cigarette manufacturers, they combine functionality with sustainable design.",
+        "At BoxyPack, we craft custom printed paper cigarette boxes that match your brand's personality and cigarette needs. Whether you need boxes for standard packs or specialty sizes, we tailor each box to ensure proper protection and attractive presentation. Add your logo, cigarette information, and branding for a professional finish that customers appreciate.",
+        "As a paper cigarette boxes supplier, we deliver superior quality, lightweight design, and custom branding at competitive pricing that fits tobacco businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Paper Cigarette Boxes",
+      [
+        {
+          question: "What are paper cigarette boxes used for?",
+          answer:
+            "They're used for packaging cigarettes with lightweight paper box designs, perfect for cigarette retail and tobacco brands.",
+        },
+        {
+          question: "Can I customize paper cigarette boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for paper cigarette boxes wholesale.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, our paper cigarette boxes are made from recyclable and sustainable paper materials.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our paper cigarette boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes compliant with regulations?",
+          answer:
+            "Yes, we ensure our paper cigarette boxes meet packaging regulations and requirements for tobacco products.",
+        },
+      ],
+      {
+        heading: "Questions about Paper Cigarette Boxes",
+        eyebrow: "Paper Cigarette Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Lightweight Packaging, Strong Protection",
+      description:
+        "Partner with BoxyPack to create paper cigarette boxes that protect your cigarettes and showcase your brand. Our packaging experts ensure every box maintains quality and presents your products with style.",
+    },
+  },
+
+  // Subcategory: Custom Cigarette Boxes
+  "custom-cigarette-boxes": {
+    name: "Custom Cigarette Boxes",
+    description:
+      "Personalized, durable, and perfectly designed. Buy custom cigarette boxes online for branded cigarette packaging that protects products and showcases your brand.",
+    heroImage: "Custom-Cigarette-Boxes-1_f0abbv",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Fully customizable design for your brand",
+      "Durable construction for cigarette protection",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various cigarette types",
+      "Eco-friendly and recyclable packaging materials",
+      "Compliant with packaging regulations",
+      "Perfect for tobacco brands, retailers, and cigarette manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Paper",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Flip-Top / Auto-Lock Bottom / Rigid",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated / Custom Colors",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for cigarettes",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Cigarette Boxes for Branded Cigarette Packaging",
+      paragraphs: [
+        "Our custom cigarette boxes are fully customizable to match your brand's identity and cigarette needs. Built with durable materials and secure closures, these boxes protect cigarettes while creating a professional presentation. Perfect for tobacco brands, retailers, and cigarette manufacturers, they combine functionality with attractive branding.",
+        "At BoxyPack, we craft custom printed cigarette boxes that match your brand's personality and cigarette requirements. Whether you need boxes for standard packs or specialty sizes, we tailor each box to ensure proper protection and attractive presentation. Add your logo, cigarette information, colors, and branding for a professional finish that customers remember.",
+        "As a custom cigarette boxes wholesale supplier, we deliver superior quality, durable design, and full customization at competitive pricing that fits tobacco businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Cigarette Boxes",
+      [
+        {
+          question: "What are custom cigarette boxes used for?",
+          answer:
+            "They're used for packaging cigarettes with fully customized branding, perfect for cigarette retail and tobacco brands.",
+        },
+        {
+          question: "Can I fully customize cigarette boxes with my brand?",
+          answer:
+            "Yes, BoxyPack offers full customization including colors, designs, logos, and branding for custom cigarette boxes wholesale.",
+        },
+        {
+          question: "Are these boxes compliant with regulations?",
+          answer:
+            "Yes, we ensure our custom cigarette boxes meet packaging regulations and requirements for tobacco products.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our custom cigarette boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly custom cigarette boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Cigarette Boxes",
+        eyebrow: "Custom Cigarette Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Fully Custom, Fully Protected",
+      description:
+        "Partner with BoxyPack to create custom cigarette boxes that protect your cigarettes and showcase your brand with complete customization. Our packaging experts ensure every box maintains quality and presents your products with style.",
+    },
+  },
+
+  // Subcategory: Empty Cigarette Boxes
+  "empty-cigarette-boxes": {
+    name: "Empty Cigarette Boxes",
+    description:
+      "Versatile, ready-to-use, and perfectly designed. Buy empty cigarette boxes online for cigarette packaging that you can fill with your products.",
+    heroImage: "Empty-Cigarette-Boxes-1_t4kzi9",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Ready-to-use empty boxes for product filling",
+      "Premium materials that protect cigarettes from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various cigarette types",
+      "Eco-friendly and recyclable packaging materials",
+      "Compliant with packaging regulations",
+      "Perfect for tobacco brands, retailers, and cigarette manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Paper",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Flip-Top / Auto-Lock Bottom",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for cigarettes",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Empty Cigarette Boxes for Product Filling",
+      paragraphs: [
+        "Our empty cigarette boxes are designed to be filled with your cigarettes and products. Built with premium materials and proper sizing, these boxes provide ready-to-use packaging that keeps cigarettes safe from damage while creating an attractive presentation. Perfect for tobacco brands, retailers, and cigarette manufacturers, they combine functionality with convenient design.",
+        "At BoxyPack, we craft custom printed empty cigarette boxes that match your brand's personality and cigarette needs. Whether you need boxes for standard packs or specialty sizes, we tailor each box to ensure proper protection and attractive presentation. Add your logo, cigarette information, and branding for a professional finish that customers appreciate.",
+        "As an empty cigarette boxes supplier, we deliver superior quality, ready-to-use design, and custom branding at competitive pricing that fits tobacco businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Empty Cigarette Boxes",
+      [
+        {
+          question: "What are empty cigarette boxes used for?",
+          answer:
+            "They're used as ready-to-use packaging boxes that you can fill with your cigarettes and products.",
+        },
+        {
+          question: "Can I customize empty cigarette boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for empty cigarette boxes wholesale.",
+        },
+        {
+          question: "Are these boxes ready to use?",
+          answer:
+            "Yes, our empty cigarette boxes are ready to be filled with your cigarettes and products.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our empty cigarette boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes compliant with regulations?",
+          answer:
+            "Yes, we ensure our empty cigarette boxes meet packaging regulations and requirements for tobacco products.",
+        },
+      ],
+      {
+        heading: "Questions about Empty Cigarette Boxes",
+        eyebrow: "Empty Cigarette Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Ready to Fill, Ready to Sell",
+      description:
+        "Partner with BoxyPack to create empty cigarette boxes that you can fill with your products and showcase your brand. Our packaging experts ensure every box maintains quality and presents your products with style.",
+    },
+  },
+
+  // Subcategory: Cardboard Cigarette Boxes
+  "cardboard-cigarette-boxes": {
+    name: "Cardboard Cigarette Boxes",
+    description:
+      "Durable, protective, and perfectly designed. Buy cardboard cigarette boxes online for cigarette packaging that keeps products safe and beautifully presented.",
+    heroImage: "Cardboard-Cigarette-Boxes-1_b7xr8l",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Durable cardboard construction for protection",
+      "Premium materials that protect cigarettes from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various cigarette types",
+      "Eco-friendly and recyclable packaging materials",
+      "Compliant with packaging regulations",
+      "Perfect for tobacco brands, retailers, and cigarette manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Corrugated",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Flip-Top / Auto-Lock Bottom",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for cigarettes",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Cardboard Cigarette Boxes for Cigarette Packaging",
+      paragraphs: [
+        "Our cardboard cigarette boxes are designed to protect and showcase cigarettes with durability and precision. Built with strong cardboard materials and proper sizing, these boxes keep cigarettes safe from damage while creating an attractive presentation. Perfect for tobacco brands, retailers, and cigarette manufacturers, they combine functionality with reliable protection.",
+        "At BoxyPack, we craft custom printed cardboard cigarette boxes that match your brand's personality and cigarette needs. Whether you need boxes for standard packs or specialty sizes, we tailor each box to ensure proper protection and attractive presentation. Add your logo, cigarette information, and branding for a professional finish that customers appreciate.",
+        "As a cardboard cigarette boxes supplier, we deliver superior quality, durable design, and custom branding at competitive pricing that fits tobacco businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Cardboard Cigarette Boxes",
+      [
+        {
+          question: "What are cardboard cigarette boxes used for?",
+          answer:
+            "They're used for packaging cigarettes with durable cardboard box designs, perfect for cigarette retail and tobacco brands.",
+        },
+        {
+          question: "Can I customize cardboard cigarette boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for cardboard cigarette boxes wholesale.",
+        },
+        {
+          question: "Are these boxes durable?",
+          answer:
+            "Yes, our cardboard cigarette boxes are designed with durable construction to protect cigarettes from damage.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our cardboard cigarette boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes compliant with regulations?",
+          answer:
+            "Yes, we ensure our cardboard cigarette boxes meet packaging regulations and requirements for tobacco products.",
+        },
+      ],
+      {
+        heading: "Questions about Cardboard Cigarette Boxes",
+        eyebrow: "Cardboard Cigarette Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Durable Packaging, Strong Protection",
+      description:
+        "Partner with BoxyPack to create cardboard cigarette boxes that protect your cigarettes and showcase your brand. Our packaging experts ensure every box maintains durability and presents your products with style.",
+    },
+  },
+
+  // Subcategory: Blank Cigarette Boxes
+  "blank-cigarette-boxes": {
+    name: "Blank Cigarette Boxes",
+    description:
+      "Versatile, unprinted, and perfectly designed. Buy blank cigarette boxes online for cigarette packaging that you can customize with your own branding.",
+    heroImage: "Blank-Cigarette-Boxes-1_evdnrk",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Unprinted blank boxes ready for your branding",
+      "Premium materials that protect cigarettes from damage",
+      "Multiple sizes for various cigarette types",
+      "Eco-friendly and recyclable packaging materials",
+      "Compliant with packaging regulations",
+      "Perfect for custom branding and printing",
+      "Perfect for tobacco brands, retailers, and cigarette manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Paper",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Flip-Top / Auto-Lock Bottom",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Blank (Ready for your printing)",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for cigarettes",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Blank Cigarette Boxes for Custom Branding",
+      paragraphs: [
+        "Our blank cigarette boxes are unprinted and ready for your custom branding. Built with premium materials and proper sizing, these boxes provide a blank canvas for your logo, designs, and branding while keeping cigarettes safe from damage. Perfect for tobacco brands, retailers, and cigarette manufacturers who want to add their own printing, they combine functionality with customization flexibility.",
+        "At BoxyPack, we craft blank cigarette boxes that match your brand's sizing needs. Whether you need boxes for standard packs or specialty sizes, we tailor each box to ensure proper protection and attractive presentation. Add your own logo, cigarette information, and branding for a professional finish that customers appreciate.",
+        "As a blank cigarette boxes supplier, we deliver superior quality, blank design, and flexible customization at competitive pricing that fits tobacco businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Blank Cigarette Boxes",
+      [
+        {
+          question: "What are blank cigarette boxes used for?",
+          answer:
+            "They're used as unprinted packaging boxes that you can customize with your own branding and printing.",
+        },
+        {
+          question: "Can I add my own branding to blank cigarette boxes?",
+          answer:
+            "Yes, blank cigarette boxes are designed to be customized with your own logo, designs, and branding.",
+        },
+        {
+          question: "Are these boxes ready for printing?",
+          answer:
+            "Yes, our blank cigarette boxes are ready for you to add your own printing and branding.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our blank cigarette boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes compliant with regulations?",
+          answer:
+            "Yes, we ensure our blank cigarette boxes meet packaging regulations and requirements for tobacco products.",
+        },
+      ],
+      {
+        heading: "Questions about Blank Cigarette Boxes",
+        eyebrow: "Blank Cigarette Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Blank Canvas, Your Brand",
+      description:
+        "Partner with BoxyPack to create blank cigarette boxes that you can customize with your branding and showcase your products. Our packaging experts ensure every box maintains quality and presents your products with style.",
+    },
+  },
+
+  // Subcategory: Flip Top Cigarette Boxes
+  "flip-top-cigarette-boxes": {
+    name: "Flip Top Cigarette Boxes",
+    description:
+      "Convenient, elegant, and perfectly designed. Buy flip top cigarette boxes online for cigarette packaging with easy-access flip-top lids.",
+    heroImage: "Flip-Top-Cigarette-Boxes-1_se8s4v",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Convenient flip-top lid for easy access",
+      "Premium materials that protect cigarettes from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various cigarette types",
+      "Eco-friendly and recyclable packaging materials",
+      "Compliant with packaging regulations",
+      "Perfect for tobacco brands, retailers, and cigarette manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Paper",
+        },
+        {
+          label: "Structure",
+          value: "Flip-Top Lid / Tuck-End",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for cigarettes",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Flip Top Cigarette Boxes for Convenient Cigarette Packaging",
+      paragraphs: [
+        "Our flip top cigarette boxes feature a convenient flip-top lid that provides easy access to cigarettes while maintaining protection. Built with premium materials and proper sizing, these boxes keep cigarettes safe from damage while creating an attractive presentation. Perfect for tobacco brands, retailers, and cigarette manufacturers, they combine functionality with user-friendly design.",
+        "At BoxyPack, we craft custom printed flip top cigarette boxes that match your brand's personality and cigarette needs. Whether you need boxes for standard packs or specialty sizes, we tailor each box to ensure proper protection and attractive presentation. Add your logo, cigarette information, and branding for a professional finish that customers appreciate.",
+        "As a flip top cigarette boxes supplier, we deliver superior quality, convenient design, and custom branding at competitive pricing that fits tobacco businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Flip Top Cigarette Boxes",
+      [
+        {
+          question: "What are flip top cigarette boxes used for?",
+          answer:
+            "They're used for packaging cigarettes with a convenient flip-top lid design that provides easy access to cigarettes.",
+        },
+        {
+          question: "Can I customize flip top cigarette boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for flip top cigarette boxes wholesale.",
+        },
+        {
+          question: "How does the flip-top lid work?",
+          answer:
+            "Our flip top cigarette boxes feature a convenient flip-top lid that opens easily for access while maintaining box integrity.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our flip top cigarette boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes compliant with regulations?",
+          answer:
+            "Yes, we ensure our flip top cigarette boxes meet packaging regulations and requirements for tobacco products.",
+        },
+      ],
+      {
+        heading: "Questions about Flip Top Cigarette Boxes",
+        eyebrow: "Flip Top Cigarette Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Convenient Access, Strong Protection",
+      description:
+        "Partner with BoxyPack to create flip top cigarette boxes that protect your cigarettes and provide convenient access. Our packaging experts ensure every box maintains quality and presents your products with style.",
+    },
+  },
+
+  // Subcategory: CBD Gift Boxes
+  "cbd-gift-boxes": {
+    name: "CBD Gift Boxes",
+    description:
+      "Elegant, luxurious, and perfect for gifting. Buy CBD gift boxes online for CBD gift packaging that creates memorable unboxing experiences.",
+    heroImage: "CBD-Gift-Boxes-1_k9295s",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Premium rigid construction for luxury presentation",
+      "Custom printing and embossing for brand elegance",
+      "Magnetic closures and lift-off lids for premium feel",
+      "Multiple sizes for various CBD gift sets",
+      "Eco-friendly and recyclable material options",
+      "Compliant with packaging regulations",
+      "Perfect for CBD gift sets, holidays, and special occasions",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid greyboard with wrapped papers or premium coated stocks",
+        },
+        {
+          label: "Structure",
+          value: "Lift-off lid, magnetic closure, or drawer/sleeve style",
+        },
+        {
+          label: "Thickness",
+          value: "2.0–3.0 mm rigid board with custom insert options",
+        },
+        {
+          label: "Finish",
+          value: "Soft-touch lamination, velvet wrap, foil, emboss/deboss",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "CBD Gift Boxes for Luxury CBD Packaging",
+      paragraphs: [
+        "Our CBD gift boxes are crafted to combine elegance and protection for luxury CBD gift experiences. Designed with premium materials and sophisticated finishes, these boxes enhance the perceived value of your CBD gifts while ensuring safe storage and transit. Every detail from closure to finish adds a touch of luxury that customers notice instantly.",
+        "At BoxyPack, we create custom CBD gift boxes that express your brand's personality and sophistication. Whether you need velvet-coated boxes, rigid magnetic closure cases, or minimal elegant designs, we customize each to suit your brand's vision and gift requirements.",
+        "As a luxury CBD gift boxes supplier, we offer fine finishes, durable materials, and premium presentation at competitive pricing that meets retail and wholesale needs with equal perfection.",
+      ],
+    },
+    faq: buildFaq(
+      "CBD Gift Boxes",
+      [
+        {
+          question: "What are CBD gift boxes used for?",
+          answer:
+            "They're used for packaging CBD gift sets, holiday collections, and special occasion CBD gifts with premium presentation.",
+        },
+        {
+          question: "Can I add custom branding to CBD gift boxes?",
+          answer:
+            "Yes, BoxyPack offers printing, embossing, foil stamping, and custom finishes for luxury CBD gift boxes.",
+        },
+        {
+          question: "Are your gift boxes suitable for various CBD products?",
+          answer:
+            "Absolutely, our custom CBD gift boxes are perfect for various CBD product types and gift set configurations.",
+        },
+        {
+          question: "Do you offer magnetic closure options?",
+          answer:
+            "Yes, we provide magnetic closures, lift-off lids, and drawer-style boxes for premium presentation.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we produce eco-friendly CBD gift boxes using recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about CBD Gift Boxes",
+        eyebrow: "CBD Gift Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Gift Beautifully, Package Perfectly",
+      description:
+        "Partner with BoxyPack to design CBD gift boxes that elevate your brand and create memorable gifting experiences. Our design team creates elegant, durable, and sophisticated packaging tailored to your luxury CBD brand needs.",
+    },
+  },
+
+  // Subcategory: CBD Gummies Boxes
+  "cbd-gummies-boxes": {
+    name: "CBD Gummies Boxes",
+    description:
+      "Protective, compact, and perfectly designed. Buy CBD gummies boxes online for gummy packaging that keeps edibles safe and beautifully presented.",
+    heroImage: "CBD-Gummies-Boxes-1_wd25va",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for CBD gummies and edibles",
+      "Food-grade materials that protect gummies from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various gummy quantities",
+      "Eco-friendly and recyclable packaging materials",
+      "Compliant with packaging regulations",
+      "Perfect for CBD brands, gummy manufacturers, and edible retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Food-Grade Cardboard / Kraft / Laminated Paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Compact Design",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for gummy quantities",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "CBD Gummies Boxes for Edible Packaging",
+      paragraphs: [
+        "Our CBD gummies boxes are designed to protect and showcase CBD gummies and edibles with precision and food-safe materials. Built with premium materials and compact sizing, these boxes keep gummies safe from damage while creating an attractive presentation. Perfect for CBD brands, gummy manufacturers, and edible retailers, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom printed CBD gummies boxes that match your brand's personality and gummy needs. Whether you need boxes for individual servings or multi-pack sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, gummy information, and branding for a professional finish that customers appreciate.",
+        "As a CBD gummies boxes supplier, we deliver superior quality, food-safe design, and custom branding at competitive pricing that fits CBD businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "CBD Gummies Boxes",
+      [
+        {
+          question: "What are CBD gummies boxes used for?",
+          answer:
+            "They're used for packaging CBD gummies and edibles with compact box designs, perfect for CBD retail and gummy brands.",
+        },
+        {
+          question: "Can I customize CBD gummies boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for CBD gummies boxes wholesale.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our CBD gummies boxes are made from food-grade materials suitable for direct contact with edibles.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our CBD gummies boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly CBD gummies boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about CBD Gummies Boxes",
+        eyebrow: "CBD Gummies Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Sweet Packaging for Sweet Products",
+      description:
+        "Partner with BoxyPack to create CBD gummies boxes that protect your edibles and showcase your brand. Our packaging experts ensure every box maintains food-safe quality and presents your gummies with style.",
+    },
+  },
+
+  // Subcategory: Custom Cannabis Boxes
+  "custom-cannabis-boxes": {
+    name: "Custom Cannabis Boxes",
+    description:
+      "Personalized, durable, and perfectly designed. Buy custom cannabis boxes online for branded cannabis product packaging that protects products and showcases your brand.",
+    heroImage: "Cusotm-Cannabis-Boxes-1_idflye",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Fully customizable design for your brand",
+      "Durable construction for cannabis product protection",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various cannabis product types",
+      "Eco-friendly and recyclable packaging materials",
+      "Compliant with packaging regulations",
+      "Perfect for cannabis brands, retailers, and product manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Rigid / Mailer Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated / Custom Colors",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for cannabis products",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Cannabis Boxes for Branded Cannabis Packaging",
+      paragraphs: [
+        "Our custom cannabis boxes are fully customizable to match your brand's identity and cannabis product needs. Built with durable materials and secure closures, these boxes protect cannabis products while creating a professional presentation. Perfect for cannabis brands, retailers, and product manufacturers, they combine functionality with attractive branding.",
+        "At BoxyPack, we craft custom printed cannabis boxes that match your brand's personality and product requirements. Whether you need boxes for flower, edibles, or concentrates, we tailor each box to ensure proper protection and attractive presentation. Add your logo, product information, colors, and branding for a professional finish that customers remember.",
+        "As a custom cannabis boxes wholesale supplier, we deliver superior quality, durable design, and full customization at competitive pricing that fits cannabis businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Cannabis Boxes",
+      [
+        {
+          question: "What are custom cannabis boxes used for?",
+          answer:
+            "They're used for packaging cannabis products with fully customized branding, perfect for cannabis retail and product brands.",
+        },
+        {
+          question: "Can I fully customize cannabis boxes with my brand?",
+          answer:
+            "Yes, BoxyPack offers full customization including colors, designs, logos, and branding for custom cannabis boxes wholesale.",
+        },
+        {
+          question: "Are these boxes compliant with regulations?",
+          answer:
+            "Yes, we ensure our custom cannabis boxes meet packaging regulations and requirements for cannabis products.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our custom cannabis boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly custom cannabis boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Cannabis Boxes",
+        eyebrow: "Custom Cannabis Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Fully Custom, Fully Protected",
+      description:
+        "Partner with BoxyPack to create custom cannabis boxes that protect your products and showcase your brand with complete customization. Our packaging experts ensure every box maintains quality and presents your products with style.",
+    },
+  },
+
+  // Subcategory: CBD Oil Boxes
+  "cbd-oil-boxes": {
+    name: "CBD Oil Boxes",
+    description:
+      "Protective, elegant, and perfectly sized. Buy CBD oil boxes online for CBD oil packaging that keeps bottles safe and beautifully presented.",
+    heroImage: "CBD-Oil-Boxes-1_qgrbrh",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for CBD oil bottles",
+      "Premium materials that protect bottles from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various bottle sizes",
+      "Eco-friendly and recyclable packaging materials",
+      "Compliant with packaging regulations",
+      "Perfect for CBD brands, oil manufacturers, and retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Rigid",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for CBD oil bottles",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "CBD Oil Boxes for CBD Oil Bottle Packaging",
+      paragraphs: [
+        "Our CBD oil boxes are designed to protect and showcase CBD oil bottles with elegance and precision. Built with premium materials and proper sizing, these boxes keep bottles safe from damage while creating an attractive presentation. Perfect for CBD brands, oil manufacturers, and retailers, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom printed CBD oil boxes that match your brand's personality and bottle needs. Whether you need boxes for small dropper bottles or larger bottles, we tailor each box to ensure proper protection and attractive presentation. Add your logo, oil information, and branding for a professional finish that customers appreciate.",
+        "As a CBD oil boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits CBD businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "CBD Oil Boxes",
+      [
+        {
+          question: "What are CBD oil boxes used for?",
+          answer:
+            "They're used for packaging CBD oil bottles with box designs that accommodate various bottle sizes, perfect for CBD retail and oil brands.",
+        },
+        {
+          question: "Can I customize CBD oil boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for CBD oil boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for CBD oil boxes?",
+          answer:
+            "We provide CBD oil boxes in various sizes to accommodate different bottle sizes, from small dropper bottles to larger bottles.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our CBD oil boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly CBD oil boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about CBD Oil Boxes",
+        eyebrow: "CBD Oil Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Perfect Fit for Perfect Oils",
+      description:
+        "Partner with BoxyPack to create CBD oil boxes that protect your bottles and showcase your brand. Our packaging experts ensure every box maintains the perfect fit and presents your CBD oils with style.",
+    },
+  },
+
+  // Subcategory: Hemp Oil Boxes
+  "hemp-oil-boxes": {
+    name: "Hemp Oil Boxes",
+    description:
+      "Protective, elegant, and perfectly sized. Buy hemp oil boxes online for hemp oil packaging that keeps bottles safe and beautifully presented.",
+    heroImage: "Hemp-Oil-Boxes-1_q7mzbh",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for hemp oil bottles",
+      "Premium materials that protect bottles from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various bottle sizes",
+      "Eco-friendly and recyclable packaging materials",
+      "Compliant with packaging regulations",
+      "Perfect for hemp brands, oil manufacturers, and retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Rigid",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for hemp oil bottles",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Hemp Oil Boxes for Hemp Oil Bottle Packaging",
+      paragraphs: [
+        "Our hemp oil boxes are designed to protect and showcase hemp oil bottles with elegance and precision. Built with premium materials and proper sizing, these boxes keep bottles safe from damage while creating an attractive presentation. Perfect for hemp brands, oil manufacturers, and retailers, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom printed hemp oil boxes that match your brand's personality and bottle needs. Whether you need boxes for small dropper bottles or larger bottles, we tailor each box to ensure proper protection and attractive presentation. Add your logo, oil information, and branding for a professional finish that customers appreciate.",
+        "As a hemp oil boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits hemp businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Hemp Oil Boxes",
+      [
+        {
+          question: "What are hemp oil boxes used for?",
+          answer:
+            "They're used for packaging hemp oil bottles with box designs that accommodate various bottle sizes, perfect for hemp retail and oil brands.",
+        },
+        {
+          question: "Can I customize hemp oil boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for hemp oil boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for hemp oil boxes?",
+          answer:
+            "We provide hemp oil boxes in various sizes to accommodate different bottle sizes, from small dropper bottles to larger bottles.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our hemp oil boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly hemp oil boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Hemp Oil Boxes",
+        eyebrow: "Hemp Oil Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Perfect Fit for Perfect Oils",
+      description:
+        "Partner with BoxyPack to create hemp oil boxes that protect your bottles and showcase your brand. Our packaging experts ensure every box maintains the perfect fit and presents your hemp oils with style.",
+    },
+  },
+
+  // Subcategory: Pre Roll Boxes
+  "pre-roll-boxes": {
+    name: "Pre Roll Boxes",
+    description:
+      "Compact, protective, and perfectly designed. Buy pre roll boxes online for pre-roll packaging that keeps products safe and beautifully presented.",
+    heroImage: "Pre-Roll-Boxes-1_fvwba7",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for pre-rolls and joints",
+      "Premium materials that protect pre-rolls from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various pre-roll quantities",
+      "Eco-friendly and recyclable packaging materials",
+      "Compliant with packaging regulations",
+      "Perfect for cannabis brands, pre-roll manufacturers, and retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Laminated Paperboard",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Compact Design",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for pre-roll quantities",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Pre Roll Boxes for Pre-Roll Packaging",
+      paragraphs: [
+        "Our pre roll boxes are designed to protect and showcase pre-rolls and joints with precision and durability. Built with premium materials and compact sizing, these boxes keep pre-rolls safe from damage while creating an attractive presentation. Perfect for cannabis brands, pre-roll manufacturers, and retailers, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom printed pre roll boxes that match your brand's personality and pre-roll needs. Whether you need boxes for single pre-rolls or multi-pack sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, pre-roll information, and branding for a professional finish that customers appreciate.",
+        "As a pre roll boxes supplier, we deliver superior quality, compact design, and custom branding at competitive pricing that fits cannabis businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Pre Roll Boxes",
+      [
+        {
+          question: "What are pre roll boxes used for?",
+          answer:
+            "They're used for packaging pre-rolls and joints with compact box designs, perfect for cannabis retail and pre-roll brands.",
+        },
+        {
+          question: "Can I customize pre roll boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for pre roll boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for pre roll boxes?",
+          answer:
+            "We provide pre roll boxes in various compact sizes to accommodate different pre-roll quantities, from single pre-rolls to multi-pack sets.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our pre roll boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly pre roll boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Pre Roll Boxes",
+        eyebrow: "Pre Roll Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Compact Packaging for Perfect Rolls",
+      description:
+        "Partner with BoxyPack to create pre roll boxes that protect your pre-rolls and showcase your brand. Our packaging experts ensure every box maintains the perfect fit and presents your pre-rolls with style.",
+    },
+  },
+
+  // Subcategory: CBD Tincture Boxes
+  "cbd-tincture-boxes": {
+    name: "CBD Tincture Boxes",
+    description:
+      "Protective, elegant, and perfectly sized. Buy CBD tincture boxes online for tincture packaging that keeps bottles safe and beautifully presented.",
+    heroImage: "CBD-Tincture-Boxes-1_daue3r",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for CBD tincture bottles",
+      "Premium materials that protect bottles from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various bottle sizes",
+      "Eco-friendly and recyclable packaging materials",
+      "Compliant with packaging regulations",
+      "Perfect for CBD brands, tincture manufacturers, and retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Rigid",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for CBD tincture bottles",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "CBD Tincture Boxes for Tincture Bottle Packaging",
+      paragraphs: [
+        "Our CBD tincture boxes are designed to protect and showcase CBD tincture bottles with elegance and precision. Built with premium materials and proper sizing, these boxes keep bottles safe from damage while creating an attractive presentation. Perfect for CBD brands, tincture manufacturers, and retailers, they combine functionality with sophisticated design.",
+        "At BoxyPack, we craft custom printed CBD tincture boxes that match your brand's personality and bottle needs. Whether you need boxes for small dropper bottles or larger bottles, we tailor each box to ensure proper protection and attractive presentation. Add your logo, tincture information, and branding for a professional finish that customers appreciate.",
+        "As a CBD tincture boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits CBD businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "CBD Tincture Boxes",
+      [
+        {
+          question: "What are CBD tincture boxes used for?",
+          answer:
+            "They're used for packaging CBD tincture bottles with box designs that accommodate various bottle sizes, perfect for CBD retail and tincture brands.",
+        },
+        {
+          question: "Can I customize CBD tincture boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for CBD tincture boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for CBD tincture boxes?",
+          answer:
+            "We provide CBD tincture boxes in various sizes to accommodate different bottle sizes, from small dropper bottles to larger bottles.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our CBD tincture boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly CBD tincture boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about CBD Tincture Boxes",
+        eyebrow: "CBD Tincture Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Perfect Fit for Perfect Tinctures",
+      description:
+        "Partner with BoxyPack to create CBD tincture boxes that protect your bottles and showcase your brand. Our packaging experts ensure every box maintains the perfect fit and presents your CBD tinctures with style.",
+    },
+  },
+
+  // Subcategory: Vape Boxes (Subcategory)
+  // Note: This subcategory shares the same slug as the main category
+  // Adding as a separate entry for the subcategory page
+  "vape-boxes-subcategory": {
+    name: "Vape Boxes",
+    description:
+      "Protective, modern, and perfectly designed. Buy vape boxes online for vape product packaging that keeps devices safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for vape devices and products",
+      "Premium materials that protect vape devices from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various vape product types",
+      "Eco-friendly and recyclable packaging materials",
+      "Compliant with packaging regulations",
+      "Perfect for vape brands, retailers, and device manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Rigid / Mailer Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for vape products",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Vape Boxes for Vape Product Packaging",
+      paragraphs: [
+        "Our vape boxes are designed to protect and showcase vape devices and products with durability and precision. Built with premium materials and proper sizing, these boxes keep vape devices safe from damage while creating an attractive presentation. Perfect for vape brands, retailers, and device manufacturers, they combine functionality with modern design.",
+        "At BoxyPack, we craft custom printed vape boxes that match your brand's personality and vape product needs. Whether you need boxes for vape pens, mods, or accessories, we tailor each box to ensure proper protection and attractive presentation. Add your logo, product information, and branding for a professional finish that customers appreciate.",
+        "As a vape boxes supplier, we deliver superior quality, durable design, and custom branding at competitive pricing that fits vape businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Vape Boxes",
+      [
+        {
+          question: "What are vape boxes used for?",
+          answer:
+            "They're used for packaging vape devices, pens, mods, and accessories with box designs, perfect for vape retail and device brands.",
+        },
+        {
+          question: "Can I customize vape boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for vape boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for vape boxes?",
+          answer:
+            "We provide vape boxes in various sizes to accommodate different vape device types, from pens to mods and accessories.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our vape boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes compliant with regulations?",
+          answer:
+            "Yes, we ensure our vape boxes meet packaging regulations and requirements for vape products.",
+        },
+      ],
+      {
+        heading: "Questions about Vape Boxes",
+        eyebrow: "Vape Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Modern Packaging for Modern Devices",
+      description:
+        "Partner with BoxyPack to create vape boxes that protect your devices and showcase your brand. Our packaging experts ensure every box maintains quality and presents your vape products with style.",
+    },
+  },
+
+  // Subcategory: Empty Vape Cartridge Packaging
+  "empty-vape-cartridge-packaging": {
+    name: "Empty Vape Cartridge Packaging",
+    description:
+      "Versatile, ready-to-use, and perfectly designed. Buy empty vape cartridge packaging online for cartridge packaging that you can fill with your products.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Ready-to-use empty packaging for cartridge filling",
+      "Premium materials that protect cartridges from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various cartridge types",
+      "Eco-friendly and recyclable packaging materials",
+      "Compliant with packaging regulations",
+      "Perfect for vape brands, cartridge manufacturers, and retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Rigid",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for cartridges",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Empty Vape Cartridge Packaging for Product Filling",
+      paragraphs: [
+        "Our empty vape cartridge packaging is designed to be filled with your cartridges and products. Built with premium materials and proper sizing, these boxes provide ready-to-use packaging that keeps cartridges safe from damage while creating an attractive presentation. Perfect for vape brands, cartridge manufacturers, and retailers, they combine functionality with convenient design.",
+        "At BoxyPack, we craft custom printed empty vape cartridge packaging that match your brand's personality and cartridge needs. Whether you need boxes for standard cartridges or specialty sizes, we tailor each box to ensure proper protection and attractive presentation. Add your logo, cartridge information, and branding for a professional finish that customers appreciate.",
+        "As an empty vape cartridge packaging supplier, we deliver superior quality, ready-to-use design, and custom branding at competitive pricing that fits vape businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Empty Vape Cartridge Packaging",
+      [
+        {
+          question: "What is empty vape cartridge packaging used for?",
+          answer:
+            "It's used as ready-to-use packaging boxes that you can fill with your vape cartridges and products.",
+        },
+        {
+          question: "Can I customize empty vape cartridge packaging with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for empty vape cartridge packaging wholesale.",
+        },
+        {
+          question: "Are these boxes ready to use?",
+          answer:
+            "Yes, our empty vape cartridge packaging is ready to be filled with your cartridges and products.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our empty vape cartridge packaging wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes compliant with regulations?",
+          answer:
+            "Yes, we ensure our empty vape cartridge packaging meets packaging regulations and requirements for vape products.",
+        },
+      ],
+      {
+        heading: "Questions about Empty Vape Cartridge Packaging",
+        eyebrow: "Empty Vape Cartridge Packaging FAQs",
+      }
+    ),
+    cta: {
+      title: "Ready to Fill, Ready to Sell",
+      description:
+        "Partner with BoxyPack to create empty vape cartridge packaging that you can fill with your products and showcase your brand. Our packaging experts ensure every box maintains quality and presents your cartridges with style.",
+    },
+  },
+
+  // Subcategory: Vape Cartridge Packaging
+  "vape-cartridge-packaging": {
+    name: "Vape Cartridge Packaging",
+    description:
+      "Protective, compact, and perfectly designed. Buy vape cartridge packaging online for cartridge packaging that keeps cartridges safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for vape cartridges",
+      "Premium materials that protect cartridges from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various cartridge types",
+      "Eco-friendly and recyclable packaging materials",
+      "Compliant with packaging regulations",
+      "Perfect for vape brands, cartridge manufacturers, and retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Rigid",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for cartridges",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Vape Cartridge Packaging for Cartridge Protection",
+      paragraphs: [
+        "Our vape cartridge packaging is designed to protect and showcase vape cartridges with precision and durability. Built with premium materials and compact sizing, these boxes keep cartridges safe from damage while creating an attractive presentation. Perfect for vape brands, cartridge manufacturers, and retailers, they combine functionality with modern design.",
+        "At BoxyPack, we craft custom printed vape cartridge packaging that match your brand's personality and cartridge needs. Whether you need boxes for standard cartridges or specialty sizes, we tailor each box to ensure proper protection and attractive presentation. Add your logo, cartridge information, and branding for a professional finish that customers appreciate.",
+        "As a vape cartridge packaging supplier, we deliver superior quality, compact design, and custom branding at competitive pricing that fits vape businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Vape Cartridge Packaging",
+      [
+        {
+          question: "What is vape cartridge packaging used for?",
+          answer:
+            "It's used for packaging vape cartridges with compact box designs, perfect for vape retail and cartridge brands.",
+        },
+        {
+          question: "Can I customize vape cartridge packaging with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for vape cartridge packaging wholesale.",
+        },
+        {
+          question: "What sizes are available for vape cartridge packaging?",
+          answer:
+            "We provide vape cartridge packaging in various compact sizes to accommodate different cartridge types and quantities.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our vape cartridge packaging wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes compliant with regulations?",
+          answer:
+            "Yes, we ensure our vape cartridge packaging meets packaging regulations and requirements for vape products.",
+        },
+      ],
+      {
+        heading: "Questions about Vape Cartridge Packaging",
+        eyebrow: "Vape Cartridge Packaging FAQs",
+      }
+    ),
+    cta: {
+      title: "Compact Packaging for Perfect Cartridges",
+      description:
+        "Partner with BoxyPack to create vape cartridge packaging that protects your cartridges and showcases your brand. Our packaging experts ensure every box maintains quality and presents your cartridges with style.",
+    },
+  },
+
+  // Subcategory: Custom Vape Boxes
+  "custom-vape-boxes": {
+    name: "Custom Vape Boxes",
+    description:
+      "Personalized, durable, and perfectly designed. Buy custom vape boxes online for branded vape product packaging that protects devices and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Fully customizable design for your brand",
+      "Durable construction for vape device protection",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various vape product types",
+      "Eco-friendly and recyclable packaging materials",
+      "Compliant with packaging regulations",
+      "Perfect for vape brands, retailers, and device manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Rigid / Mailer Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated / Custom Colors",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for vape products",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Vape Boxes for Branded Vape Packaging",
+      paragraphs: [
+        "Our custom vape boxes are fully customizable to match your brand's identity and vape product needs. Built with durable materials and secure closures, these boxes protect vape products while creating a professional presentation. Perfect for vape brands, retailers, and device manufacturers, they combine functionality with attractive branding.",
+        "At BoxyPack, we craft custom printed vape boxes that match your brand's personality and product requirements. Whether you need boxes for vape pens, cartridges, or devices, we tailor each box to ensure proper protection and attractive presentation. Add your logo, product information, colors, and branding for a professional finish that customers remember.",
+        "As a custom vape boxes wholesale supplier, we deliver superior quality, durable design, and full customization at competitive pricing that fits vape businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Vape Boxes",
+      [
+        {
+          question: "What are custom vape boxes used for?",
+          answer:
+            "They're used for packaging vape products with fully customized branding, perfect for vape retail and device brands.",
+        },
+        {
+          question: "Can I fully customize vape boxes with my brand?",
+          answer:
+            "Yes, BoxyPack offers full customization including colors, designs, logos, and branding for custom vape boxes wholesale.",
+        },
+        {
+          question: "Are these boxes compliant with regulations?",
+          answer:
+            "Yes, we ensure our custom vape boxes meet packaging regulations and requirements for vape products.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our custom vape boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly custom vape boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Vape Boxes",
+        eyebrow: "Custom Vape Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Fully Custom, Fully Protected",
+      description:
+        "Partner with BoxyPack to create custom vape boxes that protect your products and showcase your brand with complete customization. Our packaging experts ensure every box maintains quality and presents your vape products with style.",
+    },
+  },
+
+  // Subcategory: Disposable Vape Packaging
+  "disposable-vape-packaging": {
+    name: "Disposable Vape Packaging",
+    description:
+      "Compact, protective, and perfectly designed. Buy disposable vape packaging online for disposable vape packaging that keeps devices safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for disposable vape devices",
+      "Premium materials that protect devices from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various disposable vape types",
+      "Eco-friendly and recyclable packaging materials",
+      "Compliant with packaging regulations",
+      "Perfect for vape brands, disposable device manufacturers, and retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Rigid / Mailer Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for disposable vapes",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Disposable Vape Packaging for Disposable Device Protection",
+      paragraphs: [
+        "Our disposable vape packaging is designed to protect and showcase disposable vape devices with precision and durability. Built with premium materials and compact sizing, these boxes keep disposable devices safe from damage while creating an attractive presentation. Perfect for vape brands, disposable device manufacturers, and retailers, they combine functionality with modern design.",
+        "At BoxyPack, we craft custom printed disposable vape packaging that match your brand's personality and device needs. Whether you need boxes for single devices or multi-pack sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, device information, and branding for a professional finish that customers appreciate.",
+        "As a disposable vape packaging supplier, we deliver superior quality, compact design, and custom branding at competitive pricing that fits vape businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Disposable Vape Packaging",
+      [
+        {
+          question: "What is disposable vape packaging used for?",
+          answer:
+            "It's used for packaging disposable vape devices with compact box designs, perfect for vape retail and disposable device brands.",
+        },
+        {
+          question: "Can I customize disposable vape packaging with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for disposable vape packaging wholesale.",
+        },
+        {
+          question: "What sizes are available for disposable vape packaging?",
+          answer:
+            "We provide disposable vape packaging in various compact sizes to accommodate different disposable device types and quantities.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our disposable vape packaging wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes compliant with regulations?",
+          answer:
+            "Yes, we ensure our disposable vape packaging meets packaging regulations and requirements for vape products.",
+        },
+      ],
+      {
+        heading: "Questions about Disposable Vape Packaging",
+        eyebrow: "Disposable Vape Packaging FAQs",
+      }
+    ),
+    cta: {
+      title: "Compact Packaging for Disposable Devices",
+      description:
+        "Partner with BoxyPack to create disposable vape packaging that protects your devices and showcases your brand. Our packaging experts ensure every box maintains quality and presents your disposable vapes with style.",
+    },
+  },
+
+  // Subcategory: E-liquid Bottle Boxes
+  "e-liquid-bottle-boxes": {
+    name: "E-liquid Bottle Boxes",
+    description:
+      "Protective, compact, and perfectly sized. Buy e-liquid bottle boxes online for e-liquid bottle packaging that keeps bottles safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for e-liquid bottles",
+      "Premium materials that protect bottles from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various bottle sizes",
+      "Eco-friendly and recyclable packaging materials",
+      "Compliant with packaging regulations",
+      "Perfect for e-liquid brands, vape retailers, and e-juice manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Rigid",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for e-liquid bottles",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "E-liquid Bottle Boxes for E-liquid Bottle Packaging",
+      paragraphs: [
+        "Our e-liquid bottle boxes are designed to protect and showcase e-liquid bottles with precision and durability. Built with premium materials and proper sizing, these boxes keep bottles safe from damage while creating an attractive presentation. Perfect for e-liquid brands, vape retailers, and e-juice manufacturers, they combine functionality with trendy design.",
+        "At BoxyPack, we craft custom printed e-liquid bottle boxes that match your brand's personality and bottle needs. Whether you need boxes for small dropper bottles or larger bottles, we tailor each box to ensure proper protection and attractive presentation. Add your logo, e-liquid information, and branding for a professional finish that customers appreciate.",
+        "As an e-liquid bottle boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits e-liquid businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "E-liquid Bottle Boxes",
+      [
+        {
+          question: "What are e-liquid bottle boxes used for?",
+          answer:
+            "They're used for packaging e-liquid bottles with box designs that accommodate various bottle sizes, perfect for e-liquid retail and vape brands.",
+        },
+        {
+          question: "Can I customize e-liquid bottle boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for e-liquid bottle boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for e-liquid bottle boxes?",
+          answer:
+            "We provide e-liquid bottle boxes in various sizes to accommodate different bottle sizes, from small dropper bottles to larger bottles.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our e-liquid bottle boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes compliant with regulations?",
+          answer:
+            "Yes, we ensure our e-liquid bottle boxes meet packaging regulations and requirements for e-liquid products.",
+        },
+      ],
+      {
+        heading: "Questions about E-liquid Bottle Boxes",
+        eyebrow: "E-liquid Bottle Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Perfect Fit for Perfect Flavors",
+      description:
+        "Partner with BoxyPack to create e-liquid bottle boxes that protect your bottles and showcase your brand. Our packaging experts ensure every box maintains the perfect fit and presents your e-liquids with style.",
+    },
+  },
+
+  // Subcategory: E-liquid Display Boxes
+  "e-liquid-display-boxes": {
+    name: "E-liquid Display Boxes",
+    description:
+      "Eye-catching, functional, and perfectly designed. Buy e-liquid display boxes online for e-liquid display packaging that showcases collections and attracts customers.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Display design perfect for retail presentation",
+      "Premium materials that protect e-liquid collections",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various collection sizes",
+      "Eco-friendly and recyclable packaging materials",
+      "Window options for product visibility",
+      "Perfect for e-liquid brands, vape retailers, and e-juice collections",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Display Style / Window Options / Tuck-End",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for e-liquid collections",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "E-liquid Display Boxes for Retail Presentation",
+      paragraphs: [
+        "Our e-liquid display boxes are designed to showcase e-liquid collections and attract customers in retail environments. Built with premium materials and display-focused design, these boxes keep e-liquid products organized while creating an eye-catching presentation. Perfect for e-liquid brands, vape retailers, and e-juice collections, they combine functionality with attractive display design.",
+        "At BoxyPack, we craft custom printed e-liquid display boxes that match your brand's personality and collection needs. Whether you need boxes for single collections or multi-bottle displays, we tailor each box to ensure proper organization and attractive presentation. Add your logo, collection information, and branding for a professional finish that customers notice.",
+        "As an e-liquid display boxes supplier, we deliver superior quality, display-focused design, and custom branding at competitive pricing that fits e-liquid businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "E-liquid Display Boxes",
+      [
+        {
+          question: "What are e-liquid display boxes used for?",
+          answer:
+            "They're used for displaying e-liquid collections in retail environments with eye-catching box designs that showcase products.",
+        },
+        {
+          question: "Can I customize e-liquid display boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for e-liquid display boxes wholesale.",
+        },
+        {
+          question: "Do you offer window options for product visibility?",
+          answer:
+            "Yes, we provide window options in our e-liquid display boxes to showcase products while maintaining protection.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our e-liquid display boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly e-liquid display boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about E-liquid Display Boxes",
+        eyebrow: "E-liquid Display Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Eye-Catching Displays, Strong Sales",
+      description:
+        "Partner with BoxyPack to create e-liquid display boxes that showcase your collections and attract customers. Our packaging experts ensure every box maintains display quality and presents your e-liquids with style.",
+    },
+  },
+
+  // Subcategory: E-liquid Gift Boxes
+  "e-liquid-gift-boxes": {
+    name: "E-liquid Gift Boxes",
+    description:
+      "Elegant, luxurious, and perfect for gifting. Buy e-liquid gift boxes online for e-liquid gift packaging that creates memorable unboxing experiences.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Premium rigid construction for luxury presentation",
+      "Custom printing and embossing for brand elegance",
+      "Magnetic closures and lift-off lids for premium feel",
+      "Multiple sizes for various e-liquid gift sets",
+      "Eco-friendly and recyclable material options",
+      "Compliant with packaging regulations",
+      "Perfect for e-liquid gift sets, holidays, and special occasions",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid greyboard with wrapped papers or premium coated stocks",
+        },
+        {
+          label: "Structure",
+          value: "Lift-off lid, magnetic closure, or drawer/sleeve style",
+        },
+        {
+          label: "Thickness",
+          value: "2.0–3.0 mm rigid board with custom insert options",
+        },
+        {
+          label: "Finish",
+          value: "Soft-touch lamination, velvet wrap, foil, emboss/deboss",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "E-liquid Gift Boxes for Luxury E-liquid Packaging",
+      paragraphs: [
+        "Our e-liquid gift boxes are crafted to combine elegance and protection for luxury e-liquid gift experiences. Designed with premium materials and sophisticated finishes, these boxes enhance the perceived value of your e-liquid gifts while ensuring safe storage and transit. Every detail from closure to finish adds a touch of luxury that customers notice instantly.",
+        "At BoxyPack, we create custom e-liquid gift boxes that express your brand's personality and sophistication. Whether you need velvet-coated boxes, rigid magnetic closure cases, or minimal elegant designs, we customize each to suit your brand's vision and gift requirements.",
+        "As a luxury e-liquid gift boxes supplier, we offer fine finishes, durable materials, and premium presentation at competitive pricing that meets retail and wholesale needs with equal perfection.",
+      ],
+    },
+    faq: buildFaq(
+      "E-liquid Gift Boxes",
+      [
+        {
+          question: "What are e-liquid gift boxes used for?",
+          answer:
+            "They're used for packaging e-liquid gift sets, holiday collections, and special occasion e-liquid gifts with premium presentation.",
+        },
+        {
+          question: "Can I add custom branding to e-liquid gift boxes?",
+          answer:
+            "Yes, BoxyPack offers printing, embossing, foil stamping, and custom finishes for luxury e-liquid gift boxes.",
+        },
+        {
+          question: "Are your gift boxes suitable for various e-liquid products?",
+          answer:
+            "Absolutely, our custom e-liquid gift boxes are perfect for various e-liquid product types and gift set configurations.",
+        },
+        {
+          question: "Do you offer magnetic closure options?",
+          answer:
+            "Yes, we provide magnetic closures, lift-off lids, and drawer-style boxes for premium presentation.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we produce eco-friendly e-liquid gift boxes using recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about E-liquid Gift Boxes",
+        eyebrow: "E-liquid Gift Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Gift Beautifully, Package Perfectly",
+      description:
+        "Partner with BoxyPack to design e-liquid gift boxes that elevate your brand and create memorable gifting experiences. Our design team creates elegant, durable, and sophisticated packaging tailored to your luxury e-liquid brand needs.",
+    },
+  },
+
+  // Subcategory: Custom Pencil Boxes
+  "custom-pencil-boxes": {
+    name: "Custom Pencil Boxes",
+    description:
+      "Organized, protective, and perfectly designed. Buy custom pencil boxes online for pencil packaging that keeps pencils safe and beautifully organized.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for pencils and writing supplies",
+      "Premium materials that protect pencils from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various pencil quantities",
+      "Eco-friendly and recyclable packaging materials",
+      "Organized compartments for different supplies",
+      "Perfect for stationery brands, retailers, and pencil manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Rigid",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for pencils",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Pencil Boxes for Pencil Packaging",
+      paragraphs: [
+        "Our custom pencil boxes are designed to protect and organize pencils and writing supplies with precision and durability. Built with premium materials and proper sizing, these boxes keep pencils safe from damage while creating an attractive presentation. Perfect for stationery brands, retailers, and pencil manufacturers, they combine functionality with creative design.",
+        "At BoxyPack, we craft custom printed pencil boxes that match your brand's personality and pencil needs. Whether you need boxes for single pencils or multi-pack sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, pencil information, and branding for a professional finish that customers appreciate.",
+        "As a custom pencil boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits stationery businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Pencil Boxes",
+      [
+        {
+          question: "What are custom pencil boxes used for?",
+          answer:
+            "They're used for packaging pencils and writing supplies with box designs that accommodate various pencil types and quantities, perfect for stationery retail and pencil brands.",
+        },
+        {
+          question: "Can I customize pencil boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for custom pencil boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for pencil boxes?",
+          answer:
+            "We provide custom pencil boxes in various sizes to accommodate different pencil quantities, from single pencils to multi-pack sets.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our custom pencil boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Can I add compartments to pencil boxes?",
+          answer:
+            "Yes, we can design custom pencil boxes with organized compartments for different supplies and items.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Pencil Boxes",
+        eyebrow: "Custom Pencil Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Organized Packaging for Writing Supplies",
+      description:
+        "Partner with BoxyPack to create custom pencil boxes that protect your pencils and showcase your brand. Our packaging experts ensure every box maintains quality and presents your pencils with style.",
+    },
+  },
+
+  // Subcategory: Cardboard Pen Boxes
+  "cardboard-pen-boxes": {
+    name: "Cardboard Pen Boxes",
+    description:
+      "Durable, eco-friendly, and perfectly designed. Buy cardboard pen boxes online for pen packaging that keeps pens safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for pens and writing instruments",
+      "Eco-friendly cardboard materials that protect pens",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various pen types",
+      "Recyclable and sustainable packaging materials",
+      "Window options for product visibility",
+      "Perfect for stationery brands, retailers, and pen manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for pens",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Cardboard Pen Boxes for Pen Packaging",
+      paragraphs: [
+        "Our cardboard pen boxes are designed to protect and showcase pens and writing instruments with eco-friendly materials and durable construction. Built with premium cardboard and proper sizing, these boxes keep pens safe from damage while creating an attractive presentation. Perfect for stationery brands, retailers, and pen manufacturers, they combine functionality with sustainable design.",
+        "At BoxyPack, we craft custom printed cardboard pen boxes that match your brand's personality and pen needs. Whether you need boxes for single pens or multi-pack sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, pen information, and branding for a professional finish that customers appreciate.",
+        "As a cardboard pen boxes supplier, we deliver superior quality, eco-friendly materials, and custom branding at competitive pricing that fits stationery businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Cardboard Pen Boxes",
+      [
+        {
+          question: "What are cardboard pen boxes used for?",
+          answer:
+            "They're used for packaging pens and writing instruments with eco-friendly cardboard box designs, perfect for stationery retail and pen brands.",
+        },
+        {
+          question: "Are cardboard pen boxes eco-friendly?",
+          answer:
+            "Yes, our cardboard pen boxes are made from recyclable and sustainable materials, making them an eco-friendly packaging choice.",
+        },
+        {
+          question: "Can I customize cardboard pen boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for cardboard pen boxes wholesale.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our cardboard pen boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "What sizes are available for pen boxes?",
+          answer:
+            "We provide cardboard pen boxes in various sizes to accommodate different pen types and quantities.",
+        },
+      ],
+      {
+        heading: "Questions about Cardboard Pen Boxes",
+        eyebrow: "Cardboard Pen Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Eco-Friendly Packaging for Pens",
+      description:
+        "Partner with BoxyPack to create cardboard pen boxes that protect your pens and showcase your brand with sustainable materials. Our packaging experts ensure every box maintains quality and presents your pens with style.",
+    },
+  },
+
+  // Subcategory: Cardboard Pencil Boxes
+  "cardboard-pencil-boxes": {
+    name: "Cardboard Pencil Boxes",
+    description:
+      "Sustainable, protective, and perfectly designed. Buy cardboard pencil boxes online for pencil packaging that keeps pencils safe and beautifully organized.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for pencils and writing supplies",
+      "Eco-friendly cardboard materials that protect pencils",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various pencil quantities",
+      "Recyclable and sustainable packaging materials",
+      "Organized compartments for different supplies",
+      "Perfect for stationery brands, retailers, and pencil manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Compartment Options",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for pencils",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Cardboard Pencil Boxes for Pencil Packaging",
+      paragraphs: [
+        "Our cardboard pencil boxes are designed to protect and organize pencils and writing supplies with eco-friendly materials and durable construction. Built with premium cardboard and proper sizing, these boxes keep pencils safe from damage while creating an attractive presentation. Perfect for stationery brands, retailers, and pencil manufacturers, they combine functionality with sustainable design.",
+        "At BoxyPack, we craft custom printed cardboard pencil boxes that match your brand's personality and pencil needs. Whether you need boxes for single pencils or multi-pack sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, pencil information, and branding for a professional finish that customers appreciate.",
+        "As a cardboard pencil boxes supplier, we deliver superior quality, eco-friendly materials, and custom branding at competitive pricing that fits stationery businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Cardboard Pencil Boxes",
+      [
+        {
+          question: "What are cardboard pencil boxes used for?",
+          answer:
+            "They're used for packaging pencils and writing supplies with eco-friendly cardboard box designs, perfect for stationery retail and pencil brands.",
+        },
+        {
+          question: "Are cardboard pencil boxes eco-friendly?",
+          answer:
+            "Yes, our cardboard pencil boxes are made from recyclable and sustainable materials, making them an eco-friendly packaging choice.",
+        },
+        {
+          question: "Can I customize pencil boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for cardboard pencil boxes wholesale.",
+        },
+        {
+          question: "Can I add compartments to pencil boxes?",
+          answer:
+            "Yes, we can design cardboard pencil boxes with organized compartments for different supplies and items.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our cardboard pencil boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Cardboard Pencil Boxes",
+        eyebrow: "Cardboard Pencil Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Sustainable Packaging for Writing Supplies",
+      description:
+        "Partner with BoxyPack to create cardboard pencil boxes that protect your pencils and showcase your brand with sustainable materials. Our packaging experts ensure every box maintains quality and presents your pencils with style.",
+    },
+  },
+
+  // Subcategory: Custom Book Boxes
+  "custom-book-boxes": {
+    name: "Custom Book Boxes",
+    description:
+      "Protective, elegant, and perfectly sized. Buy custom book boxes online for book packaging that keeps books safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for books of various dimensions",
+      "Premium materials that protect books from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various book sizes",
+      "Eco-friendly and recyclable packaging materials",
+      "Window options for book cover visibility",
+      "Perfect for publishers, bookstores, and book retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Rigid / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for books",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Book Boxes for Book Packaging",
+      paragraphs: [
+        "Our custom book boxes are designed to protect and showcase books with precision and durability. Built with premium materials and proper sizing, these boxes keep books safe from damage while creating an attractive presentation. Perfect for publishers, bookstores, and book retailers, they combine functionality with elegant design.",
+        "At BoxyPack, we craft custom printed book boxes that match your brand's personality and book needs. Whether you need boxes for single books or multi-book sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, book information, and branding for a professional finish that customers appreciate.",
+        "As a custom book boxes supplier, we deliver superior quality, perfect sizing, and custom branding at competitive pricing that fits book businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Book Boxes",
+      [
+        {
+          question: "What are custom book boxes used for?",
+          answer:
+            "They're used for packaging books with box designs that accommodate various book sizes and types, perfect for publishers, bookstores, and book retailers.",
+        },
+        {
+          question: "Can I customize book boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for custom book boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for book boxes?",
+          answer:
+            "We provide custom book boxes in various sizes to accommodate different book dimensions, from small paperbacks to large hardcovers.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our custom book boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Can I add window options to book boxes?",
+          answer:
+            "Yes, we can design custom book boxes with window options to showcase book covers while maintaining protection.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Book Boxes",
+        eyebrow: "Custom Book Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Protective Packaging for Books",
+      description:
+        "Partner with BoxyPack to create custom book boxes that protect your books and showcase your brand. Our packaging experts ensure every box maintains quality and presents your books with style.",
+    },
+  },
+
+  // Subcategory: Custom Presentation Folders
+  "custom-presentation-folders": {
+    name: "Custom Presentation Folders",
+    description:
+      "Professional, organized, and perfectly designed. Buy custom presentation folders online for document packaging that keeps papers organized and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfect for documents and presentation materials",
+      "Premium materials that protect papers from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various document sizes",
+      "Eco-friendly and recyclable packaging materials",
+      "Pocket and fastener options for organization",
+      "Perfect for businesses, offices, and document management",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Folder Style / Pocket Options / Fastener Options",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W)",
+          value: "Custom sizes for documents",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Presentation Folders for Document Packaging",
+      paragraphs: [
+        "Our custom presentation folders are designed to organize and protect documents and presentation materials with professional design and durable construction. Built with premium materials and proper sizing, these folders keep papers organized while creating an attractive presentation. Perfect for businesses, offices, and document management, they combine functionality with professional design.",
+        "At BoxyPack, we craft custom printed presentation folders that match your brand's personality and document needs. Whether you need folders for single documents or multi-page presentations, we tailor each folder to ensure proper organization and attractive presentation. Add your logo, company information, and branding for a professional finish that clients appreciate.",
+        "As a custom presentation folders supplier, we deliver superior quality, professional design, and custom branding at competitive pricing that fits businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Presentation Folders",
+      [
+        {
+          question: "What are custom presentation folders used for?",
+          answer:
+            "They're used for organizing and packaging documents, presentations, and business materials with professional folder designs, perfect for businesses and offices.",
+        },
+        {
+          question: "Can I customize presentation folders with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for custom presentation folders wholesale.",
+        },
+        {
+          question: "Do you offer pocket and fastener options?",
+          answer:
+            "Yes, we can design custom presentation folders with pockets, fasteners, and other organizational features.",
+        },
+        {
+          question: "What sizes are available for presentation folders?",
+          answer:
+            "We provide custom presentation folders in various sizes to accommodate different document sizes and types.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our custom presentation folders wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Presentation Folders",
+        eyebrow: "Custom Presentation Folder FAQs",
+      }
+    ),
+    cta: {
+      title: "Professional Organization for Documents",
+      description:
+        "Partner with BoxyPack to create custom presentation folders that organize your documents and showcase your brand. Our packaging experts ensure every folder maintains quality and presents your materials with style.",
+    },
+  },
+
+  // Subcategory: Pen Gift Boxes
+  "pen-gift-boxes": {
+    name: "Pen Gift Boxes",
+    description:
+      "Elegant, luxurious, and perfect for gifting. Buy pen gift boxes online for pen gift packaging that creates memorable unboxing experiences.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Premium rigid construction for luxury presentation",
+      "Custom printing and embossing for brand elegance",
+      "Magnetic closures and lift-off lids for premium feel",
+      "Multiple sizes for various pen gift sets",
+      "Eco-friendly and recyclable material options",
+      "Perfect for pen gift sets, holidays, and special occasions",
+      "Perfect for stationery brands, retailers, and gift manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid greyboard with wrapped papers or premium coated stocks",
+        },
+        {
+          label: "Structure",
+          value: "Lift-off lid, magnetic closure, or drawer/sleeve style",
+        },
+        {
+          label: "Thickness",
+          value: "2.0–3.0 mm rigid board with custom insert options",
+        },
+        {
+          label: "Finish",
+          value: "Soft-touch lamination, velvet wrap, foil, emboss/deboss",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Pen Gift Boxes for Luxury Pen Packaging",
+      paragraphs: [
+        "Our pen gift boxes are crafted to combine elegance and protection for luxury pen gift experiences. Designed with premium materials and sophisticated finishes, these boxes enhance the perceived value of your pen gifts while ensuring safe storage and transit. Every detail from closure to finish adds a touch of luxury that customers notice instantly.",
+        "At BoxyPack, we create custom pen gift boxes that express your brand's personality and sophistication. Whether you need velvet-coated boxes, rigid magnetic closure cases, or minimal elegant designs, we customize each to suit your brand's vision and gift requirements.",
+        "As a luxury pen gift boxes supplier, we offer fine finishes, durable materials, and premium presentation at competitive pricing that meets retail and wholesale needs with equal perfection.",
+      ],
+    },
+    faq: buildFaq(
+      "Pen Gift Boxes",
+      [
+        {
+          question: "What are pen gift boxes used for?",
+          answer:
+            "They're used for packaging pen gift sets, holiday collections, and special occasion pen gifts with premium presentation.",
+        },
+        {
+          question: "Can I add custom branding to pen gift boxes?",
+          answer:
+            "Yes, BoxyPack offers printing, embossing, foil stamping, and custom finishes for luxury pen gift boxes.",
+        },
+        {
+          question: "Are your gift boxes suitable for various pen types?",
+          answer:
+            "Absolutely, our custom pen gift boxes are perfect for various pen types and gift set configurations.",
+        },
+        {
+          question: "Do you offer magnetic closure options?",
+          answer:
+            "Yes, we provide magnetic closures, lift-off lids, and drawer-style boxes for premium presentation.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we produce eco-friendly pen gift boxes using recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Pen Gift Boxes",
+        eyebrow: "Pen Gift Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Gift Beautifully, Package Perfectly",
+      description:
+        "Partner with BoxyPack to design pen gift boxes that elevate your brand and create memorable gifting experiences. Our design team creates elegant, durable, and sophisticated packaging tailored to your luxury pen brand needs.",
+    },
+  },
+
+  // Subcategory: Custom Pen Boxes
+  "custom-pen-boxes": {
+    name: "Custom Pen Boxes",
+    description:
+      "Personalized, durable, and perfectly designed. Buy custom pen boxes online for branded pen packaging that protects pens and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Fully customizable design for your brand",
+      "Durable construction for pen protection",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various pen types",
+      "Eco-friendly and recyclable packaging materials",
+      "Window options for product visibility",
+      "Perfect for stationery brands, retailers, and pen manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Rigid / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated / Custom Colors",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for pens",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Pen Boxes for Branded Pen Packaging",
+      paragraphs: [
+        "Our custom pen boxes are fully customizable to match your brand's identity and pen product needs. Built with durable materials and secure closures, these boxes protect pens while creating a professional presentation. Perfect for stationery brands, retailers, and pen manufacturers, they combine functionality with attractive branding.",
+        "At BoxyPack, we craft custom printed pen boxes that match your brand's personality and product requirements. Whether you need boxes for single pens or multi-pack sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, product information, colors, and branding for a professional finish that customers remember.",
+        "As a custom pen boxes wholesale supplier, we deliver superior quality, durable design, and full customization at competitive pricing that fits stationery businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Pen Boxes",
+      [
+        {
+          question: "What are custom pen boxes used for?",
+          answer:
+            "They're used for packaging pens with fully customized branding, perfect for stationery retail and pen brands.",
+        },
+        {
+          question: "Can I fully customize pen boxes with my brand?",
+          answer:
+            "Yes, BoxyPack offers full customization including colors, designs, logos, and branding for custom pen boxes wholesale.",
+        },
+        {
+          question: "Do you offer window options?",
+          answer:
+            "Yes, we can design custom pen boxes with window options to showcase pens while maintaining protection.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our custom pen boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly custom pen boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Pen Boxes",
+        eyebrow: "Custom Pen Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Fully Custom, Fully Protected",
+      description:
+        "Partner with BoxyPack to create custom pen boxes that protect your pens and showcase your brand with complete customization. Our packaging experts ensure every box maintains quality and presents your pens with style.",
+    },
+  },
+
+  // Subcategory: Christmas Boxes with Lids
+  "christmas-boxes-with-lids": {
+    name: "Christmas Boxes with Lids",
+    description:
+      "Festive, secure, and perfectly designed. Buy Christmas boxes with lids online for holiday gift packaging that keeps gifts safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Secure lid closure for gift protection",
+      "Festive holiday designs and seasonal themes",
+      "Custom printing for logos and holiday branding",
+      "Multiple sizes for various gift types",
+      "Eco-friendly and recyclable packaging materials",
+      "Premium materials that protect gifts from damage",
+      "Perfect for holiday retailers, gift shops, and festive brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Lift-Off Lid / Magnetic Closure / Hinged Lid",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for gifts",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Christmas Boxes with Lids for Holiday Gift Packaging",
+      paragraphs: [
+        "Our Christmas boxes with lids are designed to protect and showcase holiday gifts with secure closures and festive presentation. Built with premium materials and proper sizing, these boxes keep gifts safe from damage while creating a joyful appearance. Perfect for holiday retailers, gift shops, and festive brands, they combine functionality with holiday cheer.",
+        "At BoxyPack, we craft custom printed Christmas boxes with lids that match your brand's personality and holiday needs. Whether you need boxes for small gifts or larger presents, we tailor each box to ensure proper protection and attractive presentation. Add your logo, holiday designs, and branding for a festive finish that customers love.",
+        "As a Christmas boxes with lids supplier, we deliver superior quality, secure closures, and festive designs at competitive pricing that fits holiday businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Christmas Boxes with Lids",
+      [
+        {
+          question: "What are Christmas boxes with lids used for?",
+          answer:
+            "They're used for packaging holiday gifts with secure lid closures, perfect for holiday retail and gift brands.",
+        },
+        {
+          question: "Can I customize Christmas boxes with lids with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and holiday branding for Christmas boxes with lids wholesale.",
+        },
+        {
+          question: "What types of lids are available?",
+          answer:
+            "We provide Christmas boxes with lift-off lids, magnetic closures, and hinged lid options for secure gift protection.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our Christmas boxes with lids wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly Christmas boxes with lids made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Christmas Boxes with Lids",
+        eyebrow: "Christmas Boxes with Lids FAQs",
+      }
+    ),
+    cta: {
+      title: "Secure Packaging for Holiday Gifts",
+      description:
+        "Partner with BoxyPack to create Christmas boxes with lids that protect your gifts and showcase your brand with festive style. Our packaging experts ensure every box maintains quality and presents your holiday gifts with joy.",
+    },
+  },
+
+  // Subcategory: Christmas Cupcake Boxes
+  "christmas-cupcake-boxes": {
+    name: "Christmas Cupcake Boxes",
+    description:
+      "Festive, protective, and perfectly sized. Buy Christmas cupcake boxes online for holiday cupcake packaging that keeps treats safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for cupcakes and baked goods",
+      "Festive holiday designs and seasonal themes",
+      "Custom printing for logos and holiday branding",
+      "Multiple sizes for various cupcake sizes",
+      "Eco-friendly and recyclable packaging materials",
+      "Window options for product visibility",
+      "Perfect for bakeries, holiday retailers, and festive brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Food-Grade Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Window Options / Display Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Food-Safe Coating",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for cupcakes",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Christmas Cupcake Boxes for Holiday Treat Packaging",
+      paragraphs: [
+        "Our Christmas cupcake boxes are designed to protect and showcase holiday cupcakes and baked goods with festive presentation. Built with food-safe materials and proper sizing, these boxes keep cupcakes fresh while creating a joyful appearance. Perfect for bakeries, holiday retailers, and festive brands, they combine functionality with holiday cheer.",
+        "At BoxyPack, we craft custom printed Christmas cupcake boxes that match your brand's personality and holiday needs. Whether you need boxes for single cupcakes or multi-pack sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, holiday designs, and branding for a festive finish that customers love.",
+        "As a Christmas cupcake boxes supplier, we deliver superior quality, food-safe materials, and festive designs at competitive pricing that fits holiday businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Christmas Cupcake Boxes",
+      [
+        {
+          question: "What are Christmas cupcake boxes used for?",
+          answer:
+            "They're used for packaging holiday cupcakes and baked goods with festive box designs, perfect for bakeries and holiday retail.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our Christmas cupcake boxes are made from food-safe materials suitable for direct food contact.",
+        },
+        {
+          question: "Can I customize cupcake boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and holiday branding for Christmas cupcake boxes wholesale.",
+        },
+        {
+          question: "Do you offer window options?",
+          answer:
+            "Yes, we can design Christmas cupcake boxes with window options to showcase cupcakes while maintaining protection.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our Christmas cupcake boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Christmas Cupcake Boxes",
+        eyebrow: "Christmas Cupcake Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Festive Packaging for Holiday Treats",
+      description:
+        "Partner with BoxyPack to create Christmas cupcake boxes that protect your treats and showcase your brand with festive style. Our packaging experts ensure every box maintains quality and presents your holiday cupcakes with joy.",
+    },
+  },
+
+  // Subcategory: Christmas Candy Boxes
+  "christmas-candy-boxes": {
+    name: "Christmas Candy Boxes",
+    description:
+      "Sweet, festive, and perfectly designed. Buy Christmas candy boxes online for holiday candy packaging that keeps treats safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for candies and sweets",
+      "Festive holiday designs and seasonal themes",
+      "Custom printing for logos and holiday branding",
+      "Multiple sizes for various candy quantities",
+      "Eco-friendly and recyclable packaging materials",
+      "Window options for product visibility",
+      "Perfect for candy shops, holiday retailers, and festive brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Food-Grade Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Window Options / Display Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Food-Safe Coating",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for candies",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Christmas Candy Boxes for Holiday Treat Packaging",
+      paragraphs: [
+        "Our Christmas candy boxes are designed to protect and showcase holiday candies and sweets with festive presentation. Built with food-safe materials and proper sizing, these boxes keep candies fresh while creating a joyful appearance. Perfect for candy shops, holiday retailers, and festive brands, they combine functionality with holiday cheer.",
+        "At BoxyPack, we craft custom printed Christmas candy boxes that match your brand's personality and holiday needs. Whether you need boxes for single candies or multi-pack sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, holiday designs, and branding for a festive finish that customers love.",
+        "As a Christmas candy boxes supplier, we deliver superior quality, food-safe materials, and festive designs at competitive pricing that fits holiday businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Christmas Candy Boxes",
+      [
+        {
+          question: "What are Christmas candy boxes used for?",
+          answer:
+            "They're used for packaging holiday candies and sweets with festive box designs, perfect for candy shops and holiday retail.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our Christmas candy boxes are made from food-safe materials suitable for direct food contact.",
+        },
+        {
+          question: "Can I customize candy boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and holiday branding for Christmas candy boxes wholesale.",
+        },
+        {
+          question: "Do you offer window options?",
+          answer:
+            "Yes, we can design Christmas candy boxes with window options to showcase candies while maintaining protection.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our Christmas candy boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Christmas Candy Boxes",
+        eyebrow: "Christmas Candy Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Sweet Packaging for Holiday Treats",
+      description:
+        "Partner with BoxyPack to create Christmas candy boxes that protect your treats and showcase your brand with festive style. Our packaging experts ensure every box maintains quality and presents your holiday candies with joy.",
+    },
+  },
+
+  // Subcategory: Christmas Gift Boxes
+  "christmas-gift-boxes": {
+    name: "Christmas Gift Boxes",
+    description:
+      "Elegant, festive, and perfect for gifting. Buy Christmas gift boxes online for holiday gift packaging that creates memorable unboxing experiences.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Premium rigid construction for luxury presentation",
+      "Festive holiday designs and seasonal themes",
+      "Custom printing and embossing for brand elegance",
+      "Magnetic closures and lift-off lids for premium feel",
+      "Multiple sizes for various gift types",
+      "Eco-friendly and recyclable material options",
+      "Perfect for holiday gift sets, retailers, and festive brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid greyboard with wrapped papers or premium coated stocks",
+        },
+        {
+          label: "Structure",
+          value: "Lift-off lid, magnetic closure, or drawer/sleeve style",
+        },
+        {
+          label: "Thickness",
+          value: "2.0–3.0 mm rigid board with custom insert options",
+        },
+        {
+          label: "Finish",
+          value: "Soft-touch lamination, velvet wrap, foil, emboss/deboss",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Christmas Gift Boxes for Luxury Holiday Packaging",
+      paragraphs: [
+        "Our Christmas gift boxes are crafted to combine elegance and protection for luxury holiday gift experiences. Designed with premium materials and festive finishes, these boxes enhance the perceived value of your Christmas gifts while ensuring safe storage and transit. Every detail from closure to finish adds a touch of luxury and holiday cheer that customers notice instantly.",
+        "At BoxyPack, we create custom Christmas gift boxes that express your brand's personality and sophistication. Whether you need velvet-coated boxes, rigid magnetic closure cases, or minimal elegant designs with holiday themes, we customize each to suit your brand's vision and gift requirements.",
+        "As a luxury Christmas gift boxes supplier, we offer fine finishes, durable materials, and premium festive presentation at competitive pricing that meets retail and wholesale needs with equal perfection.",
+      ],
+    },
+    faq: buildFaq(
+      "Christmas Gift Boxes",
+      [
+        {
+          question: "What are Christmas gift boxes used for?",
+          answer:
+            "They're used for packaging holiday gift sets, Christmas presents, and special occasion gifts with premium festive presentation.",
+        },
+        {
+          question: "Can I add custom branding to Christmas gift boxes?",
+          answer:
+            "Yes, BoxyPack offers printing, embossing, foil stamping, and custom festive finishes for luxury Christmas gift boxes.",
+        },
+        {
+          question: "Are your gift boxes suitable for various gift types?",
+          answer:
+            "Absolutely, our custom Christmas gift boxes are perfect for various gift types and holiday gift set configurations.",
+        },
+        {
+          question: "Do you offer magnetic closure options?",
+          answer:
+            "Yes, we provide magnetic closures, lift-off lids, and drawer-style boxes for premium festive presentation.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we produce eco-friendly Christmas gift boxes using recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Christmas Gift Boxes",
+        eyebrow: "Christmas Gift Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Gift Beautifully, Package Festively",
+      description:
+        "Partner with BoxyPack to design Christmas gift boxes that elevate your brand and create memorable holiday gifting experiences. Our design team creates elegant, durable, and sophisticated festive packaging tailored to your luxury holiday brand needs.",
+    },
+  },
+
+  // Subcategory: Christmas Eve Boxes
+  "christmas-eve-boxes": {
+    name: "Christmas Eve Boxes",
+    description:
+      "Special, festive, and perfectly designed. Buy Christmas Eve boxes online for Christmas Eve gift packaging that creates magical unboxing experiences.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Special Christmas Eve themed designs",
+      "Premium materials that protect gifts from damage",
+      "Custom printing for logos and holiday branding",
+      "Multiple sizes for various gift types",
+      "Eco-friendly and recyclable packaging materials",
+      "Perfect for Christmas Eve traditions and gift giving",
+      "Perfect for holiday retailers, gift shops, and festive brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Lift-Off Lid / Magnetic Closure",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for Christmas Eve gifts",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Christmas Eve Boxes for Special Holiday Packaging",
+      paragraphs: [
+        "Our Christmas Eve boxes are designed to create magical unboxing experiences for Christmas Eve traditions and gift giving. Built with premium materials and festive designs, these boxes keep gifts safe while creating a joyful appearance. Perfect for holiday retailers, gift shops, and festive brands, they combine functionality with special holiday cheer.",
+        "At BoxyPack, we craft custom printed Christmas Eve boxes that match your brand's personality and holiday needs. Whether you need boxes for small gifts or larger presents, we tailor each box to ensure proper protection and attractive presentation. Add your logo, Christmas Eve designs, and branding for a festive finish that customers love.",
+        "As a Christmas Eve boxes supplier, we deliver superior quality, festive designs, and custom branding at competitive pricing that fits holiday businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Christmas Eve Boxes",
+      [
+        {
+          question: "What are Christmas Eve boxes used for?",
+          answer:
+            "They're used for packaging Christmas Eve gifts and traditions with special festive box designs, perfect for holiday retail and gift brands.",
+        },
+        {
+          question: "Can I customize Christmas Eve boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and holiday branding for Christmas Eve boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for Christmas Eve boxes?",
+          answer:
+            "We provide Christmas Eve boxes in various sizes to accommodate different gift types and quantities.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our Christmas Eve boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly Christmas Eve boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Christmas Eve Boxes",
+        eyebrow: "Christmas Eve Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Magical Packaging for Christmas Eve",
+      description:
+        "Partner with BoxyPack to create Christmas Eve boxes that protect your gifts and showcase your brand with festive style. Our packaging experts ensure every box maintains quality and presents your Christmas Eve gifts with joy.",
+    },
+  },
+
+  // Subcategory: Christmas Present Boxes
+  "christmas-present-boxes": {
+    name: "Christmas Present Boxes",
+    description:
+      "Festive, protective, and perfectly designed. Buy Christmas present boxes online for holiday present packaging that keeps gifts safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for Christmas presents",
+      "Festive holiday designs and seasonal themes",
+      "Custom printing for logos and holiday branding",
+      "Multiple sizes for various present types",
+      "Eco-friendly and recyclable packaging materials",
+      "Premium materials that protect gifts from damage",
+      "Perfect for holiday retailers, gift shops, and festive brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Rigid",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for presents",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Christmas Present Boxes for Holiday Gift Packaging",
+      paragraphs: [
+        "Our Christmas present boxes are designed to protect and showcase holiday presents with festive presentation. Built with premium materials and proper sizing, these boxes keep gifts safe from damage while creating a joyful appearance. Perfect for holiday retailers, gift shops, and festive brands, they combine functionality with holiday cheer.",
+        "At BoxyPack, we craft custom printed Christmas present boxes that match your brand's personality and holiday needs. Whether you need boxes for small presents or larger gifts, we tailor each box to ensure proper protection and attractive presentation. Add your logo, holiday designs, and branding for a festive finish that customers love.",
+        "As a Christmas present boxes supplier, we deliver superior quality, durable design, and festive branding at competitive pricing that fits holiday businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Christmas Present Boxes",
+      [
+        {
+          question: "What are Christmas present boxes used for?",
+          answer:
+            "They're used for packaging holiday presents and gifts with festive box designs, perfect for holiday retail and gift brands.",
+        },
+        {
+          question: "Can I customize Christmas present boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and holiday branding for Christmas present boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for present boxes?",
+          answer:
+            "We provide Christmas present boxes in various sizes to accommodate different present types and quantities.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our Christmas present boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly Christmas present boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Christmas Present Boxes",
+        eyebrow: "Christmas Present Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Festive Packaging for Holiday Presents",
+      description:
+        "Partner with BoxyPack to create Christmas present boxes that protect your gifts and showcase your brand with festive style. Our packaging experts ensure every box maintains quality and presents your holiday presents with joy.",
+    },
+  },
+
+  // Subcategory: Christmas Cookie Boxes
+  "christmas-cookie-boxes": {
+    name: "Christmas Cookie Boxes",
+    description:
+      "Festive, protective, and perfectly sized. Buy Christmas cookie boxes online for holiday cookie packaging that keeps treats safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for cookies and baked goods",
+      "Festive holiday designs and seasonal themes",
+      "Custom printing for logos and holiday branding",
+      "Multiple sizes for various cookie quantities",
+      "Eco-friendly and recyclable packaging materials",
+      "Food-safe materials for direct food contact",
+      "Perfect for bakeries, holiday retailers, and festive brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Food-Grade Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Window Options / Display Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Food-Safe Coating",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for cookies",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Christmas Cookie Boxes for Holiday Treat Packaging",
+      paragraphs: [
+        "Our Christmas cookie boxes are designed to protect and showcase holiday cookies and baked goods with festive presentation. Built with food-safe materials and proper sizing, these boxes keep cookies fresh while creating a joyful appearance. Perfect for bakeries, holiday retailers, and festive brands, they combine functionality with holiday cheer.",
+        "At BoxyPack, we craft custom printed Christmas cookie boxes that match your brand's personality and holiday needs. Whether you need boxes for single cookies or multi-pack sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, holiday designs, and branding for a festive finish that customers love.",
+        "As a Christmas cookie boxes supplier, we deliver superior quality, food-safe materials, and festive designs at competitive pricing that fits holiday businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Christmas Cookie Boxes",
+      [
+        {
+          question: "What are Christmas cookie boxes used for?",
+          answer:
+            "They're used for packaging holiday cookies and baked goods with festive box designs, perfect for bakeries and holiday retail.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our Christmas cookie boxes are made from food-safe materials suitable for direct food contact.",
+        },
+        {
+          question: "Can I customize cookie boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and holiday branding for Christmas cookie boxes wholesale.",
+        },
+        {
+          question: "Do you offer window options?",
+          answer:
+            "Yes, we can design Christmas cookie boxes with window options to showcase cookies while maintaining protection.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our Christmas cookie boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Christmas Cookie Boxes",
+        eyebrow: "Christmas Cookie Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Festive Packaging for Holiday Cookies",
+      description:
+        "Partner with BoxyPack to create Christmas cookie boxes that protect your treats and showcase your brand with festive style. Our packaging experts ensure every box maintains quality and presents your holiday cookies with joy.",
+    },
+  },
+
+  // Subcategory: Christmas Treat Boxes
+  "christmas-treat-boxes": {
+    name: "Christmas Treat Boxes",
+    description:
+      "Sweet, festive, and perfectly designed. Buy Christmas treat boxes online for holiday treat packaging that keeps sweets safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for holiday treats and sweets",
+      "Festive holiday designs and seasonal themes",
+      "Custom printing for logos and holiday branding",
+      "Multiple sizes for various treat quantities",
+      "Eco-friendly and recyclable packaging materials",
+      "Food-safe materials for direct food contact",
+      "Perfect for candy shops, holiday retailers, and festive brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Food-Grade Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Window Options / Display Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Food-Safe Coating",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for treats",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Christmas Treat Boxes for Holiday Sweet Packaging",
+      paragraphs: [
+        "Our Christmas treat boxes are designed to protect and showcase holiday treats and sweets with festive presentation. Built with food-safe materials and proper sizing, these boxes keep treats fresh while creating a joyful appearance. Perfect for candy shops, holiday retailers, and festive brands, they combine functionality with holiday cheer.",
+        "At BoxyPack, we craft custom printed Christmas treat boxes that match your brand's personality and holiday needs. Whether you need boxes for single treats or multi-pack sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, holiday designs, and branding for a festive finish that customers love.",
+        "As a Christmas treat boxes supplier, we deliver superior quality, food-safe materials, and festive designs at competitive pricing that fits holiday businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Christmas Treat Boxes",
+      [
+        {
+          question: "What are Christmas treat boxes used for?",
+          answer:
+            "They're used for packaging holiday treats and sweets with festive box designs, perfect for candy shops and holiday retail.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our Christmas treat boxes are made from food-safe materials suitable for direct food contact.",
+        },
+        {
+          question: "Can I customize treat boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and holiday branding for Christmas treat boxes wholesale.",
+        },
+        {
+          question: "Do you offer window options?",
+          answer:
+            "Yes, we can design Christmas treat boxes with window options to showcase treats while maintaining protection.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our Christmas treat boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Christmas Treat Boxes",
+        eyebrow: "Christmas Treat Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Sweet Packaging for Holiday Treats",
+      description:
+        "Partner with BoxyPack to create Christmas treat boxes that protect your sweets and showcase your brand with festive style. Our packaging experts ensure every box maintains quality and presents your holiday treats with joy.",
+    },
+  },
+
+  // Subcategory: Christmas Paper Bags
+  "christmas-paper-bags": {
+    name: "Christmas Paper Bags",
+    description:
+      "Festive, convenient, and perfectly designed. Buy Christmas paper bags online for holiday shopping and gift packaging that spreads cheer.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Festive holiday designs and seasonal themes",
+      "Custom printing for logos and holiday branding",
+      "Multiple sizes for various shopping needs",
+      "Eco-friendly and recyclable paper materials",
+      "Durable handles for easy carrying",
+      "Perfect for retail stores, gift shops, and festive brands",
+      "Perfect for holiday shopping and gift giving",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Kraft Paper / Recycled Paper",
+        },
+        {
+          label: "Structure",
+          value: "Paper Bag Style / Handle Options",
+        },
+        {
+          label: "Thickness",
+          value: "Standard / Heavy-Duty",
+        },
+        {
+          label: "Finish",
+          value: "Matte / Gloss / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Outside / Both Sides",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for shopping bags",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Christmas Paper Bags for Holiday Shopping",
+      paragraphs: [
+        "Our Christmas paper bags are designed for holiday shopping and gift giving with festive presentation. Built with eco-friendly paper materials and durable handles, these bags provide convenient carrying while creating a joyful appearance. Perfect for retail stores, gift shops, and festive brands, they combine functionality with holiday cheer.",
+        "At BoxyPack, we craft custom printed Christmas paper bags that match your brand's personality and holiday needs. Whether you need bags for small purchases or larger gifts, we tailor each bag to ensure proper carrying capacity and attractive presentation. Add your logo, holiday designs, and branding for a festive finish that customers love.",
+        "As a Christmas paper bags supplier, we deliver superior quality, eco-friendly materials, and festive designs at competitive pricing that fits holiday businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Christmas Paper Bags",
+      [
+        {
+          question: "What are Christmas paper bags used for?",
+          answer:
+            "They're used for holiday shopping and gift packaging with festive bag designs, perfect for retail stores and gift shops.",
+        },
+        {
+          question: "Are these bags eco-friendly?",
+          answer:
+            "Yes, our Christmas paper bags are made from recyclable and sustainable paper materials.",
+        },
+        {
+          question: "Can I customize paper bags with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and holiday branding for Christmas paper bags wholesale.",
+        },
+        {
+          question: "Do you offer handle options?",
+          answer:
+            "Yes, we provide various handle options including twisted handles and die-cut handles for easy carrying.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our Christmas paper bags wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Christmas Paper Bags",
+        eyebrow: "Christmas Paper Bag FAQs",
+      }
+    ),
+    cta: {
+      title: "Festive Bags for Holiday Shopping",
+      description:
+        "Partner with BoxyPack to create Christmas paper bags that provide convenient carrying and showcase your brand with festive style. Our packaging experts ensure every bag maintains quality and presents your holiday shopping experience with joy.",
+    },
+  },
+
+  // Subcategory: Christmas Gift Bags
+  "christmas-gift-bags": {
+    name: "Christmas Gift Bags",
+    description:
+      "Elegant, festive, and perfect for gifting. Buy Christmas gift bags online for holiday gift packaging that creates convenient and beautiful presentation.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Festive holiday designs and seasonal themes",
+      "Premium materials for luxury presentation",
+      "Custom printing for logos and holiday branding",
+      "Multiple sizes for various gift types",
+      "Eco-friendly and recyclable materials",
+      "Durable handles for easy carrying",
+      "Perfect for holiday retailers, gift shops, and festive brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Kraft Paper / Premium Paper / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Gift Bag Style / Handle Options",
+        },
+        {
+          label: "Thickness",
+          value: "Standard / Heavy-Duty / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Matte / Gloss / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Outside / Both Sides",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for gift bags",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Christmas Gift Bags for Holiday Gift Packaging",
+      paragraphs: [
+        "Our Christmas gift bags are designed for convenient and beautiful holiday gift presentation. Built with premium materials and durable handles, these bags provide easy carrying while creating a joyful appearance. Perfect for holiday retailers, gift shops, and festive brands, they combine functionality with holiday cheer.",
+        "At BoxyPack, we craft custom printed Christmas gift bags that match your brand's personality and holiday needs. Whether you need bags for small gifts or larger presents, we tailor each bag to ensure proper carrying capacity and attractive presentation. Add your logo, holiday designs, and branding for a festive finish that customers love.",
+        "As a Christmas gift bags supplier, we deliver superior quality, premium materials, and festive designs at competitive pricing that fits holiday businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Christmas Gift Bags",
+      [
+        {
+          question: "What are Christmas gift bags used for?",
+          answer:
+            "They're used for holiday gift packaging with convenient bag designs, perfect for holiday retail and gift brands.",
+        },
+        {
+          question: "Are these bags eco-friendly?",
+          answer:
+            "Yes, our Christmas gift bags are made from recyclable and sustainable materials.",
+        },
+        {
+          question: "Can I customize gift bags with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and holiday branding for Christmas gift bags wholesale.",
+        },
+        {
+          question: "Do you offer handle options?",
+          answer:
+            "Yes, we provide various handle options including twisted handles and die-cut handles for easy carrying.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our Christmas gift bags wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Christmas Gift Bags",
+        eyebrow: "Christmas Gift Bag FAQs",
+      }
+    ),
+    cta: {
+      title: "Convenient Packaging for Holiday Gifts",
+      description:
+        "Partner with BoxyPack to create Christmas gift bags that provide convenient carrying and showcase your brand with festive style. Our packaging experts ensure every bag maintains quality and presents your holiday gifts with joy.",
+    },
+  },
+
+  // Subcategory: Christmas Favor Boxes
+  "christmas-favor-boxes": {
+    name: "Christmas Favor Boxes",
+    description:
+      "Festive, compact, and perfectly sized. Buy Christmas favor boxes online for holiday party favor packaging that keeps treats safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for party favors and small gifts",
+      "Festive holiday designs and seasonal themes",
+      "Custom printing for logos and holiday branding",
+      "Multiple sizes for various favor types",
+      "Eco-friendly and recyclable packaging materials",
+      "Food-safe options for edible favors",
+      "Perfect for party planners, holiday retailers, and festive brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Food-Grade Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Food-Safe Coating",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for party favors",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Christmas Favor Boxes for Holiday Party Favors",
+      paragraphs: [
+        "Our Christmas favor boxes are designed to protect and showcase holiday party favors and small gifts with festive presentation. Built with premium materials and compact sizing, these boxes keep favors safe while creating a joyful appearance. Perfect for party planners, holiday retailers, and festive brands, they combine functionality with holiday cheer.",
+        "At BoxyPack, we craft custom printed Christmas favor boxes that match your brand's personality and holiday needs. Whether you need boxes for edible favors or small gifts, we tailor each box to ensure proper protection and attractive presentation. Add your logo, holiday designs, and branding for a festive finish that customers love.",
+        "As a Christmas favor boxes supplier, we deliver superior quality, compact design, and festive branding at competitive pricing that fits holiday businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Christmas Favor Boxes",
+      [
+        {
+          question: "What are Christmas favor boxes used for?",
+          answer:
+            "They're used for packaging holiday party favors and small gifts with festive box designs, perfect for party planners and holiday retail.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, we offer food-safe Christmas favor boxes suitable for edible favors and treats.",
+        },
+        {
+          question: "Can I customize favor boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and holiday branding for Christmas favor boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for favor boxes?",
+          answer:
+            "We provide Christmas favor boxes in various compact sizes to accommodate different favor types and quantities.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our Christmas favor boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Christmas Favor Boxes",
+        eyebrow: "Christmas Favor Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Festive Packaging for Party Favors",
+      description:
+        "Partner with BoxyPack to create Christmas favor boxes that protect your favors and showcase your brand with festive style. Our packaging experts ensure every box maintains quality and presents your holiday party favors with joy.",
+    },
+  },
+
+  // Subcategory: Christmas Mailer Boxes
+  "christmas-mailer-boxes": {
+    name: "Christmas Mailer Boxes",
+    description:
+      "Festive, protective, and shipping-ready. Buy Christmas mailer boxes online for holiday shipping and gift packaging that keeps gifts safe during transit.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Shipping-ready design for safe transit",
+      "Festive holiday designs and seasonal themes",
+      "Custom printing for logos and holiday branding",
+      "Multiple sizes for various gift types",
+      "Eco-friendly and recyclable packaging materials",
+      "Durable construction for shipping protection",
+      "Perfect for e-commerce, holiday retailers, and festive brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Corrugated / Kraft",
+        },
+        {
+          label: "Structure",
+          value: "Mailer Style / Auto-Lock Bottom / Tuck-End",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for shipping",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Christmas Mailer Boxes for Holiday Shipping",
+      paragraphs: [
+        "Our Christmas mailer boxes are designed for safe shipping and festive holiday gift presentation. Built with durable materials and shipping-ready construction, these boxes keep gifts safe during transit while creating a joyful appearance. Perfect for e-commerce, holiday retailers, and festive brands, they combine functionality with holiday cheer.",
+        "At BoxyPack, we craft custom printed Christmas mailer boxes that match your brand's personality and shipping needs. Whether you need boxes for small gifts or larger presents, we tailor each box to ensure proper protection and attractive presentation. Add your logo, holiday designs, and branding for a festive finish that customers love.",
+        "As a Christmas mailer boxes supplier, we deliver superior quality, shipping-ready design, and festive branding at competitive pricing that fits holiday businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Christmas Mailer Boxes",
+      [
+        {
+          question: "What are Christmas mailer boxes used for?",
+          answer:
+            "They're used for holiday shipping and gift packaging with festive mailer box designs, perfect for e-commerce and holiday retail.",
+        },
+        {
+          question: "Are these boxes suitable for shipping?",
+          answer:
+            "Yes, our Christmas mailer boxes are designed with shipping-ready construction for safe transit.",
+        },
+        {
+          question: "Can I customize mailer boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and holiday branding for Christmas mailer boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for mailer boxes?",
+          answer:
+            "We provide Christmas mailer boxes in various sizes to accommodate different gift types and shipping needs.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our Christmas mailer boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Christmas Mailer Boxes",
+        eyebrow: "Christmas Mailer Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Shipping-Ready Festive Packaging",
+      description:
+        "Partner with BoxyPack to create Christmas mailer boxes that protect your gifts during shipping and showcase your brand with festive style. Our packaging experts ensure every box maintains quality and presents your holiday gifts with joy.",
+    },
+  },
+
+  // Subcategory: Chocolate Packaging
+  "chocolate-packaging": {
+    name: "Chocolate Packaging",
+    description:
+      "Elegant, protective, and perfectly designed. Buy chocolate packaging online for gourmet chocolate packaging that keeps chocolates safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Food-safe materials for direct chocolate contact",
+      "Elegant designs for gourmet presentation",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various chocolate types",
+      "Eco-friendly and recyclable packaging materials",
+      "Window options for product visibility",
+      "Perfect for chocolatiers, gourmet brands, and chocolate retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Food-Grade Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Rigid / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Food-Safe Coating",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for chocolates",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Chocolate Packaging for Gourmet Chocolate Protection",
+      paragraphs: [
+        "Our chocolate packaging is designed to protect and showcase gourmet chocolates with elegant presentation and food safety. Built with food-safe materials and proper sizing, these boxes keep chocolates fresh while creating a premium appearance. Perfect for chocolatiers, gourmet brands, and chocolate retailers, they combine functionality with elegant design.",
+        "At BoxyPack, we craft custom printed chocolate packaging that match your brand's personality and chocolate needs. Whether you need boxes for chocolate bars, truffles, or gift sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, chocolate information, and branding for a professional finish that customers appreciate.",
+        "As a chocolate packaging supplier, we deliver superior quality, food-safe materials, and elegant branding at competitive pricing that fits chocolate businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Chocolate Packaging",
+      [
+        {
+          question: "What is chocolate packaging used for?",
+          answer:
+            "It's used for packaging gourmet chocolates, chocolate bars, truffles, and gift sets with elegant box designs, perfect for chocolatiers and gourmet brands.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our chocolate packaging is made from food-safe materials suitable for direct food contact with chocolates.",
+        },
+        {
+          question: "Can I customize chocolate packaging with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for chocolate packaging wholesale.",
+        },
+        {
+          question: "Do you offer window options?",
+          answer:
+            "Yes, we can design chocolate packaging with window options to showcase chocolates while maintaining protection.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our chocolate packaging wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Chocolate Packaging",
+        eyebrow: "Chocolate Packaging FAQs",
+      }
+    ),
+    cta: {
+      title: "Elegant Packaging for Gourmet Chocolates",
+      description:
+        "Partner with BoxyPack to create chocolate packaging that protects your chocolates and showcases your brand. Our packaging experts ensure every box maintains quality and presents your gourmet chocolates with style.",
+    },
+  },
+
+  // Subcategory: Small Chocolate Boxes
+  "small-chocolate-boxes": {
+    name: "Small Chocolate Boxes",
+    description:
+      "Compact, elegant, and perfectly sized. Buy small chocolate boxes online for individual chocolate packaging that keeps treats safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for individual chocolates",
+      "Food-safe materials for direct chocolate contact",
+      "Custom printing for logos and brand identity",
+      "Compact design for single servings",
+      "Eco-friendly and recyclable packaging materials",
+      "Elegant presentation for gourmet chocolates",
+      "Perfect for chocolatiers, gourmet brands, and chocolate retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Food-Grade Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Food-Safe Coating",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for small chocolates",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Small Chocolate Boxes for Individual Chocolate Packaging",
+      paragraphs: [
+        "Our small chocolate boxes are designed to protect and showcase individual chocolates with compact elegance and food safety. Built with food-safe materials and proper sizing, these boxes keep chocolates fresh while creating a premium appearance. Perfect for chocolatiers, gourmet brands, and chocolate retailers, they combine functionality with elegant compact design.",
+        "At BoxyPack, we craft custom printed small chocolate boxes that match your brand's personality and chocolate needs. Whether you need boxes for single truffles or small chocolate bars, we tailor each box to ensure proper protection and attractive presentation. Add your logo, chocolate information, and branding for a professional finish that customers appreciate.",
+        "As a small chocolate boxes supplier, we deliver superior quality, compact design, and elegant branding at competitive pricing that fits chocolate businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Small Chocolate Boxes",
+      [
+        {
+          question: "What are small chocolate boxes used for?",
+          answer:
+            "They're used for packaging individual chocolates and single servings with compact box designs, perfect for chocolatiers and gourmet brands.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our small chocolate boxes are made from food-safe materials suitable for direct food contact with chocolates.",
+        },
+        {
+          question: "Can I customize small chocolate boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for small chocolate boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for small chocolate boxes?",
+          answer:
+            "We provide small chocolate boxes in various compact sizes to accommodate different individual chocolate types and quantities.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our small chocolate boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Small Chocolate Boxes",
+        eyebrow: "Small Chocolate Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Compact Elegance for Individual Chocolates",
+      description:
+        "Partner with BoxyPack to create small chocolate boxes that protect your individual chocolates and showcase your brand. Our packaging experts ensure every box maintains quality and presents your gourmet chocolates with style.",
+    },
+  },
+
+  // Subcategory: Chocolate Milk Boxes
+  "chocolate-milk-boxes": {
+    name: "Chocolate Milk Boxes",
+    description:
+      "Protective, functional, and perfectly designed. Buy chocolate milk boxes online for chocolate milk packaging that keeps products safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for chocolate milk containers",
+      "Food-safe materials for direct product contact",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various container types",
+      "Eco-friendly and recyclable packaging materials",
+      "Durable construction for product protection",
+      "Perfect for dairy brands, beverage manufacturers, and retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Food-Grade Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Food-Safe Coating",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for chocolate milk containers",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Chocolate Milk Boxes for Beverage Packaging",
+      paragraphs: [
+        "Our chocolate milk boxes are designed to protect and showcase chocolate milk containers with functional design and food safety. Built with food-safe materials and proper sizing, these boxes keep containers safe while creating an attractive presentation. Perfect for dairy brands, beverage manufacturers, and retailers, they combine functionality with elegant design.",
+        "At BoxyPack, we craft custom printed chocolate milk boxes that match your brand's personality and container needs. Whether you need boxes for single containers or multi-pack sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, product information, and branding for a professional finish that customers appreciate.",
+        "As a chocolate milk boxes supplier, we deliver superior quality, food-safe materials, and functional branding at competitive pricing that fits beverage businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Chocolate Milk Boxes",
+      [
+        {
+          question: "What are chocolate milk boxes used for?",
+          answer:
+            "They're used for packaging chocolate milk containers with box designs, perfect for dairy brands and beverage manufacturers.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our chocolate milk boxes are made from food-safe materials suitable for direct product contact.",
+        },
+        {
+          question: "Can I customize chocolate milk boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for chocolate milk boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for chocolate milk boxes?",
+          answer:
+            "We provide chocolate milk boxes in various sizes to accommodate different container types and quantities.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our chocolate milk boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Chocolate Milk Boxes",
+        eyebrow: "Chocolate Milk Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Functional Packaging for Chocolate Milk",
+      description:
+        "Partner with BoxyPack to create chocolate milk boxes that protect your containers and showcase your brand. Our packaging experts ensure every box maintains quality and presents your chocolate milk products with style.",
+    },
+  },
+
+  // Subcategory: Chocolate Candy Boxes
+  "chocolate-candy-boxes": {
+    name: "Chocolate Candy Boxes",
+    description:
+      "Sweet, elegant, and perfectly designed. Buy chocolate candy boxes online for chocolate candy packaging that keeps treats safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for chocolate candies",
+      "Food-safe materials for direct chocolate contact",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various candy quantities",
+      "Eco-friendly and recyclable packaging materials",
+      "Window options for product visibility",
+      "Perfect for candy shops, chocolatiers, and gourmet brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Food-Grade Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Food-Safe Coating",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for chocolate candies",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Chocolate Candy Boxes for Sweet Treat Packaging",
+      paragraphs: [
+        "Our chocolate candy boxes are designed to protect and showcase chocolate candies with elegant presentation and food safety. Built with food-safe materials and proper sizing, these boxes keep candies fresh while creating an attractive appearance. Perfect for candy shops, chocolatiers, and gourmet brands, they combine functionality with elegant design.",
+        "At BoxyPack, we craft custom printed chocolate candy boxes that match your brand's personality and candy needs. Whether you need boxes for single candies or multi-pack sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, candy information, and branding for a professional finish that customers appreciate.",
+        "As a chocolate candy boxes supplier, we deliver superior quality, food-safe materials, and elegant branding at competitive pricing that fits candy businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Chocolate Candy Boxes",
+      [
+        {
+          question: "What are chocolate candy boxes used for?",
+          answer:
+            "They're used for packaging chocolate candies with elegant box designs, perfect for candy shops and chocolatiers.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our chocolate candy boxes are made from food-safe materials suitable for direct food contact with chocolates.",
+        },
+        {
+          question: "Can I customize chocolate candy boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for chocolate candy boxes wholesale.",
+        },
+        {
+          question: "Do you offer window options?",
+          answer:
+            "Yes, we can design chocolate candy boxes with window options to showcase candies while maintaining protection.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our chocolate candy boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Chocolate Candy Boxes",
+        eyebrow: "Chocolate Candy Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Sweet Packaging for Chocolate Candies",
+      description:
+        "Partner with BoxyPack to create chocolate candy boxes that protect your treats and showcase your brand. Our packaging experts ensure every box maintains quality and presents your chocolate candies with style.",
+    },
+  },
+
+  // Subcategory: Luxury Chocolate Boxes
+  "luxury-chocolate-boxes": {
+    name: "Luxury Chocolate Boxes",
+    description:
+      "Elegant, luxurious, and perfect for premium chocolates. Buy luxury chocolate boxes online for gourmet chocolate packaging that creates memorable unboxing experiences.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Premium rigid construction for luxury presentation",
+      "Custom printing and embossing for brand elegance",
+      "Magnetic closures and lift-off lids for premium feel",
+      "Food-safe materials for direct chocolate contact",
+      "Multiple sizes for various luxury chocolate sets",
+      "Eco-friendly and recyclable material options",
+      "Perfect for premium chocolatiers, gourmet brands, and luxury retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid greyboard with wrapped papers or premium coated stocks (food-safe)",
+        },
+        {
+          label: "Structure",
+          value: "Lift-off lid, magnetic closure, or drawer/sleeve style",
+        },
+        {
+          label: "Thickness",
+          value: "2.0–3.0 mm rigid board with custom insert options",
+        },
+        {
+          label: "Finish",
+          value: "Soft-touch lamination, velvet wrap, foil, emboss/deboss",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Luxury Chocolate Boxes for Premium Gourmet Packaging",
+      paragraphs: [
+        "Our luxury chocolate boxes are crafted to combine elegance and protection for premium gourmet chocolate experiences. Designed with premium materials and sophisticated finishes, these boxes enhance the perceived value of your luxury chocolates while ensuring safe storage and transit. Every detail from closure to finish adds a touch of luxury that customers notice instantly.",
+        "At BoxyPack, we create custom luxury chocolate boxes that express your brand's personality and sophistication. Whether you need velvet-coated boxes, rigid magnetic closure cases, or minimal elegant designs, we customize each to suit your brand's vision and chocolate requirements.",
+        "As a luxury chocolate boxes supplier, we offer fine finishes, durable materials, and premium presentation at competitive pricing that meets retail and wholesale needs with equal perfection.",
+      ],
+    },
+    faq: buildFaq(
+      "Luxury Chocolate Boxes",
+      [
+        {
+          question: "What are luxury chocolate boxes used for?",
+          answer:
+            "They're used for packaging premium gourmet chocolates and luxury chocolate sets with premium presentation.",
+        },
+        {
+          question: "Can I add custom branding to luxury chocolate boxes?",
+          answer:
+            "Yes, BoxyPack offers printing, embossing, foil stamping, and custom finishes for luxury chocolate boxes.",
+        },
+        {
+          question: "Are your luxury boxes food-safe?",
+          answer:
+            "Yes, our luxury chocolate boxes are made from food-safe materials suitable for direct food contact with chocolates.",
+        },
+        {
+          question: "Do you offer magnetic closure options?",
+          answer:
+            "Yes, we provide magnetic closures, lift-off lids, and drawer-style boxes for premium presentation.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we produce eco-friendly luxury chocolate boxes using recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Luxury Chocolate Boxes",
+        eyebrow: "Luxury Chocolate Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Luxury Packaging for Premium Chocolates",
+      description:
+        "Partner with BoxyPack to design luxury chocolate boxes that elevate your brand and create memorable gourmet experiences. Our design team creates elegant, durable, and sophisticated packaging tailored to your premium chocolate brand needs.",
+    },
+  },
+
+  // Subcategory: Chocolate Bomb Boxes
+  "chocolate-bomb-boxes": {
+    name: "Chocolate Bomb Boxes",
+    description:
+      "Special, protective, and perfectly designed. Buy chocolate bomb boxes online for chocolate bomb packaging that keeps treats safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for chocolate bombs",
+      "Food-safe materials for direct chocolate contact",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various bomb sizes",
+      "Eco-friendly and recyclable packaging materials",
+      "Durable construction for product protection",
+      "Perfect for chocolatiers, gourmet brands, and specialty retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Food-Grade Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Rigid",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Food-Safe Coating",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for chocolate bombs",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Chocolate Bomb Boxes for Specialty Chocolate Packaging",
+      paragraphs: [
+        "Our chocolate bomb boxes are designed to protect and showcase chocolate bombs with specialized design and food safety. Built with food-safe materials and proper sizing, these boxes keep chocolate bombs safe while creating an attractive presentation. Perfect for chocolatiers, gourmet brands, and specialty retailers, they combine functionality with elegant design.",
+        "At BoxyPack, we craft custom printed chocolate bomb boxes that match your brand's personality and bomb needs. Whether you need boxes for single bombs or multi-pack sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, product information, and branding for a professional finish that customers appreciate.",
+        "As a chocolate bomb boxes supplier, we deliver superior quality, food-safe materials, and specialized branding at competitive pricing that fits chocolate businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Chocolate Bomb Boxes",
+      [
+        {
+          question: "What are chocolate bomb boxes used for?",
+          answer:
+            "They're used for packaging chocolate bombs with specialized box designs, perfect for chocolatiers and specialty retailers.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our chocolate bomb boxes are made from food-safe materials suitable for direct food contact with chocolates.",
+        },
+        {
+          question: "Can I customize chocolate bomb boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for chocolate bomb boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for chocolate bomb boxes?",
+          answer:
+            "We provide chocolate bomb boxes in various sizes to accommodate different bomb sizes and quantities.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our chocolate bomb boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Chocolate Bomb Boxes",
+        eyebrow: "Chocolate Bomb Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Specialty Packaging for Chocolate Bombs",
+      description:
+        "Partner with BoxyPack to create chocolate bomb boxes that protect your products and showcase your brand. Our packaging experts ensure every box maintains quality and presents your chocolate bombs with style.",
+    },
+  },
+
+  // Subcategory: Chocolate Gift Boxes
+  "chocolate-gift-boxes": {
+    name: "Chocolate Gift Boxes",
+    description:
+      "Elegant, luxurious, and perfect for gifting. Buy chocolate gift boxes online for chocolate gift packaging that creates memorable unboxing experiences.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Premium rigid construction for luxury presentation",
+      "Custom printing and embossing for brand elegance",
+      "Magnetic closures and lift-off lids for premium feel",
+      "Food-safe materials for direct chocolate contact",
+      "Multiple sizes for various chocolate gift sets",
+      "Eco-friendly and recyclable material options",
+      "Perfect for chocolate gift sets, holidays, and special occasions",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid greyboard with wrapped papers or premium coated stocks (food-safe)",
+        },
+        {
+          label: "Structure",
+          value: "Lift-off lid, magnetic closure, or drawer/sleeve style",
+        },
+        {
+          label: "Thickness",
+          value: "2.0–3.0 mm rigid board with custom insert options",
+        },
+        {
+          label: "Finish",
+          value: "Soft-touch lamination, velvet wrap, foil, emboss/deboss",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Chocolate Gift Boxes for Luxury Chocolate Gifting",
+      paragraphs: [
+        "Our chocolate gift boxes are crafted to combine elegance and protection for luxury chocolate gift experiences. Designed with premium materials and sophisticated finishes, these boxes enhance the perceived value of your chocolate gifts while ensuring safe storage and transit. Every detail from closure to finish adds a touch of luxury that customers notice instantly.",
+        "At BoxyPack, we create custom chocolate gift boxes that express your brand's personality and sophistication. Whether you need velvet-coated boxes, rigid magnetic closure cases, or minimal elegant designs, we customize each to suit your brand's vision and gift requirements.",
+        "As a luxury chocolate gift boxes supplier, we offer fine finishes, durable materials, and premium presentation at competitive pricing that meets retail and wholesale needs with equal perfection.",
+      ],
+    },
+    faq: buildFaq(
+      "Chocolate Gift Boxes",
+      [
+        {
+          question: "What are chocolate gift boxes used for?",
+          answer:
+            "They're used for packaging chocolate gift sets, holiday collections, and special occasion chocolate gifts with premium presentation.",
+        },
+        {
+          question: "Can I add custom branding to chocolate gift boxes?",
+          answer:
+            "Yes, BoxyPack offers printing, embossing, foil stamping, and custom finishes for luxury chocolate gift boxes.",
+        },
+        {
+          question: "Are your gift boxes food-safe?",
+          answer:
+            "Yes, our chocolate gift boxes are made from food-safe materials suitable for direct food contact with chocolates.",
+        },
+        {
+          question: "Do you offer magnetic closure options?",
+          answer:
+            "Yes, we provide magnetic closures, lift-off lids, and drawer-style boxes for premium presentation.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we produce eco-friendly chocolate gift boxes using recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Chocolate Gift Boxes",
+        eyebrow: "Chocolate Gift Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Gift Beautifully, Package Elegantly",
+      description:
+        "Partner with BoxyPack to design chocolate gift boxes that elevate your brand and create memorable gifting experiences. Our design team creates elegant, durable, and sophisticated packaging tailored to your luxury chocolate brand needs.",
+    },
+  },
+
+  // Subcategory: Christmas Chocolate Boxes
+  "christmas-chocolate-boxes": {
+    name: "Christmas Chocolate Boxes",
+    description:
+      "Festive, elegant, and perfect for holiday gifting. Buy Christmas chocolate boxes online for holiday chocolate packaging that creates memorable unboxing experiences.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Festive holiday designs and seasonal themes",
+      "Food-safe materials for direct chocolate contact",
+      "Custom printing for logos and holiday branding",
+      "Multiple sizes for various chocolate gift sets",
+      "Eco-friendly and recyclable material options",
+      "Premium construction for luxury presentation",
+      "Perfect for holiday chocolate gift sets and festive brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board (food-safe)",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Lift-Off Lid / Magnetic Closure",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for holiday chocolate sets",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Christmas Chocolate Boxes for Holiday Chocolate Gifting",
+      paragraphs: [
+        "Our Christmas chocolate boxes are designed to combine festive holiday cheer with elegant chocolate presentation. Built with food-safe materials and festive designs, these boxes keep chocolates fresh while creating a joyful appearance. Perfect for holiday chocolate gift sets and festive brands, they combine functionality with holiday elegance.",
+        "At BoxyPack, we craft custom printed Christmas chocolate boxes that match your brand's personality and holiday needs. Whether you need boxes for small chocolate gifts or large holiday sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, holiday designs, and branding for a festive finish that customers love.",
+        "As a Christmas chocolate boxes supplier, we deliver superior quality, food-safe materials, and festive designs at competitive pricing that fits holiday chocolate businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Christmas Chocolate Boxes",
+      [
+        {
+          question: "What are Christmas chocolate boxes used for?",
+          answer:
+            "They're used for packaging holiday chocolate gift sets and festive chocolate collections with holiday-themed box designs.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our Christmas chocolate boxes are made from food-safe materials suitable for direct food contact with chocolates.",
+        },
+        {
+          question: "Can I customize Christmas chocolate boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and holiday branding for Christmas chocolate boxes wholesale.",
+        },
+        {
+          question: "Do you offer festive holiday designs?",
+          answer:
+            "Yes, we offer various festive designs and seasonal themes for Christmas chocolate boxes to match the holiday spirit.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our Christmas chocolate boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Christmas Chocolate Boxes",
+        eyebrow: "Christmas Chocolate Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Festive Packaging for Holiday Chocolates",
+      description:
+        "Partner with BoxyPack to create Christmas chocolate boxes that protect your chocolates and showcase your brand with festive style. Our packaging experts ensure every box maintains quality and presents your holiday chocolates with joy.",
+    },
+  },
+
+  // Subcategory: Chocolate Bar Boxes
+  "chocolate-bar-boxes": {
+    name: "Chocolate Bar Boxes",
+    description:
+      "Protective, elegant, and perfectly sized. Buy chocolate bar boxes online for chocolate bar packaging that keeps bars safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for chocolate bars",
+      "Food-safe materials for direct chocolate contact",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various bar sizes",
+      "Eco-friendly and recyclable packaging materials",
+      "Window options for product visibility",
+      "Perfect for chocolate manufacturers, gourmet brands, and retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Food-Grade Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Food-Safe Coating",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for chocolate bars",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Chocolate Bar Boxes for Chocolate Bar Packaging",
+      paragraphs: [
+        "Our chocolate bar boxes are designed to protect and showcase chocolate bars with elegant presentation and food safety. Built with food-safe materials and proper sizing, these boxes keep bars fresh while creating an attractive appearance. Perfect for chocolate manufacturers, gourmet brands, and retailers, they combine functionality with elegant design.",
+        "At BoxyPack, we craft custom printed chocolate bar boxes that match your brand's personality and bar needs. Whether you need boxes for single bars or multi-pack sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, bar information, and branding for a professional finish that customers appreciate.",
+        "As a chocolate bar boxes supplier, we deliver superior quality, food-safe materials, and elegant branding at competitive pricing that fits chocolate businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Chocolate Bar Boxes",
+      [
+        {
+          question: "What are chocolate bar boxes used for?",
+          answer:
+            "They're used for packaging chocolate bars with elegant box designs, perfect for chocolate manufacturers and gourmet brands.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our chocolate bar boxes are made from food-safe materials suitable for direct food contact with chocolates.",
+        },
+        {
+          question: "Can I customize chocolate bar boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for chocolate bar boxes wholesale.",
+        },
+        {
+          question: "Do you offer window options?",
+          answer:
+            "Yes, we can design chocolate bar boxes with window options to showcase bars while maintaining protection.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our chocolate bar boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Chocolate Bar Boxes",
+        eyebrow: "Chocolate Bar Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Elegant Packaging for Chocolate Bars",
+      description:
+        "Partner with BoxyPack to create chocolate bar boxes that protect your bars and showcase your brand. Our packaging experts ensure every box maintains quality and presents your chocolate bars with style.",
+    },
+  },
+
+  // Subcategory: Cereal Boxes Wholesale
+  "cereal-boxes-wholesale": {
+    name: "Cereal Boxes Wholesale",
+    description:
+      "Vibrant, cost-effective, and perfectly designed. Buy cereal boxes wholesale online for breakfast cereal packaging that protects products and showcases your brand at competitive prices.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Wholesale pricing for bulk orders",
+      "Food-safe materials for direct cereal contact",
+      "Vibrant designs for breakfast brand appeal",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various cereal types",
+      "Eco-friendly and recyclable packaging materials",
+      "Perfect for cereal manufacturers, breakfast brands, and food retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Corrugated Board (food-safe)",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Mailer Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for cereals",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Cereal Boxes Wholesale for Breakfast Cereal Packaging",
+      paragraphs: [
+        "Our cereal boxes wholesale are designed to protect and showcase breakfast cereals with vibrant presentation and food safety at competitive bulk pricing. Built with food-safe materials and proper sizing, these boxes keep cereals fresh while creating an appealing appearance. Perfect for cereal manufacturers, breakfast brands, and food retailers, they combine functionality with vibrant design at wholesale rates.",
+        "At BoxyPack, we craft custom printed cereal boxes wholesale that match your brand's personality and cereal needs. Whether you need boxes for corn flakes, granola, or specialty cereals, we tailor each box to ensure proper protection and attractive presentation. Add your logo, cereal information, and branding for a professional finish that customers appreciate, all at wholesale pricing.",
+        "As a cereal boxes wholesale supplier, we deliver superior quality, food-safe materials, and vibrant branding at competitive bulk pricing that fits cereal businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Cereal Boxes Wholesale",
+      [
+        {
+          question: "What are cereal boxes wholesale used for?",
+          answer:
+            "They're used for packaging breakfast cereals with vibrant box designs at wholesale pricing, perfect for cereal manufacturers and breakfast brands.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our cereal boxes wholesale are made from food-safe materials suitable for direct food contact with cereals.",
+        },
+        {
+          question: "Can I customize cereal boxes wholesale with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for cereal boxes wholesale.",
+        },
+        {
+          question: "What are the minimum order quantities for wholesale pricing?",
+          answer:
+            "We offer wholesale pricing starting from 250 units with bulk discounts available for larger orders.",
+        },
+        {
+          question: "Do you offer bulk pricing discounts?",
+          answer:
+            "Yes, our cereal boxes wholesale supplier program includes significant bulk discounts for larger orders.",
+        },
+      ],
+      {
+        heading: "Questions about Cereal Boxes Wholesale",
+        eyebrow: "Cereal Boxes Wholesale FAQs",
+      }
+    ),
+    cta: {
+      title: "Wholesale Pricing for Breakfast Cereals",
+      description:
+        "Partner with BoxyPack to create cereal boxes wholesale that protect your cereals and showcase your brand at competitive bulk pricing. Our packaging experts ensure every box maintains quality and presents your breakfast cereals with style.",
+    },
+  },
+
+  // Subcategory: Mini Cereal Boxes
+  "mini-cereal-boxes": {
+    name: "Mini Cereal Boxes",
+    description:
+      "Compact, vibrant, and perfectly sized. Buy mini cereal boxes online for small breakfast cereal packaging that keeps products safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for mini cereal portions",
+      "Food-safe materials for direct cereal contact",
+      "Vibrant designs for breakfast brand appeal",
+      "Compact design for single servings",
+      "Eco-friendly and recyclable packaging materials",
+      "Custom printing for logos and brand identity",
+      "Perfect for sample sizes, hotels, and single-serving brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Food-Grade Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for mini cereals",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Mini Cereal Boxes for Small Breakfast Cereal Packaging",
+      paragraphs: [
+        "Our mini cereal boxes are designed to protect and showcase small breakfast cereal portions with compact vibrant presentation and food safety. Built with food-safe materials and proper sizing, these boxes keep mini cereals fresh while creating an appealing appearance. Perfect for sample sizes, hotels, and single-serving brands, they combine functionality with vibrant compact design.",
+        "At BoxyPack, we craft custom printed mini cereal boxes that match your brand's personality and cereal needs. Whether you need boxes for single-serving portions or sample sizes, we tailor each box to ensure proper protection and attractive presentation. Add your logo, cereal information, and branding for a professional finish that customers appreciate.",
+        "As a mini cereal boxes supplier, we deliver superior quality, compact design, and vibrant branding at competitive pricing that fits cereal businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Mini Cereal Boxes",
+      [
+        {
+          question: "What are mini cereal boxes used for?",
+          answer:
+            "They're used for packaging small breakfast cereal portions and single servings with compact box designs, perfect for hotels and sample sizes.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our mini cereal boxes are made from food-safe materials suitable for direct food contact with cereals.",
+        },
+        {
+          question: "Can I customize mini cereal boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for mini cereal boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for mini cereal boxes?",
+          answer:
+            "We provide mini cereal boxes in various compact sizes to accommodate different single-serving portions and sample sizes.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our mini cereal boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Mini Cereal Boxes",
+        eyebrow: "Mini Cereal Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Compact Packaging for Mini Cereals",
+      description:
+        "Partner with BoxyPack to create mini cereal boxes that protect your small portions and showcase your brand. Our packaging experts ensure every box maintains quality and presents your mini cereals with style.",
+    },
+  },
+
+  // Subcategory: Cardboard Cereal Boxes
+  "cardboard-cereal-boxes": {
+    name: "Cardboard Cereal Boxes",
+    description:
+      "Eco-friendly, durable, and perfectly designed. Buy cardboard cereal boxes online for breakfast cereal packaging that keeps products safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Eco-friendly cardboard materials",
+      "Food-safe materials for direct cereal contact",
+      "Vibrant designs for breakfast brand appeal",
+      "Custom printing for logos and brand identity",
+      "Recyclable and sustainable packaging materials",
+      "Durable construction for product protection",
+      "Perfect for cereal manufacturers, breakfast brands, and food retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft Board (food-safe)",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Mailer Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for cereals",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Cardboard Cereal Boxes for Breakfast Cereal Packaging",
+      paragraphs: [
+        "Our cardboard cereal boxes are designed to protect and showcase breakfast cereals with eco-friendly materials and vibrant presentation. Built with food-safe cardboard and proper sizing, these boxes keep cereals fresh while creating an appealing appearance. Perfect for cereal manufacturers, breakfast brands, and food retailers, they combine functionality with sustainable vibrant design.",
+        "At BoxyPack, we craft custom printed cardboard cereal boxes that match your brand's personality and cereal needs. Whether you need boxes for corn flakes, granola, or specialty cereals, we tailor each box to ensure proper protection and attractive presentation. Add your logo, cereal information, and branding for a professional finish that customers appreciate.",
+        "As a cardboard cereal boxes supplier, we deliver superior quality, eco-friendly materials, and vibrant branding at competitive pricing that fits cereal businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Cardboard Cereal Boxes",
+      [
+        {
+          question: "What are cardboard cereal boxes used for?",
+          answer:
+            "They're used for packaging breakfast cereals with eco-friendly cardboard box designs, perfect for cereal manufacturers and breakfast brands.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, our cardboard cereal boxes are made from recyclable and sustainable materials, making them an eco-friendly packaging choice.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our cardboard cereal boxes are made from food-safe materials suitable for direct food contact with cereals.",
+        },
+        {
+          question: "Can I customize cardboard cereal boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for cardboard cereal boxes wholesale.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our cardboard cereal boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Cardboard Cereal Boxes",
+        eyebrow: "Cardboard Cereal Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Eco-Friendly Packaging for Breakfast Cereals",
+      description:
+        "Partner with BoxyPack to create cardboard cereal boxes that protect your cereals and showcase your brand with sustainable materials. Our packaging experts ensure every box maintains quality and presents your breakfast cereals with style.",
+    },
+  },
+
+  // Subcategory: Corn Flakes Boxes
+  "corn-flakes-boxes": {
+    name: "Corn Flakes Boxes",
+    description:
+      "Classic, protective, and perfectly designed. Buy corn flakes boxes online for corn flakes packaging that keeps products safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for corn flakes",
+      "Food-safe materials for direct cereal contact",
+      "Classic designs for breakfast brand appeal",
+      "Custom printing for logos and brand identity",
+      "Eco-friendly and recyclable packaging materials",
+      "Durable construction for product protection",
+      "Perfect for corn flakes manufacturers and breakfast brands",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Food-Grade Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Mailer Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for corn flakes",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Corn Flakes Boxes for Corn Flakes Packaging",
+      paragraphs: [
+        "Our corn flakes boxes are designed to protect and showcase corn flakes with classic presentation and food safety. Built with food-safe materials and proper sizing, these boxes keep corn flakes fresh while creating an appealing appearance. Perfect for corn flakes manufacturers and breakfast brands, they combine functionality with classic design.",
+        "At BoxyPack, we craft custom printed corn flakes boxes that match your brand's personality and cereal needs. Whether you need boxes for standard corn flakes or specialty varieties, we tailor each box to ensure proper protection and attractive presentation. Add your logo, cereal information, and branding for a professional finish that customers appreciate.",
+        "As a corn flakes boxes supplier, we deliver superior quality, food-safe materials, and classic branding at competitive pricing that fits cereal businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Corn Flakes Boxes",
+      [
+        {
+          question: "What are corn flakes boxes used for?",
+          answer:
+            "They're used for packaging corn flakes with classic box designs, perfect for corn flakes manufacturers and breakfast brands.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our corn flakes boxes are made from food-safe materials suitable for direct food contact with cereals.",
+        },
+        {
+          question: "Can I customize corn flakes boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for corn flakes boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for corn flakes boxes?",
+          answer:
+            "We provide corn flakes boxes in various sizes to accommodate different corn flakes quantities and packaging needs.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our corn flakes boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Corn Flakes Boxes",
+        eyebrow: "Corn Flakes Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Classic Packaging for Corn Flakes",
+      description:
+        "Partner with BoxyPack to create corn flakes boxes that protect your cereals and showcase your brand. Our packaging experts ensure every box maintains quality and presents your corn flakes with style.",
+    },
+  },
+
+  // Subcategory: Unique Cereal Boxes
+  "unique-cereal-boxes": {
+    name: "Unique Cereal Boxes",
+    description:
+      "Distinctive, creative, and perfectly designed. Buy unique cereal boxes online for distinctive breakfast cereal packaging that stands out and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Unique and distinctive designs",
+      "Food-safe materials for direct cereal contact",
+      "Creative shapes and structures",
+      "Custom printing for logos and brand identity",
+      "Eco-friendly and recyclable packaging materials",
+      "Stand-out presentation for brand differentiation",
+      "Perfect for specialty cereal brands and creative manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Food-Grade Board",
+        },
+        {
+          label: "Structure",
+          value: "Custom Shapes / Die-Cut / Unique Designs",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Custom Finishes",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes and shapes for unique cereals",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Unique Cereal Boxes for Distinctive Breakfast Cereal Packaging",
+      paragraphs: [
+        "Our unique cereal boxes are designed to stand out and showcase breakfast cereals with distinctive creative presentation and food safety. Built with food-safe materials and unique designs, these boxes keep cereals fresh while creating a memorable appearance. Perfect for specialty cereal brands and creative manufacturers, they combine functionality with distinctive design.",
+        "At BoxyPack, we craft custom printed unique cereal boxes that match your brand's personality and cereal needs. Whether you need boxes with unique shapes, creative structures, or distinctive designs, we tailor each box to ensure proper protection and attractive presentation. Add your logo, cereal information, and branding for a professional finish that customers remember.",
+        "As a unique cereal boxes supplier, we deliver superior quality, creative designs, and distinctive branding at competitive pricing that fits specialty cereal businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Unique Cereal Boxes",
+      [
+        {
+          question: "What are unique cereal boxes used for?",
+          answer:
+            "They're used for packaging breakfast cereals with distinctive and creative box designs, perfect for specialty cereal brands and creative manufacturers.",
+        },
+        {
+          question: "Can I get custom shapes and designs?",
+          answer:
+            "Yes, BoxyPack offers custom shapes, die-cut designs, and unique structures for unique cereal boxes wholesale.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our unique cereal boxes are made from food-safe materials suitable for direct food contact with cereals.",
+        },
+        {
+          question: "Can I customize unique cereal boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for unique cereal boxes wholesale.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our unique cereal boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Unique Cereal Boxes",
+        eyebrow: "Unique Cereal Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Distinctive Packaging for Stand-Out Cereals",
+      description:
+        "Partner with BoxyPack to create unique cereal boxes that protect your cereals and showcase your brand with distinctive style. Our packaging experts ensure every box maintains quality and presents your breakfast cereals with creative flair.",
+    },
+  },
+
+  // Subcategory: Breakfast Cereal Boxes
+  "breakfast-cereal-boxes": {
+    name: "Breakfast Cereal Boxes",
+    description:
+      "Vibrant, protective, and perfectly designed. Buy breakfast cereal boxes online for breakfast cereal packaging that keeps products safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for breakfast cereals",
+      "Food-safe materials for direct cereal contact",
+      "Vibrant designs for breakfast brand appeal",
+      "Custom printing for logos and brand identity",
+      "Eco-friendly and recyclable packaging materials",
+      "Durable construction for product protection",
+      "Perfect for cereal manufacturers, breakfast brands, and food retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Food-Grade Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Mailer Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for breakfast cereals",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Breakfast Cereal Boxes for Breakfast Cereal Packaging",
+      paragraphs: [
+        "Our breakfast cereal boxes are designed to protect and showcase breakfast cereals with vibrant presentation and food safety. Built with food-safe materials and proper sizing, these boxes keep cereals fresh while creating an appealing appearance. Perfect for cereal manufacturers, breakfast brands, and food retailers, they combine functionality with vibrant design.",
+        "At BoxyPack, we craft custom printed breakfast cereal boxes that match your brand's personality and cereal needs. Whether you need boxes for standard cereals or specialty varieties, we tailor each box to ensure proper protection and attractive presentation. Add your logo, cereal information, and branding for a professional finish that customers appreciate.",
+        "As a breakfast cereal boxes supplier, we deliver superior quality, food-safe materials, and vibrant branding at competitive pricing that fits cereal businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Breakfast Cereal Boxes",
+      [
+        {
+          question: "What are breakfast cereal boxes used for?",
+          answer:
+            "They're used for packaging breakfast cereals with vibrant box designs, perfect for cereal manufacturers and breakfast brands.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our breakfast cereal boxes are made from food-safe materials suitable for direct food contact with cereals.",
+        },
+        {
+          question: "Can I customize breakfast cereal boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for breakfast cereal boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for breakfast cereal boxes?",
+          answer:
+            "We provide breakfast cereal boxes in various sizes to accommodate different cereal types and quantities.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our breakfast cereal boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Breakfast Cereal Boxes",
+        eyebrow: "Breakfast Cereal Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Vibrant Packaging for Breakfast Cereals",
+      description:
+        "Partner with BoxyPack to create breakfast cereal boxes that protect your cereals and showcase your brand. Our packaging experts ensure every box maintains quality and presents your breakfast cereals with style.",
+    },
+  },
+
+  // Subcategory: Colorful Cereal Boxes
+  "colorful-cereal-boxes": {
+    name: "Colorful Cereal Boxes",
+    description:
+      "Bright, vibrant, and perfectly designed. Buy colorful cereal boxes online for vibrant breakfast cereal packaging that attracts attention and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Bright and vibrant color designs",
+      "Food-safe materials for direct cereal contact",
+      "Eye-catching presentation for brand appeal",
+      "Custom printing for logos and brand identity",
+      "Eco-friendly and recyclable packaging materials",
+      "Multiple color options and combinations",
+      "Perfect for cereal manufacturers, breakfast brands, and food retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Food-Grade Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Mailer Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Vibrant Colors",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for colorful cereals",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Colorful Cereal Boxes for Vibrant Breakfast Cereal Packaging",
+      paragraphs: [
+        "Our colorful cereal boxes are designed to attract attention and showcase breakfast cereals with bright vibrant presentation and food safety. Built with food-safe materials and vibrant color designs, these boxes keep cereals fresh while creating an eye-catching appearance. Perfect for cereal manufacturers, breakfast brands, and food retailers, they combine functionality with vibrant colorful design.",
+        "At BoxyPack, we craft custom printed colorful cereal boxes that match your brand's personality and cereal needs. Whether you need boxes with bright colors, vibrant patterns, or eye-catching designs, we tailor each box to ensure proper protection and attractive presentation. Add your logo, cereal information, and branding for a professional finish that customers notice.",
+        "As a colorful cereal boxes supplier, we deliver superior quality, vibrant designs, and colorful branding at competitive pricing that fits cereal businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Colorful Cereal Boxes",
+      [
+        {
+          question: "What are colorful cereal boxes used for?",
+          answer:
+            "They're used for packaging breakfast cereals with bright and vibrant box designs, perfect for cereal manufacturers and breakfast brands.",
+        },
+        {
+          question: "Can I choose custom colors?",
+          answer:
+            "Yes, BoxyPack offers custom color options, vibrant patterns, and colorful designs for colorful cereal boxes wholesale.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our colorful cereal boxes are made from food-safe materials suitable for direct food contact with cereals.",
+        },
+        {
+          question: "Can I customize colorful cereal boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for colorful cereal boxes wholesale.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our colorful cereal boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Colorful Cereal Boxes",
+        eyebrow: "Colorful Cereal Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Vibrant Colors for Breakfast Cereals",
+      description:
+        "Partner with BoxyPack to create colorful cereal boxes that protect your cereals and showcase your brand with bright vibrant style. Our packaging experts ensure every box maintains quality and presents your breakfast cereals with eye-catching appeal.",
+    },
+  },
+
+  // Subcategory: Vintage Cereal Boxes
+  "vintage-cereal-boxes": {
+    name: "Vintage Cereal Boxes",
+    description:
+      "Nostalgic, classic, and perfectly designed. Buy vintage cereal boxes online for retro breakfast cereal packaging that evokes nostalgia and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Vintage and nostalgic designs",
+      "Food-safe materials for direct cereal contact",
+      "Classic retro styling for brand appeal",
+      "Custom printing for logos and brand identity",
+      "Eco-friendly and recyclable packaging materials",
+      "Nostalgic presentation for brand differentiation",
+      "Perfect for retro cereal brands and nostalgic manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Food-Grade Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Mailer Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Matte / Vintage Look / Classic Finishes",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for vintage cereals",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Vintage Cereal Boxes for Nostalgic Breakfast Cereal Packaging",
+      paragraphs: [
+        "Our vintage cereal boxes are designed to evoke nostalgia and showcase breakfast cereals with classic retro presentation and food safety. Built with food-safe materials and vintage designs, these boxes keep cereals fresh while creating a nostalgic appearance. Perfect for retro cereal brands and nostalgic manufacturers, they combine functionality with vintage classic design.",
+        "At BoxyPack, we craft custom printed vintage cereal boxes that match your brand's personality and cereal needs. Whether you need boxes with vintage styling, classic retro designs, or nostalgic patterns, we tailor each box to ensure proper protection and attractive presentation. Add your logo, cereal information, and branding for a professional finish that customers remember.",
+        "As a vintage cereal boxes supplier, we deliver superior quality, classic designs, and nostalgic branding at competitive pricing that fits retro cereal businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Vintage Cereal Boxes",
+      [
+        {
+          question: "What are vintage cereal boxes used for?",
+          answer:
+            "They're used for packaging breakfast cereals with vintage and nostalgic box designs, perfect for retro cereal brands and nostalgic manufacturers.",
+        },
+        {
+          question: "Can I get vintage-style designs?",
+          answer:
+            "Yes, BoxyPack offers vintage styling, classic retro designs, and nostalgic patterns for vintage cereal boxes wholesale.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our vintage cereal boxes are made from food-safe materials suitable for direct food contact with cereals.",
+        },
+        {
+          question: "Can I customize vintage cereal boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for vintage cereal boxes wholesale.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our vintage cereal boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Vintage Cereal Boxes",
+        eyebrow: "Vintage Cereal Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Nostalgic Packaging for Retro Cereals",
+      description:
+        "Partner with BoxyPack to create vintage cereal boxes that protect your cereals and showcase your brand with nostalgic classic style. Our packaging experts ensure every box maintains quality and presents your breakfast cereals with retro appeal.",
+    },
+  },
+
+  // Subcategory: Retro Cereal Boxes
+  "retro-cereal-boxes": {
+    name: "Retro Cereal Boxes",
+    description:
+      "Classic, nostalgic, and perfectly designed. Buy retro cereal boxes online for classic breakfast cereal packaging that brings back memories and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Retro and classic designs",
+      "Food-safe materials for direct cereal contact",
+      "Nostalgic styling for brand appeal",
+      "Custom printing for logos and brand identity",
+      "Eco-friendly and recyclable packaging materials",
+      "Classic presentation for brand differentiation",
+      "Perfect for retro cereal brands and classic manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Food-Grade Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Mailer Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Matte / Retro Look / Classic Finishes",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for retro cereals",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Retro Cereal Boxes for Classic Breakfast Cereal Packaging",
+      paragraphs: [
+        "Our retro cereal boxes are designed to bring back memories and showcase breakfast cereals with classic nostalgic presentation and food safety. Built with food-safe materials and retro designs, these boxes keep cereals fresh while creating a classic appearance. Perfect for retro cereal brands and classic manufacturers, they combine functionality with retro classic design.",
+        "At BoxyPack, we craft custom printed retro cereal boxes that match your brand's personality and cereal needs. Whether you need boxes with retro styling, classic designs, or nostalgic patterns, we tailor each box to ensure proper protection and attractive presentation. Add your logo, cereal information, and branding for a professional finish that customers remember.",
+        "As a retro cereal boxes supplier, we deliver superior quality, classic designs, and nostalgic branding at competitive pricing that fits retro cereal businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Retro Cereal Boxes",
+      [
+        {
+          question: "What are retro cereal boxes used for?",
+          answer:
+            "They're used for packaging breakfast cereals with retro and classic box designs, perfect for retro cereal brands and classic manufacturers.",
+        },
+        {
+          question: "Can I get retro-style designs?",
+          answer:
+            "Yes, BoxyPack offers retro styling, classic designs, and nostalgic patterns for retro cereal boxes wholesale.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our retro cereal boxes are made from food-safe materials suitable for direct food contact with cereals.",
+        },
+        {
+          question: "Can I customize retro cereal boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for retro cereal boxes wholesale.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our retro cereal boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Retro Cereal Boxes",
+        eyebrow: "Retro Cereal Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Classic Packaging for Retro Cereals",
+      description:
+        "Partner with BoxyPack to create retro cereal boxes that protect your cereals and showcase your brand with nostalgic classic style. Our packaging experts ensure every box maintains quality and presents your breakfast cereals with retro appeal.",
+    },
+  },
+
+  // Subcategory: 90s Cereal Boxes
+  "90s-cereal-boxes": {
+    name: "90s Cereal Boxes",
+    description:
+      "Nostalgic, vibrant, and perfectly designed. Buy 90s cereal boxes online for 90s-style breakfast cereal packaging that brings back the decade and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "90s-inspired designs and styling",
+      "Food-safe materials for direct cereal contact",
+      "Nostalgic 90s presentation for brand appeal",
+      "Custom printing for logos and brand identity",
+      "Eco-friendly and recyclable packaging materials",
+      "Vibrant 90s colors and patterns",
+      "Perfect for 90s-themed cereal brands and nostalgic manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Food-Grade Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Mailer Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / 90s-Style Finishes",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for 90s cereals",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "90s Cereal Boxes for 90s-Style Breakfast Cereal Packaging",
+      paragraphs: [
+        "Our 90s cereal boxes are designed to bring back the 90s decade and showcase breakfast cereals with nostalgic vibrant presentation and food safety. Built with food-safe materials and 90s-inspired designs, these boxes keep cereals fresh while creating a nostalgic appearance. Perfect for 90s-themed cereal brands and nostalgic manufacturers, they combine functionality with 90s vibrant design.",
+        "At BoxyPack, we craft custom printed 90s cereal boxes that match your brand's personality and cereal needs. Whether you need boxes with 90s styling, vibrant colors, or nostalgic patterns, we tailor each box to ensure proper protection and attractive presentation. Add your logo, cereal information, and branding for a professional finish that customers remember.",
+        "As a 90s cereal boxes supplier, we deliver superior quality, 90s-inspired designs, and nostalgic branding at competitive pricing that fits 90s-themed cereal businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "90s Cereal Boxes",
+      [
+        {
+          question: "What are 90s cereal boxes used for?",
+          answer:
+            "They're used for packaging breakfast cereals with 90s-inspired box designs, perfect for 90s-themed cereal brands and nostalgic manufacturers.",
+        },
+        {
+          question: "Can I get 90s-style designs?",
+          answer:
+            "Yes, BoxyPack offers 90s styling, vibrant colors, and nostalgic patterns for 90s cereal boxes wholesale.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our 90s cereal boxes are made from food-safe materials suitable for direct food contact with cereals.",
+        },
+        {
+          question: "Can I customize 90s cereal boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for 90s cereal boxes wholesale.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our 90s cereal boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about 90s Cereal Boxes",
+        eyebrow: "90s Cereal Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Nostalgic Packaging for 90s Cereals",
+      description:
+        "Partner with BoxyPack to create 90s cereal boxes that protect your cereals and showcase your brand with nostalgic 90s style. Our packaging experts ensure every box maintains quality and presents your breakfast cereals with 90s appeal.",
+    },
+  },
+
+  // Subcategory: 80s Cereal Boxes
+  "80s-cereal-boxes": {
+    name: "80s Cereal Boxes",
+    description:
+      "Retro, vibrant, and perfectly designed. Buy 80s cereal boxes online for 80s-style breakfast cereal packaging that brings back the decade and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "80s-inspired designs and styling",
+      "Food-safe materials for direct cereal contact",
+      "Nostalgic 80s presentation for brand appeal",
+      "Custom printing for logos and brand identity",
+      "Eco-friendly and recyclable packaging materials",
+      "Vibrant 80s colors and patterns",
+      "Perfect for 80s-themed cereal brands and nostalgic manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Food-Grade Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Mailer Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / 80s-Style Finishes",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for 80s cereals",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "80s Cereal Boxes for 80s-Style Breakfast Cereal Packaging",
+      paragraphs: [
+        "Our 80s cereal boxes are designed to bring back the 80s decade and showcase breakfast cereals with nostalgic vibrant presentation and food safety. Built with food-safe materials and 80s-inspired designs, these boxes keep cereals fresh while creating a nostalgic appearance. Perfect for 80s-themed cereal brands and nostalgic manufacturers, they combine functionality with 80s vibrant design.",
+        "At BoxyPack, we craft custom printed 80s cereal boxes that match your brand's personality and cereal needs. Whether you need boxes with 80s styling, vibrant colors, or nostalgic patterns, we tailor each box to ensure proper protection and attractive presentation. Add your logo, cereal information, and branding for a professional finish that customers remember.",
+        "As an 80s cereal boxes supplier, we deliver superior quality, 80s-inspired designs, and nostalgic branding at competitive pricing that fits 80s-themed cereal businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "80s Cereal Boxes",
+      [
+        {
+          question: "What are 80s cereal boxes used for?",
+          answer:
+            "They're used for packaging breakfast cereals with 80s-inspired box designs, perfect for 80s-themed cereal brands and nostalgic manufacturers.",
+        },
+        {
+          question: "Can I get 80s-style designs?",
+          answer:
+            "Yes, BoxyPack offers 80s styling, vibrant colors, and nostalgic patterns for 80s cereal boxes wholesale.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our 80s cereal boxes are made from food-safe materials suitable for direct food contact with cereals.",
+        },
+        {
+          question: "Can I customize 80s cereal boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for 80s cereal boxes wholesale.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our 80s cereal boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about 80s Cereal Boxes",
+        eyebrow: "80s Cereal Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Nostalgic Packaging for 80s Cereals",
+      description:
+        "Partner with BoxyPack to create 80s cereal boxes that protect your cereals and showcase your brand with nostalgic 80s style. Our packaging experts ensure every box maintains quality and presents your breakfast cereals with 80s appeal.",
+    },
+  },
+
+  // Subcategory: Funny Cereal Boxes
+  "funny-cereal-boxes": {
+    name: "Funny Cereal Boxes",
+    description:
+      "Humorous, creative, and perfectly designed. Buy funny cereal boxes online for humorous breakfast cereal packaging that entertains and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Humorous and creative designs",
+      "Food-safe materials for direct cereal contact",
+      "Entertaining presentation for brand appeal",
+      "Custom printing for logos and brand identity",
+      "Eco-friendly and recyclable packaging materials",
+      "Fun and creative styling for brand differentiation",
+      "Perfect for humorous cereal brands and creative manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Food-Grade Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Mailer Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Creative Finishes",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for funny cereals",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Funny Cereal Boxes for Humorous Breakfast Cereal Packaging",
+      paragraphs: [
+        "Our funny cereal boxes are designed to entertain and showcase breakfast cereals with humorous creative presentation and food safety. Built with food-safe materials and funny designs, these boxes keep cereals fresh while creating an entertaining appearance. Perfect for humorous cereal brands and creative manufacturers, they combine functionality with humorous creative design.",
+        "At BoxyPack, we craft custom printed funny cereal boxes that match your brand's personality and cereal needs. Whether you need boxes with humorous styling, creative designs, or entertaining patterns, we tailor each box to ensure proper protection and attractive presentation. Add your logo, cereal information, and branding for a professional finish that customers remember.",
+        "As a funny cereal boxes supplier, we deliver superior quality, creative designs, and humorous branding at competitive pricing that fits humorous cereal businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Funny Cereal Boxes",
+      [
+        {
+          question: "What are funny cereal boxes used for?",
+          answer:
+            "They're used for packaging breakfast cereals with humorous and creative box designs, perfect for humorous cereal brands and creative manufacturers.",
+        },
+        {
+          question: "Can I get custom humorous designs?",
+          answer:
+            "Yes, BoxyPack offers humorous styling, creative designs, and entertaining patterns for funny cereal boxes wholesale.",
+        },
+        {
+          question: "Are these boxes food-safe?",
+          answer:
+            "Yes, our funny cereal boxes are made from food-safe materials suitable for direct food contact with cereals.",
+        },
+        {
+          question: "Can I customize funny cereal boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for funny cereal boxes wholesale.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our funny cereal boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Funny Cereal Boxes",
+        eyebrow: "Funny Cereal Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Humorous Packaging for Entertaining Cereals",
+      description:
+        "Partner with BoxyPack to create funny cereal boxes that protect your cereals and showcase your brand with humorous creative style. Our packaging experts ensure every box maintains quality and presents your breakfast cereals with entertaining appeal.",
+    },
+  },
+
+  // Subcategory: Cannabis Pre Roll Packaging
+  "cannabis-pre-roll-packaging": {
+    name: "Cannabis Pre Roll Packaging",
+    description:
+      "Secure, compliant, and perfectly designed. Buy cannabis pre roll packaging online for cannabis pre-roll packaging that protects products and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for cannabis pre-rolls",
+      "Premium materials that protect pre-rolls from damage",
+      "Custom printing for logos and brand identity",
+      "Compliant with cannabis packaging regulations",
+      "Eco-friendly and recyclable packaging materials",
+      "Child-resistant options available",
+      "Perfect for cannabis brands, pre-roll manufacturers, and retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Rigid / Child-Resistant",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for cannabis pre-rolls",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Cannabis Pre Roll Packaging for Cannabis Pre-Roll Protection",
+      paragraphs: [
+        "Our cannabis pre roll packaging is designed to protect and showcase cannabis pre-rolls with secure presentation and regulatory compliance. Built with premium materials and proper sizing, these boxes keep pre-rolls safe from damage while creating an attractive appearance. Perfect for cannabis brands, pre-roll manufacturers, and retailers, they combine functionality with compliant design.",
+        "At BoxyPack, we craft custom printed cannabis pre roll packaging that match your brand's personality and pre-roll needs. Whether you need boxes for single pre-rolls or multi-pack sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, product information, and branding for a professional finish that customers appreciate.",
+        "As a cannabis pre roll packaging supplier, we deliver superior quality, compliant design, and custom branding at competitive pricing that fits cannabis businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Cannabis Pre Roll Packaging",
+      [
+        {
+          question: "What is cannabis pre roll packaging used for?",
+          answer:
+            "It's used for packaging cannabis pre-rolls with compliant box designs, perfect for cannabis brands and pre-roll manufacturers.",
+        },
+        {
+          question: "Are these boxes compliant with cannabis regulations?",
+          answer:
+            "Yes, our cannabis pre roll packaging meets packaging regulations and requirements for cannabis products, including child-resistant options.",
+        },
+        {
+          question: "Can I customize cannabis pre roll packaging with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for cannabis pre roll packaging wholesale.",
+        },
+        {
+          question: "Do you offer child-resistant options?",
+          answer:
+            "Yes, we provide child-resistant packaging options for cannabis pre roll packaging to meet regulatory requirements.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our cannabis pre roll packaging wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Cannabis Pre Roll Packaging",
+        eyebrow: "Cannabis Pre Roll Packaging FAQs",
+      }
+    ),
+    cta: {
+      title: "Compliant Packaging for Cannabis Pre-Rolls",
+      description:
+        "Partner with BoxyPack to create cannabis pre roll packaging that protects your pre-rolls and showcases your brand with compliant style. Our packaging experts ensure every box maintains quality and presents your cannabis pre-rolls with professionalism.",
+    },
+  },
+
+  // Subcategory: Pre Roll Display Boxes
+  "pre-roll-display-boxes": {
+    name: "Pre Roll Display Boxes",
+    description:
+      "Eye-catching, functional, and perfectly designed. Buy pre roll display boxes online for pre-roll display packaging that showcases products and attracts customers.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Display design perfect for retail presentation",
+      "Premium materials that protect pre-roll collections",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various collection sizes",
+      "Eco-friendly and recyclable packaging materials",
+      "Window options for product visibility",
+      "Perfect for cannabis brands, pre-roll retailers, and dispensaries",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Display Style / Window Options / Tuck-End",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for pre-roll collections",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Pre Roll Display Boxes for Retail Presentation",
+      paragraphs: [
+        "Our pre roll display boxes are designed to showcase pre-roll collections and attract customers in retail environments. Built with premium materials and display-focused design, these boxes keep pre-roll products organized while creating an eye-catching presentation. Perfect for cannabis brands, pre-roll retailers, and dispensaries, they combine functionality with attractive display design.",
+        "At BoxyPack, we craft custom printed pre roll display boxes that match your brand's personality and collection needs. Whether you need boxes for single collections or multi-pack displays, we tailor each box to ensure proper organization and attractive presentation. Add your logo, collection information, and branding for a professional finish that customers notice.",
+        "As a pre roll display boxes supplier, we deliver superior quality, display-focused design, and custom branding at competitive pricing that fits pre-roll businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Pre Roll Display Boxes",
+      [
+        {
+          question: "What are pre roll display boxes used for?",
+          answer:
+            "They're used for displaying pre-roll collections in retail environments with eye-catching box designs that showcase products.",
+        },
+        {
+          question: "Can I customize pre roll display boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for pre roll display boxes wholesale.",
+        },
+        {
+          question: "Do you offer window options for product visibility?",
+          answer:
+            "Yes, we provide window options in our pre roll display boxes to showcase products while maintaining protection.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our pre roll display boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly pre roll display boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Pre Roll Display Boxes",
+        eyebrow: "Pre Roll Display Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Eye-Catching Displays, Strong Sales",
+      description:
+        "Partner with BoxyPack to create pre roll display boxes that showcase your collections and attract customers. Our packaging experts ensure every box maintains display quality and presents your pre-rolls with style.",
+    },
+  },
+
+  // Subcategory: Pre Roll Packaging
+  "pre-roll-packaging": {
+    name: "Pre Roll Packaging",
+    description:
+      "Secure, protective, and perfectly designed. Buy pre roll packaging online for pre-roll product packaging that keeps products safe and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for pre-roll products",
+      "Premium materials that protect pre-rolls from damage",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various pre-roll types",
+      "Eco-friendly and recyclable packaging materials",
+      "Compliant with packaging regulations",
+      "Perfect for cannabis brands, pre-roll manufacturers, and retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Rigid",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Soft Touch",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for pre-rolls",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Pre Roll Packaging for Pre-Roll Product Protection",
+      paragraphs: [
+        "Our pre roll packaging is designed to protect and showcase pre-roll products with secure presentation and durability. Built with premium materials and proper sizing, these boxes keep pre-rolls safe from damage while creating an attractive appearance. Perfect for cannabis brands, pre-roll manufacturers, and retailers, they combine functionality with professional design.",
+        "At BoxyPack, we craft custom printed pre roll packaging that match your brand's personality and pre-roll needs. Whether you need boxes for single pre-rolls or multi-pack sets, we tailor each box to ensure proper protection and attractive presentation. Add your logo, product information, and branding for a professional finish that customers appreciate.",
+        "As a pre roll packaging supplier, we deliver superior quality, durable design, and custom branding at competitive pricing that fits pre-roll businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Pre Roll Packaging",
+      [
+        {
+          question: "What is pre roll packaging used for?",
+          answer:
+            "It's used for packaging pre-roll products with secure box designs, perfect for cannabis brands and pre-roll manufacturers.",
+        },
+        {
+          question: "Can I customize pre roll packaging with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for pre roll packaging wholesale.",
+        },
+        {
+          question: "What sizes are available for pre roll packaging?",
+          answer:
+            "We provide pre roll packaging in various sizes to accommodate different pre-roll types and quantities.",
+        },
+        {
+          question: "Are these boxes compliant with regulations?",
+          answer:
+            "Yes, we ensure our pre roll packaging meets packaging regulations and requirements for pre-roll products.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our pre roll packaging wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Pre Roll Packaging",
+        eyebrow: "Pre Roll Packaging FAQs",
+      }
+    ),
+    cta: {
+      title: "Secure Packaging for Pre-Roll Products",
+      description:
+        "Partner with BoxyPack to create pre roll packaging that protects your pre-rolls and showcases your brand. Our packaging experts ensure every box maintains quality and presents your pre-roll products with style.",
+    },
+  },
+
+  // Subcategory: Custom Delta 8 Boxes
+  "custom-delta-8-boxes": {
+    name: "Custom Delta 8 Boxes",
+    description:
+      "Personalized, durable, and perfectly designed. Buy custom delta 8 boxes online for branded delta 8 product packaging that protects products and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Fully customizable design for your brand",
+      "Durable construction for delta 8 product protection",
+      "Custom printing for logos and brand identity",
+      "Multiple sizes for various delta 8 product types",
+      "Eco-friendly and recyclable packaging materials",
+      "Compliant with packaging regulations",
+      "Perfect for delta 8 brands, manufacturers, and retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Cardboard / Kraft / Rigid Board",
+        },
+        {
+          label: "Structure",
+          value: "Tuck-End / Auto-Lock Bottom / Rigid / Mailer Style",
+        },
+        {
+          label: "Thickness",
+          value: "14PT / 16PT / 18PT / Rigid",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Uncoated / Custom Colors",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for delta 8 products",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Custom Delta 8 Boxes for Branded Delta 8 Packaging",
+      paragraphs: [
+        "Our custom delta 8 boxes are fully customizable to match your brand's identity and delta 8 product needs. Built with durable materials and secure closures, these boxes protect delta 8 products while creating a professional presentation. Perfect for delta 8 brands, manufacturers, and retailers, they combine functionality with attractive branding.",
+        "At BoxyPack, we craft custom printed delta 8 boxes that match your brand's personality and product requirements. Whether you need boxes for delta 8 pre-rolls, cartridges, or other products, we tailor each box to ensure proper protection and attractive presentation. Add your logo, product information, colors, and branding for a professional finish that customers remember.",
+        "As a custom delta 8 boxes wholesale supplier, we deliver superior quality, durable design, and full customization at competitive pricing that fits delta 8 businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Custom Delta 8 Boxes",
+      [
+        {
+          question: "What are custom delta 8 boxes used for?",
+          answer:
+            "They're used for packaging delta 8 products with fully customized branding, perfect for delta 8 retail and product brands.",
+        },
+        {
+          question: "Can I fully customize delta 8 boxes with my brand?",
+          answer:
+            "Yes, BoxyPack offers full customization including colors, designs, logos, and branding for custom delta 8 boxes wholesale.",
+        },
+        {
+          question: "Are these boxes compliant with regulations?",
+          answer:
+            "Yes, we ensure our custom delta 8 boxes meet packaging regulations and requirements for delta 8 products.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our custom delta 8 boxes wholesale supplier program includes bulk discounts.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we offer eco-friendly custom delta 8 boxes made from recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Custom Delta 8 Boxes",
+        eyebrow: "Custom Delta 8 Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Fully Custom, Fully Protected",
+      description:
+        "Partner with BoxyPack to create custom delta 8 boxes that protect your products and showcase your brand with complete customization. Our packaging experts ensure every box maintains quality and presents your delta 8 products with style.",
+    },
+  },
+
+  // Subcategory: Pre Roll Packaging Labels
+  "pre-roll-packaging-labels": {
+    name: "Pre Roll Packaging Labels",
+    description:
+      "Informative, compliant, and perfectly designed. Buy pre roll packaging labels online for pre-roll product labeling that provides information and showcases your brand.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Compliant labeling for regulatory requirements",
+      "Custom printing for product information and branding",
+      "Multiple sizes for various label needs",
+      "Durable adhesive for secure application",
+      "Eco-friendly and recyclable label materials",
+      "Professional presentation for brand identity",
+      "Perfect for cannabis brands, pre-roll manufacturers, and retailers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Paper / Vinyl / Waterproof Materials",
+        },
+        {
+          label: "Adhesive Type",
+          value: "Permanent / Removable / Waterproof",
+        },
+        {
+          label: "Finish",
+          value: "Gloss / Matte / Waterproof Coating",
+        },
+        {
+          label: "Printing",
+          value: "Full-Color / Custom Designs",
+        },
+        {
+          label: "Dimensions",
+          value: "Custom sizes for label needs",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Pre Roll Packaging Labels for Product Labeling",
+      paragraphs: [
+        "Our pre roll packaging labels are designed to provide essential product information and showcase your brand with compliant professional presentation. Built with durable materials and proper sizing, these labels adhere securely to packaging while creating an informative appearance. Perfect for cannabis brands, pre-roll manufacturers, and retailers, they combine functionality with regulatory compliance.",
+        "At BoxyPack, we craft custom printed pre roll packaging labels that match your brand's personality and labeling needs. Whether you need labels for product information, branding, or regulatory compliance, we tailor each label to ensure proper adhesion and attractive presentation. Add your logo, product information, and branding for a professional finish that customers appreciate.",
+        "As a pre roll packaging labels supplier, we deliver superior quality, compliant design, and custom branding at competitive pricing that fits pre-roll businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Pre Roll Packaging Labels",
+      [
+        {
+          question: "What are pre roll packaging labels used for?",
+          answer:
+            "They're used for labeling pre-roll products with product information and branding, perfect for cannabis brands and pre-roll manufacturers.",
+        },
+        {
+          question: "Are these labels compliant with regulations?",
+          answer:
+            "Yes, we ensure our pre roll packaging labels meet labeling regulations and requirements for pre-roll products.",
+        },
+        {
+          question: "Can I customize pre roll packaging labels with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for pre roll packaging labels wholesale.",
+        },
+        {
+          question: "What adhesive options are available?",
+          answer:
+            "We provide permanent, removable, and waterproof adhesive options for pre roll packaging labels.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our pre roll packaging labels wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Pre Roll Packaging Labels",
+        eyebrow: "Pre Roll Packaging Labels FAQs",
+      }
+    ),
+    cta: {
+      title: "Compliant Labeling for Pre-Roll Products",
+      description:
+        "Partner with BoxyPack to create pre roll packaging labels that provide information and showcase your brand with compliant style. Our packaging experts ensure every label maintains quality and presents your pre-roll products with professionalism.",
+    },
+  },
+
+  // Subcategory: Luxury Pre Roll Packaging
+  "luxury-pre-roll-packaging": {
+    name: "Luxury Pre Roll Packaging",
+    description:
+      "Elegant, luxurious, and perfect for premium pre-rolls. Buy luxury pre roll packaging online for premium pre-roll packaging that creates memorable unboxing experiences.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Premium rigid construction for luxury presentation",
+      "Custom printing and embossing for brand elegance",
+      "Magnetic closures and lift-off lids for premium feel",
+      "Multiple sizes for various luxury pre-roll sets",
+      "Eco-friendly and recyclable material options",
+      "Compliant with packaging regulations",
+      "Perfect for premium pre-roll brands, luxury retailers, and high-end manufacturers",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Rigid greyboard with wrapped papers or premium coated stocks",
+        },
+        {
+          label: "Structure",
+          value: "Lift-off lid, magnetic closure, or drawer/sleeve style",
+        },
+        {
+          label: "Thickness",
+          value: "2.0–3.0 mm rigid board with custom insert options",
+        },
+        {
+          label: "Finish",
+          value: "Soft-touch lamination, velvet wrap, foil, emboss/deboss",
+        },
+        {
+          label: "Printing",
+          value: "Inside, Outside, or Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes available",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Luxury Pre Roll Packaging for Premium Pre-Roll Presentation",
+      paragraphs: [
+        "Our luxury pre roll packaging is crafted to combine elegance and protection for premium pre-roll experiences. Designed with premium materials and sophisticated finishes, these boxes enhance the perceived value of your luxury pre-rolls while ensuring safe storage and transit. Every detail from closure to finish adds a touch of luxury that customers notice instantly.",
+        "At BoxyPack, we create custom luxury pre roll packaging that expresses your brand's personality and sophistication. Whether you need velvet-coated boxes, rigid magnetic closure cases, or minimal elegant designs, we customize each to suit your brand's vision and pre-roll requirements.",
+        "As a luxury pre roll packaging supplier, we offer fine finishes, durable materials, and premium presentation at competitive pricing that meets retail and wholesale needs with equal perfection.",
+      ],
+    },
+    faq: buildFaq(
+      "Luxury Pre Roll Packaging",
+      [
+        {
+          question: "What is luxury pre roll packaging used for?",
+          answer:
+            "It's used for packaging premium pre-roll products and luxury pre-roll sets with premium presentation.",
+        },
+        {
+          question: "Can I add custom branding to luxury pre roll packaging?",
+          answer:
+            "Yes, BoxyPack offers printing, embossing, foil stamping, and custom finishes for luxury pre roll packaging.",
+        },
+        {
+          question: "Are your luxury boxes compliant with regulations?",
+          answer:
+            "Yes, our luxury pre roll packaging meets packaging regulations and requirements for pre-roll products.",
+        },
+        {
+          question: "Do you offer magnetic closure options?",
+          answer:
+            "Yes, we provide magnetic closures, lift-off lids, and drawer-style boxes for premium presentation.",
+        },
+        {
+          question: "Are these boxes eco-friendly?",
+          answer:
+            "Yes, we produce eco-friendly luxury pre roll packaging using recyclable and sustainable materials.",
+        },
+      ],
+      {
+        heading: "Questions about Luxury Pre Roll Packaging",
+        eyebrow: "Luxury Pre Roll Packaging FAQs",
+      }
+    ),
+    cta: {
+      title: "Luxury Packaging for Premium Pre-Rolls",
+      description:
+        "Partner with BoxyPack to design luxury pre roll packaging that elevates your brand and creates memorable premium experiences. Our design team creates elegant, durable, and sophisticated packaging tailored to your luxury pre-roll brand needs.",
+    },
+  },
+
+  // Subcategory: White Pizza Boxes
+  "white-pizza-boxes": {
+    name: "White Pizza Boxes",
+    description:
+      "Clean, sturdy, and perfectly designed. Buy white pizza boxes online for hot pizza packaging that keeps pizzas warm and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Clean white appearance for professional look",
+      "Heat-resistant materials for hot pizza",
+      "Sturdy construction for pizza protection",
+      "Custom printing for logos and brand identity",
+      "Eco-friendly and recyclable packaging materials",
+      "Multiple sizes for various pizza sizes",
+      "Perfect for pizzerias, restaurants, and food delivery services",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "White Corrugated Cardboard (food-safe)",
+        },
+        {
+          label: "Structure",
+          value: "Standard Pizza Box / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "Single-Wall / Double-Wall Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Matte / Gloss / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Outside / Inside / Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for pizzas",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "White Pizza Boxes for Hot Pizza Packaging",
+      paragraphs: [
+        "Our white pizza boxes are designed to keep pizzas hot and fresh with clean professional appearance and heat-resistant materials. Built with sturdy white corrugated cardboard and proper sizing, these boxes keep pizzas warm while creating an attractive presentation. Perfect for pizzerias, restaurants, and food delivery services, they combine functionality with clean design.",
+        "At BoxyPack, we craft custom printed white pizza boxes that match your brand's personality and pizza needs. Whether you need boxes for whole pizzas or slices, we tailor each box to ensure proper heat retention and attractive presentation. Add your logo, pizzeria information, and branding for a professional finish that customers appreciate.",
+        "As a white pizza boxes supplier, we deliver superior quality, heat-resistant materials, and clean branding at competitive pricing that fits pizza businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "White Pizza Boxes",
+      [
+        {
+          question: "What are white pizza boxes used for?",
+          answer:
+            "They're used for packaging hot pizzas with clean white box designs, perfect for pizzerias and restaurants.",
+        },
+        {
+          question: "Are these boxes heat-resistant?",
+          answer:
+            "Yes, our white pizza boxes are made from heat-resistant materials suitable for hot pizza packaging.",
+        },
+        {
+          question: "Can I customize white pizza boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for white pizza boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for white pizza boxes?",
+          answer:
+            "We provide white pizza boxes in various sizes to accommodate different pizza sizes, from small to extra-large.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our white pizza boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about White Pizza Boxes",
+        eyebrow: "White Pizza Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Clean Packaging for Hot Pizzas",
+      description:
+        "Partner with BoxyPack to create white pizza boxes that protect your pizzas and showcase your brand. Our packaging experts ensure every box maintains quality and presents your hot pizzas with style.",
+    },
+  },
+
+  // Subcategory: Pizza Slice Boxes
+  "pizza-slice-boxes": {
+    name: "Pizza Slice Boxes",
+    description:
+      "Compact, sturdy, and perfectly sized. Buy pizza slice boxes online for single slice pizza packaging that keeps slices warm and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for single pizza slices",
+      "Heat-resistant materials for hot slices",
+      "Sturdy construction for slice protection",
+      "Custom printing for logos and brand identity",
+      "Eco-friendly and recyclable packaging materials",
+      "Compact design for individual servings",
+      "Perfect for pizzerias, food courts, and quick-service restaurants",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Corrugated Cardboard / Kraft (food-safe)",
+        },
+        {
+          label: "Structure",
+          value: "Slice Box Style / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "Single-Wall / Double-Wall Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Matte / Gloss / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Outside / Inside / Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for pizza slices",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Pizza Slice Boxes for Single Slice Pizza Packaging",
+      paragraphs: [
+        "Our pizza slice boxes are designed to keep individual pizza slices hot and fresh with compact sturdy design and heat-resistant materials. Built with proper sizing for single slices, these boxes keep slices warm while creating an attractive presentation. Perfect for pizzerias, food courts, and quick-service restaurants, they combine functionality with compact design.",
+        "At BoxyPack, we craft custom printed pizza slice boxes that match your brand's personality and slice needs. Whether you need boxes for single slices or multi-slice orders, we tailor each box to ensure proper heat retention and attractive presentation. Add your logo, pizzeria information, and branding for a professional finish that customers appreciate.",
+        "As a pizza slice boxes supplier, we deliver superior quality, heat-resistant materials, and compact branding at competitive pricing that fits pizza businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Pizza Slice Boxes",
+      [
+        {
+          question: "What are pizza slice boxes used for?",
+          answer:
+            "They're used for packaging individual pizza slices with compact box designs, perfect for pizzerias and quick-service restaurants.",
+        },
+        {
+          question: "Are these boxes heat-resistant?",
+          answer:
+            "Yes, our pizza slice boxes are made from heat-resistant materials suitable for hot slice packaging.",
+        },
+        {
+          question: "Can I customize pizza slice boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for pizza slice boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for pizza slice boxes?",
+          answer:
+            "We provide pizza slice boxes in various compact sizes to accommodate different slice sizes and quantities.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our pizza slice boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Pizza Slice Boxes",
+        eyebrow: "Pizza Slice Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Compact Packaging for Pizza Slices",
+      description:
+        "Partner with BoxyPack to create pizza slice boxes that protect your slices and showcase your brand. Our packaging experts ensure every box maintains quality and presents your hot pizza slices with style.",
+    },
+  },
+
+  // Subcategory: Round Pizza Boxes
+  "round-pizza-boxes": {
+    name: "Round Pizza Boxes",
+    description:
+      "Classic, sturdy, and perfectly shaped. Buy round pizza boxes online for round pizza packaging that keeps pizzas warm and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfect round shape for round pizzas",
+      "Heat-resistant materials for hot pizza",
+      "Sturdy construction for pizza protection",
+      "Custom printing for logos and brand identity",
+      "Eco-friendly and recyclable packaging materials",
+      "Classic round design for traditional pizzas",
+      "Perfect for pizzerias, restaurants, and food delivery services",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Corrugated Cardboard / Kraft (food-safe)",
+        },
+        {
+          label: "Structure",
+          value: "Round Pizza Box Style / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "Single-Wall / Double-Wall Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Matte / Gloss / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Outside / Inside / Both",
+        },
+        {
+          label: "Dimensions (Diameter × Height)",
+          value: "Custom sizes for round pizzas",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Round Pizza Boxes for Round Pizza Packaging",
+      paragraphs: [
+        "Our round pizza boxes are designed to keep round pizzas hot and fresh with classic round shape and heat-resistant materials. Built with sturdy corrugated cardboard and proper sizing, these boxes keep pizzas warm while creating an attractive presentation. Perfect for pizzerias, restaurants, and food delivery services, they combine functionality with classic round design.",
+        "At BoxyPack, we craft custom printed round pizza boxes that match your brand's personality and pizza needs. Whether you need boxes for small or large round pizzas, we tailor each box to ensure proper heat retention and attractive presentation. Add your logo, pizzeria information, and branding for a professional finish that customers appreciate.",
+        "As a round pizza boxes supplier, we deliver superior quality, heat-resistant materials, and classic round branding at competitive pricing that fits pizza businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Round Pizza Boxes",
+      [
+        {
+          question: "What are round pizza boxes used for?",
+          answer:
+            "They're used for packaging round pizzas with classic round box designs, perfect for pizzerias and restaurants.",
+        },
+        {
+          question: "Are these boxes heat-resistant?",
+          answer:
+            "Yes, our round pizza boxes are made from heat-resistant materials suitable for hot pizza packaging.",
+        },
+        {
+          question: "Can I customize round pizza boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for round pizza boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for round pizza boxes?",
+          answer:
+            "We provide round pizza boxes in various diameters to accommodate different round pizza sizes.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our round pizza boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Round Pizza Boxes",
+        eyebrow: "Round Pizza Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Classic Round Packaging for Pizzas",
+      description:
+        "Partner with BoxyPack to create round pizza boxes that protect your pizzas and showcase your brand. Our packaging experts ensure every box maintains quality and presents your hot round pizzas with style.",
+    },
+  },
+
+  // Subcategory: Rectangle Pizza Boxes
+  "rectangle-pizza-boxes": {
+    name: "Rectangle Pizza Boxes",
+    description:
+      "Versatile, sturdy, and perfectly shaped. Buy rectangle pizza boxes online for rectangular pizza packaging that keeps pizzas warm and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfect rectangular shape for rectangular pizzas",
+      "Heat-resistant materials for hot pizza",
+      "Sturdy construction for pizza protection",
+      "Custom printing for logos and brand identity",
+      "Eco-friendly and recyclable packaging materials",
+      "Versatile rectangular design for various pizza types",
+      "Perfect for pizzerias, restaurants, and food delivery services",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Corrugated Cardboard / Kraft (food-safe)",
+        },
+        {
+          label: "Structure",
+          value: "Rectangle Pizza Box Style / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "Single-Wall / Double-Wall Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Matte / Gloss / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Outside / Inside / Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for rectangular pizzas",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Rectangle Pizza Boxes for Rectangular Pizza Packaging",
+      paragraphs: [
+        "Our rectangle pizza boxes are designed to keep rectangular pizzas hot and fresh with versatile rectangular shape and heat-resistant materials. Built with sturdy corrugated cardboard and proper sizing, these boxes keep pizzas warm while creating an attractive presentation. Perfect for pizzerias, restaurants, and food delivery services, they combine functionality with versatile rectangular design.",
+        "At BoxyPack, we craft custom printed rectangle pizza boxes that match your brand's personality and pizza needs. Whether you need boxes for square pizzas or rectangular varieties, we tailor each box to ensure proper heat retention and attractive presentation. Add your logo, pizzeria information, and branding for a professional finish that customers appreciate.",
+        "As a rectangle pizza boxes supplier, we deliver superior quality, heat-resistant materials, and versatile rectangular branding at competitive pricing that fits pizza businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Rectangle Pizza Boxes",
+      [
+        {
+          question: "What are rectangle pizza boxes used for?",
+          answer:
+            "They're used for packaging rectangular and square pizzas with versatile rectangular box designs, perfect for pizzerias and restaurants.",
+        },
+        {
+          question: "Are these boxes heat-resistant?",
+          answer:
+            "Yes, our rectangle pizza boxes are made from heat-resistant materials suitable for hot pizza packaging.",
+        },
+        {
+          question: "Can I customize rectangle pizza boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for rectangle pizza boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for rectangle pizza boxes?",
+          answer:
+            "We provide rectangle pizza boxes in various sizes to accommodate different rectangular pizza dimensions.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our rectangle pizza boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Rectangle Pizza Boxes",
+        eyebrow: "Rectangle Pizza Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Versatile Rectangular Packaging for Pizzas",
+      description:
+        "Partner with BoxyPack to create rectangle pizza boxes that protect your pizzas and showcase your brand. Our packaging experts ensure every box maintains quality and presents your hot rectangular pizzas with style.",
+    },
+  },
+
+  // Subcategory: Flatbread Pizza Boxes
+  "flatbread-pizza-boxes": {
+    name: "Flatbread Pizza Boxes",
+    description:
+      "Perfectly sized, sturdy, and perfectly designed. Buy flatbread pizza boxes online for flatbread pizza packaging that keeps flatbreads warm and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for flatbread pizzas",
+      "Heat-resistant materials for hot flatbreads",
+      "Sturdy construction for flatbread protection",
+      "Custom printing for logos and brand identity",
+      "Eco-friendly and recyclable packaging materials",
+      "Thin profile design for flatbread pizzas",
+      "Perfect for pizzerias, restaurants, and food delivery services",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Corrugated Cardboard / Kraft (food-safe)",
+        },
+        {
+          label: "Structure",
+          value: "Flatbread Box Style / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "Single-Wall / Double-Wall Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Matte / Gloss / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Outside / Inside / Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for flatbread pizzas",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Flatbread Pizza Boxes for Flatbread Pizza Packaging",
+      paragraphs: [
+        "Our flatbread pizza boxes are designed to keep flatbread pizzas hot and fresh with thin profile design and heat-resistant materials. Built with sturdy corrugated cardboard and proper sizing, these boxes keep flatbreads warm while creating an attractive presentation. Perfect for pizzerias, restaurants, and food delivery services, they combine functionality with thin profile design.",
+        "At BoxyPack, we craft custom printed flatbread pizza boxes that match your brand's personality and flatbread needs. Whether you need boxes for small or large flatbreads, we tailor each box to ensure proper heat retention and attractive presentation. Add your logo, pizzeria information, and branding for a professional finish that customers appreciate.",
+        "As a flatbread pizza boxes supplier, we deliver superior quality, heat-resistant materials, and thin profile branding at competitive pricing that fits pizza businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Flatbread Pizza Boxes",
+      [
+        {
+          question: "What are flatbread pizza boxes used for?",
+          answer:
+            "They're used for packaging flatbread pizzas with thin profile box designs, perfect for pizzerias and restaurants.",
+        },
+        {
+          question: "Are these boxes heat-resistant?",
+          answer:
+            "Yes, our flatbread pizza boxes are made from heat-resistant materials suitable for hot flatbread packaging.",
+        },
+        {
+          question: "Can I customize flatbread pizza boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for flatbread pizza boxes wholesale.",
+        },
+        {
+          question: "What sizes are available for flatbread pizza boxes?",
+          answer:
+            "We provide flatbread pizza boxes in various sizes to accommodate different flatbread pizza dimensions.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our flatbread pizza boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Flatbread Pizza Boxes",
+        eyebrow: "Flatbread Pizza Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Perfect Fit for Flatbread Pizzas",
+      description:
+        "Partner with BoxyPack to create flatbread pizza boxes that protect your flatbreads and showcase your brand. Our packaging experts ensure every box maintains quality and presents your hot flatbread pizzas with style.",
+    },
+  },
+
+  // Subcategory: 16 Inch Pizza Boxes
+  "16-inch-pizza-boxes": {
+    name: "16 Inch Pizza Boxes",
+    description:
+      "Large, sturdy, and perfectly sized. Buy 16 inch pizza boxes online for large pizza packaging that keeps pizzas warm and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for 16-inch pizzas",
+      "Heat-resistant materials for hot pizza",
+      "Sturdy construction for large pizza protection",
+      "Custom printing for logos and brand identity",
+      "Eco-friendly and recyclable packaging materials",
+      "Large size for extra-large pizzas",
+      "Perfect for pizzerias, restaurants, and food delivery services",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Corrugated Cardboard / Kraft (food-safe)",
+        },
+        {
+          label: "Structure",
+          value: "16-Inch Pizza Box Style / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "Single-Wall / Double-Wall Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Matte / Gloss / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Outside / Inside / Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "16 × 16 × 2 (or custom)",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "16 Inch Pizza Boxes for Large Pizza Packaging",
+      paragraphs: [
+        "Our 16 inch pizza boxes are designed to keep large pizzas hot and fresh with proper sizing and heat-resistant materials. Built with sturdy corrugated cardboard and 16-inch dimensions, these boxes keep large pizzas warm while creating an attractive presentation. Perfect for pizzerias, restaurants, and food delivery services, they combine functionality with large size design.",
+        "At BoxyPack, we craft custom printed 16 inch pizza boxes that match your brand's personality and pizza needs. Whether you need boxes for standard 16-inch pizzas or custom sizes, we tailor each box to ensure proper heat retention and attractive presentation. Add your logo, pizzeria information, and branding for a professional finish that customers appreciate.",
+        "As a 16 inch pizza boxes supplier, we deliver superior quality, heat-resistant materials, and large size branding at competitive pricing that fits pizza businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "16 Inch Pizza Boxes",
+      [
+        {
+          question: "What are 16 inch pizza boxes used for?",
+          answer:
+            "They're used for packaging 16-inch pizzas with large box designs, perfect for pizzerias and restaurants.",
+        },
+        {
+          question: "Are these boxes heat-resistant?",
+          answer:
+            "Yes, our 16 inch pizza boxes are made from heat-resistant materials suitable for hot pizza packaging.",
+        },
+        {
+          question: "Can I customize 16 inch pizza boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for 16 inch pizza boxes wholesale.",
+        },
+        {
+          question: "Are these boxes suitable for extra-large pizzas?",
+          answer:
+            "Yes, our 16 inch pizza boxes are perfectly sized for 16-inch and extra-large pizzas.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our 16 inch pizza boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about 16 Inch Pizza Boxes",
+        eyebrow: "16 Inch Pizza Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Large Size Packaging for Big Pizzas",
+      description:
+        "Partner with BoxyPack to create 16 inch pizza boxes that protect your large pizzas and showcase your brand. Our packaging experts ensure every box maintains quality and presents your hot 16-inch pizzas with style.",
+    },
+  },
+
+  // Subcategory: 14 Inch Pizza Boxes
+  "14-inch-pizza-boxes": {
+    name: "14 Inch Pizza Boxes",
+    description:
+      "Medium-large, sturdy, and perfectly sized. Buy 14 inch pizza boxes online for medium-large pizza packaging that keeps pizzas warm and beautifully presented.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Perfectly sized for 14-inch pizzas",
+      "Heat-resistant materials for hot pizza",
+      "Sturdy construction for medium-large pizza protection",
+      "Custom printing for logos and brand identity",
+      "Eco-friendly and recyclable packaging materials",
+      "Medium-large size for large pizzas",
+      "Perfect for pizzerias, restaurants, and food delivery services",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Corrugated Cardboard / Kraft (food-safe)",
+        },
+        {
+          label: "Structure",
+          value: "14-Inch Pizza Box Style / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "Single-Wall / Double-Wall Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Matte / Gloss / Uncoated",
+        },
+        {
+          label: "Printing",
+          value: "Outside / Inside / Both",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "14 × 14 × 2 (or custom)",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "14 Inch Pizza Boxes for Medium-Large Pizza Packaging",
+      paragraphs: [
+        "Our 14 inch pizza boxes are designed to keep medium-large pizzas hot and fresh with proper sizing and heat-resistant materials. Built with sturdy corrugated cardboard and 14-inch dimensions, these boxes keep large pizzas warm while creating an attractive presentation. Perfect for pizzerias, restaurants, and food delivery services, they combine functionality with medium-large size design.",
+        "At BoxyPack, we craft custom printed 14 inch pizza boxes that match your brand's personality and pizza needs. Whether you need boxes for standard 14-inch pizzas or custom sizes, we tailor each box to ensure proper heat retention and attractive presentation. Add your logo, pizzeria information, and branding for a professional finish that customers appreciate.",
+        "As a 14 inch pizza boxes supplier, we deliver superior quality, heat-resistant materials, and medium-large size branding at competitive pricing that fits pizza businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "14 Inch Pizza Boxes",
+      [
+        {
+          question: "What are 14 inch pizza boxes used for?",
+          answer:
+            "They're used for packaging 14-inch pizzas with medium-large box designs, perfect for pizzerias and restaurants.",
+        },
+        {
+          question: "Are these boxes heat-resistant?",
+          answer:
+            "Yes, our 14 inch pizza boxes are made from heat-resistant materials suitable for hot pizza packaging.",
+        },
+        {
+          question: "Can I customize 14 inch pizza boxes with my brand logo?",
+          answer:
+            "Yes, BoxyPack offers full-color printing, custom designs, and branding for 14 inch pizza boxes wholesale.",
+        },
+        {
+          question: "Are these boxes suitable for large pizzas?",
+          answer:
+            "Yes, our 14 inch pizza boxes are perfectly sized for 14-inch and large pizzas.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our 14 inch pizza boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about 14 Inch Pizza Boxes",
+        eyebrow: "14 Inch Pizza Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Medium-Large Size Packaging for Pizzas",
+      description:
+        "Partner with BoxyPack to create 14 inch pizza boxes that protect your medium-large pizzas and showcase your brand. Our packaging experts ensure every box maintains quality and presents your hot 14-inch pizzas with style.",
+    },
+  },
+
+  // Subcategory: Blank Pizza Boxes
+  "blank-pizza-boxes": {
+    name: "Blank Pizza Boxes",
+    description:
+      "Versatile, sturdy, and ready for customization. Buy blank pizza boxes online for unprinted pizza packaging that you can customize with your own branding.",
+    heroImage: "products-box-img_x8vu4b",
+    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+    keyFeatures: [
+      "Unprinted blank surface for your customization",
+      "Heat-resistant materials for hot pizza",
+      "Sturdy construction for pizza protection",
+      "Ready for your own printing or labeling",
+      "Eco-friendly and recyclable packaging materials",
+      "Multiple sizes for various pizza sizes",
+      "Perfect for pizzerias, restaurants, and food delivery services",
+    ],
+    customization: {
+      details: [
+        {
+          label: "Material Type",
+          value: "Corrugated Cardboard / Kraft (food-safe)",
+        },
+        {
+          label: "Structure",
+          value: "Standard Pizza Box / Window Options",
+        },
+        {
+          label: "Thickness",
+          value: "Single-Wall / Double-Wall Corrugated",
+        },
+        {
+          label: "Finish",
+          value: "Uncoated / Matte / Ready for Printing",
+        },
+        {
+          label: "Printing",
+          value: "Blank / Ready for Your Printing",
+        },
+        {
+          label: "Dimensions (L × W × H)",
+          value: "Custom sizes for pizzas",
+        },
+        {
+          label: "Quantity",
+          value: "250 units (Bulk discounts available)",
+        },
+      ],
+    },
+    overview: {
+      heading: "Product Overview",
+      title: "Blank Pizza Boxes for Custom Pizza Packaging",
+      paragraphs: [
+        "Our blank pizza boxes are designed to keep pizzas hot and fresh with unprinted surfaces ready for your customization. Built with sturdy corrugated cardboard and proper sizing, these boxes keep pizzas warm while providing a blank canvas for your branding. Perfect for pizzerias, restaurants, and food delivery services, they combine functionality with customization flexibility.",
+        "At BoxyPack, we craft blank pizza boxes that match your pizza needs and provide unprinted surfaces for your own branding. Whether you need boxes for whole pizzas or slices, we tailor each box to ensure proper heat retention and attractive presentation. Add your own logo, pizzeria information, and branding using your preferred printing method.",
+        "As a blank pizza boxes supplier, we deliver superior quality, heat-resistant materials, and blank surfaces at competitive pricing that fits pizza businesses of all sizes.",
+      ],
+    },
+    faq: buildFaq(
+      "Blank Pizza Boxes",
+      [
+        {
+          question: "What are blank pizza boxes used for?",
+          answer:
+            "They're used for packaging hot pizzas with unprinted box designs that you can customize with your own branding, perfect for pizzerias and restaurants.",
+        },
+        {
+          question: "Are these boxes heat-resistant?",
+          answer:
+            "Yes, our blank pizza boxes are made from heat-resistant materials suitable for hot pizza packaging.",
+        },
+        {
+          question: "Can I print on blank pizza boxes myself?",
+          answer:
+            "Yes, our blank pizza boxes are designed with surfaces ready for your own printing or labeling methods.",
+        },
+        {
+          question: "What sizes are available for blank pizza boxes?",
+          answer:
+            "We provide blank pizza boxes in various sizes to accommodate different pizza sizes, from small to extra-large.",
+        },
+        {
+          question: "Do you offer bulk pricing?",
+          answer:
+            "Yes, our blank pizza boxes wholesale supplier program includes bulk discounts.",
+        },
+      ],
+      {
+        heading: "Questions about Blank Pizza Boxes",
+        eyebrow: "Blank Pizza Box FAQs",
+      }
+    ),
+    cta: {
+      title: "Blank Canvas for Your Branding",
+      description:
+        "Partner with BoxyPack to create blank pizza boxes that protect your pizzas and provide a canvas for your own branding. Our packaging experts ensure every box maintains quality and presents your hot pizzas with style.",
     },
   },
 
