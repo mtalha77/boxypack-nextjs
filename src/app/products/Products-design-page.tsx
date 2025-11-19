@@ -43,7 +43,7 @@ const ProductsDesignPage: React.FC<ProductPageProps> = ({ productData }) => {
       <HeroSection productData={productData} />
       <CustomDimensionsForm initialProductSlug={productData.slug} />
       {/* <ProductGallery /> */}
-      <FeaturesSection productData={productData} />
+      <FeaturesSection productData={{ ...productData, slug: productData.slug || "" }} />
       {/* <SpecificationsSection productData={productData} */}
 
       {/* Related Products Section */}

@@ -301,8 +301,8 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
           const mappedSlug = mapSlugToOurRangeOfData(targetSlug);
           const rangeOfData = ourRangeOfData[mappedSlug];
           
-          if (rangeOfData?.text) {
-            mappedProduct.description = cleanMarkdown(rangeOfData.text);
+          if (rangeOfData?.description) {
+            mappedProduct.description = cleanMarkdown(rangeOfData.description);
           }
           
           setDbProduct(mappedProduct);
@@ -355,8 +355,8 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
       const mappedSlug = mapSlugToOurRangeOfData(targetSlug);
       const rangeOfData = ourRangeOfData[mappedSlug];
       
-      if (rangeOfData?.text) {
-        mapped.description = cleanMarkdownInline(rangeOfData.text);
+      if (rangeOfData?.description) {
+        mapped.description = cleanMarkdownInline(rangeOfData.description);
       }
       
       return mapped;
@@ -377,8 +377,8 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
     if (pageType === "subcategory" && subcategory) {
       const mappedSubSlug = mapSlugToOurRangeOfData(subcategory.slug);
       const rangeOfSubData = ourRangeOfData[mappedSubSlug];
-      if (rangeOfSubData?.text) {
-        fallbackDesc = cleanMarkdown(rangeOfSubData.text);
+      if (rangeOfSubData?.description) {
+        fallbackDesc = cleanMarkdown(rangeOfSubData.description);
       } else {
         fallbackDesc = subcategory.description || category?.description || section?.description || "Explore our curated selection of products crafted for your brand.";
       }
@@ -386,8 +386,8 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
       // For category/section pages, try OurRangeOfData first
       const mappedSlug = mapSlugToOurRangeOfData(slug);
       const rangeOfData = ourRangeOfData[mappedSlug];
-      if (rangeOfData?.text) {
-        fallbackDesc = cleanMarkdown(rangeOfData.text);
+      if (rangeOfData?.description) {
+        fallbackDesc = cleanMarkdown(rangeOfData.description);
       } else {
         fallbackDesc = category?.description || section?.description || "Explore our curated selection of products crafted for your brand.";
       }
@@ -470,10 +470,10 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
     const rangeOfData = ourRangeOfData[mappedSlug];
     
     // ALWAYS use OurRangeOfData text if available, overriding any description from database/productPagesData
-    if (rangeOfData?.text) {
+    if (rangeOfData?.description) {
       productInfo = {
         ...productInfo,
-        description: cleanMarkdown(rangeOfData.text),
+        description: cleanMarkdown(rangeOfData.description),
       };
     }
   }

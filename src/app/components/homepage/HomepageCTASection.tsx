@@ -28,7 +28,7 @@ const HomepageCTASection: React.FC = () => {
 
           {/* Description */}
           <p className="text-lg md:text-xl leading-8 text-white/90 max-w-2xl mx-auto">
-            Let's turn your product into something unforgettable. Our team is here to design, print, and deliver boxes that fit your brand perfectly.
+            Lets turn your product into something unforgettable. Our team is here to design, print, and deliver boxes that fit your brand perfectly.
           </p>
 
           {/* CTA Buttons */}
