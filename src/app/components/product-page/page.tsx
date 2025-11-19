@@ -22,7 +22,10 @@ import ProductOverview from "./ProductOverview";
 import ProductCustomization from "./ProductCustomization";
 import ProductKeyFeatures from "./ProductKeyFeatures";
 import ProductFAQSection from "./ProductFAQSection";
+import CategoryIntroSection from "./CategoryIntroSection";
+import CategoryMaterialSection from "./CategoryMaterialSection";
 import ComingSoon from "../ComingSoon";
+import { ourRangeOfData } from "../../data/OurRangeOfData";
 
 type EnrichedProduct = NonNullable<
   Awaited<ReturnType<typeof getProductDataBySlug>>
@@ -145,6 +148,137 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
     setIsMounted(true);
   }, []);
 
+  // Helper function to map data file slugs to OurRangeOfData slugs (defined early so it can be used in useEffect)
+  const mapSlugToOurRangeOfData = React.useCallback((slug: string): string => {
+    if (!slug) return slug;
+    
+    // Try exact match first
+    if (ourRangeOfData[slug]) {
+      return slug;
+    }
+    
+    // Comprehensive slug mapping
+    const slugMappings: Record<string, string> = {
+      'magnetic-closure-rigid-box': 'magnetic-closure-boxes',
+      'sliding-sleeve-rigid-boxes-match-style-boxes': 'sliding-rigid-boxes',
+      'brief-case-style': 'briefcase-style-rigid-boxes',
+      'kraft-mailer-box': 'kraft-mailer-boxes',
+      'kraft-box-with-lid': 'kraft-boxes-with-lids',
+      'kraft-pillow-box': 'kraft-pillow-boxes',
+      'kraft-gable-box': 'kraft-gable-boxes',
+      'kraft-bakery-cake-box': 'kraft-bakery-boxes',
+      'kraft-sleeve-box': 'kraft-sleeve-boxes',
+      'kraft-tuck-end-box': 'kraft-tuck-end-boxes',
+      'kraft-five-panel-hanger-box': 'kraft-five-panel-hanger-boxes',
+      'kraft-side-lock-six-corner-box': 'kraft-six-corner-boxes',
+      'kraft-regular-six-corner-box': 'kraft-six-corner-boxes-2',
+      'kraft-seal-end-auto-bottom-box': 'kraft-seal-end-auto-bottom-boxes',
+      'kraft-single-wall-auto-bottom-tray': 'kraft-auto-bottom-trays',
+      'kraft-two-piece-box': 'kraft-two-piece-boxes',
+      'kraft-cigarette-box': 'kraft-cigarette-boxes',
+      'kraft-bookend-box': 'kraft-bookend-boxes',
+      'kraft-dispenser-box': 'kraft-dispenser-boxes',
+      'kraft-double-wall-frame-tray': 'kraft-double-wall-trays',
+      'cardboard-display-box': 'cardboard-display-boxes',
+      'cardboard-tuck-end-box': 'cardboard-tuck-end-boxes',
+      'cardboard-box-with-lid': 'cardboard-boxes-with-lids',
+      'cardboard-gable-box': 'cardboard-gable-boxes',
+      'cardboard-cake-bakery-box': 'cake-and-bakery-boxes',
+      'cardboard-sleeve-box': 'cardboard-sleeve-boxes',
+      'cardboard-dispenser-box': 'cardboard-dispenser-boxes',
+      'cardboard-five-panel-hanger': 'cardboard-five-panel-hanger-boxes',
+      'cardboard-double-locked-wall-lid-box': 'cardboard-double-locked-wall-lid-boxes',
+      'cardboard-side-lock-six-corner-box': 'cardboard-side-lock-six-corner-boxes',
+      'cardboard-regular-six-corner-box': 'cardboard-regular-six-corner-boxes',
+      'cardboard-seal-end-auto-bottom-box': 'cardboard-seal-end-auto-bottom-boxes',
+      'cardboard-auto-bottom-tray': 'cardboard-auto-bottom-trays',
+      'cardboard-two-piece-box': 'cardboard-two-piece-boxes',
+      'cardboard-cigarette-box': 'cardboard-cigarette-boxes',
+      'cardboard-bookend-box': 'cardboard-bookend-boxes',
+      'cardboard-double-wall-frame-tray': 'cardboard-double-wall-frame-trays',
+      'corrugated-mailer-box': 'corrugated-mailer-boxes',
+      'corrugated-gable-box': 'corrugated-gable-boxes',
+      'corrugated-double-locked-wall-lid-box': 'corrugated-double-locked-wall-lid-boxes',
+      'corrugated-seal-end-auto-bottom-box': 'corrugated-seal-end-auto-bottom-boxes',
+      'corrugated-auto-bottom-tray': 'corrugated-auto-bottom-trays',
+      'corrugated-two-piece-box': 'corrugated-two-piece-boxes',
+      'corrugated-brief-case-style-box': 'corrugated-brief-case-style-boxes',
+      'corrugated-full-flap-shipping-box': 'corrugated-full-flap-shipping-boxes',
+      'stand-up-pouche': 'stand-up-pouches',
+      'zipper-bag': 'zipper-bags',
+      'window-bag': 'window-bags',
+      'kraft-shopping-bag': 'kraft-shopping-bags',
+      'paper-bag': 'paper-bags',
+      'pvc-bag': 'pvc-bags',
+      'custom-perfume-boxes': 'perfume-boxes',
+      'custom-makeup-boxes': 'makeup-boxes',
+      'custom-lipstick-boxes': 'lipstick-boxes',
+      'custom-lip-gloss-boxes': 'lip-gloss-boxes',
+      'custom-eye-shadow-boxes': 'eye-shadow-boxes',
+      'custom-cream-boxes': 'cream-boxes',
+      'custom-french-fry-boxes': 'french-fry-boxes',
+      'custom-coffee-boxes': 'coffee-packaging-boxes',
+      'custom-coffee-cups': 'custom-coffee-cups',
+      'custom-coffee-cup-sleeves': 'coffee-cup-sleeves',
+      'custom-noodle-boxes': 'noodle-boxes',
+      'custom-chinese-takeout-boxes': 'chinese-takeout-boxes',
+      'custom-popcorn-boxes': 'popcorn-boxes',
+      'custom-snack-boxes': 'snack-boxes',
+      'custom-tea-boxes': 'tea-boxes',
+      'custom-burger-boxes': 'burger-boxes',
+      'custom-jar-candle-boxes': 'jar-candle-boxes',
+      'shipping-boxes-industry': 'shipping-boxes',
+      'soap-boxes-industry': 'soap-boxes',
+      'cigarette-boxes-industry': 'cigarette-boxes',
+      'pre-roll-boxes-industry': 'pre-roll-boxes',
+      'sweet-gift-boxes-industry': 'sweet-gift-boxes',
+      'candle-shipping-boxes-industry': 'candle-shipping-boxes',
+      'kraft-pillow-soap-boxes-industry': 'kraft-pillow-soap-boxes',
+      'tshirt-boxes': 't-shirt-boxes',
+      'tags-printing': 'printed-tags',
+      'product-labels-bottle-labels': 'products-bottle-labels',
+      'packing-tape': 'packing-tape',
+    };
+    
+    if (slugMappings[slug]) {
+      return slugMappings[slug];
+    }
+    
+    // Try common variations
+    if (slug.endsWith('-box') && !slug.endsWith('-boxes')) {
+      const pluralSlug = slug.replace(/-box$/, '-boxes');
+      if (ourRangeOfData[pluralSlug]) {
+        return pluralSlug;
+      }
+    }
+    
+    if (slug.endsWith('-bag') && !slug.endsWith('-bags')) {
+      const pluralSlug = slug.replace(/-bag$/, '-bags');
+      if (ourRangeOfData[pluralSlug]) {
+        return pluralSlug;
+      }
+    }
+    
+    if (slug.endsWith('-pouche') && !slug.endsWith('-pouches')) {
+      const pluralSlug = slug.replace(/-pouche$/, '-pouches');
+      if (ourRangeOfData[pluralSlug]) {
+        return pluralSlug;
+      }
+    }
+    
+    return slug;
+  }, []);
+
+  // Helper function to clean markdown formatting
+  const cleanMarkdown = React.useCallback((text: string): string => {
+    if (!text) return text;
+    return text
+      .replace(/\*\*/g, '') // Remove bold markdown **
+      .replace(/\s*\*\s*/g, ' ') // Remove asterisks with surrounding spaces
+      .replace(/\s+/g, ' ') // Replace multiple spaces with single space
+      .trim();
+  }, []);
+
   // Try to fetch product from database
   React.useEffect(() => {
     const fetchProductFromDB = async () => {
@@ -152,7 +286,26 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
         setDbLoading(true);
         const product = await getProductDataBySlug(slug);
         if (product) {
-          setDbProduct(mapEnrichedToProduct(product));
+          const mappedProduct = mapEnrichedToProduct(product);
+          
+          // Override description with OurRangeOfData immediately after mapping
+          let targetSlug = slug;
+          if (pageType === "subcategory" && subcategory) {
+            targetSlug = subcategory.slug;
+          } else if (pageType === "category" && category) {
+            targetSlug = category.slug;
+          } else if (pageType === "section" && section) {
+            targetSlug = section.slug;
+          }
+          
+          const mappedSlug = mapSlugToOurRangeOfData(targetSlug);
+          const rangeOfData = ourRangeOfData[mappedSlug];
+          
+          if (rangeOfData?.text) {
+            mappedProduct.description = cleanMarkdown(rangeOfData.text);
+          }
+          
+          setDbProduct(mappedProduct);
         }
       } catch (error) {
         console.warn("Failed to fetch product from database:", error);
@@ -164,33 +317,81 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
     if (isMounted) {
       fetchProductFromDB();
     }
-  }, [slug, isMounted]);
+  }, [slug, isMounted, pageType, subcategory, category, section, mapSlugToOurRangeOfData, cleanMarkdown]);
 
   // Get product data if it exists in the legacy data structure
   const legacyProductData = productData[slug as keyof typeof productData];
 
+  // Helper function to clean markdown formatting
+  const cleanMarkdownInline = (text: string): string => {
+    if (!text) return text;
+    return text
+      .replace(/\*\*/g, '') // Remove bold markdown **
+      .replace(/\s*\*\s*/g, ' ') // Remove asterisks with surrounding spaces
+      .replace(/\s+/g, ' ') // Replace multiple spaces with single space
+      .trim();
+  };
+
   // Create dynamic product data based on the navigation structure
+  // Note: We ALWAYS override descriptions with OurRangeOfData, so productPagesData descriptions are ignored
   const getProductData = (): Product | null => {
     if (dbProduct) {
       return dbProduct;
     }
 
     if (legacyProductData) {
-      return mapEnrichedToProduct(legacyProductData);
+      const mapped = mapEnrichedToProduct(legacyProductData);
+      
+      // Override description with OurRangeOfData immediately
+      let targetSlug = slug;
+      if (pageType === "subcategory" && subcategory) {
+        targetSlug = subcategory.slug;
+      } else if (pageType === "category" && category) {
+        targetSlug = category.slug;
+      } else if (pageType === "section" && section) {
+        targetSlug = section.slug;
+      }
+      
+      const mappedSlug = mapSlugToOurRangeOfData(targetSlug);
+      const rangeOfData = ourRangeOfData[mappedSlug];
+      
+      if (rangeOfData?.text) {
+        mapped.description = cleanMarkdownInline(rangeOfData.text);
+      }
+      
+      return mapped;
     }
 
     return null;
   };
+
 
   let productInfo = getProductData();
   // If no explicit product content, but we have a category/section with subcategories (e.g., Bakery/Jewelry/Soap),
   // synthesize a minimal product object so the page renders instead of "Coming Soon".
   if (!productInfo && (category || section)) {
     const fallbackName = category?.name || section?.name || "Products";
-    const fallbackDesc =
-      category?.description ||
-      section?.description ||
-      "Explore our curated selection of products crafted for your brand.";
+    
+    // For subcategory pages, use OurRangeOfData text if available
+    let fallbackDesc: string;
+    if (pageType === "subcategory" && subcategory) {
+      const mappedSubSlug = mapSlugToOurRangeOfData(subcategory.slug);
+      const rangeOfSubData = ourRangeOfData[mappedSubSlug];
+      if (rangeOfSubData?.text) {
+        fallbackDesc = cleanMarkdown(rangeOfSubData.text);
+      } else {
+        fallbackDesc = subcategory.description || category?.description || section?.description || "Explore our curated selection of products crafted for your brand.";
+      }
+    } else {
+      // For category/section pages, try OurRangeOfData first
+      const mappedSlug = mapSlugToOurRangeOfData(slug);
+      const rangeOfData = ourRangeOfData[mappedSlug];
+      if (rangeOfData?.text) {
+        fallbackDesc = cleanMarkdown(rangeOfData.text);
+      } else {
+        fallbackDesc = category?.description || section?.description || "Explore our curated selection of products crafted for your brand.";
+      }
+    }
     const fallbackHero =
       (category as CategoryWithOptionalProps)?.image ||
       (section as SectionWithOptionalProps)?.image ||
@@ -244,6 +445,37 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
   // Add a type guard to satisfy TypeScript
   if (!productInfo) {
     return <ComingSoon />;
+  }
+
+  // ALWAYS override description with OurRangeOfData if available (for ALL products)
+  // This ensures we NEVER use descriptions from productPagesData - only OurRangeOfData
+  if (productInfo) {
+    let targetSlug = slug;
+    
+    // For subcategory pages, use subcategory slug (most specific)
+    if (pageType === "subcategory" && subcategory) {
+      targetSlug = subcategory.slug;
+    }
+    // For category pages, use category slug
+    else if (pageType === "category" && category) {
+      targetSlug = category.slug;
+    }
+    // For section pages, use section slug
+    else if (pageType === "section" && section) {
+      targetSlug = section.slug;
+    }
+    
+    // Map slug to OurRangeOfData
+    const mappedSlug = mapSlugToOurRangeOfData(targetSlug);
+    const rangeOfData = ourRangeOfData[mappedSlug];
+    
+    // ALWAYS use OurRangeOfData text if available, overriding any description from database/productPagesData
+    if (rangeOfData?.text) {
+      productInfo = {
+        ...productInfo,
+        description: cleanMarkdown(rangeOfData.text),
+      };
+    }
   }
 
   const keyFeatures = productInfo.keyFeatures ?? [];
@@ -332,8 +564,20 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
         {/* Product Overview */}
         <ProductOverview productData={productInfo} />
 
-        {/* Customization Details */}
-        <ProductCustomization productData={productInfo} />
+        {/* Category Intro Section - Only show on main category pages */}
+        {pageType === "category" && (
+          <CategoryIntroSection category={category} slug={slug} />
+        )}
+
+        {/* Category Material Section - Only show on main category pages */}
+        {pageType === "category" && (
+          <CategoryMaterialSection category={category} slug={slug} />
+        )}
+
+        {/* Customization Details - Exclude on category pages */}
+        {pageType !== "category" && (
+          <ProductCustomization productData={productInfo} />
+        )}
 
         {/* Subcategory Cards Section */}
         {shouldRenderSubcategories && (

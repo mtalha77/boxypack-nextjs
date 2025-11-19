@@ -4,6 +4,8 @@ import React, { useState, useRef } from 'react';
 import Link from 'next/link';
 import { CldImage } from 'next-cloudinary';
 import { SubCategory } from '../../data/navigationData';
+import { ourRangeOfData } from '../../data/OurRangeOfData';
+import { whyChooseUsData } from '../../data/whyChooseUsData';
 
 interface CustomSubcategoryCard {
   name: string;
@@ -47,6 +49,155 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
   const customHeading = customCards?.heading;
   const customDescription = customCards?.description;
   
+  // Helper function to map data file slugs to OurRangeOfData slugs
+  const mapSlugToOurRangeOfData = (slug: string): string => {
+    if (!slug) return slug;
+    
+    // Try exact match first
+    if (ourRangeOfData[slug]) {
+      return slug;
+    }
+    
+    // Comprehensive slug mapping
+    const slugMappings: Record<string, string> = {
+      // Rigid boxes subcategories
+      'magnetic-closure-rigid-box': 'magnetic-closure-boxes',
+      'sliding-sleeve-rigid-boxes-match-style-boxes': 'sliding-rigid-boxes',
+      'brief-case-style': 'briefcase-style-rigid-boxes',
+      // Kraft boxes subcategories
+      'kraft-mailer-box': 'kraft-mailer-boxes',
+      'kraft-box-with-lid': 'kraft-boxes-with-lids',
+      'kraft-pillow-box': 'kraft-pillow-boxes',
+      'kraft-gable-box': 'kraft-gable-boxes',
+      'kraft-bakery-cake-box': 'kraft-bakery-boxes',
+      'kraft-sleeve-box': 'kraft-sleeve-boxes',
+      'kraft-tuck-end-box': 'kraft-tuck-end-boxes',
+      'kraft-five-panel-hanger-box': 'kraft-five-panel-hanger-boxes',
+      'kraft-side-lock-six-corner-box': 'kraft-six-corner-boxes',
+      'kraft-regular-six-corner-box': 'kraft-six-corner-boxes-2',
+      'kraft-seal-end-auto-bottom-box': 'kraft-seal-end-auto-bottom-boxes',
+      'kraft-single-wall-auto-bottom-tray': 'kraft-auto-bottom-trays',
+      'kraft-two-piece-box': 'kraft-two-piece-boxes',
+      'kraft-cigarette-box': 'kraft-cigarette-boxes',
+      'kraft-bookend-box': 'kraft-bookend-boxes',
+      'kraft-dispenser-box': 'kraft-dispenser-boxes',
+      'kraft-double-wall-frame-tray': 'kraft-double-wall-trays',
+      // Cardboard boxes subcategories
+      'cardboard-display-box': 'cardboard-display-boxes',
+      'cardboard-tuck-end-box': 'cardboard-tuck-end-boxes',
+      'cardboard-box-with-lid': 'cardboard-boxes-with-lids',
+      'cardboard-gable-box': 'cardboard-gable-boxes',
+      'cardboard-cake-bakery-box': 'cake-and-bakery-boxes',
+      'cardboard-sleeve-box': 'cardboard-sleeve-boxes',
+      'cardboard-dispenser-box': 'cardboard-dispenser-boxes',
+      'cardboard-five-panel-hanger': 'cardboard-five-panel-hanger-boxes',
+      'cardboard-double-locked-wall-lid-box': 'cardboard-double-locked-wall-lid-boxes',
+      'cardboard-side-lock-six-corner-box': 'cardboard-side-lock-six-corner-boxes',
+      'cardboard-regular-six-corner-box': 'cardboard-regular-six-corner-boxes',
+      'cardboard-seal-end-auto-bottom-box': 'cardboard-seal-end-auto-bottom-boxes',
+      'cardboard-auto-bottom-tray': 'cardboard-auto-bottom-trays',
+      'cardboard-two-piece-box': 'cardboard-two-piece-boxes',
+      'cardboard-cigarette-box': 'cardboard-cigarette-boxes',
+      'cardboard-bookend-box': 'cardboard-bookend-boxes',
+      'cardboard-double-wall-frame-tray': 'cardboard-double-wall-frame-trays',
+      // Corrugated boxes subcategories
+      'corrugated-mailer-box': 'corrugated-mailer-boxes',
+      'corrugated-gable-box': 'corrugated-gable-boxes',
+      'corrugated-double-locked-wall-lid-box': 'corrugated-double-locked-wall-lid-boxes',
+      'corrugated-seal-end-auto-bottom-box': 'corrugated-seal-end-auto-bottom-boxes',
+      'corrugated-auto-bottom-tray': 'corrugated-auto-bottom-trays',
+      'corrugated-two-piece-box': 'corrugated-two-piece-boxes',
+      'corrugated-brief-case-style-box': 'corrugated-brief-case-style-boxes',
+      'corrugated-full-flap-shipping-box': 'corrugated-full-flap-shipping-boxes',
+      // Mylar boxes
+      'stand-up-pouche': 'stand-up-pouches',
+      'zipper-bag': 'zipper-bags',
+      'window-bag': 'window-bags',
+      // Shopping bags
+      'kraft-shopping-bag': 'kraft-shopping-bags',
+      'paper-bag': 'paper-bags',
+      'pvc-bag': 'pvc-bags',
+      // Industry subcategories
+      'custom-perfume-boxes': 'perfume-boxes',
+      'custom-makeup-boxes': 'makeup-boxes',
+      'custom-lipstick-boxes': 'lipstick-boxes',
+      'custom-lip-gloss-boxes': 'lip-gloss-boxes',
+      'custom-eye-shadow-boxes': 'eye-shadow-boxes',
+      'custom-cream-boxes': 'cream-boxes',
+      'custom-french-fry-boxes': 'french-fry-boxes',
+      'custom-coffee-boxes': 'coffee-packaging-boxes',
+      'custom-coffee-cups': 'custom-coffee-cups',
+      'custom-coffee-cup-sleeves': 'coffee-cup-sleeves',
+      'custom-noodle-boxes': 'noodle-boxes',
+      'custom-chinese-takeout-boxes': 'chinese-takeout-boxes',
+      'custom-popcorn-boxes': 'popcorn-boxes',
+      'custom-snack-boxes': 'snack-boxes',
+      'custom-tea-boxes': 'tea-boxes',
+      'custom-burger-boxes': 'burger-boxes',
+      'custom-jar-candle-boxes': 'jar-candle-boxes',
+      'shipping-boxes-industry': 'shipping-boxes',
+      'soap-boxes-industry': 'soap-boxes',
+      'cigarette-boxes-industry': 'cigarette-boxes',
+      'pre-roll-boxes-industry': 'pre-roll-boxes',
+      'sweet-gift-boxes-industry': 'sweet-gift-boxes',
+      'candle-shipping-boxes-industry': 'candle-shipping-boxes',
+      'kraft-pillow-soap-boxes-industry': 'kraft-pillow-soap-boxes',
+      'tshirt-boxes': 't-shirt-boxes',
+      'tags-printing': 'printed-tags',
+      'product-labels-bottle-labels': 'products-bottle-labels',
+      'packing-tape': 'packing-tape',
+    };
+    
+    // Check if there's a direct mapping
+    if (slugMappings[slug]) {
+      return slugMappings[slug];
+    }
+    
+    // Try common variations
+    if (slug.endsWith('-box') && !slug.endsWith('-boxes')) {
+      const pluralSlug = slug.replace(/-box$/, '-boxes');
+      if (ourRangeOfData[pluralSlug]) {
+        return pluralSlug;
+      }
+    }
+    
+    if (slug.endsWith('-bag') && !slug.endsWith('-bags')) {
+      const pluralSlug = slug.replace(/-bag$/, '-bags');
+      if (ourRangeOfData[pluralSlug]) {
+        return pluralSlug;
+      }
+    }
+    
+    if (slug.endsWith('-pouche') && !slug.endsWith('-pouches')) {
+      const pluralSlug = slug.replace(/-pouche$/, '-pouches');
+      if (ourRangeOfData[pluralSlug]) {
+        return pluralSlug;
+      }
+    }
+    
+    // Return original slug if no mapping found
+    return slug;
+  };
+  
+  // Get heading and description from whyChooseUsData if available
+  const whyChooseUsContent = whyChooseUsData[parentCategorySlug];
+  const whyChooseUsDescription = whyChooseUsContent?.heading;
+  
+  // Get description from OurRangeOfData if available
+  const mappedParentSlug = mapSlugToOurRangeOfData(parentCategorySlug);
+  const rangeOfData = ourRangeOfData[mappedParentSlug];
+  const rangeOfDescription = rangeOfData?.description;
+  
+  // Helper function to remove markdown asterisks and formatting
+  const cleanMarkdown = (text: string): string => {
+    if (!text) return text;
+    return text
+      .replace(/\*\*/g, '') // Remove bold markdown **
+      .replace(/\s*\*\s*/g, ' ') // Remove asterisks with surrounding spaces
+      .replace(/\s+/g, ' ') // Replace multiple spaces with single space
+      .trim();
+  };
+  
   // Calculate card width based on screen size - must be called before early returns
   React.useEffect(() => {
     const updateCardWidth = () => {
@@ -89,14 +240,42 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
   };
   
   const cardItems: CustomSubcategoryCard[] = customCards?.items?.length
-    ? customCards.items
-    : subcategories.map(sub => ({
-        name: sub.name,
-        slug: sub.slug,
-        description: sub.description || `Premium ${sub.name.toLowerCase()} packaging solutions designed for optimal protection and presentation.`,
-        image: sub.images && sub.images.length > 0 ? sub.images[0] : 'products-box-img_x8vu4b',
-        href: buildHref(sub.slug)
-      }));
+    ? customCards.items.map(card => {
+        // Apply OurRangeOfData to custom cards if available
+        const mappedCardSlug = mapSlugToOurRangeOfData(card.slug);
+        const rangeOfCardData = ourRangeOfData[mappedCardSlug];
+        const description = rangeOfCardData?.description 
+          ? cleanMarkdown(rangeOfCardData.description)
+          : card.description;
+        
+        return {
+          ...card,
+          description
+        };
+      })
+    : subcategories.map(sub => {
+        // Priority: 1. OurRangeOfData description (with slug mapping), 2. sub.description, 3. default
+        const mappedSubSlug = mapSlugToOurRangeOfData(sub.slug);
+        const rangeOfSubData = ourRangeOfData[mappedSubSlug];
+        
+        // Always prefer OurRangeOfData description if found
+        let rawSubDescription: string;
+        if (rangeOfSubData?.description) {
+          rawSubDescription = rangeOfSubData.description;
+        } else if (sub.description) {
+          rawSubDescription = sub.description;
+        } else {
+          rawSubDescription = `Premium ${sub.name.toLowerCase()} packaging solutions designed for optimal protection and presentation.`;
+        }
+        
+        return {
+          name: sub.name,
+          slug: sub.slug,
+          description: cleanMarkdown(rawSubDescription),
+          image: sub.images && sub.images.length > 0 ? sub.images[0] : 'products-box-img_x8vu4b',
+          href: buildHref(sub.slug)
+        };
+      });
   
   if (!cardItems || cardItems.length === 0) {
     return null;
@@ -136,8 +315,10 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
     }
   };
 
+  // Priority: 1. customCards, 2. whyChooseUsData heading, 3. OurRangeOfData, 4. default
   const headingText = customHeading || `Our Range of ${parentCategoryName}`;
-  const descriptionText = customDescription || `Explore our comprehensive range of ${parentCategoryName.toLowerCase()} packaging solutions. Each category is designed to meet specific industry needs and requirements.`;
+  const rawDescriptionText = customDescription || whyChooseUsDescription || rangeOfDescription || `Explore our comprehensive range of ${parentCategoryName.toLowerCase()} packaging solutions. Each category is designed to meet specific industry needs and requirements.`;
+  const descriptionText = cleanMarkdown(rawDescriptionText);
 
   return (
     <section className={`py-24 bg-white ${className}`}>

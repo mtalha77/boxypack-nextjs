@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+import ProgressSteps from "./components/HowItWorks/ProgressSteps";
 
 // Dynamically import components that use CldImage to prevent SSR issues
 const BoxDesignGallery = dynamic(
@@ -32,6 +33,10 @@ const CTASection = dynamic(
   () => import("./components/product-page/CTASection"),
   { ssr: false }
 );
+const HomepageCTASection = dynamic(
+  () => import("./components/homepage/HomepageCTASection"),
+  { ssr: false }
+);
 const ComingSoon = dynamic(() => import("./components/ComingSoon"), {
   ssr: false,
 });
@@ -41,6 +46,14 @@ const ScrollVideoSection = dynamic(
 );
 const CustomDimensionsForm = dynamic(
   () => import("./components/CustomDimensionsForm"),
+  { ssr: false }
+);
+const HowItWorks = dynamic(
+  () => import("./components/homepage/how-it-works"),
+  { ssr: false }
+);
+const WhyChooseUs = dynamic(
+  () => import("./components/homepage/why-choose-us"),
   { ssr: false }
 );
 
@@ -67,13 +80,16 @@ const HomePage = () => {
       <CustomDimensionsForm />
       <ScrollVideoSection />
       <BoxDesignGallery />
+      <HowItWorks />
+      
       {/* <VideoSection /> */}
       <ProductByMaterialCarousel />
       <ProductByIndustryCarousel />
+      <WhyChooseUs />
 
       <MoreThanPackage />
       <FAQ />
-      <CTASection />
+      <HomepageCTASection />
     </div>
   );
 };

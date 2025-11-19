@@ -179,10 +179,10 @@ const ProductByIndustryCarousel: React.FC = () => {
 
         {/* Cards Container */}
         <div className="w-full mb-8 overflow-hidden">
-          <div className={isMobile ? "px-4" : "md:px-0"}>
+          <div className={isMobile ? "pl-4 pr-4" : "max-w-7xl mx-auto"}>
             <div
               ref={cardsContainerRef}
-              className="flex transition-transform duration-500 ease-in-out md:justify-center"
+              className="flex transition-transform duration-500 ease-in-out pl-4 md:pl-4"
               style={{
                 transform: isMobile 
                   ? `translateX(-${currentIndex * (cardWidth + gap)}px)`

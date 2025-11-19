@@ -3,9 +3,11 @@
 import React from "react";
 import { Check, Star, Truck, Shield, Palette } from "lucide-react";
 import LightBlueBackground from "../../UI/LightBlueBackground";
+import { whyChooseUsData } from "../../data/whyChooseUsData";
 
 interface FeaturesSectionProps {
   productData: {
+    slug: string;
     name: string;
     whyChooseUs?: {
       eyebrow?: string;
@@ -34,18 +36,22 @@ const iconLookup: Record<string, React.ReactNode> = {
 };
 
 const FeaturesSection: React.FC<FeaturesSectionProps> = ({ productData }) => {
-  const whyChooseUs = productData.whyChooseUs || {};
+  // First, check if there's data from the data file by slug
+  const slug = productData.slug;
+  const dataFileContent = slug ? whyChooseUsData[slug] : null;
+  
+  // Use data file content if available, otherwise fall back to productData.whyChooseUs, then defaults
+  const whyChooseUsContent = dataFileContent || productData.whyChooseUs || {};
   const sectionFeatures =
-    whyChooseUs.features && whyChooseUs.features.length > 0
-      ? whyChooseUs.features
+    whyChooseUsContent.features && whyChooseUsContent.features.length > 0
+      ? whyChooseUsContent.features
       : productData.features || [];
 
-  const eyebrow = whyChooseUs.eyebrow || "Why Choose Us";
-  const heading =
-    whyChooseUs.heading || `${productData.name} That Build Real Brands`;
-  const description =
-    whyChooseUs.description ||
-    `At BoxyPack, we engineer ${productData.name.toLowerCase()} that combine on-brand presentation with real-world durability. Every project is guided by packaging strategists who know how to transform boxes into repeat business.`;
+  const eyebrow = whyChooseUsContent.eyebrow || "Why Choose Us";
+  const heading = whyChooseUsContent.heading || 
+    `${productData.name} That Build Real Brands`;
+  
+  const closingDescription = dataFileContent?.closingDescription;
 
   const getIcon = (iconName: string) =>
     iconLookup[iconName] || <Shield className="w-8 h-8" />;
@@ -55,14 +61,11 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ productData }) => {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header Section */}
         <div className="text-center mb-20">
-          <span className="inline-flex items-center text-xs tracking-[0.32em] uppercase font-semibold text-[#0c6b76] bg-[#0c6b76]/10 px-5 py-2 rounded-full mb-6">
-            {eyebrow}
-          </span>
           <h2 className="text-4xl md:text-5xl lg:text-[3rem] font-bold leading-tight text-[#0c6b76] tracking-tight mb-6">
-            {heading}
+            {eyebrow}
           </h2>
-          <p className="text-body-large text-body-primary max-w-4xl mx-auto">
-            {description}
+          <p className="text-body-large text-body-primary leading-relaxed max-w-4xl mx-auto">
+            {heading}
           </p>
         </div>
 
@@ -99,6 +102,15 @@ const FeaturesSection: React.FC<FeaturesSectionProps> = ({ productData }) => {
             </div>
           )}
         </div>
+
+        {/* Closing Description */}
+        {closingDescription && (
+          <div className="mt-12 text-center max-w-4xl mx-auto">
+            <p className="text-body-large text-body-primary leading-relaxed">
+              {closingDescription}
+            </p>
+          </div>
+        )}
       </div>
     </LightBlueBackground>
   );

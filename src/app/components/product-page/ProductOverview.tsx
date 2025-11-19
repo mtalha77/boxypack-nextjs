@@ -210,6 +210,11 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productData }) => {
     const explicitNameFallbacks: Record<string, string[]> = {
       "display cosmetic boxes": ["Display-Cosmetic-Boxes-1_qorgwe"],
       "food boxes": ["Custom-Burger-Boxes-1_k09ujk"],
+      "gift boxes": [
+        "Sweet-Gift-Boxes-1_sykffe",
+        "Sweet-Gift-Boxes-2_nb7lsr",
+        "Sweet-Gift-Boxes-1_sykffe",
+      ],
       "large gift boxes": ["Large-Gift-Boxes-2_tlo55s"],
       "retail boxes": ["Retail-Boxes-1_e0snxl"],
       "candle boxes": ["Candle-Boxes-3_jwwwiz"],
@@ -227,7 +232,7 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productData }) => {
       { key: "cosmetic", id: "Display-Cosmetic-Boxes-1_qorgwe" },
       { key: "food boxes", id: "Custom-Burger-Boxes-1_k09ujk" },
       { key: "burger", id: "Custom-Burger-Boxes-1_k09ujk" },
-      { key: "gift boxes", id: "Large-Gift-Boxes-2_tlo55s" },
+      { key: "gift boxes", id: "Sweet-Gift-Boxes-1_sykffe" },
       { key: "large gift", id: "Large-Gift-Boxes-2_tlo55s" },
       { key: "retail boxes", id: "Retail-Boxes-1_e0snxl" },
       { key: "retail", id: "Retail-Boxes-1_e0snxl" },
@@ -283,6 +288,27 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productData }) => {
     }
 
     // Search in industry data
+    // Special handling for Gift Boxes category - use Sweet Gift Boxes images
+    if (normalized === "gift boxes" || normalized.includes("gift boxes")) {
+      for (const category of productByIndustryData) {
+        const categoryNorm = normalize(category.name);
+        if (categoryNorm === "gift boxes" || categoryNorm.includes("gift boxes")) {
+          // Look for Sweet Gift Boxes subcategory
+          for (const sub of category.subcategories) {
+            const subNorm = normalize(sub.name);
+            if (
+              (subNorm === "sweet gift boxes" || subNorm.includes("sweet gift")) &&
+              Array.isArray(sub.images) &&
+              sub.images.length > 0
+            ) {
+              return sub.images.slice(0, 3);
+            }
+          }
+        }
+      }
+    }
+
+    // General search in industry data
     for (const category of productByIndustryData) {
       for (const sub of category.subcategories) {
         const subNorm = normalize(sub.name);
