@@ -21,7 +21,7 @@ export const productByMaterialData: MaterialCategory[] = [
     name: "Rigid Boxes",
     slug: "rigid-boxes",
     description:
-      "Hi Buy rigid boxes online for premium packaging that blends lasting protection, luxury style, and high-end presentation for every brand.",
+      "We offer rigid boxes wholesale in a wide selection of styles and designs to suit every brand and industry:\n\nMagnetic Closure Boxes\n\nTwo-Piece Boxes\n\nBook Style Boxes,\n\nShoulder Boxes,\n\nHexagon and Round Boxes, Drawer or Sleeve Boxes\n\nEach box is engineered to perfection, combining structural integrity with premium visual appeal.",
     image: "Mailer-Box-3_oct2ws",
     subcategoriesCount: 5,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -87,7 +87,7 @@ export const productByMaterialData: MaterialCategory[] = [
     name: "Kraft Boxes",
     slug: "kraft-boxes",
     description:
-      "Simple kraft boxes designed for recyclable and eco-friendly brands with purpose.",
+      "We offer kraft boxes bulk for every product type and business need: Kraft Mailer Boxes , Kraft Boxes with Lids, Kraft Pillow Boxes, Kraft Gable Boxes, Kraft Bakery / Cake Boxes, Kraft Sleeve Boxes, Kraft Tuck End Boxes. Each design ensures sustainability, simplicity, and strength making kraft boxes the most versatile packaging choice for any industry.",
     image: "Mailer-Box-2_ysut1i",
     subcategoriesCount: 18,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -285,7 +285,7 @@ export const productByMaterialData: MaterialCategory[] = [
     name: "Cardboard Boxes",
     slug: "cardboard-boxes",
     description:
-      "Cardboard boxes are made for printing, fold, and brand for daily use.",
+      "We provide wholesale cardboard boxes for retail, shipping, and storage needs. Our collection includes mailer boxes, product cartons, subscription boxes, and shipping boxes  all customizable with your brand logo and color scheme. Each design supports efficiency, protection, and shelf-ready appeal.",
     image: "Mailer-Box_1_ujqhhx",
     subcategoriesCount: 20,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -489,7 +489,7 @@ export const productByMaterialData: MaterialCategory[] = [
     name: "Corrugated Boxes",
     slug: "corrugated-boxes",
     description:
-      "Heavy-duty custom boxes are built to protect during every shipment.",
+      "We offer corrugated boxes wholesale in multiple styles, including mailer boxes, shipping cartons, heavy-duty trays, and printed retail packaging. Every box is fully customizable with size, shape, color, and print options to suit your logistics or retail goals. Whether you ship across town or worldwide, BoxyPack ensures your packaging stays strong from start to finish.",
     image: "Mailer-Box-3_oct2ws",
     subcategoriesCount: 8,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",

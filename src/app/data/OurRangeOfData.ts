@@ -992,6 +992,10 @@ export const ourRangeOfData: Record<string, OurRangeOfContent> = {
     description: "We manufacture rigid magnetic pre roll boxes, slide-drawer luxury sets, linen-wrapped premium boxes, foil-accented packaging, soft-touch premium kraft boxes, collector's edition pre roll sets, infused pre roll packaging, and wholesale luxury pre roll shells. Perfect for boutique cannabis brands, premium dispensaries, and high-end product lines.",
   },
 
+  "mylar-boxes": {
+    description: "We manufacture food-grade stand up pouches, coffee pouches with valves, matte premium pouches, kraft eco pouches, foil pouches, child-resistant cannabis pouches, window pouches, powder pouches, snack packaging bags, and wholesale stand up pouch bags. Ideal for food brands, wellness companies, coffee sellers, cannabis brands, and retail stores.",
+  },
+
   "mylar-pouches": {
     description: "We supply Mylar pouch packaging in countless designs, including stand-up pouches, resealable Mylar bags, flat barrier bags, coffee pouches, spice pouches, snack bags, and heat-sealable storage packets. Each pouch can be customized with logos, colors, window cuts, and finish options. Whether for food, herbs, supplements, or retail goods, BoxyPack ensures your packaging performs and impresses.",
   },
@@ -1008,6 +1012,10 @@ export const ourRangeOfData: Record<string, OurRangeOfContent> = {
     description: "We manufacture kraft window bags, snack window pouches, food-grade window bags, resealable zipper window bags, foil window pouches, eco compostable window bags, child-resistant window bags, bakery window packaging, and wholesale unprinted window bags. Ideal for food brands, wellness products, bakeries, cafes, and retail suppliers.",
   },
 
+  "shopping-bags": {
+    description: "We manufacture kraft shopping bags for retail outlets, die-cut handle kraft bags, bakery kraft bags, boutique-style kraft bags, reusable eco-friendly kraft bags, printed kraft gift bags, luxury kraft bags, grocery kraft bags, and wholesale unprinted kraft shopping bags. Perfect for boutiques, bakeries, beauty brands, clothing stores, and gift shops.",
+  },
+
   "kraft-shopping-bags": {
     description: "We manufacture kraft shopping bags for retail outlets, die-cut handle kraft bags, bakery kraft bags, boutique-style kraft bags, reusable eco-friendly kraft bags, printed kraft gift bags, luxury kraft bags, grocery kraft bags, and wholesale unprinted kraft shopping bags. Perfect for boutiques, bakeries, beauty brands, clothing stores, and gift shops.",
   },
@@ -1018,6 +1026,10 @@ export const ourRangeOfData: Record<string, OurRangeOfContent> = {
 
   "pvc-bags": {
     description: "We manufacture cosmetic PVC bags, zipper PVC pouches, frosted PVC bags, tote-style PVC bags, apparel PVC bags, PVC travel kits, promotional PVC bags, flat PVC sleeves, and wholesale transparent PVC bags. Ideal for retail brands, beauty companies, apparel stores, and promotional product suppliers.",
+  },
+
+  "other": {
+    description: "We print promotional booklets, catalogs, instruction booklets, brand manuals, event programs, real estate booklets, training guides, corporate brochures, product catalogs, spiral notebooks, and wholesale booklet bundles. Ideal for agencies, brands, educational institutions, and retailers.",
   },
 
   "booklets": {

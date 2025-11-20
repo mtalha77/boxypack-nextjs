@@ -315,9 +315,9 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
     }
   };
 
-  // Priority: 1. customCards, 2. whyChooseUsData heading, 3. OurRangeOfData, 4. default
+  // Priority: 1. customCards, 2. OurRangeOfData, 3. whyChooseUsData heading, 4. default
   const headingText = customHeading || `Our Range of ${parentCategoryName}`;
-  const rawDescriptionText = customDescription || whyChooseUsDescription || rangeOfDescription || `Explore our comprehensive range of ${parentCategoryName.toLowerCase()} packaging solutions. Each category is designed to meet specific industry needs and requirements.`;
+  const rawDescriptionText = customDescription || rangeOfDescription || whyChooseUsDescription || `Explore our comprehensive range of ${parentCategoryName.toLowerCase()} packaging solutions. Each category is designed to meet specific industry needs and requirements.`;
   const descriptionText = cleanMarkdown(rawDescriptionText);
 
   return (

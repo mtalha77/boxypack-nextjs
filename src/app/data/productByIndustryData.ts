@@ -20,7 +20,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Bakery Boxes",
     slug: "bakery-boxes",
-    description: "Fresh Designs for Every Sweet Treat",
+    description: "We offer bakery boxes wholesale in diverse designs, including cupcake boxes, pastry trays, donut boxes, and cake cartons. Every order can be customized with your logo, color theme, and size preferences. Whether you're packaging daily treats or luxury desserts, BoxyPack ensures your boxes keep every bite fresh and picture-perfect.",
     image: "Box-4_lztqi7",
     subcategoriesCount: 14,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -170,7 +170,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Cosmetic Boxes",
     slug: "cosmetic-boxes",
-    description: "Stylish Packaging for Beauty Products",
+    description: "We offer cosmetic packaging wholesale in multiple formats including makeup boxes, skincare packaging, perfume cartons, and luxury gift sets. Every box can be personalized with your logo, color palette, and finish options. Whether you're building a new brand or scaling an established line, BoxyPack ensures packaging that reflects beauty and confidence.",
     image: "Box-5_pdb8xw",
     subcategoriesCount: 20,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -369,7 +369,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Food Boxes",
     slug: "food-boxes",
-    description: "Safe, Smart, and Sustainable Food Packaging",
+    description: "We offer printed food boxes wholesale in many designs, including burger boxes, sandwich cartons, dessert boxes, noodle pails, clamshell containers, and kraft meal boxes. Each order can be customized with your logo, colors, and sizes. Whether you run a local food truck or a national franchise, BoxyPack delivers packaging that fits your menu and your brand.",
     image: "Box-6_vm3fmh",
     subcategoriesCount: 11,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -478,7 +478,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Gift Boxes",
     slug: "gift-boxes",
-    description: "Elegant Boxes for Memorable Gifting Moments",
+    description: "We produce luxury gift boxes wholesale in a wide variety of formats: magnetic gift boxes, drawer boxes, ribbon closure boxes, foldable gift boxes, and custom event packaging. Each order is fully customizable with colors, textures, logos, and finishes. Whether you serve retail, corporate gifting, events, or e-commerce, BoxyPack provides packaging that brings joy and professionalism.",
     image: "shipping-box_jyysru",
     subcategoriesCount: 10,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -578,7 +578,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Jewelry Boxes",
     slug: "jewelry-boxes",
-    description: "Luxury Packaging for Timeless Jewelry Pieces",
+    description: "We offer jewelry boxes wholesale in various designs such as ring boxes, necklace boxes, bracelet trays, and earring holders. Each can be personalized with your logo, finish, and color palette. Whether you need luxury packaging for retail display or bulk jewelry gift boxes, BoxyPack ensures your packaging adds value to every piece you sell.",
     image: "Box-4_lztqi7",
     subcategoriesCount: 15,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -767,7 +767,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Candle Boxes",
     slug: "candle-boxes",
-    description: "Warm Designs for Fragrant Candle Packaging",
+    description: "We supply luxury candle boxes wholesale in many styles, including jar candle boxes, soy candle packaging, pillar candle cartons, gift sets, and scented candle boxes. Each design is customizable with logo printing, size adjustments, and color choices. Whether you sell handmade candles or large retail collections, BoxyPack delivers packaging that reflects your brand's warmth and elegance.",
     image: "Box-6_vm3fmh",
     subcategoriesCount: 9,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -826,7 +826,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Shipping Boxes",
     slug: "shipping-boxes-industry",
-    description: "Strong, Reliable Boxes for Every Delivery",
+    description: "We provide printed shipping boxes in various designs, including standard shipping cartons, mailer boxes, literature boxes, bulk shipping containers, and e-commerce packaging. Every order can be customized with your preferred size, print, and structure. Whether you're a startup or a large fulfillment brand, BoxyPack ensures packaging that performs.",
     image: "shipping-box_jyysru",
     subcategoriesCount: 4,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -872,7 +872,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Soap Boxes",
     slug: "soap-boxes-industry",
-    description: "Natural Packaging for Handmade Soap Bars",
+    description: "We provide soap packaging boxes wholesale in various styles, including window soap boxes, kraft sleeves, luxury gift boxes, and custom-printed retail packaging. You can fully personalize each box with color, finish, and design. Whether you sell handmade soaps or commercial skincare lines, BoxyPack ensures packaging that matches your brand identity.",
     image: "Box-4_lztqi7",
     subcategoriesCount: 10,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -984,7 +984,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Apparel Boxes",
     slug: "apparel-boxes",
-    description: "Premium Boxes for Fashion and Clothing",
+    description: "We offer apparel boxes wholesale in multiple formats, including shirt boxes, suit boxes, accessory packaging, and apparel gift boxes. Each design can be customized with your logo, color scheme, and finish options. Whether you sell casual wear, luxury fashion, or promotional items, BoxyPack ensures packaging that supports your brand's story.",
     image: "Box-5_pdb8xw",
     subcategoriesCount: 8,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1068,7 +1068,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Sports Boxes",
     slug: "sports-boxes",
-    description: "Durable Packaging for Active Lifestyle Gear",
+    description: "We supply custom sports packaging boxes wholesale in multiple styles, including shoe boxes, sportswear boxes, accessory packaging, gear boxes, and premium presentation boxes. All orders are fully customizable with size, logo placement, finish options, and protective inserts. Whether for retail displays or e-commerce delivery, BoxyPack ensures your sports packaging performs as good as your products.",
     image: "Box-6_vm3fmh",
     subcategoriesCount: 6,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1134,7 +1134,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Cigarette Boxes",
     slug: "cigarette-boxes-industry",
-    description: "Sleek Packaging for Tobacco Product Brands",
+    description: "We supply wholesale cigarette boxes in various designs, including flip-top packs, soft packs, rigid cartons, multi-pack trays, and display boxes. With full customization sizes, finishes, artwork, and logo placement BoxyPack ensures your cigarette packaging aligns with both brand image and industry standards.",
     image: "shipping-box_jyysru",
     subcategoriesCount: 6,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1200,7 +1200,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "CBD Boxes",
     slug: "cbd-boxes",
-    description: "Eco Boxes for CBD and Hemp Products",
+    description: "We produce CBD packaging wholesale in multiple styles, including tincture boxes, vape boxes, edible packaging, and CBD cream boxes. Each design is customizable with logos, coatings, and structural options. Whether you need high-end printed cartons or natural kraft CBD boxes, BoxyPack ensures your packaging meets all branding and safety goals.",
     image: "Box-4_lztqi7",
     subcategoriesCount: 7,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1273,7 +1273,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Vape Boxes",
     slug: "vape-boxes",
-    description: "Custom Vape Packaging for Modern Brands",
+    description: "We produce vape packaging boxes wholesale for all product types, including e-liquid boxes, vape cartridge packaging, disposable vape cases, and retail display boxes. Each design is customizable in shape, size, finish, and logo placement. Whether for compact retail packs or luxury device sets, BoxyPack ensures your vape boxes deliver both protection and prestige.",
     image: "Box-5_pdb8xw",
     subcategoriesCount: 5,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1320,7 +1320,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "E-liquid Boxes",
     slug: "e-liquid-boxes",
-    description: "Trendy Boxes for E-Juice Collections",
+    description: "We supply custom e-liquid packaging boxes wholesale in multiple formats, including single bottle cartons, multi-pack sets, sample kits, and luxury presentation boxes. Whether you need bold printed designs or minimalist finishes, BoxyPack ensures packaging that enhances both compliance and brand impact.",
     image: "Box-6_vm3fmh",
     subcategoriesCount: 3,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1357,7 +1357,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Stationery Boxes",
     slug: "stationery-boxes",
-    description: "Creative Packaging for Office Essentials",
+    description: "We supply wholesale stationery boxes in a range of styles, including pen boxes, notebook packaging, craft supply boxes, file boxes, and student kit packaging. Each design can be customized with your preferred size, artwork, colors, and finish. Whether for retail, offices, or subscription kits, BoxyPack delivers packaging that keeps stationery organized, safe, and appealing.",
     image: "shipping-box_jyysru",
     subcategoriesCount: 7,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1430,7 +1430,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Christmas Boxes",
     slug: "christmas-boxes",
-    description: "Festive Boxes for Joyful Holiday Gifts",
+    description: "We produce Christmas packaging wholesale in multiple designs gift boxes, chocolate boxes, candle boxes, and ornament packaging. Each is fully customizable with colors, ribbons, and printed holiday artwork. Whether you're creating retail packaging or personal gifts, BoxyPack ensures your Christmas boxes look joyful and professional.",
     image: "Box-4_lztqi7",
     subcategoriesCount: 12,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1524,7 +1524,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Chocolate Boxes",
     slug: "chocolate-boxes",
-    description: "Elegant Packaging for Gourmet Chocolates",
+    description: "We provide chocolate packaging wholesale in a variety of designs, including truffle boxes, chocolate bar sleeves, assorted gift boxes, holiday chocolate packaging, and rigid presentation boxes. With full customization for size, color, and finish, BoxyPack ensures your chocolates look irresistible from box to bite.",
     image: "Box-5_pdb8xw",
     subcategoriesCount: 9,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1615,7 +1615,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Cereal Boxes",
     slug: "cereal-boxes",
-    description: "Vibrant Boxes for Breakfast Cereal Brands",
+    description: "We provide printed cereal boxes in multiple formats, including standard cereal cartons, granola packaging, family-size boxes, sampler packs, and custom promotional packaging. Each order can be fully personalized with your preferred size, artwork, color palette, and finish. Whether for retail shelves or online delivery, BoxyPack ensures your cereal packaging looks sharp and stays strong.",
     image: "Box-6_vm3fmh",
     subcategoriesCount: 12,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1733,7 +1733,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Pizza Boxes",
     slug: "pizza-boxes",
-    description: "Sturdy Boxes for Hot and Fresh Pizza",
+    description: "We supply pizza packaging wholesale for all types of businesses  from small local shops to large pizza chains. Our collection includes single-slice boxes, family-size cartons, and printed promotional packaging. Whether you want a simple kraft look or colorful branding, BoxyPack ensures your boxes make every delivery look professional and appetizing.",
     image: "Box-4_lztqi7",
     subcategoriesCount: 8,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",

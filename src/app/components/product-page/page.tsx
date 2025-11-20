@@ -287,24 +287,7 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
         const product = await getProductDataBySlug(slug);
         if (product) {
           const mappedProduct = mapEnrichedToProduct(product);
-          
-          // Override description with OurRangeOfData immediately after mapping
-          let targetSlug = slug;
-          if (pageType === "subcategory" && subcategory) {
-            targetSlug = subcategory.slug;
-          } else if (pageType === "category" && category) {
-            targetSlug = category.slug;
-          } else if (pageType === "section" && section) {
-            targetSlug = section.slug;
-          }
-          
-          const mappedSlug = mapSlugToOurRangeOfData(targetSlug);
-          const rangeOfData = ourRangeOfData[mappedSlug];
-          
-          if (rangeOfData?.description) {
-            mappedProduct.description = cleanMarkdown(rangeOfData.description);
-          }
-          
+          // Use description from productPagesData (already in mappedProduct)
           setDbProduct(mappedProduct);
         }
       } catch (error) {
@@ -317,7 +300,7 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
     if (isMounted) {
       fetchProductFromDB();
     }
-  }, [slug, isMounted, pageType, subcategory, category, section, mapSlugToOurRangeOfData, cleanMarkdown]);
+  }, [slug, isMounted, pageType, subcategory, category, section]);
 
   // Get product data if it exists in the legacy data structure
   const legacyProductData = productData[slug as keyof typeof productData];
@@ -333,7 +316,7 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
   };
 
   // Create dynamic product data based on the navigation structure
-  // Note: We ALWAYS override descriptions with OurRangeOfData, so productPagesData descriptions are ignored
+  // Use descriptions from productPagesData (hero sections)
   const getProductData = (): Product | null => {
     if (dbProduct) {
       return dbProduct;
@@ -341,24 +324,7 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
 
     if (legacyProductData) {
       const mapped = mapEnrichedToProduct(legacyProductData);
-      
-      // Override description with OurRangeOfData immediately
-      let targetSlug = slug;
-      if (pageType === "subcategory" && subcategory) {
-        targetSlug = subcategory.slug;
-      } else if (pageType === "category" && category) {
-        targetSlug = category.slug;
-      } else if (pageType === "section" && section) {
-        targetSlug = section.slug;
-      }
-      
-      const mappedSlug = mapSlugToOurRangeOfData(targetSlug);
-      const rangeOfData = ourRangeOfData[mappedSlug];
-      
-      if (rangeOfData?.description) {
-        mapped.description = cleanMarkdownInline(rangeOfData.description);
-      }
-      
+      // Use description from productPagesData (already in mapped)
       return mapped;
     }
 
@@ -372,25 +338,12 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
   if (!productInfo && (category || section)) {
     const fallbackName = category?.name || section?.name || "Products";
     
-    // For subcategory pages, use OurRangeOfData text if available
+    // Use descriptions from navigation data (category/section/subcategory)
     let fallbackDesc: string;
     if (pageType === "subcategory" && subcategory) {
-      const mappedSubSlug = mapSlugToOurRangeOfData(subcategory.slug);
-      const rangeOfSubData = ourRangeOfData[mappedSubSlug];
-      if (rangeOfSubData?.description) {
-        fallbackDesc = cleanMarkdown(rangeOfSubData.description);
-      } else {
-        fallbackDesc = subcategory.description || category?.description || section?.description || "Explore our curated selection of products crafted for your brand.";
-      }
+      fallbackDesc = subcategory.description || category?.description || section?.description || "Explore our curated selection of products crafted for your brand.";
     } else {
-      // For category/section pages, try OurRangeOfData first
-      const mappedSlug = mapSlugToOurRangeOfData(slug);
-      const rangeOfData = ourRangeOfData[mappedSlug];
-      if (rangeOfData?.description) {
-        fallbackDesc = cleanMarkdown(rangeOfData.description);
-      } else {
-        fallbackDesc = category?.description || section?.description || "Explore our curated selection of products crafted for your brand.";
-      }
+      fallbackDesc = category?.description || section?.description || "Explore our curated selection of products crafted for your brand.";
     }
     const fallbackHero =
       (category as CategoryWithOptionalProps)?.image ||
@@ -447,36 +400,8 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
     return <ComingSoon />;
   }
 
-  // ALWAYS override description with OurRangeOfData if available (for ALL products)
-  // This ensures we NEVER use descriptions from productPagesData - only OurRangeOfData
-  if (productInfo) {
-    let targetSlug = slug;
-    
-    // For subcategory pages, use subcategory slug (most specific)
-    if (pageType === "subcategory" && subcategory) {
-      targetSlug = subcategory.slug;
-    }
-    // For category pages, use category slug
-    else if (pageType === "category" && category) {
-      targetSlug = category.slug;
-    }
-    // For section pages, use section slug
-    else if (pageType === "section" && section) {
-      targetSlug = section.slug;
-    }
-    
-    // Map slug to OurRangeOfData
-    const mappedSlug = mapSlugToOurRangeOfData(targetSlug);
-    const rangeOfData = ourRangeOfData[mappedSlug];
-    
-    // ALWAYS use OurRangeOfData text if available, overriding any description from database/productPagesData
-    if (rangeOfData?.description) {
-      productInfo = {
-        ...productInfo,
-        description: cleanMarkdown(rangeOfData.description),
-      };
-    }
-  }
+  // Use descriptions from productPagesData (hero sections) - no override needed
+  // The description is already set from productPagesData in mapEnrichedToProduct
 
   const keyFeatures = productInfo.keyFeatures ?? [];
   const customSubcategoryCards =
