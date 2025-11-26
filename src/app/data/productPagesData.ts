@@ -496,7 +496,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Luxury Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Reach out to BoxyPack today for custom jewelry boxes that elevate your brand and protect your pieces in style. Our design team is ready to create elegant, durable, and sustainable packaging tailored to your needs. Contact us now to begin your order and showcase your jewelry the right way.",
     },
@@ -2315,7 +2315,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Get a custom quote for your premium rigid boxes today. Experience the difference that luxury packaging makes.",
     },
@@ -2486,7 +2486,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       { heading: "Questions about Kraft Boxes", eyebrow: "Kraft Box FAQs" }
     ),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Contact BoxyPack to create custom kraft boxes that blend sustainability, strength, and branding excellence. Our experts design eco-friendly packaging that protects your products and elevates your business image.",
     },
@@ -2566,7 +2566,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Connect with BoxyPack to create custom cardboard boxes that combine strength, sustainability, and style. Our experts craft packaging that’s durable, affordable, and perfectly suited to your brand’s needs.",
     },
@@ -2664,7 +2664,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Strong Designs, Reliable Packaging",
+      title: "Exceptional Designs, Reliable Packaging",
       description:
         "Get in touch with BoxyPack today for custom corrugated boxes that blend durability, sustainability, and style. Our packaging experts are ready to guide you from design to delivery. Reach out to discuss your next order and elevate your shipping experience.",
     },
@@ -3033,7 +3033,7 @@ const rawProductData: Record<string, RawProductEntry> = {
     ]),
     
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Get in touch with BoxyPack to create premium magnetic closure rigid boxes that define luxury and protection. Our experts craft packaging that feels strong, looks stunning, and performs beautifully.",
     },
@@ -3106,7 +3106,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       ],
     },
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Connect with BoxyPack to design premium two-piece rigid boxes that highlight your brand’s style and strength. We craft durable, elegant packaging built to impress and perform.",
     },
@@ -3179,7 +3179,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       ],
     },
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Reach out to BoxyPack to create premium sliding rigid boxes that combine functionality with luxury. Our experts design packaging that feels smooth, looks stylish, and performs perfectly for every brand.",
     },
@@ -3252,7 +3252,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       ],
     },
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Contact BoxyPack today to create briefcase-style rigid boxes that blend elegance, portability, and strength. Our team builds packaging that enhances your brand and leaves a lasting impression.",
     },
@@ -3325,7 +3325,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       ],
     },
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Contact BoxyPack to create elegant book-style rigid boxes that combine functionality, beauty, and luxury. Our packaging experts craft designs that bring your brand’s story to life with every unboxing.",
     },
@@ -3386,7 +3386,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Contact BoxyPack to create kraft mailer boxes that combine eco-conscious strength with branding style. Our team builds packaging that protects your products and represents your brand with pride.",
     },
@@ -3456,7 +3456,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Contact BoxyPack to create kraft boxes with lids that bring simplicity, style, and sustainability together. Our experts design eco-friendly packaging that protects your products and enhances your brand.",
     },
@@ -3529,7 +3529,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Contact BoxyPack to create kraft pillow boxes that combine sustainability and style. Our experts craft eco-friendly packaging that’s practical, beautiful, and perfect for every occasion",
     },
@@ -3672,7 +3672,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Connect with BoxyPack to design kraft bakery boxes that protect, promote, and present your baked goods beautifully. Our experts craft packaging that enhances freshness and strengthens your brand’s presence.",
     },
@@ -3745,7 +3745,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Connect with BoxyPack to create kraft sleeve boxes that combine style, strength, and sustainability. Our experts craft eco-friendly packaging that protects your products and showcases your brand beautifully.",
     },
@@ -3815,7 +3815,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Get in touch with BoxyPack to design kraft tuck end boxes that balance sustainability, durability, and style. Our experts craft packaging that secures your products and strengthens your brand identity.",
     },
@@ -3885,7 +3885,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Connect with BoxyPack to design kraft five-panel hanger boxes that enhance your retail presentation and protect your products responsibly. Our experts create eco-friendly packaging that’s strong, stylish, and sustainable..",
     },
@@ -3961,7 +3961,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Connect with BoxyPack to design kraft side lock six corner boxes that combine strength, sustainability, and visual appeal. Our experts craft eco-friendly packaging that protects, promotes, and perfectly represents your brand.",
     },
@@ -4034,7 +4034,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Contact BoxyPack to create kraft six-corner boxes that combine durability, design, and sustainability. Our team crafts eco-friendly packaging that’s strong, practical, and built to make your brand stand out.",
     },
@@ -4107,7 +4107,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Contact BoxyPack today to create kraft seal end auto bottom boxes that combine durability, quick assembly, and sustainable performance. Our experts design eco-friendly packaging that protects, promotes, and helps your brand deliver with confidence.",
     },
@@ -4180,7 +4180,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Connect with BoxyPack to create kraft single-wall auto bottom trays that combine speed, strength, and sustainability. Our team builds packaging that saves time, looks clean, and supports your brand’s eco-friendly vision..",
     },
@@ -4253,7 +4253,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Connect with BoxyPack to design kraft two-piece boxes that blend natural beauty, strength, and sustainability. Our team creates eco-friendly packaging that elevates your brand and protects your products with lasting quality.",
     },
@@ -4327,7 +4327,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Partner with BoxyPack to create kraft cigarette boxes that combine protection, compliance, and sustainability. Our eco-friendly designs help brands present their products with class while supporting a greener future.",
     },
@@ -4400,7 +4400,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Connect with BoxyPack to create kraft bookend boxes that blend eco-friendliness, durability, and modern style. Our experts craft packaging that’s practical, elegant, and built to represent your brand beautifully.",
     },
@@ -4546,7 +4546,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Contact BoxyPack to create kraft double-wall frame trays that combine durability, sustainability, and elegant design. Our packaging experts craft eco-friendly trays that protect products beautifully while reflecting your brand’s quality and care.",
     },
@@ -4621,7 +4621,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Contact BoxyPack today to create custom cardboard display boxes that highlight your products beautifully. Our packaging experts design eco-friendly displays that attract customers and strengthen your retail presence.",
     },
@@ -4697,7 +4697,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Contact BoxyPack today to create custom cardboard tuck-end boxes that blend durability, elegance, and sustainability. Our experts craft eco-friendly packaging built to protect, impress, and perform for every brand.",
     },
@@ -4770,7 +4770,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Connect with BoxyPack to create custom cardboard boxes with lids that blend strength, elegance, and eco-friendliness. Our experts design packaging that protects, presents, and promotes your products beautifully.",
     },
@@ -4843,7 +4843,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Contact BoxyPack to create cardboard gable boxes that blend durability, design, and eco-friendliness. Our packaging experts craft carry-ready solutions that make your brand memorable and your products perfectly presented.",
     },
@@ -4920,7 +4920,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Partner with BoxyPack to create cardboard cake and bakery boxes that keep your desserts safe and your presentation flawless. Our team crafts eco-friendly, food-safe packaging that helps your treats look as good as they taste.",
     },
@@ -4991,7 +4991,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Contact BoxyPack to design cardboard sleeve boxes that blend simplicity, elegance, and eco-friendly performance. Our experts create packaging that enhances every product and strengthens your brand image.",
     },
@@ -5068,7 +5068,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Contact BoxyPack today to create cardboard dispenser boxes that combine smart design, easy function, and standout branding. Our expert team builds packaging that works hard and looks great, perfect for every retail shelf.",
     },
@@ -5145,7 +5145,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Contact BoxyPack to create cardboard five panel hanger boxes that combine durability, display efficiency, and visual impact. Our team delivers packaging that protects, promotes, and performs beautifully on every shelf.",
     },
@@ -5218,7 +5218,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Partner with BoxyPack to create cardboard mailer boxes that protect your shipments and promote your brand. Our experts craft packaging that delivers reliability, elegance, and confidence in every order.",
     },
@@ -5292,7 +5292,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Partner with BoxyPack to create cardboard double-locking wall lid boxes that combine durability, elegance, and innovation. Our team delivers packaging that protects your products and elevates your brand image effortlessly.",
     },
@@ -5365,7 +5365,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Contact BoxyPack to create cardboard side lock six corner boxes that combine durability, function, and visual appeal. Our expert team delivers packaging that enhances your product’s look and strengthens your brand image.",
     },
@@ -5438,7 +5438,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Contact BoxyPack to create cardboard regular six-corner boxes that blend structure, simplicity, and quality. Our team builds packaging that looks great, protects perfectly, and elevates your brand’s reputation.",
     },
@@ -5511,7 +5511,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Contact BoxyPack to design cardboard seal end auto bottom boxes that combine speed, strength, and quality. Our packaging experts help you build durable, stylish boxes that perform beautifully on every shelf and shipment.",
     },
@@ -5588,7 +5588,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Partner with BoxyPack to create cardboard auto bottom trays that deliver speed, strength, and style. Our team builds packaging that works efficiently, protects your products, and reflects your brand’s excellence.",
     },
@@ -5658,7 +5658,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Contact BoxyPack to design cardboard two-piece boxes that elevate your brand’s presentation. Our experts craft elegant, durable packaging that delivers both luxury and practicality in every box.",
     },
@@ -5729,7 +5729,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Partner with BoxyPack to design cardboard cigarette boxes that protect your products and promote your brand. Our packaging experts craft strong, elegant, and customizable boxes made to impress and perform.",
     },
@@ -5799,7 +5799,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Share your content plan—we’ll craft bookend boxes that engage from the first touch.",
     },
@@ -5870,7 +5870,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Strong Designs, Lasting Impressions",
+      title: "Exceptional Design That Leaves a Lasting Impression",
       description:
         "Partner with BoxyPack to create cardboard double-wall frame trays that combine power, polish, and presentation. Our packaging experts deliver designs that secure your products and strengthen your brand image with every order..",
     },

@@ -5,38 +5,44 @@ import { CldImage } from 'next-cloudinary';
 import { ChevronDown, Info, ShoppingCart, Check } from 'lucide-react';
 import { navigationData } from '../data/navigationData';
 import { productByMaterialData } from '../data/productByMaterialData';
+import { productByIndustryData } from '../data/productByIndustryData';
+import { mylarBoxesData } from '../data/mylarBoxesData';
+import { shoppingBagsData } from '../data/shoppingBagsData';
+import { otherData } from '../data/otherData';
 import { useRouter } from 'next/navigation';
 import { useCart } from '../contexts/CartContext';
 
 interface CustomDimensionsFormProps {
   onDesignNow?: () => void;
   initialProductSlug?: string; // Add prop for initial product selection
+  initialCategorySlug?: string; // Add prop for initial category selection
 }
 
 const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   onDesignNow,
-  initialProductSlug
+  initialProductSlug,
+  initialCategorySlug
 }) => {
   const router = useRouter();
-  const [selectedMaterial, setSelectedMaterial] = useState('');
+  const [selectedMaterial, setSelectedMaterial] = useState('rigid-boxes');
   const [selectedProduct, setSelectedProduct] = useState('');
   const [productSearchQuery, setProductSearchQuery] = useState('');
   const [customLength, setCustomLength] = useState(9.5);
   const [customWidth, setCustomWidth] = useState(7.75);
   const [customDepth, setCustomDepth] = useState(4);
   const [material, setMaterial] = useState('kraft');
-  const [pt, setPT] = useState('14');
-  const [printedSides, setPrintedSides] = useState('outside');
+  const [pt, setPT] = useState('N/A');
+  const [printedSides, setPrintedSides] = useState('none');
   const [lamination, setLamination] = useState('glossy');
   const [quantity, setQuantity] = useState(250);
   const [showDropdowns, setShowDropdowns] = useState<{[key: string]: boolean}>({});
   const [showCustomPricingMessage, setShowCustomPricingMessage] = useState(false);
-  const [selectedImage, setSelectedImage] = useState('Mailer-Box-3_oct2ws');
+  const [selectedImage, setSelectedImage] = useState('Magnetic-Closure-Rigid-Box_vtf07m');
   const [zoomLevel, setZoomLevel] = useState(1);
   const [currentProductImages, setCurrentProductImages] = useState<string[]>([
-    'Mailer-Box-3_oct2ws',
-    'Mailer-Box-2_ysut1i',
-    'Mailer-Box_1_ujqhhx'
+    'Magnetic-Closure-Rigid-Box_vtf07m',
+    'Magnetic-Closure-Rigid-Box-2_qinyd2',
+    'Magnetic-Closure-Rigid-Box-3_f4sxvc'
   ]);
 
   // Pricing state
@@ -71,6 +77,104 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   // exchangeRate is how many USD per 1 PKR (e.g., 0.0036)
   const unitPriceUSD = exchangeRate ? unitPrice * exchangeRate : 0;
   const subtotalUSD = exchangeRate ? subtotal * exchangeRate : 0;
+
+  // Helper function to find product across all data sources
+  const findProductInAllSources = useCallback((productSlug: string): { 
+    product: { name: string; slug: string; images?: string[]; description?: string } | null;
+    materialSlug: string | null;
+  } => {
+    // Search in productByMaterialData
+    for (const category of productByMaterialData) {
+      const product = category.subcategories.find(sub => sub.slug === productSlug);
+      if (product) {
+        return { product, materialSlug: category.slug };
+      }
+    }
+
+    // Search in productByIndustryData
+    for (const category of productByIndustryData) {
+      const product = category.subcategories.find(sub => sub.slug === productSlug);
+      if (product) {
+        // Map industry category to material if possible, otherwise return null
+        // Industry products might not have a direct material mapping
+        return { product, materialSlug: null };
+      }
+    }
+
+    // Search in mylarBoxesData
+    const mylarProduct = mylarBoxesData.subcategories.find(sub => sub.slug === productSlug);
+    if (mylarProduct) {
+      return { product: mylarProduct, materialSlug: null };
+    }
+
+    // Search in shoppingBagsData
+    const shoppingBagProduct = shoppingBagsData.subcategories.find(sub => sub.slug === productSlug);
+    if (shoppingBagProduct) {
+      return { product: shoppingBagProduct, materialSlug: null };
+    }
+
+    // Search in otherData
+    const otherProduct = otherData.subcategories.find(sub => sub.slug === productSlug);
+    if (otherProduct) {
+      return { product: otherProduct, materialSlug: null };
+    }
+
+    return { product: null, materialSlug: null };
+  }, []);
+
+  // Helper function to find first subcategory with images from a category
+  const findCategoryImages = useCallback((categorySlug: string): {
+    images: string[] | null;
+    materialSlug: string | null;
+  } => {
+    // Search in productByMaterialData
+    for (const category of productByMaterialData) {
+      if (category.slug === categorySlug) {
+        // Find first subcategory with images
+        const subcategoryWithImages = category.subcategories.find(sub => sub.images && sub.images.length > 0);
+        if (subcategoryWithImages && subcategoryWithImages.images) {
+          return { images: subcategoryWithImages.images, materialSlug: category.slug };
+        }
+      }
+    }
+
+    // Search in productByIndustryData
+    for (const category of productByIndustryData) {
+      if (category.slug === categorySlug) {
+        // Find first subcategory with images
+        const subcategoryWithImages = category.subcategories.find(sub => sub.images && sub.images.length > 0);
+        if (subcategoryWithImages && subcategoryWithImages.images) {
+          return { images: subcategoryWithImages.images, materialSlug: null };
+        }
+      }
+    }
+
+    // Search in mylarBoxesData
+    if (mylarBoxesData.slug === categorySlug) {
+      const subcategoryWithImages = mylarBoxesData.subcategories.find(sub => sub.images && sub.images.length > 0);
+      if (subcategoryWithImages && subcategoryWithImages.images) {
+        return { images: subcategoryWithImages.images, materialSlug: null };
+      }
+    }
+
+    // Search in shoppingBagsData
+    if (shoppingBagsData.slug === categorySlug) {
+      const subcategoryWithImages = shoppingBagsData.subcategories.find(sub => sub.images && sub.images.length > 0);
+      if (subcategoryWithImages && subcategoryWithImages.images) {
+        return { images: subcategoryWithImages.images, materialSlug: null };
+      }
+    }
+
+    // Search in otherData
+    if (otherData.slug === categorySlug) {
+      const subcategoryWithImages = otherData.subcategories.find(sub => sub.images && sub.images.length > 0);
+      if (subcategoryWithImages && subcategoryWithImages.images) {
+        return { images: subcategoryWithImages.images, materialSlug: null };
+      }
+    }
+
+    return { images: null, materialSlug: null };
+  }, []);
 
   // Zoom functions
   const handleZoomIn = () => {
@@ -116,25 +220,27 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
     fetchExchangeRate();
   }, []);
 
-  // Handle pre-selection from sessionStorage or initialProductSlug
+  // Handle pre-selection from sessionStorage, initialProductSlug, or initialCategorySlug
   useEffect(() => {
     const storedProduct = sessionStorage.getItem('selectedProduct');
     const productSlugToUse = storedProduct || initialProductSlug;
     
+    // First, try to handle product slug (subcategory)
     if (productSlugToUse) {
-      // Find which material category this product belongs to
-      const materialCategory = productByMaterialData.find(category => 
-        category.subcategories.some(sub => sub.slug === productSlugToUse)
-      );
+      // Search across all data sources
+      const { product, materialSlug } = findProductInAllSources(productSlugToUse);
       
-      if (materialCategory) {
-        // Set both material and product
-        setSelectedMaterial(materialCategory.slug);
+      if (product) {
+        // Set product
         setSelectedProduct(productSlugToUse);
         
-        // Find the product and set its images
-        const product = materialCategory.subcategories.find(sub => sub.slug === productSlugToUse);
-        if (product && product.images && product.images.length > 0) {
+        // Set material if found in material data, otherwise keep default or try to infer
+        if (materialSlug) {
+          setSelectedMaterial(materialSlug);
+        }
+        
+        // Set images if available
+        if (product.images && product.images.length > 0) {
           setCurrentProductImages(product.images);
           setSelectedImage(product.images[0]);
         }
@@ -144,8 +250,23 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
       if (storedProduct) {
         sessionStorage.removeItem('selectedProduct');
       }
+    } 
+    // If no product slug, try to handle category slug
+    else if (initialCategorySlug) {
+      const { images, materialSlug } = findCategoryImages(initialCategorySlug);
+      
+      if (images && images.length > 0) {
+        // Set images from first subcategory
+        setCurrentProductImages(images);
+        setSelectedImage(images[0]);
+        
+        // Set material if found in material data
+        if (materialSlug) {
+          setSelectedMaterial(materialSlug);
+        }
+      }
     }
-  }, [initialProductSlug]);
+  }, [initialProductSlug, initialCategorySlug, findProductInAllSources, findCategoryImages]);
 
   // Auto-set lamination to 'none' when Kraft is selected
   useEffect(() => {
@@ -154,27 +275,28 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
     }
   }, [selectedMaterial]);
 
-  // Update images when product changes
+  // Update images when product changes (only if product is actually selected, not for category pages)
   useEffect(() => {
-    if (selectedProduct && selectedMaterial) {
-      const materialCategory = productByMaterialData.find(category => category.slug === selectedMaterial);
-      if (materialCategory) {
-        const product = materialCategory.subcategories.find(sub => sub.slug === selectedProduct);
-        if (product && product.images && product.images.length > 0) {
-          setCurrentProductImages(product.images);
-          setSelectedImage(product.images[0]); // Set first image as default
-        } else {
-          // Reset to default images if product has no images
-          setCurrentProductImages([
-            'Mailer-Box-3_oct2ws',
-            'Mailer-Box-2_ysut1i',
-            'Mailer-Box_1_ujqhhx'
-          ]);
-          setSelectedImage('Mailer-Box-3_oct2ws');
-        }
+    // Only update images if a product is selected AND we're not on a category-only page
+    // This prevents overriding category images when selectedProduct is empty
+    if (selectedProduct && !initialCategorySlug) {
+      // Search across all data sources for the product
+      const { product } = findProductInAllSources(selectedProduct);
+      
+      if (product && product.images && product.images.length > 0) {
+        setCurrentProductImages(product.images);
+        setSelectedImage(product.images[0]); // Set first image as default
+      } else {
+        // Only reset to default images if product was explicitly selected but has no images
+        setCurrentProductImages([
+          'Magnetic-Closure-Rigid-Box_vtf07m',
+          'Magnetic-Closure-Rigid-Box-2_qinyd2',
+          'Magnetic-Closure-Rigid-Box-3_f4sxvc'
+        ]);
+        setSelectedImage('Magnetic-Closure-Rigid-Box_vtf07m');
       }
     }
-  }, [selectedProduct, selectedMaterial]);
+  }, [selectedProduct, initialCategorySlug, findProductInAllSources]);
 
   useEffect(() => {
     if (selectedMaterial === 'corrugated-boxes' || selectedMaterial === 'rigid-boxes') {

@@ -12,7 +12,14 @@ export default function AboutUsPage() {
       <AboutStory />
       <AboutValues />
       {/* <AboutTeam /> */}
-      <CTASection />
+      <CTASection 
+        productData={{
+          cta: {
+            title: "Exceptional Design That Leaves a Lasting Impression",
+            description: "Get a custom quote for your premium boxes today. Experience the difference that luxury packaging makes."
+          }
+        }}
+      />
     </main>
   );
 }

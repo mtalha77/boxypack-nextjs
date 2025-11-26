@@ -31,7 +31,7 @@ const AboutStory: React.FC = () => {
               <Clock className="w-8 h-8 text-white" />
             </div>
             <div className="text-h3 font-bold text-heading-secondary mb-2">24hr</div>
-            <div className="text-caption text-body-secondary">Quote Response</div>
+            <div className="text-caption text-body-secondary">Instant Quote</div>
           </div>
           
           <div className="text-center p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl">
@@ -81,7 +81,7 @@ const AboutStory: React.FC = () => {
           {/* Right Content - Image */}
           <div className="relative">
             <CldImage
-              src="Box-4_lztqi7"
+              src="Box-5_pdb8xw"
               alt="BoxyPack mission - custom boxes that support every business with quality and care"
               width={600}
               height={500}
@@ -96,7 +96,7 @@ const AboutStory: React.FC = () => {
           {/* Left Content - Image */}
           <div className="relative">
             <CldImage
-              src="product-box-2"
+              src="Box-4_lztqi7"
               alt="BoxyPack vision - innovative packaging solutions that inspire and create lasting customer experiences"
               width={600}
               height={500}

@@ -34,7 +34,7 @@ const ProgressSteps: React.FC = () => {
       number: 3,
       title: "Production",
       description:
-        "We manufacture with precision, using strong materials and sharp printing to create boxes that protect and impress.",
+        "We manufacture with precision, using finest materials and sharp printing to create boxes that protect and impress.",
       icon: Factory,
       bgColor: "bg-[#0c6b76]",
     },
@@ -42,7 +42,7 @@ const ProgressSteps: React.FC = () => {
       number: 4,
       title: "Delivery",
       description:
-        "Your order arrives safely, on time, and ready to showcase your brand in front of customers with confidence.",
+        "We carefully pack and deliver your packaging to your doorstep, ensuring a smooth and hassle-free experience.",
       icon: Truck,
       bgColor: "bg-[#0c6b76]",
     },

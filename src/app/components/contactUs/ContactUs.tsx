@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { Send, CheckCircle, AlertCircle, Loader2, Mail, Phone, MessageCircle, Package, Award, Clock, Users, ArrowRight } from "lucide-react";
+import { CldImage } from "next-cloudinary";
 import emailjs from "@emailjs/browser";
 
 const ContactUs: React.FC = () => {
@@ -210,13 +211,17 @@ const ContactUs: React.FC = () => {
   };
 
   return (
-    <section id="contact-section" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="contact-section" className="py-24 md:py-32 bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Left Side - Text Content */}
           <div id="contact-info" className="space-y-8 scroll-perfect">
             {/* Header */}
             <div id="contact-header" className="scroll-perfect">
+              <div className="inline-flex items-center gap-2 mb-4">
+                <div className="w-12 h-1 bg-gradient-to-r from-[#0c6b76] to-[#0ca6c2] rounded-full"></div>
+                <span className="text-sm font-semibold text-[#0c6b76] uppercase tracking-wider">Get In Touch</span>
+              </div>
               <h2 className="text-h2 text-heading-secondary mb-6">
                 Custom Boxes That Build Trust And Growth
               </h2>
@@ -227,29 +232,65 @@ const ContactUs: React.FC = () => {
               </p>
             </div>
 
-            <div>
-              <h3 className="text-h3 text-heading-secondary mb-6">
-                Get In Touch
-              </h3>
-              <p className="text-body text-body-secondary mb-8">
-                Reach out today for quick answers. Our friendly team guides
-                every step, making custom box orders simple and stress-free.
-              </p>
+            {/* Enhanced Features Grid */}
+            <div className="grid grid-cols-2 gap-4 mb-8">
+              <div className="group bg-gradient-to-br from-white via-white to-gray-50/50 p-6 rounded-2xl border-2 border-gray-100 shadow-sm hover:shadow-xl hover:border-[#0c6b76]/30 transition-all duration-300 transform hover:-translate-y-1">
+                <div className="w-14 h-14 bg-gradient-to-br from-[#0c6b76] to-[#0ca6c2] rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <Clock className="w-7 h-7 text-white" />
+                </div>
+                <h4 className="font-bold text-heading-secondary mb-2 text-lg">Fast Response</h4>
+                <p className="text-sm text-body-secondary">24-hour response time</p>
+              </div>
+              
+              <div className="group bg-gradient-to-br from-white via-white to-gray-50/50 p-6 rounded-2xl border-2 border-gray-100 shadow-sm hover:shadow-xl hover:border-[#97602F]/30 transition-all duration-300 transform hover:-translate-y-1">
+                <div className="w-14 h-14 bg-gradient-to-br from-[#97602F] to-[#c47a3f] rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <Award className="w-7 h-7 text-white" />
+                </div>
+                <h4 className="font-bold text-heading-secondary mb-2 text-lg">Expert Team</h4>
+                <p className="text-sm text-body-secondary">Professional guidance</p>
+              </div>
+              
+              <div className="group bg-gradient-to-br from-white via-white to-gray-50/50 p-6 rounded-2xl border-2 border-gray-100 shadow-sm hover:shadow-xl hover:border-[#0c6b76]/30 transition-all duration-300 transform hover:-translate-y-1">
+                <div className="w-14 h-14 bg-gradient-to-br from-[#0c6b76] to-[#0ca6c2] rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <Package className="w-7 h-7 text-white" />
+                </div>
+                <h4 className="font-bold text-heading-secondary mb-2 text-lg">Custom Solutions</h4>
+                <p className="text-sm text-body-secondary">Tailored to your needs</p>
+              </div>
+              
+              <div className="group bg-gradient-to-br from-white via-white to-gray-50/50 p-6 rounded-2xl border-2 border-gray-100 shadow-sm hover:shadow-xl hover:border-[#97602F]/30 transition-all duration-300 transform hover:-translate-y-1">
+                <div className="w-14 h-14 bg-gradient-to-br from-[#97602F] to-[#c47a3f] rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <Users className="w-7 h-7 text-white" />
+                </div>
+                <h4 className="font-bold text-heading-secondary mb-2 text-lg">Dedicated Support</h4>
+                <p className="text-sm text-body-secondary">From idea to delivery</p>
+              </div>
             </div>
           </div>
 
           {/* Right Side - Contact Form */}
           <div
             id="contact-form"
-            className={`bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-3xl shadow-xl scroll-perfect transition-all duration-1000 ${
+            className={`relative bg-white p-8 md:p-10 rounded-3xl shadow-2xl border-2 border-gray-100 scroll-perfect transition-all duration-1000 ${
               isHighlighted
-                ? "ring-4 ring-[#0c6b76] ring-opacity-50 shadow-2xl"
-                : ""
+                ? "ring-4 ring-[#0c6b76] ring-opacity-50 shadow-2xl scale-[1.02] border-[#0c6b76]/30"
+                : "hover:border-[#0c6b76]/20 hover:shadow-3xl"
             }`}
+            style={{ backgroundColor: '#ffffff' }}
           >
-            <h3 className="text-h3 text-heading-secondary mb-6">
-              Request a Free Quote
-            </h3>
+            <div className="relative z-10">
+            <div className="mb-8">
+              <div className="inline-flex items-center gap-2 mb-4">
+                <MessageCircle className="w-5 h-5 text-[#0c6b76]" />
+                <span className="text-sm font-semibold text-[#0c6b76] uppercase tracking-wider">Free Quote</span>
+              </div>
+              <h3 className="text-h3 text-heading-secondary mb-2">
+                Request a Free Quote
+              </h3>
+              <p className="text-body-secondary text-sm">
+                Fill out the form below and we&apos;ll get back to you within 24 hours with a custom quote.
+              </p>
+            </div>
 
             {isSubmitted ? (
               <div className="text-center py-12">
@@ -291,7 +332,7 @@ const ContactUs: React.FC = () => {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-turquoise-bright)] focus:border-transparent transition-all duration-200"
+                        className="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0c6b76] focus:border-[#0c6b76] transition-all duration-200 shadow-sm hover:shadow-md"
                         placeholder="Your full name"
                       />
                     </div>
@@ -310,7 +351,7 @@ const ContactUs: React.FC = () => {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-turquoise-bright)] focus:border-transparent transition-all duration-200"
+                        className="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0c6b76] focus:border-[#0c6b76] transition-all duration-200 shadow-sm hover:shadow-md"
                         placeholder="your@email.com"
                       />
                     </div>
@@ -329,7 +370,7 @@ const ContactUs: React.FC = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-turquoise-bright)] focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0c6b76] focus:border-[#0c6b76] transition-all duration-200 shadow-sm hover:shadow-md"
                       placeholder="(555) 123-4567"
                     />
                   </div>
@@ -348,7 +389,7 @@ const ContactUs: React.FC = () => {
                       rows={6}
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-turquoise-bright)] focus:border-transparent transition-all duration-200 resize-none"
+                      className="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0c6b76] focus:border-[#0c6b76] transition-all duration-200 resize-none shadow-sm hover:shadow-md"
                       placeholder="Please provide details about your packaging needs: box type, dimensions, quantity, material preference, printing requirements, delivery timeline, and any special instructions..."
                     ></textarea>
                   </div>
@@ -356,8 +397,10 @@ const ContactUs: React.FC = () => {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full bg-brown-rustic hover:bg-[#97602f] disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-4 px-6 rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 disabled:hover:scale-100 disabled:hover:shadow-lg cursor-pointer flex items-center justify-center space-x-2"
+                    className="group w-full bg-gradient-to-r from-[#0c6b76] via-[#0ca6c2] to-[#0c6b76] bg-size-200 hover:bg-pos-0 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white font-bold py-4 px-6 rounded-xl transition-all duration-500 shadow-xl hover:shadow-2xl transform hover:scale-[1.02] disabled:hover:scale-100 disabled:hover:shadow-xl cursor-pointer flex items-center justify-center space-x-2 relative overflow-hidden"
                   >
+                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></span>
+                    <span className="relative z-10 flex items-center gap-2">
                     {isLoading ? (
                       <>
                         <Loader2 className="w-5 h-5 animate-spin" />
@@ -369,15 +412,12 @@ const ContactUs: React.FC = () => {
                         <span>Send Free Quote Request</span>
                       </>
                     )}
+                    </span>
                   </button>
-
-                  <p className="text-caption text-body-muted text-center">
-                    * Required fields. We&apos;ll respond within 24 hours with
-                    your custom quote.
-                  </p>
                 </form>
               </>
             )}
+            </div>
           </div>
         </div>
       </div>
