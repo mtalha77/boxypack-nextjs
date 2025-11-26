@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import { Send, CheckCircle, AlertCircle, Loader2, Mail, Phone, MessageCircle, Package, Award, Clock, Users, ArrowRight } from "lucide-react";
 import { CldImage } from "next-cloudinary";
-import emailjs from "@emailjs/browser";
 
 const ContactUs: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -58,6 +57,9 @@ const ContactUs: React.FC = () => {
     setError(null);
 
     try {
+      // Dynamically import emailjs only on client side to avoid SSR issues
+      const emailjs = (await import("@emailjs/browser")).default;
+
       // EmailJS configuration - these should be set in your .env file
       const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
       const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
