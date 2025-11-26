@@ -22,7 +22,7 @@ const ContactHero: React.FC = () => {
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#0c6b76]/10 to-[#0ca6c2]/10 rounded-full border border-[#0c6b76]/20">
                 <Sparkles className="w-4 h-4 text-[#0c6b76]" />
-                <span className="text-sm font-semibold text-[#0c6b76]">Let's Create Something Amazing</span>
+                <span className="text-sm font-semibold text-[#0c6b76]">Lets Create Something Amazing</span>
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl leading-tight font-bold">
