@@ -109,14 +109,27 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
     });
   };
 
-  const handleDimensionsChange = (field: keyof Dimensions, value: number | string) => {
-    setFormData(prev => ({
-      ...prev,
-      dimensions: {
-        ...prev.dimensions,
-        [field]: value
-      }
-    }));
+  const handleDimensionsChange = (field: keyof Dimensions, value: string) => {
+    if (field === 'unit') {
+      // Unit is a string field
+      setFormData(prev => ({
+        ...prev,
+        dimensions: {
+          ...prev.dimensions,
+          [field]: value as 'in' | 'cm' | 'mm'
+        }
+      }));
+    } else {
+      // For numeric fields (length, width, height), allow empty string and convert to 0
+      const numValue = value === '' ? 0 : parseFloat(value) || 0;
+      setFormData(prev => ({
+        ...prev,
+        dimensions: {
+          ...prev.dimensions,
+          [field]: numValue
+        }
+      }));
+    }
   };
 
   const addLogoPlacement = () => {
@@ -151,8 +164,21 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
   };
 
   const calculatePrice = async () => {
-    if (!formData.productId || !formData.material || !formData.dimensions.length || !formData.dimensions.width || !formData.dimensions.height) {
-      setError('Please fill in all required fields');
+    // Validate required fields - check for zero or empty values
+    if (!formData.productId || !formData.material) {
+      setError('Please select a product and material');
+      return;
+    }
+    
+    if (!formData.dimensions.length || formData.dimensions.length <= 0 ||
+        !formData.dimensions.width || formData.dimensions.width <= 0 ||
+        !formData.dimensions.height || formData.dimensions.height <= 0) {
+      setError('Please enter valid dimensions (Length, Width, and Height must be greater than 0)');
+      return;
+    }
+    
+    if (!formData.quantity || formData.quantity <= 0) {
+      setError('Please enter a valid quantity (must be greater than 0)');
       return;
     }
 
@@ -236,8 +262,11 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
             <input
               type="number"
               min="1"
-              value={formData.quantity}
-              onChange={(e) => handleInputChange('quantity', parseInt(e.target.value) || 1)}
+              value={formData.quantity === 0 ? '' : formData.quantity}
+              onChange={(e) => {
+                const value = e.target.value;
+                handleInputChange('quantity', value === '' ? 0 : parseInt(value) || 0);
+              }}
               className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
             />
           </div>
@@ -256,8 +285,8 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
                 type="number"
                 step="0.1"
                 min="0"
-                value={formData.dimensions.length}
-                onChange={(e) => handleDimensionsChange('length', parseFloat(e.target.value) || 0)}
+                value={formData.dimensions.length === 0 ? '' : formData.dimensions.length}
+                onChange={(e) => handleDimensionsChange('length', e.target.value)}
                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
               />
             </div>
@@ -269,8 +298,8 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
                 type="number"
                 step="0.1"
                 min="0"
-                value={formData.dimensions.width}
-                onChange={(e) => handleDimensionsChange('width', parseFloat(e.target.value) || 0)}
+                value={formData.dimensions.width === 0 ? '' : formData.dimensions.width}
+                onChange={(e) => handleDimensionsChange('width', e.target.value)}
                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
               />
             </div>
@@ -282,8 +311,8 @@ const PricingForm: React.FC<PricingFormProps> = ({ onPriceCalculated, initialDat
                 type="number"
                 step="0.1"
                 min="0"
-                value={formData.dimensions.height}
-                onChange={(e) => handleDimensionsChange('height', parseFloat(e.target.value) || 0)}
+                value={formData.dimensions.height === 0 ? '' : formData.dimensions.height}
+                onChange={(e) => handleDimensionsChange('height', e.target.value)}
                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
               />
             </div>

@@ -337,6 +337,27 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
       return;
     }
 
+    // Validate dimensions and quantity
+    if (!customLength || customLength <= 0) {
+      setPricingError('Please enter a valid length (must be greater than 0)');
+      return;
+    }
+    
+    if (!customWidth || customWidth <= 0) {
+      setPricingError('Please enter a valid width (must be greater than 0)');
+      return;
+    }
+    
+    if (!customDepth || customDepth <= 0) {
+      setPricingError('Please enter a valid height (must be greater than 0)');
+      return;
+    }
+    
+    if (!quantity || quantity <= 0) {
+      setPricingError('Please enter a valid quantity (must be greater than 0)');
+      return;
+    }
+
     setCalculating(true);
     setPricingError('');
 
@@ -477,6 +498,11 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
       alert('Please select all options and ensure pricing is available');
       return;
     }
+    
+    if (!customLength || customLength <= 0 || !customWidth || customWidth <= 0 || !customDepth || customDepth <= 0 || !quantity || quantity <= 0) {
+      alert('Please enter valid dimensions and quantity (all values must be greater than 0)');
+      return;
+    }
 
     const selectedMaterialName = materialSelectionOptions.find(m => m.value === selectedMaterial)?.label || selectedMaterial;
     const selectedProductData = getProductsByMaterial().find(p => p.slug === selectedProduct);
@@ -517,6 +543,11 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   const handleOrderNow = () => {
     if (!selectedMaterial || !selectedProduct || !pricingResult || quantity > 20000) {
       alert('Please select all options and ensure pricing is available');
+      return;
+    }
+    
+    if (!customLength || customLength <= 0 || !customWidth || customWidth <= 0 || !customDepth || customDepth <= 0 || !quantity || quantity <= 0) {
+      alert('Please enter valid dimensions and quantity (all values must be greater than 0)');
       return;
     }
 
@@ -873,10 +904,13 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                   </label>
                   <input
                     type="number"
-                    value={customLength}
-                    onChange={(e) => setCustomLength(Math.max(0.25, parseFloat(e.target.value) || 0.25))}
+                    value={customLength === 0 ? '' : customLength}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      setCustomLength(value === '' ? 0 : Math.max(0, parseFloat(value) || 0));
+                    }}
                     step="0.25"
-                    min="0.25"
+                    min="0"
                     className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-[#0ca6c2] focus:border-[#0ca6c2] focus:outline-none"
                     placeholder="10"
                   />
@@ -889,10 +923,13 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                   </label>
                   <input
                     type="number"
-                    value={customWidth}
-                    onChange={(e) => setCustomWidth(Math.max(0.25, parseFloat(e.target.value) || 0.25))}
+                    value={customWidth === 0 ? '' : customWidth}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      setCustomWidth(value === '' ? 0 : Math.max(0, parseFloat(value) || 0));
+                    }}
                     step="0.25"
-                    min="0.25"
+                    min="0"
                     className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-[#0ca6c2] focus:border-[#0ca6c2] focus:outline-none"
                     placeholder="8"
                   />
@@ -905,10 +942,13 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                   </label>
                   <input
                     type="number"
-                    value={customDepth}
-                    onChange={(e) => setCustomDepth(Math.max(0.25, parseFloat(e.target.value) || 0.25))}
+                    value={customDepth === 0 ? '' : customDepth}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      setCustomDepth(value === '' ? 0 : Math.max(0, parseFloat(value) || 0));
+                    }}
                     step="0.25"
-                    min="0.25"
+                    min="0"
                     className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-[#0ca6c2] focus:border-[#0ca6c2] focus:outline-none"
                     placeholder="3"
                   />
@@ -927,12 +967,15 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                 <div className="flex-1">
                   <input
                     type="number"
-                    value={quantity}
-                    onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
+                    value={quantity === 0 ? '' : quantity}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      setQuantity(value === '' ? 0 : Math.max(0, Number(value) || 0));
+                    }}
                     className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[#0ca6c2] focus:border-[#0ca6c2] ${
                       quantity > 20000 ? 'border-orange-400 bg-orange-50' : 'border-[#0c6b76]/30'
                     }`}
-                    min="1"
+                    min="0"
                     placeholder="250"
                   />
                 </div>
