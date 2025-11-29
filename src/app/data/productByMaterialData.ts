@@ -4,6 +4,7 @@ export interface MaterialSubCategory {
   description?: string;
   modelPath?: string;
   images?: string[]; // Array of Cloudinary public IDs for product images
+  heroImage?: string; // Separate hero image for hero section only
 }
 
 export interface MaterialCategory {
@@ -21,7 +22,7 @@ export const productByMaterialData: MaterialCategory[] = [
     name: "Rigid Boxes",
     slug: "rigid-boxes",
     description:
-      "We offer rigid boxes wholesale in a wide selection of styles and designs to suit every brand and industry:\n\nMagnetic Closure Boxes\n\nTwo-Piece Boxes\n\nBook Style Boxes,\n\nShoulder Boxes,\n\nHexagon and Round Boxes, Drawer or Sleeve Boxes\n\nEach box is engineered to perfection, combining structural integrity with premium visual appeal.",
+      "Rigid boxes are designed that add luxury and strength to every product.",
     image: "Mailer-Box-3_oct2ws",
     subcategoriesCount: 5,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -87,7 +88,7 @@ export const productByMaterialData: MaterialCategory[] = [
     name: "Kraft Boxes",
     slug: "kraft-boxes",
     description:
-      "We offer kraft boxes bulk for every product type and business need: Kraft Mailer Boxes , Kraft Boxes with Lids, Kraft Pillow Boxes, Kraft Gable Boxes, Kraft Bakery / Cake Boxes, Kraft Sleeve Boxes, Kraft Tuck End Boxes. Each design ensures sustainability, simplicity, and strength making kraft boxes the most versatile packaging choice for any industry.",
+      "Simple kraft boxes designed for recyclable and eco-friendly brands with purpose.",
     image: "Mailer-Box-2_ysut1i",
     subcategoriesCount: 18,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -285,7 +286,7 @@ export const productByMaterialData: MaterialCategory[] = [
     name: "Cardboard Boxes",
     slug: "cardboard-boxes",
     description:
-      "We provide wholesale cardboard boxes for retail, shipping, and storage needs. Our collection includes mailer boxes, product cartons, subscription boxes, and shipping boxes  all customizable with your brand logo and color scheme. Each design supports efficiency, protection, and shelf-ready appeal.",
+      "Cardboard boxes are made for printing, fold, and brand for daily use.",
     image: "Mailer-Box_1_ujqhhx",
     subcategoriesCount: 20,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -438,8 +439,11 @@ export const productByMaterialData: MaterialCategory[] = [
         slug: "cardboard-auto-bottom-tray",
         description: "We offer wholesale auto bottom trays for different industries and products. Choose from kraft trays for eco brands, printed trays for retail presentation, or sturdy corrugated options for food and bakery packaging. Each tray design is built for speed, strength, and aesthetic value, helping your business package products efficiently and professionally.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        heroImage: "Cardboard-Auto-Bottom-Tray-Box_pz8uqc",
         images: [
-          "Cardboard-Auto-Bottom-Tray-Box_pz8uqc",
+          "Cardboard-Auto-Bottom-Tray-Box_w6twmi",
+          "Cardboard-Auto-Bottom-Tray-Box-2_bijpv3",
+          "Cardboard-Auto-Bottom-Tray-Box-3_s9pof8",
         ],
       },
       {
@@ -492,7 +496,7 @@ export const productByMaterialData: MaterialCategory[] = [
     name: "Corrugated Boxes",
     slug: "corrugated-boxes",
     description:
-      "We offer corrugated boxes wholesale in multiple styles, including mailer boxes, shipping cartons, heavy-duty trays, and printed retail packaging. Every box is fully customizable with size, shape, color, and print options to suit your logistics or retail goals. Whether you ship across town or worldwide, BoxyPack ensures your packaging stays strong from start to finish.",
+      "Heavy-duty custom boxes are built to protect during every shipment.",
     image: "Mailer-Box-3_oct2ws",
     subcategoriesCount: 8,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",

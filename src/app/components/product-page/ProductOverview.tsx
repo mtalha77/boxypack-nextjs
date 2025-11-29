@@ -19,15 +19,21 @@ interface ProductOverviewProps {
     images?: string[];
     // Optional hero image (from data files) used as a last-resort fallback
     heroImage?: string;
+    slug?: string; // Product slug for exact matching
   };
+  // Optional category and section information to limit image search to specific category
+  categorySlug?: string;
+  sectionSlug?: string;
+  subcategorySlug?: string; // Subcategory slug for exact matching
 }
 
-const ProductOverview: React.FC<ProductOverviewProps> = ({ productData }) => {
+const ProductOverview: React.FC<ProductOverviewProps> = ({ productData, categorySlug, sectionSlug, subcategorySlug }) => {
   const name = productData?.name ?? "";
   const description = productData?.description;
   const overview = productData?.overview;
   const explicitImages = productData?.images;
   const heroImage = productData?.heroImage;
+  const productSlug = productData?.slug || subcategorySlug;
 
   React.useEffect(() => {
     if (process.env.NODE_ENV === "development" && productData) {
@@ -120,6 +126,148 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productData }) => {
 
     const normalized = normalize(productName);
 
+    // If categorySlug is provided, only search within that specific category
+    if (categorySlug) {
+      // Search in productByMaterialData if section is product-by-material
+      if (sectionSlug === 'product-by-material') {
+        for (const category of productByMaterialData) {
+          if (category.slug === categorySlug) {
+            // First, try to find by slug if available (most accurate)
+            if (productSlug) {
+              for (const sub of category.subcategories) {
+                if (sub.slug === productSlug && Array.isArray(sub.images) && sub.images.length > 0) {
+                  const images = [...sub.images];
+                  const firstImage = images[0];
+                  while (images.length < 3) {
+                    images.push(firstImage);
+                  }
+                  return images.slice(0, 3);
+                }
+              }
+            }
+            // Search only within this category's subcategories by name
+            for (const sub of category.subcategories) {
+              const subNorm = normalize(sub.name);
+              // Prioritize exact match
+              if (subNorm === normalized && Array.isArray(sub.images) && sub.images.length > 0) {
+                const images = [...sub.images];
+                const firstImage = images[0];
+                while (images.length < 3) {
+                  images.push(firstImage);
+                }
+                return images.slice(0, 3);
+              }
+            }
+            // If no exact match, try partial match within same category
+            for (const sub of category.subcategories) {
+              const subNorm = normalize(sub.name);
+              if ((subNorm.includes(normalized) || normalized.includes(subNorm)) && Array.isArray(sub.images) && sub.images.length > 0) {
+                const images = [...sub.images];
+                const firstImage = images[0];
+                while (images.length < 3) {
+                  images.push(firstImage);
+                }
+                return images.slice(0, 3);
+              }
+            }
+          }
+        }
+      }
+      // Search in productByIndustryData if section is product-by-industry
+      else if (sectionSlug === 'product-by-industry') {
+        for (const category of productByIndustryData) {
+          if (category.slug === categorySlug) {
+            // First, try to find by slug if available (most accurate)
+            if (productSlug) {
+              for (const sub of category.subcategories) {
+                if (sub.slug === productSlug && Array.isArray(sub.images) && sub.images.length > 0) {
+                  const images = [...sub.images];
+                  const firstImage = images[0];
+                  while (images.length < 3) {
+                    images.push(firstImage);
+                  }
+                  return images.slice(0, 3);
+                }
+              }
+            }
+            // Search only within this category's subcategories by name
+            for (const sub of category.subcategories) {
+              const subNorm = normalize(sub.name);
+              // Prioritize exact match
+              if (subNorm === normalized && Array.isArray(sub.images) && sub.images.length > 0) {
+                const images = [...sub.images];
+                const firstImage = images[0];
+                while (images.length < 3) {
+                  images.push(firstImage);
+                }
+                return images.slice(0, 3);
+              }
+            }
+            // If no exact match, try partial match within same category
+            for (const sub of category.subcategories) {
+              const subNorm = normalize(sub.name);
+              if ((subNorm.includes(normalized) || normalized.includes(subNorm)) && Array.isArray(sub.images) && sub.images.length > 0) {
+                const images = [...sub.images];
+                const firstImage = images[0];
+                while (images.length < 3) {
+                  images.push(firstImage);
+                }
+                return images.slice(0, 3);
+              }
+            }
+          }
+        }
+      }
+      // Search in special datasets if category matches
+      const specialCategories = [
+        mylarBoxesData,
+        shoppingBagsData,
+        otherData,
+      ] as const;
+      for (const special of specialCategories) {
+        if (special.slug === categorySlug) {
+          // First, try to find by slug if available (most accurate)
+          if (productSlug) {
+            for (const sub of special.subcategories) {
+              if (sub.slug === productSlug && Array.isArray(sub.images) && sub.images.length > 0) {
+                const images = [...sub.images];
+                const firstImage = images[0];
+                while (images.length < 3) {
+                  images.push(firstImage);
+                }
+                return images.slice(0, 3);
+              }
+            }
+          }
+          // Search only within this category's subcategories by name
+          for (const sub of special.subcategories) {
+            const subNorm = normalize(sub.name);
+            // Prioritize exact match
+            if (subNorm === normalized && Array.isArray(sub.images) && sub.images.length > 0) {
+              const images = [...sub.images];
+              const firstImage = images[0];
+              while (images.length < 3) {
+                images.push(firstImage);
+              }
+              return images.slice(0, 3);
+            }
+          }
+          // If no exact match, try partial match within same category
+          for (const sub of special.subcategories) {
+            const subNorm = normalize(sub.name);
+            if ((subNorm.includes(normalized) || normalized.includes(subNorm)) && Array.isArray(sub.images) && sub.images.length > 0) {
+              const images = [...sub.images];
+              const firstImage = images[0];
+              while (images.length < 3) {
+                images.push(firstImage);
+              }
+              return images.slice(0, 3);
+            }
+          }
+        }
+      }
+    }
+
     // If this is a top-level "Product by Material" category (e.g., Rigid Boxes, Kraft Boxes, etc.),
     // build an images array from that category's own subcategory images to avoid duplicates.
     for (const category of productByMaterialData) {
@@ -206,67 +354,82 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productData }) => {
       }
     }
 
-    // Explicit fallbacks by common product names (ensures images for "remaining boxes")
-    const explicitNameFallbacks: Record<string, string[]> = {
-      "display cosmetic boxes": ["Display-Cosmetic-Boxes-1_qorgwe"],
-      "food boxes": ["Custom-Burger-Boxes-1_k09ujk"],
-      "gift boxes": [
-        "Sweet-Gift-Boxes-1_sykffe",
-        "Sweet-Gift-Boxes-2_nb7lsr",
-        "Sweet-Gift-Boxes-1_sykffe",
-      ],
-      "large gift boxes": ["Large-Gift-Boxes-2_tlo55s"],
-      "retail boxes": ["Retail-Boxes-1_e0snxl"],
-      "candle boxes": ["Candle-Boxes-3_jwwwiz"],
-      "black shipping boxes": ["Black-Shipping-Boxes-2_qxrrap"],
-    };
-    if (explicitNameFallbacks[normalized]) {
-      const list = explicitNameFallbacks[normalized];
-      // Repeat to ensure up to 3 slots
-      return [list[0], list[1] ?? list[0], list[2] ?? list[0]];
-    }
-
-    // Keyword-based best match selection for card images
-    const keywordToImage: Array<{ key: string; id: string }> = [
-      { key: "display cosmetic", id: "Display-Cosmetic-Boxes-1_qorgwe" },
-      { key: "cosmetic", id: "Display-Cosmetic-Boxes-1_qorgwe" },
-      { key: "food boxes", id: "Custom-Burger-Boxes-1_k09ujk" },
-      { key: "burger", id: "Custom-Burger-Boxes-1_k09ujk" },
-      { key: "gift boxes", id: "Sweet-Gift-Boxes-1_sykffe" },
-      { key: "large gift", id: "Large-Gift-Boxes-2_tlo55s" },
-      { key: "retail boxes", id: "Retail-Boxes-1_e0snxl" },
-      { key: "retail", id: "Retail-Boxes-1_e0snxl" },
-      { key: "candle boxes", id: "Candle-Boxes-3_jwwwiz" },
-      { key: "candle", id: "Candle-Boxes-3_jwwwiz" },
-      { key: "black shipping", id: "Black-Shipping-Boxes-2_qxrrap" },
-      { key: "shipping boxes", id: "Black-Shipping-Boxes-2_qxrrap" },
-    ];
-    let best: { score: number; id: string } | null = null;
-    for (const item of keywordToImage) {
-      const key = normalize(item.key);
-      // simple scoring by longest matching keyword contained
-      const matches =
-        normalized.includes(key) || key.includes(normalized) ? key.length : 0;
-      if (matches > 0 && (!best || matches > best.score)) {
-        best = { score: matches, id: item.id };
+    // If this is a top-level "Product by Industry" category (e.g., E-liquid Boxes, Vape Boxes, etc.),
+    // build an images array from that category's own subcategory images to avoid duplicates.
+    for (const category of productByIndustryData) {
+      const categoryNorm = normalize(category.name);
+      if (
+        categoryNorm === normalized ||
+        categoryNorm.includes(normalized) ||
+        normalized.includes(categoryNorm)
+      ) {
+        const collected: string[] = [];
+        if (Array.isArray(category.subcategories)) {
+          for (const sub of category.subcategories) {
+            // Only use images array, not heroImage (heroImage is for hero section only)
+            if (Array.isArray(sub.images)) {
+              for (const img of sub.images) {
+                if (
+                  typeof img === "string" &&
+                  img &&
+                  !collected.includes(img)
+                ) {
+                  collected.push(img);
+                  if (collected.length >= 3) break;
+                }
+              }
+            }
+            if (collected.length >= 3) break;
+          }
+        }
+        // Fallback to category.image if we couldn't assemble 3 images
+        if (collected.length === 0 && category.image) {
+          collected.push(category.image);
+        }
+        while (collected.length < 3 && collected.length > 0) {
+          // pad with available images but avoid immediate duplicates when possible
+          const next = collected[collected.length - 1];
+          collected.push(next);
+        }
+        if (collected.length > 0) {
+          return collected.slice(0, 3);
+        }
       }
     }
-    if (best) {
-      return [best.id, best.id, best.id];
-    }
 
-    // Search in material data
+    // Search in material data - prioritize exact product match first, only use images from same product
+    for (const category of productByMaterialData) {
+      for (const sub of category.subcategories) {
+        const subNorm = normalize(sub.name);
+        // Prioritize exact match - only use images from the exact product found
+        if (subNorm === normalized && Array.isArray(sub.images) && sub.images.length > 0) {
+          // Ensure we always return 3 images, repeating the first image if needed
+          const images = [...sub.images];
+          const firstImage = images[0];
+          while (images.length < 3) {
+            images.push(firstImage);
+          }
+          return images.slice(0, 3);
+      }
+    }
+    }
+    
+    // If no exact match, try partial match but still only from same product
     for (const category of productByMaterialData) {
       for (const sub of category.subcategories) {
         const subNorm = normalize(sub.name);
         if (
-          (subNorm === normalized ||
-            subNorm.includes(normalized) ||
-            normalized.includes(subNorm)) &&
+          (subNorm.includes(normalized) || normalized.includes(subNorm)) &&
           Array.isArray(sub.images) &&
           sub.images.length > 0
         ) {
-          return sub.images.slice(0, 3);
+          // Ensure we always return 3 images, repeating the first image if needed
+          const images = [...sub.images];
+          const firstImage = images[0];
+          while (images.length < 3) {
+            images.push(firstImage);
+          }
+          return images.slice(0, 3);
         }
       }
     }
@@ -282,7 +445,13 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productData }) => {
           Array.isArray(sub.images) &&
           sub.images.length > 0
         ) {
-          return sub.images.slice(0, 3);
+          // Ensure we always return 3 images, repeating the first image if needed
+          const images = [...sub.images];
+          const firstImage = images[0];
+          while (images.length < 3) {
+            images.push(firstImage);
+          }
+          return images.slice(0, 3);
         }
       }
     }
@@ -301,25 +470,55 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productData }) => {
               Array.isArray(sub.images) &&
               sub.images.length > 0
             ) {
-              return sub.images.slice(0, 3);
+              // Ensure we always return 3 images, repeating the first image if needed
+              const images = [...sub.images];
+              const firstImage = images[0];
+              while (images.length < 3) {
+                images.push(firstImage);
+              }
+              return images.slice(0, 3);
             }
           }
         }
       }
     }
 
-    // General search in industry data
+    // General search in industry data - prioritize exact product match first, only use images from same product
+    // First try exact match
+    for (const category of productByIndustryData) {
+      for (const sub of category.subcategories) {
+        const subNorm = normalize(sub.name);
+        // Prioritize exact match - only use images from the exact product found
+        if (subNorm === normalized && Array.isArray(sub.images) && sub.images.length > 0) {
+          // Only use images array, not heroImage (heroImage is for hero section only)
+          // Ensure we always return 3 images, repeating the first image if needed
+          const images = [...sub.images];
+          const firstImage = images[0];
+          while (images.length < 3) {
+            images.push(firstImage);
+          }
+          return images.slice(0, 3);
+        }
+      }
+    }
+    
+    // If no exact match, try partial match but still only from same product
     for (const category of productByIndustryData) {
       for (const sub of category.subcategories) {
         const subNorm = normalize(sub.name);
         if (
-          (subNorm === normalized ||
-            subNorm.includes(normalized) ||
-            normalized.includes(subNorm)) &&
+          (subNorm.includes(normalized) || normalized.includes(subNorm)) &&
           Array.isArray(sub.images) &&
           sub.images.length > 0
         ) {
-          return sub.images.slice(0, 3);
+          // Only use images array, not heroImage (heroImage is for hero section only)
+          // Ensure we always return 3 images, repeating the first image if needed
+          const images = [...sub.images];
+          const firstImage = images[0];
+          while (images.length < 3) {
+            images.push(firstImage);
+          }
+          return images.slice(0, 3);
         }
       }
     }

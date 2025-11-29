@@ -9,6 +9,7 @@ export interface SubCategory {
   slug: string;
   description?: string;
   images?: string[]; // Array of Cloudinary public IDs for product images
+  heroImage?: string; // Separate hero image for hero section and subcategory cards
 }
 
 export interface MainCategory {
@@ -51,7 +52,8 @@ export const navigationData: NavigationSection[] = [
         name: sub.name,
         slug: sub.slug,
         description: sub.description,
-        images: sub.images
+        images: sub.images,
+        heroImage: sub.heroImage
       }))
     }))
   },

@@ -4,6 +4,7 @@ export interface IndustrySubCategory {
   description?: string;
   modelPath?: string;
   images?: string[]; // Array of Cloudinary public IDs for product images
+  heroImage?: string; // Separate hero image for hero section only
 }
 
 export interface IndustryCategory {
@@ -20,8 +21,8 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Bakery Boxes",
     slug: "bakery-boxes",
-    description: "We offer bakery boxes wholesale in diverse designs, including cupcake boxes, pastry trays, donut boxes, and cake cartons. Every order can be customized with your logo, color theme, and size preferences. Whether you're packaging daily treats or luxury desserts, BoxyPack ensures your boxes keep every bite fresh and picture-perfect.",
-    image: "Box-4_lztqi7",
+    description: "Fresh Designs for Every Sweet Treat",
+    image: "Bakery_Boxes_klh8y6",
     subcategoriesCount: 14,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
@@ -30,7 +31,7 @@ export const productByIndustryData: IndustryCategory[] = [
         slug: "custom-donut-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
-          "Custom-Donut-Boxes-1_dmj5t9",
+          "Pink-Donut-Boxes_vadc29",
           "Custom-Donut-Boxes-2_u8p8yt",
           "Custom-Donut-Boxes-3_xbgzfn",
         ],
@@ -40,7 +41,7 @@ export const productByIndustryData: IndustryCategory[] = [
         slug: "custom-pastry-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
-          "Custom-Pastery-Boxes-1_rvriqm",
+          "Custom-Pastery-Boxes_tidnmg",
           "Custom-Pastery-Boxes-2_iypxuu",
           "Custom-Pastery-Boxes-1_rvriqm",
         ],
@@ -50,7 +51,7 @@ export const productByIndustryData: IndustryCategory[] = [
         slug: "custom-cake-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
-          "Custom-Cake-Boxes-1_keqqir",
+          "Custom-Cake-Boxes_r5fvaq",
           "Custom-Cake-Boxes-2_ft4dsr",
           "Custom-Cake-Boxes-2_ft4dsr",
         ],
@@ -60,7 +61,7 @@ export const productByIndustryData: IndustryCategory[] = [
         slug: "custom-cookie-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
-          "Custom-Cookies-Boxes-1_cdfbrr",
+          "Custom-Cookies-Boxes_g2luqm",
           "Custom-Cookies-Boxes-1_cdfbrr",
           "Custom-Cookies-Boxes-2_wdiict",
         ],
@@ -70,7 +71,7 @@ export const productByIndustryData: IndustryCategory[] = [
         slug: "custom-gable-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
-          "Custom-Gable-Boxes-1_qxlget",
+          "Custom-Gable-Boxes_tfjjqt",
           "Custom-Gable-Boxes-2_h4ragc",
           "Custom-Gable-Boxes-3_tbc0f3",
         ],
@@ -80,7 +81,7 @@ export const productByIndustryData: IndustryCategory[] = [
         slug: "custom-candy-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
-          "Custom-Candy-Boxes-1_ghf8o8",
+          "Custom-Candy-Boxes_dyhfbb",
           "Custom-Candy-Boxes-2_umzwww",
           "Custom-Candy-Boxes-3_abnfuf",
         ],
@@ -90,7 +91,7 @@ export const productByIndustryData: IndustryCategory[] = [
         slug: "mini-cupcake-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
-          "Mini-Cupcake-Boxes-1_gk2oxp",
+          "Mini-Cupcake-Boxes_ghdjzw",
           "Mini-Cupcake-Boxes-1_gk2oxp",
           "Mini-Cupcake-Boxes-2_b7tsvq",
         ],
@@ -100,7 +101,7 @@ export const productByIndustryData: IndustryCategory[] = [
         slug: "pink-donut-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
-          "Pink-Donut-Boxes-1_marj9f",
+          "Pink-Donut-Boxes_vadc29",
           "Pink-Donut-Boxes-2_ltiufw",
           "Pink-Donut-Boxes-3_vo4cpt",
         ],
@@ -110,7 +111,7 @@ export const productByIndustryData: IndustryCategory[] = [
         slug: "window-bakery-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
-          "Window-Bakery-Boxes-1_rbhg0r",
+          "Window-Bakery-Boxes_fh57xq",
           "Window-Bakery-Boxes-2_xx5swh",
           "Window-Bakery-Boxes-3_gazrye",
         ],
@@ -120,7 +121,7 @@ export const productByIndustryData: IndustryCategory[] = [
         slug: "bakery-gift-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
-          "Bakery-Gift-Boxes-1_aorpnn",
+          "Bakery-Gift-Boxes_m9obxk",
           "Bakery-Gift-Boxes-2_t3kwx8",
           "Bakery-Gift-Boxes-3_enypsh",
         ],
@@ -130,7 +131,7 @@ export const productByIndustryData: IndustryCategory[] = [
         slug: "custom-cupcake-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
-          "Custom-Cupcake-Boxes-1_ak1dkc",
+          "Custom-Cupcake-Boxes_r2nlgw",
           "Custom-Cupcake-Boxes-2_lhirzg",
           "Custom-Cupcake-Boxes-3_o0xhpd",
         ],
@@ -140,7 +141,7 @@ export const productByIndustryData: IndustryCategory[] = [
         slug: "small-cake-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
-          "Small-Cake-Boxes-1_th13oz",
+          "Small-Cake-Boxes_eobqee",
           "Small-Cake-Boxes-2_pzmikh",
           "Small-Cake-Boxes-3_dampkl",
         ],
@@ -150,7 +151,7 @@ export const productByIndustryData: IndustryCategory[] = [
         slug: "custom-truffle-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
-          "Custom-Truffle-Boxes-1_imolco",
+          "Custom-Truffle-Boxes_bwzzre",
           "Custom-Truffle-Boxes-2_dznjjn",
           "Custom-Truffle-Boxes-3_omyri7",
         ],
@@ -160,7 +161,7 @@ export const productByIndustryData: IndustryCategory[] = [
         slug: "sweet-gift-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
-          "Sweet-Gift-Boxes-1_hc5cct",
+          "Sweet-Gift-Boxes_pwqizx",
           "Sweet-Gift-Boxes-2_mctoex",
           "Sweet-Gift-Boxes-3_tfmxok",
         ],
@@ -170,7 +171,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Cosmetic Boxes",
     slug: "cosmetic-boxes",
-    description: "We offer cosmetic packaging wholesale in multiple formats including makeup boxes, skincare packaging, perfume cartons, and luxury gift sets. Every box can be personalized with your logo, color palette, and finish options. Whether you're building a new brand or scaling an established line, BoxyPack ensures packaging that reflects beauty and confidence.",
+    description: "Stylish Packaging for Beauty Products",
     image: "Box-5_pdb8xw",
     subcategoriesCount: 20,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -178,6 +179,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Cosmetic Display Boxes",
         slug: "cosmetic-display-boxes",
+        heroImage: "Display-Cosmetic-Boxes_qxwdok",
         images: [
           "Display-Cosmetic-Boxes-1_qorgwe",
           "Display-Cosmetic-Boxes-2_rvpoth",
@@ -187,6 +189,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Perfume Boxes",
         slug: "custom-perfume-boxes",
+        heroImage: "Custom-Perfume-Boxes_dsekz6",
         images: [
           "Custom-Perfume-Boxes-1_jdpqpt",
           "Custom-Perfume-Boxes-2_wkxcqo",
@@ -196,6 +199,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Makeup Boxes",
         slug: "custom-makeup-boxes",
+        heroImage: "Custom-Makeup-Boxes_g9x0ga",
         images: [
           "Custom-Makeup-Boxes-1_dxsdrp",
           "Custom-Makeup-Boxes-2_vnsndw",
@@ -205,6 +209,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Hair Extension Boxes",
         slug: "hair-extension-boxes",
+        heroImage: "Hair-Extension-Boxes_koirow",
         images: [
           "Hair-Extension-Boxes-1_cpgbkn",
           "Hair-Extension-Boxes-2_qtklom",
@@ -214,6 +219,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Lipstick Boxes",
         slug: "custom-lipstick-boxes",
+        heroImage: "Custom-Lipstick-Boxes_ye9jwo",
         images: [
           "Custom-Lipstick-Boxes-1_pusut1",
           "Custom-Lipstick-Boxes-2_gx8b9b",
@@ -223,6 +229,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Lip Gloss Boxes",
         slug: "custom-lip-gloss-boxes",
+        heroImage: "Custom-LipGloss-Boxes_t4osho",
         images: [
           "Custom-LipGloss-Boxes-1_haojcb",
           "Custom-LipGloss-Boxes-2_bj7uha",
@@ -232,6 +239,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Eye Shadow Boxes",
         slug: "custom-eye-shadow-boxes",
+        heroImage: "Custom-Eye-Shadow-Boxes_uofwwc",
         images: [
           "Custom-Eye-Shadow-Boxes-1_zktyid",
           "Custom-Eye-Shadow-Boxes-2_ohc5hq",
@@ -241,6 +249,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Cream Boxes",
         slug: "custom-cream-boxes",
+        heroImage: "Custom-Cream-Boxes_izanae",
         images: [
           "Custom-Cream-Boxes-1_mugaz9",
           "Custom-Cream-Boxes-2_ogkq65",
@@ -250,6 +259,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Mascara Boxes",
         slug: "custom-mascara-boxes",
+        heroImage: "Custom-Mascara-Boxes_isxe9x",
         images: [
           "Custom-Mascara-Boxes-1_z6ff9f",
           "Custom-Mascara-Boxes-2_qm5m9u",
@@ -259,6 +269,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Nail Polish Boxes",
         slug: "custom-nail-polish-boxes",
+        heroImage: "Custom-Nail-Polish-Boxes_mnqghy",
         images: [
           "Custom-Nail-Polish-Boxes-1_mzi5dl",
           "Custom-Nail-Polish-Boxes-2_k8jobv",
@@ -268,6 +279,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Lip Balm Boxes",
         slug: "custom-lip-balm-boxes",
+        heroImage: "Custom-Lip-Balm-Boxes_dxamvj",
         images: [
           "Custom-Lip-Balm-Boxes-1_f7srpq",
           "Custom-Lip-Balm-Boxes-2_j2gd6r",
@@ -277,6 +289,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Eyeliner Boxes",
         slug: "custom-eyeliner-boxes",
+        heroImage: "Custom-Eyeliner-Boxes_sdj4sh",
         images: [
           "Custom-Eyeliner-Boxes-1_mtbd9m",
           "Custom-Eyeliner-Boxes-2_klvdjv",
@@ -286,6 +299,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Foundation Boxes",
         slug: "foundation-boxes",
+        heroImage: "Foundation-Boxes_vnzlu7",
         images: [
           "Foundation-Boxes-1_tdnab3",
           "Foundation-Boxes-2_zigtnm",
@@ -295,6 +309,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Lotion Boxes",
         slug: "lotion-boxes",
+        heroImage: "Lotion-Boxes_k0nron",
         images: [
           "Lotion-Boxes-1_kalp8h",
           "Lotion-Boxes-2_f6gjrs",
@@ -304,6 +319,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Lip Balm Display Boxes",
         slug: "lip-balm-display-boxes",
+        heroImage: "Lip-Balm-Boxes_vyya9e",
         images: [
           "Lip-Balm-Boxes-1_amsrpr",
           "Lip-Balm-Boxes-2_qtskj2",
@@ -313,6 +329,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Eye Lash Boxes",
         slug: "eye-lash-boxes",
+        heroImage: "Eye-Lash-Boxes_mjsiop",
         images: [
           "Eye-Lash-Boxes-1_fsm4f5",
           "Eye-Lash-Boxes-2_qtzltu",
@@ -322,6 +339,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Cosmetic Gift Boxes",
         slug: "cosmetic-gift-boxes",
+        heroImage: "Cosmetic-Gift-Boxes_xkiefj",
         images: [
           "Cosmetic-Gift-Boxes-1_kah8ky",
           "Cosmetic-Gift-Boxes-2_zefjya",
@@ -331,6 +349,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Olive Oil Boxes",
         slug: "olive-oil-boxes",
+        heroImage: "Olive-Oil-Boxes_hjrpxe",
         images: [
           "Olive-Oil-Boxes-1_hxctib",
           "Olive-Oil-Boxes-2_hisfot",
@@ -340,6 +359,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Essential Oil Boxes",
         slug: "essential-oil-boxes",
+        heroImage: "Essential-Oil-Boxes_g5gyac",
         images: [
           "Essential-Oil-Boxes-1_mjiyz9",
           "Essential-Oil-Boxes-2_i7ciko",
@@ -349,6 +369,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Beard Oil Boxes",
         slug: "beard-oil-boxes",
+        heroImage: "Beard-Oil-Boxes_tniis2",
         images: [
           "Beard-Oil-Boxes-1_skwzue",
           "Beard-Oil-Boxes-2_eprv2j",
@@ -358,6 +379,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Serum Boxes",
         slug: "serum-boxes",
+        heroImage: "Serum-Boxes_sl4mkq",
         images: [
           "Serum-Boxes-1_nptujg",
           "Serum-Boxes-2_znvuon",
@@ -369,14 +391,15 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Food Boxes",
     slug: "food-boxes",
-    description: "We offer printed food boxes wholesale in many designs, including burger boxes, sandwich cartons, dessert boxes, noodle pails, clamshell containers, and kraft meal boxes. Each order can be customized with your logo, colors, and sizes. Whether you run a local food truck or a national franchise, BoxyPack delivers packaging that fits your menu and your brand.",
-    image: "Box-6_vm3fmh",
+    description: "Safe, Smart, and Sustainable Food Packaging",
+    image: "Custom-Noodles-Boxes_mxpz3e",
     subcategoriesCount: 11,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       {
         name: "Custom French Fry Boxes",
         slug: "custom-french-fry-boxes",
+        heroImage: "Custom-French-Fry-Boxes_szgiyf",
         images: [
           "Custom-French-Fry-Boxes-1_ycl2sa",
           "Custom-French-Fry-Boxes-2_xtfrpb",
@@ -386,6 +409,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Coffee Boxes",
         slug: "custom-coffee-boxes",
+        heroImage: "Custom-Coffee-Boxes_e1fobn",
         images: [
           "Custom-Coffee-Boxes-1_ri4q7w",
           "Custom-Coffee-Boxes-2_j45kpg",
@@ -395,6 +419,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Coffee Cups",
         slug: "custom-coffee-cups",
+        heroImage: "Custom-Coffee-Cups_vo7g9l",
         images: [
           "Custom-Coffee-Cups-1_ccsv5j",
           "Custom-Coffee-Cups-2_ecmbxm",
@@ -404,6 +429,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Coffee Cup Sleeves",
         slug: "custom-coffee-cup-sleeves",
+        heroImage: "Custom-Coffee-Cup-Sleeves_nmliwc",
         images: [
           "Custom-Coffee-Cup-Sleeves-1_iezt7i",
           "Custom-Coffee-Cup-Sleeves-2_g2ccap",
@@ -413,6 +439,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Noodle Boxes",
         slug: "custom-noodle-boxes",
+        heroImage: "Custom-Noodles-Boxes_mxpz3e",
         images: [
           "Custom-Noodles-Boxes-1_twipbc",
           "Custom-Noodles-Boxes-2_fyq0jy",
@@ -422,6 +449,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Chinese Takeout Boxes",
         slug: "custom-chinese-takeout-boxes",
+        heroImage: "Custom-Chinese-Takeout-Boxes_kufbec",
         images: [
           "Custom-Chinese-Takeout-Boxes-1_akvurx",
           "Custom-Chinese-Takeout-Boxes-2_jecohn",
@@ -431,6 +459,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Popcorn Boxes",
         slug: "custom-popcorn-boxes",
+        heroImage: "Custom-Popcorn-Boxes_gpacm8",
         images: [
           "Custom-Popcorn-Boxes-1_hlnhzn",
           "Custom-Popcorn-Boxes-2_xxmoah",
@@ -440,6 +469,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Snack Boxes",
         slug: "custom-snack-boxes",
+        heroImage: "Custom-Snack-Boxes_yfagyu",
         images: [
           "Custom-Snack-Boxes-1_u9wvqu",
           "Custom-Snack-Boxes-2_yrgho8",
@@ -449,6 +479,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Tea Boxes",
         slug: "custom-tea-boxes",
+        heroImage: "Custom-Tea-Boxes_oarez1",
         images: [
           "Custom-Tea-Boxes-1_oc5gp0",
           "Custom-Tea-Boxes-2_skjsmy",
@@ -458,6 +489,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Burger Boxes",
         slug: "custom-burger-boxes",
+        heroImage: "Custom-Burger-Boxes_iwrgyq",
         images: [
           "Custom-Burger-Boxes-1_k09ujk",
           "Custom-Burger-Boxes-2_f1dvgy",
@@ -467,6 +499,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Sandwich Boxes",
         slug: "sandwich-boxes",
+        heroImage: "Custom-Sandwich-Boxes_evi9t6",
         images: [
           "Custom-Sandwich-Boxes-1_ivk3et",
           "Custom-Sandwich-Boxes-2_dc20ti",
@@ -478,14 +511,15 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Gift Boxes",
     slug: "gift-boxes",
-    description: "We produce luxury gift boxes wholesale in a wide variety of formats: magnetic gift boxes, drawer boxes, ribbon closure boxes, foldable gift boxes, and custom event packaging. Each order is fully customizable with colors, textures, logos, and finishes. Whether you serve retail, corporate gifting, events, or e-commerce, BoxyPack provides packaging that brings joy and professionalism.",
-    image: "shipping-box_jyysru",
+    description: "Elegant Boxes for Memorable Gifting Moments",
+    image: "Deluxe-Gift-Boxes_mygamd",
     subcategoriesCount: 10,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       {
         name: "Gift Pillow Boxes",
         slug: "gift-pillow-boxes",
+        heroImage: "Pillow-Gift-Boxes_peeh1e",
         images: [
           "Pillow-Gift-Boxes-1_xjpfbo",
           "Pillow-Gift-Boxes-2_kb6ord",
@@ -495,6 +529,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Birthday Gift Boxes",
         slug: "birthday-gift-boxes",
+        heroImage: "Birthday-Gift-Boxes_vug0ke",
         images: [
           "Birthday-Gift-Boxes-1_hzo3ug",
           "Birthday-Gift-Boxes-2_vf5mic",
@@ -504,6 +539,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Sweet Gift Boxes",
         slug: "sweet-gift-boxes-industry",
+        heroImage: "Sweet-Gift-Boxes_hx5whj",
         images: [
           "Sweet-Gift-Boxes-1_sykffe",
           "Sweet-Gift-Boxes-2_nb7lsr",
@@ -513,6 +549,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Party Favor Boxes",
         slug: "party-favor-boxes",
+        heroImage: "Party-Favor-Boxes_gnqbhm",
         images: [
           "Party-Favor-Boxes-1_titesd",
           "Party-Favor-Boxes-2_vyw3s3",
@@ -522,6 +559,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Round Gift Boxes",
         slug: "round-gift-boxes",
+        heroImage: "Round-Gift-Boxes_ybuudj",
         images: [
           "Round-Gift-Boxes-1_z85jd8",
           "Round-Gift-Boxes-2_htaipj",
@@ -531,6 +569,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Gift Boxes with Lid",
         slug: "gift-boxes-with-lid",
+        heroImage: "Gift-Boxes-With-Lid_tdp3ok",
         images: [
           "Gift-Boxes-With-Lid-1_i1umga",
           "Gift-Boxes-With-Lid-2_nhueho",
@@ -540,6 +579,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Deluxe Gift Boxes",
         slug: "custom-deluxe-gift-boxes",
+        heroImage: "Deluxe-Gift-Boxes_mygamd",
         images: [
           "Deluxe-Gift-Boxes-1_yxhvus",
           "Deluxe-Gift-Boxes-2_kypqzv",
@@ -549,6 +589,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Square Gift Boxes",
         slug: "custom-square-gift-boxes",
+        heroImage: "Squre-Gift-Boxes_abscqz",
         images: [
           "Squre-Gift-Boxes-1_y0tmh9",
           "Squre-Gift-Boxes-2_gmidjx",
@@ -558,6 +599,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Small Gift Boxes",
         slug: "small-gift-boxes",
+        heroImage: "Small-Gift-Boxes_lwt7zv",
         images: [
           "Small-Gift-Boxes-1_qdsxu7",
           "Small-Gift-Boxes-2_wccej4",
@@ -567,6 +609,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Large Gift Boxes",
         slug: "large-gift-boxes",
+        heroImage: "Large-Gift-Boxes_giboj4",
         images: [
           "Large-Gift-Boxes-1_l0xevf",
           "Large-Gift-Boxes-2_tlo55s",
@@ -578,8 +621,8 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Jewelry Boxes",
     slug: "jewelry-boxes",
-    description: "We offer jewelry boxes wholesale in various designs such as ring boxes, necklace boxes, bracelet trays, and earring holders. Each can be personalized with your logo, finish, and color palette. Whether you need luxury packaging for retail display or bulk jewelry gift boxes, BoxyPack ensures your packaging adds value to every piece you sell.",
-    image: "Box-4_lztqi7",
+    description: "Luxury Packaging for Timeless Jewelry Pieces",
+    image: "Ring-Boxes_ppidrs",
     subcategoriesCount: 15,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
@@ -587,6 +630,7 @@ export const productByIndustryData: IndustryCategory[] = [
         name: "Anklet Boxes",
         slug: "anklet-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        heroImage: "Anklet-Boxes_qpx9ng",
         images: [
           "Anklet-Boxes-1_gyudbb",
           "Anklet-Boxes-2_egsudf",
@@ -597,6 +641,7 @@ export const productByIndustryData: IndustryCategory[] = [
         name: "Velvet Bags",
         slug: "velvet-bags",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        heroImage: "Velvet-Bags_tpw1p6",
         images: [
           "Velvet-Bags-1_ngwiar",
           "Velvet-Bags-2_y3szxp",
@@ -607,6 +652,7 @@ export const productByIndustryData: IndustryCategory[] = [
         name: "Kraft Jewelry Boxes",
         slug: "kraft-jewelry-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        heroImage: "Kraft-Jewelry-Boxes_px0b13",
         images: [
           "Kraft-Jewelry-Boxes-1_h7kkxi",
           "Kraft-Jewelry-Boxes-2_tiddus",
@@ -617,6 +663,7 @@ export const productByIndustryData: IndustryCategory[] = [
         name: "Cardboard Jewelry Boxes",
         slug: "cardboard-jewelry-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        heroImage: "Cardboard-Jewelry-Boxes_ocpk10",
         images: [
           "Cardboard-Jewelry-Boxes-1_jabvfd",
           "Cardboard-Jewelry-Boxes-2_ac6eyr",
@@ -627,6 +674,7 @@ export const productByIndustryData: IndustryCategory[] = [
         name: "Jewelry Subscription Box",
         slug: "jewelry-subscription-box",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        heroImage: "Jewelry-Subsciption-Boxes_l3dvh5",
         images: [
           "Jewelry-Subsciption-Boxes-1_sjdvux",
           "Jewelry-Subsciption-Boxes-2_ms7ese",
@@ -637,6 +685,7 @@ export const productByIndustryData: IndustryCategory[] = [
         name: "Pendant Boxes",
         slug: "pendant-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        heroImage: "Pendant-Boxes_uactzx",
         images: [
           "Pendant-Boxes-1_yvedvy",
           "Pendant-Boxes-2_exjntx",
@@ -647,6 +696,7 @@ export const productByIndustryData: IndustryCategory[] = [
         name: "Bracelet Boxes",
         slug: "bracelet-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        heroImage: "Bracelet-Boxes_olm1lp",
         images: [
           "Bracelet-Boxes-1_dvpgmf",
           "Bracelet-Boxes-1_dvpgmf",
@@ -657,6 +707,7 @@ export const productByIndustryData: IndustryCategory[] = [
         name: "Ring Boxes",
         slug: "ring-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        heroImage: "Ring-Boxes_ppidrs",
         images: [
           "Ring-Boxes-1_jtxaap",
           "Ring-Boxes-2_nmkoka",
@@ -667,6 +718,7 @@ export const productByIndustryData: IndustryCategory[] = [
         name: "Earring Boxes",
         slug: "earring-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        heroImage: "Earring-Boxes_e3rsqz",
         images: [
           "Earring-Boxes-1_wukhzh",
           "Earring-Boxes-2_yhn4ze",
@@ -677,6 +729,7 @@ export const productByIndustryData: IndustryCategory[] = [
         name: "Luxury Jewelry Packaging",
         slug: "luxury-jewelry-packaging",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        heroImage: "Luxury-Jewelry-Box_mxuzed",
         images: [
           "Luxury-Jewelry-Box-1_y9dzqv",
           "Luxury-Jewelry-Box-2_md80hw",
@@ -687,6 +740,7 @@ export const productByIndustryData: IndustryCategory[] = [
         name: "Necklace Boxes",
         slug: "necklace-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        heroImage: "Necklace-Boxes_hxe1mj",
         images: [
           "Necklace-Boxes-1_fuwcyk",
           "Necklace-Boxes-2_j7n2hk",
@@ -697,6 +751,7 @@ export const productByIndustryData: IndustryCategory[] = [
         name: "Small Jewelry Boxes",
         slug: "small-jewelry-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        heroImage: "Small-Jewelry-Boxes_gnee8c",
         images: [
           "Small-Jewelry-Boxes-1_nmu722",
           "Small-Jewelry-Boxes-2_ndwodv",
@@ -707,6 +762,7 @@ export const productByIndustryData: IndustryCategory[] = [
         name: "Necklace Cards",
         slug: "necklace-cards",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        heroImage: "Necklace-Card_rhiyca",
         images: [
           "Necklace-Card-1_n2alyw",
           "Necklace-Card-2_tmg4cx",
@@ -717,6 +773,7 @@ export const productByIndustryData: IndustryCategory[] = [
         name: "Jewelry Bags",
         slug: "jewelry-bags",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        heroImage: "Jewelry-Bag_cavqru",
         images: [
           "Jewelry-Bag-1_g4qqob",
           "Jewelry-Bag-2_xcep4w",
@@ -729,14 +786,15 @@ export const productByIndustryData: IndustryCategory[] = [
     name: "Retail Boxes",
     slug: "retail-boxes",
     description: "Smart Packaging for Modern Retail Brands",
-    image: "Box-5_pdb8xw",
-    subcategoriesCount: 5,
+    image: "Retail-Boxes_t01rgx",
+    subcategoriesCount: 4,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
-      { name: "Custom Die Cut Boxes", slug: "custom-die-cut-boxes" },
+      // { name: "Custom Die Cut Boxes", slug: "custom-die-cut-boxes" }, // Hidden - content not available
       {
         name: "Custom Toy Boxes",
         slug: "custom-toy-boxes",
+        heroImage: "Custom-Toy-Boxes_ct6ogj",
         images: [
           "Custom-Toy-Boxes-1_wlbneb",
           "Custom-Toy-Boxes-2_wnnm3g",
@@ -746,6 +804,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Business Card Boxes",
         slug: "business-card-boxes",
+        heroImage: "Business-Card-Boxes_el6kp4",
         images: [
           "Business-Card-Boxes-1_nwnmxa",
           "Business-Card-Boxes-2_tlbxzd",
@@ -755,27 +814,42 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Dispenser Boxes",
         slug: "custom-dispenser-boxes",
+        heroImage: "Custom-Dispenser-Boxes_rsxmi1",
         images: [
           "Custom-Dispenser-Boxes-1_vcqqvo",
           "Custom-Dispenser-Boxes-2_xtdfw1",
           "Custom-Dispenser-Boxes-3_nqdnaf",
         ],
       },
-      { name: "Custom Mailer Boxes", slug: "custom-mailer-boxes" },
+      { 
+        name: "Custom Mailer Boxes", 
+        slug: "custom-mailer-boxes",
+        heroImage: "Custom-Mailer-Boxes_niy6ah",
+        images: [
+          "Custom-Mailer-Boxes-1_jfnuhy",
+          "Custom-Mailer-Boxes-2_hdwhqd",
+          "Custom-Mailer-Boxes-3_cab0ct",
+        ],
+      },
     ],
   },
   {
     name: "Candle Boxes",
     slug: "candle-boxes",
-    description: "We supply luxury candle boxes wholesale in many styles, including jar candle boxes, soy candle packaging, pillar candle cartons, gift sets, and scented candle boxes. Each design is customizable with logo printing, size adjustments, and color choices. Whether you sell handmade candles or large retail collections, BoxyPack delivers packaging that reflects your brand's warmth and elegance.",
-    image: "Box-6_vm3fmh",
+    description: "Warm Designs for Fragrant Candle Packaging",
+    image: "Candle-Boxes_bm4ri2",
     subcategoriesCount: 9,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
-      { name: "Candle Gift Boxes", slug: "candle-gift-boxes" },
+      { 
+        name: "Candle Gift Boxes", 
+        slug: "candle-gift-boxes",
+        heroImage: "Candle-Boxes_bm4ri2"
+      },
       {
         name: "Luxury Candle Boxes",
         slug: "luxury-candle-boxes",
+        heroImage: "Luxury-Candle-Boxes_n5jxlg",
         images: [
           "Luxury-Candle-Boxes-1_yeh29e",
           "Luxury-Candle-Boxes-2_a9bqma",
@@ -785,6 +859,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Candle Boxes with Inserts",
         slug: "candle-boxes-with-inserts",
+        heroImage: "Candle-Boxes-With-Inserts_nlpgdc",
         images: [
           "Candle-Boxes-With-Inserts-1_igb23j",
           "Candle-Boxes-With-Inserts-1_igb23j",
@@ -794,39 +869,54 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Candle Shipping Boxes",
         slug: "candle-shipping-boxes",
+        heroImage: "Candle-Shipping-Boxes_rmwypc",
         images: [
           "Candle-Shipping-Boxes-1_oayuxc",
           "Candle-Shipping-Boxes-2_syrimg",
           "Candle-Shipping-Boxes-1_oayuxc",
         ],
       },
-      { name: "Taper Candle Boxes", slug: "taper-candle-boxes" },
+      { 
+        name: "Taper Candle Boxes", 
+        slug: "taper-candle-boxes",
+        heroImage: "Candle-Boxes_bm4ri2"
+      },
       {
         name: "Custom Jar Candle Boxes",
         slug: "custom-jar-candle-boxes",
+        heroImage: "Custom-Jar-Candle-Boxes_dq2ow2",
         images: [
           "Custom-Jar-Candle-Boxes-1_nzcgt9",
           "Custom-Jar-Candle-Boxes-2_qxjgge",
           "Custom-Jar-Candle-Boxes-3_tw6bnk",
         ],
       },
-      { name: "Wax Melt Boxes", slug: "wax-melt-boxes" },
+      { 
+        name: "Wax Melt Boxes", 
+        slug: "wax-melt-boxes",
+        heroImage: "Candle-Boxes_bm4ri2"
+      },
       {
         name: "Kraft Candle Boxes",
         slug: "kraft-candle-boxes",
+        heroImage: "Kraft-Candle-Boxes_wdg4zs",
         images: [
           "Kraft-Candle-Boxes-1_vldkvr",
           "Kraft-Candle-Boxes-2_vygqyp",
           "Kraft-Candle-Boxes-3_qpvevc",
         ],
       },
-      { name: "Candle Subscription Boxes", slug: "candle-subscription-boxes" },
+      { 
+        name: "Candle Subscription Boxes", 
+        slug: "candle-subscription-boxes",
+        heroImage: "Candle-Boxes_bm4ri2"
+      },
     ],
   },
   {
     name: "Shipping Boxes",
     slug: "shipping-boxes-industry",
-    description: "We provide printed shipping boxes in various designs, including standard shipping cartons, mailer boxes, literature boxes, bulk shipping containers, and e-commerce packaging. Every order can be customized with your preferred size, print, and structure. Whether you're a startup or a large fulfillment brand, BoxyPack ensures packaging that performs.",
+    description: "Strong, Reliable Boxes for Every Delivery",
     image: "shipping-box_jyysru",
     subcategoriesCount: 4,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -834,6 +924,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Black Shipping Boxes",
         slug: "black-shipping-boxes",
+        heroImage: "Black-Shipping-Boxes_lclcdl",
         images: [
           "Black-Shipping-Boxes-1_hhg2nb",
           "Black-Shipping-Boxes-2_qxrrap",
@@ -843,6 +934,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Candle Shipping Boxes",
         slug: "candle-shipping-boxes-industry",
+        heroImage: "Candle-Shipping-Boxes_zglcia",
         images: [
           "Candle-Shipping-Boxes-1_pjwtlo",
           "Candle-Shipping-Boxes-2_wx99sp",
@@ -852,6 +944,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Corrugated Shipping Boxes",
         slug: "corrugated-shipping-boxes",
+        heroImage: "Corrugated-Shipping-Boxes_iybsof",
         images: [
           "Corrugated-Shipping-Boxes-1_jgz3o8",
           "Corrugated-Shipping-Boxes-2_nmvrag",
@@ -861,6 +954,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Shipping Boxes",
         slug: "custom-shipping-boxes",
+        heroImage: "Custom-Shipping-Boxes_zkxmdu",
         images: [
           "Custom-Shipping-Boxes-1_w7iebg",
           "Custom-Shipping-Boxes-2_bce2uv",
@@ -872,7 +966,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Soap Boxes",
     slug: "soap-boxes-industry",
-    description: "We provide soap packaging boxes wholesale in various styles, including window soap boxes, kraft sleeves, luxury gift boxes, and custom-printed retail packaging. You can fully personalize each box with color, finish, and design. Whether you sell handmade soaps or commercial skincare lines, BoxyPack ensures packaging that matches your brand identity.",
+    description: "Natural Packaging for Handmade Soap Bars",
     image: "Box-4_lztqi7",
     subcategoriesCount: 10,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -880,6 +974,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Soap Sleeve Packaging",
         slug: "soap-sleeve-packaging",
+        heroImage: "Sleeve-Soap-Packaging_ncrop4",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
           "Sleeve-Soap-Packaging-1_iywhz6",
@@ -890,6 +985,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Bath Bomb Boxes",
         slug: "custom-bath-bomb-boxes",
+        heroImage: "Custom-Bath-Bomb-Boxes_xurto9",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
           "Custom-Bath-Bomb-Boxes-1_lo9ugk",
@@ -900,6 +996,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Soap Wrapping Paper",
         slug: "soap-wrapping-paper",
+        heroImage: "Soap-Wrapping-Paper_kyhryu",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
           "Soap-Wrapping-Paper-1_dc69r2",
@@ -910,6 +1007,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Handmade Soap Boxes",
         slug: "handmade-soap-boxes",
+        heroImage: "Handmade-Soap-Boxes_yhu3se",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
           "Handmade-Soap-Boxes-1_bhxor2",
@@ -920,6 +1018,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Luxury Soap Packaging",
         slug: "luxury-soap-packaging",
+        heroImage: "Luxury-Soap-Packaging_omph2f",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
           "Luxury-Soap-Packaging-1_r8qsmo",
@@ -930,6 +1029,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Square Soap Boxes",
         slug: "square-soap-boxes",
+        heroImage: "Square-Soap-Boxes_nhphnf",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
           "Square-Soap-Boxes-1_mourkd",
@@ -940,6 +1040,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Soap Bar Box",
         slug: "soap-bar-box",
+        heroImage: "Soap-Bar-Boxes_egmeip",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
           "Soap-Bar-Boxes-1_xk9r2d",
@@ -950,6 +1051,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Paper Soap Boxes",
         slug: "paper-soap-boxes",
+        heroImage: "Paper-Soap-Boxes_mcbkrb",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
           "Paper-Soap-Boxes-1_uwidvu",
@@ -960,6 +1062,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Kraft Soap Boxes",
         slug: "kraft-soap-boxes",
+        heroImage: "Kraft-Soap-Boxes_uxcqj4",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
           "Kraft-Soap-Boxes-1_cqobeh",
@@ -970,6 +1073,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Kraft Pillow Soap Boxes",
         slug: "kraft-pillow-soap-boxes-industry",
+        heroImage: "Pillow-Soap-Boxes_vrirs7",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
           "Pillow-Soap-Boxes-1_kw6rxk",
@@ -984,7 +1088,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Apparel Boxes",
     slug: "apparel-boxes",
-    description: "We offer apparel boxes wholesale in multiple formats, including shirt boxes, suit boxes, accessory packaging, and apparel gift boxes. Each design can be customized with your logo, color scheme, and finish options. Whether you sell casual wear, luxury fashion, or promotional items, BoxyPack ensures packaging that supports your brand's story.",
+    description: "Premium Boxes for Fashion and Clothing",
     image: "Box-5_pdb8xw",
     subcategoriesCount: 8,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -992,6 +1096,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Cufflink Boxes",
         slug: "cufflink-boxes",
+        heroImage: "Cufflink-Boxes_nz4k0d",
         images: [
           "Cufflink-Boxes-1_rz2wcf",
           "Cufflink-Boxes-2_f55tgq",
@@ -1001,6 +1106,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Tie Boxes",
         slug: "tie-boxes",
+        heroImage: "Tie-Boxes_ae5do1",
         images: [
           "Tie-Boxes-1_t8zvuk",
           "Tie-Boxes-2_j26x06",
@@ -1010,6 +1116,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Belt Boxes",
         slug: "belt-boxes",
+        heroImage: "Belt-Boxes_w0r74w",
         images: [
           "Belt-Boxes-1_px70gk",
           "Belt-Boxes-2_wirvg5",
@@ -1019,6 +1126,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Clothing Boxes",
         slug: "clothing-boxes",
+        heroImage: "Clothing-Boxes_jczzwx",
         images: [
           "Clothing-Boxes-1_ygtjdo",
           "Clothing-Boxes-2_gytu8n",
@@ -1028,6 +1136,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Lingerie Boxes",
         slug: "lingerie-boxes",
+        heroImage: "Lingerie-Boxes_fb0pqj",
         images: [
           "Lingerie-Boxes-1_bq2nfw",
           "Lingerie-Boxes-2_jsjglj",
@@ -1037,6 +1146,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Underwear Boxes",
         slug: "underwear-boxes",
+        heroImage: "Underwear-Boxes_zmc68h",
         images: [
           "Underwear-Boxes-1_ou16f4",
           "Underwear-Boxes-2_qfi8ft",
@@ -1046,6 +1156,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "T-Shirt Boxes",
         slug: "tshirt-boxes",
+        heroImage: "T-Shirt-Boxes_atrin0",
         images: [
           "T-Shirt-Boxes-1_lqopuq",
           "T-Shirt-Boxes-2_zwzm3i",
@@ -1055,6 +1166,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Socks Boxes",
         slug: "socks-boxes",
+        heroImage: "Socks-Boxes_hvsczm",
         images: [
           "Socks-Boxes-1_lbh2hf",
           "Socks-Boxes-2_zpmm81",
@@ -1068,7 +1180,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Sports Boxes",
     slug: "sports-boxes",
-    description: "We supply custom sports packaging boxes wholesale in multiple styles, including shoe boxes, sportswear boxes, accessory packaging, gear boxes, and premium presentation boxes. All orders are fully customizable with size, logo placement, finish options, and protective inserts. Whether for retail displays or e-commerce delivery, BoxyPack ensures your sports packaging performs as good as your products.",
+    description: "Durable Packaging for Active Lifestyle Gear",
     image: "Box-6_vm3fmh",
     subcategoriesCount: 6,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1076,6 +1188,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Cardboard Shoe Boxes",
         slug: "cardboard-shoe-boxes",
+        heroImage: "Cardboard-Shoe-Boxes_aceuor",
         images: [
           "Cardboard-Shoe-Boxes-1_bmgptg",
           "Cardboard-Shoe-Boxes-2_yfsmt4",
@@ -1085,6 +1198,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Shoe Shipping Boxes",
         slug: "shoe-shipping-boxes",
+        heroImage: "Shoe-Shipping-Boxes_fcblsb",
         images: [
           "Shoe-Shipping-Boxes-1_fltdr4",
           "Shoe-Shipping-Boxes-2_fqqwa0",
@@ -1094,6 +1208,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Shoe Boxes",
         slug: "custom-shoe-boxes",
+        heroImage: "Custom-Shoe-Boxes_jw2ycm",
         images: [
           "Custom-Shoe-Boxes-1_ujniht",
           "Custom-Shoe-Boxes-2_s1rzhj",
@@ -1103,6 +1218,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Shoe Boxes with Lid",
         slug: "shoe-boxes-with-lid",
+        heroImage: "Shoe-Boxes-With-Lid_bgpkw8",
         images: [
           "Shoe-Boxes-With-Lid-1_fxn9tx",
           "Shoe-Boxes-With-Lid-2_fk3jt1",
@@ -1112,6 +1228,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Golf Ball Boxes",
         slug: "golf-ball-boxes",
+        heroImage: "Golf-Ball-Boxes_jz6mlf",
         images: [
           "Golf-Ball-Boxes-1_kaxgvt",
           "Golf-Ball-Boxes-2_hyeiff",
@@ -1121,6 +1238,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Football Boxes",
         slug: "football-boxes",
+        heroImage: "Football-Boxes_b9r2zb",
         images: [
           "Football-Boxes-1_ehlokr",
           "Football-Boxes-2_gqln0i",
@@ -1134,7 +1252,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Cigarette Boxes",
     slug: "cigarette-boxes-industry",
-    description: "We supply wholesale cigarette boxes in various designs, including flip-top packs, soft packs, rigid cartons, multi-pack trays, and display boxes. With full customization sizes, finishes, artwork, and logo placement BoxyPack ensures your cigarette packaging aligns with both brand image and industry standards.",
+    description: "Sleek Packaging for Tobacco Product Brands",
     image: "shipping-box_jyysru",
     subcategoriesCount: 6,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1142,6 +1260,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Paper Cigarette Boxes",
         slug: "paper-cigarette-boxes",
+        heroImage: "Paper-Cigarette-Boxes_ae2std",
         images: [
           "Paper-Cigarette-Boxes-1_wtiu7e",
           "Paper-Cigarette-Boxes-2_rnnux2",
@@ -1151,6 +1270,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Cigarette Boxes",
         slug: "custom-cigarette-boxes",
+        heroImage: "Custom-Cigarette-Boxes_yjtvvv",
         images: [
           "Custom-Cigarette-Boxes-1_f0abbv",
           "Custom-Cigarette-Boxes-2_r0ywev",
@@ -1160,6 +1280,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Empty Cigarette Boxes",
         slug: "empty-cigarette-boxes",
+        heroImage: "Empty-Cigarette-Boxes_sn11hb",
         images: [
           "Empty-Cigarette-Boxes-1_t4kzi9",
           "Empty-Cigarette-Boxes-2_vszvgt",
@@ -1169,6 +1290,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Cardboard Cigarette Boxes",
         slug: "cardboard-cigarette-boxes",
+        heroImage: "Cardboard-Cigarette-Boxes_mowea8",
         images: [
           "Cardboard-Cigarette-Boxes-1_b7xr8l",
           "Cardboard-Cigarette-Boxes-2_hfnzvm",
@@ -1178,6 +1300,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Blank Cigarette Boxes",
         slug: "blank-cigarette-boxes",
+        heroImage: "Blank-Cigarette-Boxes_errlja",
         images: [
           "Blank-Cigarette-Boxes-1_evdnrk",
           "Blank-Cigarette-Boxes-2_zsjo5n",
@@ -1187,6 +1310,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Flip Top Cigarette Boxes",
         slug: "flip-top-cigarette-boxes",
+        heroImage: "Flip-Top-Cigarette-Boxes_bgm3ra",
         images: [
           "Flip-Top-Cigarette-Boxes-1_se8s4v",
           "Flip-Top-Cigarette-Boxes-2_k632a9",
@@ -1200,7 +1324,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "CBD Boxes",
     slug: "cbd-boxes",
-    description: "We produce CBD packaging wholesale in multiple styles, including tincture boxes, vape boxes, edible packaging, and CBD cream boxes. Each design is customizable with logos, coatings, and structural options. Whether you need high-end printed cartons or natural kraft CBD boxes, BoxyPack ensures your packaging meets all branding and safety goals.",
+    description: "Eco Boxes for CBD and Hemp Products",
     image: "Box-4_lztqi7",
     subcategoriesCount: 7,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1208,6 +1332,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "CBD Gift Boxes",
         slug: "cbd-gift-boxes",
+        heroImage: "CBD-Gift-Boxes_yxw8gy",
         images: [
           "CBD-Gift-Boxes-1_k9295s",
           "CBD-Gift-Boxes-2_qi65ks",
@@ -1217,6 +1342,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "CBD Gummies Boxes",
         slug: "cbd-gummies-boxes",
+        heroImage: "CBD-Gummies-Boxes_vqp0nx",
         images: [
           "CBD-Gummies-Boxes-1_wd25va",
           "CBD-Gummies-Boxes-2_o1bk7c",
@@ -1226,6 +1352,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Cannabis Boxes",
         slug: "custom-cannabis-boxes",
+        heroImage: "Cusotm-Cannabis-Boxes_c8p5nu",
         images: [
           "Cusotm-Cannabis-Boxes-1_idflye",
           "Cusotm-Cannabis-Boxes-2_go3nc3",
@@ -1235,6 +1362,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "CBD Oil Boxes",
         slug: "cbd-oil-boxes",
+        heroImage: "CBD-Oil-Boxes_cnhehq",
         images: [
           "CBD-Oil-Boxes-1_qgrbrh",
           "CBD-Oil-Boxes-2_asnbzp",
@@ -1253,6 +1381,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Pre Roll Boxes",
         slug: "pre-roll-boxes",
+        heroImage: "Pre-Roll-Boxes_xrivpk",
         images: [
           "Pre-Roll-Boxes-1_fvwba7",
           "Pre-Roll-Boxes-2_gevxu5",
@@ -1262,6 +1391,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "CBD Tincture Boxes",
         slug: "cbd-tincture-boxes",
+        heroImage: "CBD-Tincture-Boxes_qyy0uj",
         images: [
           "CBD-Tincture-Boxes-1_daue3r",
           "CBD-Tincture-Boxes-2_xcrq3q",
@@ -1273,7 +1403,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Vape Boxes",
     slug: "vape-boxes",
-    description: "We produce vape packaging boxes wholesale for all product types, including e-liquid boxes, vape cartridge packaging, disposable vape cases, and retail display boxes. Each design is customizable in shape, size, finish, and logo placement. Whether for compact retail packs or luxury device sets, BoxyPack ensures your vape boxes deliver both protection and prestige.",
+    description: "Custom Vape Packaging for Modern Brands",
     image: "Box-5_pdb8xw",
     subcategoriesCount: 5,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1281,6 +1411,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Vape Boxes",
         slug: "vape-boxes",
+        heroImage: "Vape-Boxes_ginl36",
         images: [
           "Vape-Boxes-1_ns2pdn",
           "Vape-Boxes-2_npdki3",
@@ -1290,16 +1421,25 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Empty Vape Cartridge Packaging",
         slug: "empty-vape-cartridge-packaging",
+        heroImage: "Empty-Vape-Cartridge-Packaging_trb4vd",
         images: [
           "Empty-Vape-Cartridge-Packaging-1_ogbesm",
           "Empty-Vape-Cartridge-Packaging-2_g3jia9",
           "Empty-Vape-Cartridge-Packaging-3_swilm9",
         ],
       },
-      { name: "Vape Cartridge Packaging", slug: "vape-cartridge-packaging" },
+      { 
+        name: "Vape Cartridge Packaging", 
+        slug: "vape-cartridge-packaging",
+        heroImage: "Vape-Cartridge-Packaging_idrdpk",
+        images: [
+          "Vape-Cartridge-Packaging_idrdpk",
+        ],
+      },
       {
         name: "Custom Vape Boxes",
         slug: "custom-vape-boxes",
+        heroImage: "Custom-Vape-Boxes_buyp9b",
         images: [
           "Custom-Vape-Boxes-1_lolxjr",
           "Custom-Vape-Boxes-2_ya2agr",
@@ -1309,6 +1449,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Disposable Vape Packaging",
         slug: "disposable-vape-packaging",
+        heroImage: "Disposable-Vape-Packaging_rwkfjv",
         images: [
           "Disposable-Vape-Packaging-1_ahukzb",
           "Disposable-Vape-Packaging-2_tkdwuo",
@@ -1320,7 +1461,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "E-liquid Boxes",
     slug: "e-liquid-boxes",
-    description: "We supply custom e-liquid packaging boxes wholesale in multiple formats, including single bottle cartons, multi-pack sets, sample kits, and luxury presentation boxes. Whether you need bold printed designs or minimalist finishes, BoxyPack ensures packaging that enhances both compliance and brand impact.",
+    description: "Trendy Boxes for E-Juice Collections",
     image: "Box-6_vm3fmh",
     subcategoriesCount: 3,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1328,6 +1469,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "E-liquid Bottle Boxes",
         slug: "e-liquid-bottle-boxes",
+        heroImage: "E-Liquid-Bottle-Boxes_qflm5g",
         images: [
           "E-Liquid-Bottle-Boxes-1_ynwnxe",
           "E-Liquid-Bottle-Boxes-2_qjrkus",
@@ -1337,6 +1479,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "E-liquid Display Boxes",
         slug: "e-liquid-display-boxes",
+        heroImage: "E-Liquid-Display-Boxes_c6gqkt",
         images: [
           "E-Liquid-Display-Boxes-1_oiahgl",
           "E-Liquid-Display-Boxes-2_ilrhu8",
@@ -1346,6 +1489,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "E-liquid Gift Boxes",
         slug: "e-liquid-gift-boxes",
+        heroImage: "E-Liquid-Gift-Boxes_xxu2sa",
         images: [
           "E-Liquid-Gift-Boxes-1_ld51tu",
           "E-Liquid-Gift-Boxes-2_wlecre",
@@ -1357,7 +1501,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Stationery Boxes",
     slug: "stationery-boxes",
-    description: "We supply wholesale stationery boxes in a range of styles, including pen boxes, notebook packaging, craft supply boxes, file boxes, and student kit packaging. Each design can be customized with your preferred size, artwork, colors, and finish. Whether for retail, offices, or subscription kits, BoxyPack delivers packaging that keeps stationery organized, safe, and appealing.",
+    description: "Creative Packaging for Office Essentials",
     image: "shipping-box_jyysru",
     subcategoriesCount: 7,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1365,6 +1509,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Pencil Boxes",
         slug: "custom-pencil-boxes",
+        heroImage: "Custom-Pencil-Boxes-1_o7o7op",
         images: [
           "Custom_Pencil_Boxes_1_a31je0",
           "Custom_Pencil_Boxes_2_e5ebry",
@@ -1374,6 +1519,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Cardboard Pen Boxes",
         slug: "cardboard-pen-boxes",
+        heroImage: "Cardboard-Pen-Boxes-2_gnqxb3",
         images: [
           "Cardboard_Pen_Boxes_1_xuyc43",
           "Cardboard_Pen_Boxes_2_jgc5zy",
@@ -1383,6 +1529,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Cardboard Pencil Boxes",
         slug: "cardboard-pencil-boxes",
+        heroImage: "Cardboard-Pencil-Boxes-1_wt6kvu",
         images: [
           "Cardboard_Pencil_Boxes_1_lud7ix",
           "Cardboard_Pencil_Boxes_2_v8bn19",
@@ -1392,6 +1539,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Book Boxes",
         slug: "custom-book-boxes",
+        heroImage: "Custom-Book-Boxes-1_fzhjlw",
         images: [
           "Custom_Book_Boxes_1_xwftmw",
           "Custom_Book_Boxes_2_haeezk",
@@ -1401,6 +1549,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Presentation Folders",
         slug: "custom-presentation-folders",
+        heroImage: "Custom-Presentation-Folders-2_evjdwh",
         images: [
           "Custom_Presentation_Folders_1_miqqki",
           "Custom_Presentation_Folders_2_k3auuo",
@@ -1410,6 +1559,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Pen Gift Boxes",
         slug: "pen-gift-boxes",
+        heroImage: "Pen-Gift-Boxes1_toi152",
         images: [
           "Pen_Gift_Boxes1_cgtogq",
           "Pen_Gift_Boxes_2_t5ygyy",
@@ -1419,6 +1569,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Pen Boxes",
         slug: "custom-pen-boxes",
+        heroImage: "Custom-Pen-Boxes-2_fgjeoi",
         images: [
           "Custom_Pen_Boxes_1_eabi7j",
           "Custom_Pen_Boxes_2_pfqmnc",
@@ -1430,7 +1581,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Christmas Boxes",
     slug: "christmas-boxes",
-    description: "We produce Christmas packaging wholesale in multiple designs gift boxes, chocolate boxes, candle boxes, and ornament packaging. Each is fully customizable with colors, ribbons, and printed holiday artwork. Whether you're creating retail packaging or personal gifts, BoxyPack ensures your Christmas boxes look joyful and professional.",
+    description: "Festive Boxes for Joyful Holiday Gifts",
     image: "Box-4_lztqi7",
     subcategoriesCount: 12,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1438,27 +1589,57 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Christmas Boxes with Lids",
         slug: "christmas-boxes-with-lids",
+        heroImage: "Christmas-Boxes-with-Lids-1_dv0zgh",
         images: [
           "Christmas_Boxes_with_Lids_1_onvhfa",
           "Christmas_Boxes_with_Lids_2_sz6gc0",
           "Christmas_Boxes_with_Lids_3_yzmrko",
         ],
       },
-      { name: "Christmas Cupcake Boxes", slug: "christmas-cupcake-boxes" },
-      { name: "Christmas Candy Boxes", slug: "christmas-candy-boxes" },
+      { 
+        name: "Christmas Cupcake Boxes", 
+        slug: "christmas-cupcake-boxes",
+        heroImage: "Custom-Cupcake-Boxes_r2nlgw",
+        images: [
+          "Custom-Cupcake-Boxes_r2nlgw",
+          "Custom-Cupcake-Boxes-2_lhirzg",
+          "Custom-Cupcake-Boxes-3_o0xhpd",
+        ],
+      },
+      { 
+        name: "Christmas Candy Boxes", 
+        slug: "christmas-candy-boxes",
+        heroImage: "Christmas-Treat-Boxes-2_caf11d",
+        images: [
+          "Christmas-Treat-Boxes-2_caf11d",
+          "Christmas-Treat-Boxes-1_jnscxi",
+          "Christmas-Treat-Boxes-3_ii9m9m",
+        ],
+      },
       {
         name: "Christmas Gift Boxes",
         slug: "christmas-gift-boxes",
+        heroImage: "Christmas-Gift-Boxes-3_nks4wa",
         images: [
           "Christmas_Gift_Boxes_1_p4c4dz",
           "Christmas_Gift_Boxes_2_ulnzc8",
           "Christmas_Gift_Boxes_3_jtnzim",
         ],
       },
-      { name: "Christmas Eve Boxes", slug: "christmas-eve-boxes" },
+      { 
+        name: "Christmas Eve Boxes", 
+        slug: "christmas-eve-boxes",
+        heroImage: "Christmas-Gift-Boxes-3_nks4wa",
+        images: [
+          "Christmas_Gift_Boxes_1_p4c4dz",
+          "Christmas_Gift_Boxes_2_ulnzc8",
+          "Christmas_Gift_Boxes_3_jtnzim",
+        ],
+      },
       {
         name: "Christmas Present Boxes",
         slug: "christmas-present-boxes",
+        heroImage: "Christmas-Present-Boxes-2_sjmob0",
         images: [
           "Christmas_Present_Boxes_1_p6mvbw",
           "Christmas_Present_Boxes_2_bx6mlk",
@@ -1468,6 +1649,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Christmas Cookie Boxes",
         slug: "christmas-cookie-boxes",
+        heroImage: "Christmas-Cookie-Boxes-1_o0umpo",
         images: [
           "Christmas_Cookie_Boxes_1_lvdlg2",
           "Christmas_Cookie_Boxes_2_adel7w",
@@ -1477,6 +1659,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Christmas Treat Boxes",
         slug: "christmas-treat-boxes",
+        heroImage: "Christmas-Treat-Boxes-2_caf11d",
         images: [
           "Christmas_Treat_Boxes_1_jnscxi",
           "Christmas_Treat_Boxes_2_s0b0ts",
@@ -1486,6 +1669,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Christmas Paper Bags",
         slug: "christmas-paper-bags",
+        heroImage: "Christmas-Paper-Bags-1_fxy7tb",
         images: [
           "Christmas_Paper_Bags_1_mb9gjq",
           "Christmas_Paper_Bags_2_cpcahk",
@@ -1495,6 +1679,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Christmas Gift Bags",
         slug: "christmas-gift-bags",
+        heroImage: "Christmas-Gift-Bags-1_whuvxy",
         images: [
           "Christmas_Gift_Bags_1_gthneu",
           "Christmas_Gift_Bags_2_xhfsvm",
@@ -1504,6 +1689,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Christmas Favor Boxes",
         slug: "christmas-favor-boxes",
+        heroImage: "Christmas-Favor-Boxes-1_mpkbbh",
         images: [
           "Christmas_Favor_Boxes_1_a5o0ox",
           "Christmas_Favor_Boxes_2_vonyon",
@@ -1513,6 +1699,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Christmas Mailer Boxes",
         slug: "christmas-mailer-boxes",
+        heroImage: "Christmas-Mailer-Boxes-2_nqyiae",
         images: [
           "Christmas_Mailer_Boxes_1_k7nho6",
           "Christmas_Mailer_Boxes_2_gepk2j",
@@ -1524,7 +1711,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Chocolate Boxes",
     slug: "chocolate-boxes",
-    description: "We provide chocolate packaging wholesale in a variety of designs, including truffle boxes, chocolate bar sleeves, assorted gift boxes, holiday chocolate packaging, and rigid presentation boxes. With full customization for size, color, and finish, BoxyPack ensures your chocolates look irresistible from box to bite.",
+    description: "Elegant Packaging for Gourmet Chocolates",
     image: "Box-5_pdb8xw",
     subcategoriesCount: 9,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1532,6 +1719,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Chocolate Packaging",
         slug: "chocolate-packaging",
+        heroImage: "Chocolate-box-1_jagzxa",
         images: [
           "Chocolate_box_1_yrg5y0",
           "Chocolate_box_2_kfnskd",
@@ -1541,6 +1729,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Small Chocolate Boxes",
         slug: "small-chocolate-boxes",
+        heroImage: "mini-Chocolate-box-2_vtpcml",
         images: [
           "mini_Chocolate_box_1_bfeu9h",
           "mini_Chocolate_box_2_hqstuw",
@@ -1550,6 +1739,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Chocolate Milk Boxes",
         slug: "chocolate-milk-boxes",
+        heroImage: "Chocolate-milk-box-2_kh7gkb",
         images: [
           "Chocolate_milk_box_1_fedk3q",
           "Chocolate_milk_box_2_mdk9ig",
@@ -1559,6 +1749,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Chocolate Candy Boxes",
         slug: "chocolate-candy-boxes",
+        heroImage: "Chocolate-candy-box-2_nfjii1",
         images: [
           "Chocolate_candy_box_1_iwrdpu",
           "Chocolate_candy_box_2_un7iaf",
@@ -1568,6 +1759,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Luxury Chocolate Boxes",
         slug: "luxury-chocolate-boxes",
+        heroImage: "luxury-Chocolate-box-1_gm94ap",
         images: [
           "luxury_Chocolate_box_1_ysszvo",
           "luxury_Chocolate_box_2_ut1mcd",
@@ -1577,6 +1769,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Chocolate Bomb Boxes",
         slug: "chocolate-bomb-boxes",
+        heroImage: "Chocolate-BOmb-box-1_fzxtzn",
         images: [
           "Chocolate_BOmb_box_1_ws3eqt",
           "Chocolate_BOmb_box_2_btpqj8",
@@ -1586,6 +1779,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Chocolate Gift Boxes",
         slug: "chocolate-gift-boxes",
+        heroImage: "chocolate-gift-box-2_eg1rik",
         images: [
           "chocolate_gift_box_dzxvct",
           "chocolate_gift_box_2_wpo8dj",
@@ -1595,6 +1789,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Christmas Chocolate Boxes",
         slug: "christmas-chocolate-boxes",
+        heroImage: "cheristmas-Chocolate-box-1_fm2mse",
         images: [
           "cheristmas_Chocolate_box_1_gqamgk",
           "cheristmas_Chocolate_box_2_kmzssv",
@@ -1604,6 +1799,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Chocolate Bar Boxes",
         slug: "chocolate-bar-boxes",
+        heroImage: "Chocolate-bar-box-2_rdvsg1",
         images: [
           "Chocolate_bar_box_1_k4nznm",
           "Chocolate_bar_box_2_qvivss",
@@ -1615,7 +1811,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Cereal Boxes",
     slug: "cereal-boxes",
-    description: "We provide printed cereal boxes in multiple formats, including standard cereal cartons, granola packaging, family-size boxes, sampler packs, and custom promotional packaging. Each order can be fully personalized with your preferred size, artwork, color palette, and finish. Whether for retail shelves or online delivery, BoxyPack ensures your cereal packaging looks sharp and stays strong.",
+    description: "Vibrant Boxes for Breakfast Cereal Brands",
     image: "Box-6_vm3fmh",
     subcategoriesCount: 12,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1623,6 +1819,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Cereal Boxes Wholesale",
         slug: "cereal-boxes-wholesale",
+        heroImage: "cereal-box-3_luczhd",
         images: [
           "cereal_box_1_xqw5si",
           "cereal_box_2_vdyw1h",
@@ -1632,6 +1829,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Mini Cereal Boxes",
         slug: "mini-cereal-boxes",
+        heroImage: "mini_cereal_box1_zdgvky",
         images: [
           "mini_cereal_box1_zdgvky",
           "mini_cereal_box2_ajjjux",
@@ -1641,29 +1839,93 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Cardboard Cereal Boxes",
         slug: "cardboard-cereal-boxes",
+        heroImage: "Cardboard-cereal-box-3_l90b01",
         images: [
           "Cardboard_cereal_box_1_dnvfxe",
           "Cardboard_cereal_box_2_b8mtju",
           "Cardboard_cereal_box_3_osbidx",
         ],
       },
-      { name: "Corn Flakes Boxes", slug: "corn-flakes-boxes" },
+      { 
+        name: "Corn Flakes Boxes", 
+        slug: "corn-flakes-boxes",
+        heroImage: "cereal-box-3_luczhd",
+      },
       {
         name: "Unique Cereal Boxes",
         slug: "unique-cereal-boxes",
+        heroImage: "unique_cereal_box_1_wd3uiv",
         images: [
           "unique_cereal_box_1_wd3uiv",
           "unique_cereal_box_2_imcnhg",
           "unique_cereal_box_2_imcnhg",
         ],
       },
-      { name: "Breakfast Cereal Boxes", slug: "breakfast-cereal-boxes" },
-      { name: "Colorful Cereal Boxes", slug: "colorful-cereal-boxes" },
-      { name: "Vintage Cereal Boxes", slug: "vintage-cereal-boxes" },
-      { name: "Retro Cereal Boxes", slug: "retro-cereal-boxes" },
-      { name: "90s Cereal Boxes", slug: "90s-cereal-boxes" },
-      { name: "80s Cereal Boxes", slug: "80s-cereal-boxes" },
-      { name: "Funny Cereal Boxes", slug: "funny-cereal-boxes" },
+      { 
+        name: "Breakfast Cereal Boxes", 
+        slug: "breakfast-cereal-boxes",
+        heroImage: "cereal-box-3_luczhd",
+      },
+      { 
+        name: "Colorful Cereal Boxes", 
+        slug: "colorful-cereal-boxes",
+        heroImage: "Colorful-Cereal-Boxes-3_az1snc",
+        images: [
+          "Colorful-Cereal-Boxes-3_az1snc",
+          "Colorful-Cereal-Boxes-3_az1snc",
+          "Colorful-Cereal-Boxes-3_az1snc",
+        ],
+      },
+      { 
+        name: "Vintage Cereal Boxes", 
+        slug: "vintage-cereal-boxes",
+        heroImage: "Vintage-Cereal-Boxes-3_igkin6",
+        images: [
+          "Vintage-Cereal-Boxes-3_igkin6",
+          "Vintage-Cereal-Boxes-3_igkin6",
+          "Vintage-Cereal-Boxes-3_igkin6",
+        ],
+      },
+      { 
+        name: "Retro Cereal Boxes", 
+        slug: "retro-cereal-boxes",
+        heroImage: "Retro-Cereal-Boxes1_vxi2jh",
+        images: [
+          "Retro-Cereal-Boxes1_vxi2jh",
+          "Retro-Cereal-Boxes1_vxi2jh",
+          "Retro-Cereal-Boxes1_vxi2jh",
+        ],
+      },
+      { 
+        name: "90s Cereal Boxes", 
+        slug: "90s-cereal-boxes",
+        heroImage: "90s-cereal-box_thxwlw",
+        images: [
+          "90s-cereal-box_thxwlw",
+          "90s-cereal-box_thxwlw",
+          "90s-cereal-box_thxwlw",
+        ],
+      },
+      { 
+        name: "80s Cereal Boxes", 
+        slug: "80s-cereal-boxes",
+        heroImage: "80s-cereal-box_dpluxh",
+        images: [
+          "80s-cereal-box_dpluxh",
+          "80s-cereal-box_dpluxh",
+          "80s-cereal-box_dpluxh",
+        ],
+      },
+      { 
+        name: "Funny Cereal Boxes", 
+        slug: "funny-cereal-boxes",
+        heroImage: "Funny-cereal-box_ynsyyg",
+        images: [
+          "Funny-cereal-box_ynsyyg",
+          "Funny-cereal-box_ynsyyg",
+          "Funny-cereal-box_ynsyyg",
+        ],
+      },
     ],
   },
   {
@@ -1677,6 +1939,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Cannabis Pre Roll Packaging",
         slug: "cannabis-pre-roll-packaging",
+        heroImage: "Cannabis-Pre-Roll-Packaging_w1dm9t",
         images: [
           "Cannabis-Pre-Roll-Packaging-1_iwxbqt",
           "Cannabis-Pre-Roll-Packaging-2_vlnqpu",
@@ -1686,6 +1949,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Pre Roll Display Boxes",
         slug: "pre-roll-display-boxes",
+        heroImage: "Pre-Roll-Display-Boxes_mkfej7",
         images: [
           "Pre-Roll-Display-Boxes-1_qf9sgg",
           "Pre-Roll-Display-Boxes-2_bswtk9",
@@ -1695,6 +1959,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Pre Roll Packaging",
         slug: "pre-roll-packaging",
+        heroImage: "Pre-Roll-Packaging_zlgwmi",
         images: [
           "Pre_Roll_Packaging_ybpvdj",
           "Pre_Roll_Packaging_ybpvdj",
@@ -1704,6 +1969,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Custom Delta 8 Boxes",
         slug: "custom-delta-8-boxes",
+        heroImage: "Custom-Delta-8-Boxes_zmdrpu",
         images: [
           "Custom-Delta-8-Boxes-1_iieydw",
           "Custom-Delta-8-Boxes-2_cyzw04",
@@ -1713,6 +1979,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Pre Roll Packaging Labels",
         slug: "pre-roll-packaging-labels",
+        heroImage: "Pre-Roll-Packaging-Labels_tsao4v",
         images: [
           "Pre-Roll-Packaging-Labels-1_p1slxf",
           "Pre-Roll-Packaging-Labels-2_cdbzeo",
@@ -1722,6 +1989,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Luxury Pre Roll Packaging",
         slug: "luxury-pre-roll-packaging",
+        heroImage: "Luxury-Pre-Roll-Packaging_xxqtdu",
         images: [
           "Luxury-Pre-Roll-Packaging-1_vijzrn",
           "Luxury-Pre-Roll-Packaging-2_cwnmlg",
@@ -1733,7 +2001,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Pizza Boxes",
     slug: "pizza-boxes",
-    description: "We supply pizza packaging wholesale for all types of businesses  from small local shops to large pizza chains. Our collection includes single-slice boxes, family-size cartons, and printed promotional packaging. Whether you want a simple kraft look or colorful branding, BoxyPack ensures your boxes make every delivery look professional and appetizing.",
+    description: "Sturdy Boxes for Hot and Fresh Pizza",
     image: "Box-4_lztqi7",
     subcategoriesCount: 8,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1741,6 +2009,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "White Pizza Boxes",
         slug: "white-pizza-boxes",
+        heroImage: "White-pizza-box-2_powwla",
         images: [
           "White_pizza_box1_j9xiwv",
           "White_pizza_box_2_eaprps",
@@ -1750,6 +2019,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Pizza Slice Boxes",
         slug: "pizza-slice-boxes",
+        heroImage: "pizza-slice-box-2_vgldo5",
         images: [
           "pizza_slice_box_1_arltc8",
           "pizza_slice_box_2_ns01zp",
@@ -1759,6 +2029,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Round Pizza Boxes",
         slug: "round-pizza-boxes",
+        heroImage: "Round-pizza-box-1_cykuw4",
         images: [
           "Round_pizza_box_1_zph3s4",
           "Round_pizza_box_2_hzilly",
@@ -1768,6 +2039,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Rectangle Pizza Boxes",
         slug: "rectangle-pizza-boxes",
+        heroImage: "Rectangle-pizza-box-1_wlhasi",
         images: [
           "Rectangle_pizza_box_1_cxt3xt",
           "Rectangle_pizza_box_2_arhd6f",
@@ -1777,6 +2049,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Flatbread Pizza Boxes",
         slug: "flatbread-pizza-boxes",
+        heroImage: "flatbread-pizza-box-3_uu3ocb",
         images: [
           "flatbread_pizza_box_1_hnnim5",
           "flatbread_pizza_box_2_gibmxc",
@@ -1786,6 +2059,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "16 Inch Pizza Boxes",
         slug: "16-inch-pizza-boxes",
+        heroImage: "16-inch-pizza-box-3_eg1szg",
         images: [
           "16_inch_pizza_box_1_jibz0d",
           "16_inch_pizza_box_2_c4dkdz",
@@ -1795,6 +2069,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "14 Inch Pizza Boxes",
         slug: "14-inch-pizza-boxes",
+        heroImage: "14-inch-pizza-box-2_t70flh",
         images: [
           "14_inch_pizza_box_1_egqkcw",
           "14_inch_pizza_box_2_ala5yl",
@@ -1804,6 +2079,7 @@ export const productByIndustryData: IndustryCategory[] = [
       {
         name: "Blank Pizza Boxes",
         slug: "blank-pizza-boxes",
+        heroImage: "16-inch-pizza-box-1_xedomr",
         images: [
           "16_inch_pizza_box_1_jibz0d",
           "16_inch_pizza_box_2_c4dkdz",

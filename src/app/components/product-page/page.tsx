@@ -492,7 +492,12 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
         />
 
         {/* Product Overview */}
-        <ProductOverview productData={productInfo} />
+        <ProductOverview 
+          productData={productInfo} 
+          categorySlug={category?.slug}
+          sectionSlug={section?.slug}
+          subcategorySlug={subcategory?.slug}
+        />
 
         {/* Category Intro Section - Only show on main category pages */}
         {pageType === "category" && (

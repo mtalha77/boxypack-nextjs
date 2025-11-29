@@ -35,59 +35,140 @@ const ProductByIndustryCarousel: React.FC = () => {
     return () => window.removeEventListener("resize", updateCardWidth);
   }, []);
 
-  // Choose a representative image for each industry category.
-  // Prefer the first image from the first subcategory that has images; otherwise use category.image.
+  // Get the hero image for each industry category - matches the logic from HeroSection
   const getCategoryDisplayImage = (
     category: (typeof productByIndustryData)[number]
   ): string => {
-    // Direct overrides for remaining boxes - always use these images for the specified cards
-    const directCategoryOverrides: Record<string, string> = {
-      "Cosmetic Boxes": "Display-Cosmetic-Boxes-1_qorgwe",
-      "Food Boxes": "Custom-Burger-Boxes-1_k09ujk",
-      "Gift Boxes": "Large-Gift-Boxes-2_tlo55s",
-      "Retail Boxes": "Retail-Boxes-1_e0snxl",
-      "Candle Boxes": "Candle-Boxes-3_jwwwiz",
-      "Candle Box": "Candle-Boxes-3_jwwwiz",
-      "Shipping Boxes": "Black-Shipping-Boxes-2_qxrrap",
-    };
-    if (directCategoryOverrides[category.name]) {
-      return directCategoryOverrides[category.name];
+    // Special cases matching HeroSection logic - check for specific subcategory hero images
+    if (category.slug === "food-boxes") {
+      const noodleBoxSubcategory = category.subcategories.find(sub => sub.slug === "custom-noodle-boxes");
+      if (noodleBoxSubcategory && 'heroImage' in noodleBoxSubcategory && noodleBoxSubcategory.heroImage) {
+        return noodleBoxSubcategory.heroImage as string;
+      }
+    }
+    if (category.slug === "gift-boxes") {
+      const deluxeGiftBoxSubcategory = category.subcategories.find(sub => sub.slug === "custom-deluxe-gift-boxes");
+      if (deluxeGiftBoxSubcategory && 'heroImage' in deluxeGiftBoxSubcategory && deluxeGiftBoxSubcategory.heroImage) {
+        return deluxeGiftBoxSubcategory.heroImage as string;
+      }
+    }
+    if (category.slug === "jewelry-boxes") {
+      const ringBoxSubcategory = category.subcategories.find(sub => sub.slug === "ring-boxes");
+      if (ringBoxSubcategory && 'heroImage' in ringBoxSubcategory && ringBoxSubcategory.heroImage) {
+        return ringBoxSubcategory.heroImage as string;
+      }
+    }
+    if (category.slug === "retail-boxes" && category.image) {
+      return category.image;
+    }
+    if (category.slug === "candle-boxes") {
+      const jarCandleBoxSubcategory = category.subcategories.find(sub => sub.slug === "custom-jar-candle-boxes");
+      if (jarCandleBoxSubcategory && 'heroImage' in jarCandleBoxSubcategory && jarCandleBoxSubcategory.heroImage) {
+        return jarCandleBoxSubcategory.heroImage as string;
+      }
+    }
+    if (category.slug === "shipping-boxes-industry") {
+      const customShippingBoxSubcategory = category.subcategories.find(sub => sub.slug === "custom-shipping-boxes");
+      if (customShippingBoxSubcategory && 'heroImage' in customShippingBoxSubcategory && customShippingBoxSubcategory.heroImage) {
+        return customShippingBoxSubcategory.heroImage as string;
+      }
+    }
+    if (category.slug === "soap-boxes-industry") {
+      const luxurySoapPackagingSubcategory = category.subcategories.find(sub => sub.slug === "luxury-soap-packaging");
+      if (luxurySoapPackagingSubcategory && 'heroImage' in luxurySoapPackagingSubcategory && luxurySoapPackagingSubcategory.heroImage) {
+        return luxurySoapPackagingSubcategory.heroImage as string;
+      }
+    }
+    if (category.slug === "apparel-boxes") {
+      const clothingBoxesSubcategory = category.subcategories.find(sub => sub.slug === "clothing-boxes");
+      if (clothingBoxesSubcategory && 'heroImage' in clothingBoxesSubcategory && clothingBoxesSubcategory.heroImage) {
+        return clothingBoxesSubcategory.heroImage as string;
+      }
+    }
+    if (category.slug === "sports-boxes") {
+      const customShoeBoxesSubcategory = category.subcategories.find(sub => sub.slug === "custom-shoe-boxes");
+      if (customShoeBoxesSubcategory && 'heroImage' in customShoeBoxesSubcategory && customShoeBoxesSubcategory.heroImage) {
+        return customShoeBoxesSubcategory.heroImage as string;
+      }
+    }
+    if (category.slug === "cigarette-boxes-industry") {
+      const customCigaretteBoxesSubcategory = category.subcategories.find(sub => sub.slug === "custom-cigarette-boxes");
+      if (customCigaretteBoxesSubcategory && 'heroImage' in customCigaretteBoxesSubcategory && customCigaretteBoxesSubcategory.heroImage) {
+        return customCigaretteBoxesSubcategory.heroImage as string;
+      }
+    }
+    if (category.slug === "cbd-boxes") {
+      const customCannabisBoxesSubcategory = category.subcategories.find(sub => sub.slug === "custom-cannabis-boxes");
+      if (customCannabisBoxesSubcategory && 'heroImage' in customCannabisBoxesSubcategory && customCannabisBoxesSubcategory.heroImage) {
+        return customCannabisBoxesSubcategory.heroImage as string;
+      }
+    }
+    if (category.slug === "vape-boxes") {
+      const customVapeBoxesSubcategory = category.subcategories.find(sub => sub.slug === "custom-vape-boxes");
+      if (customVapeBoxesSubcategory && 'heroImage' in customVapeBoxesSubcategory && customVapeBoxesSubcategory.heroImage) {
+        return customVapeBoxesSubcategory.heroImage as string;
+      }
+    }
+    if (category.slug === "e-liquid-boxes") {
+      const eLiquidBottleBoxesSubcategory = category.subcategories.find(sub => sub.slug === "e-liquid-bottle-boxes");
+      if (eLiquidBottleBoxesSubcategory && 'heroImage' in eLiquidBottleBoxesSubcategory && eLiquidBottleBoxesSubcategory.heroImage) {
+        return eLiquidBottleBoxesSubcategory.heroImage as string;
+      }
+    }
+    if (category.slug === "stationery-boxes") {
+      const customPenBoxesSubcategory = category.subcategories.find(sub => sub.slug === "custom-pen-boxes");
+      if (customPenBoxesSubcategory && 'heroImage' in customPenBoxesSubcategory && customPenBoxesSubcategory.heroImage) {
+        return customPenBoxesSubcategory.heroImage as string;
+      }
+    }
+    if (category.slug === "christmas-boxes") {
+      const christmasGiftBoxesSubcategory = category.subcategories.find(sub => sub.slug === "christmas-gift-boxes");
+      if (christmasGiftBoxesSubcategory && 'heroImage' in christmasGiftBoxesSubcategory && christmasGiftBoxesSubcategory.heroImage) {
+        return christmasGiftBoxesSubcategory.heroImage as string;
+      }
+    }
+    if (category.slug === "cereal-boxes") {
+      const cerealBoxesWholesaleSubcategory = category.subcategories.find(sub => sub.slug === "cereal-boxes-wholesale");
+      if (cerealBoxesWholesaleSubcategory && 'heroImage' in cerealBoxesWholesaleSubcategory && cerealBoxesWholesaleSubcategory.heroImage) {
+        return cerealBoxesWholesaleSubcategory.heroImage as string;
+      }
+    }
+    if (category.slug === "pre-roll-boxes-industry") {
+      const preRollPackagingSubcategory = category.subcategories.find(sub => sub.slug === "pre-roll-packaging");
+      if (preRollPackagingSubcategory && 'heroImage' in preRollPackagingSubcategory && preRollPackagingSubcategory.heroImage) {
+        return preRollPackagingSubcategory.heroImage as string;
+      }
+    }
+    if (category.slug === "pizza-boxes") {
+      const pizzaBoxesSubcategory = category.subcategories.find(sub => sub.slug === "14-inch-pizza-boxes");
+      if (pizzaBoxesSubcategory && 'heroImage' in pizzaBoxesSubcategory && pizzaBoxesSubcategory.heroImage) {
+        return pizzaBoxesSubcategory.heroImage as string;
+      }
     }
 
-    // Fallback images for specific subcategory names that lack images in data
-    const subcategoryFallbackImageMap: Record<string, string> = {
-      "Vape Boxes": "Vape-Boxes-2_npdki3",
-      "E-liquid Bottle Boxes": "E-Liquid-Bottle-Boxes-2_qjrkus",
-      "Custom Pen Boxes": "Custom_Pen_Boxes_2_pfqmnc",
-      "Christmas Boxes with Lids": "Christmas_Boxes_with_Lids_2_sz6gc0",
-    };
-    // Fallback images for specific industry category names
-    const categoryFallbackImageMap: Record<string, string> = {
-      "Stationery Boxes": "Custom_Pen_Boxes_2_pfqmnc",
-      "Christmas Boxes": "Christmas_Boxes_with_Lids_2_sz6gc0",
-      "Chocolate Boxes": "Chocolate_box_2_kfnskd",
-      "Cereal Boxes": "cereal_box_3_bdi3jq",
-      "Pizza Boxes": "14_inch_pizza_box_1_egqkcw",
-      "Vape Boxes": "Vape-Boxes-2_npdki3",
-      "E-liquid Boxes": "E-Liquid-Bottle-Boxes-2_qjrkus",
-    };
+    // For Cosmetic Boxes, check for Display Cosmetic Boxes hero image
+    if (category.slug === "cosmetic-boxes") {
+      const displayCosmeticBoxesSubcategory = category.subcategories.find(sub => sub.slug === "cosmetic-display-boxes");
+      if (displayCosmeticBoxesSubcategory && 'heroImage' in displayCosmeticBoxesSubcategory && displayCosmeticBoxesSubcategory.heroImage) {
+        return displayCosmeticBoxesSubcategory.heroImage as string;
+      }
+    }
 
+    // Otherwise, check for heroImage in any subcategory, then fallback to images array
     if (Array.isArray(category.subcategories)) {
       for (const sub of category.subcategories) {
-        if (Array.isArray(sub.images) && sub.images.length > 0) {
-          return sub.images[0]; // pick one image from the available 3
+        // Check for heroImage first
+        if ('heroImage' in sub && sub.heroImage) {
+          return sub.heroImage as string;
         }
-        // If no images, try fallback map by subcategory name
-        if (subcategoryFallbackImageMap[sub.name]) {
-          return subcategoryFallbackImageMap[sub.name];
+        // Then check for images array
+        if (Array.isArray(sub.images) && sub.images.length > 0) {
+          return sub.images[0];
         }
       }
     }
-    // If none found from subcategories, try category-level fallback
-    if (categoryFallbackImageMap[category.name]) {
-      return categoryFallbackImageMap[category.name];
-    }
-    // Final fallback to category.image from data
+
+    // Final fallback to category.image
     return category.image;
   };
 
@@ -301,3 +382,4 @@ const ProductByIndustryCarousel: React.FC = () => {
 };
 
 export default ProductByIndustryCarousel;
+

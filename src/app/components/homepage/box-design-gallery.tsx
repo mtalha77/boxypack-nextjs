@@ -54,16 +54,10 @@ const BoxDesignGallery: React.FC = () => {
         {/* Header Section */}
         <div className="text-center mb-8 md:mb-16">
           <h2 className="text-h2 text-heading-primary mb-6">
-            Boxes Designed To Inspire Trust
+            Every Packaging Box Tells Your Story
           </h2>
           <p className="text-body-large text-body-primary max-w-4xl mx-auto">
-            First moments matter most. Custom boxes shape first impressions and
-            lasting memories. At BoxyPack, we design boxes that go beyond
-            packaging, turning them into clear brand statements. Boxes can be
-            chosen by material for strength or by industry for unique needs.
-            Each design is made to inspire and build trust. From product boxes
-            to shipping choices, we provide presence and protection. Explore
-            below and find the box that matches your product needs.
+            At BoxyPack, we see packaging as more than a box. It is the first thing people see, the first thing they remember. Our custom packaging and boxes are made to fit your product and your story. Each design is built with care, shaped by real ideas, and printed to perfection. Every custom box shows your effort and pride. Take a look below and find the perfect box that brings your product and brand to life.
           </p>
         </div>
 

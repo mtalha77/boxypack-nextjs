@@ -27,19 +27,19 @@ export const mylarBoxesData: MylarBoxCategory = {
       name: "Stand Up Pouche", 
       slug: "stand-up-pouche",
       description: "Self-standing mylar packaging with excellent product visibility",
-      images: ["Stand-Up-Pouch_x47atr", "Stand-Up-Pouch-2_g4acia", "Stand-Up-Pouch-3_dn7xbf"]
+      images: ["Stand-Up-Pouch_dhgugv", "Stand-Up-Pouch-2_g4acia", "Stand-Up-Pouch-3_dn7xbf"]
     },
     { 
       name: "Zipper Bag", 
       slug: "zipper-bag",
       description: "Resealable mylar closure packaging for convenient access and storage",
-      images: ["Zipper-Bag_axp0tt", "Zipper-Bag-2_uq8r92", "Zipper-Bag-3_ytkq7g"]
+      images: ["Zipper-Bag-2_itxnvr", "Zipper-Bag_axp0tt", "Zipper-Bag-3_ytkq7g"]
     },
     { 
       name: "Window Bag", 
       slug: "window-bag",
       description: "Transparent mylar window packaging for product display and protection",
-      images: ["Window-Bag_fcbmmg", "Window-Bag-2_iq37ax", "Window-Bag-3_fvjij4"]
+      images: ["Window-Bag-2_jqsxcn", "Window-Bag_fcbmmg", "Window-Bag-3_fvjij4"]
     }
   ]
 };

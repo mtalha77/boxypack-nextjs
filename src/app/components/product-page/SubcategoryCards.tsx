@@ -239,6 +239,17 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
     return url;
   };
   
+  // List of subcategory slugs to hide
+  const hiddenSubcategories = [
+    'breakfast-cereal-boxes',
+    'corn-flakes-boxes',
+  ];
+
+  // Filter out hidden subcategories
+  const filteredSubcategories = subcategories.filter(
+    sub => !hiddenSubcategories.includes(sub.slug)
+  );
+
   const cardItems: CustomSubcategoryCard[] = customCards?.items?.length
     ? customCards.items.map(card => {
         // Apply OurRangeOfData to custom cards if available
@@ -253,7 +264,7 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
           description
         };
       })
-    : subcategories.map(sub => {
+    : filteredSubcategories.map(sub => {
         // Priority: 1. OurRangeOfData description (with slug mapping), 2. sub.description, 3. default
         const mappedSubSlug = mapSlugToOurRangeOfData(sub.slug);
         const rangeOfSubData = ourRangeOfData[mappedSubSlug];
@@ -268,11 +279,26 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
           rawSubDescription = `Premium ${sub.name.toLowerCase()} packaging solutions designed for optimal protection and presentation.`;
         }
         
+        // Use heroImage if available (same as hero section), otherwise use first image from images array
+        // This ensures subcategory cards show the same image as the hero section for all industry products
+        const getSubcategoryImage = (): string => {
+          // Check for heroImage first - this matches what the hero section uses
+          if (sub.heroImage && typeof sub.heroImage === 'string' && sub.heroImage.trim().length > 0) {
+            return sub.heroImage;
+          }
+          // Fallback to first image from images array if no heroImage
+          if (sub.images && Array.isArray(sub.images) && sub.images.length > 0) {
+            return sub.images[0];
+          }
+          // Final fallback
+          return 'products-box-img_x8vu4b';
+        };
+
         return {
           name: sub.name,
           slug: sub.slug,
           description: cleanMarkdown(rawSubDescription),
-          image: sub.images && sub.images.length > 0 ? sub.images[0] : 'products-box-img_x8vu4b',
+          image: getSubcategoryImage(),
           href: buildHref(sub.slug)
         };
       });

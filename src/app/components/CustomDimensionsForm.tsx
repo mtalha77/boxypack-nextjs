@@ -39,6 +39,18 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   const [showCustomPricingMessage, setShowCustomPricingMessage] = useState(false);
   const [selectedImage, setSelectedImage] = useState('Magnetic-Closure-Rigid-Box_vtf07m');
   const [zoomLevel, setZoomLevel] = useState(1);
+  // Helper function to ensure we always have 3 images, repeating the first image if needed
+  const ensureThreeImages = (images: string[]): string[] => {
+    if (!images || images.length === 0) {
+      return ['Magnetic-Closure-Rigid-Box_vtf07m', 'Magnetic-Closure-Rigid-Box_vtf07m', 'Magnetic-Closure-Rigid-Box_vtf07m'];
+    }
+    const firstImage = images[0];
+    while (images.length < 3) {
+      images.push(firstImage);
+    }
+    return images.slice(0, 3);
+  };
+
   const [currentProductImages, setCurrentProductImages] = useState<string[]>([
     'Magnetic-Closure-Rigid-Box_vtf07m',
     'Magnetic-Closure-Rigid-Box-2_qinyd2',
@@ -141,10 +153,18 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
     // Search in productByIndustryData
     for (const category of productByIndustryData) {
       if (category.slug === categorySlug) {
-        // Find first subcategory with images
-        const subcategoryWithImages = category.subcategories.find(sub => sub.images && sub.images.length > 0);
-        if (subcategoryWithImages && subcategoryWithImages.images) {
-          return { images: subcategoryWithImages.images, materialSlug: null };
+        // Find first subcategory with images or heroImage
+        const subcategoryWithImages = category.subcategories.find(sub => 
+          (sub.images && sub.images.length > 0) || 
+          ('heroImage' in sub && sub.heroImage && typeof sub.heroImage === 'string')
+        );
+        if (subcategoryWithImages) {
+          if (subcategoryWithImages.images && subcategoryWithImages.images.length > 0) {
+            return { images: subcategoryWithImages.images, materialSlug: null };
+          } else if ('heroImage' in subcategoryWithImages && subcategoryWithImages.heroImage && typeof subcategoryWithImages.heroImage === 'string') {
+            // Use heroImage and pad to create array
+            return { images: [subcategoryWithImages.heroImage, subcategoryWithImages.heroImage, subcategoryWithImages.heroImage], materialSlug: null };
+          }
         }
       }
     }
@@ -239,10 +259,14 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
           setSelectedMaterial(materialSlug);
         }
         
-        // Set images if available
+        // Set images if available (check both images array and heroImage)
         if (product.images && product.images.length > 0) {
-          setCurrentProductImages(product.images);
+          setCurrentProductImages(ensureThreeImages([...product.images]));
           setSelectedImage(product.images[0]);
+        } else if ('heroImage' in product && product.heroImage && typeof product.heroImage === 'string') {
+          // Use heroImage if images array is not available
+          setCurrentProductImages([product.heroImage, product.heroImage, product.heroImage]);
+          setSelectedImage(product.heroImage);
         }
       }
       
@@ -256,8 +280,8 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
       const { images, materialSlug } = findCategoryImages(initialCategorySlug);
       
       if (images && images.length > 0) {
-        // Set images from first subcategory
-        setCurrentProductImages(images);
+        // Set images from first subcategory, ensure 3 images
+        setCurrentProductImages(ensureThreeImages([...images]));
         setSelectedImage(images[0]);
         
         // Set material if found in material data
@@ -284,7 +308,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
       const { product } = findProductInAllSources(selectedProduct);
       
       if (product && product.images && product.images.length > 0) {
-        setCurrentProductImages(product.images);
+        setCurrentProductImages(ensureThreeImages([...product.images]));
         setSelectedImage(product.images[0]); // Set first image as default
       } else {
         // Only reset to default images if product was explicitly selected but has no images

@@ -7453,6 +7453,8 @@ const rawProductData: Record<string, RawProductEntry> = {
       title: "Create Premium Custom Tissue Paper with BoxyPack",
       paragraphs: [
         "Partner with BoxyPack to design tissue paper that elevates your packaging through softness, brand visibility, and elegant presentation. Our team ensures your tissue paper enhances every unboxing moment.",
+        "Our custom tissue paper is crafted from premium-grade materials, offering a soft, lightweight texture that protects your products while adding a touch of luxury. Whether you choose white, colored, kraft, or recycled options, each sheet is designed to showcase your brand with crisp logo printing or vibrant full-pattern designs.",
+        "Perfect for apparel wrapping, gift packaging, cosmetics, jewelry, and subscription boxes, our tissue paper transforms ordinary unboxing into memorable brand experiences. With eco-friendly options, custom sizing, and wholesale pricing, BoxyPack delivers tissue paper solutions that align with your brand values and packaging needs.",
       ],
     },
   },

@@ -12,10 +12,10 @@ const VideoSection = dynamic(
   () => import("./components/homepage/successed-with-custom"),
   { ssr: false }
 );
-const MoreThanPackage = dynamic(
-  () => import("./components/homepage/more-than-package"),
-  { ssr: false }
-);
+// const MoreThanPackage = dynamic(
+//   () => import("./components/homepage/more-than-package"),
+//   { ssr: false }
+// );
 const FAQ = dynamic(() => import("./components/homepage/faq"), { ssr: false });
 const HeroVideoSection = dynamic(
   () => import("./components/homepage/HeroVideoSection"),
@@ -87,7 +87,7 @@ const HomePage = () => {
       <ProductByIndustryCarousel />
       <WhyChooseUs />
 
-      <MoreThanPackage />
+      {/* <MoreThanPackage /> */}
       <FAQ />
       <HomepageCTASection />
     </div>

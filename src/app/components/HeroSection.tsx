@@ -100,6 +100,10 @@ const getProductImage = (slug: string | undefined, fallbackImage: string): strin
   for (const category of productByMaterialData) {
     // First check if it's a subcategory match
     const subcategory = category.subcategories.find(sub => sub.slug === slug);
+    // Check for separate heroImage first, then fallback to first image in array
+    if (subcategory && 'heroImage' in subcategory && subcategory.heroImage) {
+      return subcategory.heroImage as string;
+    }
     if (subcategory?.images && subcategory.images.length > 0) {
       return subcategory.images[0];
     }
@@ -120,11 +124,139 @@ const getProductImage = (slug: string | undefined, fallbackImage: string): strin
   for (const category of productByIndustryData) {
     // First check if it's a subcategory match
     const subcategory = category.subcategories.find(sub => sub.slug === slug);
+    // Check for separate heroImage first, then fallback to first image in array
+    if (subcategory && 'heroImage' in subcategory && subcategory.heroImage) {
+      return subcategory.heroImage as string;
+    }
     if (subcategory?.images && subcategory.images.length > 0) {
       return subcategory.images[0];
     }
-    // If slug matches the category itself, get image from best matched subcategory
+    // If slug matches the category itself, check for specific subcategory heroImage first (for Food Boxes and Gift Boxes)
     if (category.slug === slug) {
+      // Special case: Food Boxes should use Custom Noodle Boxes hero image
+      if (category.slug === "food-boxes") {
+        const noodleBoxSubcategory = category.subcategories.find(sub => sub.slug === "custom-noodle-boxes");
+        if (noodleBoxSubcategory && 'heroImage' in noodleBoxSubcategory && noodleBoxSubcategory.heroImage) {
+          return noodleBoxSubcategory.heroImage as string;
+        }
+      }
+      // Special case: Gift Boxes should use Custom Deluxe Gift Boxes hero image
+      if (category.slug === "gift-boxes") {
+        const deluxeGiftBoxSubcategory = category.subcategories.find(sub => sub.slug === "custom-deluxe-gift-boxes");
+        if (deluxeGiftBoxSubcategory && 'heroImage' in deluxeGiftBoxSubcategory && deluxeGiftBoxSubcategory.heroImage) {
+          return deluxeGiftBoxSubcategory.heroImage as string;
+        }
+      }
+      // Special case: Jewelry Boxes should use Ring Boxes hero image
+      if (category.slug === "jewelry-boxes") {
+        const ringBoxSubcategory = category.subcategories.find(sub => sub.slug === "ring-boxes");
+        if (ringBoxSubcategory && 'heroImage' in ringBoxSubcategory && ringBoxSubcategory.heroImage) {
+          return ringBoxSubcategory.heroImage as string;
+        }
+      }
+      // Special case: Retail Boxes should use Retail Boxes category image
+      if (category.slug === "retail-boxes" && category.image) {
+        return category.image;
+      }
+      // Special case: Candle Boxes should use Custom Jar Candle Boxes hero image
+      if (category.slug === "candle-boxes") {
+        const jarCandleBoxSubcategory = category.subcategories.find(sub => sub.slug === "custom-jar-candle-boxes");
+        if (jarCandleBoxSubcategory && 'heroImage' in jarCandleBoxSubcategory && jarCandleBoxSubcategory.heroImage) {
+          return jarCandleBoxSubcategory.heroImage as string;
+        }
+      }
+      // Special case: Shipping Boxes should use Custom Shipping Boxes hero image
+      if (category.slug === "shipping-boxes-industry") {
+        const customShippingBoxSubcategory = category.subcategories.find(sub => sub.slug === "custom-shipping-boxes");
+        if (customShippingBoxSubcategory && 'heroImage' in customShippingBoxSubcategory && customShippingBoxSubcategory.heroImage) {
+          return customShippingBoxSubcategory.heroImage as string;
+        }
+      }
+      // Special case: Soap Boxes should use Luxury Soap Packaging hero image
+      if (category.slug === "soap-boxes-industry") {
+        const luxurySoapPackagingSubcategory = category.subcategories.find(sub => sub.slug === "luxury-soap-packaging");
+        if (luxurySoapPackagingSubcategory && 'heroImage' in luxurySoapPackagingSubcategory && luxurySoapPackagingSubcategory.heroImage) {
+          return luxurySoapPackagingSubcategory.heroImage as string;
+        }
+      }
+      // Special case: Apparel Boxes should use Clothing Boxes hero image
+      if (category.slug === "apparel-boxes") {
+        const clothingBoxesSubcategory = category.subcategories.find(sub => sub.slug === "clothing-boxes");
+        if (clothingBoxesSubcategory && 'heroImage' in clothingBoxesSubcategory && clothingBoxesSubcategory.heroImage) {
+          return clothingBoxesSubcategory.heroImage as string;
+        }
+      }
+      // Special case: Sports Boxes should use Custom Shoe Boxes hero image
+      if (category.slug === "sports-boxes") {
+        const customShoeBoxesSubcategory = category.subcategories.find(sub => sub.slug === "custom-shoe-boxes");
+        if (customShoeBoxesSubcategory && 'heroImage' in customShoeBoxesSubcategory && customShoeBoxesSubcategory.heroImage) {
+          return customShoeBoxesSubcategory.heroImage as string;
+        }
+      }
+      // Special case: Cigarette Boxes should use Custom Cigarette Boxes hero image
+      if (category.slug === "cigarette-boxes-industry") {
+        const customCigaretteBoxesSubcategory = category.subcategories.find(sub => sub.slug === "custom-cigarette-boxes");
+        if (customCigaretteBoxesSubcategory && 'heroImage' in customCigaretteBoxesSubcategory && customCigaretteBoxesSubcategory.heroImage) {
+          return customCigaretteBoxesSubcategory.heroImage as string;
+        }
+      }
+      // Special case: CBD Boxes should use Custom Cannabis Boxes hero image
+      if (category.slug === "cbd-boxes") {
+        const customCannabisBoxesSubcategory = category.subcategories.find(sub => sub.slug === "custom-cannabis-boxes");
+        if (customCannabisBoxesSubcategory && 'heroImage' in customCannabisBoxesSubcategory && customCannabisBoxesSubcategory.heroImage) {
+          return customCannabisBoxesSubcategory.heroImage as string;
+        }
+      }
+      // Special case: Vape Boxes should use Custom Vape Boxes hero image
+      if (category.slug === "vape-boxes") {
+        const customVapeBoxesSubcategory = category.subcategories.find(sub => sub.slug === "custom-vape-boxes");
+        if (customVapeBoxesSubcategory && 'heroImage' in customVapeBoxesSubcategory && customVapeBoxesSubcategory.heroImage) {
+          return customVapeBoxesSubcategory.heroImage as string;
+        }
+      }
+      // Special case: E-liquid Boxes should use E-liquid Bottle Boxes hero image
+      if (category.slug === "e-liquid-boxes") {
+        const eLiquidBottleBoxesSubcategory = category.subcategories.find(sub => sub.slug === "e-liquid-bottle-boxes");
+        if (eLiquidBottleBoxesSubcategory && 'heroImage' in eLiquidBottleBoxesSubcategory && eLiquidBottleBoxesSubcategory.heroImage) {
+          return eLiquidBottleBoxesSubcategory.heroImage as string;
+        }
+      }
+      // Special case: Stationery Boxes should use Custom Pen Boxes hero image
+      if (category.slug === "stationery-boxes") {
+        const customPenBoxesSubcategory = category.subcategories.find(sub => sub.slug === "custom-pen-boxes");
+        if (customPenBoxesSubcategory && 'heroImage' in customPenBoxesSubcategory && customPenBoxesSubcategory.heroImage) {
+          return customPenBoxesSubcategory.heroImage as string;
+        }
+      }
+      // Special case: Christmas Boxes should use Christmas Gift Boxes hero image
+      if (category.slug === "christmas-boxes") {
+        const christmasGiftBoxesSubcategory = category.subcategories.find(sub => sub.slug === "christmas-gift-boxes");
+        if (christmasGiftBoxesSubcategory && 'heroImage' in christmasGiftBoxesSubcategory && christmasGiftBoxesSubcategory.heroImage) {
+          return christmasGiftBoxesSubcategory.heroImage as string;
+        }
+      }
+      // Special case: Cereal Boxes should use Cereal Boxes Wholesale hero image
+      if (category.slug === "cereal-boxes") {
+        const cerealBoxesWholesaleSubcategory = category.subcategories.find(sub => sub.slug === "cereal-boxes-wholesale");
+        if (cerealBoxesWholesaleSubcategory && 'heroImage' in cerealBoxesWholesaleSubcategory && cerealBoxesWholesaleSubcategory.heroImage) {
+          return cerealBoxesWholesaleSubcategory.heroImage as string;
+        }
+      }
+      // Special case: Pre Roll Boxes should use Pre Roll Packaging hero image
+      if (category.slug === "pre-roll-boxes-industry") {
+        const preRollPackagingSubcategory = category.subcategories.find(sub => sub.slug === "pre-roll-packaging");
+        if (preRollPackagingSubcategory && 'heroImage' in preRollPackagingSubcategory && preRollPackagingSubcategory.heroImage) {
+          return preRollPackagingSubcategory.heroImage as string;
+        }
+      }
+      // Special case: Pizza Boxes should use 14 Inch Pizza Boxes hero image
+      if (category.slug === "pizza-boxes") {
+        const pizzaBoxesSubcategory = category.subcategories.find(sub => sub.slug === "14-inch-pizza-boxes");
+        if (pizzaBoxesSubcategory && 'heroImage' in pizzaBoxesSubcategory && pizzaBoxesSubcategory.heroImage) {
+          return pizzaBoxesSubcategory.heroImage as string;
+        }
+      }
+      // Otherwise, get image from best matched subcategory
       const bestMatched = findBestMatchedSubcategory(category.subcategories);
       if (bestMatched?.images && bestMatched.images.length > 0) {
         return bestMatched.images[0];
@@ -172,6 +304,10 @@ const getProductImage = (slug: string | undefined, fallbackImage: string): strin
 
   // Search in otherData
   const otherSubcategory = otherData.subcategories.find(sub => sub.slug === slug);
+  // Check for separate heroImage first, then fallback to first image in array
+  if (otherSubcategory && 'heroImage' in otherSubcategory && otherSubcategory.heroImage) {
+    return otherSubcategory.heroImage as string;
+  }
   if (otherSubcategory?.images && otherSubcategory.images.length > 0) {
     return otherSubcategory.images[0];
   }

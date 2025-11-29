@@ -1,26 +1,24 @@
-import React from "react";
-import { Metadata } from "next";
-import CustomDimensionsForm from "../../../../components/CustomDimensionsForm";
-import ClientTestimonials from "../../../../components/product-page/ClientTestaminials";
+import React from 'react';
+import { navigationData } from '../../../../data/navigationData';
+import ProductPageTemplate from '../../../../components/product-page/page';
 
-export const metadata: Metadata = {
-  title: "E-liquid Bottle Boxes - Custom Packaging | BoxyPack",
-  description:
-    "Premium e-liquid bottle box packaging solutions with leak-proof designs. Custom specialized packaging designed for optimal protection and presentation.",
-  keywords:
-    "e-liquid bottle boxes, custom packaging, leak-proof packaging, e-liquid packaging",
-};
-
-const ELiquidBottleBoxesPage: React.FC = () => {
-  const productData = {
-    name: "E-liquid Bottle Boxes",
-  };
+const ELiquidBottleBoxesPage = () => {
+  const section = navigationData.find(s => s.slug === 'product-by-industry');
+  const category = section?.categories?.find(c => c.slug === 'e-liquid-boxes');
+  const subcategory = category?.subcategories.find(sc => sc.slug === 'e-liquid-bottle-boxes');
+  
+  if (!section || !category || !subcategory) {
+    return <div>Subcategory not found</div>;
+  }
 
   return (
-    <div>
-      <CustomDimensionsForm />
-      <ClientTestimonials productData={productData} />
-    </div>
+    <ProductPageTemplate
+      section={section}
+      category={category}
+      subcategory={subcategory}
+      slug="e-liquid-bottle-boxes"
+      pageType="subcategory"
+    />
   );
 };
 
