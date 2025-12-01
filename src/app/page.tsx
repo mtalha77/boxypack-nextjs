@@ -44,10 +44,10 @@ const ScrollVideoSection = dynamic(
   () => import("./components/homepage/images-scroll-animation"),
   { ssr: false }
 );
-const CustomDimensionsForm = dynamic(
-  () => import("./components/CustomDimensionsForm"),
-  { ssr: false }
-);
+// const CustomDimensionsForm = dynamic(
+//   () => import("./components/CustomDimensionsForm"),
+//   { ssr: false }
+// );
 const HowItWorks = dynamic(
   () => import("./components/homepage/how-it-works"),
   { ssr: false }
@@ -77,7 +77,7 @@ const HomePage = () => {
     <div className="relative">
       {/* <Hero /> */}
       <HeroVideoSection />
-      <CustomDimensionsForm />
+      {/* <CustomDimensionsForm /> */}
       <ScrollVideoSection />
       <BoxDesignGallery />
       <HowItWorks />

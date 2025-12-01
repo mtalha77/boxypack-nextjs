@@ -9,7 +9,7 @@ import {
 import { productData, getProductDataBySlug } from "../../data/productPagesData";
 import { Product } from "@/lib/hooks/useProducts";
 import HeroSection, { BreadcrumbItem } from "../HeroSection";
-import CustomDimensionsForm from "../CustomDimensionsForm";
+// import CustomDimensionsForm from "../CustomDimensionsForm";
 import FeaturesSection from "./WhyChooseUs";
 import ClientTestamonials from "./ClientTestaminials";
 import CTASection from "./CTASection";
@@ -478,7 +478,7 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
         <HeroSection productData={productInfo} breadcrumbs={breadcrumbs} />
 
         {/* Custom Dimensions Form - Pass the slug for auto-selection */}
-        <CustomDimensionsForm
+        {/* <CustomDimensionsForm
           initialProductSlug={
             pageType === "subcategory" && subcategory
               ? subcategory.slug
@@ -489,7 +489,7 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
               ? category.slug
               : undefined
           }
-        />
+        /> */}
 
         {/* Product Overview */}
         <ProductOverview 
