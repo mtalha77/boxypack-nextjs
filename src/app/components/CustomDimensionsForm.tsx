@@ -1101,12 +1101,12 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                   </div>
 
                   {/* View Breakdown Button */}
-                  <button
+                  {/* <button
                     onClick={() => setShowBreakdown(!showBreakdown)}
                     className="w-full py-2 px-4 bg-white border-2 border-[#0ca6c2] text-[#0c6b76] rounded-lg hover:bg-[#0ca6c2]/10 transition-colors font-medium"
                   >
                     {showBreakdown ? '− Hide' : '+ View'} Detailed Breakdown
-                  </button>
+                  </button> */}
 
                   {/* Detailed Breakdown */}
                   {showBreakdown && (

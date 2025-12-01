@@ -2,7 +2,7 @@
 
 import React from "react";
 import HeroSection from "../components/HeroSection";
-// import CustomDimensionsForm from "../components/CustomDimensionsForm";
+import CustomDimensionsForm from "../components/CustomDimensionsForm";
 import FeaturesSection from "../components/product-page/WhyChooseUs";
 import CTASection from "../components/product-page/CTASection";
 import ClientTestimonials from "../components/product-page/ClientTestaminials";
@@ -41,7 +41,7 @@ const ProductsDesignPage: React.FC<ProductPageProps> = ({ productData }) => {
   return (
     <div className="">
       <HeroSection productData={productData} />
-      {/* <CustomDimensionsForm initialProductSlug={productData.slug} /> */}
+      <CustomDimensionsForm initialProductSlug={productData.slug} />
       {/* <ProductGallery /> */}
       <FeaturesSection productData={{ ...productData, slug: productData.slug || "" }} />
       {/* <SpecificationsSection productData={productData} */}
