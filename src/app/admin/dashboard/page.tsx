@@ -59,21 +59,7 @@ const AdminDashboard: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white rounded-lg shadow p-6">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <div className="w-8 h-8 bg-blue-500 rounded-md flex items-center justify-center">
-                  <span className="text-white text-sm font-medium">📦</span>
-                </div>
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-gray-500">Total Products</p>
-                <p className="text-2xl font-semibold text-gray-900">{stats.totalProducts}</p>
-              </div>
-            </div>
-          </div>
-        </div>
+
 
         <div>
           <h2 className="text-xl font-semibold text-gray-900 mb-6">Admin Features</h2>
@@ -102,36 +88,8 @@ const AdminDashboard: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-8">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Recent Activity</h2>
-          <div className="bg-white rounded-lg shadow">
-            <div className="p-6">
-              <div className="space-y-4">
-                <div className="flex items-center text-sm text-gray-600">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                  <span>Pricing system updated with CSV data</span>
-                  <span className="ml-auto text-gray-400">2 minutes ago</span>
-                </div>
-                <div className="flex items-center text-sm text-gray-600">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                  <span>3 new products added to catalog</span>
-                  <span className="ml-auto text-gray-400">1 hour ago</span>
-                </div>
-                <div className="flex items-center text-sm text-gray-600">
-                  <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
-                  <span>Pricing formulas updated</span>
-                  <span className="ml-auto text-gray-400">3 hours ago</span>
-                </div>
-                <div className="flex items-center text-sm text-gray-600">
-                  <div className="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
-                  <span>Database cleanup completed</span>
-                  <span className="ml-auto text-gray-400">1 day ago</span>
-                </div>
-              </div>
-            </div>
-          </div>
+            
         </div>
-      </div>
     </div>
   );
 };

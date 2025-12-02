@@ -126,12 +126,6 @@ export default function PricingFormulasPage() {
             </div>
             <div className="flex gap-3">
               <button
-                onClick={() => router.push('/admin/pricing-formulas-rigid')}
-                className="px-4 py-2 border-2 border-purple-600 text-purple-600 rounded-lg hover:bg-purple-50 transition-colors"
-              >
-                🎁 Rigid Products
-              </button>
-              <button
                 onClick={() => router.push('/admin/pricing-formulas/new')}
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               >

@@ -45,7 +45,7 @@ const Login: React.FC = () => {
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
           <Image
-            src="/img/logo-vertical.png"
+            src="/favicon.png"
             alt="Boxypack"
             width={200}
             height={100}
