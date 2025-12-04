@@ -66,9 +66,9 @@ export const productByMaterialData: MaterialCategory[] = [
         description: "We offer rigid briefcase boxes in bulk for all types of luxury packaging needs. Options include magnetic-lock briefcases, ribbon-handle boxes, and foldable styles for easy storage. Each design combines sturdiness, style, and practicality to give your products a premium finish.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
-          "Rigid-Briefcase-Box_kxcnsb",
-          "Rigid-Briefcase-Box-2_mzsx2v",
-          "Rigid-Briefcase-Box-3_jb8p1m",
+          "Rigid-Briefcase-Box-6_nt8pdn",
+          "Rigid-Briefcase-Box-5_nfw98g",
+          "Rigid-Briefcase-Box-4_ayv0rk",
         ],
       },
       {
@@ -77,9 +77,9 @@ export const productByMaterialData: MaterialCategory[] = [
         description: "We offer book-style rigid boxes wholesale in various sizes and finishes to match every brand's style. Choose from ribbon-tie closures, magnetic lids, or foam inserts for added product security. Each box provides an elegant book-like opening experience, perfect for luxury and corporate packaging.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
-          "Book-Style-Rigid-Box_g9oakq",
-          "Book-Style-Rigid-Box-2_kcv0a9",
-          "Book-Style-Rigid-Box-3_fdastg",
+          "Book-Style-Rigid-Box-4_tcxfx5",
+          "Book-Style-Rigid-Box-5_czatkn",
+          "Book-Style-Rigid-Box-6_emwmjk",
         ],
       },
     ],
@@ -363,9 +363,9 @@ export const productByMaterialData: MaterialCategory[] = [
         description: "Premium cardboard dispenser boxes designed for organized product display and easy access.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
-          "Cardboard-Dispenser-Box-2_fsj1hf",
-          "Cardboard-Dispenser-Box-2_hgapko",
-          "Cardboard-Dispenser-Box-3_du2g3s",
+          "Cardboard-Dispenser-Box-6_kkywm0",
+          "Cardboard-Dispenser-Box-4_e8u5sg",
+          "Cardboard-Dispenser-Box-5_xlwpq6",
         ],
       },
       {
@@ -407,9 +407,9 @@ export const productByMaterialData: MaterialCategory[] = [
         description: "We offer wholesale six-corner boxes in a wide range of sizes and styles. Choose from kraft, white, or printed options to suit your brand. Perfect for bakeries, apparel brands, and gift packaging, our range includes collapsible and reusable variants. Every box combines durability with a premium finish, giving your products a stylish presentation and reliable protection.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
-          "Cardboard-Side-Lock-Six-Corners-3_hzf1q3",
-          "Cardboard-Side-Lock-Six-Corners-2_af2slw",
-          "Cardboard-Side-Lock-Six-Corners-3_aifhwg",
+          "Cardboard-Side-Lock-Six-Corners-5_uosf0a",
+          "Cardboard-Side-Lock-Six-Corners-4_fty3sp",
+          "Cardboard-Side-Lock-Six-Corners-5_uosf0a",
         ],
       },
       {
@@ -418,9 +418,9 @@ export const productByMaterialData: MaterialCategory[] = [
         description: "We offer wholesale regular six-corner boxes in multiple designs, including plain kraft styles for eco packaging and fully printed versions for retail branding. Perfect for food, clothing, cosmetics, and gift packaging, these boxes combine functionality with elegance. Every design is made to fold quickly, stack neatly, and hold products securely.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
-          "Cardboard-Regular-Six-Corner-Box_ahh7n2",
-          "Cardboard-Regular-Six-Corner-Box-2_cuqr07",
-          "Cardboard-Regular-Six-Corner-Box-3_jdi9aa",
+          "Cardboard-Regular-Six-Corner-Box-5_c0lco6",
+          "Cardboard-Regular-Six-Corner-Box-4_zjdxp8",
+          "Cardboard-Regular-Six-Corner-Box-6_szsrxg",
         ],
       },
       {
@@ -474,9 +474,9 @@ export const productByMaterialData: MaterialCategory[] = [
         description: "We offer wholesale bookend boxes in multiple finishes, colors, and configurations. From rigid luxury bookend packaging to foldable eco variants, our range fits products of every size and purpose. Whether used for retail shelves or e-commerce deliveries, each box ensures strong protection and a premium presentation experience.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
-          "Cardboard-Bookend-Box-3_l90t75",
-          "Cardboard-Bookend-Box-2_wncao9",
-          "Cardboard-Bookend-Box-3_wuuqsq",
+          "Cardboard-Bookend-Box-4_icshcy",
+          "Cardboard-Bookend-Box-5_n18paf",
+          "Cardboard-Bookend-Box-4_icshcy",
         ],
       },
       {
