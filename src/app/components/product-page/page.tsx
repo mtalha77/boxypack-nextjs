@@ -521,6 +521,7 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
             parentCategoryName={category?.name || productInfo.name}
             parentCategorySlug={category?.slug || slug}
             sectionSlug={section?.slug || slug}
+            currentSubcategory={subcategory} // Pass current subcategory if on subcategory page
             customCards={customSubcategoryCards}
           />
         )}

@@ -22,7 +22,7 @@ export const productByMaterialData: MaterialCategory[] = [
     name: "Rigid Boxes",
     slug: "rigid-boxes",
     description:
-      "Rigid boxes are designed that add luxury and strength to every product.",
+      "We offer rigid boxes wholesale in a wide selection of styles and designs to suit every brand and industry: * **Magnetic Closure Boxes** * **Two-Piece Boxes** * **Book Style Boxes** * **Shoulder Boxes** * **Hexagon and Round Boxes** * **Drawer or Sleeve Boxes** Each box is engineered to perfection, combining structural integrity with premium visual appeal.",
     image: "Mailer-Box-3_oct2ws",
     subcategoriesCount: 5,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -52,7 +52,7 @@ export const productByMaterialData: MaterialCategory[] = [
       {
         name: "Sliding / sleeve Rigid Boxes (Match Style Boxes)",
         slug: "sliding-sleeve-rigid-boxes-match-style-boxes",
-        description: "We provide rigid sleeve boxes wholesale in multiple designs, such as pull-out drawer boxes, side sliding cases, and luxury gift sleeves. Each style features a secure fit, elegant finish, and easy-slide functionality that makes unboxing both simple and memorable.",
+        description: "We provide **rigid sleeve boxes wholesale** in multiple designs, such as pull-out drawer boxes, side sliding cases, and luxury gift sleeves. Each style features a secure fit, elegant finish, and easy-slide functionality that makes unboxing both simple and memorable.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
           "Rigid-Sleeve-Box_lmwuru",
@@ -65,9 +65,10 @@ export const productByMaterialData: MaterialCategory[] = [
         slug: "brief-case-style",
         description: "We offer rigid briefcase boxes in bulk for all types of luxury packaging needs. Options include magnetic-lock briefcases, ribbon-handle boxes, and foldable styles for easy storage. Each design combines sturdiness, style, and practicality to give your products a premium finish.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        heroImage: "Rigid-Briefcase-Box-5_nf9ipk",
         images: [
+          "Rigid-Briefcase-Box-5_nf9ipk",
           "Rigid-Briefcase-Box-6_nt8pdn",
-          "Rigid-Briefcase-Box-5_nfw98g",
           "Rigid-Briefcase-Box-4_ayv0rk",
         ],
       },
@@ -76,8 +77,9 @@ export const productByMaterialData: MaterialCategory[] = [
         slug: "book-style-rigid-boxes",
         description: "We offer book-style rigid boxes wholesale in various sizes and finishes to match every brand's style. Choose from ribbon-tie closures, magnetic lids, or foam inserts for added product security. Each box provides an elegant book-like opening experience, perfect for luxury and corporate packaging.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        heroImage: "Book-Style-Rigid-Box-4_mzvwte",
         images: [
-          "Book-Style-Rigid-Box-4_tcxfx5",
+          "Book-Style-Rigid-Box-4_mzvwte",
           "Book-Style-Rigid-Box-5_czatkn",
           "Book-Style-Rigid-Box-6_emwmjk",
         ],
@@ -88,7 +90,7 @@ export const productByMaterialData: MaterialCategory[] = [
     name: "Kraft Boxes",
     slug: "kraft-boxes",
     description:
-      "Simple kraft boxes designed for recyclable and eco-friendly brands with purpose.",
+      "We offer **kraft boxes bulk** for every product type and business need: * **Kraft Mailer Boxes** * **Kraft Boxes with Lids** * **Kraft Pillow Boxes** * **Kraft Gable Boxes** * **Kraft Bakery / Cake Boxes** * **Kraft Sleeve Boxes** * **Kraft Tuck End Boxes** Each design ensures sustainability, simplicity, and strength making kraft boxes the most versatile packaging choice for any industry.",
     image: "Mailer-Box-2_ysut1i",
     subcategoriesCount: 18,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -206,7 +208,7 @@ export const productByMaterialData: MaterialCategory[] = [
       {
         name: "Kraft Seal End Auto Bottom Box",
         slug: "kraft-seal-end-auto-bottom-box",
-        description: "We provide Kraft seal-end auto bottom packaging in multiple variations, including full-seal ends, semi-auto bottoms, and custom-sized models. Each design is engineered for easy packing, fast folding, and reliable closure. These boxes are commonly used in the food, pharmaceutical, and e-commerce industries where packaging time and stability matter most.",
+        description: "We provide **Kraft seal-end auto bottom packaging** in multiple variations, including full-seal ends, semi-auto bottoms, and custom-sized models. Each design is engineered for easy packing, fast folding, and reliable closure. These boxes are commonly used in the food, pharmaceutical, and e-commerce industries where packaging time and stability matter most.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
           "Kraft-Seal-End-Auto-Bottom-Box-3_duhyn6",
@@ -286,7 +288,7 @@ export const productByMaterialData: MaterialCategory[] = [
     name: "Cardboard Boxes",
     slug: "cardboard-boxes",
     description:
-      "Cardboard boxes are made for printing, fold, and brand for daily use.",
+      "We provide wholesale cardboard boxes for retail, shipping, and storage needs. Our collection includes mailer boxes, product cartons, subscription boxes, and shipping boxes  all customizable with your brand logo and color scheme. Each design supports efficiency, protection, and shelf-ready appeal.",
     image: "Mailer-Box_1_ujqhhx",
     subcategoriesCount: 20,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -305,7 +307,7 @@ export const productByMaterialData: MaterialCategory[] = [
       {
         name: "Cardboard TUCK End BOX - Reverse Tuck end Box ,Straight Tuck End Box, 1-2-3 lock Bottom Box, Auto Lock Bottom Box",
         slug: "cardboard-tuck-end-box",
-        description: "We offer wholesale cardboard tuck-end boxes in various styles: straight tuck-end, reverse tuck-end, and auto-bottom configurations. Each design is made for different packaging needs, from lightweight retail products to heavier goods that require stronger base support. The boxes fold easily, making them ideal for fast packing and efficient storage.",
+        description: "We offer **wholesale cardboard tuck-end boxes** in various styles: straight tuck-end, reverse tuck-end, and auto-bottom configurations. Each design is made for different packaging needs, from lightweight retail products to heavier goods that require stronger base support. The boxes fold easily, making them ideal for fast packing and efficient storage.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
           "Cardboard-Tuck-End-Box-2_whvfvq",
@@ -362,9 +364,10 @@ export const productByMaterialData: MaterialCategory[] = [
         slug: "cardboard-dispenser-box",
         description: "Premium cardboard dispenser boxes designed for organized product display and easy access.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        heroImage: "Cardboard-Dispenser-Box-4_kmfwm0",
         images: [
+          "Cardboard-Dispenser-Box-4_kmfwm0",
           "Cardboard-Dispenser-Box-6_kkywm0",
-          "Cardboard-Dispenser-Box-4_e8u5sg",
           "Cardboard-Dispenser-Box-5_xlwpq6",
         ],
       },
@@ -406,8 +409,9 @@ export const productByMaterialData: MaterialCategory[] = [
         slug: "cardboard-side-lock-six-corner-box",
         description: "We offer wholesale six-corner boxes in a wide range of sizes and styles. Choose from kraft, white, or printed options to suit your brand. Perfect for bakeries, apparel brands, and gift packaging, our range includes collapsible and reusable variants. Every box combines durability with a premium finish, giving your products a stylish presentation and reliable protection.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        heroImage: "Cardboard-Side-Lock-Six-Corners-5_geticc",
         images: [
-          "Cardboard-Side-Lock-Six-Corners-5_uosf0a",
+          "Cardboard-Side-Lock-Six-Corners-5_geticc",
           "Cardboard-Side-Lock-Six-Corners-4_fty3sp",
           "Cardboard-Side-Lock-Six-Corners-5_uosf0a",
         ],
@@ -417,8 +421,9 @@ export const productByMaterialData: MaterialCategory[] = [
         slug: "cardboard-regular-six-corner-box",
         description: "We offer wholesale regular six-corner boxes in multiple designs, including plain kraft styles for eco packaging and fully printed versions for retail branding. Perfect for food, clothing, cosmetics, and gift packaging, these boxes combine functionality with elegance. Every design is made to fold quickly, stack neatly, and hold products securely.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        heroImage: "Cardboard-Regular-Six-Corner-Box-5_hcsyk7",
         images: [
-          "Cardboard-Regular-Six-Corner-Box-5_c0lco6",
+          "Cardboard-Regular-Six-Corner-Box-5_hcsyk7",
           "Cardboard-Regular-Six-Corner-Box-4_zjdxp8",
           "Cardboard-Regular-Six-Corner-Box-6_szsrxg",
         ],
@@ -473,8 +478,9 @@ export const productByMaterialData: MaterialCategory[] = [
         slug: "cardboard-bookend-box",
         description: "We offer wholesale bookend boxes in multiple finishes, colors, and configurations. From rigid luxury bookend packaging to foldable eco variants, our range fits products of every size and purpose. Whether used for retail shelves or e-commerce deliveries, each box ensures strong protection and a premium presentation experience.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
+        heroImage: "Cardboard-Bookend-Box-4_vsskqx",
         images: [
-          "Cardboard-Bookend-Box-4_icshcy",
+          "Cardboard-Bookend-Box-4_vsskqx",
           "Cardboard-Bookend-Box-5_n18paf",
           "Cardboard-Bookend-Box-4_icshcy",
         ],
@@ -496,7 +502,7 @@ export const productByMaterialData: MaterialCategory[] = [
     name: "Corrugated Boxes",
     slug: "corrugated-boxes",
     description:
-      "Heavy-duty custom boxes are built to protect during every shipment.",
+      "We offer corrugated boxes wholesale in multiple styles, including mailer boxes, shipping cartons, heavy-duty trays, and printed retail packaging. Every box is fully customizable with size, shape, color, and print options to suit your logistics or retail goals. Whether you ship across town or worldwide, BoxyPack ensures your packaging stays strong from start to finish.",
     image: "Mailer-Box-3_oct2ws",
     subcategoriesCount: 8,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",

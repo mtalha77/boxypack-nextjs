@@ -21,7 +21,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Bakery Boxes",
     slug: "bakery-boxes",
-    description: "Fresh Designs for Every Sweet Treat",
+    description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product’s needs, offering style, strength, and perfect presentation.",
     image: "Bakery_Boxes_klh8y6",
     subcategoriesCount: 14,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -171,7 +171,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Cosmetic Boxes",
     slug: "cosmetic-boxes",
-    description: "Stylish Packaging for Beauty Products",
+    description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product’s needs, offering style, strength, and perfect presentation.",
     image: "Box-5_pdb8xw",
     subcategoriesCount: 20,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -391,7 +391,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Food Boxes",
     slug: "food-boxes",
-    description: "Safe, Smart, and Sustainable Food Packaging",
+    description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "Custom-Noodles-Boxes_mxpz3e",
     subcategoriesCount: 11,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -511,7 +511,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Gift Boxes",
     slug: "gift-boxes",
-    description: "Elegant Boxes for Memorable Gifting Moments",
+    description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "Deluxe-Gift-Boxes_mygamd",
     subcategoriesCount: 10,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -621,7 +621,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Jewelry Boxes",
     slug: "jewelry-boxes",
-    description: "Luxury Packaging for Timeless Jewelry Pieces",
+    description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "Ring-Boxes_ppidrs",
     subcategoriesCount: 15,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -785,7 +785,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Retail Boxes",
     slug: "retail-boxes",
-    description: "Smart Packaging for Modern Retail Brands",
+    description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "Retail-Boxes_t01rgx",
     subcategoriesCount: 4,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -836,7 +836,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Candle Boxes",
     slug: "candle-boxes",
-    description: "Warm Designs for Fragrant Candle Packaging",
+    description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "Candle-Boxes_bm4ri2",
     subcategoriesCount: 9,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -916,7 +916,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Shipping Boxes",
     slug: "shipping-boxes-industry",
-    description: "Strong, Reliable Boxes for Every Delivery",
+    description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "shipping-box_jyysru",
     subcategoriesCount: 4,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -966,7 +966,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Soap Boxes",
     slug: "soap-boxes-industry",
-    description: "Natural Packaging for Handmade Soap Bars",
+    description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "Box-4_lztqi7",
     subcategoriesCount: 10,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1088,7 +1088,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Apparel Boxes",
     slug: "apparel-boxes",
-    description: "Premium Boxes for Fashion and Clothing",
+    description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "Box-5_pdb8xw",
     subcategoriesCount: 8,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1180,7 +1180,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Sports Boxes",
     slug: "sports-boxes",
-    description: "Durable Packaging for Active Lifestyle Gear",
+    description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "Box-6_vm3fmh",
     subcategoriesCount: 6,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1252,7 +1252,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Cigarette Boxes",
     slug: "cigarette-boxes-industry",
-    description: "Sleek Packaging for Tobacco Product Brands",
+    description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "shipping-box_jyysru",
     subcategoriesCount: 6,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1324,7 +1324,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "CBD Boxes",
     slug: "cbd-boxes",
-    description: "Eco Boxes for CBD and Hemp Products",
+    description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "Box-4_lztqi7",
     subcategoriesCount: 7,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1403,7 +1403,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Vape Boxes",
     slug: "vape-boxes",
-    description: "Custom Vape Packaging for Modern Brands",
+    description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "Box-5_pdb8xw",
     subcategoriesCount: 5,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1461,7 +1461,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "E-liquid Boxes",
     slug: "e-liquid-boxes",
-    description: "Trendy Boxes for E-Juice Collections",
+    description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "Box-6_vm3fmh",
     subcategoriesCount: 3,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1501,7 +1501,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Stationery Boxes",
     slug: "stationery-boxes",
-    description: "Creative Packaging for Office Essentials",
+    description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "shipping-box_jyysru",
     subcategoriesCount: 7,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1581,7 +1581,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Christmas Boxes",
     slug: "christmas-boxes",
-    description: "Festive Boxes for Joyful Holiday Gifts",
+    description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "Box-4_lztqi7",
     subcategoriesCount: 12,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1711,7 +1711,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Chocolate Boxes",
     slug: "chocolate-boxes",
-    description: "Elegant Packaging for Gourmet Chocolates",
+    description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "Box-5_pdb8xw",
     subcategoriesCount: 9,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1811,7 +1811,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Cereal Boxes",
     slug: "cereal-boxes",
-    description: "Vibrant Boxes for Breakfast Cereal Brands",
+    description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "Box-6_vm3fmh",
     subcategoriesCount: 12,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1931,7 +1931,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Pre Roll Boxes",
     slug: "pre-roll-boxes-industry",
-    description: "Secure Packaging for Pre-Roll Products",
+    description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "shipping-box_jyysru",
     subcategoriesCount: 6,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -2001,7 +2001,7 @@ export const productByIndustryData: IndustryCategory[] = [
   {
     name: "Pizza Boxes",
     slug: "pizza-boxes",
-    description: "Sturdy Boxes for Hot and Fresh Pizza",
+    description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "Box-4_lztqi7",
     subcategoriesCount: 8,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",

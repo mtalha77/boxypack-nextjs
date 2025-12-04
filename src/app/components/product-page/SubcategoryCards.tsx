@@ -6,6 +6,11 @@ import { CldImage } from 'next-cloudinary';
 import { SubCategory } from '../../data/navigationData';
 import { ourRangeOfData } from '../../data/OurRangeOfData';
 import { whyChooseUsData } from '../../data/whyChooseUsData';
+import { productByMaterialData } from '../../data/productByMaterialData';
+import { productByIndustryData } from '../../data/productByIndustryData';
+import { mylarBoxesData } from '../../data/mylarBoxesData';
+import { shoppingBagsData } from '../../data/shoppingBagsData';
+import { otherData } from '../../data/otherData';
 
 interface CustomSubcategoryCard {
   name: string;
@@ -21,6 +26,7 @@ interface SubcategoryCardsProps {
   parentCategorySlug: string;
   sectionSlug: string;
   className?: string;
+  currentSubcategory?: SubCategory; // Current subcategory being viewed (if on subcategory page)
   customCards?: {
     heading?: string;
     description?: string;
@@ -34,6 +40,7 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
   parentCategorySlug,
   sectionSlug,
   className = '',
+  currentSubcategory,
   customCards
 }) => {
   const cardsContainerRef = useRef<HTMLDivElement>(null);
@@ -179,14 +186,55 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
     return slug;
   };
   
-  // Get heading and description from whyChooseUsData if available
-  const whyChooseUsContent = whyChooseUsData[parentCategorySlug];
-  const whyChooseUsDescription = whyChooseUsContent?.heading;
-  
-  // Get description from OurRangeOfData if available
-  const mappedParentSlug = mapSlugToOurRangeOfData(parentCategorySlug);
-  const rangeOfData = ourRangeOfData[mappedParentSlug];
-  const rangeOfDescription = rangeOfData?.description;
+  // Helper function to get parent category description from data files (same priority as cards)
+  const getParentCategoryDescription = (): string | undefined => {
+    // Priority: 1. productByMaterialData, 2. productByIndustryData, 3. mylarBoxesData, 4. shoppingBagsData, 5. otherData
+    if (sectionSlug === 'product-by-material') {
+      const materialCategory = productByMaterialData.find(cat => cat.slug === parentCategorySlug);
+      if (materialCategory?.description) {
+        return materialCategory.description;
+      }
+      
+      // Also check direct categories
+      if (parentCategorySlug === 'mylar-boxes') {
+        return mylarBoxesData.description;
+      }
+      if (parentCategorySlug === 'shopping-bags') {
+        return shoppingBagsData.description;
+      }
+      if (parentCategorySlug === 'other') {
+        return otherData.description;
+      }
+    } else if (sectionSlug === 'product-by-industry') {
+      const industryCategory = productByIndustryData.find(cat => cat.slug === parentCategorySlug);
+      if (industryCategory?.description) {
+        return industryCategory.description;
+      }
+    } else {
+      // For other sections, check all data sources
+      const materialCategory = productByMaterialData.find(cat => cat.slug === parentCategorySlug);
+      if (materialCategory?.description) {
+        return materialCategory.description;
+      }
+      
+      const industryCategory = productByIndustryData.find(cat => cat.slug === parentCategorySlug);
+      if (industryCategory?.description) {
+        return industryCategory.description;
+      }
+      
+      if (parentCategorySlug === 'mylar-boxes') {
+        return mylarBoxesData.description;
+      }
+      if (parentCategorySlug === 'shopping-bags') {
+        return shoppingBagsData.description;
+      }
+      if (parentCategorySlug === 'other') {
+        return otherData.description;
+      }
+    }
+    
+    return undefined;
+  };
   
   // Helper function to remove markdown asterisks and formatting
   const cleanMarkdown = (text: string): string => {
@@ -196,6 +244,25 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
       .replace(/\s*\*\s*/g, ' ') // Remove asterisks with surrounding spaces
       .replace(/\s+/g, ' ') // Replace multiple spaces with single space
       .trim();
+  };
+  
+  // Helper function to get description using the same logic as cards
+  const getCardDescription = (sub: SubCategory): string => {
+    // Priority: 1. sub.description from productByMaterialData.ts, 2. OurRangeOfData description (with slug mapping), 3. default
+    // Use sub.description first as it comes from productByMaterialData.ts which should match OurRangeOfData.ts
+    if (sub.description) {
+      return sub.description;
+    }
+    
+    // Fallback to OurRangeOfData if sub.description doesn't exist
+    const mappedSubSlug = mapSlugToOurRangeOfData(sub.slug);
+    const rangeOfSubData = ourRangeOfData[mappedSubSlug];
+    
+    if (rangeOfSubData?.description) {
+      return rangeOfSubData.description;
+    }
+    
+    return `Premium ${sub.name.toLowerCase()} packaging solutions designed for optimal protection and presentation.`;
   };
   
   // Calculate card width based on screen size - must be called before early returns
@@ -265,19 +332,8 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
         };
       })
     : filteredSubcategories.map(sub => {
-        // Priority: 1. OurRangeOfData description (with slug mapping), 2. sub.description, 3. default
-        const mappedSubSlug = mapSlugToOurRangeOfData(sub.slug);
-        const rangeOfSubData = ourRangeOfData[mappedSubSlug];
-        
-        // Always prefer OurRangeOfData description if found
-        let rawSubDescription: string;
-        if (rangeOfSubData?.description) {
-          rawSubDescription = rangeOfSubData.description;
-        } else if (sub.description) {
-          rawSubDescription = sub.description;
-        } else {
-          rawSubDescription = `Premium ${sub.name.toLowerCase()} packaging solutions designed for optimal protection and presentation.`;
-        }
+        // Use the same logic as getCardDescription helper
+        const rawSubDescription = getCardDescription(sub);
         
         // Use heroImage if available (same as hero section), otherwise use first image from images array
         // This ensures subcategory cards show the same image as the hero section for all industry products
@@ -302,6 +358,27 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
           href: buildHref(sub.slug)
         };
       });
+  
+  // Get section description using the same logic as the cards
+  // Priority: If on a subcategory page, use that subcategory's description; otherwise use first card's description
+  let sectionDescription: string | undefined;
+  
+  // If we're on a specific subcategory page, use that subcategory's description
+  if (currentSubcategory) {
+    sectionDescription = getCardDescription(currentSubcategory);
+  } else if (cardItems.length > 0) {
+    // Otherwise, use the first card's description - get it using the same logic as cards
+    if (customCards?.items?.length && customCards.items[0]) {
+      const firstCard = customCards.items[0];
+      const mappedCardSlug = mapSlugToOurRangeOfData(firstCard.slug);
+      const rangeOfCardData = ourRangeOfData[mappedCardSlug];
+      // Use the same logic: OurRangeOfData first, then card.description
+      sectionDescription = rangeOfCardData?.description || firstCard.description;
+    } else if (filteredSubcategories.length > 0) {
+      // Use the same logic as getCardDescription for the first subcategory
+      sectionDescription = getCardDescription(filteredSubcategories[0]);
+    }
+  }
   
   if (!cardItems || cardItems.length === 0) {
     return null;
@@ -341,9 +418,21 @@ const SubcategoryCards: React.FC<SubcategoryCardsProps> = ({
     }
   };
 
-  // Priority: 1. customCards, 2. OurRangeOfData, 3. whyChooseUsData heading, 4. default
+  // Get heading and description from whyChooseUsData if available (fallback only)
+  const whyChooseUsContent = whyChooseUsData[parentCategorySlug];
+  const whyChooseUsDescription = whyChooseUsContent?.heading;
+  
+  // Get description from OurRangeOfData if available (fallback only)
+  const mappedParentSlug = mapSlugToOurRangeOfData(parentCategorySlug);
+  const rangeOfData = ourRangeOfData[mappedParentSlug];
+  const rangeOfDescription = rangeOfData?.description;
+  
+  // Get parent category description from data files (fallback only)
+  const parentCategoryDescription = getParentCategoryDescription();
+  
+  // Priority: 1. customDescription, 2. sectionDescription (from first card - same logic as cards), 3. parentCategoryDescription, 4. OurRangeOfData, 5. whyChooseUsData heading, 6. default
   const headingText = customHeading || `Our Range of ${parentCategoryName}`;
-  const rawDescriptionText = customDescription || rangeOfDescription || whyChooseUsDescription || `Explore our comprehensive range of ${parentCategoryName.toLowerCase()} packaging solutions. Each category is designed to meet specific industry needs and requirements.`;
+  const rawDescriptionText = customDescription || sectionDescription || parentCategoryDescription || rangeOfDescription || whyChooseUsDescription || `Explore our comprehensive range of ${parentCategoryName.toLowerCase()} packaging solutions. Each category is designed to meet specific industry needs and requirements.`;
   const descriptionText = cleanMarkdown(rawDescriptionText);
 
   return (
