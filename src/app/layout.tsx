@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ConditionalLayout from "./components/ConditionalLayout";
@@ -25,6 +26,9 @@ export const metadata: Metadata = {
   description: "Custom packaging and boxes can turn your brand into the total package with full customization, instant quoting, and fast turnarounds.",
   icons: {
     icon: '/favicon.ico',
+  },
+  verification: {
+    google: 'fNImBc_4UJ37eDpuIr5RKp8O75dpj7Z6JLKK9Tvq63k',
   },
 };
 
@@ -105,6 +109,19 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning={true}
       >
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-VMJ0WKPYQZ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-VMJ0WKPYQZ');
+          `}
+        </Script>
         <CartProvider>
           <ConditionalLayout>
             {children}
