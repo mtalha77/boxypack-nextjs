@@ -22,13 +22,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BoxyPack",
-  description: "Custom packaging and boxes can turn your brand into the total package with full customization, instant quoting, and fast turnarounds.",
+  title: "Premium Custom Packaging Boxes & Printing by BoxyPack",
+  description: "Boxy Pack offers premium custom packaging boxes with fast turnaround, free shipping, and low minimums to elevate your brand beautifully. Order Now.",
   icons: {
     icon: '/favicon.ico',
   },
   verification: {
     google: 'fNImBc_4UJ37eDpuIr5RKp8O75dpj7Z6JLKK9Tvq63k',
+  },
+  openGraph: {
+    title: "Premium Custom Packaging Boxes & Printing by BoxyPack",
+    description: "Boxy Pack offers premium custom packaging boxes with fast turnaround, free shipping, and low minimums to elevate your brand beautifully. Order Now.",
+    type: "website",
+    url: "https://www.boxypack.com",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Premium Custom Packaging Boxes & Printing by BoxyPack",
+    description: "Boxy Pack offers premium custom packaging boxes with fast turnaround, free shipping, and low minimums to elevate your brand beautifully. Order Now.",
   },
 };
 

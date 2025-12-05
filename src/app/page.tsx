@@ -1,59 +1,59 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-import ProgressSteps from "../components/HowItWorks/ProgressSteps";
+import ProgressSteps from "./components/HowItWorks/ProgressSteps";
 
 // Dynamically import components that use CldImage to prevent SSR issues
 const BoxDesignGallery = dynamic(
-  () => import("../components/homepage/box-design-gallery"),
+  () => import("./components/homepage/box-design-gallery"),
   { ssr: false }
 );
 const VideoSection = dynamic(
-  () => import("../components/homepage/successed-with-custom"),
+  () => import("./components/homepage/successed-with-custom"),
   { ssr: false }
 );
 // const MoreThanPackage = dynamic(
-//   () => import("../components/homepage/more-than-package"),
+//   () => import("./components/homepage/more-than-package"),
 //   { ssr: false }
 // );
-const FAQ = dynamic(() => import("../components/homepage/faq"), { ssr: false });
+const FAQ = dynamic(() => import("./components/homepage/faq"), { ssr: false });
 const HeroVideoSection = dynamic(
-  () => import("../components/homepage/HeroVideoSection"),
+  () => import("./components/homepage/HeroVideoSection"),
   { ssr: false }
 );
 const ProductByMaterialCarousel = dynamic(
-  () => import("../components/ProductByMaterialCarousel"),
+  () => import("./components/ProductByMaterialCarousel"),
   { ssr: false }
 );
 const ProductByIndustryCarousel = dynamic(
-  () => import("../components/ProductByIndustryCarousel"),
+  () => import("./components/ProductByIndustryCarousel"),
   { ssr: false }
 );
 const CTASection = dynamic(
-  () => import("../components/product-page/CTASection"),
+  () => import("./components/product-page/CTASection"),
   { ssr: false }
 );
 const HomepageCTASection = dynamic(
-  () => import("../components/homepage/HomepageCTASection"),
+  () => import("./components/homepage/HomepageCTASection"),
   { ssr: false }
 );
-const ComingSoon = dynamic(() => import("../components/ComingSoon"), {
+const ComingSoon = dynamic(() => import("./components/ComingSoon"), {
   ssr: false,
 });
 const ScrollVideoSection = dynamic(
-  () => import("../components/homepage/images-scroll-animation"),
+  () => import("./components/homepage/images-scroll-animation"),
   { ssr: false }
 );
 const CustomDimensionsForm = dynamic(
-  () => import("../components/CustomDimensionsForm"),
+  () => import("./components/CustomDimensionsForm"),
   { ssr: false }
 );
 const HowItWorks = dynamic(
-  () => import("../components/homepage/how-it-works"),
+  () => import("./components/homepage/how-it-works"),
   { ssr: false }
 );
 const WhyChooseUs = dynamic(
-  () => import("../components/homepage/why-choose-us"),
+  () => import("./components/homepage/why-choose-us"),
   { ssr: false }
 );
 
