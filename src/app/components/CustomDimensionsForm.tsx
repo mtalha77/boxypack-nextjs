@@ -1063,12 +1063,6 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                   <p className="text-gray-600 mb-4">
                     We need to provide you with a custom quotation for these specifications.
                   </p>
-                  <button
-                    onClick={() => router.push('/#request-quote-section')}
-                    className="bg-[#0c6b76] hover:bg-[#0ca6c2] text-white font-semibold py-3 px-6 rounded-lg transition-colors"
-                  >
-                    Request Custom Quote
-                  </button>
                 </div>
               ) : calculating ? (
                 <div className="text-center py-8">
