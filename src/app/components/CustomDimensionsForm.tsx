@@ -700,9 +700,9 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
           <div className="space-y-4">
             {/* Header Section */}
             <div className="text-left">
-              <h1 className="text-h2 text-[#0c6b76] mb-4" id="subcategories-heading">
+              <h2 className="text-h2 text-[#0c6b76] mb-4" id="subcategories-heading">
                 Customize Your Packaging
-              </h1>
+              </h2>
               <p className="text-lg text-gray-600">
               Pick your box type, set dimensions, add finishes, and order fast. Get bespoke packaging boxes made to fit your brand without any issue.
               </p>
