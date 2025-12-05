@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Kraft Pillow Boxes | Eco-Friendly Packaging',
+  description: 'Boxy Pack delivers eco-friendly kraft pillow boxes with premium printing, fast turnaround, and free shipping to enhance your brand packaging. Get a Free Quote.',
+};
 
 const KraftPillowBoxPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

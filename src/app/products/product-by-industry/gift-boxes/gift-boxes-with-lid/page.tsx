@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Gift Boxes with Lid | Premium Custom Packaging',
+  description: 'Boxy Pack delivers high-quality gift boxes with lid, fast turnaround, free shipping, and elegant designs to elevate gift presentation. Shop Today.',
+};
 
 const GiftBoxesWithLidPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

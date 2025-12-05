@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Delta 8 Pre Roll Boxes | Premium Custom Packaging',
+  description: 'Boxy Pack delivers premium Delta 8 pre roll boxes with fast turnaround, free shipping, and stylish design for professional cannabis product packaging. Order Now.',
+};
 
 const CustomDelta8BoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

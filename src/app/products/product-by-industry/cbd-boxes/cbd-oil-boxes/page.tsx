@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'CBD Oil Boxes | Premium Custom Packaging',
+  description: 'Boxy Pack delivers premium CBD oil boxes with fast turnaround, free shipping, and stylish design to showcase and protect your cannabis products. Order Now.',
+};
 
 const CbdOilBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

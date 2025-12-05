@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Magnetic Closure Rigid Boxes | Premium Quality',
+  description: 'Boxy Pack creates premium magnetic rigid boxes with luxury finishes, fast turnaround, and free shipping for elegant branding. Order Now.',
+};
 
 const MagneticClosureRigidBoxPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

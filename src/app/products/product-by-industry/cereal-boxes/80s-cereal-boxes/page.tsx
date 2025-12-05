@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: '80s Cereal Boxes | Premium Retro Breakfast Packaging',
+  description: 'Boxy Pack produces 80s cereal boxes with fast turnaround, free shipping, and stylish design to showcase cereals in nostalgic and attractive packaging. Customize Now.',
+};
 
 const CerealBoxes80sPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

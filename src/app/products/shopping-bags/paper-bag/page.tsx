@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../data/navigationData';
 import ProductPageTemplate from '../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Paper Bags | Durable & Premium Packaging',
+  description: 'Boxy Pack delivers high-quality paper bags with fast turnaround, premium materials, and free shipping to elevate your brand\'s packaging presentation. Order Now.',
+};
 
 const PaperBagPage = () => {
   const section = navigationData.find(s => s.slug === 'shopping-bags');

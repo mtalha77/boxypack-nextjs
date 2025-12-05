@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Olive Oil Boxes | Premium Cosmetic Packaging',
+  description: 'Boxy Pack delivers premium olive oil boxes with fast turnaround, free shipping, and elegant design for cosmetic and beauty product presentation. Shop Today.',
+};
 
 const OliveOilBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

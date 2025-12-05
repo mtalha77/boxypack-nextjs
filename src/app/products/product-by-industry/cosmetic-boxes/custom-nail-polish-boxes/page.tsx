@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Nail Polish Boxes | Stylish Premium Packaging',
+  description: 'Boxy Pack delivers premium nail polish boxes with fast turnaround, free shipping, and professional designs for standout beauty product packaging. Customize Now.',
+};
 
 const CustomNailPolishBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

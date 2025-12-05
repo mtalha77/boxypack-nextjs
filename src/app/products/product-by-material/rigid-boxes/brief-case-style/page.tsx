@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Briefcase Rigid Boxes | Luxury Carry Packaging',
+  description: 'Boxy Pack crafts stylish briefcase rigid boxes with premium durability, free shipping, and fast turnaround for luxury products. Request Pricing.',
+};
 
 const BriefCaseStylePage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

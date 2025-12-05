@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Sandwich Boxes | Premium Food Packaging',
+  description: 'Boxy Pack produces premium sandwich boxes with fast turnaround, free shipping, and sturdy design for attractive and hygienic food packaging. Order Now.',
+};
 
 const SandwichBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

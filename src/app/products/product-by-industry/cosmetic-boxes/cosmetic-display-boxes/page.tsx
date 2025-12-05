@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Premium Cosmetic Display Boxes | Stylish Packaging',
+  description: 'Boxy Pack creates premium cosmetic display boxes with fast turnaround, free shipping, and professional design to showcase beauty products. Customize Now.',
+};
 
 const CosmeticDisplayBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Corrugated Full Flap Shipping Boxes | Strong',
+  description: 'Boxy Pack produces high-quality corrugated full flap shipping boxes with fast turnaround, free shipping, and premium strength for safe shipping. Shop Today.',
+};
 
 const CorrugatedFullFlapShippingBoxPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

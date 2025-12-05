@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Premium Cookie Boxes | Stylish Custom Packaging',
+  description: 'Boxy Pack delivers premium custom cookie boxes with fast turnaround, free shipping, and attractive designs for perfect bakery presentation. Customize Now.',
+};
 
 const CustomCookieBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

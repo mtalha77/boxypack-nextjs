@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Cardboard Shoe Boxes | Premium Custom Packaging',
+  description: 'Boxy Pack produces high-quality cardboard shoe boxes with fast turnaround, free shipping, and durable design to showcase and protect footwear. Customize Now.',
+};
 
 const CardboardShoeBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Cupcake Boxes | Premium Stylish Packaging',
+  description: 'Boxy Pack produces premium custom cupcake boxes with fast turnaround, free shipping, and durable, elegant design for standout bakery packaging. Order Now.',
+};
 
 const CustomCupcakeBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

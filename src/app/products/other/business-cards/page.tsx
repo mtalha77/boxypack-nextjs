@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../data/navigationData';
 import ProductPageTemplate from '../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Business Cards | Premium Professional Design',
+  description: 'Boxy Pack produces high-quality custom business cards with fast turnaround, free shipping, and stylish design to make a strong first impression. Customize Now.',
+};
 
 const BusinessCardsPage = () => {
   const section = navigationData.find(s => s.slug === 'other');

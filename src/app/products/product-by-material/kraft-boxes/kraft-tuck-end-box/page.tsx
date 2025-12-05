@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Kraft Tuck End Boxes | Fast & Premium',
+  description: 'Boxy Pack designs premium kraft tuck end boxes with free shipping, fast turnaround, and elegant finishes to elevate your product packaging. Order Now.',
+};
 
 const KraftTuckEndBoxPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

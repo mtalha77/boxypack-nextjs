@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import ProductsDesignPage from '../Products-design-page';
+
+export const metadata: Metadata = {
+  title: 'Other Products | Premium Custom Packaging Solutions',
+  description: 'Boxy Pack offers specialized packaging solutions and accessories including booklets, brochures, labels, and custom materials with fast turnaround and free shipping. Order Now.',
+};
 
 const OtherPage = () => {
   // Create proper product data structure for other products

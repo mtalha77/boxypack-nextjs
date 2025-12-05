@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Jewelry Subscription Boxes | Premium Custom Packaging',
+  description: 'Boxy Pack produces premium jewelry subscription boxes with fast turnaround, free shipping, and elegant design for recurring jewelry delivery. Customize Now.',
+};
 
 const JewelrySubscriptionBoxPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Cardboard Tuck End Boxes | Durable Packaging',
+  description: 'Boxy Pack produces premium cardboard tuck end boxes with fast delivery, free shipping, and low minimums for professional product packaging. Customize Now.',
+};
 
 const CardboardTuckEndBoxPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

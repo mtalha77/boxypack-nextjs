@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Cardboard Double Locked Wall Lid Boxes | Premium',
+  description: 'Boxy Pack produces high-quality cardboard double locked wall lid boxes with fast delivery, free shipping, and premium finishes for professional packaging. Order Now.',
+};
 
 const CardboardDoubleLockedWallLidBoxPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

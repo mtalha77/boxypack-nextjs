@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Book Boxes | Premium Stationery Packaging',
+  description: 'Boxy Pack delivers premium custom book boxes with fast turnaround, free shipping, and stylish design for professional stationery and gift presentation. Order Now.',
+};
 
 const CustomBookBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

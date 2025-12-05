@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Kraft Cigarette Boxes | Premium Printed Packaging',
+  description: 'Boxy Pack offers premium kraft cigarette boxes with fast turnaround, free shipping, and low minimums for professional branding. Order Now.',
+};
 
 const KraftCigaretteBoxPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

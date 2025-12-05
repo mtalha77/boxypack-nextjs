@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Necklace Cards | Premium Jewelry Display Packaging',
+  description: 'Boxy Pack produces premium necklace cards with fast turnaround, free shipping, and elegant design for professional jewelry display. Customize Now.',
+};
 
 const NecklaceCardsPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

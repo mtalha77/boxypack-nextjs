@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Cigarette Boxes | Premium Elegant Packaging',
+  description: 'Boxy Pack delivers premium custom cigarette boxes with fast turnaround, free shipping, and durable design for attractive and secure tobacco packaging. Order Now.',
+};
 
 const CustomCigaretteBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Kraft Sleeve Boxes | Premium Printed Packaging',
+  description: 'Boxy Pack produces high-quality kraft sleeve boxes with fast turnaround, free shipping, and premium finishes for stylish product packaging. Customize Now.',
+};
 
 const KraftSleeveBoxPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

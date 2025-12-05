@@ -1,7 +1,13 @@
 import React from "react";
+import { Metadata } from "next";
 import TermsHero from "../components/terms/TermsHero";
 import TermsContent from "../components/terms/TermsContent";
 import CTASection from "../components/product-page/CTASection";
+
+export const metadata: Metadata = {
+  title: "Terms of Use | Custom Packaging Services & Policies",
+  description: "Review Boxy Pack's terms for using our custom packaging services, ensuring a smooth, secure, and trusted ordering experience. View Terms Today.",
+};
 
 export default function TermsOfUsePage() {
   return (

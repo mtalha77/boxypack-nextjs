@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../data/navigationData';
 import ProductPageTemplate from '../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Brochures | Premium Marketing Packaging',
+  description: 'Boxy Pack produces high-quality brochures with fast turnaround, free shipping, and stylish design to showcase your products and services professionally. Customize Now.',
+};
 
 const BrochuresPage = () => {
   const section = navigationData.find(s => s.slug === 'other');

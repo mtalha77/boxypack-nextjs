@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Corrugated Shipping Boxes | Strong Premium Packaging',
+  description: 'Boxy Pack produces durable corrugated shipping boxes with fast turnaround, free shipping, and sturdy construction for safe product transit. Shop Today.',
+};
 
 const CorrugatedShippingBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

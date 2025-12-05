@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Soap Sleeve Packaging | Premium Custom Boxes',
+  description: 'Boxy Pack produces high-quality soap sleeve packaging with fast turnaround, free shipping, and durable design for professional soap presentation. Customize Now.',
+};
 
 const SoapSleevePackagingPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

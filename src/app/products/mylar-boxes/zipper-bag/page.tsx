@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../data/navigationData';
 import ProductPageTemplate from '../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Zipper Bags | Durable & Premium Packaging',
+  description: 'Boxy Pack delivers durable custom zipper bags with fast turnaround, premium materials, and free shipping for secure, professional product packaging. Order Now.',
+};
 
 const ZipperBagPage = () => {
   const section = navigationData.find(s => s.slug === 'mylar-boxes');

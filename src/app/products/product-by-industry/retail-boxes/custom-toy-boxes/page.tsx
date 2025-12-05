@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Toy Boxes | Premium Playful Packaging',
+  description: 'Boxy Pack produces high-quality custom toy boxes with fast turnaround, free shipping, and durable design for safe and attractive toy packaging. Customize Now.',
+};
 
 const CustomToyBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

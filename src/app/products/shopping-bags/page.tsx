@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import ProductsDesignPage from '../Products-design-page';
+
+export const metadata: Metadata = {
+  title: 'Custom Shopping Bags | Premium Durable Packaging',
+  description: 'Boxy Pack delivers premium custom shopping bags with fast turnaround, durable materials, and free shipping to enhance your brand packaging. Order Now.',
+};
 
 const ShoppingBagsPage = () => {
   // Create proper product data structure for shopping bags

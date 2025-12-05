@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Corrugated Gable Boxes | Durable & Premium',
+  description: 'Boxy Pack offers premium corrugated gable boxes with fast turnaround, free shipping, and high-quality materials for stylish and strong packaging. Customize Now.',
+};
 
 const CorrugatedGableBoxPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

@@ -85,6 +85,7 @@ const Header: React.FC = () => {
   >([]);
   const [useEnhancedSearch, setUseEnhancedSearch] = useState(true);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
   const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const headerRef = useRef<HTMLElement>(null);
   const [headerHeight, setHeaderHeight] = useState(88);
@@ -144,10 +145,8 @@ const Header: React.FC = () => {
         setIsSearchLoading(false);
       }, headerConfig.search.debounceDelay);
     } else {
-      setSearchResults([]);
-      setEnhancedSearchResults([]);
-      setSearchSuggestions([]);
-      setIsSearchOpen(false);
+      // Don't clear results or close dropdown if input is focused
+      // Only clear when explicitly closing
       setIsSearchLoading(false);
     }
 
@@ -161,15 +160,20 @@ const Header: React.FC = () => {
   // Close search and company dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
+      
+      // Check if click is outside search container (input + dropdown)
       if (
-        searchInputRef.current &&
-        !searchInputRef.current.contains(event.target as Node)
+        searchContainerRef.current &&
+        !searchContainerRef.current.contains(target) &&
+        !(target as Element).closest('[data-search-dropdown]')
       ) {
         setIsSearchOpen(false);
       }
+      
       if (
         companyDropdownRef.current &&
-        !companyDropdownRef.current.contains(event.target as Node)
+        !companyDropdownRef.current.contains(target)
       ) {
         setIsCompanyDropdownOpen(false);
       }
@@ -250,11 +254,32 @@ const Header: React.FC = () => {
   };
 
   const handleSearchFocus = () => {
-    // Always open search dropdown when focused, even if no query yet
+    // Always open search dropdown when focused
     setIsSearchOpen(true);
+    
+    // If there's a query, trigger search to show results
+    if (searchQuery.trim()) {
+      if (useEnhancedSearch) {
+        const results = enhancedSearch(searchQuery, allEnhancedSearchData);
+        const suggestions = getSearchSuggestions(
+          searchQuery,
+          allEnhancedSearchData
+        );
+        setEnhancedSearchResults(results);
+        setSearchSuggestions(suggestions);
+      } else {
+        const results = searchData(searchQuery, allSearchData);
+        setSearchResults(results);
+      }
+    }
   };
 
-  const handleSearchResultClick = (resultTitle?: string) => {
+  const handleSearchResultClick = (resultTitle?: string, resultUrl?: string) => {
+    // If a result URL is provided, navigate to it
+    if (resultUrl) {
+      router.push(resultUrl);
+    }
+    
     // If a result title is provided, show it in the search bar
     if (resultTitle) {
       setSearchQuery(resultTitle);
@@ -263,7 +288,7 @@ const Header: React.FC = () => {
     // Close the dropdown
     setIsSearchOpen(false);
 
-    // Clear search input focus after a short delay to show the selected text
+    // Clear search input focus after a short delay
     setTimeout(() => {
       if (searchInputRef.current) {
         searchInputRef.current.blur();
@@ -298,6 +323,25 @@ const Header: React.FC = () => {
       setIsSearchOpen(false);
       setSearchQuery("");
       searchInputRef.current?.blur();
+    } else if (e.key === "Enter") {
+      // Prevent form submission
+      e.preventDefault();
+      // Navigate to first result if available
+      if (useEnhancedSearch) {
+        const firstProduct = enhancedSearchResults.find((result) => result.type === 'subcategory');
+        if (firstProduct) {
+          router.push(firstProduct.url);
+          setIsSearchOpen(false);
+          setSearchQuery("");
+        }
+      } else {
+        const firstProduct = searchResults.find((result) => result.type === 'subcategory');
+        if (firstProduct) {
+          router.push(firstProduct.url);
+          setIsSearchOpen(false);
+          setSearchQuery("");
+        }
+      }
     }
   };
 
@@ -348,7 +392,7 @@ const Header: React.FC = () => {
 
           {/* Center - Search Bar - Hidden on mobile */}
           <div className="hidden md:flex flex-1 max-w-lg mx-8">
-            <div className="relative w-full">
+            <div ref={searchContainerRef} className="relative w-full">
               <input
                 ref={searchInputRef}
                 type="text"
@@ -356,6 +400,7 @@ const Header: React.FC = () => {
                 value={searchQuery}
                 onChange={handleSearchChange}
                 onFocus={handleSearchFocus}
+                onClick={handleSearchFocus}
                 onKeyDown={handleSearchKeyDown}
                 className="w-full px-4 py-3 pr-12 bg-gray-100 rounded-full text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0c6b76] focus:bg-white transition-all duration-200"
               />
@@ -500,6 +545,7 @@ const Header: React.FC = () => {
                     value={searchQuery}
                     onChange={handleSearchChange}
                     onFocus={handleSearchFocus}
+                    onClick={handleSearchFocus}
                     onKeyDown={handleSearchKeyDown}
                     className="w-full px-4 py-3 pr-12 bg-gray-100 rounded-full text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0c6b76] focus:bg-white transition-all duration-200"
                   />
@@ -516,8 +562,8 @@ const Header: React.FC = () => {
                           </div>
                         </div>
                       ) : (useEnhancedSearch
-                          ? enhancedSearchResults
-                          : searchResults
+                          ? enhancedSearchResults.filter((result) => result.type === 'subcategory')
+                          : searchResults.filter((result) => result.type === 'subcategory')
                         ).length === 0 ? (
                         <div className="px-4 py-8 text-center">
                           <div className="text-gray-500 mb-2">
@@ -529,14 +575,15 @@ const Header: React.FC = () => {
                         </div>
                       ) : (
                         (useEnhancedSearch
-                          ? enhancedSearchResults
-                          : searchResults
+                          ? enhancedSearchResults.filter((result) => result.type === 'subcategory')
+                          : searchResults.filter((result) => result.type === 'subcategory')
                         ).map((result) => (
                           <Link
                             key={result.id}
                             href={result.url}
-                            onClick={() => {
-                              handleSearchResultClick(result.title);
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleSearchResultClick(result.title, result.url);
                               setIsMobileMenuOpen(false);
                             }}
                             className="w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0 block"
@@ -550,9 +597,6 @@ const Header: React.FC = () => {
                                 <h3 className="text-sm font-medium text-gray-900 truncate">
                                   {result.title}
                                 </h3>
-                                <p className="text-xs text-gray-600 truncate">
-                                  {result.description}
-                                </p>
                               </div>
                             </div>
                           </Link>

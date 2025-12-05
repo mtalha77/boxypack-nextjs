@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Kraft Mailer Boxes | Fast Shipping & Premium',
+  description: 'Boxy Pack crafts high-quality kraft mailer boxes with fast delivery, free shipping, and low minimums for safe and stylish product packaging. Order Now.',
+};
 
 const KraftMailerBoxPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

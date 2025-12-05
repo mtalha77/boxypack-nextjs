@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom T-Shirt Boxes | Premium Apparel Packaging',
+  description: 'Boxy Pack produces high-quality T-shirt boxes with fast turnaround, free shipping, and stylish design to elevate clothing presentation and brand appeal. Customize Now.',
+};
 
 const TshirtBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

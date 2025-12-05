@@ -1,9 +1,15 @@
 import React from "react";
+import { Metadata } from "next";
 import AboutHero from "../components/aboutus/AboutHero";
 import AboutStory from "../components/aboutus/AboutStory";
 import AboutTeam from "../components/aboutus/AboutTeam";
 import AboutValues from "../components/aboutus/AboutValues";
 import CTASection from "../components/product-page/CTASection";
+
+export const metadata: Metadata = {
+  title: "About Our Custom Packaging Experts | Trusted Box Makers",
+  description: "Boxy Pack crafts premium custom packaging with fast delivery, top-quality printing, and trusted service to help brands stand out. Get Started Today.",
+};
 
 export default function AboutUsPage() {
   return (

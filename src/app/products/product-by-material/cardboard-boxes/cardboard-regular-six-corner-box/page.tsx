@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Cardboard Regular Six Corner Boxes | Durable',
+  description: 'Boxy Pack produces premium cardboard regular six corner boxes with fast delivery, free shipping, and low minimums for professional packaging. Order Now.',
+};
 
 const CardboardRegularSixCornerBoxPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Lingerie Boxes | Premium Elegant Packaging',
+  description: 'Boxy Pack produces premium lingerie boxes with fast turnaround, free shipping, and stylish design to enhance intimate apparel presentation. Customize Now.',
+};
 
 const LingerieBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

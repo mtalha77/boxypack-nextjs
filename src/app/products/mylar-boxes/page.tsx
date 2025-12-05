@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
 import ProductsDesignPage from '../Products-design-page';
+
+export const metadata: Metadata = {
+  title: 'Custom Mailer Pouches | Premium Durable Packaging by Boxy',
+  description: 'Boxy Pack delivers premium custom mailer pouches with fast turnaround, eco-friendly materials, and free shipping for standout product packaging. Order Now.',
+};
 
 const MylarBoxesPage = () => {
   // Create proper product data structure for mylar boxes

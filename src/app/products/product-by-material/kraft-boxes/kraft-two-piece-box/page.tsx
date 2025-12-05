@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Kraft Two Piece Boxes | Premium Packaging',
+  description: 'Boxy Pack creates premium two piece kraft boxes with fast turnaround, free shipping, and top-quality printing for elegant product packaging. Customize Now.',
+};
 
 const KraftTwoPieceBoxPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

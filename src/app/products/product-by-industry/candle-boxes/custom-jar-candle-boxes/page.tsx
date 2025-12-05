@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Jar Candle Boxes | Premium Elegant Packaging',
+  description: 'Boxy Pack delivers high-quality jar candle boxes with fast turnaround, free shipping, and premium design to showcase candles professionally. Order Now.',
+};
 
 const CustomJarCandleBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

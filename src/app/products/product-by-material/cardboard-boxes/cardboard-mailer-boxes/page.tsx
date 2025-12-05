@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Cardboard Mailer Boxes | Fast & Durable',
+  description: 'Boxy Pack offers premium cardboard mailer boxes with fast turnaround, free shipping, and durable construction for safe and stylish shipping. Shop Today.',
+};
 
 const CardboardMailerBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

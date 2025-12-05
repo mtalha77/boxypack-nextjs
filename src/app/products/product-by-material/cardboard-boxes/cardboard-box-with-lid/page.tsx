@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Cardboard Boxes with Lid | Premium Packaging',
+  description: 'Boxy Pack creates high-quality cardboard boxes with lids, fast turnaround, free shipping, and premium printing for elegant product presentation. Shop Today.',
+};
 
 const CardboardBoxWithLidPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

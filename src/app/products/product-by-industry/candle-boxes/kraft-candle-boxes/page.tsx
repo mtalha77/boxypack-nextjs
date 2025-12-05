@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Kraft Candle Boxes | Eco-Friendly Premium Packaging',
+  description: 'Boxy Pack delivers premium kraft candle boxes with fast turnaround, free shipping, and eco-friendly design for sustainable and stylish candle presentation. Order Now.',
+};
 
 const KraftCandleBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

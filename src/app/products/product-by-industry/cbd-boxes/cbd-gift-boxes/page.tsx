@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'CBD Gift Boxes | Premium Elegant Cannabis Packaging',
+  description: 'Boxy Pack produces premium CBD gift boxes with fast turnaround, free shipping, and stylish design for professional and attractive cannabis gifting. Customize Now.',
+};
 
 const CbdGiftBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

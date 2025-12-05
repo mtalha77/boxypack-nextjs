@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Mascara Boxes | Luxury Cosmetic Packaging',
+  description: 'Boxy Pack produces high-quality mascara boxes with fast turnaround, free shipping, and premium design to enhance cosmetic product appeal. Shop Today.',
+};
 
 const CustomMascaraBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Candle Shipping Boxes | Durable Premium Packaging',
+  description: 'Boxy Pack delivers durable candle shipping boxes with fast turnaround, free shipping, and secure, premium packaging to protect your products. Order Now.',
+};
 
 const CandleShippingBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

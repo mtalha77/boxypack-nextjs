@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../data/navigationData';
 import ProductPageTemplate from '../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Kraft Shopping Bags | Eco-Friendly Custom Packaging',
+  description: 'Boxy Pack produces eco-friendly kraft shopping bags with premium quality, fast turnaround, and free shipping for stylish, sustainable packaging. Customize Now.',
+};
 
 const KraftShoppingBagPage = () => {
   const section = navigationData.find(s => s.slug === 'shopping-bags');

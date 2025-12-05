@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../data/navigationData';
 import ProductPageTemplate from '../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom PVC Bags | Premium Durable Packaging',
+  description: 'Boxy Pack creates durable PVC bags with premium printing, fast turnaround, and free shipping for professional, high-quality product packaging. Shop Today.',
+};
 
 const PvcBagPage = () => {
   const section = navigationData.find(s => s.slug === 'shopping-bags');

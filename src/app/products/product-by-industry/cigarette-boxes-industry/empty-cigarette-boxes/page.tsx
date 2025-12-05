@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Empty Cigarette Boxes | Premium Packaging Solutions',
+  description: 'Boxy Pack produces high-quality empty cigarette boxes with fast turnaround, free shipping, and sturdy design for professional tobacco packaging. Customize Now.',
+};
 
 const EmptyCigaretteBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

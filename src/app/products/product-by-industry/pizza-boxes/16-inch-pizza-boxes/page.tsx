@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: '16 Inch Pizza Boxes | Premium Custom Packaging',
+  description: 'Boxy Pack delivers premium 16-inch pizza boxes with fast turnaround, free shipping, and durable design for professional and secure large pizza packaging. Order Now.',
+};
 
 const PizzaBoxes16InchPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

@@ -12,7 +12,7 @@ interface SearchDropdownProps {
   results: SearchResult[];
   isLoading: boolean;
   query: string;
-  onResultClick: (resultTitle?: string) => void;
+  onResultClick: (resultTitle?: string, resultUrl?: string) => void;
 }
 
 const SearchDropdown: React.FC<SearchDropdownProps> = ({
@@ -27,6 +27,9 @@ const SearchDropdown: React.FC<SearchDropdownProps> = ({
   const dropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
+  // Filter results to only show subcategories (products)
+  const productResults = results.filter((result) => result.type === 'subcategory');
+
   // Reset selected index when results change
   useEffect(() => {
     setSelectedIndex(0);
@@ -40,7 +43,7 @@ const SearchDropdown: React.FC<SearchDropdownProps> = ({
       switch (e.key) {
         case 'ArrowDown':
           e.preventDefault();
-          setSelectedIndex((prev) => Math.min(prev + 1, results.length - 1));
+          setSelectedIndex((prev) => Math.min(prev + 1, productResults.length - 1));
           break;
         case 'ArrowUp':
           e.preventDefault();
@@ -48,9 +51,10 @@ const SearchDropdown: React.FC<SearchDropdownProps> = ({
           break;
         case 'Enter':
           e.preventDefault();
-          if (results[selectedIndex]) {
-            onResultClick(results[selectedIndex].title);
-            router.push(results[selectedIndex].url);
+          if (productResults[selectedIndex]) {
+            onResultClick(productResults[selectedIndex].title, productResults[selectedIndex].url);
+            router.push(productResults[selectedIndex].url);
+            onClose();
           }
           break;
         case 'Escape':
@@ -62,7 +66,7 @@ const SearchDropdown: React.FC<SearchDropdownProps> = ({
 
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, results, selectedIndex, onClose, onResultClick]);
+  }, [isOpen, productResults, selectedIndex, onClose, onResultClick, router]);
 
   // Get icon based on result type
   const getResultIcon = (type: SearchResult['type']) => {
@@ -98,15 +102,13 @@ const SearchDropdown: React.FC<SearchDropdownProps> = ({
 
 
   if (!isOpen) {
-    console.log('Search dropdown not open');
     return null;
   }
-
-  console.log('Rendering search dropdown with results:', results.length);
 
   return (
     <div
       ref={dropdownRef}
+      data-search-dropdown
       className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-gray-200 z-[9999] max-h-96 overflow-hidden"
       style={{ pointerEvents: 'auto' }}
     >
@@ -129,7 +131,7 @@ const SearchDropdown: React.FC<SearchDropdownProps> = ({
               Searching...
             </div>
           </div>
-        ) : results.length === 0 ? (
+        ) : productResults.length === 0 ? (
           <div className="px-4 py-8 text-center">
             <div className="text-gray-500 mb-2">
               {query.trim() ? 'No results found' : 'Start typing to search...'}
@@ -139,89 +141,47 @@ const SearchDropdown: React.FC<SearchDropdownProps> = ({
             </div>
           </div>
         ) : (
-          results.map((result, index) => {
-            const Icon = getResultIcon(result.type);
-            const isSelected = index === selectedIndex;
+          productResults.map((result, index) => {
+              const Icon = getResultIcon(result.type);
+              const isSelected = index === selectedIndex;
 
-            console.log('Rendering search result button:', result.title, 'at index', index);
-
-            return (
-              <Link
-                key={result.id}
-                href={result.url}
-                onClick={(e) => {
-                  console.log('=== LINK CLICK EVENT ===');
-                  console.log('Link clicked for:', result.title);
-                  console.log('URL:', result.url);
-                  console.log('Event:', e);
-                  
-                  // Call the onResultClick callback with the result title
-                  onResultClick(result.title);
-                  
-                  // Add a small delay to show the click feedback before navigation
-                  setTimeout(() => {
-                    console.log('Navigating to:', result.url);
-                  }, 100);
-                  
-                  // Navigation will be handled by Next.js Link component
-                }}
-                className={`w-full text-left px-4 py-3 hover:bg-gray-50 transition-all duration-200 block group ${
-                  isSelected ? 'bg-[#0c6b76]/5 border-r-4 border-[#0c6b76]' : ''
-                }`}
-                style={{ pointerEvents: 'auto', cursor: 'pointer' }}
-              >
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mr-3 mt-0.5">
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                      result.type === 'main-section' ? 'bg-[#0c6b76]/10 text-[#0c6b76]' :
-                      result.type === 'category' ? 'bg-[#0ca6c2]/10 text-[#0ca6c2]' :
-                      result.type === 'subcategory' ? 'bg-[#0c6b76]/10 text-[#0c6b76]' :
-                      'bg-gray-100 text-gray-600'
-                    }`}>
-                      <Icon className="w-4 h-4" />
+              return (
+                <Link
+                  key={result.id}
+                  href={result.url}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onResultClick(result.title, result.url);
+                    router.push(result.url);
+                  }}
+                  className={`w-full text-left px-4 py-3 hover:bg-gray-50 transition-all duration-200 block group ${
+                    isSelected ? 'bg-[#0c6b76]/5 border-r-4 border-[#0c6b76]' : ''
+                  }`}
+                  style={{ pointerEvents: 'auto', cursor: 'pointer' }}
+                >
+                  <div className="flex items-center">
+                    <div className="flex-shrink-0 mr-3">
+                      <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-[#0c6b76]/10 text-[#0c6b76]">
+                        <Icon className="w-4 h-4" />
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between">
+                    
+                    <div className="flex-1 min-w-0">
                       <h3 className="text-sm font-medium text-gray-900 truncate group-hover:text-[#0c6b76] transition-colors">
                         {result.title}
                       </h3>
-                      <div className="flex items-center ml-2 flex-shrink-0">
-                        <span className="text-xs text-gray-500">
-                          {getTypeLabel(result.type)}
-                        </span>
-                        <ChevronRight className="w-3 h-3 ml-1 text-gray-400 group-hover:text-[#0c6b76] transition-colors" />
-                      </div>
                     </div>
                     
-                    <p className="text-xs text-gray-600 mt-1 line-clamp-2">
-                      {result.description}
-                    </p>
-                    
-                    {(result.section || result.category) && (
-                      <div className="flex items-center mt-1 text-xs text-gray-500">
-                        {result.section && (
-                          <span className="flex items-center">
-                            <span className="truncate">{result.section}</span>
-                            {result.category && <ChevronRight className="w-3 h-3 mx-1" />}
-                          </span>
-                        )}
-                        {result.category && (
-                          <span className="truncate">{result.category}</span>
-                        )}
-                      </div>
-                    )}
+                    <ChevronRight className="w-4 h-4 ml-2 text-gray-400 group-hover:text-[#0c6b76] transition-colors flex-shrink-0" />
                   </div>
-                </div>
-              </Link>
-            );
-          })
+                </Link>
+              );
+            })
         )}
       </div>
 
       {/* Footer */}
-      {results.length > 0 && (
+      {productResults.length > 0 && (
         <div className="px-4 py-2 border-t border-gray-100 bg-gray-50">
           <div className="flex items-center justify-between text-xs text-gray-500">
             <div className="flex items-center">
@@ -229,7 +189,7 @@ const SearchDropdown: React.FC<SearchDropdownProps> = ({
               <span>Press Enter to select, ↑↓ to navigate</span>
             </div>
             <div>
-              {results.length} result{results.length !== 1 ? 's' : ''}
+              {productResults.length} result{productResults.length !== 1 ? 's' : ''}
             </div>
           </div>
         </div>

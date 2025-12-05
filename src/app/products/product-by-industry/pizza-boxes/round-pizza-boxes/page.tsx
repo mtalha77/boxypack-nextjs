@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Round Pizza Boxes | Premium Custom Packaging',
+  description: 'Boxy Pack produces premium round pizza boxes with fast turnaround, free shipping, and sturdy design for professional and fresh pizza presentation. Customize Now.',
+};
 
 const RoundPizzaBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

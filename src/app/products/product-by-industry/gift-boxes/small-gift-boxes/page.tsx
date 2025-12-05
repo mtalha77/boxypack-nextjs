@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Small Gift Boxes | Premium Custom Packaging',
+  description: 'Boxy Pack produces high-quality small gift boxes with fast turnaround, free shipping, and stylish designs to make every gift special and memorable. Order Now.',
+};
 
 const SmallGiftBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

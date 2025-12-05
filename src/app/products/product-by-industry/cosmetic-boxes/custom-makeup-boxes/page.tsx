@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Makeup Boxes | Stylish Premium Packaging',
+  description: 'Boxy Pack produces high-quality custom makeup boxes with fast turnaround, free shipping, and premium designs to enhance beauty product appeal. Shop Today.',
+};
 
 const CustomMakeupBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

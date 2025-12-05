@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Kraft Dispenser Boxes | Premium Packaging',
+  description: 'Boxy Pack produces premium kraft dispenser boxes with fast turnaround, free shipping, and professional finishes for stylish product packaging. Order Now.',
+};
 
 const KraftDispenserBoxPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

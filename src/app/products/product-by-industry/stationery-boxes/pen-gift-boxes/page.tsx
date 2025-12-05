@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Pen Gift Boxes | Premium Custom Stationery Packaging',
+  description: 'Boxy Pack delivers high-quality pen gift boxes with fast turnaround, free shipping, and elegant design for professional stationery gifting. Order Now.',
+};
 
 const PenGiftBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

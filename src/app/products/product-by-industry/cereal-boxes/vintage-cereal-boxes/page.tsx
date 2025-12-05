@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Vintage Cereal Boxes | Premium Retro Packaging',
+  description: 'Boxy Pack delivers premium vintage cereal boxes with fast turnaround, free shipping, and classic design for unique and stylish breakfast packaging. Order Now.',
+};
 
 const VintageCerealBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

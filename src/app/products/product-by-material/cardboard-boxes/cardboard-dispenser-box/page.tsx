@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Cardboard Dispenser Boxes | Durable Packaging',
+  description: 'Boxy Pack produces premium cardboard dispenser boxes with fast turnaround, free shipping, and high-quality printing for professional branding. Get a Free Quote.',
+};
 
 const CardboardDispenserBoxPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

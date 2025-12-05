@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Chocolate Candy Boxes | Premium Sweet Packaging',
+  description: 'Boxy Pack delivers high-quality chocolate candy boxes with fast turnaround, free shipping, and stylish design for attractive gift and retail packaging. Order Now.',
+};
 
 const ChocolateCandyBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

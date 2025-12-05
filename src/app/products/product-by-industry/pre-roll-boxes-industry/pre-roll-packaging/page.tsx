@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Pre Roll Packaging | Premium Custom Cannabis Boxes',
+  description: 'Boxy Pack produces premium pre roll packaging with fast turnaround, free shipping, and elegant design for professional cannabis product presentation. Customize Now.',
+};
 
 const PreRollPackagingPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

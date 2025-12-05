@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Deluxe Donut Boxes | Premium Custom Packaging',
+  description: 'Boxy Pack creates premium donut boxes with fast turnaround, free shipping, and eye-catching designs for irresistible bakery packaging. Customize Now.',
+};
 
 const CustomDonutBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

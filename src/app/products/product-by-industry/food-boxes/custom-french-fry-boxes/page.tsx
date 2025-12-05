@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Premium French Fry Boxes | Custom Fast Food Packaging',
+  description: 'Boxy Pack produces high-quality French fry boxes with fast turnaround, free shipping, and durable design to keep your food fresh and appealing. Customize Now.',
+};
 
 const CustomFrenchFryBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

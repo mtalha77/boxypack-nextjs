@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Sweet Gift Boxes | Premium Elegant Packaging',
+  description: 'Boxy Pack produces premium sweet gift boxes with fast turnaround, free shipping, and stylish designs to present chocolates, candies, and treats beautifully. Customize Now.',
+};
 
 const SweetGiftBoxesIndustryPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

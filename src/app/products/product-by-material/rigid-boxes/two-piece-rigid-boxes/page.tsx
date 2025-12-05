@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Luxury Two Piece Rigid Boxes | Custom Printed Packaging',
+  description: 'Boxy Pack offers high-quality two piece rigid boxes with premium printing, free shipping, and fast delivery for standout branding. Customize Now.',
+};
 
 const TwoPieceRigidBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

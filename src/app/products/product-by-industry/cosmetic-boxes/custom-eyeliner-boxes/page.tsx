@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Eyeliner Boxes | Luxury Cosmetic Packaging',
+  description: 'Boxy Pack delivers premium eyeliner boxes with fast turnaround, free shipping, and elegant design to enhance your cosmetic product presentation. Shop Today.',
+};
 
 const CustomEyelinerBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

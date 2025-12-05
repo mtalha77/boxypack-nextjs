@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Kraft Gable Boxes | Premium Product Packaging',
+  description: 'Boxy Pack creates premium kraft gable boxes with fast turnaround, free shipping, and professional finishes for standout product presentation. Order Now.',
+};
 
 const KraftGableBoxPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

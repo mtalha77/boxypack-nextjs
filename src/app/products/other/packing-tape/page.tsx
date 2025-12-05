@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../data/navigationData';
 import ProductPageTemplate from '../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Packing Tape | Premium Branded Packaging',
+  description: 'Boxy Pack delivers premium custom packing tape with fast turnaround, free shipping, and stylish design to secure packages and boost brand visibility. Order Now.',
+};
 
 const PackingTapePage = () => {
   const section = navigationData.find(s => s.slug === 'other');

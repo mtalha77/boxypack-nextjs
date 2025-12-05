@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Deluxe Gift Boxes | Premium Elegant Packaging',
+  description: 'Boxy Pack produces premium deluxe gift boxes with fast turnaround, free shipping, and stylish designs for luxurious and professional gift presentation. Order Now.',
+};
 
 const CustomDeluxeGiftBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

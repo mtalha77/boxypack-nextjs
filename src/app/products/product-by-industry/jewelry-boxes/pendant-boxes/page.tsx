@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Pendant Boxes | Premium Jewelry Packaging',
+  description: 'Boxy Pack delivers premium pendant boxes with fast turnaround, free shipping, and stylish design for elegant jewelry presentation. Order Now.',
+};
 
 const PendantBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

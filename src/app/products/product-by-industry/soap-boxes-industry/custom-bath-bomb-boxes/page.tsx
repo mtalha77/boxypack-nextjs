@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Bath Bomb Boxes | Premium Elegant Packaging',
+  description: 'Boxy Pack delivers premium bath bomb boxes with fast turnaround, free shipping, and stylish design to enhance your bath product presentation. Order Now.',
+};
 
 const CustomBathBombBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

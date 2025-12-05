@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Pillow Gift Boxes | Elegant Premium Packaging',
+  description: 'Boxy Pack produces premium pillow gift boxes with fast turnaround, free shipping, and stylish designs to make gifts look luxurious and memorable. Customize Now.',
+};
 
 const GiftPillowBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

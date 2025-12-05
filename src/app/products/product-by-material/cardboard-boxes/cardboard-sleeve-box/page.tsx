@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Cardboard Sleeve Boxes | Premium Printed Packaging',
+  description: 'Boxy Pack delivers high-quality cardboard sleeve boxes with fast turnaround, free shipping, and professional printing for stylish packaging. Order Now.',
+};
 
 const CardboardSleeveBoxPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

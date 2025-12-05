@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Sleeve Rigid Boxes | Premium Sliding Packaging',
+  description: 'Boxy Pack designs elegant sliding rigid boxes with premium finishes, free shipping, and fast turnaround to elevate product presentation. Order Now.',
+};
 
 const SlidingSleeveRigidBoxesMatchStyleBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

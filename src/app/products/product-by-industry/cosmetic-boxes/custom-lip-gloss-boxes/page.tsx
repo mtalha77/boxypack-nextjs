@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Lip Gloss Boxes | Premium Makeup Packaging',
+  description: 'Boxy Pack delivers high-quality custom lip gloss boxes with fast turnaround, free shipping, and stylish designs for professional cosmetic presentation. Shop Today.',
+};
 
 const CustomLipGlossBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

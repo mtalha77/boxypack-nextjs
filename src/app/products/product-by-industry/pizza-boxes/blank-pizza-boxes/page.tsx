@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Blank Pizza Boxes | Premium Custom Packaging',
+  description: 'Boxy Pack produces premium blank pizza boxes with fast turnaround, free shipping, and durable design for flexible and professional pizza packaging. Customize Now.',
+};
 
 const BlankPizzaBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

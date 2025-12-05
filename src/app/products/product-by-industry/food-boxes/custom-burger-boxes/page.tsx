@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Burger Boxes | Premium Fast Food Packaging',
+  description: 'Boxy Pack delivers high-quality custom burger boxes with fast turnaround, free shipping, and durable design to keep your food fresh and professional. Customize Now.',
+};
 
 const CustomBurgerBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

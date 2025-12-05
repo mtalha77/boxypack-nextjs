@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Cardboard Double Wall Frame Tray Boxes | Premium',
+  description: 'Boxy Pack produces high-quality cardboard double wall frame trays with fast turnaround, free shipping, and premium materials for durable packaging. Order Now.',
+};
 
 const CardboardDoubleWallFrameTrayPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

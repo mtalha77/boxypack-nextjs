@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Kraft Side Lock Six Corner Boxes | Premium',
+  description: 'Boxy Pack delivers high-quality kraft side lock six corner boxes with fast turnaround, free shipping, and durable construction for superior packaging. Order Now.',
+};
 
 const KraftSideLockSixCornerBoxPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

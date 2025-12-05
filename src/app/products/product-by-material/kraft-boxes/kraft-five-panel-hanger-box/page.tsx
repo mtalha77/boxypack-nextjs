@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Kraft Five Panel Hanger Boxes | Durable Packaging',
+  description: 'Boxy Pack crafts premium five panel hanger boxes with fast delivery, free shipping, and top-quality kraft materials for professional packaging. Request Pricing.',
+};
 
 const KraftFivePanelHangerBoxPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

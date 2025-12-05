@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Cardboard Two Piece Boxes | Premium Packaging',
+  description: 'Boxy Pack delivers premium cardboard two piece boxes with fast turnaround, free shipping, and top-quality printing for elegant product presentation. Order Now.',
+};
 
 const CardboardTwoPieceBoxPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

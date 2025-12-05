@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Corrugated Seal End Auto Bottom Boxes | Premium',
+  description: 'Boxy Pack produces high-quality corrugated seal end auto bottom boxes with fast turnaround, free shipping, and premium construction for elegant packaging. Shop Today.',
+};
 
 const CorrugatedSealEndAutoBottomBoxPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

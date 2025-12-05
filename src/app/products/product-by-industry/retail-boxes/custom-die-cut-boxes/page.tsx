@@ -1,7 +1,13 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
 import { notFound } from 'next/navigation';
+
+export const metadata: Metadata = {
+  title: 'Custom Die Cut Boxes | Premium Retail Packaging',
+  description: 'Boxy Pack produces premium custom die cut boxes with fast turnaround, free shipping, and unique designs for standout product presentation. Customize Now.',
+};
 
 const CustomDieCutBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

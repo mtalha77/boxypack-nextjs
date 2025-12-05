@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../data/navigationData';
 import ProductPageTemplate from '../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Window Bags | Premium Custom Packaging by Boxy Pack',
+  description: 'Boxy Pack creates premium custom window bags with fast turnaround, free shipping, and transparent panels to showcase products beautifully. Shop Today.',
+};
 
 const WindowBagPage = () => {
   const section = navigationData.find(s => s.slug === 'mylar-boxes');

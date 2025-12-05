@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Handmade Soap Boxes | Premium Custom Packaging',
+  description: 'Boxy Pack delivers premium handmade soap boxes with fast turnaround, free shipping, and elegant design to showcase artisanal soaps beautifully. Customize Now.',
+};
 
 const HandmadeSoapBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Essential Oil Boxes | Premium Luxury Packaging',
+  description: 'Boxy Pack creates high-quality essential oil boxes with fast turnaround, free shipping, and stylish design for premium cosmetic product packaging. Customize Now.',
+};
 
 const EssentialOilBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

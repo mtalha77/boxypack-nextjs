@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Kraft Single Wall Auto Bottom Tray Boxes | Premium',
+  description: 'Boxy Pack produces high-quality single wall auto bottom trays with fast turnaround, free shipping, and premium kraft materials. Get a Free Quote.',
+};
 
 const KraftSingleWallAutoBottomTrayPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

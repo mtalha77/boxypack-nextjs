@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Hair Extension Boxes | Premium Packaging for Salons',
+  description: 'Boxy Pack delivers premium hair extension boxes with fast turnaround, free shipping, and high-quality packaging to elevate your beauty brand. Customize Now.',
+};
 
 const HairExtensionBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

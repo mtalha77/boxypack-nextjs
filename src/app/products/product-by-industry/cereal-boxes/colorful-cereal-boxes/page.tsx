@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Colorful Cereal Boxes | Premium Eye-Catching Packaging',
+  description: 'Boxy Pack produces vibrant colorful cereal boxes with fast turnaround, free shipping, and stylish design to attract customers and boost breakfast sales. Customize Now.',
+};
 
 const ColorfulCerealBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');

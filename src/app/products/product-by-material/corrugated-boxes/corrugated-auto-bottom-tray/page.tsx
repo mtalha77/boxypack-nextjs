@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Custom Corrugated Auto Bottom Tray Boxes | Durable',
+  description: 'Boxy Pack delivers strong corrugated auto bottom tray boxes with fast turnaround, free shipping, and premium materials for safe and professional packaging. Order Now.',
+};
 
 const CorrugatedAutoBottomTrayPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-material');

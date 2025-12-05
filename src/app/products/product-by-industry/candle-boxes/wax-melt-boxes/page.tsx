@@ -1,6 +1,12 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
+
+export const metadata: Metadata = {
+  title: 'Wax Melt Boxes | Premium Custom Candle Packaging',
+  description: 'Boxy Pack produces premium wax melt boxes with fast turnaround, free shipping, and stylish design for safe and attractive candle packaging. Customize Now.',
+};
 
 const WaxMeltBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');
