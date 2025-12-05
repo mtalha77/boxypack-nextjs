@@ -418,13 +418,16 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
         setPricingError('');
         setRequiresCustomQuote(false);
       } else {
-        // Check if it requires custom quote due to dimensions
-        if (data.requiresCustomQuote === true) {
+        // Check if it requires custom quote due to dimensions or missing pricing formula
+        const errorMessage = data.error || 'Failed to calculate pricing';
+        const isPricingFormulaNotFound = errorMessage.toLowerCase().includes('pricing formula not found');
+        
+        if (data.requiresCustomQuote === true || isPricingFormulaNotFound) {
           setRequiresCustomQuote(true);
           setPricingError('');
           setPricingResult(null);
         } else {
-          setPricingError(data.error || 'Failed to calculate pricing');
+          setPricingError(errorMessage);
           setPricingResult(null);
           setRequiresCustomQuote(false);
         }
@@ -565,13 +568,19 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   };
 
   const handleOrderNow = () => {
-    if (!selectedMaterial || !selectedProduct || !pricingResult || quantity > 20000) {
-      alert('Please select all options and ensure pricing is available');
+    if (!selectedMaterial || !selectedProduct) {
+      alert('Please select all options');
       return;
     }
     
     if (!customLength || customLength <= 0 || !customWidth || customWidth <= 0 || !customDepth || customDepth <= 0 || !quantity || quantity <= 0) {
       alert('Please enter valid dimensions and quantity (all values must be greater than 0)');
+      return;
+    }
+
+    // If custom quote is required, redirect to quote request section
+    if (requiresCustomQuote || !pricingResult || quantity > 20000) {
+      router.push('/#request-quote-section');
       return;
     }
 
@@ -1199,10 +1208,10 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
               <div className="text-center">
                 <button
                   onClick={handleOrderNow}
-                  disabled={calculating || !selectedMaterial || !selectedProduct || !pricingResult || quantity > 20000}
+                  disabled={calculating || !selectedMaterial || !selectedProduct || (!pricingResult && !requiresCustomQuote && !showCustomPricingMessage)}
                   className="w-full bg-[#0c6b76] cursor-pointer hover:bg-[#0ca6c2] text-white font-semibold py-4 px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  ORDER NOW
+                  {requiresCustomQuote || showCustomPricingMessage ? 'REQUEST CUSTOM QUOTE' : 'ORDER NOW'}
                 </button>
               </div>
 
