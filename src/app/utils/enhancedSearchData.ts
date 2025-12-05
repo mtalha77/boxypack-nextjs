@@ -130,11 +130,17 @@ export const getAllEnhancedSearchData = (): EnhancedSearchResult[] => {
 
         // Add subcategories
         category.subcategories.forEach((subcategory) => {
+          // For sections where category slug matches section slug (mylar-boxes, shopping-bags, other),
+          // skip the category in the URL to match the actual route structure
+          const url = section.slug === category.slug
+            ? `/products/${section.slug}/${subcategory.slug}`
+            : `/products/${section.slug}/${category.slug}/${subcategory.slug}`;
+          
           searchData.push({
             id: `subcategory-${section.slug}-${category.slug}-${subcategory.slug}`,
             title: subcategory.name,
             description: subcategory.description || `View ${subcategory.name.toLowerCase()}`,
-            url: `/products/${section.slug}/${category.slug}/${subcategory.slug}`,
+            url: url,
             type: 'subcategory',
             section: section.name,
             category: category.name,

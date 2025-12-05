@@ -10,6 +10,41 @@ import { mylarBoxesData } from "@/app/data/mylarBoxesData";
 import { shoppingBagsData } from "@/app/data/shoppingBagsData";
 import { otherData } from "@/app/data/otherData";
 
+// Helper function to check if a product has a pricing formula
+// Pricing formulas are only available for these 4 material categories and their subcategories:
+// - rigid-boxes
+// - kraft-boxes
+// - cardboard-boxes
+// - corrugated-boxes
+const hasPricingFormula = (productSlug: string | undefined): boolean => {
+  if (!productSlug) return false;
+
+  // List of material categories that have pricing formulas
+  const categoriesWithFormulas = ['rigid-boxes', 'kraft-boxes', 'cardboard-boxes', 'corrugated-boxes'];
+
+  // Check if the slug matches a category directly
+  if (categoriesWithFormulas.includes(productSlug)) {
+    return true;
+  }
+
+  // Check if the slug matches any subcategory in the 4 material categories
+  for (const category of productByMaterialData) {
+    if (categoriesWithFormulas.includes(category.slug)) {
+      // Check if productSlug matches the category slug
+      if (category.slug === productSlug) {
+        return true;
+      }
+      // Check if productSlug matches any subcategory in this category
+      const subcategoryMatch = category.subcategories.some(sub => sub.slug === productSlug);
+      if (subcategoryMatch) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+};
+
 export interface BreadcrumbItem {
   name: string;
   href: string;
@@ -339,12 +374,33 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
   // Handle Order Now button click
   const handleOrderNow = () => {
-    if (productData.slug) {
-      // Store the selected product in sessionStorage for the custom dimensions form
-      sessionStorage.setItem("selectedProduct", productData.slug);
+    // Check if this product has a pricing formula
+    const hasFormula = hasPricingFormula(productData.slug);
+    
+    if (hasFormula) {
+      // Product has pricing formula - scroll to custom dimensions form
+      if (productData.slug) {
+        // Store the selected product in sessionStorage for the custom dimensions form
+        sessionStorage.setItem("selectedProduct", productData.slug);
+      }
+      
+      // Check if the custom dimensions form exists on the current page
+      const formSection = document.querySelector('#custom-dimensions-form');
+      
+      if (formSection) {
+        // Form exists on current page - scroll to it
+        formSection.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      } else {
+        // Form doesn't exist on current page - navigate to homepage and scroll to form
+        router.push("/#custom-dimensions-form");
+      }
+    } else {
+      // Product doesn't have pricing formula - navigate to contact form
+      router.push("/contact-us#contact-section");
     }
-    // Navigate to homepage and scroll to the custom dimensions form
-    router.push("/#custom-dimensions-form");
   };
 
   // Handle Get Free Quote button click
