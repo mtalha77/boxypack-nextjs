@@ -220,7 +220,6 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
       'custom-coffee-boxes': 'coffee-packaging-boxes',
       'custom-coffee-cups': 'custom-coffee-cups',
       'custom-coffee-cup-sleeves': 'coffee-cup-sleeves',
-      'custom-noodle-boxes': 'noodle-boxes',
       'custom-chinese-takeout-boxes': 'chinese-takeout-boxes',
       'custom-popcorn-boxes': 'popcorn-boxes',
       'custom-snack-boxes': 'snack-boxes',

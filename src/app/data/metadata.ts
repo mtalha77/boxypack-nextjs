@@ -551,11 +551,6 @@ export const siteMetadata: Record<string, PageMetadata> = {
     title: 'Custom Coffee Cup Sleeves | Premium Hot Drink Packaging',
     description: 'Boxy Pack delivers premium coffee cup sleeves with fast turnaround, free shipping, and stylish design for safe and attractive beverage packaging. Customize Now.',
   },
-  // Custom Noodle Boxes
-  'custom-noodle-boxes': {
-    title: 'Custom Noodle Boxes | Premium Takeout Packaging',
-    description: 'Boxy Pack produces high-quality noodle boxes with fast turnaround, free shipping, and durable design to keep food fresh and visually appealing. Order Now.',
-  },
   // Custom Chinese Takeout Boxes
   'custom-chinese-takeout-boxes': {
     title: 'Chinese Takeout Boxes | Premium Custom Food Packaging',

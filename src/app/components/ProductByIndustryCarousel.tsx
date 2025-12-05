@@ -40,12 +40,6 @@ const ProductByIndustryCarousel: React.FC = () => {
     category: (typeof productByIndustryData)[number]
   ): string => {
     // Special cases matching HeroSection logic - check for specific subcategory hero images
-    if (category.slug === "food-boxes") {
-      const noodleBoxSubcategory = category.subcategories.find(sub => sub.slug === "custom-noodle-boxes");
-      if (noodleBoxSubcategory && 'heroImage' in noodleBoxSubcategory && noodleBoxSubcategory.heroImage) {
-        return noodleBoxSubcategory.heroImage as string;
-      }
-    }
     if (category.slug === "gift-boxes") {
       const deluxeGiftBoxSubcategory = category.subcategories.find(sub => sub.slug === "custom-deluxe-gift-boxes");
       if (deluxeGiftBoxSubcategory && 'heroImage' in deluxeGiftBoxSubcategory && deluxeGiftBoxSubcategory.heroImage) {
