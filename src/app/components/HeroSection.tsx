@@ -166,15 +166,8 @@ const getProductImage = (slug: string | undefined, fallbackImage: string): strin
     if (subcategory?.images && subcategory.images.length > 0) {
       return subcategory.images[0];
     }
-    // If slug matches the category itself, check for specific subcategory heroImage first (for Food Boxes and Gift Boxes)
+    // If slug matches the category itself, check for specific subcategory heroImage first (for Gift Boxes)
     if (category.slug === slug) {
-      // Special case: Food Boxes should use Custom Noodle Boxes hero image
-      if (category.slug === "food-boxes") {
-        const noodleBoxSubcategory = category.subcategories.find(sub => sub.slug === "custom-noodle-boxes");
-        if (noodleBoxSubcategory && 'heroImage' in noodleBoxSubcategory && noodleBoxSubcategory.heroImage) {
-          return noodleBoxSubcategory.heroImage as string;
-        }
-      }
       // Special case: Gift Boxes should use Custom Deluxe Gift Boxes hero image
       if (category.slug === "gift-boxes") {
         const deluxeGiftBoxSubcategory = category.subcategories.find(sub => sub.slug === "custom-deluxe-gift-boxes");

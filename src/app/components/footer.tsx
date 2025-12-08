@@ -192,7 +192,6 @@ const Footer: React.FC = () => {
                 <FaTiktok className="w-5 h-5 md:w-7 md:h-7" />
               </a>
               
-              {/* Reddit */}
               <a 
                 href="https://www.reddit.com/user/boxypack/" 
                 target="_blank" 

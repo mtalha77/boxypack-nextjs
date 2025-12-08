@@ -393,7 +393,7 @@ export const productByIndustryData: IndustryCategory[] = [
     slug: "food-boxes",
     description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "Custom-Noodles-Boxes_mxpz3e",
-    subcategoriesCount: 11,
+    subcategoriesCount: 10,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       {
@@ -434,16 +434,6 @@ export const productByIndustryData: IndustryCategory[] = [
           "Custom-Coffee-Cup-Sleeves-1_iezt7i",
           "Custom-Coffee-Cup-Sleeves-2_g2ccap",
           "Custom-Coffee-Cup-Sleeves-3_xyt9dv",
-        ],
-      },
-      {
-        name: "Custom Noodle Boxes",
-        slug: "custom-noodle-boxes",
-        heroImage: "Custom-Noodles-Boxes_mxpz3e",
-        images: [
-          "Custom-Noodles-Boxes-1_twipbc",
-          "Custom-Noodles-Boxes-2_fyq0jy",
-          "Custom-Noodles-Boxes-3_zltsu0",
         ],
       },
       {

@@ -4869,36 +4869,6 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
       "Our custom coffee cups make your beverages look professional and keep your brand in every hand.",
   },
   
-  "custom-noodle-boxes": {
-    eyebrow: "Why Choose Our Noodle Boxes",
-    heading: "BoxyPack combines food safety, strong construction, and excellent branding to support your restaurant's packaging needs.",
-    description: "",
-    features: [
-      {
-        icon: "shield",
-        title: "Spill-Resistant Build",
-        description: "Designed to hold sauces, broths, and hot meals securely.",
-      },
-      {
-        icon: "check",
-        title: "Brand Visibility",
-        description: "Add full-color artwork, logos, icons, and patterns.",
-      },
-      {
-        icon: "star",
-        title: "Eco-Friendly Options",
-        description: "Recyclable and compostable materials available.",
-      },
-      {
-        icon: "palette",
-        title: "Takeout-Ready Durability",
-        description: "Strong locking system and sturdy bottom structure.",
-      },
-    ],
-    closingDescription:
-      "Our noodle boxes help your food look delicious, stay fresh, and reach customers without spills.",
-  },
-  
   "custom-chinese-takeout-boxes": {
     eyebrow: "Why Choose Our Chinese Takeout Boxes",
     heading: "BoxyPack blends food safety, strong construction, and premium branding to support your restaurant's packaging needs.",

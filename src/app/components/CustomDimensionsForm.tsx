@@ -418,13 +418,16 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
         setPricingError('');
         setRequiresCustomQuote(false);
       } else {
-        // Check if it requires custom quote due to dimensions
-        if (data.requiresCustomQuote === true) {
+        // Check if it requires custom quote due to dimensions or missing pricing formula
+        const errorMessage = data.error || 'Failed to calculate pricing';
+        const isPricingFormulaNotFound = errorMessage.toLowerCase().includes('pricing formula not found');
+        
+        if (data.requiresCustomQuote === true || isPricingFormulaNotFound) {
           setRequiresCustomQuote(true);
           setPricingError('');
           setPricingResult(null);
         } else {
-          setPricingError(data.error || 'Failed to calculate pricing');
+          setPricingError(errorMessage);
           setPricingResult(null);
           setRequiresCustomQuote(false);
         }
@@ -565,13 +568,19 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   };
 
   const handleOrderNow = () => {
-    if (!selectedMaterial || !selectedProduct || !pricingResult || quantity > 20000) {
-      alert('Please select all options and ensure pricing is available');
+    if (!selectedMaterial || !selectedProduct) {
+      alert('Please select all options');
       return;
     }
     
     if (!customLength || customLength <= 0 || !customWidth || customWidth <= 0 || !customDepth || customDepth <= 0 || !quantity || quantity <= 0) {
       alert('Please enter valid dimensions and quantity (all values must be greater than 0)');
+      return;
+    }
+
+    // If custom quote is required, redirect to quote request section
+    if (requiresCustomQuote || !pricingResult || quantity > 20000) {
+      router.push('/#request-quote-section');
       return;
     }
 
@@ -691,9 +700,9 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
           <div className="space-y-4">
             {/* Header Section */}
             <div className="text-left">
-              <h1 className="text-h2 text-[#0c6b76] mb-4" id="subcategories-heading">
+              <h2 className="text-h2 text-[#0c6b76] mb-4" id="subcategories-heading">
                 Customize Your Packaging
-              </h1>
+              </h2>
               <p className="text-lg text-gray-600">
               Pick your box type, set dimensions, add finishes, and order fast. Get bespoke packaging boxes made to fit your brand without any issue.
               </p>
@@ -1054,12 +1063,6 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
                   <p className="text-gray-600 mb-4">
                     We need to provide you with a custom quotation for these specifications.
                   </p>
-                  <button
-                    onClick={() => router.push('/#request-quote-section')}
-                    className="bg-[#0c6b76] hover:bg-[#0ca6c2] text-white font-semibold py-3 px-6 rounded-lg transition-colors"
-                  >
-                    Request Custom Quote
-                  </button>
                 </div>
               ) : calculating ? (
                 <div className="text-center py-8">
@@ -1199,10 +1202,10 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
               <div className="text-center">
                 <button
                   onClick={handleOrderNow}
-                  disabled={calculating || !selectedMaterial || !selectedProduct || !pricingResult || quantity > 20000}
+                  disabled={calculating || !selectedMaterial || !selectedProduct || (!pricingResult && !requiresCustomQuote && !showCustomPricingMessage)}
                   className="w-full bg-[#0c6b76] cursor-pointer hover:bg-[#0ca6c2] text-white font-semibold py-4 px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  ORDER NOW
+                  {requiresCustomQuote || showCustomPricingMessage ? 'REQUEST CUSTOM QUOTE' : 'ORDER NOW'}
                 </button>
               </div>
 
