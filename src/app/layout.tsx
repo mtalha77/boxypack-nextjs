@@ -122,7 +122,7 @@ export default function RootLayout({
       >
         {/* Google Analytics */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-VMJ0WKPYQZ"
+          src="https://www.googletagmanager.com/gtag/js?id=G-S1ZM0KF6MR"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -130,7 +130,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-VMJ0WKPYQZ');
+            gtag('config', 'G-S1ZM0KF6MR');
           `}
         </Script>
         <CartProvider>
