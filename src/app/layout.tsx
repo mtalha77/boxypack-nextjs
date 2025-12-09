@@ -4,7 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ConditionalLayout from "./components/ConditionalLayout";
 import { CartProvider } from "./contexts/CartContext";
-import SupportChat from "./components/SupportChat";
+// import SupportChat from "./components/SupportChat"; // Temporarily commented out - will unhide later
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -170,7 +170,7 @@ export default function RootLayout({
             {children}
           </ConditionalLayout>
         </CartProvider>
-        <SupportChat />
+        {/* <SupportChat /> */} {/* Temporarily commented out - will unhide later */}
       </body>
     </html>
   );
