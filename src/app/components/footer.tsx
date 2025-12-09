@@ -150,7 +150,7 @@ const Footer: React.FC = () => {
               
               {/* YouTube */}
               <a 
-                href="https://www.youtube.com/@boxypack" 
+                href="https://www.youtube.com/@boxypack_1" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-[#ff0000] hover:scale-110 transition-all duration-300"

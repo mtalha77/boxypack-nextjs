@@ -46,7 +46,13 @@ const AdminDashboard: React.FC = () => {
       icon: '📋',
       color: 'bg-purple-500'
     },
-    
+    {
+      title: 'Agent Management',
+      description: 'Manage support agents, view stats, and assign chats',
+      href: '/admin/agents',
+      icon: '👥',
+      color: 'bg-green-500'
+    },
   ];
 
   return (

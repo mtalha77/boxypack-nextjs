@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ConditionalLayout from "./components/ConditionalLayout";
 import { CartProvider } from "./contexts/CartContext";
+import SupportChat from "./components/SupportChat";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -112,6 +113,37 @@ export default function RootLayout({
                   }
                 }
               })();
+              
+              // Ensure chat widget is always fixed to viewport
+              (function() {
+                if (typeof window !== 'undefined') {
+                  function ensureChatPosition() {
+                    const chatRoot = document.getElementById('chat-widget-root');
+                    if (chatRoot) {
+                      chatRoot.style.position = 'fixed';
+                      chatRoot.style.bottom = '20px';
+                      chatRoot.style.right = '20px';
+                      chatRoot.style.zIndex = '99999';
+                      chatRoot.style.transform = 'none';
+                    }
+                  }
+                  
+                  // Run on load and after a short delay
+                  if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', function() {
+                      ensureChatPosition();
+                      setTimeout(ensureChatPosition, 100);
+                    });
+                  } else {
+                    ensureChatPosition();
+                    setTimeout(ensureChatPosition, 100);
+                  }
+                  
+                  // Also run on scroll and resize to ensure it stays in place
+                  window.addEventListener('scroll', ensureChatPosition, { passive: true });
+                  window.addEventListener('resize', ensureChatPosition, { passive: true });
+                }
+              })();
             `,
           }}
         />
@@ -138,6 +170,7 @@ export default function RootLayout({
             {children}
           </ConditionalLayout>
         </CartProvider>
+        <SupportChat />
       </body>
     </html>
   );
