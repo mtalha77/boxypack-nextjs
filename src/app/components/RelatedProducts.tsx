@@ -74,7 +74,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({
             // Industry categories: /products/product-by-industry/pizza-boxes
             href = `/products/${currentSection.slug}/${cat.slug}`;
           } else {
-            // Direct sections: /products/mylar-boxes, /products/shopping-bags, /products/other
+            // Direct sections: /products/mylar-boxes, /products/shopping-bags
             href = `/products/${currentSection.slug}`;
           }
           
@@ -100,8 +100,8 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({
           // Industry subcategories: /products/product-by-industry/pizza-boxes/rectangle-pizza-boxes
           href = `/products/${currentSection.slug}/${currentCategory.slug}/${sub.slug}`;
         } else {
-          // Direct sections: link to main section page since subcategory pages don't exist
-          href = `/products/${currentSection.slug}`;
+          // Direct sections: /products/mylar-boxes/window-bag, /products/shopping-bags/kraft-shopping-bag, etc.
+          href = `/products/${currentSection.slug}/${sub.slug}`;
         }
         
         return {
@@ -128,7 +128,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({
             // Industry categories: /products/product-by-industry/pizza-boxes
             href = `/products/${currentSection.slug}/${cat.slug}`;
           } else {
-            // Direct sections: /products/mylar-boxes, /products/shopping-bags, /products/other
+            // Direct sections: /products/mylar-boxes, /products/shopping-bags
             href = `/products/${currentSection.slug}`;
           }
           
@@ -154,7 +154,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({
             // Industry categories: /products/product-by-industry/pizza-boxes
             href = `/products/${currentSection.slug}/${cat.slug}`;
           } else {
-            // Direct sections: /products/mylar-boxes, /products/shopping-bags, /products/other
+            // Direct sections: /products/mylar-boxes, /products/shopping-bags
             href = `/products/${currentSection.slug}`;
           }
           

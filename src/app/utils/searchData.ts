@@ -36,11 +36,20 @@ export const getAllSearchData = (): SearchResult[] => {
     // Add categories if they exist
     if (section.categories) {
       section.categories.forEach((category) => {
+        // Check if category slug matches section slug (for mylar-boxes, shopping-bags, other)
+        const isDirectSection = category.slug === section.slug;
+        
+        // Category URL: if category slug matches section slug, use /products/{section.slug}
+        // Otherwise use /products/{section.slug}/{category.slug}
+        const categoryUrl = isDirectSection
+          ? `/products/${section.slug}`
+          : `/products/${section.slug}/${category.slug}`;
+        
         searchData.push({
           id: `category-${section.slug}-${category.slug}`,
           title: category.name,
           description: category.description || `Browse ${category.name.toLowerCase()}`,
-          url: `/products/${section.slug}/${category.slug}`,
+          url: categoryUrl,
           type: 'category',
           section: section.name,
           category: category.name,
@@ -49,11 +58,17 @@ export const getAllSearchData = (): SearchResult[] => {
 
         // Add subcategories
         category.subcategories.forEach((subcategory) => {
+          // Subcategory URL: if direct section, use /products/{section.slug}/{subcategory.slug}
+          // Otherwise use /products/{section.slug}/{category.slug}/{subcategory.slug}
+          const subcategoryUrl = isDirectSection
+            ? `/products/${section.slug}/${subcategory.slug}`
+            : `/products/${section.slug}/${category.slug}/${subcategory.slug}`;
+          
           searchData.push({
             id: `subcategory-${section.slug}-${category.slug}-${subcategory.slug}`,
             title: subcategory.name,
             description: subcategory.description || `View ${subcategory.name.toLowerCase()}`,
-            url: `/products/${section.slug}/${category.slug}/${subcategory.slug}`,
+            url: subcategoryUrl,
             type: 'subcategory',
             section: section.name,
             category: category.name,

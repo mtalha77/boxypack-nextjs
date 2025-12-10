@@ -284,6 +284,27 @@ const getProductImage = (slug: string | undefined, fallbackImage: string): strin
           return pizzaBoxesSubcategory.heroImage as string;
         }
       }
+      // Special case: Food Boxes should use Custom French Fry Boxes hero image (without background)
+      if (category.slug === "food-boxes") {
+        const frenchFryBoxesSubcategory = category.subcategories.find(sub => sub.slug === "custom-french-fry-boxes");
+        if (frenchFryBoxesSubcategory && 'heroImage' in frenchFryBoxesSubcategory && frenchFryBoxesSubcategory.heroImage) {
+          return frenchFryBoxesSubcategory.heroImage as string;
+        }
+      }
+      // Special case: Chocolate Boxes should use Chocolate Packaging hero image (without background)
+      if (category.slug === "chocolate-boxes") {
+        const chocolatePackagingSubcategory = category.subcategories.find(sub => sub.slug === "chocolate-packaging");
+        if (chocolatePackagingSubcategory && 'heroImage' in chocolatePackagingSubcategory && chocolatePackagingSubcategory.heroImage) {
+          return chocolatePackagingSubcategory.heroImage as string;
+        }
+      }
+      // Special case: Cosmetic Boxes should use Cosmetic Display Boxes hero image (without background)
+      if (category.slug === "cosmetic-boxes") {
+        const cosmeticDisplayBoxesSubcategory = category.subcategories.find(sub => sub.slug === "cosmetic-display-boxes");
+        if (cosmeticDisplayBoxesSubcategory && 'heroImage' in cosmeticDisplayBoxesSubcategory && cosmeticDisplayBoxesSubcategory.heroImage) {
+          return cosmeticDisplayBoxesSubcategory.heroImage as string;
+        }
+      }
       // Otherwise, get image from best matched subcategory
       const bestMatched = findBestMatchedSubcategory(category.subcategories);
       if (bestMatched?.images && bestMatched.images.length > 0) {

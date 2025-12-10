@@ -56,6 +56,10 @@ const WhyChooseUs = dynamic(
   () => import("./components/homepage/why-choose-us"),
   { ssr: false }
 );
+const ClientTestimonials = dynamic(
+  () => import("./components/product-page/ClientTestaminials"),
+  { ssr: false }
+);
 
 const HomePage = () => {
   const [showComingSoon, setShowComingSoon] = useState(false); // Set to true to show coming soon, false to show normal homepage
@@ -88,6 +92,7 @@ const HomePage = () => {
       <WhyChooseUs />
 
       {/* <MoreThanPackage /> */}
+      <ClientTestimonials productData={{ name: "BoxyPack" }} />
       <FAQ />
       <HomepageCTASection />
     </div>

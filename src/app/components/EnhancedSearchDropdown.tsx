@@ -55,8 +55,10 @@ const EnhancedSearchDropdown: React.FC<EnhancedSearchDropdownProps> = ({
   const dropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
-  // Filter results to only show subcategories (products)
-  const productResults = results.filter((result) => result.type === 'subcategory');
+  // Filter results to show categories and subcategories (products)
+  const productResults = results.filter((result) => 
+    result.type === 'category' || result.type === 'subcategory'
+  );
 
   // Reset selected index when results change
   useEffect(() => {
@@ -278,7 +280,7 @@ const EnhancedSearchDropdown: React.FC<EnhancedSearchDropdownProps> = ({
           </div>
         ) : (
           <>
-            {/* Search Results - Only show subcategories (products) */}
+            {/* Search Results - Show categories and subcategories (products) */}
             {productResults.map((result, index) => {
                 const Icon = getResultIcon(result.type);
                 const isSelected = index === selectedIndex;

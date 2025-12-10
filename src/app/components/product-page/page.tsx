@@ -421,36 +421,74 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
   const getBreadcrumbs = (): BreadcrumbItem[] => {
     const breadcrumbs = [{ name: "Home", href: "/" }];
 
+    // Check if category slug matches section slug (for mylar-boxes, shopping-bags)
+    const isDirectSection = category && section && category.slug === section.slug;
+
     // For subcategory pages (like /products/mylar-boxes/stand-up-pouche)
     if (subcategory && category && section) {
-      // Show: Home > Category > Subcategory
-      breadcrumbs.push({
-        name: category.name,
-        href: `/products/${section.slug}/${category.slug}`,
-      });
-      breadcrumbs.push({
-        name: subcategory.name,
-        href: `/products/${section.slug}/${subcategory.slug}`,
-      });
+      // For "other" section, don't show category in breadcrumb (only Home > Subcategory)
+      if (section.slug === "other") {
+        breadcrumbs.push({
+          name: subcategory.name,
+          href: `/products/${section.slug}/${subcategory.slug}`,
+        });
+      } else {
+        // Show: Home > Category > Subcategory
+        // If category slug matches section slug, link to /products/{section.slug}
+        // Otherwise link to /products/{section.slug}/{category.slug}
+        const categoryHref = isDirectSection
+          ? `/products/${section.slug}`
+          : `/products/${section.slug}/${category.slug}`;
+        
+        // Subcategory href: if direct section, use /products/{section.slug}/{subcategory.slug}
+        // Otherwise use /products/{section.slug}/{category.slug}/{subcategory.slug}
+        const subcategoryHref = isDirectSection
+          ? `/products/${section.slug}/${subcategory.slug}`
+          : `/products/${section.slug}/${category.slug}/${subcategory.slug}`;
+        
+        breadcrumbs.push({
+          name: category.name,
+          href: categoryHref,
+        });
+        breadcrumbs.push({
+          name: subcategory.name,
+          href: subcategoryHref,
+        });
+      }
     }
     // For category pages (like /products/product-by-material/rigid-boxes)
     else if (category && section) {
-      // Show: Home > Category
-      breadcrumbs.push({
-        name: category.name,
-        href: `/products/${section.slug}/${category.slug}`,
-      });
+      // For "other" section, don't show category in breadcrumb
+      if (section.slug === "other") {
+        // Don't add category to breadcrumb for "other"
+      } else {
+        // Show: Home > Category
+        // If category slug matches section slug, link to /products/{section.slug}
+        // Otherwise link to /products/{section.slug}/{category.slug}
+        const categoryHref = isDirectSection
+          ? `/products/${section.slug}`
+          : `/products/${section.slug}/${category.slug}`;
+        
+        breadcrumbs.push({
+          name: category.name,
+          href: categoryHref,
+        });
+      }
     }
-    // For section pages (like /products/mylar-boxes, /products/shopping-bags, /products/other)
+    // For section pages (like /products/mylar-boxes, /products/shopping-bags)
     else if (
       section &&
-      ["mylar-boxes", "shopping-bags", "other"].includes(section.slug)
+      ["mylar-boxes", "shopping-bags"].includes(section.slug)
     ) {
       // Show: Home > Section
       breadcrumbs.push({
         name: section.name,
         href: `/products/${section.slug}`,
       });
+    }
+    // For "other" section pages, don't show breadcrumb (only Home)
+    else if (section && section.slug === "other") {
+      // Don't add section to breadcrumb for "other"
     }
 
     return breadcrumbs;
