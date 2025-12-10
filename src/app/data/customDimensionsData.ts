@@ -228,10 +228,82 @@ export const customDimensionsData: Record<string, CustomDimensionsContent> = {
     description: "Select your Mylar bag type, set dimensions, choose finishes, and order quickly. Get premium Mylar bags with barrier protection tailored to your product needs.",
   },
   
+  // Mylar Bags Subcategories
+  "stand-up-pouche": {
+    title: "Stand Up Pouch",
+    description: "Pick your stand-up pouch style, set dimensions, add finishes, and order fast. Get custom stand-up mylar pouches built for your brand in the packaging industry.",
+  },
+  "zipper-bag": {
+    title: "Zipper Bag",
+    description: "Pick your mylar zipper bag style, set dimensions, add finishes, and order fast. Get custom mylar zipper bags built for your brand in the packaging industry.",
+  },
+  "window-bag": {
+    title: "Window Bag",
+    description: "Pick your mylar window bag style, set dimensions, add finishes, and order fast. Get custom mylar window bags built for your brand in the packaging industry.",
+  },
+  
   // Shopping Bags
   "shopping-bags": {
     title: "Customize Your Shopping Bags",
     description: "Pick your shopping bag style, set dimensions, add finishes, and order fast. Get eco-friendly shopping bags made to fit your brand and retail needs.",
+  },
+  
+  // Shopping Bags Subcategories
+  "kraft-shopping-bag": {
+    title: "Kraft Shopping Bags",
+    description: "Pick your kraft shopping bag style, set dimensions, add finishes, and order fast. Get custom kraft shopping bags built for your brand in the packaging industry.",
+  },
+  "paper-bag": {
+    title: "Paper Bag",
+    description: "Pick your paper bag style, set dimensions, add finishes, and order fast. Get custom paper bags built for your brand in the packaging industry.",
+  },
+  "pvc-bag": {
+    title: "PVC Bag",
+    description: "Pick your PVC bag style, set dimensions, add finishes, and order fast. Get custom PVC bags built for your brand in the packaging industry.",
+  },
+  
+  // Others
+  "other": {
+    title: "Customize Your Printing & Packaging Accessories",
+    description: "Pick your printing or packaging accessory style, set dimensions, add finishes, and order fast. Get custom printing and packaging solutions built for your brand.",
+  },
+  
+  // Others Subcategories
+  "booklets": {
+    title: "Booklets",
+    description: "Pick your booklet style, set dimensions, add finishes, and order fast. Get custom-printed booklets built for your brand in the printing industry.",
+  },
+  "brochures": {
+    title: "Brochures",
+    description: "Pick your brochure style, set dimensions, add finishes, and order fast. Get custom-printed brochures built for your brand in the printing industry.",
+  },
+  "tags-printing": {
+    title: "Tags Printing",
+    description: "Pick your custom tag style, set dimensions, add finishes, and order fast. Get custom printed tags built for your brand in the printing industry.",
+  },
+  "business-cards": {
+    title: "Business Cards",
+    description: "Pick your business card style, set dimensions, add finishes, and order fast. Get custom-printed business cards built for your brand in the printing industry.",
+  },
+  "custom-tissue-paper": {
+    title: "Custom Tissue Paper",
+    description: "Pick your tissue paper style, set dimensions, add finishes, and order fast. Get custom-printed tissue paper built for your brand in the packaging industry.",
+  },
+  "butter-paper": {
+    title: "Butter Paper",
+    description: "Pick your butter paper style, set dimensions, add finishes, and order fast. Get custom printed butter paper built for your brand in the packaging industry.",
+  },
+  "product-labels-bottle-labels": {
+    title: "Product Labels & Bottle Labels",
+    description: "Pick your label style, set dimensions, add finishes, and order fast. Get custom product labels and bottle labels built for your brand in the packaging industry.",
+  },
+  "table-tents": {
+    title: "Table Tents",
+    description: "Pick your table tent style, set dimensions, add finishes, and order fast. Get custom-printed table tents built for your brand in the printing industry.",
+  },
+  "packing-tape": {
+    title: "Packing Tape",
+    description: "Pick your packing tape style, set dimensions, add finishes, and order fast. Get custom printed packing tape built for your brand in the packaging industry.",
   },
   
   // Default fallback
