@@ -2672,19 +2672,20 @@ const rawProductData: Record<string, RawProductEntry> = {
 
   // Product: Mylar Boxes
   "mylar-boxes": {
-    name: "Mylar Boxes",
+    name: "Mylar Bag",
     description:
-      "Premium mylar packaging solutions with excellent barrier properties and durability for various products.",
+      "Durable, airtight, and versatile. Buy Mylar bags wholesale for food-safe storage, premium freshness, and custom branding across snacks, coffee, supplements, and more.",
     heroImage: "Stand-Up-Pouch_x47atr",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
-      "High-barrier laminates extend shelf life for food and botanicals",
-      "Multiple closure systems—tear notch, zipper, and heat seal—for flexibility",
-      "Custom windows, holographics, and metallic inks attract attention",
-      "Lightweight construction reduces freight while maintaining durability",
-      "Certified food-grade materials support regulated industries",
-      "Stand-up and flat pouch formats optimize merchandising space",
-      "Low minimums with rapid lead times for product launches",
+      "Airtight and moisture-proof barrier protection",
+      "Heat-sealable and resealable zip closures",
+      "Food-grade materials for snacks, coffee, spices, and supplements",
+      "Custom logo and full-color printing options",
+      "Matte, gloss, metallic, and holographic finishes",
+      "Stand-up, flat, window, and gusseted pouch styles",
+      "100% recyclable and eco-friendly Mylar Bags",
+      "Ideal for coffee, snacks, tea, dried foods, powders, and herbs",
     ],
     customization: {
       details: [
@@ -2727,11 +2728,11 @@ const rawProductData: Record<string, RawProductEntry> = {
     },
     overview: {
       heading: "Product Overview",
-      title: "Mylar Boxes Engineered for Shelf Life",
+      title: "Custom Printed Mylar Bag",
       paragraphs: [
-        "Mylar packaging is the standard for brands that demand freshness, aroma retention, and striking shelf impact. We combine high-barrier films with precision sealing to protect sensitive products.",
-        "Customize zipper, gusset, and window styles to balance usability with merchandising appeal. Metallics, holographics, and transparent reveals bring personality to your pouches.",
-        "With rapid prototyping, low minimums, and food-safe certifications, we support product launches, seasonal flavors, and large-scale runs with equal focus.",
+        "Our Mylar pouch packaging delivers superior protection, long-lasting freshness, and clean branding for food, coffee, snacks, powders, and herbal products. These pouches block moisture, oxygen, and light, ensuring product quality from filling to final use. Each design offers convenience, durability, and strong shelf appeal.",
+        "At BoxyPack, we create custom printed Mylar bags tailored to your product style and branding needs. With options like matte, gloss, holographic, metallic, or windowed pouches, we make packaging that stands out in both retail and online markets.",
+        "As a trusted Mylar Bag wholesale supplier, we deliver food-grade materials, resealable features, and premium print quality all at a competitive Mylar Bag price suitable for startups and large-scale brands.",
       ],
     },
     faq: buildFaq(
@@ -2765,9 +2766,9 @@ const rawProductData: Record<string, RawProductEntry> = {
       }
     ),
     cta: {
-      title: "Ready for Mylar Packaging?",
+      title: "Freshness Locked, Branding Unlocked",
       description:
-        "Get a custom quote for your mylar boxes today. Discover the perfect barrier packaging solution for your products.",
+        "Connect with BoxyPack today for a custom-printed Mylar Bag that protects your products and elevates your brand. Our experts will help you design durable, food-safe, and visually striking pouches for any industry. Contact us now to begin your order and upgrade your packaging.",
     },
   },
 
@@ -2825,11 +2826,11 @@ const rawProductData: Record<string, RawProductEntry> = {
     },
     overview: {
       heading: "Product Overview",
-      title: "Shopping Bags Designed for Everyday Branding",
+      title: "Custom Shipping Packaging Boxes",
       paragraphs: [
-        "Shopping bags extend your brand beyond the point of sale. We craft each bag to balance carrying comfort, durability, and a visual presence that attracts attention on the street.",
-        "Choose from luxury rope handles, ribbon details, or reinforced die-cut grips. Interior print, custom gussets, and specialty laminations ensure customers keep using your bag.",
-        "From boutique collections to national retail programs, we align bag construction with your sustainability goals and merchandising calendar.",
+        "Our shipping packaging boxes are engineered for strength, stability, and protection. Made for online stores, warehouses, and growing brands, these boxes withstand stacking, long-distance transport, and rough handling. Each box keeps products secure while helping your brand look professional from the moment the package arrives.",
+        "At BoxyPack, we craft custom shipping packaging boxes that match your product's size, weight, and shipping method. Whether you're sending electronics, clothing, fragile goods, or bulk orders, we tailor every box for durability and performance.",
+        "As a trusted wholesale shipping boxes supplier, we offer high-quality printing, strong corrugated board, and eco-friendly material options all at a competitive shipping boxes price for small businesses and large fulfillment centers.",
       ],
     },
     faq: buildFaq("Shopping Bags", [
@@ -2857,9 +2858,9 @@ const rawProductData: Record<string, RawProductEntry> = {
       },
     ]),
     cta: {
-      title: "Ready for Eco-Friendly Shopping?",
+      title: "Strong Protection, Reliable Delivery",
       description:
-        "Get a custom quote for your shopping bags today. Promote your brand while protecting the environment.",
+        "Reach out to BoxyPack today for custom shopping bags that protect your products and enhance your brand's shopping experience. Our packaging specialists are ready to help you design durable, sustainable, and fully branded solutions. Contact us now to begin your order and ship with confidence.",
     },
   },
 

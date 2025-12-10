@@ -183,6 +183,20 @@ export const categoryIntroData: Record<string, CategoryIntroContent> = {
     paragraph2:
       "These boxes come in standard square, rectangular, and custom shapes, suitable for different pizza sizes and branding goals. Each one is strong enough to hold hot pizzas securely without bending or leaking.",
   },
+  "mylar-boxes": {
+    title: "What Are Mylar Bags?",
+    paragraph1:
+      "Mylar bags are airtight, flexible packaging bags designed to preserve freshness and protect products from air exposure, moisture, UV light, and contamination. They are widely used for food storage, retail packaging, and long-term product protection.",
+    paragraph2:
+      "Available in stand-up bags, flat pouches, resealable bags, and heat-sealable packets, Mylar bags create secure, professional, and shelf-ready packaging for brands across food, wellness, and household categories.",
+  },
+  "shopping-bags": {
+    title: "What Are Shopping Bags?",
+    paragraph1:
+      "Shopping bags are protective packaging containers designed to keep products safe during transport, storage, and delivery. They shield items from impact, scratching, and compression while providing a clean, organized look for brands that ship nationwide or worldwide.",
+    paragraph2:
+      "These bags come in many styles, including kraft paper bags, recycled paper bags, PVC bags, and heavy-duty reusable bags. Each type offers strong structure and versatile use across industries.",
+  },
 };
 
 export default categoryIntroData;

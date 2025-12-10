@@ -355,6 +355,34 @@ export const categoryMaterialData: Record<string, CategoryMaterialContent> = {
       "Ventilated Designs for moisture release and crisp texture",
     ],
   },
+  "mylar-boxes": {
+    title: "Which Material Is Used in Mylar Bags?",
+    paragraph1:
+      "Our Mylar Bags are made from high-quality laminated films that create powerful barrier protection. These materials maintain freshness, stabilize aroma, and prevent leaks or damage.",
+    paragraph2:
+      "Every material is selected to support safety, durability, and high-end presentation.",
+    features: [
+      "PET (Polyester Film) for durability and print clarity",
+      "VMPET (Metalized Polyester) for strong oxygen and moisture resistance",
+      "Kraft-Laminated Mylar for eco-friendly Mylar Bags",
+      "PE (Polyethylene) for food-safe sealing and flexibility",
+      "Holographic and Metallic Films for premium designs",
+    ],
+  },
+  "shopping-bags": {
+    title: "Which Material Is Used in Shopping Bags?",
+    paragraph1:
+      "Our shopping bags are made from premium kraft paper, recycled paperboard, and heavy-duty materials to ensure maximum protection. These materials are designed to resist tearing, absorb weight, and handle repeated use.",
+    paragraph2:
+      "Each material is selected to deliver strong protection while supporting clean printing and sustainable packaging goals.",
+    features: [
+      "Kraft Paper for lightweight and eco-friendly shopping bags",
+      "Recycled Paperboard for mid to heavy items and sustainability",
+      "PVC (Polyvinyl Chloride) for industrial and water-resistant bags",
+      "Kraft Paperboard for eco-friendly and natural packaging",
+      "Reinforced Handles and Coatings for durability and transit resistance",
+    ],
+  },
 };
 
 export default categoryMaterialData;

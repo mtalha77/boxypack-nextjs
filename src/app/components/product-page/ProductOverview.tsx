@@ -535,7 +535,15 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productData, category
     return [];
   }
 
-  const overviewImages: string[] = resolveImagesByName(name);
+  const resolvedImages = resolveImagesByName(name);
+  // Ensure we always have at least 3 images for the 3 paragraphs
+  const overviewImages: string[] = (() => {
+    if (resolvedImages.length < 3 && resolvedImages.length > 0) {
+      const firstImage = resolvedImages[0];
+      return [...resolvedImages, ...Array(3 - resolvedImages.length).fill(firstImage)];
+    }
+    return resolvedImages;
+  })();
   const cloudName =
     process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME ?? "du5lyrqvz";
   const buildCldUrl = (publicId: string) =>

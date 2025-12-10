@@ -9,6 +9,7 @@ import { productByIndustryData } from '../data/productByIndustryData';
 import { mylarBoxesData } from '../data/mylarBoxesData';
 import { shoppingBagsData } from '../data/shoppingBagsData';
 import { otherData } from '../data/otherData';
+import { customDimensionsData } from '../data/customDimensionsData';
 import { useRouter } from 'next/navigation';
 import { useCart } from '../contexts/CartContext';
 
@@ -16,13 +17,27 @@ interface CustomDimensionsFormProps {
   onDesignNow?: () => void;
   initialProductSlug?: string; // Add prop for initial product selection
   initialCategorySlug?: string; // Add prop for initial category selection
+  productSlug?: string; // Product slug for getting custom title/description
 }
 
 const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   onDesignNow,
   initialProductSlug,
-  initialCategorySlug
+  initialCategorySlug,
+  productSlug
 }) => {
+  // Get custom title and description based on product slug
+  const getCustomDimensionsContent = () => {
+    if (productSlug && customDimensionsData[productSlug]) {
+      return customDimensionsData[productSlug];
+    }
+    if (initialCategorySlug && customDimensionsData[initialCategorySlug]) {
+      return customDimensionsData[initialCategorySlug];
+    }
+    return customDimensionsData["default"];
+  };
+
+  const dimensionsContent = getCustomDimensionsContent();
   const router = useRouter();
   const [selectedMaterial, setSelectedMaterial] = useState('rigid-boxes');
   const [selectedProduct, setSelectedProduct] = useState('');
@@ -701,10 +716,10 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
             {/* Header Section */}
             <div className="text-left">
               <h2 className="text-h2 text-[#0c6b76] mb-4" id="subcategories-heading">
-                Customize Your Packaging
+                {dimensionsContent.title}
               </h2>
               <p className="text-lg text-gray-600">
-              Pick your box type, set dimensions, add finishes, and order fast. Get bespoke packaging boxes made to fit your brand without any issue.
+                {dimensionsContent.description}
               </p>
             </div>
             

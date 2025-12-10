@@ -18,7 +18,7 @@ export interface MylarBoxCategory {
 export const mylarBoxesData: MylarBoxCategory = {
   name: "Mylar Boxes",
   slug: "mylar-boxes",
-  description: "Premium mylar packaging solutions with excellent barrier properties and durability for various products",
+  description: "We supply Mylar pouch packaging in countless designs, including stand-up bags, resealable Mylar bags, flat barrier bags, coffee pouches, spice pouches, snack bags, and heat-sealable storage packets. Each pouch can be customized with logos, colors, window cuts, and finish options. Whether for food, herbs, supplements, or retail goods, BoxyPack ensures your packaging performs and impresses.",
   image: "products-box-img_x8vu4b",
   subcategoriesCount: 3,
   modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",

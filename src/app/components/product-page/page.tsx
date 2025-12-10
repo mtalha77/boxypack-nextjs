@@ -488,6 +488,13 @@ const ProductPageTemplate: React.FC<ProductPageTemplateProps> = ({
               ? category.slug
               : undefined
           }
+          productSlug={
+            pageType === "category" && category
+              ? category.slug
+              : pageType === "subcategory" && subcategory
+              ? subcategory.slug
+              : slug
+          }
         />
 
         {/* Product Overview */}

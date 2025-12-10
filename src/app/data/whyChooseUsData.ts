@@ -7258,6 +7258,37 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
       "We create Mylar packaging that keeps your products fresh and your brand memorable.",
   },
 
+  // Mylar Boxes Category
+  "mylar-boxes": {
+    eyebrow: "Why Choose Our Mylar Bag",
+    heading: "At BoxyPack, protection meets presentation. Our high-quality Mylar Bags make your products safer, fresher, and more visually appealing.",
+    description: "",
+    features: [
+      {
+        icon: "shield",
+        title: "Superior Barrier",
+        description: "Blocks moisture, air, UV light, and odors.",
+      },
+      {
+        icon: "check",
+        title: "Eco-Friendly Choices",
+        description: "Recyclable and kraft-laminated pouch options.",
+      },
+      {
+        icon: "star",
+        title: "Full Customization",
+        description: "Add custom logos, graphics, colors, and finishes.",
+      },
+      {
+        icon: "palette",
+        title: "Competitive Pricing",
+        description: "Affordable Mylar Bag price for wholesale orders.",
+      },
+    ],
+    closingDescription:
+      "We create Mylar packaging that keeps your products fresh and your brand memorable.",
+  },
+
   // Mylar Pouches Subcategories
   "stand-up-pouches": {
     eyebrow: "Why Choose Our Stand Up Pouches",
@@ -7288,8 +7319,68 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
     closingDescription:
       "Our stand up pouches ensure every product remains fresh, protected, and displayed with high retail appeal.",
   },
+
+  "stand-up-pouche": {
+    eyebrow: "Why Choose Our Stand Up Pouches",
+    heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
+    description: "",
+    features: [
+      {
+        icon: "shield",
+        title: "Heavy-Duty Strength",
+        description: "Multi-layer barrier films protect items from moisture and air.",
+      },
+      {
+        icon: "check",
+        title: "Brand-Ready Printing",
+        description: "Full-wrap artwork and colors enhance shelf impact.",
+      },
+      {
+        icon: "star",
+        title: "Eco-Friendly Options",
+        description: "Recyclable and kraft pouches available.",
+      },
+      {
+        icon: "palette",
+        title: "Versatile Use",
+        description: "Ideal for snacks, coffee, cannabis, powders, gummies, herbs, and more.",
+      },
+    ],
+    closingDescription:
+      "Our stand up pouches ensure every product remains fresh, protected, and displayed with high retail appeal.",
+  },
   
   "zipper-bags": {
+    eyebrow: "Why Choose Our Zipper Bags",
+    heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
+    description: "",
+    features: [
+      {
+        icon: "shield",
+        title: "Heavy-Duty Strength",
+        description: "Multi-layer films protect contents from moisture and air.",
+      },
+      {
+        icon: "check",
+        title: "Brand-Ready Printing",
+        description: "Full-wrap artwork enhances shelf presence and customer appeal.",
+      },
+      {
+        icon: "star",
+        title: "Eco-Friendly Options",
+        description: "Recyclable and kraft zipper bags available.",
+      },
+      {
+        icon: "palette",
+        title: "Versatile Use",
+        description: "Ideal for snacks, coffee, herbs, gummies, supplements, and cannabis.",
+      },
+    ],
+    closingDescription:
+      "Our zipper bag packaging ensures every product stays fresh, secure, and visually appealing.",
+  },
+
+  "zipper-bag": {
     eyebrow: "Why Choose Our Zipper Bags",
     heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
     description: "",
@@ -7349,6 +7440,36 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
       "Our window bag packaging ensures every product stays fresh, visible, and ready for display.",
   },
 
+  "window-bag": {
+    eyebrow: "Why Choose Our Window Bags",
+    heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
+    description: "",
+    features: [
+      {
+        icon: "shield",
+        title: "Heavy-Duty Strength",
+        description: "Multi-layer films protect items from moisture and air.",
+      },
+      {
+        icon: "check",
+        title: "Brand-Ready Printing",
+        description: "Full-wrap artwork and window cutouts enhance retail impact.",
+      },
+      {
+        icon: "star",
+        title: "Eco-Friendly Options",
+        description: "Recyclable and kraft window bags available.",
+      },
+      {
+        icon: "palette",
+        title: "Versatile Use",
+        description: "Ideal for snacks, cookies, coffee, herbs, powders, tea, and wellness goods.",
+      },
+    ],
+    closingDescription:
+      "Our window bag packaging ensures every product stays fresh, visible, and ready for display.",
+  },
+  
   // Shopping Bags Category
   "shopping-bags": {
     eyebrow: "Why Choose Our Shopping Bags",
@@ -7410,8 +7531,68 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
     closingDescription:
       "Our kraft shopping bags ensure your customers enjoy strong, sustainable, and stylish carry-out packaging.",
   },
+
+  "kraft-shopping-bag": {
+    eyebrow: "Why Choose Our Kraft Shopping Bags",
+    heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
+    description: "",
+    features: [
+      {
+        icon: "shield",
+        title: "Heavy-Duty Strength",
+        description: "Reinforced kraft construction supports retail and grocery items.",
+      },
+      {
+        icon: "check",
+        title: "Brand-Ready Printing",
+        description: "Showcase logos, artwork, and store branding with clarity.",
+      },
+      {
+        icon: "star",
+        title: "Eco-Friendly Options",
+        description: "Recyclable and biodegradable kraft bags available.",
+      },
+      {
+        icon: "palette",
+        title: "Versatile Use",
+        description: "Ideal for retail stores, gifts, groceries, apparel, beauty products, and bakery items.",
+      },
+    ],
+    closingDescription:
+      "Our kraft shopping bags ensure your customers enjoy strong, sustainable, and stylish carry-out packaging.",
+  },
   
   "paper-bags": {
+    eyebrow: "Why Choose Our Paper Bags",
+    heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
+    description: "",
+    features: [
+      {
+        icon: "shield",
+        title: "Heavy-Duty Strength",
+        description: "Reinforced paper materials support retail and grocery items.",
+      },
+      {
+        icon: "check",
+        title: "Brand-Ready Printing",
+        description: "Showcase logos, patterns, and branding elements with clarity.",
+      },
+      {
+        icon: "star",
+        title: "Eco-Friendly Options",
+        description: "Recyclable and biodegradable paper bags available.",
+      },
+      {
+        icon: "palette",
+        title: "Versatile Use",
+        description: "Perfect for retail stores, events, groceries, gifts, cosmetics, and apparel.",
+      },
+    ],
+    closingDescription:
+      "Our paper bag packaging ensures your customers enjoy clean, strong, and sustainable carry-out solutions.",
+  },
+
+  "paper-bag": {
     eyebrow: "Why Choose Our Paper Bags",
     heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
     description: "",
@@ -7471,6 +7652,36 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
       "Our PVC bags ensure your products look premium, protected, and ready for display.",
   },
 
+  "pvc-bag": {
+    eyebrow: "Why Choose Our PVC Bags",
+    heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
+    description: "",
+    features: [
+      {
+        icon: "shield",
+        title: "Heavy-Duty Strength",
+        description: "Reinforced PVC protects items from dust, moisture, and handling.",
+      },
+      {
+        icon: "check",
+        title: "Brand-Ready Printing",
+        description: "Showcase logos and artwork clearly on transparent surfaces.",
+      },
+      {
+        icon: "star",
+        title: "Eco-Friendly Options",
+        description: "Recyclable PVC material options available.",
+      },
+      {
+        icon: "palette",
+        title: "Versatile Use",
+        description: "Ideal for cosmetics, apparel, travel kits, accessories, and promotional goods.",
+      },
+    ],
+    closingDescription:
+      "Our PVC bags ensure your products look premium, protected, and ready for display.",
+  },
+
   // Other/Printing Services Category
   "other": {
     eyebrow: "Why Choose Our Printing Services",
@@ -7500,6 +7711,37 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
     ],
     closingDescription:
       "We help your brand communicate professionally with printing that matches your quality standards.",
+  },
+
+  // Other/Printing Services Subcategories
+  "tags-printing": {
+    eyebrow: "Why Choose Our Tags Printing",
+    heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
+    description: "",
+    features: [
+      {
+        icon: "shield",
+        title: "Heavy-Duty Strength",
+        description: "Premium cardstock and reinforced punch holes increase tag life.",
+      },
+      {
+        icon: "check",
+        title: "Brand-Ready Printing",
+        description: "Vivid full-color printing highlights logos and product details.",
+      },
+      {
+        icon: "star",
+        title: "Eco-Friendly Options",
+        description: "Kraft and recyclable tag materials available.",
+      },
+      {
+        icon: "palette",
+        title: "Versatile Use",
+        description: "Ideal for apparel, accessories, handmade goods, retail packaging, and gifts.",
+      },
+    ],
+    closingDescription:
+      "Our tags printing ensures every product looks branded, polished, and ready for retail display.",
   },
 
   // Other/Printing Services Subcategories
