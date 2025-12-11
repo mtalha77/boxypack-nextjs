@@ -4,13 +4,13 @@ import { navigationData } from '../../../data/navigationData';
 import ProductPageTemplate from '../../../components/product-page/page';
 
 export const metadata: Metadata = {
-  title: 'Custom Vape Boxes | Premium E-Cigarette Packaging',
-  description: 'Boxy Pack delivers premium custom vape boxes with fast turnaround, free shipping, and stylish design to enhance your e-cigarette product presentation. Order Now.',
+  title: 'Custom Vape And E-Cigarette Boxes | Premium Packaging',
+  description: 'Boxy Pack delivers premium custom vape and e-cigarette boxes with fast turnaround, free shipping, and stylish design to enhance your e-cigarette product presentation. Order Now.',
 };
 
-const VapeBoxesPage = () => {
+const VapeAndECigaretteBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');
-  const category = section?.categories?.find(c => c.slug === 'vape-boxes');
+  const category = section?.categories?.find(c => c.slug === 'vape-and-e-cigarette-boxes');
   
   if (!section || !category) {
     return <div>Category not found</div>;
@@ -20,10 +20,10 @@ const VapeBoxesPage = () => {
     <ProductPageTemplate
       section={section}
       category={category}
-      slug="vape-boxes"
+      slug="vape-and-e-cigarette-boxes"
       pageType="category"
     />
   );
 };
 
-export default VapeBoxesPage;
+export default VapeAndECigaretteBoxesPage;

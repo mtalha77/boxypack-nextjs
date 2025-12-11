@@ -4,14 +4,14 @@ import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
 
 export const metadata: Metadata = {
-  title: 'Vape Cartridge Boxes | Premium Stylish Packaging',
-  description: 'Boxy Pack delivers premium vape cartridge boxes with fast turnaround, free shipping, and elegant design for safe and attractive e-cigarette product display. Order Now.',
+  title: 'Disposable Vape Boxes | Premium Packaging Solutions',
+  description: 'Boxy Pack delivers premium disposable vape boxes with fast turnaround, free shipping, and sturdy design for safe and attractive e-cigarette packaging. Order Now.',
 };
 
-const VapeCartridgePackagingPage = () => {
+const DisposableVapePackagingPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');
-  const category = section?.categories?.find(c => c.slug === 'vape-boxes');
-  const subcategory = category?.subcategories.find(sc => sc.slug === 'vape-cartridge-packaging');
+  const category = section?.categories?.find(c => c.slug === 'vape-and-e-cigarette-boxes');
+  const subcategory = category?.subcategories.find(sc => sc.slug === 'disposable-vape-packaging');
   
   if (!section || !category || !subcategory) {
     return <div>Subcategory not found</div>;
@@ -22,10 +22,10 @@ const VapeCartridgePackagingPage = () => {
       section={section}
       category={category}
       subcategory={subcategory}
-      slug="vape-cartridge-packaging"
+      slug="disposable-vape-packaging"
       pageType="subcategory"
     />
   );
 };
 
-export default VapeCartridgePackagingPage;
+export default DisposableVapePackagingPage;

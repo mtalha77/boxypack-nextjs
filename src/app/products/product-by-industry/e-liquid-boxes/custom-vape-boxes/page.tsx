@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const CustomVapeBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');
-  const category = section?.categories?.find(c => c.slug === 'e-liquid-boxes');
+  const category = section?.categories?.find(c => c.slug === 'vape-and-e-cigarette-boxes');
   const subcategory = category?.subcategories.find(sc => sc.slug === 'custom-vape-boxes');
   
   if (!section || !category || !subcategory) {

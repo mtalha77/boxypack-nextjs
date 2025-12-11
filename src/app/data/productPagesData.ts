@@ -874,7 +874,12 @@ const rawProductData: Record<string, RawProductEntry> = {
     name: "Retail Boxes",
     description:
       "Smart, versatile, and brand-forward. Buy retail boxes wholesale for modern retail packaging that protects products and elevates your brand presence.",
-    heroImage: "Box-5_pdb8xw",
+    heroImage: "Custom-Mailer-Boxes_niy6ah",
+    images: [
+      "Custom-Mailer-Boxes-1_jfnuhy",
+      "Custom-Mailer-Boxes-2_hdwhqd",
+      "Custom-Mailer-Boxes-3_cab0ct",
+    ],
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("retail-boxes")
     keyFeatures: [
@@ -1513,17 +1518,22 @@ const rawProductData: Record<string, RawProductEntry> = {
     },
   },
 
-  // Industry Main Category: Vape Boxes
-  "vape-boxes": {
-    name: "Vape Boxes",
+  // Industry Main Category: Vape And E-Cigarette Boxes
+  "vape-and-e-cigarette-boxes": {
+    name: "Vape And E-Cigarette Boxes",
     description:
-      "Modern, protective, and perfectly designed. Buy vape boxes wholesale for vape product packaging that protects devices and showcases your brand.",
-    heroImage: "Box-5_pdb8xw",
+      "Modern, protective, and perfectly designed. Buy vape and e-cigarette boxes wholesale for vape and e-cigarette product packaging that protects devices, cartridges, and e-liquid bottles while showcasing your brand.",
+    heroImage: "Custom-Vape-Boxes_buyp9b",
+    images: [
+      "Custom-Vape-Boxes-1_lolxjr",
+      "Custom-Vape-Boxes-2_ya2agr",
+      "Custom-Vape-Boxes-3_kotist",
+    ],
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
-    // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("vape-boxes")
+    // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("vape-and-e-cigarette-boxes")
     keyFeatures: [
           "Strong and durable cardboard for device, pod, and cartridge protection",
-          "Ideal for vape pens, disposables, cartridges, and starter kits",
+          "Ideal for vape pens, disposables, cartridges, e-liquid bottles, and starter kits",
           "Eco-friendly and recyclable packaging options",
           "Matte, gloss, or soft-touch finishes available",
           "Foil stamping, embossing, spot UV, and full-color printing"
@@ -1562,23 +1572,23 @@ const rawProductData: Record<string, RawProductEntry> = {
     },
     overview: {
       heading: "Product Overview",
-      title: "Vape Box",
+      title: "Vape And E-Cigarette Boxes",
       paragraphs: [
-        "Our vape boxes combine protection, precision, and premium visual appeal. Made from rigid paperboard or durable corrugated material, they shield vape pens, cartridges, mods, and disposables from impact, heat, and contamination while presenting them in a clean, professional style. Designed for vape stores, online retailers, and gifting needs, these boxes balance safety with aesthetics.",
-        "At BoxyPack, we create custom vape boxes that match your brand identity. Choose from slide-drawer, magnetic, or tuck-end styles for cartridge packaging or full device kits. Every box is built for long-lasting structure, smooth assembly, and a high-quality finish.",
-        "As a trusted printed vape packaging supplier, we offer eco-friendly materials, vivid printing, and competitive vape boxes wholesale rates. Whether you need small unit boxes or premium vape gift boxes, our solutions offer reliability, style, and value at the best vape boxes price.",
+        "Our vape and e-cigarette boxes combine protection, precision, and premium visual appeal. Made from rigid paperboard or durable corrugated material, they shield vape pens, cartridges, mods, disposables, and e-liquid bottles from impact, heat, and contamination while presenting them in a clean, professional style. Designed for vape stores, online retailers, and gifting needs, these boxes balance safety with aesthetics.",
+        "At BoxyPack, we create custom vape and e-cigarette boxes that match your brand identity. Choose from slide-drawer, magnetic, or tuck-end styles for cartridge packaging, e-liquid bottles, or full device kits. Every box is built for long-lasting structure, smooth assembly, and a high-quality finish.",
+        "As a trusted printed vape and e-cigarette packaging supplier, we offer eco-friendly materials, vivid printing, and competitive vape and e-cigarette boxes wholesale rates. Whether you need small unit boxes or premium vape gift boxes, our solutions offer reliability, style, and value at the best vape and e-cigarette boxes price.",
       ],
     },
-    faq: buildFaq("Vape Boxes", [
+    faq: buildFaq("Vape And E-Cigarette Boxes", [
           {
-            question: "What materials do you use for vape boxes?",
+            question: "What materials do you use for vape and e-cigarette boxes?",
             answer:
               "We offer rigid paperboard, kraft, and corrugated cardboard to ensure durability and clean presentation.",
           },
           {
-            question: "Can I get boxes for different vape products?",
+            question: "Can I get boxes for different vape products and e-liquids?",
             answer:
-              "Yes, we design packaging for cartridges, pens, disposables, pods, tanks, and full kits.",
+              "Yes, we design packaging for cartridges, pens, disposables, pods, tanks, e-liquid bottles, and full kits.",
           },
           {
             question: "Do you print logos and full artwork?",
@@ -1586,12 +1596,12 @@ const rawProductData: Record<string, RawProductEntry> = {
               "Absolutely. We offer full-color printing, embossing, foil stamping, and more.",
           },
           {
-            question: "Do you offer vape gift boxes wholesale?",
+            question: "Do you offer vape and e-cigarette gift boxes wholesale?",
             answer:
               "Yes, bulk quantities come with discounted wholesale rates.",
           },
           {
-            question: "Are these vape packaging boxes eco-friendly?",
+            question: "Are these vape and e-cigarette packaging boxes eco-friendly?",
             answer:
               "Yes, all materials are recyclable and sourced responsibly.",
           }
@@ -1599,99 +1609,7 @@ const rawProductData: Record<string, RawProductEntry> = {
     cta: {
       title: "Modern Packaging for Modern Brands",
       description:
-        "Get in touch with BoxyPack today for custom vape boxes that protect and promote your vape products with style. Our packaging experts are ready to design the perfect solution for your vape brand. Contact us now to place your bulk order and make every product look professional.",
-    },
-  },
-
-  // Industry Main Category: E-liquid Boxes
-  "e-liquid-boxes": {
-    name: "E-liquid Boxes",
-    description:
-      "Trendy, protective, and perfectly designed. Buy e-liquid boxes wholesale for e-juice product packaging that protects bottles and showcases your brand.",
-    heroImage: "Box-6_vm3fmh",
-    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
-    // Subcategory cards will be auto-built from navigation using buildSubcategoryCards("e-liquid-boxes")
-    keyFeatures: [
-      "Durable construction for e-liquid bottle protection",
-      "Custom printing for logos and brand identity",
-      "Multiple sizes for various bottle types",
-      "Eco-friendly and recyclable packaging options",
-      "Compliant with packaging regulations",
-      "Window and display options for product visibility",
-      "Perfect for e-liquid brands, vape retailers, and e-juice manufacturers",
-    ],
-    customization: {
-      details: [
-        {
-          label: "Material Type",
-          value: "Cardboard, kraft paperboard, or rigid board",
-        },
-        {
-          label: "Structure",
-          value: "Tuck-end, magnetic closure, lift-off lid, or mailer style",
-        },
-        {
-          label: "Thickness",
-          value: "14 pt / 16 pt / 18 pt / 2.0–3.0 mm rigid",
-        },
-        {
-          label: "Finish",
-          value: "Matte, gloss, soft-touch lamination, or uncoated",
-        },
-        {
-          label: "Printing",
-          value: "Inside, Outside, or Both",
-        },
-        {
-          label: "Dimensions (L x W x H)",
-          value: "e.g., 6 × 4 × 2",
-        },
-        {
-          label: "Quantity",
-          value: "250 units (Bulk discounts available)",
-        },
-      ],
-    },
-    overview: {
-      heading: "Product Overview",
-      title: "Custom E-liquid Boxes Wholesale",
-      paragraphs: [
-        "Our e-liquid boxes are designed to protect and showcase e-juice products and bottles while maintaining brand presence and regulatory compliance. Whether you're packaging e-liquid bottles, gift sets, or display collections, these boxes combine durable construction with attractive presentation. Each box ensures your e-liquid products arrive safely while creating a professional appearance that customers trust.",
-        "At BoxyPack, we craft custom e-liquid boxes wholesale that match your brand's identity and product needs. From printed bottle boxes to gift sets, we tailor every box for your products and audience. Our designs help you stand out on shelves with trendy finishes and thoughtful details.",
-        "As an e-liquid boxes supplier, we deliver superior quality, durable structure, and compliant designs at a competitive e-liquid boxes price that fits small retailers and large e-liquid brands alike.",
-      ],
-    },
-    faq: buildFaq("E-liquid Boxes", [
-      {
-        question: "What are e-liquid boxes used for?",
-        answer:
-          "They're used for packaging e-liquid bottles, e-juice products, and collections for retail sale, gifting, and brand presentation.",
-      },
-      {
-        question: "Can I customize e-liquid boxes with my brand logo?",
-        answer:
-          "Yes, BoxyPack provides full-color printing for custom e-liquid boxes wholesale with your logo and branding.",
-      },
-      {
-        question: "Are e-liquid boxes compliant with regulations?",
-        answer:
-          "Yes, we ensure our e-liquid boxes meet packaging regulations and requirements for e-liquid products.",
-      },
-      {
-        question: "Do you sell e-liquid boxes in bulk?",
-        answer:
-          "Absolutely, you can buy e-liquid boxes online in bulk at discounted wholesale rates.",
-      },
-      {
-        question: "What determines the e-liquid boxes price?",
-        answer:
-          "Pricing depends on size, material type, printing complexity, finish options, and order quantity.",
-      },
-    ]),
-    cta: {
-      title: "Trendy Packaging for E-juice Collections",
-      description:
-        "Get in touch with BoxyPack today for custom e-liquid boxes that protect and promote your e-juice products with style. Our packaging experts are ready to design the perfect solution for your e-liquid brand. Contact us now to place your bulk order and make every product look professional.",
+        "Get in touch with BoxyPack today for custom vape and e-cigarette boxes that protect and promote your vape products with style. Our packaging experts are ready to design the perfect solution for your vape brand. Contact us now to place your bulk order and make every product look professional.",
     },
   },
 
@@ -18472,11 +18390,11 @@ const rawProductData: Record<string, RawProductEntry> = {
     },
   },
 
-  // Subcategory: E-liquid Bottle Boxes
+  // Subcategory: E-Liquid Boxes
   "e-liquid-bottle-boxes": {
-    name: "E-liquid Bottle Box",
+    name: "E-Liquid Box",
     description:
-      "Protective, compact, and perfectly sized. Buy e-liquid bottle boxes online for e-liquid bottle packaging that keeps bottles safe and beautifully presented.",
+      "Protective, compact, and perfectly sized. Buy E-Liquid boxes online for e-liquid bottle packaging that keeps bottles safe and beautifully presented.",
     heroImage: "products-box-img_x8vu4b",
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     keyFeatures: [
@@ -18521,14 +18439,14 @@ const rawProductData: Record<string, RawProductEntry> = {
     },
     overview: {
       heading: "Product Overview",
-      title: "E-liquid Bottle Box",
+      title: "E-Liquid Box",
       paragraphs: [
-        "Our e-liquid bottle boxes are engineered for precision, strength, and clean branding. Made from premium paperboard, rigid board, or durable kraft stock, these boxes protect e-liquid bottles from damage, leaks, and sunlight while offering a professional, high-end appearance. Ideal for vape brands, e-juice manufacturers, online sellers, dispensaries, and retail shops, these boxes blend protection with eye-catching design.",
-        "At BoxyPack, we produce printed e-liquid bottle boxes tailored to bottle sizes, flavor lines, compliance needs, and branding styles. Choose from tuck-end boxes, window boxes, rigid cartons, display packaging, or corrugated mailers. Each option ensures crisp edges, perfect bottle fit, and vibrant printing for 10ml, 30ml, 60ml, and 120ml e-liquid bottles.",
-        "As a trusted custom e-liquid bottle boxes wholesale supplier, we deliver eco-friendly materials, superior print finishes, and competitive e-liquid bottle boxes price options. Whether packaging single bottles, multi-flavor packs, or promotional sets, our boxes ensure safety, compliance, and striking presentation.",
+        "Our E-Liquid boxes are engineered for precision, strength, and clean branding. Made from premium paperboard, rigid board, or durable kraft stock, these boxes protect e-liquid bottles from damage, leaks, and sunlight while offering a professional, high-end appearance. Ideal for vape brands, e-juice manufacturers, online sellers, dispensaries, and retail shops, these boxes blend protection with eye-catching design.",
+        "At BoxyPack, we produce printed E-Liquid boxes tailored to bottle sizes, flavor lines, compliance needs, and branding styles. Choose from tuck-end boxes, window boxes, rigid cartons, display packaging, or corrugated mailers. Each option ensures crisp edges, perfect bottle fit, and vibrant printing for 10ml, 30ml, 60ml, and 120ml e-liquid bottles.",
+        "As a trusted custom E-Liquid boxes wholesale supplier, we deliver eco-friendly materials, superior print finishes, and competitive E-Liquid boxes price options. Whether packaging single bottles, multi-flavor packs, or promotional sets, our boxes ensure safety, compliance, and striking presentation.",
       ],
     },
-    faq: buildFaq("E-liquid Bottle Box", [
+    faq: buildFaq("E-Liquid Box", [
           {
             question: "What materials are used for e-liquid bottle packaging boxes?",
             answer:
@@ -18558,7 +18476,7 @@ const rawProductData: Record<string, RawProductEntry> = {
     cta: {
       title: "Perfect Fit for Perfect Flavors",
       description:
-        "Partner with BoxyPack to create e-liquid bottle boxes that protect your bottles and showcase your brand. Our packaging experts ensure every box maintains the perfect fit and presents your e-liquids with style.",
+        "Partner with BoxyPack to create E-Liquid boxes that protect your bottles and showcase your brand. Our packaging experts ensure every box maintains the perfect fit and presents your e-liquids with style.",
     },
   },
 
@@ -20335,7 +20253,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       ],
     },
     faq: buildFaq("Custom Chocolate Box", [
-      {
+          {
         question: "What materials do you use for custom chocolate boxes?",
             answer:
               "We use food-safe paperboard, rigid cardboard, and eco-friendly Kraft materials.",
@@ -20972,7 +20890,7 @@ const rawProductData: Record<string, RawProductEntry> = {
       ],
     },
     faq: buildFaq("Custom Cereal Box", [
-      {
+          {
         question: "What materials do you use for custom cereal boxes?",
             answer:
               "We use food-grade paperboard, kraft, premium cardstock, and recycled board.",

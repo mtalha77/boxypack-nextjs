@@ -127,19 +127,12 @@ export const categoryIntroData: Record<string, CategoryIntroContent> = {
     paragraph2:
       "These boxes enhance brand image through professional printing and structured layouts that build trust with consumers. Available in tuck-end, sleeve, or display box formats, each design adds value and compliance to your retail presentation.",
   },
-  "vape-boxes": {
-    title: "What Are Vape Boxes?",
+  "vape-and-e-cigarette-boxes": {
+    title: "What Are Vape And E-Cigarette Boxes?",
     paragraph1:
-      "Vape boxes are specialized packaging designed to protect and promote vape products safely. They help brands display e-liquids, cartridges, and devices attractively while meeting labeling and safety standards.",
+      "Vape and e-cigarette boxes are specialized packaging designed to protect and promote vape products safely. They help brands display e-liquids, cartridges, and devices attractively while meeting labeling and safety standards.",
     paragraph2:
-      "Available in folding cartons, sleeve boxes, magnetic closures, and display styles, vape boxes make your products stand out on shelves. Each design combines protection, convenience, and brand recognition to attract buyers and build loyalty.",
-  },
-  "e-liquid-boxes": {
-    title: "What Are E-liquid Boxes?",
-    paragraph1:
-      "E-liquid boxes are specialized packaging containers designed to store and present vape juice bottles safely. They protect bottles from leaks, breakage, and sunlight while giving brands a polished and professional look on shelves.",
-    paragraph2:
-      "These boxes come in styles such as tuck-end cartons, sleeve boxes, window boxes, and rigid luxury packaging. Each style supports detailed printing and regulatory requirements, making them essential for vape and e-juice businesses.",
+      "Available in folding cartons, sleeve boxes, magnetic closures, and display styles, vape and e-cigarette boxes make your products stand out on shelves. Each design combines protection, convenience, and brand recognition to attract buyers and build loyalty.",
   },
   "stationery-boxes": {
     title: "What Are Stationery Boxes?",

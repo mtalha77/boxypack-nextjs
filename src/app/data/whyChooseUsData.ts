@@ -4120,9 +4120,9 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
       "Our sock boxes add a professional edge to your brand, ensuring every pair arrives in style and condition.",
   },
 
-  // Vape Boxes Category
-  "vape-boxes": {
-    eyebrow: "Why Choose Our Vape Boxes",
+  // Vape And E-Cigarette Boxes Category
+  "vape-and-e-cigarette-boxes": {
+    eyebrow: "Why Choose Our Vape And E-Cigarette Boxes",
     heading: "At BoxyPack, presentation meets performance. Our luxury vape packaging boxes give your products the protection they need with a design that enhances brand identity.",
     description: "",
     features: [
@@ -5241,40 +5241,9 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
       "Our football packaging boxes provide the ideal mix of protection, branding, and sports-focused presentation.",
   },
 
-  // E-liquid Boxes Category
-  "e-liquid-boxes": {
-    eyebrow: "Why Choose Our E-liquid Boxes",
-    heading: "At BoxyPack, safety meets style. Our luxury e-liquid boxes combine protection, clean printing, and brand-ready design.",
-    description: "",
-    features: [
-      {
-        icon: "shield",
-        title: "Strong and Secure",
-        description: "Built to hold bottles firmly without leaks.",
-      },
-      {
-        icon: "check",
-        title: "Sustainable Options",
-        description: "Recyclable and eco-friendly packaging choices.",
-      },
-      {
-        icon: "star",
-        title: "Full Customization",
-        description: "Add logos, flavor names, warning labels, and artwork.",
-      },
-      {
-        icon: "palette",
-        title: "Affordable Rates",
-        description: "Competitive e-liquid boxes price for wholesale and bulk orders.",
-      },
-    ],
-    closingDescription:
-      "We help vape brands stand out with packaging that delivers trust and quality.",
-  },
-
-  // E-liquid Boxes Subcategories
+  // E-liquid Boxes Subcategories (now part of Vape And E-Cigarette Boxes)
   "e-liquid-bottle-boxes": {
-    eyebrow: "Why Choose Our E-liquid Bottle Box",
+    eyebrow: "Why Choose Our E-Liquid Box",
     heading: "BoxyPack blends durability, sharp design, and compliance-focused structure to elevate your vape packaging.",
     description: "",
     features: [

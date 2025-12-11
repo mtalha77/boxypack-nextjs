@@ -1309,11 +1309,11 @@ export const productByIndustryData: IndustryCategory[] = [
     ],
   },
   {
-    name: "Vape Boxes",
-    slug: "vape-boxes",
+    name: "Vape And E-Cigarette Boxes",
+    slug: "vape-and-e-cigarette-boxes",
     description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "Box-5_pdb8xw",
-    subcategoriesCount: 3,
+    subcategoriesCount: 6,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       { 
@@ -1342,20 +1342,10 @@ export const productByIndustryData: IndustryCategory[] = [
           "Disposable-Vape-Packaging-1_ahukzb",
           "Disposable-Vape-Packaging-2_tkdwuo",
           "Disposable-Vape-Packaging-3_jkkmh6",
-        ],
-      },
     ],
   },
   {
-    name: "E-liquid Boxes",
-    slug: "e-liquid-boxes",
-    description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
-    image: "Box-6_vm3fmh",
-    subcategoriesCount: 3,
-    modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
-    subcategories: [
-      {
-        name: "E-liquid Bottle Box",
+        name: "E-Liquid Box",
         slug: "e-liquid-bottle-boxes",
         heroImage: "E-Liquid-Bottle-Boxes_qflm5g",
         images: [

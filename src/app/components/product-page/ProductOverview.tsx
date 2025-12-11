@@ -116,6 +116,84 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productData, category
   }
 
   function resolveImagesByName(productName: string): string[] {
+    // Special handling for Retail Boxes - use Custom Mailer Box images (same as CustomDimensionsForm)
+    // Check this BEFORE explicitImages to ensure consistency
+    if (categorySlug === "retail-boxes") {
+      for (const category of productByIndustryData) {
+        if (category.slug === categorySlug) {
+          const customMailerBoxSubcategory = category.subcategories.find(
+            sub => sub.slug === "custom-mailer-boxes"
+          );
+          if (customMailerBoxSubcategory && Array.isArray(customMailerBoxSubcategory.images) && customMailerBoxSubcategory.images.length > 0) {
+            const images = [...customMailerBoxSubcategory.images];
+            const firstImage = images[0];
+            while (images.length < 3) {
+              images.push(firstImage);
+            }
+            return images.slice(0, 3);
+          }
+        }
+      }
+    }
+    
+    // Special handling for Vape And E-Cigarette Boxes - use Custom Vape Boxes images
+    if (categorySlug === "vape-and-e-cigarette-boxes" && !productSlug) {
+      for (const category of productByIndustryData) {
+        if (category.slug === categorySlug) {
+          const customVapeBoxesSubcategory = category.subcategories.find(
+            sub => sub.slug === "custom-vape-boxes"
+          );
+          if (customVapeBoxesSubcategory && Array.isArray(customVapeBoxesSubcategory.images) && customVapeBoxesSubcategory.images.length > 0) {
+            const images = [...customVapeBoxesSubcategory.images];
+            const firstImage = images[0];
+            while (images.length < 3) {
+              images.push(firstImage);
+            }
+            return images.slice(0, 3);
+          }
+        }
+      }
+    }
+    
+    // For main category pages, use first subcategory with images
+    // This matches CustomDimensionsForm logic exactly - ensures consistency
+    if (categorySlug && sectionSlug === 'product-by-industry') {
+      for (const category of productByIndustryData) {
+        if (category.slug === categorySlug) {
+          // Check if this is a main category page:
+          // - productSlug is empty/undefined, OR
+          // - productSlug matches categorySlug, OR
+          // - productSlug is NOT in the list of subcategory slugs (meaning it's the category itself)
+          const isMainCategoryPage = !productSlug || 
+            productSlug === categorySlug || 
+            !category.subcategories.some(sub => sub.slug === productSlug);
+          
+          if (isMainCategoryPage) {
+            // Find first subcategory with images or heroImage (same as CustomDimensionsForm)
+            const subcategoryWithImages = category.subcategories.find(sub => 
+              (sub.images && Array.isArray(sub.images) && sub.images.length > 0) || 
+              ('heroImage' in sub && sub.heroImage && typeof sub.heroImage === 'string')
+            );
+            if (subcategoryWithImages) {
+              // Prioritize images array over heroImage (same as CustomDimensionsForm)
+              if (subcategoryWithImages.images && Array.isArray(subcategoryWithImages.images) && subcategoryWithImages.images.length > 0) {
+                const images = [...subcategoryWithImages.images];
+                const firstImage = images[0];
+                while (images.length < 3) {
+                  images.push(firstImage);
+                }
+                return images.slice(0, 3);
+              } else if ('heroImage' in subcategoryWithImages && subcategoryWithImages.heroImage && typeof subcategoryWithImages.heroImage === 'string') {
+                // Use heroImage and pad to create array (same as CustomDimensionsForm)
+                const heroImg = subcategoryWithImages.heroImage as string;
+                return [heroImg, heroImg, heroImg];
+              }
+            }
+          }
+        }
+      }
+    }
+    
     if (
       explicitImages &&
       Array.isArray(explicitImages) &&
@@ -125,6 +203,26 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productData, category
     }
 
     const normalized = normalize(productName);
+    
+    // If we have a productSlug (subcategory page), try to find images by slug first
+    // This ensures subcategory pages use their own images, not the category default
+    if (productSlug && sectionSlug === 'product-by-industry' && categorySlug) {
+      for (const category of productByIndustryData) {
+        if (category.slug === categorySlug) {
+          const subcategory = category.subcategories.find(
+            sub => sub.slug === productSlug
+          );
+          if (subcategory && Array.isArray(subcategory.images) && subcategory.images.length > 0) {
+            const images = [...subcategory.images];
+            const firstImage = images[0];
+            while (images.length < 3) {
+              images.push(firstImage);
+            }
+            return images.slice(0, 3);
+          }
+        }
+      }
+    }
 
     // If categorySlug is provided, only search within that specific category
     if (categorySlug) {
@@ -177,7 +275,16 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productData, category
       else if (sectionSlug === 'product-by-industry') {
         for (const category of productByIndustryData) {
           if (category.slug === categorySlug) {
-            // First, try to find by slug if available (most accurate)
+            // Check if this is a main category page (productSlug matches categorySlug or is empty)
+            const isMainCategoryPage = !productSlug || productSlug === categorySlug;
+            
+            // For main category pages, use first subcategory with images (already handled above, but ensure we don't match by name)
+            if (isMainCategoryPage) {
+              // Skip name matching for main category pages - use first subcategory logic from above
+              continue;
+            }
+            
+            // For subcategory pages, try to find by slug first (most accurate)
             if (productSlug) {
               for (const sub of category.subcategories) {
                 if (sub.slug === productSlug && Array.isArray(sub.images) && sub.images.length > 0) {
@@ -356,6 +463,9 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productData, category
 
     // If this is a top-level "Product by Industry" category (e.g., E-liquid Boxes, Vape Boxes, etc.),
     // build an images array from that category's own subcategory images to avoid duplicates.
+    // Only apply this if we don't have a productSlug AND we haven't already handled it above
+    // Skip this if we have categorySlug and sectionSlug (already handled by main category logic above)
+    if (!productSlug && !(categorySlug && sectionSlug === 'product-by-industry')) {
     for (const category of productByIndustryData) {
       const categoryNorm = normalize(category.name);
       if (
@@ -363,36 +473,54 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productData, category
         categoryNorm.includes(normalized) ||
         normalized.includes(categoryNorm)
       ) {
-        const collected: string[] = [];
-        if (Array.isArray(category.subcategories)) {
-          for (const sub of category.subcategories) {
-            // Only use images array, not heroImage (heroImage is for hero section only)
-            if (Array.isArray(sub.images)) {
-              for (const img of sub.images) {
-                if (
-                  typeof img === "string" &&
-                  img &&
-                  !collected.includes(img)
-                ) {
-                  collected.push(img);
-                  if (collected.length >= 3) break;
-                }
+          // Special handling for Vape And E-Cigarette Boxes - use only Custom Vape Boxes images
+          if (category.slug === "vape-and-e-cigarette-boxes") {
+            const customVapeBoxesSubcategory = category.subcategories.find(
+              sub => sub.slug === "custom-vape-boxes"
+            );
+            if (customVapeBoxesSubcategory && Array.isArray(customVapeBoxesSubcategory.images) && customVapeBoxesSubcategory.images.length > 0) {
+              const images = [...customVapeBoxesSubcategory.images];
+              const firstImage = images[0];
+              while (images.length < 3) {
+                images.push(firstImage);
               }
+              return images.slice(0, 3);
             }
-            if (collected.length >= 3) break;
           }
-        }
-        // Fallback to category.image if we couldn't assemble 3 images
-        if (collected.length === 0 && category.image) {
-          collected.push(category.image);
-        }
-        while (collected.length < 3 && collected.length > 0) {
-          // pad with available images but avoid immediate duplicates when possible
-          const next = collected[collected.length - 1];
-          collected.push(next);
-        }
-        if (collected.length > 0) {
-          return collected.slice(0, 3);
+          
+          // Special handling for Retail Boxes - use only Custom Mailer Box images
+          if (category.slug === "retail-boxes") {
+            const customMailerBoxSubcategory = category.subcategories.find(
+              sub => sub.slug === "custom-mailer-boxes"
+            );
+            if (customMailerBoxSubcategory && Array.isArray(customMailerBoxSubcategory.images) && customMailerBoxSubcategory.images.length > 0) {
+              const images = [...customMailerBoxSubcategory.images];
+              const firstImage = images[0];
+              while (images.length < 3) {
+                images.push(firstImage);
+              }
+              return images.slice(0, 3);
+            }
+          }
+          
+          // For all other categories, use first subcategory with images (same as main category logic above)
+          const subcategoryWithImages = category.subcategories.find(sub => 
+            (sub.images && Array.isArray(sub.images) && sub.images.length > 0) || 
+            ('heroImage' in sub && sub.heroImage && typeof sub.heroImage === 'string')
+          );
+          if (subcategoryWithImages) {
+            if (subcategoryWithImages.images && Array.isArray(subcategoryWithImages.images) && subcategoryWithImages.images.length > 0) {
+              const images = [...subcategoryWithImages.images];
+              const firstImage = images[0];
+              while (images.length < 3) {
+                images.push(firstImage);
+              }
+              return images.slice(0, 3);
+            } else if ('heroImage' in subcategoryWithImages && subcategoryWithImages.heroImage && typeof subcategoryWithImages.heroImage === 'string') {
+              const heroImg = subcategoryWithImages.heroImage as string;
+              return [heroImg, heroImg, heroImg];
+            }
+          }
         }
       }
     }
@@ -613,13 +741,13 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productData, category
                   }`}
                 >
                   {leftShowsImage ? (
-                    <div className="relative w-full aspect-[4/3] overflow-hidden">
+                    <div className="relative w-full max-w-md mx-auto aspect-square overflow-hidden">
                       {finalImageSrc ? (
                         <Image
                           src={finalImageSrc}
                           alt={`${name} overview ${index + 1}`}
                           fill
-                          sizes="(min-width:1280px) 640px, (min-width:1024px) 560px, (min-width:768px) 720px, 100vw"
+                          sizes="(min-width:1280px) 400px, (min-width:1024px) 360px, (min-width:768px) 320px, 100vw"
                           quality={70}
                           className="object-cover"
                           priority={index === 0}
@@ -653,13 +781,13 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productData, category
                     }`}
                   >
                     {rightShowsImage ? (
-                      <div className="relative w-full aspect-[4/3] overflow-hidden">
+                      <div className="relative w-full max-w-md mx-auto aspect-square overflow-hidden">
                         {finalImageSrc ? (
                           <Image
                             src={finalImageSrc}
                             alt={`${name} overview ${index + 1}`}
                             fill
-                            sizes="(min-width:1280px) 640px, (min-width:1024px) 560px, (min-width:768px) 720px, 100vw"
+                            sizes="(min-width:1280px) 400px, (min-width:1024px) 360px, (min-width:768px) 320px, 100vw"
                             quality={70}
                             className="object-cover"
                             priority={index === 0}

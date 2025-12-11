@@ -871,10 +871,10 @@ export const siteMetadata: Record<string, PageMetadata> = {
     title: 'CBD Tincture Boxes | Premium Stylish Packaging',
     description: 'Boxy Pack produces high-quality CBD tincture boxes with fast turnaround, free shipping, and stylish design for safe and attractive cannabis packaging. Customize Now.',
   },
-  // VAPE BOXES - Category Page
-  'vape-boxes': {
-    title: 'Custom Vape Boxes | Premium E-Cigarette Packaging',
-    description: 'Boxy Pack delivers premium custom vape boxes with fast turnaround, free shipping, and stylish design to enhance your e-cigarette product presentation. Order Now.',
+  // VAPE AND E-CIGARETTE BOXES - Category Page
+  'vape-and-e-cigarette-boxes': {
+    title: 'Custom Vape And E-Cigarette Boxes | Premium Packaging',
+    description: 'Boxy Pack delivers premium custom vape and e-cigarette boxes with fast turnaround, free shipping, and stylish design to enhance your e-cigarette product presentation. Order Now.',
   },
   // Vape Cartridge Packaging
   'vape-cartridge-packaging': {
@@ -886,15 +886,10 @@ export const siteMetadata: Record<string, PageMetadata> = {
     title: 'Disposable Vape Boxes | Premium Packaging Solutions',
     description: 'Boxy Pack delivers premium disposable vape boxes with fast turnaround, free shipping, and sturdy design for safe and attractive e-cigarette packaging. Order Now.',
   },
-  // E-LIQUID BOXES - Category Page
-  'e-liquid-boxes': {
-    title: 'Custom E-liquid Boxes | Premium Vape Packaging',
-    description: 'Boxy Pack delivers premium custom e-liquid boxes with fast turnaround, free shipping, and stylish design to enhance vape product presentation. Order Now.',
-  },
-  // E-liquid Bottle Boxes
+  // E-Liquid Boxes
   'e-liquid-bottle-boxes': {
-    title: 'E-liquid Bottle Boxes | Premium Custom Packaging',
-    description: 'Boxy Pack produces high-quality e-liquid bottle boxes with fast turnaround, free shipping, and durable design for professional vape product display. Customize Now.',
+    title: 'E-Liquid Boxes | Premium Custom Packaging',
+    description: 'Boxy Pack produces high-quality E-Liquid boxes with fast turnaround, free shipping, and durable design for professional vape product display. Customize Now.',
   },
   // E-liquid Display Boxes
   'e-liquid-display-boxes': {

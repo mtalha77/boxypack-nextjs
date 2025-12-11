@@ -52,8 +52,11 @@ const ProductByIndustryCarousel: React.FC = () => {
         return ringBoxSubcategory.heroImage as string;
       }
     }
-    if (category.slug === "retail-boxes" && category.image) {
-      return category.image;
+    if (category.slug === "retail-boxes") {
+      const customMailerBoxSubcategory = category.subcategories.find(sub => sub.slug === "custom-mailer-boxes");
+      if (customMailerBoxSubcategory && 'heroImage' in customMailerBoxSubcategory && customMailerBoxSubcategory.heroImage) {
+        return customMailerBoxSubcategory.heroImage as string;
+      }
     }
     if (category.slug === "candle-boxes") {
       const jarCandleBoxSubcategory = category.subcategories.find(sub => sub.slug === "custom-jar-candle-boxes");
@@ -97,16 +100,11 @@ const ProductByIndustryCarousel: React.FC = () => {
         return customCannabisBoxesSubcategory.heroImage as string;
       }
     }
-    if (category.slug === "vape-boxes") {
+    // Special case: Vape And E-Cigarette Boxes should use Custom Vape Boxes hero image
+    if (category.slug === "vape-and-e-cigarette-boxes") {
       const customVapeBoxesSubcategory = category.subcategories.find(sub => sub.slug === "custom-vape-boxes");
       if (customVapeBoxesSubcategory && 'heroImage' in customVapeBoxesSubcategory && customVapeBoxesSubcategory.heroImage) {
         return customVapeBoxesSubcategory.heroImage as string;
-      }
-    }
-    if (category.slug === "e-liquid-boxes") {
-      const eLiquidBottleBoxesSubcategory = category.subcategories.find(sub => sub.slug === "e-liquid-bottle-boxes");
-      if (eLiquidBottleBoxesSubcategory && 'heroImage' in eLiquidBottleBoxesSubcategory && eLiquidBottleBoxesSubcategory.heroImage) {
-        return eLiquidBottleBoxesSubcategory.heroImage as string;
       }
     }
     if (category.slug === "stationery-boxes") {

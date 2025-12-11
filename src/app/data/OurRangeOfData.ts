@@ -598,8 +598,8 @@ export const ourRangeOfData: Record<string, OurRangeOfContent> = {
     description: "We offer a full selection of socks packaging styles for retail, e-commerce, and gifting. Choose Kraft boxes for sustainable brands, rigid boxes for luxury gift sets, or mailer boxes for shipping collections. Perfect for athletic, casual, or dress socks, every box delivers strength, design, and functionality.",
   },
 
-  "vape-boxes": {
-    description: "We produce vape packaging boxes wholesale for all product types, including e-liquid boxes, vape cartridge packaging, disposable vape cases, and retail display boxes. Each design is customizable in shape, size, finish, and logo placement. Whether for compact retail packs or luxury device sets, BoxyPack ensures your vape boxes deliver both protection and prestige.",
+  "vape-and-e-cigarette-boxes": {
+    description: "We produce vape and e-cigarette packaging boxes wholesale for all product types, including e-liquid boxes, vape cartridge packaging, disposable vape cases, and retail display boxes. Each design is customizable in shape, size, finish, and logo placement. Whether for compact retail packs or luxury device sets, BoxyPack ensures your vape and e-cigarette boxes deliver both protection and prestige.",
   },
 
   "cartridge-packaging": {
@@ -804,9 +804,6 @@ export const ourRangeOfData: Record<string, OurRangeOfContent> = {
     description: "We produce a complete range, including window display football boxes, luxury rigid collector boxes, kraft eco-friendly football packaging, corrugated sports mailers, printed retail packs, tournament giveaway boxes, and premium signed football gift sets. Perfect for retail shelves, promotional events, sports academies, collector releases, and branded kits.",
   },
 
-  "e-liquid-boxes": {
-    description: "We supply custom e-liquid packaging boxes wholesale in multiple formats, including single bottle cartons, multi-pack sets, sample kits, and luxury presentation boxes. Whether you need bold printed designs or minimalist finishes, BoxyPack ensures packaging that enhances both compliance and brand impact.",
-  },
 
   "e-liquid-bottle-boxes": {
     description: "We create a full lineup, including single-bottle vape boxes, multi-flavor e-liquid sets, retail display packaging, rigid luxury vape boxes, kraft eco-friendly e-juice cartons, window boxes, and promotional e-liquid gift sets. Perfect for retail shelves, subscription boxes, influencer kits, and online orders.",

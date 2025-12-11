@@ -154,6 +154,34 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
     images: string[] | null;
     materialSlug: string | null;
   } => {
+    // Special handling for Vape And E-Cigarette Boxes - use Custom Vape Boxes images
+    if (categorySlug === "vape-and-e-cigarette-boxes") {
+      for (const category of productByIndustryData) {
+        if (category.slug === categorySlug) {
+          const customVapeBoxesSubcategory = category.subcategories.find(
+            sub => sub.slug === "custom-vape-boxes"
+          );
+          if (customVapeBoxesSubcategory && customVapeBoxesSubcategory.images && customVapeBoxesSubcategory.images.length > 0) {
+            return { images: customVapeBoxesSubcategory.images, materialSlug: null };
+          }
+        }
+      }
+    }
+
+    // Special handling for Retail Boxes - use Custom Mailer Box images
+    if (categorySlug === "retail-boxes") {
+      for (const category of productByIndustryData) {
+        if (category.slug === categorySlug) {
+          const customMailerBoxSubcategory = category.subcategories.find(
+            sub => sub.slug === "custom-mailer-boxes"
+          );
+          if (customMailerBoxSubcategory && customMailerBoxSubcategory.images && customMailerBoxSubcategory.images.length > 0) {
+            return { images: customMailerBoxSubcategory.images, materialSlug: null };
+          }
+        }
+      }
+    }
+
     // Search in productByMaterialData
     for (const category of productByMaterialData) {
       if (category.slug === categorySlug) {
@@ -314,17 +342,20 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
     }
   }, [selectedMaterial]);
 
-  // Update images when product changes (only if product is actually selected, not for category pages)
+  // Update images when product changes (whenever a product is explicitly selected)
   useEffect(() => {
-    // Only update images if a product is selected AND we're not on a category-only page
-    // This prevents overriding category images when selectedProduct is empty
-    if (selectedProduct && !initialCategorySlug) {
+    // Update images whenever a product is selected, regardless of category page
+    if (selectedProduct) {
       // Search across all data sources for the product
       const { product } = findProductInAllSources(selectedProduct);
       
       if (product && product.images && product.images.length > 0) {
         setCurrentProductImages(ensureThreeImages([...product.images]));
         setSelectedImage(product.images[0]); // Set first image as default
+      } else if (product && 'heroImage' in product && product.heroImage && typeof product.heroImage === 'string') {
+        // Use heroImage if images array is not available
+        setCurrentProductImages([product.heroImage, product.heroImage, product.heroImage]);
+        setSelectedImage(product.heroImage);
       } else {
         // Only reset to default images if product was explicitly selected but has no images
         setCurrentProductImages([
@@ -335,7 +366,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
         setSelectedImage('Magnetic-Closure-Rigid-Box_vtf07m');
       }
     }
-  }, [selectedProduct, initialCategorySlug, findProductInAllSources]);
+  }, [selectedProduct, findProductInAllSources]);
 
   useEffect(() => {
     if (selectedMaterial === 'corrugated-boxes' || selectedMaterial === 'rigid-boxes') {

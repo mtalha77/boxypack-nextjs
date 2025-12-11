@@ -182,9 +182,12 @@ const getProductImage = (slug: string | undefined, fallbackImage: string): strin
           return ringBoxSubcategory.heroImage as string;
         }
       }
-      // Special case: Retail Boxes should use Retail Boxes category image
-      if (category.slug === "retail-boxes" && category.image) {
-        return category.image;
+      // Special case: Retail Boxes should use Custom Mailer Box hero image
+      if (category.slug === "retail-boxes") {
+        const customMailerBoxSubcategory = category.subcategories.find(sub => sub.slug === "custom-mailer-boxes");
+        if (customMailerBoxSubcategory && 'heroImage' in customMailerBoxSubcategory && customMailerBoxSubcategory.heroImage) {
+          return customMailerBoxSubcategory.heroImage as string;
+        }
       }
       // Special case: Candle Boxes should use Custom Jar Candle Boxes hero image
       if (category.slug === "candle-boxes") {
@@ -236,17 +239,11 @@ const getProductImage = (slug: string | undefined, fallbackImage: string): strin
         }
       }
       // Special case: Vape Boxes should use Custom Vape Boxes hero image
-      if (category.slug === "vape-boxes") {
+      // Special case: Vape And E-Cigarette Boxes should use Custom Vape Boxes hero image
+      if (category.slug === "vape-and-e-cigarette-boxes") {
         const customVapeBoxesSubcategory = category.subcategories.find(sub => sub.slug === "custom-vape-boxes");
         if (customVapeBoxesSubcategory && 'heroImage' in customVapeBoxesSubcategory && customVapeBoxesSubcategory.heroImage) {
           return customVapeBoxesSubcategory.heroImage as string;
-        }
-      }
-      // Special case: E-liquid Boxes should use E-liquid Bottle Boxes hero image
-      if (category.slug === "e-liquid-boxes") {
-        const eLiquidBottleBoxesSubcategory = category.subcategories.find(sub => sub.slug === "e-liquid-bottle-boxes");
-        if (eLiquidBottleBoxesSubcategory && 'heroImage' in eLiquidBottleBoxesSubcategory && eLiquidBottleBoxesSubcategory.heroImage) {
-          return eLiquidBottleBoxesSubcategory.heroImage as string;
         }
       }
       // Special case: Stationery Boxes should use Custom Pen Boxes hero image

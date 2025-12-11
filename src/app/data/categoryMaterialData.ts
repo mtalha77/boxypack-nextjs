@@ -243,10 +243,10 @@ export const categoryMaterialData: Record<string, CategoryMaterialContent> = {
       "Protective Coatings for oil and moisture resistance",
     ],
   },
-  "vape-boxes": {
-    title: "Which Material Is Used in Vape Boxes?",
+  "vape-and-e-cigarette-boxes": {
+    title: "Which Material Is Used in Vape And E-Cigarette Boxes?",
     paragraph1:
-      "Our vape boxes are made from high-quality paperboard, kraft, and rigid chipboard that offer strength, print precision, and sustainability. Each material is carefully chosen to maintain product integrity while ensuring sharp, premium visuals.",
+      "Our vape and e-cigarette boxes are made from high-quality paperboard, kraft, and rigid chipboard that offer strength, print precision, and sustainability. Each material is carefully chosen to maintain product integrity while ensuring sharp, premium visuals.",
     paragraph2:
       "Each material ensures compliance, strength, and style perfect for modern vape brands aiming for premium appeal.",
     features: [
@@ -255,20 +255,6 @@ export const categoryMaterialData: Record<string, CategoryMaterialContent> = {
       "Rigid Board for luxury vape packaging boxes",
       "Corrugated Paperboard for bulk or shipping orders",
       "Protective Coatings for oil and moisture resistance",
-    ],
-  },
-  "e-liquid-boxes": {
-    title: "Which Material Is Used in E-liquid Boxes?",
-    paragraph1:
-      "Our e-liquid boxes are made using premium paperboard, rigid board, and kraft materials that support fine printing and bottle protection. The materials stay strong against moisture, oil marks, and temperature changes.",
-    paragraph2:
-      "Each material is selected to maintain product safety, compliance, and brand quality.",
-    features: [
-      "White Cardboard for bright, high-resolution printing",
-      "Kraft Paperboard for natural, eco-friendly packaging",
-      "Rigid Board for luxury e-liquid boxes and gift sets",
-      "Corrugated Paperboard for heavy or large bottle packs",
-      "Protective Coatings to resist oil, moisture, and scuffs",
     ],
   },
   "stationery-boxes": {
