@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Trash2, Plus, Users, MessageSquare, CheckCircle, Clock, Eye } from 'lucide-react';
+import Link from 'next/link';
+import { Trash2, Plus, Users, MessageSquare, CheckCircle, Clock, Eye, LogIn } from 'lucide-react';
 
 interface Agent {
   _id: string;
@@ -48,6 +49,7 @@ const AgentManagementPage: React.FC = () => {
   });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [isCreating, setIsCreating] = useState(false);
 
   useEffect(() => {
     fetchAgents();
@@ -113,8 +115,22 @@ const AgentManagementPage: React.FC = () => {
     e.preventDefault();
     setError('');
     setSuccess('');
+    setIsCreating(true);
 
     try {
+      // Validate form
+      if (!newAgent.name || !newAgent.email || !newAgent.password) {
+        setError('Please fill in all fields');
+        setIsCreating(false);
+        return;
+      }
+
+      if (newAgent.password.length < 6) {
+        setError('Password must be at least 6 characters long');
+        setIsCreating(false);
+        return;
+      }
+
       const response = await fetch('/api/agents', {
         method: 'POST',
         headers: {
@@ -123,19 +139,34 @@ const AgentManagementPage: React.FC = () => {
         body: JSON.stringify(newAgent),
       });
 
+      // Check if response is JSON
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        const text = await response.text();
+        console.error('Non-JSON response received:', text.substring(0, 200));
+        setError('Backend server returned invalid response. Please ensure the backend server is running.');
+        setIsCreating(false);
+        return;
+      }
+
       const data = await response.json();
 
       if (data.success) {
         setSuccess('Agent created successfully!');
         setNewAgent({ name: '', email: '', password: '' });
         setShowCreateModal(false);
-        fetchAgents();
+        await fetchAgents();
       } else {
-        setError(data.error || 'Failed to create agent');
+        // Show detailed error message
+        const errorMsg = data.error || data.message || 'Failed to create agent';
+        setError(errorMsg);
       }
     } catch (error: unknown) {
       const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-      setError('Failed to create agent: ' + errorMessage);
+      console.error('Error creating agent:', error);
+      setError('Failed to create agent: ' + errorMessage + '. Please check if the backend server is running.');
+    } finally {
+      setIsCreating(false);
     }
   };
 
@@ -254,13 +285,22 @@ const AgentManagementPage: React.FC = () => {
               Manage support agents, view stats, and assign chats
             </p>
           </div>
-          <button
-            onClick={() => setShowCreateModal(true)}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
-          >
-            <Plus className="w-5 h-5" />
-            Create Agent
-          </button>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/admin/agent-login"
+              className="flex items-center gap-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors"
+            >
+              <LogIn className="w-5 h-5" />
+              Agent Login
+            </Link>
+            <button
+              onClick={() => setShowCreateModal(true)}
+              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
+            >
+              <Plus className="w-5 h-5" />
+              Create Agent
+            </button>
+          </div>
         </div>
 
         {/* Messages */}
@@ -543,12 +583,30 @@ const AgentManagementPage: React.FC = () => {
                   />
                 </div>
               </div>
+              {error && (
+                <div className="mt-4 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                  {error}
+                </div>
+              )}
+              {success && (
+                <div className="mt-4 bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg text-sm">
+                  {success}
+                </div>
+              )}
               <div className="mt-6 flex gap-3">
                 <button
                   type="submit"
-                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
+                  disabled={isCreating}
+                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
-                  Create Agent
+                  {isCreating ? (
+                    <>
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                      Creating...
+                    </>
+                  ) : (
+                    'Create Agent'
+                  )}
                 </button>
                 <button
                   type="button"

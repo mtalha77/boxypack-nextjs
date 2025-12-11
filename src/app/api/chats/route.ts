@@ -2,9 +2,18 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3001';
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    const response = await fetch(`${BACKEND_URL}/api/chats`, {
+    // Get agentId from query parameters
+    const { searchParams } = new URL(request.url);
+    const agentId = searchParams.get('agentId');
+    
+    // Build URL with agentId if provided
+    const url = agentId 
+      ? `${BACKEND_URL}/api/chats?agentId=${agentId}`
+      : `${BACKEND_URL}/api/chats`;
+    
+    const response = await fetch(url, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
