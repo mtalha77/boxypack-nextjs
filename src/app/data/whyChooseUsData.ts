@@ -44,7 +44,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   
   // Rigid Boxes Subcategories
   "magnetic-closure-rigid-box": {
-    eyebrow: "Why Choose Our Magnetic Rigid Boxes",
+    eyebrow: "Why Choose Our Magnetic Rigid Box",
     heading: "Experience excellence with BoxyPack custom magnetic rigid packaging. We combine craftsmanship, sustainability, and creative design to make your brand stand out.",
     description: "",
     features: [
@@ -74,7 +74,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "two-piece-rigid-boxes": {
-    eyebrow: "Why Choose Our Two-Piece Rigid Boxes",
+    eyebrow: "Why Choose Our Two-Piece Rigid Box",
     heading: "With BoxyPack custom two-piece rigid boxes, your products stand out effortlessly. Our packaging combines structural strength, flawless finishing, and eco-friendly production for long-term value.",
     description: "",
     features: [
@@ -104,7 +104,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "sliding-sleeve-rigid-boxes-match-style-boxes": {
-    eyebrow: "Why Choose Our Sliding Rigid Boxes",
+    eyebrow: "Why Choose Our Rigid Slide Drawer Box",
     heading: "With BoxyPack, you get packaging that blends craftsmanship, beauty, and practicality. Every box is built for elegance, strength, and brand distinction.",
     description: "",
     features: [
@@ -134,7 +134,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "brief-case-style": {
-    eyebrow: "Why Choose Our Briefcase Style Rigid Boxes",
+    eyebrow: "Why Choose Our Briefcase Style Rigid Box",
     heading: "With BoxyPack, you get luxury and strength in one smart packaging design. Every briefcase box is engineered for durability, refined presentation, and brand value.",
     description: "",
     features: [
@@ -164,7 +164,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "book-style-rigid-boxes": {
-    eyebrow: "Why Choose Our Book Style Rigid Boxes",
+    eyebrow: "Why Choose Our Book Style Rigid Box",
     heading: "With BoxyPack, you get packaging that blends luxury design with lasting quality. Every box is built to look sophisticated and feel premium.",
     description: "",
     features: [
@@ -195,7 +195,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
 
   // Kraft Boxes Subcategories
   "kraft-mailer-boxes": {
-    eyebrow: "Why Choose Our Kraft Mailer Boxes",
+    eyebrow: "Why Choose Our Kraft Mailer Box",
     heading: "With BoxyPack, you get packaging that delivers more than durability it builds trust. Our brown kraft mailer boxes with logo combine sustainable materials with precision craftsmanship to protect your products while promoting your brand.",
     description: "",
     features: [
@@ -255,7 +255,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "kraft-pillow-box": {
-    eyebrow: "Why Choose Our Kraft Pillow Boxes",
+    eyebrow: "Why Choose Our Kraft Pillow Box",
     heading: "With BoxyPack, you get eco-friendly packaging that looks elegant and performs flawlessly. Every custom kraft pillow box with ribbon is designed with attention to detail, helping your products stand out on shelves or in gift sets.",
     description: "",
     features: [
@@ -285,7 +285,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "kraft-gable-boxes": {
-    eyebrow: "Why Choose Our Kraft Gable Boxes",
+    eyebrow: "Why Choose Our Kraft Gable Box",
     heading: "With BoxyPack, your packaging goes beyond protection it becomes an experience. Our custom kraft gable boxes with logo are designed for versatility, eco-friendliness, and style.",
     description: "",
     features: [
@@ -315,7 +315,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "kraft-bakery-cake-box": {
-    eyebrow: "Why Choose Our Kraft Bakery Boxes",
+    eyebrow: "Why Choose Our Kraft Bakery Box",
     heading: "With BoxyPack, your baked goods deserve packaging that reflects their quality. Our eco kraft bakery boxes with window combine sustainable materials with refined design for premium bakery presentation.",
     description: "",
     features: [
@@ -345,7 +345,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "kraft-sleeve-box": {
-    eyebrow: "Why Choose Our Kraft Sleeve Boxes",
+    eyebrow: "Why Choose Our Kraft Sleeve Box",
     heading: "With BoxyPack, your packaging becomes part of your brand story. Our kraft sliding sleeve style packaging blends modern design with eco-friendly quality, ensuring your products always look their best.",
     description: "",
     features: [
@@ -375,7 +375,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "kraft-tuck-end-box": {
-    eyebrow: "Why Choose Our Kraft Tuck End Boxes",
+    eyebrow: "Why Choose Our Kraft Tuck End Box",
     heading: "With BoxyPack, you get packaging that combines durability and eco-conscious design. Our eco-friendly kraft tuck packaging supports your brand's sustainability goals without compromising on quality or appeal.",
     description: "",
     features: [
@@ -405,7 +405,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "kraft-five-panel-hanger-box": {
-    eyebrow: "Why Choose Our Kraft Five Panel Hanger Boxes",
+    eyebrow: "Why Choose Our Kraft Five Panel Hanger Box",
     heading: "With BoxyPack, your brand gets retail-ready packaging that's stylish, secure, and sustainable. Our custom kraft five-panel hanger packaging ensures your products hang beautifully and catch attention.",
     description: "",
     features: [
@@ -435,7 +435,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "kraft-side-lock-six-corner-boxes": {
-    eyebrow: "Why Choose Our Kraft Six-Corner Boxes",
+    eyebrow: "Why Choose Our Kraft Six-Corner Box",
     heading: "With BoxyPack, you get packaging that's designed for performance, sustainability, and brand visibility. Our kraft side lock corner packaging combines functionality with a refined design to make your products stand out.",
     description: "",
     features: [
@@ -465,7 +465,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "kraft-regular-six-corner-boxes": {
-    eyebrow: "Why Choose Our Kraft Six-Corner Boxes",
+    eyebrow: "Why Choose Our Kraft Six-Corner Box",
     heading: "With BoxyPack, your packaging gets the strength of kraft and the touch of craftsmanship. Our brown kraft corner boxes with logo combine functionality, aesthetics, and sustainability for unmatched value.",
     description: "",
     features: [
@@ -495,7 +495,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "kraft-seal-end-auto-bottom-box": {
-    eyebrow: "Why Choose Our Kraft Seal End Auto Bottom Boxes",
+    eyebrow: "Why Choose Our Kraft Seal End Auto Bottom Box",
     heading: "When it comes to efficient, eco-conscious packaging, BoxyPack leads the way. Our printed kraft seal end box bulk order solutions combine automation-ready design with superior sustainability.",
     description: "",
     features: [
@@ -555,7 +555,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "kraft-two-piece-box": {
-    eyebrow: "Why Choose Our Kraft Two Piece Boxes",
+    eyebrow: "Why Choose Our Kraft Two Piece Box",
     heading: "With BoxyPack, your brand gets sustainable packaging that feels natural and professional. Our custom kraft two-piece boxes wholesale combine strong material and elegant finishes for unmatched practicality and style.",
     description: "",
     features: [
@@ -585,7 +585,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "kraft-cigarette-box": {
-    eyebrow: "Why Choose Our Kraft Cigarette Boxes",
+    eyebrow: "Why Choose Our Kraft Cigarette Box",
     heading: "When sustainability meets precision, the result is packaging that defines your brand. At BoxyPack, our custom kraft cigarette carton boxes blend eco-conscious materials with high-end craftsmanship.",
     description: "",
     features: [
@@ -615,7 +615,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "kraft-bookend-box": {
-    eyebrow: "Why Choose Our Kraft Bookend Boxes",
+    eyebrow: "Why Choose Our Kraft Bookend Box",
     heading: "With BoxyPack, you get more than packaging; you get a presentation with purpose. Our custom kraft bookend carton with logo options combine durability, elegance, and sustainability to elevate your product's look and feel.",
     description: "",
     features: [
@@ -645,7 +645,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "kraft-dispenser-box": {
-    eyebrow: "Why Choose Our Kraft Dispenser Boxes",
+    eyebrow: "Why Choose Our Kraft Dispenser Box",
     heading: "At BoxyPack, we blend eco-conscious craftsmanship with retail functionality. Our custom kraft dispenser box with logo options helps your brand stand out while maintaining sustainability and customer convenience.",
     description: "",
     features: [
@@ -737,7 +737,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
 
   // Cardboard Boxes Subcategories
   "cardboard-display-box": {
-    eyebrow: "Why Choose Our Cardboard Display Boxes",
+    eyebrow: "Why Choose Our Cardboard Display Box",
     heading: "At BoxyPack, we know that packaging should sell your product before words do. Our custom cardboard display box solutions combine creativity, practicality, and sustainability all in one design.",
     description: "",
     features: [
@@ -767,7 +767,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "cardboard-tuck-end-box": {
-    eyebrow: "Why Choose Our Cardboard Tuck-End Boxes",
+    eyebrow: "Why Choose Our Cardboard Tuck-End Box",
     heading: "At BoxyPack, we create packaging that merges function with presentation. Our printed cardboard tuck-end box solutions help your brand stand out while ensuring your products stay protected and visually appealing.",
     description: "",
     features: [
@@ -827,7 +827,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "cardboard-gable-box": {
-    eyebrow: "Why Choose Our Cardboard Gable Boxes",
+    eyebrow: "Why Choose Our Cardboard Gable Box",
     heading: "At BoxyPack, we merge creativity with reliability. Our printed cardboard gable boxes are designed to elevate your brand image while staying functional and sustainable.",
     description: "",
     features: [
@@ -857,7 +857,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "cardboard-cake-bakery-box": {
-    eyebrow: "Why Choose Our Cardboard Cake Boxes",
+    eyebrow: "Why Choose Our Cardboard Cake Box",
     heading: "At BoxyPack, we combine quality craftsmanship with eco-friendly design to create the best packaging for your baked goods. Our custom cardboard cake boxes protect your creations while highlighting your brand's identity.",
     description: "",
     features: [
@@ -887,7 +887,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "cardboard-sleeve-box": {
-    eyebrow: "Why Choose Our Cardboard Sleeve Boxes",
+    eyebrow: "Why Choose Our Cardboard Sleeve Box",
     heading: "At BoxyPack, every box is built with purpose and precision. Our printed cardboard sleeve boxes help you present products beautifully while keeping them safe and easy to handle.",
     description: "",
     features: [
@@ -917,7 +917,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "cardboard-dispenser-box": {
-    eyebrow: "Why Choose Our Cardboard Dispenser Boxes",
+    eyebrow: "Why Choose Our Cardboard Dispenser Box",
     heading: "At BoxyPack, we believe packaging should be functional and visually appealing. Our printed cardboard dispenser boxes make it easier for customers to interact with your product while maintaining a clean and organized look.",
     description: "",
     features: [
@@ -947,7 +947,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "cardboard-five-panel-hanger": {
-    eyebrow: "Why Choose Our Cardboard Five Panel Hanger Boxes",
+    eyebrow: "Why Choose Our Cardboard Five Panel Hanger Box",
     heading: "At BoxyPack, we focus on combining display functionality with premium design. Our custom printed five panel hanger boxes not only protect your products but also enhance in-store presentation and customer engagement.",
     description: "",
     features: [
@@ -977,7 +977,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "cardboard-mailer-boxes": {
-    eyebrow: "Why Choose Our Cardboard Mailer Boxes",
+    eyebrow: "Why Choose Our Cardboard Mailer Box",
     heading: "At BoxyPack, every mailer is engineered to protect, impress, and perform. Our printed cardboard mailer boxes combine clean design, reliable strength, and eco-friendly production to help your brand grow.",
     description: "",
     features: [
@@ -1007,7 +1007,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "cardboard-double-locked-wall-lid-box": {
-    eyebrow: "Why Choose Our Cardboard Double-Locked Wall Lid Boxes",
+    eyebrow: "Why Choose Our Cardboard Double Wall Locked Lid Box",
     heading: "At BoxyPack, we build packaging that's functional and refined. Our printed double-locking wall lid boxes are made to showcase quality, safeguard contents, and strengthen brand identity.",
     description: "",
     features: [
@@ -1037,7 +1037,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "cardboard-side-lock-six-corner-box": {
-    eyebrow: "Why Choose Our Cardboard Side Lock Six-Corner Boxes",
+    eyebrow: "Why Choose Our Cardboard Side Lock Six-Corner Box",
     heading: "At BoxyPack, we design packaging that's practical, aesthetic, and built to last. Our printed side lock six corner boxes are made to handle products safely while maintaining a polished retail appearance.",
     description: "",
     features: [
@@ -1067,7 +1067,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "cardboard-regular-six-corner-box": {
-    eyebrow: "Why Choose Our Cardboard Regular Six-Corner Boxes",
+    eyebrow: "Why Choose Our Cardboard Regular Six-Corner Box",
     heading: "At BoxyPack, we believe in packaging that performs beautifully. Our printed regular six-corner boxes balance strength, flexibility, and modern style, ensuring your products are protected and presented at their best.",
     description: "",
     features: [
@@ -1097,7 +1097,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "cardboard-seal-end-auto-bottom-box": {
-    eyebrow: "Why Choose Our Cardboard Seal End Auto Bottom Boxes",
+    eyebrow: "Why Choose Our Cardboard Seal End Auto Bottom Box",
     heading: "At BoxyPack, we design packaging that supports productivity and presentation. Our printed seal-end auto bottom boxes save time on assembly while keeping products protected and ready for display.",
     description: "",
     features: [
@@ -1157,7 +1157,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "cardboard-two-piece-box": {
-    eyebrow: "Why Choose Our Cardboard Two-Piece Boxes",
+    eyebrow: "Why Choose Our Cardboard Two-Piece Box",
     heading: "At BoxyPack, we craft packaging that feels as premium as the product inside. Our printed two-piece boxes blend structural strength with high-end aesthetics, making every unboxing memorable.",
     description: "",
     features: [
@@ -1187,7 +1187,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "cardboard-cigarette-box": {
-    eyebrow: "Why Choose Our Cardboard Cigarette Boxes",
+    eyebrow: "Why Choose Our Cardboard Cigarette Box",
     heading: "At BoxyPack, we know packaging is more than protection; it's brand identity. Our printed cigarette boxes offer durability, print clarity, and elegant finishes that elevate your products on every shelf.",
     description: "",
     features: [
@@ -1217,7 +1217,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "cardboard-bookend-box": {
-    eyebrow: "Why Choose Our Cardboard Bookend Boxes",
+    eyebrow: "Why Choose Our Cardboard Bookend Box",
     heading: "At BoxyPack, we focus on packaging that merges form with function. Our printed bookend boxes offer both sturdiness and elegance, helping your brand leave a lasting impression with every unboxing.",
     description: "",
     features: [
@@ -1309,7 +1309,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
 
   // Corrugated Boxes Subcategories
   "corrugated-mailer-box": {
-    eyebrow: "Why Choose Our Corrugated Mailer Boxes",
+    eyebrow: "Why Choose Our Corrugated Mailer Box",
     heading: "At BoxyPack, we mix utility with design excellence. Our custom corrugated mailer boxes protect products while giving them a polished retail-ready look.",
     description: "",
     features: [
@@ -1339,7 +1339,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "corrugated-gable-box": {
-    eyebrow: "Why Choose Our Corrugated Gable Boxes",
+    eyebrow: "Why Choose Our Corrugated Gable Box",
     heading: "At BoxyPack, we merge strength with presentation. Our custom corrugated gable boxes serve brands that need packaging both practical and professional.",
     description: "",
     features: [
@@ -1369,7 +1369,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "corrugated-double-locked-wall-lid-box": {
-    eyebrow: "Why Choose Our Corrugated Double-Locked Wall Lid Boxes",
+    eyebrow: "Why Choose Our Cardboard Double Wall Locked Lid Box",
     heading: "At BoxyPack, we balance strength, design, and affordability. Our printed corrugated wall lid boxes deliver dependable packaging solutions with premium shelf presence.",
     description: "",
     features: [
@@ -1399,7 +1399,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "corrugated-seal-end-auto-bottom-box": {
-    eyebrow: "Why Choose Our Corrugated Seal End Auto Bottom Boxes",
+    eyebrow: "Why Choose Our Corrugated Seal End Auto Bottom Box",
     heading: "At BoxyPack, we build every box with performance and style in mind. Our printed corrugated auto bottom packaging delivers secure construction and refined looks for all business types.",
     description: "",
     features: [
@@ -1459,7 +1459,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "corrugated-two-piece-box": {
-    eyebrow: "Why Choose Our Corrugated Two-Piece Boxes",
+    eyebrow: "Why Choose Our Corrugated Two-Piece Box",
     heading: "At BoxyPack, we design every box for long-term performance and presentation. Our printed corrugated two-piece boxes are a trusted choice for brands that value both form and function.",
     description: "",
     features: [
@@ -1489,7 +1489,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "corrugated-brief-case-style-box": {
-    eyebrow: "Why Choose Our Corrugated Brief Case Style Boxes",
+    eyebrow: "Why Choose Our Corrugated Brief Case Style Box",
     heading: "At BoxyPack, we merge durability with premium presentation. Our printed corrugated briefcase boxes are designed to stand out while providing dependable protection.",
     description: "",
     features: [
@@ -1519,7 +1519,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "corrugated-full-flap-shipping-box": {
-    eyebrow: "Why Choose Our Corrugated Full Flap Shipping Boxes",
+    eyebrow: "Why Choose Our Corrugated Full Flap Shipping Box",
     heading: "At BoxyPack, we focus on protection, presentation, and practicality. Our heavy-duty corrugated full flap boxes provide unmatched security and professional appeal.",
     description: "",
     features: [
@@ -1581,7 +1581,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
 
   // Bakery Boxes Subcategories
   "custom-donut-boxes": {
-    eyebrow: "Why Choose Our Custom Donut Boxes",
+    eyebrow: "Why Choose Our Custom Donut Box",
     heading: "At BoxyPack, we blend presentation with practicality. Our logo printed donut packaging boxes make your brand memorable while maintaining freshness and protection.",
     description: "",
     features: [
@@ -1611,7 +1611,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-pastry-boxes": {
-    eyebrow: "Why Choose Our Custom Pastry Boxes",
+    eyebrow: "Why Choose Our Custom Pastry Box",
     heading: "At BoxyPack, we focus on combining freshness, strength, and presentation. Our pastry packaging boxes wholesale selection offers unmatched value for bakeries that care about both quality and image.",
     description: "",
     features: [
@@ -1641,7 +1641,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-cake-boxes": {
-    eyebrow: "Why Choose Our Custom Cake Boxes",
+    eyebrow: "Why Choose Our Custom Cake Box",
     heading: "At BoxyPack, we combine visual appeal with structural reliability. Our printed cake boxes for bakeries offer secure packaging that enhances your brand's image.",
     description: "",
     features: [
@@ -1671,7 +1671,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-cookie-boxes": {
-    eyebrow: "Why Choose Our Custom Cookie Boxes",
+    eyebrow: "Why Choose Our Custom Cookie Box",
     heading: "At BoxyPack, we combine food safety with beautiful design. Our cookie packaging boxes wholesale collection is crafted to help brands deliver quality and confidence in every order.",
     description: "",
     features: [
@@ -1701,7 +1701,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-gable-boxes": {
-    eyebrow: "Why Choose Our Custom Gable Boxes",
+    eyebrow: "Why Choose Our Custom Gable Box",
     heading: "At BoxyPack, we balance utility and presentation in every design. Our custom printed gable boxes wholesale solutions help bakeries deliver freshness and quality with style.",
     description: "",
     features: [
@@ -1731,7 +1731,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-candy-boxes": {
-    eyebrow: "Why Choose Our Custom Candy Boxes",
+    eyebrow: "Why Choose Our Custom Candy Box",
     heading: "At BoxyPack, we blend creativity, protection, and premium presentation. Our candy packaging boxes wholesale options make your products stand out while keeping them fresh and intact.",
     description: "",
     features: [
@@ -1760,38 +1760,9 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
       "Our custom candy boxes provide the perfect mix of design and durability—packaging that delights customers before they even take the first bite.",
   },
   
-  "mini-cupcake-boxes": {
-    eyebrow: "Why Choose Our Mini Cupcake Boxes",
-    heading: "At BoxyPack, we mix creativity with quality. Our custom-printed cupcake boxes wholesale range provides practical solutions with a professional touch.",
-    description: "",
-    features: [
-      {
-        icon: "shield",
-        title: "Secure Fit",
-        description: "Inserts prevent movement and protect frosting.",
-      },
-      {
-        icon: "check",
-        title: "Eco-Friendly Build",
-        description: "Recyclable, biodegradable, and safe for food packaging.",
-      },
-      {
-        icon: "star",
-        title: "Custom Branding",
-        description: "Print your logo, color scheme, or seasonal artwork.",
-      },
-      {
-        icon: "palette",
-        title: "Flexible Orders",
-        description: "Available for retail, event, or wholesale supply.",
-      },
-    ],
-    closingDescription:
-      "Our mini cupcake boxes deliver the ideal blend of beauty, structure, and freshness, designed to make every treat stand out.",
-  },
   
   "pink-donut-boxes": {
-    eyebrow: "Why Choose Our Pink Donut Boxes",
+    eyebrow: "Why Choose Our Pink Donut Box",
     heading: "At BoxyPack, we mix vibrant design with reliable protection. Our pink donut packaging boxes are made for brands that want to stand out while maintaining freshness and quality.",
     description: "",
     features: [
@@ -1821,7 +1792,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "window-bakery-boxes": {
-    eyebrow: "Why Choose Our Window Bakery Boxes",
+    eyebrow: "Why Choose Our Window Bakery Box",
     heading: "At BoxyPack, we combine design, visibility, and performance. Our custom window packaging boxes wholesale solutions are made to showcase your products and strengthen your brand.",
     description: "",
     features: [
@@ -1851,7 +1822,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "bakery-gift-boxes": {
-    eyebrow: "Why Choose Our Bakery Gift Boxes",
+    eyebrow: "Why Choose Our Bakery Gift Box",
     heading: "At BoxyPack, we bring together style and structure. Our printed bakery gift boxes wholesale line ensures every baked creation looks as good as it tastes.",
     description: "",
     features: [
@@ -1881,7 +1852,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-cupcake-boxes": {
-    eyebrow: "Why Choose Our Custom Cupcake Boxes",
+    eyebrow: "Why Choose Our Custom Cupcake Box",
     heading: "At BoxyPack, we blend creativity with quality construction. Our cupcake packaging boxes wholesale solutions are built to protect your products while showcasing your brand.",
     description: "",
     features: [
@@ -1910,38 +1881,9 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
       "Our custom cupcake boxes deliver beauty, strength, and eco-friendly quality, perfect for bakeries that value detail in every box.",
   },
   
-  "small-cake-boxes": {
-    eyebrow: "Why Choose Our Small Cake Boxes",
-    heading: "At BoxyPack, we focus on making every box as premium as your product. Our custom-printed small cake boxes wholesale line combines durability with sophisticated design.",
-    description: "",
-    features: [
-      {
-        icon: "shield",
-        title: "Premium Build",
-        description: "Keeps cakes fresh and secure in transit.",
-      },
-      {
-        icon: "check",
-        title: "Sustainable Materials",
-        description: "100% recyclable and eco-friendly paperboard.",
-      },
-      {
-        icon: "star",
-        title: "Custom Printing",
-        description: "Add your logo, color scheme, or artwork.",
-      },
-      {
-        icon: "palette",
-        title: "Flexible Orders",
-        description: "Available for small runs and large wholesale needs.",
-      },
-    ],
-    closingDescription:
-      "Our small cake packaging boxes deliver an elegant way to protect and promote your baked goods ideal for bakeries, cafés, and dessert caterers.",
-  },
   
   "sweet-gift-boxes": {
-    eyebrow: "Why Choose Our Sweet Gift Boxes",
+    eyebrow: "Why Choose Our Sweet Gift Box",
     heading: "At BoxyPack, we combine premium packaging with meaningful design. Our custom sweet gift packaging boxes are ideal for brands that want to present their products with elegance and care.",
     description: "",
     features: [
@@ -1971,7 +1913,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-truffle-boxes": {
-    eyebrow: "Why Choose Our Custom Truffle Boxes",
+    eyebrow: "Why Choose Our Custom Truffle Box",
     heading: "At BoxyPack, we combine elegant presentation with durable protection. Our truffle packaging boxes wholesale line ensures your chocolates stay flawless and your brand looks exceptional.",
     description: "",
     features: [
@@ -2033,7 +1975,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
 
   // Jewelry Boxes Subcategories
   "anklet-boxes": {
-    eyebrow: "Why Choose Our Anklet Boxes",
+    eyebrow: "Why Choose Our Anklet Box",
     heading: "At BoxyPack, we combine design innovation with jewelry-grade protection. Our custom anklet packaging boxes wholesale line delivers quality that enhances your brand's identity.",
     description: "",
     features: [
@@ -2092,68 +2034,10 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
       "Our velvet bags bring together elegance and functionality, helping brands create a timeless impression that customers remember.",
   },
   
-  "kraft-jewelry-boxes": {
-    eyebrow: "Why Choose Our Kraft Jewelry Boxes",
-    heading: "At BoxyPack, we merge sustainability with style. Our eco friendly kraft jewelry packaging provides strength, simplicity, and brand appeal.",
-    description: "",
-    features: [
-      {
-        icon: "shield",
-        title: "Eco-Safe Design",
-        description: "100% recyclable, biodegradable materials.",
-      },
-      {
-        icon: "check",
-        title: "Durable Build",
-        description: "Rigid kraft paperboard ensures long-lasting use.",
-      },
-      {
-        icon: "star",
-        title: "Custom Branding",
-        description: "Add logos, foil accents, or colored printing.",
-      },
-      {
-        icon: "palette",
-        title: "Cost-Effective",
-        description: "Perfect for both retail and wholesale packaging.",
-      },
-    ],
-    closingDescription:
-      "Our kraft jewelry boxes are an ideal mix of elegance and environmental responsibility designed to protect your jewelry while showcasing your eco values.",
-  },
   
-  "cardboard-jewelry-boxes": {
-    eyebrow: "Why Choose Our Cardboard Jewelry Boxes",
-    heading: "At BoxyPack, we combine craftsmanship with creativity. Our cardboard jewelry packaging boxes wholesale line offers versatile options that balance presentation and protection.",
-    description: "",
-    features: [
-      {
-        icon: "shield",
-        title: "Elegant Design",
-        description: "Premium quality with a refined look.",
-      },
-      {
-        icon: "check",
-        title: "Eco-Conscious Materials",
-        description: "100% recyclable and sustainable.",
-      },
-      {
-        icon: "star",
-        title: "Custom Branding",
-        description: "Add foil logos, patterns, or textured finishes.",
-      },
-      {
-        icon: "palette",
-        title: "Wholesale Advantage",
-        description: "Affordable pricing for bulk and boutique orders.",
-      },
-    ],
-    closingDescription:
-      "Our luxury cardboard jewelry packaging delivers quality your clients can see and feel helping your brand stand out with every unboxing.",
-  },
   
   "jewelry-subscription-box": {
-    eyebrow: "Why Choose Our Jewelry Subscription Boxes",
+    eyebrow: "Why Choose Our Jewelry Subscription Box",
     heading: "At BoxyPack, we combine functionality with luxury. Our custom jewelry subscription packaging line delivers strong, elegant, and brand-focused packaging solutions.",
     description: "",
     features: [
@@ -2183,7 +2067,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "pendant-boxes": {
-    eyebrow: "Why Choose Our Pendant Boxes",
+    eyebrow: "Why Choose Our Pendant Box",
     heading: "At BoxyPack, we focus on blending protection and beauty. Our custom pendant packaging boxes wholesale line ensures your jewelry arrives safe and displayed beautifully.",
     description: "",
     features: [
@@ -2213,7 +2097,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "bracelet-boxes": {
-    eyebrow: "Why Choose Our Bracelet Boxes",
+    eyebrow: "Why Choose Our Bracelet Box",
     heading: "At BoxyPack, we blend durability with visual excellence. Our bracelet packaging boxes wholesale supplier solutions are built for brands that value presentation and reliability.",
     description: "",
     features: [
@@ -2243,7 +2127,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "ring-boxes": {
-    eyebrow: "Why Choose Our Ring Boxes",
+    eyebrow: "Why Choose Our Ring Box",
     heading: "At BoxyPack, we blend design, strength, and luxury. Our custom ring packaging boxes wholesale line is built for jewelers who value premium quality and visual appeal.",
     description: "",
     features: [
@@ -2273,7 +2157,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "earring-boxes": {
-    eyebrow: "Why Choose Our Earring Boxes",
+    eyebrow: "Why Choose Our Earring Box",
     heading: "At BoxyPack, we combine elegance and durability to deliver packaging that enhances your jewelry presentation. Our custom earring packaging boxes wholesale collection gives brands reliable, eco-conscious, and attractive solutions.",
     description: "",
     features: [
@@ -2333,7 +2217,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "necklace-boxes": {
-    eyebrow: "Why Choose Our Necklace Boxes",
+    eyebrow: "Why Choose Our Necklace Box",
     heading: "At BoxyPack, we combine visual elegance with functional strength. Our custom necklace packaging boxes wholesale solutions are made to enhance your jewelry's beauty while keeping it safe.",
     description: "",
     features: [
@@ -2363,7 +2247,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "small-jewelry-boxes": {
-    eyebrow: "Why Choose Our Small Jewelry Boxes",
+    eyebrow: "Why Choose Our Small Jewelry Box",
     heading: "At BoxyPack, we specialize in compact packaging that leaves a big impression. Our mini jewelry gift packaging boxes are made to protect and display jewelry with class and convenience.",
     description: "",
     features: [
@@ -2515,7 +2399,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-bath-bomb-boxes": {
-    eyebrow: "Why Choose Our Bath Bomb Boxes",
+    eyebrow: "Why Choose Our Bath Bomb Box",
     heading: "At BoxyPack, we bring creativity and precision to every design. Our custom printed bath bomb gift boxes provide durability, aesthetic appeal, and sustainable quality for all packaging needs.",
     description: "",
     features: [
@@ -2575,7 +2459,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "handmade-soap-boxes": {
-    eyebrow: "Why Choose Our Handmade Soap Boxes",
+    eyebrow: "Why Choose Our Handmade Soap Box",
     heading: "At BoxyPack, we understand the value of natural presentation. Our custom handmade soap packaging boxes combine eco-friendly materials with modern print quality to make your products stand out.",
     description: "",
     features: [
@@ -2635,7 +2519,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "square-soap-boxes": {
-    eyebrow: "Why Choose Our Square Soap Boxes",
+    eyebrow: "Why Choose Our Square Soap Box",
     heading: "At BoxyPack, we combine sustainable materials with premium craftsmanship. Our custom square soap packaging boxes wholesale options deliver elegance, quality, and affordability for growing and established soap brands.",
     description: "",
     features: [
@@ -2665,7 +2549,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "soap-bar-box": {
-    eyebrow: "Why Choose Our Soap Bar Boxes",
+    eyebrow: "Why Choose Our Soap Bar Box",
     heading: "At BoxyPack, we bring together strength, sustainability, and design precision. Our custom soap bar packaging boxes wholesale solutions help your brand stand out with high-quality, eco-friendly presentation.",
     description: "",
     features: [
@@ -2695,7 +2579,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "paper-soap-boxes": {
-    eyebrow: "Why Choose Our Paper Soap Boxes",
+    eyebrow: "Why Choose Our Paper Soap Box",
     heading: "At BoxyPack, we combine sustainability with design precision. Our custom paper soap packaging boxes wholesale range delivers reliable, attractive, and eco-safe solutions for modern brands.",
     description: "",
     features: [
@@ -2725,7 +2609,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "kraft-soap-boxes": {
-    eyebrow: "Why Choose Our Kraft Soap Boxes",
+    eyebrow: "Why Choose Our Kraft Soap Box",
     heading: "At BoxyPack, we merge sustainability with quality craftsmanship. Our eco-friendly kraft soap packaging boxes provide durable, customizable, and affordable solutions for all soap brands.",
     description: "",
     features: [
@@ -2755,7 +2639,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "kraft-pillow-soap-boxes-industry": {
-    eyebrow: "Why Choose Our Kraft Pillow Soap Boxes",
+    eyebrow: "Why Choose Our Kraft Pillow Soap Box",
     heading: "At BoxyPack, we combine eco-safe materials with modern design. Our custom kraft pillow soap packaging wholesale line delivers stylish, sustainable, and functional packaging for today's soap brands.",
     description: "",
     features: [
@@ -2817,7 +2701,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
 
   // CBD Boxes Subcategories
   "cbd-gift-boxes": {
-    eyebrow: "Why Choose Our CBD Gift Boxes",
+    eyebrow: "Why Choose Our CBD Gift Box",
     heading: "At BoxyPack, we combine style, sustainability, and structure. Our custom CBD gift boxes help brands build trust and recognition through thoughtful packaging.",
     description: "",
     features: [
@@ -2847,7 +2731,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "cbd-gummies-boxes": {
-    eyebrow: "Why Choose Our CBD Gummies Boxes",
+    eyebrow: "Why Choose Our CBD Gummies Box",
     heading: "At BoxyPack, we combine packaging strength with visual elegance. Our custom CBD gummies boxes deliver long-lasting quality, sustainable materials, and bold brand visibility.",
     description: "",
     features: [
@@ -2877,7 +2761,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-cannabis-boxes": {
-    eyebrow: "Why Choose Our Custom Cannabis Boxes",
+    eyebrow: "Why Choose Our Custom Cannabis Box",
     heading: "At BoxyPack, we combine packaging innovation with compliance expertise. Our cannabis packaging boxes help brands stand out while meeting safety and sustainability standards.",
     description: "",
     features: [
@@ -2907,7 +2791,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "cbd-oil-boxes": {
-    eyebrow: "Why Choose Our CBD Oil Boxes",
+    eyebrow: "Why Choose Our CBD Oil Box",
     heading: "At BoxyPack, we blend durability with design precision. Our custom CBD oil boxes are built to protect delicate bottles while promoting your brand's premium identity.",
     description: "",
     features: [
@@ -2937,7 +2821,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "hemp-oil-boxes": {
-    eyebrow: "Why Choose Our Hemp Oil Boxes",
+    eyebrow: "Why Choose Our Hemp Oil Box",
     heading: "At BoxyPack, we merge quality, compliance, and creativity. Our custom hemp oil boxes are tailored to ensure your brand's professional appearance while maintaining sustainability.",
     description: "",
     features: [
@@ -2967,7 +2851,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "pre-roll-boxes": {
-    eyebrow: "Why Choose Our Pre Roll Boxes",
+    eyebrow: "Why Choose Our Pre Roll Box",
     heading: "At BoxyPack, we combine compliance, creativity, and craftsmanship. Our custom pre roll boxes ensure product safety, enhance brand value, and meet industry standards.",
     description: "",
     features: [
@@ -2997,7 +2881,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "cbd-tincture-boxes": {
-    eyebrow: "Why Choose Our CBD Tincture Boxes",
+    eyebrow: "Why Choose Our CBD Tincture Box",
     heading: "At BoxyPack, we combine craftsmanship with compliance. Our custom CBD tincture boxes are built to keep products secure, meet regulations, and boost brand trust.",
     description: "",
     features: [
@@ -3089,7 +2973,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "christmas-candy-boxes": {
-    eyebrow: "Why Choose Our Christmas Candy Boxes",
+    eyebrow: "Why Choose Our Christmas Candy Box",
     heading: "At BoxyPack, we combine quality, creativity, and festive flair to make your candies stand out.",
     description: "",
     features: [
@@ -3119,7 +3003,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "christmas-gift-boxes": {
-    eyebrow: "Why Choose Our Christmas Gift Boxes",
+    eyebrow: "Why Choose Our Christmas Gift Box",
     heading: "At BoxyPack, we combine craftsmanship, design precision, and festive flair to create packaging that impresses.",
     description: "",
     features: [
@@ -3149,7 +3033,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "christmas-eve-boxes": {
-    eyebrow: "Why Choose Our Christmas Eve Boxes",
+    eyebrow: "Why Choose Our Christmas Eve Box",
     heading: "At BoxyPack, we blend craftsmanship, creativity, and festive design to deliver premium Christmas Eve packaging.",
     description: "",
     features: [
@@ -3179,7 +3063,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "christmas-present-boxes": {
-    eyebrow: "Why Choose Our Christmas Present Boxes",
+    eyebrow: "Why Choose Our Christmas Present Box",
     heading: "At BoxyPack, we blend creativity, precision, and quality to deliver premium Christmas packaging solutions.",
     description: "",
     features: [
@@ -3209,7 +3093,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "christmas-cookie-boxes": {
-    eyebrow: "Why Choose Our Christmas Cookie Boxes",
+    eyebrow: "Why Choose Our Christmas Cookie Box",
     heading: "At BoxyPack, we merge design precision, food safety, and festive creativity to deliver outstanding packaging.",
     description: "",
     features: [
@@ -3239,7 +3123,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "christmas-treat-boxes": {
-    eyebrow: "Why Choose Our Christmas Treat Boxes",
+    eyebrow: "Why Choose Our Christmas Treat Box",
     heading: "At BoxyPack, we combine precision, creativity, and festive energy to design packaging that leaves a lasting impression.",
     description: "",
     features: [
@@ -3330,7 +3214,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
 
   // Pizza Boxes Subcategories
   "pizza-slice-boxes": {
-    eyebrow: "Why Choose Our Pizza Slice Boxes",
+    eyebrow: "Why Choose Our Pizza Slice Box",
     heading: "At BoxyPack, we blend practicality, quality, and creativity to design packaging that elevates every pizza slice.",
     description: "",
     features: [
@@ -3360,7 +3244,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "round-pizza-boxes": {
-    eyebrow: "Why Choose Our Round Pizza Boxes",
+    eyebrow: "Why Choose Our Round Pizza Box",
     heading: "At BoxyPack, we combine quality materials, craftsmanship, and food-safe design to deliver top-tier pizza packaging.",
     description: "",
     features: [
@@ -3390,7 +3274,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "rectangle-pizza-boxes": {
-    eyebrow: "Why Choose Our Rectangle Pizza Boxes",
+    eyebrow: "Why Choose Our Rectangle Pizza Box",
     heading: "At BoxyPack, we blend quality craftsmanship, practicality, and visual appeal to make your packaging stand out.",
     description: "",
     features: [
@@ -3420,7 +3304,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "flatbread-pizza-boxes": {
-    eyebrow: "Why Choose Our Flatbread Pizza Boxes",
+    eyebrow: "Why Choose Our Flatbread Pizza Box",
     heading: "At BoxyPack, we blend design precision, sustainability, and functionality to deliver reliable packaging that complements your food quality.",
     description: "",
     features: [
@@ -3449,68 +3333,10 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
       "Our flatbread pizza boxes help your brand deliver restaurant-quality freshness in every box.",
   },
   
-  "16-inch-pizza-boxes": {
-    eyebrow: "Why Choose Our 16 Inch Pizza Boxes",
-    heading: "At BoxyPack, we merge quality, innovation, and sustainability to deliver high-performance pizza packaging.",
-    description: "",
-    features: [
-      {
-        icon: "shield",
-        title: "Reliable Build",
-        description: "Protects pizzas from heat loss and damage.",
-      },
-      {
-        icon: "check",
-        title: "Custom Branding",
-        description: "Add your logo, tagline, or artwork for recognition.",
-      },
-      {
-        icon: "star",
-        title: "Eco-Friendly Materials",
-        description: "100% recyclable and biodegradable paperboard.",
-      },
-      {
-        icon: "palette",
-        title: "Professional Presentation",
-        description: "Ideal for restaurants and branded takeout.",
-      },
-    ],
-    closingDescription:
-      "Our 16 inch pizza boxes help your pizzeria deliver flavor, freshness, and a polished look that enhances every customer's experience.",
-  },
   
-  "14-inch-pizza-boxes": {
-    eyebrow: "Why Choose Our 14 Inch Pizza Boxes",
-    heading: "At BoxyPack, we combine strength, craftsmanship, and design expertise to provide premium pizza packaging.",
-    description: "",
-    features: [
-      {
-        icon: "shield",
-        title: "Heat Retention",
-        description: "Keeps pizzas hot and fresh for longer periods.",
-      },
-      {
-        icon: "check",
-        title: "Custom Branding",
-        description: "Add logos, patterns, or artwork to build brand identity.",
-      },
-      {
-        icon: "star",
-        title: "Eco-Friendly Design",
-        description: "100% recyclable and sustainable materials.",
-      },
-      {
-        icon: "palette",
-        title: "Professional Look",
-        description: "Enhances presentation for restaurants and catering brands.",
-      },
-    ],
-    closingDescription:
-      "Our 14 inch pizza boxes help your business maintain quality, reliability, and a premium customer impression with every pizza served.",
-  },
   
   "blank-pizza-boxes": {
-    eyebrow: "Why Choose Our Blank Pizza Boxes",
+    eyebrow: "Why Choose Our Blank Pizza Box",
     heading: "At BoxyPack, we combine reliability, performance, and simplicity to create the perfect pizza packaging solution.",
     description: "",
     features: [
@@ -3572,7 +3398,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
 
   // Cosmetic Boxes Subcategories
   "cosmetic-display-boxes": {
-    eyebrow: "Why Choose Our Cosmetic Display Boxes",
+    eyebrow: "Why Choose Our Cosmetic Display Box",
     heading: "At BoxyPack, we combine creativity, craftsmanship, and branding expertise to create packaging that sells your products effortlessly.",
     description: "",
     features: [
@@ -3602,7 +3428,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-perfume-boxes": {
-    eyebrow: "Why Choose Our Custom Perfume Boxes",
+    eyebrow: "Why Choose Our Custom Perfume Box",
     heading: "At BoxyPack, we merge creativity, precision, and craftsmanship to produce packaging that resonates with your brand's identity.",
     description: "",
     features: [
@@ -3632,7 +3458,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-makeup-boxes": {
-    eyebrow: "Why Choose Our Custom Makeup Boxes",
+    eyebrow: "Why Choose Our Custom Makeup Box",
     heading: "At BoxyPack, we blend design innovation, sustainability, and craftsmanship to build packaging that sells your products beautifully.",
     description: "",
     features: [
@@ -3662,7 +3488,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "hair-extension-boxes": {
-    eyebrow: "Why Choose Our Hair Extension Boxes",
+    eyebrow: "Why Choose Our Hair Extension Box",
     heading: "At BoxyPack, we combine creativity, quality, and durability to produce packaging that reflects your brand's excellence.",
     description: "",
     features: [
@@ -3692,7 +3518,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-lipstick-boxes": {
-    eyebrow: "Why Choose Our Custom Lipstick Boxes",
+    eyebrow: "Why Choose Our Custom Lipstick Box",
     heading: "At BoxyPack, we merge style, precision, and sustainability to deliver packaging that enhances your brand's reputation.",
     description: "",
     features: [
@@ -3722,7 +3548,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-lip-gloss-boxes": {
-    eyebrow: "Why Choose Our Custom Lip Gloss Boxes",
+    eyebrow: "Why Choose Our Custom Lip Gloss Box",
     heading: "At BoxyPack, we merge creative design, durable materials, and expert craftsmanship to help beauty brands shine.",
     description: "",
     features: [
@@ -3752,7 +3578,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-eye-shadow-boxes": {
-    eyebrow: "Why Choose Our Custom Eye Shadow Boxes",
+    eyebrow: "Why Choose Our Custom Eye Shadow Box",
     heading: "At BoxyPack, we combine design precision, material strength, and creativity to deliver the perfect packaging solution for beauty brands.",
     description: "",
     features: [
@@ -3782,7 +3608,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-cream-boxes": {
-    eyebrow: "Why Choose Our Custom Cream Boxes",
+    eyebrow: "Why Choose Our Custom Cream Box",
     heading: "At BoxyPack, we combine innovation, craftsmanship, and sustainability to make your skincare packaging stand out.",
     description: "",
     features: [
@@ -3812,7 +3638,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "foundation-boxes": {
-    eyebrow: "Why Choose Our Foundation Boxes",
+    eyebrow: "Why Choose Our Foundation Box",
     heading: "At BoxyPack, we blend creativity, craftsmanship, and eco-conscious materials to design packaging that enhances brand value.",
     description: "",
     features: [
@@ -3842,7 +3668,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "lotion-boxes": {
-    eyebrow: "Why Choose Our Lotion Boxes",
+    eyebrow: "Why Choose Our Lotion Box",
     heading: "At BoxyPack, we combine craftsmanship, sustainability, and branding expertise to make your skincare packaging stand out.",
     description: "",
     features: [
@@ -3871,38 +3697,9 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
       "Our lotion boxes reflect your brand's quality, helping customers connect with your product from first look to last use.",
   },
   
-  "lip-balm-display-boxes": {
-    eyebrow: "Why Choose Our Lip Balm Display Boxes",
-    heading: "At BoxyPack, we blend design excellence, precision, and sustainable materials to help your products stand out.",
-    description: "",
-    features: [
-      {
-        icon: "shield",
-        title: "Strong Display Design",
-        description: "Built for durability and long-term retail use.",
-      },
-      {
-        icon: "check",
-        title: "Custom Branding",
-        description: "Add your logo, color scheme, and graphics for attention.",
-      },
-      {
-        icon: "star",
-        title: "Eco-Friendly Materials",
-        description: "Made from recyclable, biodegradable paperboard.",
-      },
-      {
-        icon: "palette",
-        title: "Retail-Ready Layouts",
-        description: "Quick to assemble and perfect for visual merchandising.",
-      },
-    ],
-    closingDescription:
-      "Our lip balm display boxes make your cosmetic line more visible, accessible, and appealing to every customer.",
-  },
   
   "eye-lash-boxes": {
-    eyebrow: "Why Choose Our Eyelash Boxes",
+    eyebrow: "Why Choose Our Eyelash Box",
     heading: "At BoxyPack, we blend craftsmanship, branding, and sustainability to create packaging that enhances your cosmetic line.",
     description: "",
     features: [
@@ -3932,7 +3729,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "cosmetic-gift-boxes": {
-    eyebrow: "Why Choose Our Cosmetic Gift Boxes",
+    eyebrow: "Why Choose Our Cosmetic Gift Box",
     heading: "At BoxyPack, we combine creativity, craftsmanship, and sustainable materials to help brands deliver luxury through packaging.",
     description: "",
     features: [
@@ -3962,7 +3759,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "olive-oil-boxes": {
-    eyebrow: "Why Choose Our Olive Oil Boxes",
+    eyebrow: "Why Choose Our Olive Oil Box",
     heading: "At BoxyPack, we combine quality materials, smart design, and sustainable production to help your brand shine.",
     description: "",
     features: [
@@ -3992,7 +3789,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "essential-oil-boxes": {
-    eyebrow: "Why Choose Our Essential Oil Boxes",
+    eyebrow: "Why Choose Our Essential Oil Box",
     heading: "At BoxyPack, we merge craftsmanship, sustainability, and branding expertise to create packaging that elevates your product.",
     description: "",
     features: [
@@ -4022,7 +3819,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "beard-oil-boxes": {
-    eyebrow: "Why Choose Our Beard Oil Boxes",
+    eyebrow: "Why Choose Our Beard Oil Box",
     heading: "At BoxyPack, we blend craftsmanship, creativity, and sustainability to deliver top-tier packaging solutions.",
     description: "",
     features: [
@@ -4052,7 +3849,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "serum-boxes": {
-    eyebrow: "Why Choose Our Serum Boxes",
+    eyebrow: "Why Choose Our Serum Box",
     heading: "At BoxyPack, we blend design, durability, and sustainability to make your skincare packaging shine.",
     description: "",
     features: [
@@ -4114,7 +3911,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
 
   // Apparel Boxes Subcategories
   "cufflink-boxes": {
-    eyebrow: "Why Choose Our Cufflink Boxes",
+    eyebrow: "Why Choose Our Cufflink Box",
     heading: "At BoxyPack, we merge luxury craftsmanship with modern packaging technology to create premium accessory boxes.",
     description: "",
     features: [
@@ -4144,7 +3941,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "tie-boxes": {
-    eyebrow: "Why Choose Our Tie Boxes",
+    eyebrow: "Why Choose Our Tie Box",
     heading: "At BoxyPack, we combine luxury aesthetics, fine materials, and expert construction to craft packaging that impresses.",
     description: "",
     features: [
@@ -4174,7 +3971,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "belt-boxes": {
-    eyebrow: "Why Choose Our Belt Boxes",
+    eyebrow: "Why Choose Our Belt Box",
     heading: "At BoxyPack, we blend luxury design, sustainability, and expert craftsmanship to help your accessories stand out.",
     description: "",
     features: [
@@ -4204,7 +4001,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "clothing-boxes": {
-    eyebrow: "Why Choose Our Clothing Boxes",
+    eyebrow: "Why Choose Our Clothing Box",
     heading: "At BoxyPack, we merge fashion, protection, and sustainability to deliver the perfect packaging for apparel brands.",
     description: "",
     features: [
@@ -4234,7 +4031,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "lingerie-boxes": {
-    eyebrow: "Why Choose Our Lingerie Boxes",
+    eyebrow: "Why Choose Our Lingerie Box",
     heading: "At BoxyPack, we combine craftsmanship, elegance, and sustainable materials to create packaging that highlights the sophistication of your brand.",
     description: "",
     features: [
@@ -4264,7 +4061,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "underwear-boxes": {
-    eyebrow: "Why Choose Our Underwear Boxes",
+    eyebrow: "Why Choose Our Underwear Box",
     heading: "At BoxyPack, we merge innovation, style, and sustainability to deliver packaging that complements your apparel.",
     description: "",
     features: [
@@ -4294,7 +4091,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "socks-boxes": {
-    eyebrow: "Why Choose Our Socks Boxes",
+    eyebrow: "Why Choose Our Socks Box",
     heading: "At BoxyPack, we blend craftsmanship, sustainability, and branding expertise to create packaging that complements your apparel line.",
     description: "",
     features: [
@@ -4355,35 +4152,6 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
 
   // Vape Boxes Subcategories
-  "empty-vape-cartridge-packaging": {
-    eyebrow: "Why Choose Our Empty Vape Cartridge Boxes",
-    heading: "BoxyPack combines durability, design precision, and customization to elevate your cartridge line.",
-    description: "",
-    features: [
-      {
-        icon: "shield",
-        title: "Strong Build",
-        description: "Protects fragile cartridges from impact and scratches.",
-      },
-      {
-        icon: "check",
-        title: "Brand Customization",
-        description: "Add logos, colors, artwork, and full graphics.",
-      },
-      {
-        icon: "star",
-        title: "Eco-Friendly Options",
-        description: "Recyclable and sustainable materials available.",
-      },
-      {
-        icon: "palette",
-        title: "Premium Presentation",
-        description: "Ideal for retail racks, online orders, or gift kits.",
-      },
-    ],
-    closingDescription:
-      "Our packaging enhances your product presentation and keeps every cartridge secure and display-ready.",
-  },
   
   "vape-cartridge-packaging": {
     eyebrow: "Why Choose Our Vape Cartridge Packaging",
@@ -4416,7 +4184,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-vape-boxes": {
-    eyebrow: "Why Choose Our Custom Vape Boxes",
+    eyebrow: "Why Choose Our Custom Vape Box",
     heading: "BoxyPack focuses on durability, aesthetic precision, and branding power to support your vape product line.",
     description: "",
     features: [
@@ -4507,128 +4275,38 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
 
   // Chocolate Boxes Subcategories
-  "chocolate-packaging": {
-    eyebrow: "Why Choose Our Chocolate Packaging",
-    heading: "BoxyPack combines craftsmanship, food-safe material quality, and branding expertise to elevate your chocolate line.",
-    description: "",
-    features: [
-      {
-        icon: "shield",
-        title: "Premium Protection",
-        description: "Built to preserve shape, freshness, and flavor.",
-      },
-      {
-        icon: "check",
-        title: "Brand-Centric Design",
-        description: "Add colors, logos, textures, and artwork for a strong identity.",
-      },
-      {
-        icon: "star",
-        title: "Eco-Friendly Options",
-        description: "Recyclable, compostable, and sustainable choices available.",
-      },
-      {
-        icon: "palette",
-        title: "Gift-Ready Look",
-        description: "Perfect for retail shelves, celebrations, and seasonal packaging.",
-      },
-    ],
-    closingDescription:
-      "Our chocolate packaging helps your products stand out while ensuring they remain fresh, safe, and beautifully presented.",
-  },
-  
-  "small-chocolate-boxes": {
-    eyebrow: "Why Choose Our Small Chocolate Boxes",
-    heading: "BoxyPack combines craftsmanship, food-safe standards, and design expertise to enhance your chocolate packaging.",
-    description: "",
-    features: [
-      {
-        icon: "shield",
-        title: "Premium Protection",
-        description: "Keeps chocolates fresh, intact, and well-presented.",
-      },
-      {
-        icon: "check",
-        title: "Brand Customization",
-        description: "Add logos, colors, patterns, and artwork for a premium identity.",
-      },
-      {
-        icon: "star",
-        title: "Eco-Friendly Options",
-        description: "Recyclable and sustainable materials available.",
-      },
-      {
-        icon: "palette",
-        title: "Gift-Ready Appeal",
-        description: "Perfect for events, retail gifting, and boutique branding.",
-      },
-    ],
-    closingDescription:
-      "Our small chocolate boxes elevate your product's look and ensure every bite-sized treat feels special.",
-  },
-  
-  "chocolate-milk-boxes": {
-    eyebrow: "Why Choose Our Chocolate Milk Boxes",
-    heading: "BoxyPack blends food-safe engineering with premium branding to elevate your chocolate milk product line.",
+  "custom-chocolate-boxes": {
+    eyebrow: "Why Choose Our Custom Chocolate Box",
+    heading: "At BoxyPack, we mix creativity with quality. Our custom chocolate boxes provide practical solutions with a professional touch for all your chocolate packaging needs.",
     description: "",
     features: [
       {
         icon: "shield",
         title: "Freshness Protection",
-        description: "Helps shield cartons from sunlight, heat, and damage.",
+        description: "Food-safe materials keep chocolates fresh and protected.",
       },
       {
         icon: "check",
-        title: "Brand Customization",
-        description: "Add logos, colors, artwork, and product details.",
-      },
-      {
-        icon: "star",
         title: "Eco-Friendly Build",
-        description: "Recyclable and sustainable materials available.",
-      },
-      {
-        icon: "palette",
-        title: "Retail-Ready Look",
-        description: "Designed for stores, beverage aisles, and promotional displays.",
-      },
-    ],
-    closingDescription:
-      "Our packaging enhances your product's freshness, presentation, and brand visibility.",
-  },
-  
-  "chocolate-candy-boxes": {
-    eyebrow: "Why Choose Our Chocolate Candy Boxes",
-    heading: "BoxyPack blends food-safe materials, premium craftsmanship, and branding expertise to enhance your product line.",
-    description: "",
-    features: [
-      {
-        icon: "shield",
-        title: "Freshness Protection",
-        description: "Keeps candies intact and flavorful.",
-      },
-      {
-        icon: "check",
-        title: "Brand Customization",
-        description: "Add logos, artwork, patterns, and colors for visibility.",
+        description: "Recyclable, biodegradable, and safe for food packaging.",
       },
       {
         icon: "star",
-        title: "Eco-Friendly Options",
-        description: "Recyclable and sustainable choices available.",
+        title: "Custom Branding",
+        description: "Print your logo, color scheme, or seasonal artwork.",
       },
       {
         icon: "palette",
-        title: "Gift-Ready Appeal",
-        description: "Ideal for festive packaging, gifting, and retail display.",
+        title: "Flexible Orders",
+        description: "Available for retail, event, or wholesale supply.",
       },
     ],
     closingDescription:
-      "Our chocolate candy packaging strengthens your brand and ensures every piece looks irresistible.",
+      "Our custom chocolate boxes deliver the ideal blend of beauty, structure, and freshness, designed to make every treat stand out.",
   },
   
   "luxury-chocolate-boxes": {
-    eyebrow: "Why Choose Our Luxury Chocolate Boxes",
+    eyebrow: "Why Choose Our Luxury Chocolate Box",
     heading: "BoxyPack blends craftsmanship, branding precision, and luxury finishing to elevate your premium chocolate line.",
     description: "",
     features: [
@@ -4658,7 +4336,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "chocolate-gift-boxes": {
-    eyebrow: "Why Choose Our Chocolate Gift Boxes",
+    eyebrow: "Why Choose Our Chocolate Gift Box",
     heading: "BoxyPack blends craftsmanship, branding precision, and luxury finishing to elevate your gifting experience.",
     description: "",
     features: [
@@ -4688,7 +4366,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "chocolate-bar-boxes": {
-    eyebrow: "Why Choose Our Chocolate Bar Boxes",
+    eyebrow: "Why Choose Our Chocolate Bar Box",
     heading: "BoxyPack combines craftsmanship, food safety, and branding precision to support your chocolate product line.",
     description: "",
     features: [
@@ -4780,7 +4458,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-french-fry-boxes": {
-    eyebrow: "Why Choose Our French Fry Boxes",
+    eyebrow: "Why Choose Our French Fry Box",
     heading: "BoxyPack combines food-safe construction, ergonomic design, and strong branding to support your food service business.",
     description: "",
     features: [
@@ -4810,7 +4488,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-coffee-boxes": {
-    eyebrow: "Why Choose Our Coffee Boxes",
+    eyebrow: "Why Choose Our Coffee Box",
     heading: "BoxyPack blends freshness protection, branding precision, and premium craftsmanship to support your coffee brand.",
     description: "",
     features: [
@@ -4870,7 +4548,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-chinese-takeout-boxes": {
-    eyebrow: "Why Choose Our Chinese Takeout Boxes",
+    eyebrow: "Why Choose Our Chinese Takeout Box",
     heading: "BoxyPack blends food safety, strong construction, and premium branding to support your restaurant's packaging needs.",
     description: "",
     features: [
@@ -4900,7 +4578,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-popcorn-boxes": {
-    eyebrow: "Why Choose Our Popcorn Boxes",
+    eyebrow: "Why Choose Our Popcorn Box",
     heading: "BoxyPack blends food safety, attractive design, and brand-focused printing to enhance your popcorn experience.",
     description: "",
     features: [
@@ -4930,7 +4608,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-snack-boxes": {
-    eyebrow: "Why Choose Our Snack Boxes",
+    eyebrow: "Why Choose Our Snack Box",
     heading: "BoxyPack combines food safety, durable construction, and branding excellence to support your snack product line.",
     description: "",
     features: [
@@ -4960,7 +4638,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-tea-boxes": {
-    eyebrow: "Why Choose Our Tea Boxes",
+    eyebrow: "Why Choose Our Tea Box",
     heading: "BoxyPack combines aroma-preserving materials, elegant design, and branding precision to support your tea brand.",
     description: "",
     features: [
@@ -4990,7 +4668,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-burger-boxes": {
-    eyebrow: "Why Choose Our Burger Boxes",
+    eyebrow: "Why Choose Our Burger Box",
     heading: "BoxyPack blends food safety, ergonomic design, and premium branding to support your food service success.",
     description: "",
     features: [
@@ -5020,7 +4698,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "sandwich-boxes": {
-    eyebrow: "Why Choose Our Sandwich Boxes",
+    eyebrow: "Why Choose Our Sandwich Box",
     heading: "BoxyPack combines food safety, structural strength, and professional branding to support your food service and retail operations.",
     description: "",
     features: [
@@ -5082,7 +4760,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
 
   // Candle Boxes Subcategories
   "candle-gift-boxes": {
-    eyebrow: "Why Choose Our Candle Gift Boxes",
+    eyebrow: "Why Choose Our Candle Gift Box",
     heading: "BoxyPack combines premium materials, craftsmanship, and luxury finishing to elevate your candle brand.",
     description: "",
     features: [
@@ -5112,7 +4790,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "luxury-candle-boxes": {
-    eyebrow: "Why Choose Our Luxury Candle Boxes",
+    eyebrow: "Why Choose Our Luxury Candle Box",
     heading: "BoxyPack blends craftsmanship, premium materials, and luxury finishing to elevate your candle brand to a high-end retail level.",
     description: "",
     features: [
@@ -5172,7 +4850,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "candle-shipping-boxes": {
-    eyebrow: "Why Choose Our Candle Shipping Boxes",
+    eyebrow: "Why Choose Our Candle Shipping Box",
     heading: "BoxyPack blends durability, safety, and branding to support your candle business.",
     description: "",
     features: [
@@ -5202,7 +4880,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "taper-candle-boxes": {
-    eyebrow: "Why Choose Our Taper Candle Boxes",
+    eyebrow: "Why Choose Our Taper Candle Box",
     heading: "BoxyPack blends protection, elegance, and branding precision to elevate your taper candle product line.",
     description: "",
     features: [
@@ -5232,7 +4910,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-jar-candle-boxes": {
-    eyebrow: "Why Choose Our Jar Candle Boxes",
+    eyebrow: "Why Choose Our Jar Candle Box",
     heading: "BoxyPack combines durability, craftsmanship, and branding finesse to elevate your candle product line.",
     description: "",
     features: [
@@ -5262,7 +4940,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "wax-melt-boxes": {
-    eyebrow: "Why Choose Our Wax Melt Boxes",
+    eyebrow: "Why Choose Our Wax Melt Box",
     heading: "BoxyPack blends fragrance protection, craftsmanship, and branding precision to elevate your wax melt product line.",
     description: "",
     features: [
@@ -5292,7 +4970,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "kraft-candle-boxes": {
-    eyebrow: "Why Choose Our Kraft Candle Boxes",
+    eyebrow: "Why Choose Our Kraft Candle Box",
     heading: "BoxyPack blends sustainability, protection, and branding clarity to support your natural candle business.",
     description: "",
     features: [
@@ -5322,7 +5000,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "candle-subscription-boxes": {
-    eyebrow: "Why Choose Our Candle Subscription Boxes",
+    eyebrow: "Why Choose Our Candle Subscription Box",
     heading: "BoxyPack blends durability, presentation, and strong branding to elevate your subscription experience.",
     description: "",
     features: [
@@ -5384,7 +5062,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
 
   // Sports Boxes Subcategories
   "cardboard-shoe-boxes": {
-    eyebrow: "Why Choose Our Cardboard Shoe Boxes",
+    eyebrow: "Why Choose Our Cardboard Shoe Box",
     heading: "BoxyPack blends strength, premium craftsmanship, and branding precision to elevate your footwear packaging.",
     description: "",
     features: [
@@ -5414,7 +5092,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "shoe-shipping-boxes": {
-    eyebrow: "Why Choose Our Shoe Shipping Boxes",
+    eyebrow: "Why Choose Our Shoe Shipping Box",
     heading: "BoxyPack combines durability, structural strength, and branding precision to support your footwear business.",
     description: "",
     features: [
@@ -5444,7 +5122,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-shoe-boxes": {
-    eyebrow: "Why Choose Our Custom Shoe Boxes",
+    eyebrow: "Why Choose Our Custom Shoe Box",
     heading: "BoxyPack combines durability, craftsmanship, and premium branding to elevate your footwear line.",
     description: "",
     features: [
@@ -5504,7 +5182,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "golf-ball-boxes": {
-    eyebrow: "Why Choose Our Golf Ball Boxes",
+    eyebrow: "Why Choose Our Golf Ball Box",
     heading: "BoxyPack blends durability, precision, and attractive branding to enhance your golf packaging.",
     description: "",
     features: [
@@ -5534,7 +5212,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "football-boxes": {
-    eyebrow: "Why Choose Our Football Boxes",
+    eyebrow: "Why Choose Our Football Box",
     heading: "BoxyPack blends strength, impactful visuals, and sharp craftsmanship to elevate your football packaging.",
     description: "",
     features: [
@@ -5596,7 +5274,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
 
   // E-liquid Boxes Subcategories
   "e-liquid-bottle-boxes": {
-    eyebrow: "Why Choose Our E-liquid Bottle Boxes",
+    eyebrow: "Why Choose Our E-liquid Bottle Box",
     heading: "BoxyPack blends durability, sharp design, and compliance-focused structure to elevate your vape packaging.",
     description: "",
     features: [
@@ -5626,7 +5304,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "e-liquid-display-boxes": {
-    eyebrow: "Why Choose Our E-liquid Display Boxes",
+    eyebrow: "Why Choose Our E-liquid Display Box",
     heading: "BoxyPack blends durability, retail-first design, and vibrant branding to elevate your vape product presentation.",
     description: "",
     features: [
@@ -5656,7 +5334,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "e-liquid-gift-boxes": {
-    eyebrow: "Why Choose Our E-liquid Gift Boxes",
+    eyebrow: "Why Choose Our E-liquid Gift Box",
     heading: "BoxyPack delivers a powerful blend of protection, visual appeal, and a premium gifting experience.",
     description: "",
     features: [
@@ -5747,68 +5425,38 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
       "Our cereal boxes enhance product protection while elevating your brand across retail aisles.",
   },
   
-  "mini-cereal-boxes": {
-    eyebrow: "Why Choose Our Mini Cereal Boxes",
-    heading: "BoxyPack delivers strong construction, food-safe quality, and bright branding for mini cereal packaging.",
+  "custom-cereal-boxes": {
+    eyebrow: "Why Choose Our Custom Cereal Box",
+    heading: "At BoxyPack, we mix creativity with quality. Our custom cereal boxes provide practical solutions with a professional touch for all your breakfast cereal packaging needs.",
     description: "",
     features: [
       {
         icon: "shield",
         title: "Freshness Protection",
-        description: "Shields cereals from moisture, dust, and crushing.",
+        description: "Food-safe materials keep cereals fresh and protected.",
       },
       {
         icon: "check",
-        title: "Premium Printing",
-        description: "Add bold colors, mascots, fun illustrations, and retail-ready artwork.",
+        title: "Eco-Friendly Build",
+        description: "Recyclable, biodegradable, and safe for food packaging.",
       },
       {
         icon: "star",
-        title: "Eco-Friendly Choices",
-        description: "Kraft and recyclable options for sustainable brands.",
+        title: "Custom Branding",
+        description: "Print your logo, mascots, color scheme, or seasonal artwork.",
       },
       {
         icon: "palette",
-        title: "Shelf Appeal",
-        description: "Compact, colorful, and designed for strong visibility.",
+        title: "Flexible Orders",
+        description: "Available for retail, wholesale, or promotional supply.",
       },
     ],
     closingDescription:
-      "Our mini cereal packaging adds charm, convenience, and brand impact to every serving.",
-  },
-  
-  "cardboard-cereal-boxes": {
-    eyebrow: "Why Choose Our Cardboard Cereal Boxes",
-    heading: "BoxyPack delivers the perfect mix of food safety, structural strength, and premium branding.",
-    description: "",
-    features: [
-      {
-        icon: "shield",
-        title: "Freshness Protection",
-        description: "Shields cereals from moisture and contamination.",
-      },
-      {
-        icon: "check",
-        title: "Premium Printing",
-        description: "Add mascots, patterns, vibrant colors, and full-panel branding.",
-      },
-      {
-        icon: "star",
-        title: "Eco-Friendly Choices",
-        description: "Kraft and recyclable cardboard available for green brands.",
-      },
-      {
-        icon: "palette",
-        title: "Retail Shelf Presence",
-        description: "Designed to stand tall, clean, and professional.",
-      },
-    ],
-    closingDescription:
-      "Our cardboard cereal packaging supports brand storytelling while keeping cereals fresh and market-ready.",
+      "Our custom cereal boxes deliver the ideal blend of beauty, structure, and freshness, designed to make every breakfast cereal stand out.",
   },
   
   "corn-flakes-boxes": {
-    eyebrow: "Why Choose Our Corn Flakes Boxes",
+    eyebrow: "Why Choose Our Corn Flakes Box",
     heading: "BoxyPack blends food safety, strength, and standout design for premium cereal packaging.",
     description: "",
     features: [
@@ -5838,7 +5486,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "unique-cereal-boxes": {
-    eyebrow: "Why Choose Our Unique Cereal Boxes",
+    eyebrow: "Why Choose Our Unique Cereal Box",
     heading: "BoxyPack blends creativity, strength, and vivid presentation to turn cereal packaging into a brand experience.",
     description: "",
     features: [
@@ -5868,7 +5516,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "breakfast-cereal-boxes": {
-    eyebrow: "Why Choose Our Breakfast Cereal Boxes",
+    eyebrow: "Why Choose Our Breakfast Cereal Box",
     heading: "BoxyPack delivers the ideal blend of freshness protection, premium printing, and strong retail presence.",
     description: "",
     features: [
@@ -5898,7 +5546,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "colorful-cereal-boxes": {
-    eyebrow: "Why Choose Our Colorful Cereal Boxes",
+    eyebrow: "Why Choose Our Colorful Cereal Box",
     heading: "BoxyPack delivers the perfect mix of visual impact, food-safe durability, and premium printing.",
     description: "",
     features: [
@@ -5928,7 +5576,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "vintage-cereal-boxes": {
-    eyebrow: "Why Choose Our Vintage Cereal Boxes",
+    eyebrow: "Why Choose Our Vintage Cereal Box",
     heading: "BoxyPack delivers the ideal blend of vintage charm, strong structure, and food-safe protection.",
     description: "",
     features: [
@@ -5958,7 +5606,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "retro-cereal-boxes": {
-    eyebrow: "Why Choose Our Retro Cereal Boxes",
+    eyebrow: "Why Choose Our Retro Cereal Box",
     heading: "BoxyPack blends vintage aesthetics with modern packaging performance.",
     description: "",
     features: [
@@ -5988,7 +5636,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "90s-cereal-boxes": {
-    eyebrow: "Why Choose Our 90s Cereal Boxes",
+    eyebrow: "Why Choose Our 90s Cereal Box",
     heading: "BoxyPack blends nostalgic visuals with strong packaging quality.",
     description: "",
     features: [
@@ -6018,7 +5666,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "80s-cereal-boxes": {
-    eyebrow: "Why Choose Our 80s Cereal Boxes",
+    eyebrow: "Why Choose Our 80s Cereal Box",
     heading: "BoxyPack blends nostalgic visuals with strong packaging performance.",
     description: "",
     features: [
@@ -6048,7 +5696,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "funny-cereal-boxes": {
-    eyebrow: "Why Choose Our Funny Cereal Boxes",
+    eyebrow: "Why Choose Our Funny Cereal Box",
     heading: "BoxyPack delivers humor with high-quality packaging and standout visual energy.",
     description: "",
     features: [
@@ -6110,7 +5758,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
 
   // Gift Boxes Subcategories
   "gift-pillow-boxes": {
-    eyebrow: "Why Choose Our Gift Pillow Boxes",
+    eyebrow: "Why Choose Our Gift Pillow Box",
     heading: "BoxyPack delivers the perfect mix of elegant design, strong structure, and expressive customization.",
     description: "",
     features: [
@@ -6140,7 +5788,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "birthday-gift-boxes": {
-    eyebrow: "Why Choose Our Birthday Gift Boxes",
+    eyebrow: "Why Choose Our Birthday Gift Box",
     heading: "BoxyPack delivers a joyful mix of bright design, strong structure, and premium presentation.",
     description: "",
     features: [
@@ -6170,7 +5818,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "sweet-gift-boxes-industry": {
-    eyebrow: "Why Choose Our Sweet Gift Boxes",
+    eyebrow: "Why Choose Our Sweet Gift Box",
     heading: "BoxyPack blends elegant design, food-safe protection, and premium visual appeal.",
     description: "",
     features: [
@@ -6200,7 +5848,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "party-favor-boxes": {
-    eyebrow: "Why Choose Our Party Favor Boxes",
+    eyebrow: "Why Choose Our Party Favor Box",
     heading: "BoxyPack blends festive visual appeal, strong structure, and custom design flexibility.",
     description: "",
     features: [
@@ -6230,7 +5878,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "round-gift-boxes": {
-    eyebrow: "Why Choose Our Round Gift Boxes",
+    eyebrow: "Why Choose Our Round Gift Box",
     heading: "BoxyPack blends modern luxury, strong construction, and custom design precision.",
     description: "",
     features: [
@@ -6290,7 +5938,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-deluxe-gift-boxes": {
-    eyebrow: "Why Choose Our Deluxe Gift Boxes",
+    eyebrow: "Why Choose Our Deluxe Gift Box",
     heading: "BoxyPack blends high-end structure, luxury finishing, and precision craftsmanship.",
     description: "",
     features: [
@@ -6320,7 +5968,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-square-gift-boxes": {
-    eyebrow: "Why Choose Our Square Gift Boxes",
+    eyebrow: "Why Choose Our Square Gift Box",
     heading: "BoxyPack combines sharp design, durable structure, and premium printing.",
     description: "",
     features: [
@@ -6350,7 +5998,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "small-gift-boxes": {
-    eyebrow: "Why Choose Our Small Gift Boxes",
+    eyebrow: "Why Choose Our Small Gift Box",
     heading: "BoxyPack blends compact elegance, strong construction, and premium finishing.",
     description: "",
     features: [
@@ -6380,7 +6028,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "large-gift-boxes": {
-    eyebrow: "Why Choose Our Large Gift Boxes",
+    eyebrow: "Why Choose Our Large Gift Box",
     heading: "BoxyPack combines spacious design, high-end structure, and luxury branding.",
     description: "",
     features: [
@@ -6442,7 +6090,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
 
   // Shipping Boxes Subcategories
   "black-shipping-boxes": {
-    eyebrow: "Why Choose Our Black Shipping Boxes",
+    eyebrow: "Why Choose Our Black Shipping Box",
     heading: "BoxyPack blends bold style, reliable protection, and premium customization.",
     description: "",
     features: [
@@ -6472,7 +6120,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "candle-shipping-boxes-industry": {
-    eyebrow: "Why Choose Our Candle Shipping Boxes",
+    eyebrow: "Why Choose Our Candle Shipping Box",
     heading: "BoxyPack delivers strong protection, premium printing, and brand-ready presentation.",
     description: "",
     features: [
@@ -6502,7 +6150,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "corrugated-shipping-boxes": {
-    eyebrow: "Why Choose Our Corrugated Shipping Boxes",
+    eyebrow: "Why Choose Our Corrugated Shipping Box",
     heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
     description: "",
     features: [
@@ -6532,7 +6180,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-shipping-boxes": {
-    eyebrow: "Why Choose Our Custom Shipping Boxes",
+    eyebrow: "Why Choose Our Custom Shipping Box",
     heading: "BoxyPack combines durability, high-end branding, and reliable protection.",
     description: "",
     features: [
@@ -6593,38 +6241,9 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
 
   // Cigarette Boxes Subcategories
-  "paper-cigarette-boxes": {
-    eyebrow: "Why Choose Our Paper Cigarette Boxes",
-    heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
-    description: "",
-    features: [
-      {
-        icon: "shield",
-        title: "Heavy-Duty Strength",
-        description: "Multi-layer paperboard guards cigarettes during transit.",
-      },
-      {
-        icon: "check",
-        title: "Brand-Ready Printing",
-        description: "Boost retail impact with rich print designs and warnings.",
-      },
-      {
-        icon: "star",
-        title: "Eco-Friendly Options",
-        description: "Recyclable and kraft paper cigarette packaging available.",
-      },
-      {
-        icon: "palette",
-        title: "Versatile Use",
-        description: "Suitable for tobacco sticks, herbal cigarettes, slim packs, and minis.",
-      },
-    ],
-    closingDescription:
-      "Our paper cigarette packaging ensures every product arrives secure, fresh, and professionally branded.",
-  },
   
   "custom-cigarette-boxes": {
-    eyebrow: "Why Choose Our Custom Cigarette Boxes",
+    eyebrow: "Why Choose Our Custom Cigarette Box",
     heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
     description: "",
     features: [
@@ -6653,38 +6272,9 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
       "Our custom cigarette packaging ensures every product arrives protected, polished, and ready for retail.",
   },
   
-  "empty-cigarette-boxes": {
-    eyebrow: "Why Choose Our Empty Cigarette Boxes",
-    heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
-    description: "",
-    features: [
-      {
-        icon: "shield",
-        title: "Heavy-Duty Strength",
-        description: "Multi-layer paperboard guards cigarettes during handling.",
-      },
-      {
-        icon: "check",
-        title: "Brand-Ready Printing",
-        description: "Add artwork, colors, or warnings when needed.",
-      },
-      {
-        icon: "star",
-        title: "Eco-Friendly Options",
-        description: "Recyclable and kraft cigarette packaging available.",
-      },
-      {
-        icon: "palette",
-        title: "Versatile Use",
-        description: "Ideal for blanks, printed shells, slim packs, and herbal sticks.",
-      },
-    ],
-    closingDescription:
-      "Our empty cigarette packaging ensures every pack is ready for filling, branding, and safe retail placement.",
-  },
   
   "cardboard-cigarette-boxes": {
-    eyebrow: "Why Choose Our Cardboard Cigarette Boxes",
+    eyebrow: "Why Choose Our Cardboard Cigarette Box",
     heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
     description: "",
     features: [
@@ -6713,38 +6303,9 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
       "Our cardboard cigarette packaging ensures every pack arrives safe, polished, and brand-ready.",
   },
   
-  "blank-cigarette-boxes": {
-    eyebrow: "Why Choose Our Blank Cigarette Boxes",
-    heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
-    description: "",
-    features: [
-      {
-        icon: "shield",
-        title: "Heavy-Duty Strength",
-        description: "Multi-layer paperboard guards cigarettes during handling and transport.",
-      },
-      {
-        icon: "check",
-        title: "Brand-Ready Printing",
-        description: "Perfect blank surface for labels, full-wrap printing, or sleeves.",
-      },
-      {
-        icon: "star",
-        title: "Eco-Friendly Options",
-        description: "Recyclable and kraft blank packaging available.",
-      },
-      {
-        icon: "palette",
-        title: "Versatile Use",
-        description: "Ideal for unprinted shells, slim packs, herbal sticks, and private-label filling.",
-      },
-    ],
-    closingDescription:
-      "Our blank cigarette packaging ensures every pack is strong, versatile, and ready for branding or retail prep.",
-  },
   
   "flip-top-cigarette-boxes": {
-    eyebrow: "Why Choose Our Flip Top Cigarette Boxes",
+    eyebrow: "Why Choose Our Flip Top Cigarette Box",
     heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
     description: "",
     features: [
@@ -6806,7 +6367,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
 
   // Stationery Boxes Subcategories
   "custom-pencil-boxes": {
-    eyebrow: "Why Choose Our Custom Pencil Boxes",
+    eyebrow: "Why Choose Our Custom Pencil Box",
     heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
     description: "",
     features: [
@@ -6835,68 +6396,10 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
       "Our custom pencil packaging ensures every pack looks premium, protects your pencils, and enhances retail appeal.",
   },
   
-  "cardboard-pen-boxes": {
-    eyebrow: "Why Choose Our Cardboard Pen Boxes",
-    heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
-    description: "",
-    features: [
-      {
-        icon: "shield",
-        title: "Heavy-Duty Strength",
-        description: "Multi-layer cardboard protects pens during shipping and storage.",
-      },
-      {
-        icon: "check",
-        title: "Brand-Ready Printing",
-        description: "Showcase artwork, brand colors, and product details with clarity.",
-      },
-      {
-        icon: "star",
-        title: "Eco-Friendly Options",
-        description: "Recyclable and kraft pen packaging available.",
-      },
-      {
-        icon: "palette",
-        title: "Versatile Use",
-        description: "Perfect for retail pen packs, gift sets, corporate kits, and luxury pens.",
-      },
-    ],
-    closingDescription:
-      "Our cardboard pen packaging ensures every box looks polished, protects your product, and strengthens your retail presence.",
-  },
   
-  "cardboard-pencil-boxes": {
-    eyebrow: "Why Choose Our Cardboard Pencil Boxes",
-    heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
-    description: "",
-    features: [
-      {
-        icon: "shield",
-        title: "Heavy-Duty Strength",
-        description: "Multi-layer cardboard protects pencils during storage and transport.",
-      },
-      {
-        icon: "check",
-        title: "Brand-Ready Printing",
-        description: "Showcase colors, artwork, and product info with clarity.",
-      },
-      {
-        icon: "star",
-        title: "Eco-Friendly Options",
-        description: "Recyclable and kraft pencil packaging available.",
-      },
-      {
-        icon: "palette",
-        title: "Versatile Use",
-        description: "Perfect for school packs, art sets, retail boxes, and luxury pencils.",
-      },
-    ],
-    closingDescription:
-      "Our cardboard pencil packaging ensures every unit arrives secure, professional, and ready for retail display.",
-  },
   
   "custom-book-boxes": {
-    eyebrow: "Why Choose Our Custom Book Boxes",
+    eyebrow: "Why Choose Our Custom Book Box",
     heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
     description: "",
     features: [
@@ -6956,7 +6459,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "pen-gift-boxes": {
-    eyebrow: "Why Choose Our Pen Gift Boxes",
+    eyebrow: "Why Choose Our Pen Gift Box",
     heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
     description: "",
     features: [
@@ -6986,7 +6489,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "custom-pen-boxes": {
-    eyebrow: "Why Choose Our Custom Pen Boxes",
+    eyebrow: "Why Choose Our Custom Pen Box",
     heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
     description: "",
     features: [
@@ -7078,7 +6581,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "pre-roll-display-boxes": {
-    eyebrow: "Why Choose Our Pre Roll Display Boxes",
+    eyebrow: "Why Choose Our Pre Roll Display Box",
     heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
     description: "",
     features: [
@@ -7107,38 +6610,9 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
       "Our pre roll display packaging ensures strong shelf presence, organized product placement, and retail-ready presentation.",
   },
   
-  "pre-roll-packaging": {
-    eyebrow: "Why Choose Our Pre Roll Packaging",
-    heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
-    description: "",
-    features: [
-      {
-        icon: "shield",
-        title: "Heavy-Duty Strength",
-        description: "Multi-layer board protects pre rolls during storage and transport.",
-      },
-      {
-        icon: "check",
-        title: "Brand-Ready Printing",
-        description: "Highlight strains, logos, and artwork with clarity and detail.",
-      },
-      {
-        icon: "star",
-        title: "Eco-Friendly Options",
-        description: "Recyclable and kraft pre roll packaging available.",
-      },
-      {
-        icon: "palette",
-        title: "Versatile Use",
-        description: "Ideal for singles, multi-packs, minis, dogwalkers, and premium sets.",
-      },
-    ],
-    closingDescription:
-      "Our pre roll packaging ensures your cannabis products stay fresh, protected, and visually appealing at retail.",
-  },
   
   "custom-delta-8-boxes": {
-    eyebrow: "Why Choose Our Custom Delta 8 Boxes",
+    eyebrow: "Why Choose Our Custom Delta 8 Box",
     heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
     description: "",
     features: [
@@ -7351,7 +6825,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "zipper-bags": {
-    eyebrow: "Why Choose Our Zipper Bags",
+    eyebrow: "Why Choose Our Mylar Ziplock Bags",
     heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
     description: "",
     features: [
@@ -7381,7 +6855,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
 
   "zipper-bag": {
-    eyebrow: "Why Choose Our Zipper Bags",
+    eyebrow: "Why Choose Our Mylar Ziplock Bags",
     heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
     description: "",
     features: [
@@ -7411,7 +6885,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
   
   "window-bags": {
-    eyebrow: "Why Choose Our Window Bags",
+    eyebrow: "Why Choose Our Mylar Window Bags",
     heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
     description: "",
     features: [
@@ -7441,7 +6915,7 @@ export const whyChooseUsData: Record<string, WhyChooseUsContent> = {
   },
 
   "window-bag": {
-    eyebrow: "Why Choose Our Window Bags",
+    eyebrow: "Why Choose Our Mylar Window Bags",
     heading: "BoxyPack blends durability, reliable protection, and powerful branding.",
     description: "",
     features: [

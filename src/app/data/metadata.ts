@@ -61,7 +61,7 @@ export const siteMetadata: Record<string, PageMetadata> = {
     title: 'Luxury Two Piece Rigid Boxes | Custom Printed Packaging',
     description: 'Boxy Pack offers high-quality two piece rigid boxes with premium printing, free shipping, and fast delivery for standout branding. Customize Now.',
   },
-  // Sliding / Sleeve Rigid Boxes (Match Style)
+  // Rigid Slide Drawer Box
   'sliding-sleeve-rigid-boxes-match-style-boxes': {
     title: 'Custom Sleeve Rigid Boxes | Premium Sliding Packaging',
     description: 'Boxy Pack designs elegant sliding rigid boxes with premium finishes, free shipping, and fast turnaround to elevate product presentation. Order Now.',
@@ -176,7 +176,7 @@ export const siteMetadata: Record<string, PageMetadata> = {
     title: 'Custom Cardboard Display Boxes | Premium Packaging',
     description: 'Boxy Pack delivers high-quality cardboard display boxes with fast turnaround, free shipping, and premium printing to showcase your products. Order Now.',
   },
-  // Cardboard TUCK End Box
+  // Cardboard Tuck End Box
   'cardboard-tuck-end-box': {
     title: 'Custom Cardboard Tuck End Boxes | Durable Packaging',
     description: 'Boxy Pack produces premium cardboard tuck end boxes with fast delivery, free shipping, and low minimums for professional product packaging. Customize Now.',
@@ -216,9 +216,9 @@ export const siteMetadata: Record<string, PageMetadata> = {
     title: 'Custom Cardboard Mailer Boxes | Fast & Durable',
     description: 'Boxy Pack offers premium cardboard mailer boxes with fast turnaround, free shipping, and durable construction for safe and stylish shipping. Shop Today.',
   },
-  // Cardboard Double Locked Wall Lid Box
+  // Cardboard Double Wall Locked Lid Box
   'cardboard-double-locked-wall-lid-box': {
-    title: 'Custom Cardboard Double Locked Wall Lid Boxes | Premium',
+    title: 'Custom Cardboard Double Wall Locked Lid Box | Premium',
     description: 'Boxy Pack produces high-quality cardboard double locked wall lid boxes with fast delivery, free shipping, and premium finishes for professional packaging. Order Now.',
   },
   // Cardboard Side Lock Six Corner Box
@@ -276,9 +276,9 @@ export const siteMetadata: Record<string, PageMetadata> = {
     title: 'Custom Corrugated Gable Boxes | Durable & Premium',
     description: 'Boxy Pack offers premium corrugated gable boxes with fast turnaround, free shipping, and high-quality materials for stylish and strong packaging. Customize Now.',
   },
-  // Corrugated Double Locked Wall Lid Box
+  // Cardboard Double Wall Locked Lid Box
   'corrugated-double-locked-wall-lid-box': {
-    title: 'Custom Corrugated Double Locked Wall Lid Boxes | Strong',
+    title: 'Custom Cardboard Double Wall Locked Lid Box | Strong',
     description: 'Boxy Pack delivers durable corrugated double locked wall lid boxes with fast turnaround, free shipping, and premium quality for professional packaging. Order Now.',
   },
   // Corrugated Seal End Auto Bottom Box
@@ -316,14 +316,14 @@ export const siteMetadata: Record<string, PageMetadata> = {
     title: 'Stand Up Pouches | Premium Custom Packaging by Boxy Pack',
     description: 'Boxy Pack crafts high-quality stand up pouches with premium finishes, fast turnaround, and free shipping for stylish and safe product packaging. Customize Now.',
   },
-  // Zipper Bag
+  // Mylar Ziplock Bag
   'zipper-bag': {
-    title: 'Custom Zipper Bags | Durable & Premium Packaging',
+    title: 'Custom Mylar Ziplock Bags | Durable & Premium Packaging',
     description: 'Boxy Pack delivers durable custom zipper bags with fast turnaround, premium materials, and free shipping for secure, professional product packaging. Order Now.',
   },
-  // Window Bag
+  // Mylar Window Bag
   'window-bag': {
-    title: 'Window Bags | Premium Custom Packaging by Boxy Pack',
+    title: 'Mylar Window Bags | Premium Custom Packaging by Boxy Pack',
     description: 'Boxy Pack creates premium custom window bags with fast turnaround, free shipping, and transparent panels to showcase products beautifully. Shop Today.',
   },
   // SHOPPING BAGS - Category Page
@@ -381,11 +381,6 @@ export const siteMetadata: Record<string, PageMetadata> = {
     title: 'Deluxe Candy Boxes | Premium Custom Packaging',
     description: 'Boxy Pack delivers premium custom candy boxes with fast turnaround, free shipping, and vibrant designs for standout product presentation. Shop Today.',
   },
-  // Mini Cupcake Boxes
-  'mini-cupcake-boxes': {
-    title: 'Mini Cupcake Boxes | Elegant Bakery Packaging',
-    description: 'Boxy Pack produces premium mini cupcake boxes with fast turnaround, free shipping, and durable design for professional bakery presentation. Customize Now.',
-  },
   // Pink Donut Boxes
   'pink-donut-boxes': {
     title: 'Pink Donut Boxes | Stylish Custom Bakery Packaging',
@@ -405,11 +400,6 @@ export const siteMetadata: Record<string, PageMetadata> = {
   'custom-cupcake-boxes': {
     title: 'Custom Cupcake Boxes | Premium Stylish Packaging',
     description: 'Boxy Pack produces premium custom cupcake boxes with fast turnaround, free shipping, and durable, elegant design for standout bakery packaging. Order Now.',
-  },
-  // Small Cake Boxes
-  'small-cake-boxes': {
-    title: 'Small Cake Boxes | Premium Bakery Packaging',
-    description: 'Boxy Pack delivers premium small cake boxes with fast turnaround, free shipping, and durable design for perfect bakery presentation. Shop Today.',
   },
   // Custom Truffle Boxes
   'custom-truffle-boxes': {
@@ -490,11 +480,6 @@ export const siteMetadata: Record<string, PageMetadata> = {
   'lotion-boxes': {
     title: 'Custom Lotion Boxes | Premium Skincare Packaging',
     description: 'Boxy Pack delivers high-quality lotion boxes with fast turnaround, free shipping, and elegant design to enhance your skincare product presentation. Order Now.',
-  },
-  // Lip Balm Display Boxes
-  'lip-balm-display-boxes': {
-    title: 'Lip Balm Display Boxes | Premium Custom Packaging',
-    description: 'Boxy Pack creates premium lip balm display boxes with fast turnaround, free shipping, and stylish design for professional cosmetic presentation. Shop Today.',
   },
   // Eye Lash Boxes
   'eye-lash-boxes': {
@@ -846,21 +831,6 @@ export const siteMetadata: Record<string, PageMetadata> = {
     title: 'Custom Cigarette Boxes | Premium Tobacco Packaging',
     description: 'Boxy Pack delivers premium custom cigarette boxes with fast turnaround, free shipping, and durable design for stylish and secure tobacco product packaging. Order Now.',
   },
-  // Paper Cigarette Boxes
-  'paper-cigarette-boxes': {
-    title: 'Paper Cigarette Boxes | Premium Custom Packaging',
-    description: 'Boxy Pack produces high-quality paper cigarette boxes with fast turnaround, free shipping, and stylish design for professional and secure tobacco presentation. Customize Now.',
-  },
-  // Empty Cigarette Boxes
-  'empty-cigarette-boxes': {
-    title: 'Empty Cigarette Boxes | Premium Packaging Solutions',
-    description: 'Boxy Pack produces high-quality empty cigarette boxes with fast turnaround, free shipping, and sturdy design for professional tobacco packaging. Customize Now.',
-  },
-  // Blank Cigarette Boxes
-  'blank-cigarette-boxes': {
-    title: 'Blank Cigarette Boxes | Premium Custom Packaging',
-    description: 'Boxy Pack produces premium blank cigarette boxes with fast turnaround, free shipping, and stylish design for flexible and professional tobacco packaging. Customize Now.',
-  },
   // CBD BOXES - Category Page
   'cbd-boxes': {
     title: 'Custom CBD Boxes | Premium Packaging for Cannabis',
@@ -906,11 +876,6 @@ export const siteMetadata: Record<string, PageMetadata> = {
     title: 'Custom Vape Boxes | Premium E-Cigarette Packaging',
     description: 'Boxy Pack delivers premium custom vape boxes with fast turnaround, free shipping, and stylish design to enhance your e-cigarette product presentation. Order Now.',
   },
-  // Empty Vape Cartridge Packaging
-  'empty-vape-cartridge-packaging': {
-    title: 'Empty Vape Cartridge Boxes | Premium Packaging',
-    description: 'Boxy Pack produces high-quality empty vape cartridge boxes with fast turnaround, free shipping, and durable design for professional e-cigarette packaging. Customize Now.',
-  },
   // Vape Cartridge Packaging
   'vape-cartridge-packaging': {
     title: 'Vape Cartridge Boxes | Premium Stylish Packaging',
@@ -950,16 +915,6 @@ export const siteMetadata: Record<string, PageMetadata> = {
   'custom-pencil-boxes': {
     title: 'Custom Pencil Boxes | Premium School & Office Packaging',
     description: 'Boxy Pack produces high-quality custom pencil boxes with fast turnaround, free shipping, and durable design to organize and present stationery professionally. Customize Now.',
-  },
-  // Cardboard Pen Boxes
-  'cardboard-pen-boxes': {
-    title: 'Cardboard Pen Boxes | Premium Custom Stationery Packaging',
-    description: 'Boxy Pack delivers premium cardboard pen boxes with fast turnaround, free shipping, and stylish design for professional and secure stationery presentation. Order Now.',
-  },
-  // Cardboard Pencil Boxes
-  'cardboard-pencil-boxes': {
-    title: 'Cardboard Pencil Boxes | Premium Custom Packaging',
-    description: 'Boxy Pack produces high-quality cardboard pencil boxes with fast turnaround, free shipping, and durable design for organized and professional stationery presentation. Customize Now.',
   },
   // Custom Book Boxes
   'custom-book-boxes': {
@@ -1046,25 +1001,10 @@ export const siteMetadata: Record<string, PageMetadata> = {
     title: 'Custom Chocolate Boxes | Premium Sweet Packaging',
     description: 'Boxy Pack delivers premium custom chocolate boxes with fast turnaround, free shipping, and stylish designs to make chocolates look irresistible. Order Now.',
   },
-  // Chocolate Packaging
-  'chocolate-packaging': {
-    title: 'Chocolate Packaging | Premium Sweet Box Solutions',
-    description: 'Boxy Pack produces high-quality chocolate packaging with fast turnaround, free shipping, and elegant design for professional and attractive sweet presentation. Customize Now.',
-  },
-  // Small Chocolate Boxes
-  'small-chocolate-boxes': {
-    title: 'Small Chocolate Boxes | Premium Sweet Packaging',
-    description: 'Boxy Pack delivers premium small chocolate boxes with fast turnaround, free shipping, and stylish designs for gift-ready chocolate presentation. Order Now.',
-  },
-  // Chocolate Milk Boxes
-  'chocolate-milk-boxes': {
-    title: 'Chocolate Milk Boxes | Premium Sweet Packaging',
-    description: 'Boxy Pack produces premium chocolate milk boxes with fast turnaround, free shipping, and durable design to present and protect your chocolate products. Customize Now.',
-  },
-  // Chocolate Candy Boxes
-  'chocolate-candy-boxes': {
-    title: 'Chocolate Candy Boxes | Premium Sweet Packaging',
-    description: 'Boxy Pack delivers high-quality chocolate candy boxes with fast turnaround, free shipping, and stylish design for attractive gift and retail packaging. Order Now.',
+  // Custom Chocolate Boxes
+  'custom-chocolate-boxes': {
+    title: 'Custom Chocolate Boxes | Premium Sweet Packaging',
+    description: 'Boxy Pack delivers premium custom chocolate boxes with fast turnaround, free shipping, and stylish designs to make chocolates look irresistible. Order Now.',
   },
   // Luxury Chocolate Boxes
   'luxury-chocolate-boxes': {
@@ -1101,15 +1041,10 @@ export const siteMetadata: Record<string, PageMetadata> = {
     title: 'Wholesale Cereal Boxes | Premium Bulk Packaging',
     description: 'Boxy Pack produces premium wholesale cereal boxes with fast turnaround, free shipping, and durable design for bulk cereal product packaging. Customize Now.',
   },
-  // Mini Cereal Boxes
-  'mini-cereal-boxes': {
-    title: 'Mini Cereal Boxes | Premium Custom Packaging',
-    description: 'Boxy Pack delivers high-quality mini cereal boxes with fast turnaround, free shipping, and stylish design for attractive and convenient breakfast packaging. Order Now.',
-  },
-  // Cardboard Cereal Boxes
-  'cardboard-cereal-boxes': {
-    title: 'Cardboard Cereal Boxes | Premium Durable Packaging',
-    description: 'Boxy Pack produces premium cardboard cereal boxes with fast turnaround, free shipping, and sturdy design to showcase and protect cereals professionally. Customize Now.',
+  // Custom Cereal Boxes
+  'custom-cereal-boxes': {
+    title: 'Custom Cereal Boxes | Premium Breakfast Packaging',
+    description: 'Boxy Pack delivers premium custom cereal boxes with fast turnaround, free shipping, and stylish design to showcase cereals attractively. Order Now.',
   },
   // Corn Flakes Boxes
   'corn-flakes-boxes': {
@@ -1156,110 +1091,4 @@ export const siteMetadata: Record<string, PageMetadata> = {
     title: 'Custom Pre Roll Boxes | Premium Cannabis Packaging',
     description: 'Boxy Pack delivers premium custom pre roll boxes with fast turnaround, free shipping, and stylish design for professional and secure cannabis product packaging. Order Now.',
   },
-  // Cannabis Pre Roll Packaging
-  'cannabis-pre-roll-packaging': {
-    title: 'Cannabis Pre Roll Boxes | Premium Custom Packaging',
-    description: 'Boxy Pack produces high-quality cannabis pre roll boxes with fast turnaround, free shipping, and durable design for safe and attractive cannabis product presentation. Customize Now.',
-  },
-  // Pre Roll Display Boxes
-  'pre-roll-display-boxes': {
-    title: 'Pre Roll Display Boxes | Premium Cannabis Packaging',
-    description: 'Boxy Pack delivers premium pre roll display boxes with fast turnaround, free shipping, and stylish design for professional retail cannabis display. Order Now.',
-  },
-  // Pre Roll Packaging Labels
-  'pre-roll-packaging-labels': {
-    title: 'Pre Roll Packaging Labels | Premium Custom Cannabis Boxes',
-    description: 'Boxy Pack produces premium pre roll packaging labels with fast turnaround, free shipping, and elegant design to brand and enhance cannabis products. Customize Now.',
-  },
-  // Custom Delta 8 Boxes
-  'custom-delta-8-boxes': {
-    title: 'Delta 8 Pre Roll Boxes | Premium Custom Packaging',
-    description: 'Boxy Pack delivers premium Delta 8 pre roll boxes with fast turnaround, free shipping, and stylish design for professional cannabis product packaging. Order Now.',
-  },
-  // PIZZA BOXES - Category Page
-  'pizza-boxes': {
-    title: 'Custom Pizza Boxes | Premium Food Packaging',
-    description: 'Boxy Pack delivers premium custom pizza boxes with fast turnaround, free shipping, and sturdy design to keep pizzas fresh and presentable. Order Now.',
-  },
-  // White Pizza Boxes
-  'white-pizza-boxes': {
-    title: 'White Pizza Boxes | Premium Custom Packaging',
-    description: 'Boxy Pack produces premium white pizza boxes with fast turnaround, free shipping, and stylish design for professional and safe pizza delivery. Customize Now.',
-  },
-  // Pizza Slice Boxes
-  'pizza-slice-boxes': {
-    title: 'Pizza Slice Boxes | Premium Custom Packaging',
-    description: 'Boxy Pack delivers high-quality pizza slice boxes with fast turnaround, free shipping, and durable design for secure and attractive single-slice packaging. Order Now.',
-  },
-  // Round Pizza Boxes
-  'round-pizza-boxes': {
-    title: 'Round Pizza Boxes | Premium Custom Packaging',
-    description: 'Boxy Pack produces premium round pizza boxes with fast turnaround, free shipping, and sturdy design for professional and fresh pizza presentation. Customize Now.',
-  },
-  // Rectangle Pizza Boxes
-  'rectangle-pizza-boxes': {
-    title: 'Rectangle Pizza Boxes | Premium Custom Packaging',
-    description: 'Boxy Pack delivers premium rectangular pizza boxes with fast turnaround, free shipping, and durable design for secure and professional pizza packaging. Order Now.',
-  },
-  // Flatbread Pizza Boxes
-  'flatbread-pizza-boxes': {
-    title: 'Flatbread Pizza Boxes | Premium Custom Packaging',
-    description: 'Boxy Pack produces premium flatbread pizza boxes with fast turnaround, free shipping, and stylish design for attractive and secure pizza delivery. Customize Now.',
-  },
-  // 16 Inch Pizza Boxes
-  '16-inch-pizza-boxes': {
-    title: '16 Inch Pizza Boxes | Premium Custom Packaging',
-    description: 'Boxy Pack delivers premium 16-inch pizza boxes with fast turnaround, free shipping, and durable design for professional and secure large pizza packaging. Order Now.',
-  },
-  // 14 Inch Pizza Boxes
-  '14-inch-pizza-boxes': {
-    title: '14 Inch Pizza Boxes | Premium Custom Packaging',
-    description: 'Boxy Pack produces premium 14-inch pizza boxes with fast turnaround, free shipping, and stylish design for fresh and professional pizza presentation. Customize Now.',
-  },
-  // OTHERS - Booklets
-  'booklets': {
-    title: 'Custom Booklets | Premium Printed Packaging',
-    description: 'Boxy Pack delivers premium custom booklets with fast turnaround, free shipping, and stylish design for professional presentations and product guides. Order Now.',
-  },
-  // Brochures
-  'brochures': {
-    title: 'Custom Brochures | Premium Marketing Packaging',
-    description: 'Boxy Pack produces high-quality brochures with fast turnaround, free shipping, and stylish design to showcase your products and services professionally. Customize Now.',
-  },
-  // Tags Printing
-  'tags-printing': {
-    title: 'Custom Printed Tags | Premium Product Packaging',
-    description: 'Boxy Pack delivers premium custom printed tags with fast turnaround, free shipping, and stylish design for branding and product labeling. Order Now.',
-  },
-  // Business Cards
-  'business-cards': {
-    title: 'Custom Business Cards | Premium Professional Design',
-    description: 'Boxy Pack produces high-quality custom business cards with fast turnaround, free shipping, and stylish design to make a strong first impression. Customize Now.',
-  },
-  // Custom Tissue Paper
-  'custom-tissue-paper': {
-    title: 'Custom Tissue Paper | Premium Branded Packaging',
-    description: 'Boxy Pack delivers premium custom tissue paper with fast turnaround, free shipping, and stylish design for elegant product wrapping and presentation. Order Now.',
-  },
-  // Butter Paper
-  'butter-paper': {
-    title: 'Custom Butter Paper | Premium Food Packaging',
-    description: 'Boxy Pack produces premium butter paper with fast turnaround, free shipping, and durable design for hygienic and attractive food product packaging. Customize Now.',
-  },
-  // Product Labels & Bottle Labels
-  'product-labels-bottle-labels': {
-    title: 'Custom Product & Bottle Labels | Premium Packaging',
-    description: 'Boxy Pack delivers premium custom product and bottle labels with fast turnaround, free shipping, and stylish design to enhance branding and presentation. Order Now.',
-  },
-  // Table Tents
-  'table-tents': {
-    title: 'Custom Table Tents | Premium Restaurant Packaging',
-    description: 'Boxy Pack produces high-quality custom table tents with fast turnaround, free shipping, and stylish design to showcase menus, promotions, or products professionally. Customize Now.',
-  },
-  // Packing Tape
-  'packing-tape': {
-    title: 'Custom Packing Tape | Premium Branded Packaging',
-    description: 'Boxy Pack delivers premium custom packing tape with fast turnaround, free shipping, and stylish design to secure packages and boost brand visibility. Order Now.',
-  },
 };
-

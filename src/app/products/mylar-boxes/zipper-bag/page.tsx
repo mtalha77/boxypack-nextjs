@@ -4,8 +4,8 @@ import { navigationData } from '../../../data/navigationData';
 import ProductPageTemplate from '../../../components/product-page/page';
 
 export const metadata: Metadata = {
-  title: 'Custom Zipper Bags | Durable & Premium Packaging',
-  description: 'Boxy Pack delivers durable custom zipper bags with fast turnaround, premium materials, and free shipping for secure, professional product packaging. Order Now.',
+  title: 'Custom Mylar Ziplock Bags | Durable & Premium Packaging',
+  description: 'Boxy Pack delivers durable custom Mylar ziplock bags with fast turnaround, premium materials, and free shipping for secure, professional product packaging. Order Now.',
 };
 
 const ZipperBagPage = () => {

@@ -20,7 +20,7 @@ export const customDimensionsData: Record<string, CustomDimensionsContent> = {
     description: "Pick your two-piece rigid box style, set dimensions, add finishes, and order fast. Get custom two-piece rigid packaging boxes built for your brand in the packaging industry.",
   },
   "sliding-sleeve-rigid-boxes-match-style-boxes": {
-    title: "Sliding / Sleeve Rigid Boxes",
+    title: "Rigid Slide Drawer Box",
     description: "Pick your sliding sleeve rigid box style, set dimensions, add finishes, and order fast. Get custom sleeve rigid packaging boxes built for your brand in the packaging industry.",
   },
   "brief-case-style": {
@@ -148,7 +148,7 @@ export const customDimensionsData: Record<string, CustomDimensionsContent> = {
     description: "Pick your cardboard mailer box style, set dimensions, add finishes, and order fast. Get custom cardboard mailer packaging boxes built for your brand in the packaging industry.",
   },
   "cardboard-double-locked-wall-lid-box": {
-    title: "Cardboard Double Locked Wall Lid Box",
+    title: "Cardboard Double Wall Locked Lid Box",
     description: "Pick your cardboard double-locked wall lid box style, set dimensions, add finishes, and order fast. Get custom cardboard double-locked packaging boxes built for your brand in the packaging industry.",
   },
   "cardboard-side-lock-six-corner-box": {
@@ -198,7 +198,7 @@ export const customDimensionsData: Record<string, CustomDimensionsContent> = {
     description: "Pick your corrugated gable box style, set dimensions, add finishes, and order fast. Get custom corrugated gable packaging boxes built for your brand in the packaging industry.",
   },
   "corrugated-double-locked-wall-lid-box": {
-    title: "Corrugated Double-Locked Wall Lid Box",
+    title: "Cardboard Double Wall Locked Lid Box",
     description: "Pick your corrugated double locked wall lid box style, set dimensions, add finishes, and order fast. Get custom corrugated wall lid packaging boxes built for your brand in the packaging industry.",
   },
   "corrugated-seal-end-auto-bottom-box": {
@@ -234,11 +234,11 @@ export const customDimensionsData: Record<string, CustomDimensionsContent> = {
     description: "Pick your stand-up pouch style, set dimensions, add finishes, and order fast. Get custom stand-up mylar pouches built for your brand in the packaging industry.",
   },
   "zipper-bag": {
-    title: "Zipper Bag",
+    title: "Mylar Ziplock Bag",
     description: "Pick your mylar zipper bag style, set dimensions, add finishes, and order fast. Get custom mylar zipper bags built for your brand in the packaging industry.",
   },
   "window-bag": {
-    title: "Window Bag",
+    title: "Mylar Window Bag",
     description: "Pick your mylar window bag style, set dimensions, add finishes, and order fast. Get custom mylar window bags built for your brand in the packaging industry.",
   },
   

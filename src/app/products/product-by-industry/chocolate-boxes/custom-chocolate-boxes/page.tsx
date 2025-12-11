@@ -4,14 +4,14 @@ import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
 
 export const metadata: Metadata = {
-  title: 'Blank Cigarette Boxes | Premium Custom Packaging',
-  description: 'Boxy Pack produces premium blank cigarette boxes with fast turnaround, free shipping, and stylish design for flexible and professional tobacco packaging. Customize Now.',
+  title: 'Custom Chocolate Boxes | Premium Sweet Packaging',
+  description: 'Boxy Pack delivers premium custom chocolate boxes with fast turnaround, free shipping, and stylish designs to make chocolates look irresistible. Order Now.',
 };
 
-const BlankCigaretteBoxesPage = () => {
+const CustomChocolateBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');
-  const category = section?.categories?.find(c => c.slug === 'cigarette-boxes-industry');
-  const subcategory = category?.subcategories.find(sc => sc.slug === 'blank-cigarette-boxes');
+  const category = section?.categories?.find(c => c.slug === 'chocolate-boxes');
+  const subcategory = category?.subcategories.find(sc => sc.slug === 'custom-chocolate-boxes');
   
   if (!section || !category || !subcategory) {
     return <div>Subcategory not found</div>;
@@ -22,10 +22,11 @@ const BlankCigaretteBoxesPage = () => {
       section={section}
       category={category}
       subcategory={subcategory}
-      slug="blank-cigarette-boxes"
+      slug="custom-chocolate-boxes"
       pageType="subcategory"
     />
   );
 };
 
-export default BlankCigaretteBoxesPage;
+export default CustomChocolateBoxesPage;
+

@@ -27,7 +27,7 @@ export const productByIndustryData: IndustryCategory[] = [
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       {
-        name: "Custom Donut Boxes",
+        name: "Custom Donut Box",
         slug: "custom-donut-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
@@ -37,7 +37,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Pastry Boxes",
+        name: "Custom Pastry Box",
         slug: "custom-pastry-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
@@ -47,7 +47,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Cake Boxes",
+        name: "Custom Cake Box",
         slug: "custom-cake-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
@@ -57,7 +57,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Cookie Boxes",
+        name: "Custom Cookie Box",
         slug: "custom-cookie-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
@@ -67,7 +67,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Gable Boxes",
+        name: "Custom Gable Box",
         slug: "custom-gable-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
@@ -77,7 +77,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Candy Boxes",
+        name: "Custom Candy Box",
         slug: "custom-candy-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
@@ -87,17 +87,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Mini Cupcake Boxes",
-        slug: "mini-cupcake-boxes",
-        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
-        images: [
-          "Mini-Cupcake-Boxes_ghdjzw",
-          "Mini-Cupcake-Boxes-1_gk2oxp",
-          "Mini-Cupcake-Boxes-2_b7tsvq",
-        ],
-      },
-      {
-        name: "Pink Donut Boxes",
+        name: "Pink Donut Box",
         slug: "pink-donut-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
@@ -107,7 +97,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Window Bakery Boxes",
+        name: "Window Bakery Box",
         slug: "window-bakery-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
@@ -117,7 +107,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Bakery Gift Boxes",
+        name: "Bakery Gift Box",
         slug: "bakery-gift-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
@@ -127,7 +117,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Cupcake Boxes",
+        name: "Custom Cupcake Box",
         slug: "custom-cupcake-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
@@ -137,17 +127,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Small Cake Boxes",
-        slug: "small-cake-boxes",
-        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
-        images: [
-          "Small-Cake-Boxes_eobqee",
-          "Small-Cake-Boxes-2_pzmikh",
-          "Small-Cake-Boxes-3_dampkl",
-        ],
-      },
-      {
-        name: "Custom Truffle Boxes",
+        name: "Custom Truffle Box",
         slug: "custom-truffle-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
@@ -157,7 +137,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Sweet Gift Boxes",
+        name: "Sweet Gift Box",
         slug: "sweet-gift-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
@@ -177,7 +157,7 @@ export const productByIndustryData: IndustryCategory[] = [
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       {
-        name: "Cosmetic Display Boxes",
+        name: "Cosmetic Display Box",
         slug: "cosmetic-display-boxes",
         heroImage: "Display-Cosmetic-Boxes_qxwdok",
         images: [
@@ -187,7 +167,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Perfume Boxes",
+        name: "Custom Perfume Box",
         slug: "custom-perfume-boxes",
         heroImage: "Custom-Perfume-Boxes_dsekz6",
         images: [
@@ -197,7 +177,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Makeup Boxes",
+        name: "Custom Makeup Box",
         slug: "custom-makeup-boxes",
         heroImage: "Custom-Makeup-Boxes_g9x0ga",
         images: [
@@ -207,7 +187,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Hair Extension Boxes",
+        name: "Hair Extension Box",
         slug: "hair-extension-boxes",
         heroImage: "Hair-Extension-Boxes_koirow",
         images: [
@@ -217,7 +197,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Lipstick Boxes",
+        name: "Custom Lipstick Box",
         slug: "custom-lipstick-boxes",
         heroImage: "Custom-Lipstick-Boxes_ye9jwo",
         images: [
@@ -227,7 +207,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Lip Gloss Boxes",
+        name: "Custom Lip Gloss Box",
         slug: "custom-lip-gloss-boxes",
         heroImage: "Custom-LipGloss-Boxes_t4osho",
         images: [
@@ -237,7 +217,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Eye Shadow Boxes",
+        name: "Custom Eye Shadow Box",
         slug: "custom-eye-shadow-boxes",
         heroImage: "Custom-Eye-Shadow-Boxes_uofwwc",
         images: [
@@ -247,7 +227,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Cream Boxes",
+        name: "Custom Cream Box",
         slug: "custom-cream-boxes",
         heroImage: "Custom-Cream-Boxes_izanae",
         images: [
@@ -257,7 +237,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Mascara Boxes",
+        name: "Custom Mascara Box",
         slug: "custom-mascara-boxes",
         heroImage: "Custom-Mascara-Boxes_isxe9x",
         images: [
@@ -267,7 +247,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Nail Polish Boxes",
+        name: "Custom Nail Polish Box",
         slug: "custom-nail-polish-boxes",
         heroImage: "Custom-Nail-Polish-Boxes_mnqghy",
         images: [
@@ -277,7 +257,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Lip Balm Boxes",
+        name: "Custom Lip Balm Box",
         slug: "custom-lip-balm-boxes",
         heroImage: "Custom-Lip-Balm-Boxes_dxamvj",
         images: [
@@ -287,7 +267,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Eyeliner Boxes",
+        name: "Custom Eyeliner Box",
         slug: "custom-eyeliner-boxes",
         heroImage: "Custom-Eyeliner-Boxes_sdj4sh",
         images: [
@@ -297,7 +277,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Foundation Boxes",
+        name: "Foundation Box",
         slug: "foundation-boxes",
         heroImage: "Foundation-Boxes_vnzlu7",
         images: [
@@ -307,7 +287,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Lotion Boxes",
+        name: "Lotion Box",
         slug: "lotion-boxes",
         heroImage: "Lotion-Boxes_k0nron",
         images: [
@@ -317,17 +297,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Lip Balm Display Boxes",
-        slug: "lip-balm-display-boxes",
-        heroImage: "Lip-Balm-Boxes_vyya9e",
-        images: [
-          "Lip-Balm-Boxes-1_amsrpr",
-          "Lip-Balm-Boxes-2_qtskj2",
-          "Lip-Balm-Boxes-3_eqoimi",
-        ],
-      },
-      {
-        name: "Eye Lash Boxes",
+        name: "Eye Lash Box",
         slug: "eye-lash-boxes",
         heroImage: "Eye-Lash-Boxes_mjsiop",
         images: [
@@ -337,7 +307,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Cosmetic Gift Boxes",
+        name: "Cosmetic Gift Box",
         slug: "cosmetic-gift-boxes",
         heroImage: "Cosmetic-Gift-Boxes_xkiefj",
         images: [
@@ -347,7 +317,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Olive Oil Boxes",
+        name: "Olive Oil Box",
         slug: "olive-oil-boxes",
         heroImage: "Olive-Oil-Boxes_hjrpxe",
         images: [
@@ -357,7 +327,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Essential Oil Boxes",
+        name: "Essential Oil Box",
         slug: "essential-oil-boxes",
         heroImage: "Essential-Oil-Boxes_g5gyac",
         images: [
@@ -367,7 +337,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Beard Oil Boxes",
+        name: "Beard Oil Box",
         slug: "beard-oil-boxes",
         heroImage: "Beard-Oil-Boxes_tniis2",
         images: [
@@ -377,7 +347,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Serum Boxes",
+        name: "Serum Box",
         slug: "serum-boxes",
         heroImage: "Serum-Boxes_sl4mkq",
         images: [
@@ -397,7 +367,7 @@ export const productByIndustryData: IndustryCategory[] = [
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       {
-        name: "Custom French Fry Boxes",
+        name: "Custom French Fry Box",
         slug: "custom-french-fry-boxes",
         heroImage: "Custom-French-Fry-Boxes_szgiyf",
         images: [
@@ -407,7 +377,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Coffee Boxes",
+        name: "Custom Coffee Box",
         slug: "custom-coffee-boxes",
         heroImage: "Custom-Coffee-Boxes_e1fobn",
         images: [
@@ -437,7 +407,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Chinese Takeout Boxes",
+        name: "Custom Chinese Takeout Box",
         slug: "custom-chinese-takeout-boxes",
         heroImage: "Custom-Chinese-Takeout-Boxes_kufbec",
         images: [
@@ -447,7 +417,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Popcorn Boxes",
+        name: "Custom Popcorn Box",
         slug: "custom-popcorn-boxes",
         heroImage: "Custom-Popcorn-Boxes_gpacm8",
         images: [
@@ -457,7 +427,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Snack Boxes",
+        name: "Custom Snack Box",
         slug: "custom-snack-boxes",
         heroImage: "Custom-Snack-Boxes_yfagyu",
         images: [
@@ -467,7 +437,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Tea Boxes",
+        name: "Custom Tea Box",
         slug: "custom-tea-boxes",
         heroImage: "Custom-Tea-Boxes_oarez1",
         images: [
@@ -477,7 +447,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Burger Boxes",
+        name: "Custom Burger Box",
         slug: "custom-burger-boxes",
         heroImage: "Custom-Burger-Boxes_iwrgyq",
         images: [
@@ -487,7 +457,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Sandwich Boxes",
+        name: "Sandwich Box",
         slug: "sandwich-boxes",
         heroImage: "Custom-Sandwich-Boxes_evi9t6",
         images: [
@@ -507,7 +477,7 @@ export const productByIndustryData: IndustryCategory[] = [
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       {
-        name: "Gift Pillow Boxes",
+        name: "Gift Pillow Box",
         slug: "gift-pillow-boxes",
         heroImage: "Pillow-Gift-Boxes_peeh1e",
         images: [
@@ -517,7 +487,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Birthday Gift Boxes",
+        name: "Birthday Gift Box",
         slug: "birthday-gift-boxes",
         heroImage: "Birthday-Gift-Boxes_vug0ke",
         images: [
@@ -527,7 +497,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Sweet Gift Boxes",
+        name: "Sweet Gift Box",
         slug: "sweet-gift-boxes-industry",
         heroImage: "Sweet-Gift-Boxes_hx5whj",
         images: [
@@ -537,7 +507,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Party Favor Boxes",
+        name: "Party Favor Box",
         slug: "party-favor-boxes",
         heroImage: "Party-Favor-Boxes_gnqbhm",
         images: [
@@ -547,7 +517,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Round Gift Boxes",
+        name: "Round Gift Box",
         slug: "round-gift-boxes",
         heroImage: "Round-Gift-Boxes_ybuudj",
         images: [
@@ -557,7 +527,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Gift Boxes with Lid",
+        name: "Gift Box with Lid",
         slug: "gift-boxes-with-lid",
         heroImage: "Gift-Boxes-With-Lid_tdp3ok",
         images: [
@@ -567,7 +537,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Deluxe Gift Boxes",
+        name: "Custom Deluxe Gift Box",
         slug: "custom-deluxe-gift-boxes",
         heroImage: "Deluxe-Gift-Boxes_mygamd",
         images: [
@@ -577,7 +547,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Square Gift Boxes",
+        name: "Custom Square Gift Box",
         slug: "custom-square-gift-boxes",
         heroImage: "Squre-Gift-Boxes_abscqz",
         images: [
@@ -587,7 +557,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Small Gift Boxes",
+        name: "Small Gift Box",
         slug: "small-gift-boxes",
         heroImage: "Small-Gift-Boxes_lwt7zv",
         images: [
@@ -597,7 +567,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Large Gift Boxes",
+        name: "Large Gift Box",
         slug: "large-gift-boxes",
         heroImage: "Large-Gift-Boxes_giboj4",
         images: [
@@ -617,7 +587,7 @@ export const productByIndustryData: IndustryCategory[] = [
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       {
-        name: "Anklet Boxes",
+        name: "Anklet Box",
         slug: "anklet-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         heroImage: "Anklet-Boxes_qpx9ng",
@@ -639,28 +609,6 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Kraft Jewelry Boxes",
-        slug: "kraft-jewelry-boxes",
-        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
-        heroImage: "Kraft-Jewelry-Boxes_px0b13",
-        images: [
-          "Kraft-Jewelry-Boxes-1_h7kkxi",
-          "Kraft-Jewelry-Boxes-2_tiddus",
-          "Kraft-Jewelry-Boxes-3_xpciol",
-        ],
-      },
-      {
-        name: "Cardboard Jewelry Boxes",
-        slug: "cardboard-jewelry-boxes",
-        modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
-        heroImage: "Cardboard-Jewelry-Boxes_ocpk10",
-        images: [
-          "Cardboard-Jewelry-Boxes-1_jabvfd",
-          "Cardboard-Jewelry-Boxes-2_ac6eyr",
-          "Cardboard-Jewelry-Boxes-3_avdwpf",
-        ],
-      },
-      {
         name: "Jewelry Subscription Box",
         slug: "jewelry-subscription-box",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -672,7 +620,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Pendant Boxes",
+        name: "Pendant Box",
         slug: "pendant-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         heroImage: "Pendant-Boxes_uactzx",
@@ -683,7 +631,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Bracelet Boxes",
+        name: "Bracelet Box",
         slug: "bracelet-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         heroImage: "Bracelet-Boxes_olm1lp",
@@ -694,7 +642,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Ring Boxes",
+        name: "Ring Box",
         slug: "ring-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         heroImage: "Ring-Boxes_ppidrs",
@@ -705,7 +653,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Earring Boxes",
+        name: "Earring Box",
         slug: "earring-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         heroImage: "Earring-Boxes_e3rsqz",
@@ -727,7 +675,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Necklace Boxes",
+        name: "Necklace Box",
         slug: "necklace-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         heroImage: "Necklace-Boxes_hxe1mj",
@@ -738,7 +686,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Small Jewelry Boxes",
+        name: "Small Jewelry Box",
         slug: "small-jewelry-boxes",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         heroImage: "Small-Jewelry-Boxes_gnee8c",
@@ -782,7 +730,7 @@ export const productByIndustryData: IndustryCategory[] = [
     subcategories: [
       // { name: "Custom Die Cut Boxes", slug: "custom-die-cut-boxes" }, // Hidden - content not available
       {
-        name: "Custom Toy Boxes",
+        name: "Custom Toy Box",
         slug: "custom-toy-boxes",
         heroImage: "Custom-Toy-Boxes_ct6ogj",
         images: [
@@ -792,7 +740,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Business Card Boxes",
+        name: "Business Card Box",
         slug: "business-card-boxes",
         heroImage: "Business-Card-Boxes_el6kp4",
         images: [
@@ -802,7 +750,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Dispenser Boxes",
+        name: "Custom Dispenser Box",
         slug: "custom-dispenser-boxes",
         heroImage: "Custom-Dispenser-Boxes_rsxmi1",
         images: [
@@ -812,7 +760,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       { 
-        name: "Custom Mailer Boxes", 
+        name: "Custom Mailer Box", 
         slug: "custom-mailer-boxes",
         heroImage: "Custom-Mailer-Boxes_niy6ah",
         images: [
@@ -832,12 +780,12 @@ export const productByIndustryData: IndustryCategory[] = [
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       { 
-        name: "Candle Gift Boxes", 
+        name: "Candle Gift Box", 
         slug: "candle-gift-boxes",
         heroImage: "Candle-Boxes_bm4ri2"
       },
       {
-        name: "Luxury Candle Boxes",
+        name: "Luxury Candle Box",
         slug: "luxury-candle-boxes",
         heroImage: "Luxury-Candle-Boxes_n5jxlg",
         images: [
@@ -857,7 +805,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Candle Shipping Boxes",
+        name: "Candle Shipping Box",
         slug: "candle-shipping-boxes",
         heroImage: "Candle-Shipping-Boxes_rmwypc",
         images: [
@@ -867,12 +815,12 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       { 
-        name: "Taper Candle Boxes", 
+        name: "Taper Candle Box", 
         slug: "taper-candle-boxes",
         heroImage: "Candle-Boxes_bm4ri2"
       },
       {
-        name: "Custom Jar Candle Boxes",
+        name: "Custom Jar Candle Box",
         slug: "custom-jar-candle-boxes",
         heroImage: "Custom-Jar-Candle-Boxes_dq2ow2",
         images: [
@@ -882,12 +830,12 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       { 
-        name: "Wax Melt Boxes", 
+        name: "Wax Melt Box", 
         slug: "wax-melt-boxes",
         heroImage: "Candle-Boxes_bm4ri2"
       },
       {
-        name: "Kraft Candle Boxes",
+        name: "Kraft Candle Box",
         slug: "kraft-candle-boxes",
         heroImage: "Kraft-Candle-Boxes_wdg4zs",
         images: [
@@ -897,7 +845,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       { 
-        name: "Candle Subscription Boxes", 
+        name: "Candle Subscription Box", 
         slug: "candle-subscription-boxes",
         heroImage: "Candle-Boxes_bm4ri2"
       },
@@ -912,7 +860,7 @@ export const productByIndustryData: IndustryCategory[] = [
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       {
-        name: "Black Shipping Boxes",
+        name: "Black Shipping Box",
         slug: "black-shipping-boxes",
         heroImage: "Black-Shipping-Boxes_lclcdl",
         images: [
@@ -922,7 +870,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Candle Shipping Boxes",
+        name: "Candle Shipping Box",
         slug: "candle-shipping-boxes-industry",
         heroImage: "Candle-Shipping-Boxes_zglcia",
         images: [
@@ -932,7 +880,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Corrugated Shipping Boxes",
+        name: "Corrugated Shipping Box",
         slug: "corrugated-shipping-boxes",
         heroImage: "Corrugated-Shipping-Boxes_iybsof",
         images: [
@@ -942,7 +890,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Shipping Boxes",
+        name: "Custom Shipping Box",
         slug: "custom-shipping-boxes",
         heroImage: "Custom-Shipping-Boxes_zkxmdu",
         images: [
@@ -973,7 +921,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Bath Bomb Boxes",
+        name: "Custom Bath Bomb Box",
         slug: "custom-bath-bomb-boxes",
         heroImage: "Custom-Bath-Bomb-Boxes_xurto9",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -995,7 +943,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Handmade Soap Boxes",
+        name: "Handmade Soap Box",
         slug: "handmade-soap-boxes",
         heroImage: "Handmade-Soap-Boxes_yhu3se",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1017,7 +965,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Square Soap Boxes",
+        name: "Square Soap Box",
         slug: "square-soap-boxes",
         heroImage: "Square-Soap-Boxes_nhphnf",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1039,7 +987,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Paper Soap Boxes",
+        name: "Paper Soap Box",
         slug: "paper-soap-boxes",
         heroImage: "Paper-Soap-Boxes_mcbkrb",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1050,7 +998,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Kraft Soap Boxes",
+        name: "Kraft Soap Box",
         slug: "kraft-soap-boxes",
         heroImage: "Kraft-Soap-Boxes_uxcqj4",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1061,7 +1009,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Kraft Pillow Soap Boxes",
+        name: "Kraft Pillow Soap Box",
         slug: "kraft-pillow-soap-boxes-industry",
         heroImage: "Pillow-Soap-Boxes_vrirs7",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -1084,7 +1032,7 @@ export const productByIndustryData: IndustryCategory[] = [
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       {
-        name: "Cufflink Boxes",
+        name: "Cufflink Box",
         slug: "cufflink-boxes",
         heroImage: "Cufflink-Boxes_nz4k0d",
         images: [
@@ -1094,7 +1042,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Tie Boxes",
+        name: "Tie Box",
         slug: "tie-boxes",
         heroImage: "Tie-Boxes_ae5do1",
         images: [
@@ -1104,7 +1052,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Belt Boxes",
+        name: "Belt Box",
         slug: "belt-boxes",
         heroImage: "Belt-Boxes_w0r74w",
         images: [
@@ -1114,7 +1062,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Clothing Boxes",
+        name: "Clothing Box",
         slug: "clothing-boxes",
         heroImage: "Clothing-Boxes_jczzwx",
         images: [
@@ -1124,7 +1072,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Lingerie Boxes",
+        name: "Lingerie Box",
         slug: "lingerie-boxes",
         heroImage: "Lingerie-Boxes_fb0pqj",
         images: [
@@ -1134,7 +1082,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Underwear Boxes",
+        name: "Underwear Box",
         slug: "underwear-boxes",
         heroImage: "Underwear-Boxes_zmc68h",
         images: [
@@ -1144,7 +1092,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "T-Shirt Boxes",
+        name: "T-Shirt Box",
         slug: "tshirt-boxes",
         heroImage: "T-Shirt-Boxes_atrin0",
         images: [
@@ -1154,7 +1102,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Socks Boxes",
+        name: "Socks Box",
         slug: "socks-boxes",
         heroImage: "Socks-Boxes_hvsczm",
         images: [
@@ -1176,7 +1124,7 @@ export const productByIndustryData: IndustryCategory[] = [
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       {
-        name: "Cardboard Shoe Boxes",
+        name: "Cardboard Shoe Box",
         slug: "cardboard-shoe-boxes",
         heroImage: "Cardboard-Shoe-Boxes_aceuor",
         images: [
@@ -1186,7 +1134,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Shoe Shipping Boxes",
+        name: "Shoe Shipping Box",
         slug: "shoe-shipping-boxes",
         heroImage: "Shoe-Shipping-Boxes_fcblsb",
         images: [
@@ -1196,7 +1144,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Shoe Boxes",
+        name: "Custom Shoe Box",
         slug: "custom-shoe-boxes",
         heroImage: "Custom-Shoe-Boxes_jw2ycm",
         images: [
@@ -1206,7 +1154,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Shoe Boxes with Lid",
+        name: "Shoe Box with Lid",
         slug: "shoe-boxes-with-lid",
         heroImage: "Shoe-Boxes-With-Lid_bgpkw8",
         images: [
@@ -1216,7 +1164,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Golf Ball Boxes",
+        name: "Golf Ball Box",
         slug: "golf-ball-boxes",
         heroImage: "Golf-Ball-Boxes_jz6mlf",
         images: [
@@ -1226,7 +1174,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Football Boxes",
+        name: "Football Box",
         slug: "football-boxes",
         heroImage: "Football-Boxes_b9r2zb",
         images: [
@@ -1248,17 +1196,7 @@ export const productByIndustryData: IndustryCategory[] = [
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       {
-        name: "Paper Cigarette Boxes",
-        slug: "paper-cigarette-boxes",
-        heroImage: "Paper-Cigarette-Boxes_ae2std",
-        images: [
-          "Paper-Cigarette-Boxes-1_wtiu7e",
-          "Paper-Cigarette-Boxes-2_rnnux2",
-          "Paper-Cigarette-Boxes-3_pa6wa9",
-        ],
-      },
-      {
-        name: "Custom Cigarette Boxes",
+        name: "Custom Cigarette Box",
         slug: "custom-cigarette-boxes",
         heroImage: "Custom-Cigarette-Boxes_yjtvvv",
         images: [
@@ -1268,17 +1206,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Empty Cigarette Boxes",
-        slug: "empty-cigarette-boxes",
-        heroImage: "Empty-Cigarette-Boxes_sn11hb",
-        images: [
-          "Empty-Cigarette-Boxes-1_t4kzi9",
-          "Empty-Cigarette-Boxes-2_vszvgt",
-          "Empty-Cigarette-Boxes-2_vszvgt",
-        ],
-      },
-      {
-        name: "Cardboard Cigarette Boxes",
+        name: "Cardboard Cigarette Box",
         slug: "cardboard-cigarette-boxes",
         heroImage: "Cardboard-Cigarette-Boxes_mowea8",
         images: [
@@ -1288,17 +1216,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Blank Cigarette Boxes",
-        slug: "blank-cigarette-boxes",
-        heroImage: "Blank-Cigarette-Boxes_errlja",
-        images: [
-          "Blank-Cigarette-Boxes-1_evdnrk",
-          "Blank-Cigarette-Boxes-2_zsjo5n",
-          "Blank-Cigarette-Boxes-3_zekskp",
-        ],
-      },
-      {
-        name: "Flip Top Cigarette Boxes",
+        name: "Flip Top Cigarette Box",
         slug: "flip-top-cigarette-boxes",
         heroImage: "Flip-Top-Cigarette-Boxes_bgm3ra",
         images: [
@@ -1320,7 +1238,7 @@ export const productByIndustryData: IndustryCategory[] = [
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       {
-        name: "CBD Gift Boxes",
+        name: "CBD Gift Box",
         slug: "cbd-gift-boxes",
         heroImage: "CBD-Gift-Boxes_yxw8gy",
         images: [
@@ -1330,7 +1248,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "CBD Gummies Boxes",
+        name: "CBD Gummies Box",
         slug: "cbd-gummies-boxes",
         heroImage: "CBD-Gummies-Boxes_vqp0nx",
         images: [
@@ -1340,7 +1258,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Cannabis Boxes",
+        name: "Custom Cannabis Box",
         slug: "custom-cannabis-boxes",
         heroImage: "Cusotm-Cannabis-Boxes_c8p5nu",
         images: [
@@ -1350,7 +1268,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "CBD Oil Boxes",
+        name: "CBD Oil Box",
         slug: "cbd-oil-boxes",
         heroImage: "CBD-Oil-Boxes_cnhehq",
         images: [
@@ -1360,7 +1278,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Hemp Oil Boxes",
+        name: "Hemp Oil Box",
         slug: "hemp-oil-boxes",
         images: [
           "Hemp-Oil-Boxes-1_q7mzbh",
@@ -1369,7 +1287,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Pre Roll Boxes",
+        name: "Pre Roll Box",
         slug: "pre-roll-boxes",
         heroImage: "Pre-Roll-Boxes_xrivpk",
         images: [
@@ -1379,7 +1297,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "CBD Tincture Boxes",
+        name: "CBD Tincture Box",
         slug: "cbd-tincture-boxes",
         heroImage: "CBD-Tincture-Boxes_qyy0uj",
         images: [
@@ -1395,29 +1313,9 @@ export const productByIndustryData: IndustryCategory[] = [
     slug: "vape-boxes",
     description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "Box-5_pdb8xw",
-    subcategoriesCount: 5,
+    subcategoriesCount: 3,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
-      {
-        name: "Vape Boxes",
-        slug: "vape-boxes",
-        heroImage: "Vape-Boxes_ginl36",
-        images: [
-          "Vape-Boxes-1_ns2pdn",
-          "Vape-Boxes-2_npdki3",
-          "Vape-Boxes-3_cbyg2e",
-        ],
-      },
-      {
-        name: "Empty Vape Cartridge Packaging",
-        slug: "empty-vape-cartridge-packaging",
-        heroImage: "Empty-Vape-Cartridge-Packaging_trb4vd",
-        images: [
-          "Empty-Vape-Cartridge-Packaging-1_ogbesm",
-          "Empty-Vape-Cartridge-Packaging-2_g3jia9",
-          "Empty-Vape-Cartridge-Packaging-3_swilm9",
-        ],
-      },
       { 
         name: "Vape Cartridge Packaging", 
         slug: "vape-cartridge-packaging",
@@ -1427,7 +1325,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Vape Boxes",
+        name: "Custom Vape Box",
         slug: "custom-vape-boxes",
         heroImage: "Custom-Vape-Boxes_buyp9b",
         images: [
@@ -1457,7 +1355,7 @@ export const productByIndustryData: IndustryCategory[] = [
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       {
-        name: "E-liquid Bottle Boxes",
+        name: "E-liquid Bottle Box",
         slug: "e-liquid-bottle-boxes",
         heroImage: "E-Liquid-Bottle-Boxes_qflm5g",
         images: [
@@ -1467,7 +1365,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "E-liquid Display Boxes",
+        name: "E-liquid Display Box",
         slug: "e-liquid-display-boxes",
         heroImage: "E-Liquid-Display-Boxes_c6gqkt",
         images: [
@@ -1477,7 +1375,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "E-liquid Gift Boxes",
+        name: "E-liquid Gift Box",
         slug: "e-liquid-gift-boxes",
         heroImage: "E-Liquid-Gift-Boxes_xxu2sa",
         images: [
@@ -1497,7 +1395,7 @@ export const productByIndustryData: IndustryCategory[] = [
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       {
-        name: "Custom Pencil Boxes",
+        name: "Custom Pencil Box",
         slug: "custom-pencil-boxes",
         heroImage: "Custom-Pencil-Boxes-1_o7o7op",
         images: [
@@ -1507,27 +1405,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Cardboard Pen Boxes",
-        slug: "cardboard-pen-boxes",
-        heroImage: "Cardboard-Pen-Boxes-2_gnqxb3",
-        images: [
-          "Cardboard_Pen_Boxes_1_xuyc43",
-          "Cardboard_Pen_Boxes_2_jgc5zy",
-          "Cardboard_Pen_Boxes_2_jgc5zy",
-        ],
-      },
-      {
-        name: "Cardboard Pencil Boxes",
-        slug: "cardboard-pencil-boxes",
-        heroImage: "Cardboard-Pencil-Boxes-1_wt6kvu",
-        images: [
-          "Cardboard_Pencil_Boxes_1_lud7ix",
-          "Cardboard_Pencil_Boxes_2_v8bn19",
-          "Cardboard_Pencil_Boxes_3_n8qath",
-        ],
-      },
-      {
-        name: "Custom Book Boxes",
+        name: "Custom Book Box",
         slug: "custom-book-boxes",
         heroImage: "Custom-Book-Boxes-1_fzhjlw",
         images: [
@@ -1547,7 +1425,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Pen Gift Boxes",
+        name: "Pen Gift Box",
         slug: "pen-gift-boxes",
         heroImage: "Pen-Gift-Boxes1_toi152",
         images: [
@@ -1557,7 +1435,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Custom Pen Boxes",
+        name: "Custom Pen Box",
         slug: "custom-pen-boxes",
         heroImage: "Custom-Pen-Boxes-2_fgjeoi",
         images: [
@@ -1577,7 +1455,7 @@ export const productByIndustryData: IndustryCategory[] = [
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       {
-        name: "Christmas Boxes with Lids",
+        name: "Christmas Box with Lid",
         slug: "christmas-boxes-with-lids",
         heroImage: "Christmas-Boxes-with-Lids-1_dv0zgh",
         images: [
@@ -1587,7 +1465,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       { 
-        name: "Christmas Cupcake Boxes", 
+        name: "Christmas Cupcake Box", 
         slug: "christmas-cupcake-boxes",
         heroImage: "Custom-Cupcake-Boxes_r2nlgw",
         images: [
@@ -1597,7 +1475,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       { 
-        name: "Christmas Candy Boxes", 
+        name: "Christmas Candy Box", 
         slug: "christmas-candy-boxes",
         heroImage: "Christmas-Treat-Boxes-2_caf11d",
         images: [
@@ -1607,7 +1485,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Christmas Gift Boxes",
+        name: "Christmas Gift Box",
         slug: "christmas-gift-boxes",
         heroImage: "Christmas-Gift-Boxes-3_nks4wa",
         images: [
@@ -1617,7 +1495,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       { 
-        name: "Christmas Eve Boxes", 
+        name: "Christmas Eve Box", 
         slug: "christmas-eve-boxes",
         heroImage: "Christmas-Gift-Boxes-3_nks4wa",
         images: [
@@ -1627,7 +1505,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Christmas Present Boxes",
+        name: "Christmas Present Box",
         slug: "christmas-present-boxes",
         heroImage: "Christmas-Present-Boxes-2_sjmob0",
         images: [
@@ -1637,7 +1515,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Christmas Cookie Boxes",
+        name: "Christmas Cookie Box",
         slug: "christmas-cookie-boxes",
         heroImage: "Christmas-Cookie-Boxes-1_o0umpo",
         images: [
@@ -1647,7 +1525,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Christmas Treat Boxes",
+        name: "Christmas Treat Box",
         slug: "christmas-treat-boxes",
         heroImage: "Christmas-Treat-Boxes-2_caf11d",
         images: [
@@ -1677,7 +1555,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Christmas Favor Boxes",
+        name: "Christmas Favor Box",
         slug: "christmas-favor-boxes",
         heroImage: "Christmas-Favor-Boxes-1_mpkbbh",
         images: [
@@ -1687,7 +1565,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Christmas Mailer Boxes",
+        name: "Christmas Mailer Box",
         slug: "christmas-mailer-boxes",
         heroImage: "Christmas-Mailer-Boxes-2_nqyiae",
         images: [
@@ -1703,51 +1581,24 @@ export const productByIndustryData: IndustryCategory[] = [
     slug: "chocolate-boxes",
     description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "Box-5_pdb8xw",
-    subcategoriesCount: 9,
+    subcategoriesCount: 6,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       {
-        name: "Chocolate Packaging",
-        slug: "chocolate-packaging",
+        name: "Custom Chocolate Box",
+        slug: "custom-chocolate-boxes",
         heroImage: "Chocolate-box-1_jagzxa",
         images: [
           "Chocolate_box_1_yrg5y0",
           "Chocolate_box_2_kfnskd",
           "Chocolate_box_3_z6yolj",
-        ],
-      },
-      {
-        name: "Small Chocolate Boxes",
-        slug: "small-chocolate-boxes",
-        heroImage: "mini-Chocolate-box-2_vtpcml",
-        images: [
           "mini_Chocolate_box_1_bfeu9h",
-          "mini_Chocolate_box_2_hqstuw",
-          "mini_Chocolate_box_1_bfeu9h",
-        ],
-      },
-      {
-        name: "Chocolate Milk Boxes",
-        slug: "chocolate-milk-boxes",
-        heroImage: "Chocolate-milk-box-2_kh7gkb",
-        images: [
           "Chocolate_milk_box_1_fedk3q",
-          "Chocolate_milk_box_2_mdk9ig",
-          "Chocolate_milk_box_3_aj4898",
-        ],
-      },
-      {
-        name: "Chocolate Candy Boxes",
-        slug: "chocolate-candy-boxes",
-        heroImage: "Chocolate-candy-box-2_nfjii1",
-        images: [
-          "Chocolate_candy_box_1_iwrdpu",
-          "Chocolate_candy_box_2_un7iaf",
           "Chocolate_candy_box_1_iwrdpu",
         ],
       },
       {
-        name: "Luxury Chocolate Boxes",
+        name: "Luxury Chocolate Box",
         slug: "luxury-chocolate-boxes",
         heroImage: "luxury-Chocolate-box-1_gm94ap",
         images: [
@@ -1757,7 +1608,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Chocolate Bomb Boxes",
+        name: "Chocolate Bomb Box",
         slug: "chocolate-bomb-boxes",
         heroImage: "Chocolate-BOmb-box-1_fzxtzn",
         images: [
@@ -1767,7 +1618,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Chocolate Gift Boxes",
+        name: "Chocolate Gift Box",
         slug: "chocolate-gift-boxes",
         heroImage: "chocolate-gift-box-2_eg1rik",
         images: [
@@ -1777,7 +1628,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Christmas Chocolate Boxes",
+        name: "Christmas Chocolate Box",
         slug: "christmas-chocolate-boxes",
         heroImage: "cheristmas-Chocolate-box-1_fm2mse",
         images: [
@@ -1787,7 +1638,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Chocolate Bar Boxes",
+        name: "Chocolate Bar Box",
         slug: "chocolate-bar-boxes",
         heroImage: "Chocolate-bar-box-2_rdvsg1",
         images: [
@@ -1803,11 +1654,11 @@ export const productByIndustryData: IndustryCategory[] = [
     slug: "cereal-boxes",
     description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "Box-6_vm3fmh",
-    subcategoriesCount: 12,
+    subcategoriesCount: 11,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       {
-        name: "Cereal Boxes Wholesale",
+        name: "Cereal Box Wholesale",
         slug: "cereal-boxes-wholesale",
         heroImage: "cereal-box-3_luczhd",
         images: [
@@ -1817,34 +1668,26 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Mini Cereal Boxes",
-        slug: "mini-cereal-boxes",
-        heroImage: "mini_cereal_box1_zdgvky",
+        name: "Custom Cereal Box",
+        slug: "custom-cereal-boxes",
+        heroImage: "cereal-box-3_luczhd",
         images: [
           "mini_cereal_box1_zdgvky",
           "mini_cereal_box2_ajjjux",
-          "mini_cereal_box3_iwsqgw",
-        ],
-      },
-      {
-        name: "Cardboard Cereal Boxes",
-        slug: "cardboard-cereal-boxes",
-        heroImage: "Cardboard-cereal-box-3_l90b01",
-        images: [
           "Cardboard_cereal_box_1_dnvfxe",
           "Cardboard_cereal_box_2_b8mtju",
           "Cardboard_cereal_box_3_osbidx",
         ],
       },
       { 
-        name: "Corn Flakes Boxes", 
+        name: "Corn Flakes Box", 
         slug: "corn-flakes-boxes",
         heroImage: "cereal-box-3_luczhd",
       },
       {
-        name: "Unique Cereal Boxes",
+        name: "Unique Cereal Box",
         slug: "unique-cereal-boxes",
-        heroImage: "unique_cereal_box_1_wd3uiv",
+        heroImage: "cereal-box-3_luczhd",
         images: [
           "unique_cereal_box_1_wd3uiv",
           "unique_cereal_box_2_imcnhg",
@@ -1852,12 +1695,12 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       { 
-        name: "Breakfast Cereal Boxes", 
+        name: "Breakfast Cereal Box", 
         slug: "breakfast-cereal-boxes",
         heroImage: "cereal-box-3_luczhd",
       },
       { 
-        name: "Colorful Cereal Boxes", 
+        name: "Colorful Cereal Box", 
         slug: "colorful-cereal-boxes",
         heroImage: "Colorful-Cereal-Boxes-3_az1snc",
         images: [
@@ -1867,7 +1710,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       { 
-        name: "Vintage Cereal Boxes", 
+        name: "Vintage Cereal Box", 
         slug: "vintage-cereal-boxes",
         heroImage: "Vintage-Cereal-Boxes-3_igkin6",
         images: [
@@ -1877,7 +1720,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       { 
-        name: "Retro Cereal Boxes", 
+        name: "Retro Cereal Box", 
         slug: "retro-cereal-boxes",
         heroImage: "Retro-Cereal-Boxes1_vxi2jh",
         images: [
@@ -1887,7 +1730,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       { 
-        name: "90s Cereal Boxes", 
+        name: "90s Cereal Box", 
         slug: "90s-cereal-boxes",
         heroImage: "90s-cereal-box_thxwlw",
         images: [
@@ -1897,7 +1740,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       { 
-        name: "80s Cereal Boxes", 
+        name: "80s Cereal Box", 
         slug: "80s-cereal-boxes",
         heroImage: "80s-cereal-box_dpluxh",
         images: [
@@ -1907,7 +1750,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       { 
-        name: "Funny Cereal Boxes", 
+        name: "Funny Cereal Box", 
         slug: "funny-cereal-boxes",
         heroImage: "Funny-cereal-box_ynsyyg",
         images: [
@@ -1923,7 +1766,7 @@ export const productByIndustryData: IndustryCategory[] = [
     slug: "pre-roll-boxes-industry",
     description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "shipping-box_jyysru",
-    subcategoriesCount: 6,
+    subcategoriesCount: 5,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       {
@@ -1937,7 +1780,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Pre Roll Display Boxes",
+        name: "Pre Roll Display Box",
         slug: "pre-roll-display-boxes",
         heroImage: "Pre-Roll-Display-Boxes_mkfej7",
         images: [
@@ -1947,17 +1790,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Pre Roll Packaging",
-        slug: "pre-roll-packaging",
-        heroImage: "Pre-Roll-Packaging_zlgwmi",
-        images: [
-          "Pre_Roll_Packaging_ybpvdj",
-          "Pre_Roll_Packaging_ybpvdj",
-          "Pre_Roll_Packaging_ybpvdj",
-        ],
-      },
-      {
-        name: "Custom Delta 8 Boxes",
+        name: "Custom Delta 8 Box",
         slug: "custom-delta-8-boxes",
         heroImage: "Custom-Delta-8-Boxes_zmdrpu",
         images: [
@@ -1993,11 +1826,11 @@ export const productByIndustryData: IndustryCategory[] = [
     slug: "pizza-boxes",
     description: "Explore custom packaging boxes designed for every type of industry. Each box is crafted to match your product's needs, offering style, strength, and perfect presentation.",
     image: "Box-4_lztqi7",
-    subcategoriesCount: 8,
+    subcategoriesCount: 6,
     modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
     subcategories: [
       {
-        name: "White Pizza Boxes",
+        name: "White Pizza Box",
         slug: "white-pizza-boxes",
         heroImage: "White-pizza-box-2_powwla",
         images: [
@@ -2007,7 +1840,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Pizza Slice Boxes",
+        name: "Pizza Slice Box",
         slug: "pizza-slice-boxes",
         heroImage: "pizza-slice-box-2_vgldo5",
         images: [
@@ -2017,7 +1850,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Round Pizza Boxes",
+        name: "Round Pizza Box",
         slug: "round-pizza-boxes",
         heroImage: "Round-pizza-box-1_cykuw4",
         images: [
@@ -2027,7 +1860,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Rectangle Pizza Boxes",
+        name: "Rectangle Pizza Box",
         slug: "rectangle-pizza-boxes",
         heroImage: "Rectangle-pizza-box-1_wlhasi",
         images: [
@@ -2037,7 +1870,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "Flatbread Pizza Boxes",
+        name: "Flatbread Pizza Box",
         slug: "flatbread-pizza-boxes",
         heroImage: "flatbread-pizza-box-3_uu3ocb",
         images: [
@@ -2047,27 +1880,7 @@ export const productByIndustryData: IndustryCategory[] = [
         ],
       },
       {
-        name: "16 Inch Pizza Boxes",
-        slug: "16-inch-pizza-boxes",
-        heroImage: "16-inch-pizza-box-3_eg1szg",
-        images: [
-          "16_inch_pizza_box_1_jibz0d",
-          "16_inch_pizza_box_2_c4dkdz",
-          "16_inch_pizza_box_3_cstpng",
-        ],
-      },
-      {
-        name: "14 Inch Pizza Boxes",
-        slug: "14-inch-pizza-boxes",
-        heroImage: "14-inch-pizza-box-2_t70flh",
-        images: [
-          "14_inch_pizza_box_1_egqkcw",
-          "14_inch_pizza_box_2_ala5yl",
-          "14_inch_pizza_box_3_spbgcr",
-        ],
-      },
-      {
-        name: "Blank Pizza Boxes",
+        name: "Blank Pizza Box",
         slug: "blank-pizza-boxes",
         heroImage: "16-inch-pizza-box-1_xedomr",
         images: [

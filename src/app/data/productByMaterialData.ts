@@ -39,7 +39,7 @@ export const productByMaterialData: MaterialCategory[] = [
         ],
       },
       {
-        name: "Two Piece Rigid Boxes",
+        name: "Two Piece Rigid Box",
         slug: "two-piece-rigid-boxes",
         description: "We offer two-piece rigid boxes wholesale for retail, luxury, and gifting needs. Choose from square, rectangular, or deep-lid versions in multiple finishes and colors. Each box is designed for secure fit, clean appearance, and timeless style — perfect for jewelry, electronics, and fashion packaging.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -50,9 +50,9 @@ export const productByMaterialData: MaterialCategory[] = [
         ],
       },
       {
-        name: "Sliding / sleeve Rigid Boxes (Match Style Boxes)",
+        name: "Rigid Slide Drawer Box",
         slug: "sliding-sleeve-rigid-boxes-match-style-boxes",
-        description: "We provide **rigid sleeve boxes wholesale** in multiple designs, such as pull-out drawer boxes, side sliding cases, and luxury gift sleeves. Each style features a secure fit, elegant finish, and easy-slide functionality that makes unboxing both simple and memorable.",
+        description: "We provide **Rigid Slide Drawer Box wholesale** in multiple designs, such as pull-out drawer boxes, side sliding cases, and luxury gift sleeves. Each style features a secure fit, elegant finish, and easy-slide functionality that makes unboxing both simple and memorable.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
         images: [
           "Rigid-Sleeve-Box_lmwuru",
@@ -61,7 +61,7 @@ export const productByMaterialData: MaterialCategory[] = [
         ],
       },
       {
-        name: "Brief Case Style",
+        name: "Briefcase Style Rigid Box",
         slug: "brief-case-style",
         description: "We offer rigid briefcase boxes in bulk for all types of luxury packaging needs. Options include magnetic-lock briefcases, ribbon-handle boxes, and foldable styles for easy storage. Each design combines sturdiness, style, and practicality to give your products a premium finish.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -73,7 +73,7 @@ export const productByMaterialData: MaterialCategory[] = [
         ],
       },
       {
-        name: "Book Style Rigid Boxes",
+        name: "Book Style Rigid Box",
         slug: "book-style-rigid-boxes",
         description: "We offer book-style rigid boxes wholesale in various sizes and finishes to match every brand's style. Choose from ribbon-tie closures, magnetic lids, or foam inserts for added product security. Each box provides an elegant book-like opening experience, perfect for luxury and corporate packaging.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -162,7 +162,7 @@ export const productByMaterialData: MaterialCategory[] = [
         ],
       },
       {
-        name: "Kraft TUCK End BOX - Reverse Tuck end Box ,Straight Tuck End Box, 1-2-3 lock Bottom Box, Auto Lock Bottom Box",
+        name: "Kraft TUCK End BOX",
         slug: "kraft-tuck-end-box",
         description: "We offer custom kraft tuck end boxes wholesale in both straight and reverse tuck styles. These versatile boxes are great for cosmetics, food items, retail accessories, and shipping goods. Choose from plain kraft designs for a rustic feel or printed versions for branded elegance every option is sustainable, secure, and stylish.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -305,7 +305,7 @@ export const productByMaterialData: MaterialCategory[] = [
         ],
       },
       {
-        name: "Cardboard TUCK End BOX - Reverse Tuck end Box ,Straight Tuck End Box, 1-2-3 lock Bottom Box, Auto Lock Bottom Box",
+        name: "Cardboard Tuck End Box",
         slug: "cardboard-tuck-end-box",
         description: "We offer **wholesale cardboard tuck-end boxes** in various styles: straight tuck-end, reverse tuck-end, and auto-bottom configurations. Each design is made for different packaging needs, from lightweight retail products to heavier goods that require stronger base support. The boxes fold easily, making them ideal for fast packing and efficient storage.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -383,7 +383,7 @@ export const productByMaterialData: MaterialCategory[] = [
         ],
       },
       {
-        name: "Cardboard Mailer Boxes",
+        name: "Cardboard Mailer Box",
         slug: "cardboard-mailer-boxes",
         description: "We offer wholesale cardboard mailer boxes in multiple types, including corrugated e-commerce mailers, kraft subscription boxes, and retail mailer packaging. Each style is designed for easy shipping, unboxing, and branding. From small cosmetic deliveries to large apparel shipments, BoxyPack delivers sturdy mailers that look sharp and ship smart.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -394,7 +394,7 @@ export const productByMaterialData: MaterialCategory[] = [
         ],
       },
       {
-        name: "Cardboard Double Locked Wall Lid Box",
+        name: "Cardboard Double Wall Locked Lid Box",
         slug: "cardboard-double-locked-wall-lid-box",
         description: "We offer wholesale double-lock wall lid boxes for various industries, including retail, beauty, tech, and gift packaging. Available in both custom-printed and plain kraft versions, our range includes strong, reusable structures that deliver a luxurious unboxing experience. Each design focuses on durability, precise locking, and smooth surface finishes for a flawless look.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",
@@ -530,7 +530,7 @@ export const productByMaterialData: MaterialCategory[] = [
         ],
       },
       {
-        name: "Corrugated Double Locked Wall Lid Box",
+        name: "Cardboard Double Wall Locked Lid Box",
         slug: "corrugated-double-locked-wall-lid-box",
         description: "We supply corrugated double locked wall lid boxes in multiple sizes, finishes, and color variations. Choose Kraft boxes for a natural texture, coated options for smooth branding, or heavy-duty corrugated styles for superior strength. Each box is engineered for easy assembly, clean appearance, and secure product holding, ideal for retail, gifting, and industrial packaging.",
         modelPath: "Tuck_End_Auto_Bottom1_ttdsdf",

@@ -30,13 +30,13 @@ export const mylarBoxesData: MylarBoxCategory = {
       images: ["Stand-Up-Pouch_dhgugv", "Stand-Up-Pouch-2_g4acia", "Stand-Up-Pouch-3_dn7xbf"]
     },
     { 
-      name: "Zipper Bag", 
+      name: "Mylar Ziplock Bag", 
       slug: "zipper-bag",
       description: "We manufacture food-grade zipper bags, child-resistant cannabis zipper bags, kraft zipper bags, matte zipper pouches, coffee zipper bags with valves, foil zipper bags, window zipper pouches, resealable snack bags, wellness supplement bags, and wholesale unprinted zipper bags. Ideal for food brands, cannabis lines, health products, and retail packaging suppliers.",
       images: ["Zipper-Bag-2_itxnvr", "Zipper-Bag_axp0tt", "Zipper-Bag-3_ytkq7g"]
     },
     { 
-      name: "Window Bag", 
+      name: "Mylar Window Bag", 
       slug: "window-bag",
       description: "We manufacture kraft window bags, snack window pouches, food-grade window bags, resealable zipper window bags, foil window pouches, eco compostable window bags, child-resistant window bags, bakery window packaging, and wholesale unprinted window bags. Ideal for food brands, wellness products, bakeries, cafes, and retail suppliers.",
       images: ["Window-Bag-2_jqsxcn", "Window-Bag_fcbmmg", "Window-Bag-3_fvjij4"]

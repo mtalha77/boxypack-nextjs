@@ -4,14 +4,14 @@ import { navigationData } from '../../../../data/navigationData';
 import ProductPageTemplate from '../../../../components/product-page/page';
 
 export const metadata: Metadata = {
-  title: 'Pre Roll Packaging | Premium Custom Cannabis Boxes',
-  description: 'Boxy Pack produces premium pre roll packaging with fast turnaround, free shipping, and elegant design for professional cannabis product presentation. Customize Now.',
+  title: 'Custom Cereal Boxes | Premium Breakfast Packaging',
+  description: 'Boxy Pack delivers premium custom cereal boxes with fast turnaround, free shipping, and stylish design to showcase cereals attractively. Order Now.',
 };
 
-const PreRollPackagingPage = () => {
+const CustomCerealBoxesPage = () => {
   const section = navigationData.find(s => s.slug === 'product-by-industry');
-  const category = section?.categories?.find(c => c.slug === 'pre-roll-boxes-industry');
-  const subcategory = category?.subcategories.find(sc => sc.slug === 'pre-roll-packaging');
+  const category = section?.categories?.find(c => c.slug === 'cereal-boxes');
+  const subcategory = category?.subcategories.find(sc => sc.slug === 'custom-cereal-boxes');
   
   if (!section || !category || !subcategory) {
     return <div>Subcategory not found</div>;
@@ -22,10 +22,11 @@ const PreRollPackagingPage = () => {
       section={section}
       category={category}
       subcategory={subcategory}
-      slug="pre-roll-packaging"
+      slug="custom-cereal-boxes"
       pageType="subcategory"
     />
   );
 };
 
-export default PreRollPackagingPage;
+export default CustomCerealBoxesPage;
+

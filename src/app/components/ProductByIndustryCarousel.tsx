@@ -128,15 +128,15 @@ const ProductByIndustryCarousel: React.FC = () => {
       }
     }
     if (category.slug === "pre-roll-boxes-industry") {
-      const preRollPackagingSubcategory = category.subcategories.find(sub => sub.slug === "pre-roll-packaging");
-      if (preRollPackagingSubcategory && 'heroImage' in preRollPackagingSubcategory && preRollPackagingSubcategory.heroImage) {
-        return preRollPackagingSubcategory.heroImage as string;
+      const cannabisPreRollPackagingSubcategory = category.subcategories.find(sub => sub.slug === "cannabis-pre-roll-packaging");
+      if (cannabisPreRollPackagingSubcategory && 'heroImage' in cannabisPreRollPackagingSubcategory && cannabisPreRollPackagingSubcategory.heroImage) {
+        return cannabisPreRollPackagingSubcategory.heroImage as string;
       }
     }
     if (category.slug === "pizza-boxes") {
-      const pizzaBoxesSubcategory = category.subcategories.find(sub => sub.slug === "14-inch-pizza-boxes");
-      if (pizzaBoxesSubcategory && 'heroImage' in pizzaBoxesSubcategory && pizzaBoxesSubcategory.heroImage) {
-        return pizzaBoxesSubcategory.heroImage as string;
+      const whitePizzaBoxSubcategory = category.subcategories.find(sub => sub.slug === "white-pizza-boxes");
+      if (whitePizzaBoxSubcategory && 'heroImage' in whitePizzaBoxSubcategory && whitePizzaBoxSubcategory.heroImage) {
+        return whitePizzaBoxSubcategory.heroImage as string;
       }
     }
 

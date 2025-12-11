@@ -962,13 +962,13 @@ export const subcategoryIconMappings: IconMapping[] = [
   {
     pattern: 'zipper bag',
     iconPath: 'myler-ziplock-bag_w6x2cz',
-    description: 'Zipper Bag',
+    description: 'Mylar Ziplock Bag',
     exactMatch: true
   },
   {
     pattern: 'window bag',
     iconPath: 'window-bag_tw8vlq',
-    description: 'Window Bag',
+    description: 'Mylar Window Bag',
     exactMatch: true
   },
   

@@ -259,9 +259,6 @@ export const ourRangeOfData: Record<string, OurRangeOfContent> = {
     description: "We offer custom candy boxes in a wide variety of shapes, sizes, and finishes. From luxury candy gift boxes for bakeries to retail-ready printed boxes, each option is designed for strength, presentation, and freshness. Choose Kraft for eco-friendly packaging or add glossy finishes for a high-end look. Perfect for truffles, bonbons, and assorted candies, each box brings your treats to life.",
   },
 
-  "mini-cupcake-boxes": {
-    description: "We offer mini cupcake packaging boxes in various sizes, styles, and finishes. Choose from kraft for eco appeal, white for minimalist style, or printed versions for colorful branding. Our boxes are available with inserts for multiple cupcake counts and clear windows for visibility. Perfect for bakeries, weddings, or dessert shops, these boxes keep every cupcake safe, stylish, and ready to serve.",
-  },
 
   "pink-donut-boxes": {
     description: "We offer pink donut packaging boxes in various shades, sizes, and finishes. Choose classic light pink for bakery elegance, bright pink for retail attraction, or printed boxes with branding for a custom look. Each box is crafted for durability and easy handling, perfect for gift packaging, retail sales, or event catering.",
@@ -279,9 +276,6 @@ export const ourRangeOfData: Record<string, OurRangeOfContent> = {
     description: "We offer cupcake boxes in a wide variety of designs and sizes. Choose from kraft boxes for natural appeal, white boxes for minimalist display, or eco-friendly cupcake boxes with a window for visual impact. Each design includes optional inserts and strong locking mechanisms to ensure stability and easy transport. Perfect for bakeries, weddings, and dessert shops.",
   },
 
-  "small-cake-boxes": {
-    description: "We provide small cake boxes in multiple styles and finishes to match your bakery’s needs. Choose Kraft boxes for eco appeal, white boxes for a clean, modern look, or custom printed options for a vibrant brand presence. Perfect for single-serving cakes, pastries, and desserts, each design balances strength, freshness, and visual appeal.",
-  },
 
   "sweet-gift-boxes": {
     description: "We provide sweet gift boxes in a variety of shapes, sizes, and finishes. Choose Kraft boxes for eco-style packaging or printed boxes for branded appeal. From chocolate assortments to traditional sweets, each box is designed to balance beauty, strength, and practicality. Perfect for bakeries, dessert brands, and festive gifting.",
@@ -303,13 +297,7 @@ export const ourRangeOfData: Record<string, OurRangeOfContent> = {
     description: "We offer velvet jewelry bags in a wide range of designs, colors, and finishes. From classic black drawstring bags to vibrant printed velvet pouches, each piece is made to enhance luxury product presentation. Perfect for jewelry stores, gift shops, and event packaging, these bags combine texture, beauty, and practicality.",
   },
 
-  "kraft-jewelry-boxes": {
-    description: "We offer kraft jewelry boxes in multiple sizes, styles, and finishes. Choose small boxes for rings, medium ones for bracelets, or large gift boxes for necklace sets. Available in natural brown or printed versions, these boxes are perfect for brands that want sustainable, elegant, and durable jewelry packaging.",
-  },
 
-  "cardboard-jewelry-boxes": {
-    description: "We manufacture cardboard jewelry packaging boxes in a wide variety of sizes, finishes, and layouts. Choose kraft for a natural aesthetic, rigid designs for luxury appeal, or printed styles for full branding impact. Ideal for necklaces, earrings, bangles, or jewelry sets, these boxes deliver functionality and elegance in every form.",
-  },
 
   "jewelry-subscription-boxes": {
     description: "We offer subscription boxes for jewelry in multiple sizes, shapes, and finishes. Choose from luxury rigid boxes for high-end products, foldable cardboard options for lightweight shipping, or printed versions for full brand visibility. Ideal for monthly jewelry clubs, fashion subscriptions, and gifting services.",
@@ -499,14 +487,7 @@ export const ourRangeOfData: Record<string, OurRangeOfContent> = {
     description: "We offer a diverse range of flatbread pizza packaging styles. Choose kraft boxes for an earthy appearance, white boxes for a clean look, or printed boxes for promotional branding. Ideal for naan, lavash, or artisan flatbreads, each box combines strength, freshness, and presentation for your customers’ satisfaction.",
   },
 
-  "16-inch-pizza-boxes": {
-    description: "We offer a full variety of pizza boxes to suit different serving needs. Choose kraft boxes for a natural look, white boxes for a clean style, or printed boxes for marketing promotions. Perfect for 16-inch pizzas, calzones, or combo meals, every box provides durability, freshness, and strong visual presentation.",
-  },
 
-  "14-inch-pizza-boxes": {
-
-    description: "We offer a wide range of pizza box options suitable for any food business. Choose kraft boxes for a rustic look, white boxes for a clean aesthetic, or printed boxes for promotional branding. Ideal for 14-inch pizzas, flatbreads, or meal sets, every box guarantees freshness and durability with every delivery.",
-  },
 
   "blank-pizza-boxes": {
     description: "We offer a complete variety of blank pizza packaging options to suit all pizza sizes and business types. Choose white boxes for a clean, professional look, kraft boxes for a rustic and eco-friendly appearance, or brown natural boxes for everyday pizza deliveries. Each box is easy to stack, store, and transport while ensuring freshness and structural integrity.",
@@ -556,9 +537,6 @@ export const ourRangeOfData: Record<string, OurRangeOfContent> = {
     description: "We offer a variety of lotion packaging solutions designed for both retail and luxury presentation. Choose kraft boxes for organic lotions, rigid boxes for premium collections, or paperboard packaging for lightweight shipping. Perfect for moisturizers, sunscreens, or body lotions, every box blends durability, safety, and style.",
   },
 
-  "lip-balm-display-boxes": {
-    description: "We offer a complete range of lip balm display packaging solutions designed for all retail needs. Choose paperboard displays for compact counters, corrugated displays for high-traffic areas, or rigid displays for luxury cosmetic stores. Perfect for single tubes, multi-packs, or sampler collections, every display ensures organization, visibility, and brand presence.",
-  },
 
   "eyelash-boxes": {
     description: "We offer a complete selection of eyelash packaging solutions to match every style and price point. Choose rigid boxes for luxury lash sets, kraft boxes for eco-conscious brands, or transparent window boxes for retail display. Perfect for singles, doubles, or volume lash trays, each box combines elegance and strength for professional presentation.",
@@ -644,21 +622,9 @@ export const ourRangeOfData: Record<string, OurRangeOfContent> = {
     description: "We provide chocolate packaging wholesale in a variety of designs, including truffle boxes, chocolate bar sleeves, assorted gift boxes, holiday chocolate packaging, and rigid presentation boxes. With full customization for size, color, and finish, BoxyPack ensures your chocolates look irresistible from box to bite.",
   },
 
-  "chocolate-packaging": {
-    description: "We offer a full collection of chocolate packaging styles, including Kraft boxes for eco-friendly branding, rigid boxes for luxury gifting, window boxes for retail display, and multi-section tray boxes for assortments. Whether it’s truffles, chocolate bars, pralines, or luxury gift sets, our boxes deliver strength, freshness protection, and enhanced presentation.",
-  },
 
-  "small-chocolate-boxes": {
-    description: "We offer a full variety of mini chocolate packaging options, including Kraft boxes for eco-friendly brands, rigid boxes for premium gifting, window boxes for retail displays, and mini tray boxes for chocolates or truffles. Whether used for favors, retail, samples, or luxury gifting, each box delivers strength, freshness protection, and elegant presentation.",
-  },
 
-  "chocolate-milk-boxes": {
-    description: "We offer a complete range of packaging styles for chocolate milk, including single-carton sleeves, retail display boxes, kraft eco-friendly boxes, multi-pack carriers, and wrap-around custom printed solutions. Ideal for dairy retailers, beverage manufacturers, and branded packaging displays.",
-  },
 
-  "chocolate-candy-boxes": {
-    description: "We offer a versatile range of chocolate candy packaging, including eco-friendly Kraft boxes, rigid gift boxes, window display boxes, and multi-section trays for assorted candies. Ideal for retail shelves, events, gift baskets, and seasonal collections, every box balances function and attractive presentation.",
-  },
 
   "luxury-chocolate-boxes": {
     description: "We offer a premium selection of luxury chocolate packaging styles, including rigid two-piece boxes, magnetic lids, drawer-style boxes, eco-friendly Kraft luxury options, and multi-section trays for assorted chocolates. Perfect for gifting seasons, retail displays, corporate gifts, and special celebrations.",
@@ -792,13 +758,7 @@ export const ourRangeOfData: Record<string, OurRangeOfContent> = {
     description: "We offer a complete range, including printed cereal cartons, eco-friendly kraft cereal boxes, family-size cereal packaging, mini multi-pack kits, laminated food-protection cereal boxes, kids' cereal packaging, and promotional cereal gift cartons. Perfect for retail shelves, supermarkets, wholesale supply chains, and brand launches.",
   },
 
-  "mini-cereal-boxes": {
-    description: "We offer a full variety, including single-serve cereal cartons, fun-size family packs, sampler kits, hotel breakfast mini boxes, eco kraft mini cereal cartons, printed promotional mini cereal sets, and kids' breakfast bundle boxes. Perfect for retail, hotels, events, subscription boxes, and branded giveaways.",
-  },
 
-  "cardboard-cereal-boxes": {
-    description: "We offer a full variety, including printed cardboard cereal cartons, eco-friendly kraft cereal boxes, family-size cardboard boxes, mini carton sets, laminated cereal packaging, organic cereal boxes, and promotional cereal gift packs. Perfect for supermarkets, wholesale supply, brand launches, and retail bundles.",
-  },
 
   "corn-flakes-boxes": {
     description: "We offer a full range, including classic corn flakes cartons, family-size boxes, eco kraft corn flakes packaging, laminated moisture-shield boxes, mini promotional packs, kids' cereal boxes, and multi-pack bundle packaging. Perfect for retail chains, organic food aisles, breakfast kits, and wholesale supply.",
@@ -920,21 +880,12 @@ export const ourRangeOfData: Record<string, OurRangeOfContent> = {
     description: "We supply wholesale cigarette boxes in various designs, including flip-top packs, soft packs, rigid cartons, multi-pack trays, and display boxes. With full customization sizes, finishes, artwork, and logo placement BoxyPack ensures your cigarette packaging aligns with both brand image and industry standards.",
   },
 
-  "paper-cigarette-boxes": {
-    description: "We produce soft packs, flip-top packs, slide-drawer cigarette boxes, kraft cigarette packaging, printed retail cartons, slim cigarette boxes, herbal stick packs, and branded counter-display packaging. Ideal for tobacco brands, wholesalers, and specialty smoke shops.",
-  },
 
   "custom-cigarette-boxes": {
     description: "We manufacture custom printed cigarette boxes, premium design-focused cigarette packs, kraft eco-friendly cigarette boxes, limited-edition branded packs, slide-drawer luxury boxes, soft packs, slim cigarette packaging, herbal stick packs, and customized retail display cartons. Ideal for boutique brands, wholesalers, and innovative tobacco lines.",
   },
 
-  "empty-cigarette-boxes": {
-    description: "We manufacture blank cigarette boxes, printed empty shells, soft packs, flip-top blanks, kraft eco-friendly blanks, wholesale unprinted cartons, slim cigarette blanks, herbal stick blanks, and retail-display compatible empty packs. Ideal for manufacturers, distributors, and private-label brands.",
-  },
 
-  "blank-cigarette-boxes": {
-    description: "We manufacture unprinted cigarette boxes, plain flip-top blanks, kraft eco-friendly blanks, slide-drawer blanks, soft-pack blanks, wholesale packing shells, slim cigarette blanks, and herbal roll blanks. Ideal for bulk production, private labels, and brands preparing for post-print customization.",
-  },
 
   "flip-top-cigarette-boxes": {
     description: "We manufacture printed flip-top cigarette boxes, luxury flip-top packs, soft-touch premium boxes, kraft eco flip-top boxes, slim flip-top packaging, herbal roll flip-top packs, and wholesale custom blanks. Ideal for retail brands, private-label products, and premium packaging lines.",
@@ -948,13 +899,7 @@ export const ourRangeOfData: Record<string, OurRangeOfContent> = {
     description: "We manufacture luxury pencil boxes, window pencil packaging, slide-drawer pencil boxes, branded colored pencil boxes, kraft eco-friendly pencil packaging, school pencil packs, gift pencil sets, designer stationery boxes, and wholesale unprinted pencil shells. Ideal for stationery brands, gift companies, schools, and retail packaging lines.",
   },
 
-  "cardboard-pen-boxes": {
-    description: "We manufacture printed cardboard pen boxes, window pen packaging, kraft eco pen boxes, slide-drawer pen boxes, luxury pen gift boxes, stationery pen packs, office pen sets, and wholesale unprinted pen boxes. Ideal for corporate brands, stationery manufacturers, retailers, and premium gift lines.",
-  },
 
-  "cardboard-pencil-boxes": {
-    description: "We manufacture printed cardboard pencil packs, eco kraft pencil boxes, slide-drawer pencil packaging, luxury pencil gift boxes, retail-ready window boxes, durable school pencil packs, and wholesale unprinted pencil boxes. Ideal for stationery brands, art companies, schools, and retailers.",
-  },
 
   "custom-book-boxes": {
     description: "We produce printed book boxes, rigid luxury book boxes, slipcase-style packaging, kraft eco book boxes, gift book sets, collector's edition boxes, planner boxes, journal packaging, and wholesale book shipment boxes. Perfect for publishing houses, bookstores, authors, stationery brands, and gift companies.",
@@ -976,9 +921,6 @@ export const ourRangeOfData: Record<string, OurRangeOfContent> = {
     description: "We manufacture counter-top display boxes, fold-out display stands, rigid luxury display boxes, kraft pre roll displays, multi-flavor display units, wholesale printed display packaging, tear-open dispensary boxes, and branded retail-ready pre roll stands. Perfect for dispensaries, cannabis brands, smoke shops, and distributors.",
   },
 
-  "pre-roll-packaging": {
-    description: "We manufacture single pre roll boxes, multi-pack pre roll packaging, rigid luxury boxes, child-resistant cannabis boxes, eco-friendly kraft pre roll packs, window boxes, slide-drawer sets, printed retail-ready packaging, and wholesale unprinted pre roll shells. Ideal for dispensaries, cannabis brands, and distributors.",
-  },
 
   "custom-delta-8-boxes": {
     description: "We manufacture Delta 8 pre roll packaging, vape cartridge boxes, edible packaging, tincture boxes, child-resistant Delta 8 boxes, luxury rigid packaging, eco kraft Delta 8 boxes, printed retail-ready designs, and unprinted wholesale shells. Ideal for hemp brands, dispensaries, and private-label manufacturers.",

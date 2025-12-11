@@ -270,18 +270,18 @@ const getProductImage = (slug: string | undefined, fallbackImage: string): strin
           return cerealBoxesWholesaleSubcategory.heroImage as string;
         }
       }
-      // Special case: Pre Roll Boxes should use Pre Roll Packaging hero image
+      // Special case: Pre Roll Boxes should use Cannabis Pre Roll Packaging hero image (without background)
       if (category.slug === "pre-roll-boxes-industry") {
-        const preRollPackagingSubcategory = category.subcategories.find(sub => sub.slug === "pre-roll-packaging");
-        if (preRollPackagingSubcategory && 'heroImage' in preRollPackagingSubcategory && preRollPackagingSubcategory.heroImage) {
-          return preRollPackagingSubcategory.heroImage as string;
+        const cannabisPreRollPackagingSubcategory = category.subcategories.find(sub => sub.slug === "cannabis-pre-roll-packaging");
+        if (cannabisPreRollPackagingSubcategory && 'heroImage' in cannabisPreRollPackagingSubcategory && cannabisPreRollPackagingSubcategory.heroImage) {
+          return cannabisPreRollPackagingSubcategory.heroImage as string;
         }
       }
-      // Special case: Pizza Boxes should use 14 Inch Pizza Boxes hero image
+      // Special case: Pizza Boxes should use White Pizza Box hero image
       if (category.slug === "pizza-boxes") {
-        const pizzaBoxesSubcategory = category.subcategories.find(sub => sub.slug === "14-inch-pizza-boxes");
-        if (pizzaBoxesSubcategory && 'heroImage' in pizzaBoxesSubcategory && pizzaBoxesSubcategory.heroImage) {
-          return pizzaBoxesSubcategory.heroImage as string;
+        const whitePizzaBoxSubcategory = category.subcategories.find(sub => sub.slug === "white-pizza-boxes");
+        if (whitePizzaBoxSubcategory && 'heroImage' in whitePizzaBoxSubcategory && whitePizzaBoxSubcategory.heroImage) {
+          return whitePizzaBoxSubcategory.heroImage as string;
         }
       }
       // Special case: Food Boxes should use Custom French Fry Boxes hero image (without background)
@@ -291,11 +291,11 @@ const getProductImage = (slug: string | undefined, fallbackImage: string): strin
           return frenchFryBoxesSubcategory.heroImage as string;
         }
       }
-      // Special case: Chocolate Boxes should use Chocolate Packaging hero image (without background)
+      // Special case: Chocolate Boxes should use Custom Chocolate Boxes hero image (without background)
       if (category.slug === "chocolate-boxes") {
-        const chocolatePackagingSubcategory = category.subcategories.find(sub => sub.slug === "chocolate-packaging");
-        if (chocolatePackagingSubcategory && 'heroImage' in chocolatePackagingSubcategory && chocolatePackagingSubcategory.heroImage) {
-          return chocolatePackagingSubcategory.heroImage as string;
+        const customChocolateBoxesSubcategory = category.subcategories.find(sub => sub.slug === "custom-chocolate-boxes");
+        if (customChocolateBoxesSubcategory && 'heroImage' in customChocolateBoxesSubcategory && customChocolateBoxesSubcategory.heroImage) {
+          return customChocolateBoxesSubcategory.heroImage as string;
         }
       }
       // Special case: Cosmetic Boxes should use Cosmetic Display Boxes hero image (without background)
