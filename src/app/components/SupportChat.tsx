@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import type { Socket } from 'socket.io-client';
-import { MessageCircle, X, Send, FileText } from 'lucide-react';
+import { X, Send, FileText } from 'lucide-react';
 
 interface Message {
   message: string;
@@ -35,9 +35,13 @@ const QUICK_QUESTIONS = [
 
 const SupportChat: React.FC = () => {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(true); // Default to open
+  const [isOpen, setIsOpen] = useState(false); // Start closed
+  const [isVisible, setIsVisible] = useState(false); // Control visibility with animation
   const [socket, setSocket] = useState<Socket | null>(null);
   const [userId, setUserId] = useState<string>('');
+  const [userName, setUserName] = useState<string>('');
+  const [userPhone, setUserPhone] = useState<string>('');
+  const [showUserInfoForm, setShowUserInfoForm] = useState<boolean>(true);
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState('');
   const [isConnected, setIsConnected] = useState(false);
@@ -56,9 +60,6 @@ const SupportChat: React.FC = () => {
   // Ensure component only renders on client and create dedicated container
   useEffect(() => {
     setMounted(true);
-    
-    // Always open chat by default when website launches
-    setIsOpen(true);
 
     // Create a dedicated container outside body's transform context
     if (typeof window !== 'undefined' && document.documentElement) {
@@ -71,7 +72,15 @@ const SupportChat: React.FC = () => {
       }
     }
 
+    // Show chat widget after 5 seconds with smooth animation
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+      // Auto-open chat window after appearing (not just the bubble)
+      setIsOpen(true);
+    }, 5000);
+
     return () => {
+      clearTimeout(timer);
       // Cleanup on unmount
       const container = document.getElementById('chat-widget-portal-container');
       if (container) {
@@ -87,7 +96,7 @@ const SupportChat: React.FC = () => {
     }
   }, [isOpen, mounted]);
 
-  // Generate or retrieve userId from localStorage
+  // Generate or retrieve userId and user info from localStorage
   useEffect(() => {
     let storedUserId = localStorage.getItem('chatUserId');
     if (!storedUserId) {
@@ -95,7 +104,23 @@ const SupportChat: React.FC = () => {
       localStorage.setItem('chatUserId', storedUserId);
     }
     setUserId(storedUserId);
+    
+    // Check if user info already exists
+    const storedName = localStorage.getItem('chatUserName');
+    const storedPhone = localStorage.getItem('chatUserPhone');
+    if (storedName && storedPhone) {
+      setUserName(storedName);
+      setUserPhone(storedPhone);
+      setShowUserInfoForm(false);
+    }
   }, []);
+
+  // Re-join chat with user info when it becomes available
+  useEffect(() => {
+    if (socket && isConnected && userName && userPhone) {
+      socket.emit('joinChat', userId, { userName, userPhone });
+    }
+  }, [userName, userPhone, socket, isConnected, userId]);
 
   // Initialize socket connection
   useEffect(() => {
@@ -109,7 +134,7 @@ const SupportChat: React.FC = () => {
       console.log('🔌 Connecting to chat server:', socketUrl);
 
       newSocket = io(socketUrl, {
-        transports: ['polling', 'websocket'], // Try polling first, then websocket
+        transports: ['websocket', 'polling'], // Try websocket first, then fallback to polling
         reconnection: true,
         reconnectionAttempts: Infinity,
         reconnectionDelay: 1000,
@@ -117,21 +142,37 @@ const SupportChat: React.FC = () => {
         timeout: 20000,
         forceNew: false,
         autoConnect: true,
+        withCredentials: true,
       });
 
       newSocket.on('connect', () => {
         console.log('✅ Connected to chat server', newSocket?.id);
         setIsConnected(true);
         
-        // Join chat when connected
-        newSocket?.emit('joinChat', userId);
+        // Join chat when connected, send user info if available
+        if (userName && userPhone) {
+          newSocket?.emit('joinChat', userId, { userName, userPhone });
+        } else {
+          newSocket?.emit('joinChat', userId);
+        }
       });
 
       newSocket.on('connect_error', (error) => {
-        console.error('❌ Connection error:', error.message || error);
+        // Only log connection errors if they're not expected reconnection attempts
+        // Suppress "xhr poll error" and similar transient errors during reconnection
+        const errorMessage = error.message || String(error);
+        const isTransientError = 
+          errorMessage.includes('xhr poll error') ||
+          errorMessage.includes('websocket error') ||
+          errorMessage.includes('transport error');
+        
+        // Only log if it's not a transient error or if we're not already reconnecting
+        if (!isTransientError) {
+          console.error('❌ Connection error:', errorMessage);
+        }
+        
         setIsConnected(false);
-        // Don't show error to user if it's just a connection issue
-        // The reconnection will handle it
+        // The reconnection mechanism will handle retries automatically
       });
 
       newSocket.on('disconnect', (reason) => {
@@ -148,15 +189,31 @@ const SupportChat: React.FC = () => {
       newSocket.on('reconnect', (attemptNumber) => {
         console.log('🔄 Reconnected after', attemptNumber, 'attempts');
         setIsConnected(true);
-        newSocket?.emit('joinChat', userId);
+        if (userName && userPhone) {
+          newSocket?.emit('joinChat', userId, { userName, userPhone });
+        } else {
+          newSocket?.emit('joinChat', userId);
+        }
       });
 
       newSocket.on('reconnect_attempt', (attemptNumber) => {
-        console.log('🔄 Reconnection attempt', attemptNumber);
+        // Only log every 5th attempt to reduce console noise
+        if (attemptNumber % 5 === 0) {
+          console.log('🔄 Reconnection attempt', attemptNumber);
+        }
       });
 
       newSocket.on('reconnect_error', (error) => {
-        console.error('❌ Reconnection error:', error);
+        // Suppress transient reconnection errors to reduce console noise
+        const errorMessage = error?.message || String(error);
+        const isTransientError = 
+          errorMessage.includes('xhr poll error') ||
+          errorMessage.includes('websocket error') ||
+          errorMessage.includes('transport error');
+        
+        if (!isTransientError) {
+          console.error('❌ Reconnection error:', errorMessage);
+        }
       });
 
       newSocket.on('reconnect_failed', () => {
@@ -270,6 +327,7 @@ const SupportChat: React.FC = () => {
         newSocket.close();
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId, mounted]);
 
   // Scroll to bottom when new messages arrive or bot is thinking
@@ -397,6 +455,25 @@ const SupportChat: React.FC = () => {
     }
   };
 
+  const handleUserInfoSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!userName.trim() || !userPhone.trim()) {
+      alert('Please enter both name and phone number');
+      return;
+    }
+    
+    // Store user info in localStorage
+    localStorage.setItem('chatUserName', userName.trim());
+    localStorage.setItem('chatUserPhone', userPhone.trim());
+    
+    // Update chat with user info if socket is connected
+    if (socket && isConnected) {
+      socket.emit('joinChat', userId, { userName: userName.trim(), userPhone: userPhone.trim() });
+    }
+    
+    setShowUserInfoForm(false);
+  };
+
   const formatTime = (timestamp: Date | string) => {
     const date = typeof timestamp === 'string' ? new Date(timestamp) : timestamp;
     return date.toLocaleTimeString('en-US', {
@@ -406,7 +483,7 @@ const SupportChat: React.FC = () => {
   };
 
   // Hide chat widget only on admin routes (check after all hooks)
-  if (!mounted || isAdminRoute) {
+  if (!mounted || isAdminRoute || !isVisible) {
     return null;
   }
 
@@ -419,6 +496,9 @@ const SupportChat: React.FC = () => {
         right: '20px',
         zIndex: 99999,
         pointerEvents: 'none',
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+        transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out',
       }}
     >
       {/* Floating Chat Bubble - Always visible when closed */}
@@ -426,27 +506,62 @@ const SupportChat: React.FC = () => {
         <button
           onClick={() => setIsOpen(true)}
           data-chat-widget="bubble"
-          className="bg-gradient-to-br from-[#0c6b76] to-[#0ca6c2] hover:from-[#0ca6c2] hover:to-[#46959c] text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+          className="group relative bg-gradient-to-br from-[#0c6b76] via-[#0ca6c2] to-[#0c6b76] text-white rounded-full shadow-2xl hover:shadow-[0_0_30px_rgba(12,107,118,0.6)] transition-all duration-500 hover:scale-110 active:scale-95"
           aria-label="Open chat"
           style={{
             position: 'relative',
-            width: '56px',
-            height: '56px',
+            width: '64px',
+            height: '64px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            border: 'none',
+            border: '2px solid rgba(255, 255, 255, 0.3)',
             cursor: 'pointer',
             pointerEvents: 'auto',
+            animation: 'fadeInUp 0.6s ease-out, pulse-glow 2s ease-in-out infinite',
+            backgroundSize: '200% 200%',
+            backgroundPosition: '0% 50%',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundPosition = '100% 50%';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundPosition = '0% 50%';
           }}
         >
-          <MessageCircle className="w-6 h-6" />
+          {/* Animated ring effect */}
+          <div 
+            className="absolute inset-0 rounded-full border-2 border-white opacity-0 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500"
+            style={{
+              animation: 'pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            }}
+          />
+          
+          {/* Icon with enhanced styling */}
+          <div className="relative z-10 transform group-hover:scale-110 transition-transform duration-300">
+            <Image
+              src="/favicon.png"
+              alt="Chat with us"
+              width={32}
+              height={32}
+              className="drop-shadow-lg"
+              style={{
+                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))',
+              }}
+            />
+          </div>
         </button>
       )}
 
       {/* Chat Window - Always visible when open */}
       {isOpen && (
-        <div style={{ position: 'relative', pointerEvents: 'auto' }}>
+        <div 
+          style={{ 
+            position: 'relative', 
+            pointerEvents: 'auto',
+            animation: 'slideInUp 0.5s ease-out',
+          }}
+        >
           {/* Close Button - Outside top-left corner */}
           <button
             onClick={() => setIsOpen(false)}
@@ -500,13 +615,71 @@ const SupportChat: React.FC = () => {
               </div>
             </div>
 
+          {/* User Info Form - Show before chat if not filled */}
+          {showUserInfoForm && (
+            <div className="flex-1 overflow-y-auto p-4 bg-gradient-to-b from-gray-50 to-white flex items-center justify-center">
+              <div className="w-full max-w-sm">
+                <div className="bg-white rounded-lg shadow-lg p-6 border border-gray-200">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3 text-center leading-tight">Get Instant Help with Your Custom Packaging</h3>
+                  <p className="text-base text-gray-700 mb-6 text-center leading-relaxed">Our packaging experts are ready to assist you. Share your details and let&apos;s create the perfect packaging solution for your business.</p>
+                  
+                  <form onSubmit={handleUserInfoSubmit} className="space-y-4">
+                    <div>
+                      <label htmlFor="userName" className="block text-sm font-medium text-gray-700 mb-1">
+                        Your Name <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="userName"
+                        value={userName}
+                        onChange={(e) => setUserName(e.target.value)}
+                        required
+                        placeholder="Enter your name"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0c6b76] text-gray-900"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="userPhone" className="block text-sm font-medium text-gray-700 mb-1">
+                        Phone Number <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="tel"
+                        id="userPhone"
+                        value={userPhone}
+                        onChange={(e) => setUserPhone(e.target.value)}
+                        required
+                        placeholder="Enter your phone number"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0c6b76] text-gray-900"
+                      />
+                    </div>
+                    
+                    <button
+                      type="submit"
+                      className="w-full bg-gradient-to-r from-[#0c6b76] to-[#0ca6c2] text-white py-2 px-4 rounded-lg hover:from-[#0ca6c2] hover:to-[#0c6b76] transition-all duration-200 font-medium shadow-md hover:shadow-lg"
+                    >
+                      Start Chatting Now
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Messages Area */}
-          <div className="flex-1 overflow-y-auto p-4 bg-gradient-to-b from-gray-50 to-white">
-            {messages.length === 0 ? (
+          {!showUserInfoForm && (
+            <div className="flex-1 overflow-y-auto p-4 bg-gradient-to-b from-gray-50 to-white">
+              {messages.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full py-8">
                 <div className="text-center mb-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-[#0c6b76] to-[#0ca6c2] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                    <MessageCircle className="w-8 h-8 text-white" />
+                    <Image
+                      src="/favicon.png"
+                      alt="Boxypack"
+                      width={32}
+                      height={32}
+                      className="drop-shadow-lg"
+                    />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Welcome to BoxyPack Support!</h3>
                   <p className="text-gray-600 mb-1">How can we help you today?</p>
@@ -639,10 +812,12 @@ const SupportChat: React.FC = () => {
               </div>
             )}
           </div>
+          )}
 
-          {/* Input Area */}
-          <div className="border-t border-gray-200 p-4 bg-white rounded-b-lg">
-            <div className="flex gap-2">
+          {/* Input Area - Only show when form is not visible */}
+          {!showUserInfoForm && (
+            <div className="border-t border-gray-200 p-4 bg-white rounded-b-lg">
+              <div className="flex gap-2">
               <input
                 type="text"
                 value={inputMessage}
@@ -664,8 +839,9 @@ const SupportChat: React.FC = () => {
               >
                 <Send className="w-5 h-5" />
               </button>
+              </div>
             </div>
-          </div>
+          )}
           </div>
         </div>
       )}

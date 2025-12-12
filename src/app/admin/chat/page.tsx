@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import type { Socket } from 'socket.io-client';
-import { MessageCircle, Send, Search, X, CheckCircle, RotateCcw, CheckCheck, Trash2 } from 'lucide-react';
+import { Send, Search, X, CheckCircle, RotateCcw, CheckCheck, Trash2 } from 'lucide-react';
 import Image from 'next/image';
 
 interface Message {
@@ -21,6 +21,8 @@ interface Message {
 
 interface ChatSummary {
   userId: string;
+  userName?: string;
+  userPhone?: string;
   messageCount: number;
   lastMessage: Message | null;
   createdAt: string;
@@ -65,20 +67,61 @@ const AdminChatPage: React.FC = () => {
   const [assignedChats, setAssignedChats] = useState<string[]>([]);
   const [isAvailable, setIsAvailable] = useState<boolean>(true);
   const [statusFilter, setStatusFilter] = useState<'all' | 'active' | 'closed' | 'inactive'>('all');
-  const [agents, setAgents] = useState<Array<{ _id: string; name: string; email: string }>>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const selectedChatRef = useRef<string | null>(null);
 
   const CHAT_SERVER_URL = process.env.NEXT_PUBLIC_CHAT_SERVER_URL || 'http://localhost:5000';
   
-  // Generate or get agent ID from localStorage
-  useEffect(() => {
-    let storedAgentId = localStorage.getItem('adminAgentId');
-    if (!storedAgentId) {
-      storedAgentId = `agent_${Math.random().toString(36).substr(2, 9)}`;
-      localStorage.setItem('adminAgentId', storedAgentId);
+  // Helper function to safely parse JSON responses
+  const safeJsonParse = async (response: Response) => {
+    const contentType = response.headers.get('content-type');
+    
+    // If content type is not JSON, read as text and throw error
+    if (!contentType || !contentType.includes('application/json')) {
+      const text = await response.text();
+      console.error('Non-JSON response received:', text.substring(0, 200));
+      throw new Error('Response is not JSON. Backend server may be down or returned an error page.');
     }
-    setAgentId(storedAgentId);
+    
+    // Try to parse as JSON using response.json()
+    try {
+      return await response.json();
+    } catch (error) {
+      // If JSON parsing fails, try to read as text to see what we got
+      const clonedResponse = response.clone();
+      const text = await clonedResponse.text().catch(() => 'Unable to read response');
+      console.error('Failed to parse JSON response. Response text:', text.substring(0, 200));
+      throw new Error('Invalid JSON response from server. The response may be corrupted or the server returned an error.');
+    }
+  };
+  
+  // Check authentication and get agent ID
+  useEffect(() => {
+    // Check if agent is logged in
+    const agentData = localStorage.getItem('agentData');
+    const storedAgentId = localStorage.getItem('agentId');
+    
+    if (!agentData || !storedAgentId) {
+      // Redirect to login if not authenticated
+      window.location.href = '/admin/agent-login';
+      return;
+    }
+    
+    try {
+      const agent = JSON.parse(agentData);
+      if (agent && agent._id) {
+        setAgentId(agent._id);
+        // Store agent name and email for display
+        if (agent.name) localStorage.setItem('agentName', agent.name);
+        if (agent.email) localStorage.setItem('agentEmail', agent.email);
+      } else {
+        window.location.href = '/admin/agent-login';
+      }
+    } catch (e) {
+      console.error('Error parsing agent data:', e);
+      window.location.href = '/admin/agent-login';
+    }
   }, []);
 
   // Initialize socket connection
@@ -90,7 +133,7 @@ const AdminChatPage: React.FC = () => {
     // Dynamically import socket.io-client to avoid SSR issues
     import('socket.io-client').then(({ io }) => {
       const newSocketInstance = io(CHAT_SERVER_URL, {
-        transports: ['polling', 'websocket'], // Try polling first, then websocket
+        transports: ['websocket', 'polling'], // Try websocket first, then fallback to polling
         reconnection: true,
         reconnectionAttempts: Infinity,
         reconnectionDelay: 1000,
@@ -98,6 +141,7 @@ const AdminChatPage: React.FC = () => {
         timeout: 20000,
         forceNew: false,
         autoConnect: true,
+        withCredentials: true,
       });
 
       newSocket = newSocketInstance;
@@ -106,21 +150,36 @@ const AdminChatPage: React.FC = () => {
         console.log('✅ Admin connected to chat server');
         setIsConnected(true);
         
-        // Register as agent
-        const storedAgentId = localStorage.getItem('adminAgentId') || `agent_${Math.random().toString(36).substr(2, 9)}`;
+        // Register as agent using the logged-in agent's ID
+        const loggedInAgentId = localStorage.getItem('agentId');
+        if (!loggedInAgentId) {
+          console.error('❌ No agent ID found, redirecting to login');
+          window.location.href = '/admin/agent-login';
+          return;
+        }
+        
         const storedAvailability = localStorage.getItem('agentAvailability') !== 'false'; // Default to true
         setIsAvailable(storedAvailability);
         
         newSocketInstance.emit('agentRegister', { 
-          agentId: storedAgentId,
+          agentId: loggedInAgentId,
           maxCapacity: 5, // Max 5 concurrent chats
           isAvailable: storedAvailability
         });
-        setAgentId(storedAgentId);
+        setAgentId(loggedInAgentId);
       });
 
       newSocketInstance.on('connect_error', (error) => {
-        console.error('❌ Admin connection error:', error.message || error);
+        // Suppress transient connection errors to reduce console noise
+        const errorMessage = error?.message || String(error);
+        const isTransientError = 
+          errorMessage.includes('xhr poll error') ||
+          errorMessage.includes('websocket error') ||
+          errorMessage.includes('transport error');
+        
+        if (!isTransientError) {
+          console.error('❌ Admin connection error:', errorMessage);
+        }
         setIsConnected(false);
       });
 
@@ -158,8 +217,11 @@ const AdminChatPage: React.FC = () => {
           return;
         }
         
+        // Use ref to get current selectedChat value (always up-to-date)
+        const currentSelectedChat = selectedChatRef.current;
+        
         // If this message is for the currently selected chat, add it INSTANTLY to chat body
-        if (selectedChat === messageUserId) {
+        if (currentSelectedChat === messageUserId) {
           setMessages((prev) => {
             // Check for duplicates - use lenient check (within 5 seconds)
             const messageTime = new Date(message.timestamp).getTime();
@@ -224,7 +286,8 @@ const AdminChatPage: React.FC = () => {
       });
 
       newSocketInstance.on('userTyping', (data: { userId: string; sender: 'client' | 'admin'; isTyping: boolean }) => {
-        if (data.userId === selectedChat) {
+        // Use ref to get current selectedChat value
+        if (data.userId === selectedChatRef.current) {
           if (data.sender === 'client') {
             setIsUserTyping(data.isTyping);
             if (data.isTyping && typingTimeoutRef.current) {
@@ -323,20 +386,20 @@ const AdminChatPage: React.FC = () => {
     };
   }, []);
 
-  // Fetch all chats
+  // Fetch chats - only show chats assigned to the logged-in agent
   const fetchChats = async () => {
     try {
-      const response = await fetch('/api/chats');
+      // Get the logged-in agent's ID
+      const loggedInAgentId = localStorage.getItem('agentId');
       
-      // Check if response is JSON before parsing
-      const contentType = response.headers.get('content-type');
-      if (!contentType || !contentType.includes('application/json')) {
-        const text = await response.text();
-        console.error('Non-JSON response received:', text.substring(0, 200));
-        return;
-      }
+      // Fetch chats filtered by agent ID (only assigned chats)
+      const url = loggedInAgentId 
+        ? `/api/chats?agentId=${loggedInAgentId}`
+        : '/api/chats';
       
-      const data = await response.json();
+      const response = await fetch(url);
+      const data = await safeJsonParse(response);
+      
       if (data.success) {
         // Calculate unread counts (messages from client that are unread)
         const chatsWithUnread = data.chats.map((chat: ChatSummary & { messages?: Message[] }) => {
@@ -361,16 +424,8 @@ const AdminChatPage: React.FC = () => {
   const fetchChatMessages = async (userId: string) => {
     try {
       const response = await fetch(`/api/chats/${userId}`);
+      const data = await safeJsonParse(response);
       
-      // Check if response is JSON before parsing
-      const contentType = response.headers.get('content-type');
-      if (!contentType || !contentType.includes('application/json')) {
-        const text = await response.text();
-        console.error('Non-JSON response received:', text.substring(0, 200));
-        return;
-      }
-      
-      const data = await response.json();
       if (data.success) {
         setMessages(data.chat.messages || []);
         // Mark messages as read
@@ -387,16 +442,8 @@ const AdminChatPage: React.FC = () => {
   const fetchQueueStatus = async () => {
     try {
       const response = await fetch('/api/queue/status');
+      const data = await safeJsonParse(response);
       
-      // Check if response is JSON before parsing
-      const contentType = response.headers.get('content-type');
-      if (!contentType || !contentType.includes('application/json')) {
-        const text = await response.text();
-        console.error('Non-JSON response received:', text.substring(0, 200));
-        return;
-      }
-      
-      const data = await response.json();
       if (data.success) {
         setQueueStatus(data);
       }
@@ -405,30 +452,9 @@ const AdminChatPage: React.FC = () => {
     }
   };
 
-  // Fetch agents list for reassign dropdown
-  const fetchAgents = async () => {
-    try {
-      const response = await fetch('/api/agents');
-      const contentType = response.headers.get('content-type');
-      if (!contentType || !contentType.includes('application/json')) {
-        const text = await response.text();
-        console.error('Non-JSON response received for agents:', text.substring(0, 200));
-        return;
-      }
-      
-      const data = await response.json();
-      if (data.success) {
-        setAgents(data.agents || []);
-      }
-    } catch (error) {
-      console.error('Error fetching agents:', error);
-    }
-  };
-
   useEffect(() => {
     fetchChats();
     fetchQueueStatus();
-    fetchAgents();
     // Refresh chats and queue status every 5 seconds
     const interval = setInterval(() => {
       fetchChats();
@@ -438,6 +464,9 @@ const AdminChatPage: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    // Update ref whenever selectedChat changes
+    selectedChatRef.current = selectedChat;
+    
     if (selectedChat && socket) {
       // Fetch initial messages first
       fetchChatMessages(selectedChat);
@@ -607,33 +636,27 @@ const AdminChatPage: React.FC = () => {
       
       console.log('Close chat response status:', response.status);
       
-      const contentType = response.headers.get('content-type');
-      if (contentType && contentType.includes('application/json')) {
-        const data = await response.json();
-        console.log('Close chat response data:', data);
-        
-        if (data.success) {
-          if (socket) {
-            socket.emit('agentCloseChat', { userId: selectedChat });
-          }
-          // Refresh chats to update status
-          await fetchChats();
-          // Also refresh the current chat data
-          if (selectedChat) {
-            await fetchChatMessages(selectedChat);
-          }
-        } else {
-          console.error('Failed to close chat:', data.error);
-          alert(data.error || 'Failed to close chat');
+      const data = await safeJsonParse(response);
+      console.log('Close chat response data:', data);
+      
+      if (data.success) {
+        if (socket) {
+          socket.emit('agentCloseChat', { userId: selectedChat });
+        }
+        // Refresh chats to update status
+        await fetchChats();
+        // Also refresh the current chat data
+        if (selectedChat) {
+          await fetchChatMessages(selectedChat);
         }
       } else {
-        const text = await response.text();
-        console.error('Non-JSON response:', text.substring(0, 200));
-        alert('Error: Backend server returned invalid response');
+        console.error('Failed to close chat:', data.error);
+        alert(data.error || 'Failed to close chat');
       }
     } catch (error) {
       console.error('Error closing chat:', error);
-      alert('Error closing chat. Please check console for details.');
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      alert(`Error closing chat: ${errorMessage}`);
     }
   };
 
@@ -646,15 +669,7 @@ const AdminChatPage: React.FC = () => {
         method: 'PUT',
       });
       
-      const contentType = response.headers.get('content-type');
-      if (!contentType || !contentType.includes('application/json')) {
-        const text = await response.text();
-        console.error('Non-JSON response received:', text.substring(0, 200));
-        alert('Error: Backend server returned invalid response. Please ensure the backend server is running.');
-        return;
-      }
-      
-      const data = await response.json();
+      const data = await safeJsonParse(response);
       if (data.success) {
         if (socket) {
           socket.emit('agentReopenChat', { userId: selectedChat });
@@ -669,7 +684,8 @@ const AdminChatPage: React.FC = () => {
       }
     } catch (error) {
       console.error('Error reopening chat:', error);
-      alert('Error reopening chat. Please check console for details.');
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      alert(`Error reopening chat: ${errorMessage}`);
     }
   };
 
@@ -682,15 +698,7 @@ const AdminChatPage: React.FC = () => {
         method: 'PUT',
       });
       
-      const contentType = response.headers.get('content-type');
-      if (!contentType || !contentType.includes('application/json')) {
-        const text = await response.text();
-        console.error('Non-JSON response received:', text.substring(0, 200));
-        alert('Error: Backend server returned invalid response. Please ensure the backend server is running.');
-        return;
-      }
-      
-      const data = await response.json();
+      const data = await safeJsonParse(response);
       if (data.success) {
         if (socket) {
           socket.emit('markMessagesAsRead', { userId: selectedChat });
@@ -703,44 +711,8 @@ const AdminChatPage: React.FC = () => {
       }
     } catch (error) {
       console.error('Error marking messages as read:', error);
-      alert('Error marking messages as read. Please check console for details.');
-    }
-  };
-
-  // Handle reassigning chat
-  const handleReassignChat = async (newAgentId: string) => {
-    if (!selectedChat) return;
-    
-    try {
-      const response = await fetch(`/api/chats/${selectedChat}/reassign`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ agentId: newAgentId }),
-      });
-      
-      const contentType = response.headers.get('content-type');
-      if (!contentType || !contentType.includes('application/json')) {
-        const text = await response.text();
-        console.error('Non-JSON response received:', text.substring(0, 200));
-        alert('Error: Backend server returned invalid response. Please ensure the backend server is running.');
-        return;
-      }
-      
-      const data = await response.json();
-      if (data.success) {
-        if (socket) {
-          socket.emit('reassignChat', { userId: selectedChat, newAgentId });
-        }
-        await fetchChats();
-      } else {
-        console.error('Failed to reassign chat:', data.error);
-        alert(data.error || 'Failed to reassign chat');
-      }
-    } catch (error) {
-      console.error('Error reassigning chat:', error);
-      alert('Error reassigning chat. Please check console for details.');
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      alert(`Error marking messages as read: ${errorMessage}`);
     }
   };
 
@@ -757,15 +729,7 @@ const AdminChatPage: React.FC = () => {
         method: 'DELETE',
       });
       
-      const contentType = response.headers.get('content-type');
-      if (!contentType || !contentType.includes('application/json')) {
-        const text = await response.text();
-        console.error('Non-JSON response received:', text.substring(0, 200));
-        alert('Error: Backend server returned invalid response. Please ensure the backend server is running.');
-        return;
-      }
-      
-      const data = await response.json();
+      const data = await safeJsonParse(response);
       if (data.success) {
         setSelectedChat(null);
         setMessages([]);
@@ -776,7 +740,8 @@ const AdminChatPage: React.FC = () => {
       }
     } catch (error) {
       console.error('Error deleting chat:', error);
-      alert('Error deleting chat. Please check console for details.');
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      alert(`Error deleting chat: ${errorMessage}`);
     }
   };
 
@@ -788,13 +753,7 @@ const AdminChatPage: React.FC = () => {
       const results = await Promise.allSettled(
         unreadChats.map(async (chat) => {
           const response = await fetch(`/api/chats/${chat.userId}/mark-read`, { method: 'PUT' });
-          const contentType = response.headers.get('content-type');
-          if (!contentType || !contentType.includes('application/json')) {
-            const text = await response.text();
-            console.error(`Non-JSON response for chat ${chat.userId}:`, text.substring(0, 200));
-            throw new Error('Invalid response');
-          }
-          const data = await response.json();
+          const data = await safeJsonParse(response);
           if (!data.success) {
             throw new Error(data.error || 'Failed to mark as read');
           }
@@ -821,9 +780,9 @@ const AdminChatPage: React.FC = () => {
         <div className="bg-white border-b border-gray-200 px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Chat Support</h1>
+              <h1 className="text-2xl font-bold text-gray-900">My Assigned Chats</h1>
               <p className="text-gray-600 text-sm mt-1">
-                Manage customer support chats in real-time
+                View and manage chats assigned to you
               </p>
             </div>
             <div className="flex items-center gap-4">
@@ -876,6 +835,36 @@ const AdminChatPage: React.FC = () => {
                 <span className="text-sm text-gray-600">
                   {isConnected ? 'Connected' : 'Disconnected'}
                 </span>
+              </div>
+
+              {/* Agent Info and Logout */}
+              <div className="flex items-center gap-3 pl-4 border-l border-gray-300">
+                <div className="text-right">
+                  <div className="text-sm font-medium text-gray-900">
+                    {localStorage.getItem('agentName') || 'Agent'}
+                  </div>
+                  <div className="text-xs text-gray-500">
+                    {localStorage.getItem('agentEmail') || ''}
+                  </div>
+                </div>
+                <button
+                  onClick={() => {
+                    // Clear agent data and redirect to login
+                    localStorage.removeItem('agentData');
+                    localStorage.removeItem('agentId');
+                    localStorage.removeItem('agentName');
+                    localStorage.removeItem('agentEmail');
+                    localStorage.removeItem('adminAgentId');
+                    if (socket) {
+                      socket.disconnect();
+                    }
+                    window.location.href = '/admin/agent-login';
+                  }}
+                  className="px-3 py-1.5 text-sm text-red-600 hover:text-red-700 hover:bg-red-50 rounded-md transition-colors"
+                  title="Logout"
+                >
+                  Logout
+                </button>
               </div>
             </div>
           </div>
@@ -944,7 +933,19 @@ const AdminChatPage: React.FC = () => {
               {loading ? (
                 <div className="p-4 text-center text-gray-500">Loading chats...</div>
               ) : sortedChats.length === 0 ? (
-                <div className="p-4 text-center text-gray-500">No chats found</div>
+                <div className="p-8 text-center">
+                  <div className="text-gray-400 mb-2 flex justify-center">
+                    <Image
+                      src="/favicon.png"
+                      alt="Boxypack"
+                      width={48}
+                      height={48}
+                      className="opacity-50"
+                    />
+                  </div>
+                  <p className="text-gray-600 font-medium mb-1">No assigned chats</p>
+                  <p className="text-sm text-gray-500">New chats will be automatically assigned to you when available</p>
+                </div>
               ) : (
                 <div className="divide-y divide-gray-200">
                   {sortedChats.map((chat) => (
@@ -961,7 +962,7 @@ const AdminChatPage: React.FC = () => {
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
                             <div className="font-semibold text-gray-900 truncate">
-                              {chat.userId}
+                              {chat.userName || chat.userId}
                             </div>
                             <span className={`px-2 py-0.5 text-xs font-semibold rounded-full ${getStatusBadgeColor(chat.status || 'active')}`}>
                               {chat.status || 'active'}
@@ -1005,22 +1006,19 @@ const AdminChatPage: React.FC = () => {
                   <div className="flex items-center justify-between">
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
-                        <h2 className="font-semibold text-gray-900">
-                          Chat with {selectedChat}
-                        </h2>
+                        <div>
+                          <h2 className="font-semibold text-gray-900">
+                            Chat with {selectedChatData?.userName || selectedChat}
+                          </h2>
+                          {selectedChatData?.userName && selectedChatData?.userPhone && (
+                            <p className="text-xs text-gray-500 mt-0.5">
+                              Phone: {selectedChatData.userPhone}
+                            </p>
+                          )}
+                        </div>
                         {isInQueue && (
                           <span className="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-semibold rounded">
                             In Queue
-                          </span>
-                        )}
-                        {isAssignedToMe && (
-                          <span className="px-2 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded">
-                            Assigned to Me
-                          </span>
-                        )}
-                        {selectedChatData?.assignedTo && !isAssignedToMe && (
-                          <span className="px-2 py-1 bg-gray-100 text-gray-800 text-xs font-semibold rounded">
-                            Assigned to {selectedChatData.assignedTo}
                           </span>
                         )}
                       </div>
@@ -1053,7 +1051,7 @@ const AdminChatPage: React.FC = () => {
                       {isAssignedToMe && (
                         <button
                           onClick={handleReleaseChat}
-                          className="px-3 py-1.5 bg-orange-600 hover:bg-orange-700 text-white text-xs rounded-lg transition-colors flex items-center gap-1"
+                          className="px-3 py-1.5 bg-gray-500 hover:bg-gray-600 text-white text-xs rounded-lg transition-colors flex items-center gap-1"
                         >
                           <X className="w-4 h-4" />
                           Release
@@ -1064,7 +1062,7 @@ const AdminChatPage: React.FC = () => {
                       {selectedChatData?.unreadCount && selectedChatData.unreadCount > 0 && (
                         <button
                           onClick={handleMarkAsRead}
-                          className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded-lg transition-colors flex items-center gap-1"
+                          className="px-3 py-1.5 bg-blue-500 hover:bg-blue-600 text-white text-xs rounded-lg transition-colors flex items-center gap-1"
                           title="Mark all messages as read"
                         >
                           <CheckCheck className="w-4 h-4" />
@@ -1076,7 +1074,7 @@ const AdminChatPage: React.FC = () => {
                       {selectedChatData?.status === 'closed' ? (
                         <button
                           onClick={handleReopenChat}
-                          className="px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs rounded-lg transition-colors flex items-center gap-1"
+                          className="px-3 py-1.5 bg-gray-500 hover:bg-gray-600 text-white text-xs rounded-lg transition-colors flex items-center gap-1"
                           title="Reopen chat"
                         >
                           <RotateCcw className="w-4 h-4" />
@@ -1085,7 +1083,7 @@ const AdminChatPage: React.FC = () => {
                       ) : (
                         <button
                           onClick={handleCloseChat}
-                          className="px-3 py-1.5 bg-gray-600 hover:bg-gray-700 text-white text-xs rounded-lg transition-colors flex items-center gap-1"
+                          className="px-3 py-1.5 bg-gray-500 hover:bg-gray-600 text-white text-xs rounded-lg transition-colors flex items-center gap-1"
                           title="Close chat"
                         >
                           <CheckCircle className="w-4 h-4" />
@@ -1093,33 +1091,10 @@ const AdminChatPage: React.FC = () => {
                         </button>
                       )}
                       
-                      {/* Reassign Chat */}
-                      {selectedChatData?.assignedTo && agents.length > 0 && (
-                        <select
-                          onChange={(e) => {
-                            if (e.target.value && e.target.value !== 'transfer' && e.target.value !== selectedChatData.assignedTo) {
-                              handleReassignChat(e.target.value);
-                            }
-                          }}
-                          className="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white text-xs rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-pointer"
-                          title="Transfer to another agent"
-                          defaultValue="transfer"
-                        >
-                          <option value="transfer">Transfer...</option>
-                          {agents
-                            .filter(agent => agent._id !== selectedChatData.assignedTo)
-                            .map((agent) => (
-                              <option key={agent._id} value={agent._id}>
-                                {agent.name}
-                              </option>
-                            ))}
-                        </select>
-                      )}
-                      
                       {/* Delete Chat */}
                       <button
                         onClick={handleDeleteChat}
-                        className="px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white text-xs rounded-lg transition-colors flex items-center gap-1"
+                        className="px-3 py-1.5 bg-red-500 hover:bg-red-600 text-white text-xs rounded-lg transition-colors flex items-center gap-1"
                         title="Delete chat permanently"
                       >
                         <Trash2 className="w-4 h-4" />
@@ -1133,7 +1108,15 @@ const AdminChatPage: React.FC = () => {
                 <div className="flex-1 overflow-y-auto p-4 bg-gray-50">
                   {messages.length === 0 ? (
                     <div className="text-center text-gray-500 mt-8">
-                      <MessageCircle className="w-12 h-12 mx-auto mb-2 opacity-50" />
+                      <div className="flex justify-center mb-2">
+                        <Image
+                          src="/favicon.png"
+                          alt="Boxypack"
+                          width={48}
+                          height={48}
+                          className="opacity-50"
+                        />
+                      </div>
                       <p>No messages yet. Start the conversation!</p>
                     </div>
                   ) : (
@@ -1251,7 +1234,15 @@ const AdminChatPage: React.FC = () => {
             ) : (
               <div className="flex-1 flex items-center justify-center text-gray-500">
                 <div className="text-center">
-                  <MessageCircle className="w-16 h-16 mx-auto mb-4 opacity-50" />
+                  <div className="flex justify-center mb-4">
+                    <Image
+                      src="/favicon.png"
+                      alt="Boxypack"
+                      width={64}
+                      height={64}
+                      className="opacity-50"
+                    />
+                  </div>
                   <p className="text-lg font-medium">Select a chat to view messages</p>
                   <p className="text-sm mt-2">Choose a conversation from the list to start replying</p>
                 </div>
