@@ -85,39 +85,54 @@ const FAQ: React.FC = () => {
     <section className="relative bg-white py-20 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-16">
-          <h2 className="text-h2 text-heading-primary mb-6">Frequently Asked Questions</h2>
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-h2 md:text-4xl lg:text-5xl font-bold text-heading-primary mb-6 leading-tight">
+            Frequently Asked Questions
+          </h2>
           <p className="text-body-large text-body-primary max-w-4xl mx-auto">
-            Find quick answers to the most common questions about our custom packaging boxes. Every order is different, and we&apos;re here to help. If you need more details or personal guidance, our team is always ready to assist you.
+            Find quick answers to the most common questions about our custom packaging boxes. Every order is different, and we&apos;re here to help.
           </p>
         </div>
 
         {/* FAQ Grid - 2 Columns */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Column */}
-          <div className="space-y-6">
+          <div className="space-y-5">
             {faqData.slice(0, 5).map((faq, index) => (
-              <div key={index} className="border-b border-gray-200 pb-6">
+              <div 
+                key={index} 
+                className={`group transition-all duration-300 ${
+                  activeFAQs.includes(index) ? 'pb-4' : ''
+                }`}
+              >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full text-left flex items-center justify-between group"
+                  className="w-full text-left flex items-start justify-between gap-4 py-3 group-hover:bg-gray-50 rounded-lg px-2 -mx-2 transition-all duration-200"
                 >
-                  <h3 className="text-h4 text-body-primary group-hover:text-heading-primary transition-colors duration-200">
+                  <h3 className={`text-base font-medium text-gray-800 flex-1 leading-snug transition-colors duration-200 ${
+                    activeFAQs.includes(index) ? 'text-[#0c6b76]' : 'group-hover:text-[#0c6b76]'
+                  }`}>
                     {faq.question}
                   </h3>
-                  {activeFAQs.includes(index) ? (
-                    <ChevronUp className="w-5 h-5 text-gray-500 group-hover:text-[#0c6b76] transition-colors duration-200" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-gray-500 group-hover:text-[#0c6b76] transition-colors duration-200" />
-                  )}
+                  <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${
+                    activeFAQs.includes(index)
+                      ? 'bg-[#0c6b76] text-white'
+                      : 'bg-gray-200 text-gray-500 group-hover:bg-[#0c6b76] group-hover:text-white'
+                  }`}>
+                    {activeFAQs.includes(index) ? (
+                      <ChevronUp className="w-4 h-4" />
+                    ) : (
+                      <ChevronDown className="w-4 h-4" />
+                    )}
+                  </div>
                 </button>
                 
-                <div className={`mt-4 transition-all duration-300 ease-in-out ${
+                <div className={`px-2 transition-all duration-400 ease-in-out ${
                   activeFAQs.includes(index) 
-                    ? 'max-h-96 opacity-100' 
+                    ? 'max-h-96 opacity-100 mt-2' 
                     : 'max-h-0 opacity-0 overflow-hidden'
                 }`}>
-                  <p className="text-body text-body-primary">
+                  <p className="text-sm text-gray-600 leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>
@@ -126,29 +141,42 @@ const FAQ: React.FC = () => {
           </div>
 
           {/* Right Column */}
-          <div className="space-y-6">
+          <div className="space-y-5">
             {faqData.slice(5, 10).map((faq, index) => (
-              <div key={index + 5} className="border-b border-gray-200 pb-6">
+              <div 
+                key={index + 5} 
+                className={`group transition-all duration-300 ${
+                  activeFAQs.includes(index + 5) ? 'pb-4' : ''
+                }`}
+              >
                 <button
                   onClick={() => toggleFAQ(index + 5)}
-                  className="w-full text-left flex items-center justify-between group"
+                  className="w-full text-left flex items-start justify-between gap-4 py-3 group-hover:bg-gray-50 rounded-lg px-2 -mx-2 transition-all duration-200"
                 >
-                  <h3 className="text-h4 text-body-primary group-hover:text-heading-primary transition-colors duration-200">
+                  <h3 className={`text-base font-medium text-gray-800 flex-1 leading-snug transition-colors duration-200 ${
+                    activeFAQs.includes(index + 5) ? 'text-[#0c6b76]' : 'group-hover:text-[#0c6b76]'
+                  }`}>
                     {faq.question}
                   </h3>
-                  {activeFAQs.includes(index + 5) ? (
-                    <ChevronUp className="w-5 h-5 text-gray-500 group-hover:text-[#0c6b76] transition-colors duration-200" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-gray-500 group-hover:text-[#0c6b76] transition-colors duration-200" />
-                  )}
+                  <div className={`flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${
+                    activeFAQs.includes(index + 5)
+                      ? 'bg-[#0c6b76] text-white'
+                      : 'bg-gray-200 text-gray-500 group-hover:bg-[#0c6b76] group-hover:text-white'
+                  }`}>
+                    {activeFAQs.includes(index + 5) ? (
+                      <ChevronUp className="w-4 h-4" />
+                    ) : (
+                      <ChevronDown className="w-4 h-4" />
+                    )}
+                  </div>
                 </button>
                 
-                <div className={`mt-4 transition-all duration-300 ease-in-out ${
+                <div className={`px-2 transition-all duration-400 ease-in-out ${
                   activeFAQs.includes(index + 5) 
-                    ? 'max-h-96 opacity-100' 
+                    ? 'max-h-96 opacity-100 mt-2' 
                     : 'max-h-0 opacity-0 overflow-hidden'
                 }`}>
-                  <p className="text-body text-body-primary">
+                  <p className="text-sm text-gray-600 leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>

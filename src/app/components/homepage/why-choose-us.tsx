@@ -7,8 +7,7 @@ import {
   Package, 
   Star, 
   Zap, 
-  Heart,
-  CheckCircle2
+  Heart
 } from "lucide-react";
 import LightBlueBackground from "../../UI/LightBlueBackground";
 
@@ -102,15 +101,6 @@ const WhyChooseUs: React.FC = () => {
           ))}
         </div>
 
-        {/* Bottom CTA Section */}
-        <div className="mt-12 md:mt-16 text-center">
-          <div className="inline-flex items-center gap-2 bg-white rounded-full px-6 py-3 shadow-lg border border-gray-200">
-            <CheckCircle2 className="w-5 h-5 text-[#0c6b76]" />
-            <span className="text-body font-semibold text-heading-primary">
-              Trusted by brands worldwide
-            </span>
-          </div>
-        </div>
       </div>
     </LightBlueBackground>
   );

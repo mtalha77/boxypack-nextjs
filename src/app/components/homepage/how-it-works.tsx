@@ -20,7 +20,7 @@ const ProgressSteps: React.FC = () => {
       description:
         "We listen to your needs, goals, and product details, then guide you toward the right packaging solution.",
       icon: MessageCircle,
-      bgColor: "bg-[#0c6b76]",
+      bgColor: "bg-gradient-to-br from-[#0ca6c2] via-[#0c8ba0] to-[#0c6b76]",
     },
     {
       number: 2,
@@ -28,7 +28,7 @@ const ProgressSteps: React.FC = () => {
       description:
         "Our experts prepare dielines, templates, and artwork checks, ensuring your custom packaging looks perfect before production begins.",
       icon: Palette,
-      bgColor: "bg-[#0c6b76]",
+      bgColor: "bg-gradient-to-br from-[#0ca6c2] via-[#0c8ba0] to-[#0c6b76]",
     },
     {
       number: 3,
@@ -36,7 +36,7 @@ const ProgressSteps: React.FC = () => {
       description:
         "We manufacture with precision, using finest materials and sharp printing to create boxes that protect and impress.",
       icon: Factory,
-      bgColor: "bg-[#0c6b76]",
+      bgColor: "bg-gradient-to-br from-[#0ca6c2] via-[#0c8ba0] to-[#0c6b76]",
     },
     {
       number: 4,
@@ -44,7 +44,7 @@ const ProgressSteps: React.FC = () => {
       description:
         "We carefully pack and deliver your packaging to your doorstep, ensuring a smooth and hassle-free experience.",
       icon: Truck,
-      bgColor: "bg-[#0c6b76]",
+      bgColor: "bg-gradient-to-br from-[#0ca6c2] via-[#0c8ba0] to-[#0c6b76]",
     },
   ];
 
@@ -62,13 +62,6 @@ const ProgressSteps: React.FC = () => {
           <p className="text-body-large text-body-primary max-w-4xl">
             From first idea to final delivery, BoxyPack makes packaging simple. Clear steps, real support, and flawless results every time.
           </p>
-        </div>
-
-        {/* Section Title */}
-        <div className="text-left mb-12">
-          <h2 className="text-h2 font-bold text-heading-primary">
-            Our Process
-          </h2>
         </div>
 
         {/* Steps */}
@@ -104,8 +97,8 @@ const ProgressSteps: React.FC = () => {
                   </div>
 
                   {/* Right Side - Icon */}
-                  <div className="lg:w-64 w-full flex items-center justify-center">
-                    <div className="relative h-40 w-full rounded-xl overflow-hidden shadow-xl bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                  <div className="lg:w-64 w-full hidden lg:flex items-center justify-end">
+                    <div className="relative w-40 h-40 rounded-xl overflow-hidden shadow-xl bg-white/10 backdrop-blur-sm flex items-center justify-center">
                       <step.icon
                         className="w-24 h-24 text-white"
                         strokeWidth={1.5}
