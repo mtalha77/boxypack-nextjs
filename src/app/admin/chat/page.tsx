@@ -133,7 +133,7 @@ const AdminChatPage: React.FC = () => {
     // Dynamically import socket.io-client to avoid SSR issues
     import('socket.io-client').then(({ io }) => {
       const newSocketInstance = io(CHAT_SERVER_URL, {
-        transports: ['websocket', 'polling'], // Try websocket first, then fallback to polling
+        transports: ['polling', 'websocket'], // Try polling first for better compatibility with Replit
         reconnection: true,
         reconnectionAttempts: Infinity,
         reconnectionDelay: 1000,
@@ -141,7 +141,10 @@ const AdminChatPage: React.FC = () => {
         timeout: 20000,
         forceNew: false,
         autoConnect: true,
-        withCredentials: true,
+        withCredentials: false, // Disable credentials to avoid CORS preflight issues
+        upgrade: true,
+        rememberUpgrade: false,
+        path: '/socket.io/', // Explicitly set the path
       });
 
       newSocket = newSocketInstance;
@@ -170,16 +173,19 @@ const AdminChatPage: React.FC = () => {
       });
 
       newSocketInstance.on('connect_error', (error) => {
-        // Suppress transient connection errors to reduce console noise
+        // Log all connection errors for debugging
         const errorMessage = error?.message || String(error);
-        const isTransientError = 
-          errorMessage.includes('xhr poll error') ||
-          errorMessage.includes('websocket error') ||
-          errorMessage.includes('transport error');
+        const errorType = error?.type || 'unknown';
+        const errorDescription = error?.description || '';
         
-        if (!isTransientError) {
-          console.error('❌ Admin connection error:', errorMessage);
-        }
+        console.error('❌ Admin Socket.io Connection Error:', {
+          message: errorMessage,
+          type: errorType,
+          description: errorDescription,
+          url: socketUrl,
+          error: error
+        });
+        
         setIsConnected(false);
       });
 

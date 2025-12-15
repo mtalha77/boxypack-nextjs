@@ -134,7 +134,7 @@ const SupportChat: React.FC = () => {
       console.log('🔌 Connecting to chat server:', socketUrl);
 
       newSocket = io(socketUrl, {
-        transports: ['websocket', 'polling'], // Try websocket first, then fallback to polling
+        transports: ['polling', 'websocket'], // Try polling first for better compatibility with Replit
         reconnection: true,
         reconnectionAttempts: Infinity,
         reconnectionDelay: 1000,
@@ -142,7 +142,10 @@ const SupportChat: React.FC = () => {
         timeout: 20000,
         forceNew: false,
         autoConnect: true,
-        withCredentials: true,
+        withCredentials: false, // Disable credentials to avoid CORS preflight issues
+        upgrade: true,
+        rememberUpgrade: false,
+        path: '/socket.io/', // Explicitly set the path
       });
 
       newSocket.on('connect', () => {
@@ -158,18 +161,18 @@ const SupportChat: React.FC = () => {
       });
 
       newSocket.on('connect_error', (error) => {
-        // Only log connection errors if they're not expected reconnection attempts
-        // Suppress "xhr poll error" and similar transient errors during reconnection
+        // Log all connection errors for debugging
         const errorMessage = error.message || String(error);
-        const isTransientError = 
-          errorMessage.includes('xhr poll error') ||
-          errorMessage.includes('websocket error') ||
-          errorMessage.includes('transport error');
+        const errorType = error.type || 'unknown';
+        const errorDescription = error.description || '';
         
-        // Only log if it's not a transient error or if we're not already reconnecting
-        if (!isTransientError) {
-          console.error('❌ Connection error:', errorMessage);
-        }
+        console.error('❌ Socket.io Connection Error:', {
+          message: errorMessage,
+          type: errorType,
+          description: errorDescription,
+          url: socketUrl,
+          error: error
+        });
         
         setIsConnected(false);
         // The reconnection mechanism will handle retries automatically
