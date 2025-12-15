@@ -124,6 +124,8 @@ const SupportChat: React.FC = () => {
 
   // Initialize socket connection
   useEffect(() => {
+    // Don't initialize socket on admin routes
+    if (isAdminRoute) return;
     if (!userId || !mounted || typeof window === 'undefined') return;
 
     let newSocket: Socket | null = null;

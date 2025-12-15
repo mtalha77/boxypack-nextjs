@@ -6,8 +6,8 @@ export function middleware(request: NextRequest) {
 
   // Check if the route is an admin route
   if (pathname.startsWith('/admin')) {
-    // Skip auth page and login page
-    if (pathname === '/admin/auth' || pathname === '/admin/login') {
+    // Skip auth page, login page, and agent routes
+    if (pathname === '/admin/auth' || pathname === '/admin/login' || pathname.startsWith('/agent')) {
       return NextResponse.next();
     }
 

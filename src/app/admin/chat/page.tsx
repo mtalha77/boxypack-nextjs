@@ -104,7 +104,7 @@ const AdminChatPage: React.FC = () => {
     
     if (!agentData || !storedAgentId) {
       // Redirect to login if not authenticated
-      window.location.href = '/admin/agent-login';
+      window.location.href = '/agent/login';
       return;
     }
     
@@ -116,11 +116,11 @@ const AdminChatPage: React.FC = () => {
         if (agent.name) localStorage.setItem('agentName', agent.name);
         if (agent.email) localStorage.setItem('agentEmail', agent.email);
       } else {
-        window.location.href = '/admin/agent-login';
+        window.location.href = '/agent/login';
       }
     } catch (e) {
       console.error('Error parsing agent data:', e);
-      window.location.href = '/admin/agent-login';
+      window.location.href = '/agent/login';
     }
   }, []);
 
@@ -157,7 +157,7 @@ const AdminChatPage: React.FC = () => {
         const loggedInAgentId = localStorage.getItem('agentId');
         if (!loggedInAgentId) {
           console.error('❌ No agent ID found, redirecting to login');
-          window.location.href = '/admin/agent-login';
+          window.location.href = '/agent/login';
           return;
         }
         
@@ -866,7 +866,7 @@ const AdminChatPage: React.FC = () => {
                     if (socket) {
                       socket.disconnect();
                     }
-                    window.location.href = '/admin/agent-login';
+                    window.location.href = '/agent/login';
                   }}
                   className="px-3 py-1.5 text-sm text-red-600 hover:text-red-700 hover:bg-red-50 rounded-md transition-colors"
                   title="Logout"

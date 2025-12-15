@@ -17,7 +17,8 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (pathname === '/admin/auth' || pathname === '/admin/login') {
+    // Skip auth check for login pages and agent routes
+    if (pathname === '/admin/auth' || pathname === '/admin/login' || pathname.startsWith('/agent')) {
       setIsLoading(false);
       return;
     }
@@ -57,8 +58,8 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
     );
   }
 
-  // Show auth page and login page content without admin header
-  if (pathname === '/admin/auth' || pathname === '/admin/login') {
+  // Show auth page, login page, and agent routes content without admin header
+  if (pathname === '/admin/auth' || pathname === '/admin/login' || pathname.startsWith('/agent')) {
     return <>{children}</>;
   }
 

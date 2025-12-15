@@ -86,20 +86,20 @@ const AgentLogin: React.FC = () => {
             height={100}
             className="mb-4"
           />
-          {/* Back to Admin Dashboard Button */}
+          {/* Back to Home Button */}
           <Link
-            href="/admin/dashboard"
+            href="/"
             className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors shadow-sm mb-6"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Admin Dashboard
+            Back to Home
           </Link>
         </div>
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Agent Login
+          Support Agent Login
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
-          Sign in to access the chat dashboard
+          Sign in to access the chat support dashboard
         </p>
       </div>
 
