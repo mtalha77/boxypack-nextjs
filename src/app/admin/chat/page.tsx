@@ -175,8 +175,10 @@ const AdminChatPage: React.FC = () => {
       newSocketInstance.on('connect_error', (error) => {
         // Log all connection errors for debugging
         const errorMessage = error?.message || String(error);
-        const errorType = (error as any)?.type || 'unknown';
-        const errorDescription = (error as any)?.description || '';
+        // Socket.io error may have additional properties
+        const socketError = error as Error & { type?: string; description?: string };
+        const errorType = socketError?.type || 'unknown';
+        const errorDescription = socketError?.description || '';
         
         console.error('❌ Admin Socket.io Connection Error:', {
           message: errorMessage,
