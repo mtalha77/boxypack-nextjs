@@ -162,9 +162,9 @@ const SupportChat: React.FC = () => {
 
       newSocket.on('connect_error', (error) => {
         // Log all connection errors for debugging
-        const errorMessage = error.message || String(error);
-        const errorType = error.type || 'unknown';
-        const errorDescription = error.description || '';
+        const errorMessage = error?.message || String(error);
+        const errorType = (error as any)?.type || 'unknown';
+        const errorDescription = (error as any)?.description || '';
         
         console.error('❌ Socket.io Connection Error:', {
           message: errorMessage,
