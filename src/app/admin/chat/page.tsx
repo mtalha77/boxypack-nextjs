@@ -184,7 +184,7 @@ const AdminChatPage: React.FC = () => {
           message: errorMessage,
           type: errorType,
           description: errorDescription,
-          url: socketUrl,
+          url: CHAT_SERVER_URL,
           error: error
         });
         
