@@ -22,7 +22,7 @@ const AgentLogin: React.FC = () => {
       try {
         const agent = JSON.parse(agentData);
         if (agent && agent._id) {
-          router.push('/admin/chat');
+          router.push('/agent/dashboard');
         }
       } catch (e) {
         // Invalid data, clear it
@@ -54,8 +54,8 @@ const AgentLogin: React.FC = () => {
         localStorage.setItem('agentName', data.agent.name);
         localStorage.setItem('agentEmail', data.agent.email);
         
-        // Redirect to chat page
-        router.push('/admin/chat');
+        // Redirect to agent dashboard
+        router.push('/agent/dashboard');
       } else {
         setError(data.error || 'Invalid email or password');
       }

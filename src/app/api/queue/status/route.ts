@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const CHAT_SERVER_URL = process.env.NEXT_PUBLIC_CHAT_SERVER_URL || 'http://localhost:5000';
+const CHAT_SERVER_URL = process.env.NEXT_PUBLIC_CHAT_SERVER_URL || 'http://localhost:5001';
 
 export async function GET() {
   try {
@@ -19,7 +19,7 @@ export async function GET() {
       return NextResponse.json(
         {
           success: false,
-          error: 'Chat server returned invalid response. Please ensure the chat server is running on port 5000.',
+          error: 'Chat server returned invalid response. Please ensure the chat server is running on port 5001.',
         },
         { status: 500 }
       );

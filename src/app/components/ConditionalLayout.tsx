@@ -11,10 +11,11 @@ interface ConditionalLayoutProps {
 const ConditionalLayout: React.FC<ConditionalLayoutProps> = ({ children }) => {
   const pathname = usePathname();
   
-  // Don't show header and footer for admin routes
+  // Don't show header and footer for admin routes or agent routes
   const isAdminRoute = pathname.startsWith('/admin');
+  const isAgentRoute = pathname.startsWith('/agent');
   
-  if (isAdminRoute) {
+  if (isAdminRoute || isAgentRoute) {
     return <>{children}</>;
   }
   

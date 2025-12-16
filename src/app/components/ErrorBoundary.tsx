@@ -1,47 +1,50 @@
 'use client';
 
-import React from 'react';
+import React, { Component, ErrorInfo, ReactNode } from 'react';
 
-interface ErrorBoundaryState {
+interface Props {
+  children: ReactNode;
+  fallback?: ReactNode;
+}
+
+interface State {
   hasError: boolean;
-  error?: Error;
+  error: Error | null;
 }
 
-interface ErrorBoundaryProps {
-  children: React.ReactNode;
-  fallback?: React.ReactNode;
-  onError?: () => void;
-}
-
-class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
-  constructor(props: ErrorBoundaryProps) {
+export class ErrorBoundary extends Component<Props, State> {
+  constructor(props: Props) {
     super(props);
-    this.state = { hasError: false };
+    this.state = { hasError: false, error: null };
   }
 
-  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
+  static getDerivedStateFromError(error: Error): State {
     return { hasError: true, error };
   }
 
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
     console.error('ErrorBoundary caught an error:', error, errorInfo);
-    this.props.onError?.();
   }
 
-  render() {
+  render(): ReactNode {
     if (this.state.hasError) {
       if (this.props.fallback) {
         return this.props.fallback;
       }
 
       return (
-        <div className="min-h-screen bg-gradient-to-r from-[#0c6b76] via-[#0ca6c2] to-[#46959c] flex items-center justify-center">
-          <div className="text-white text-center max-w-md p-8">
-            <h2 className="text-2xl font-bold mb-4">Oops! Something went wrong</h2>
-            <p className="mb-6">We&apos;re sorry, but there was an error loading this page. Please try refreshing the page.</p>
+        <div className="fixed inset-0 bg-gray-100 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-lg p-6 max-w-md mx-4">
+            <h2 className="text-xl font-semibold text-gray-900 mb-2">Something went wrong</h2>
+            <p className="text-gray-600 mb-4">
+              The chat widget encountered an error. Please refresh the page to try again.
+            </p>
             <button
-              onClick={() => window.location.reload()}
-              className="bg-white text-[#0c6b76] px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
+              onClick={() => {
+                this.setState({ hasError: false, error: null });
+                window.location.reload();
+              }}
+              className="w-full bg-gradient-to-r from-[#0c6b76] to-[#0ca6c2] text-white py-2 px-4 rounded-lg hover:from-[#0ca6c2] hover:to-[#0c6b76] transition-all font-medium"
             >
               Refresh Page
             </button>
@@ -53,5 +56,3 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
     return this.props.children;
   }
 }
-
-export default ErrorBoundary;

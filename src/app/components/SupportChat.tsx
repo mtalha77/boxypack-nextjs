@@ -1,11 +1,14 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import type { Socket } from 'socket.io-client';
-import { X, Send, FileText } from 'lucide-react';
+import { X, Send, FileText, ArrowLeft, MessageSquareX } from 'lucide-react';
+import { ErrorBoundary } from './ErrorBoundary';
+import { socketRateLimiter, socketMessageLimiter, socketTypingLimiter } from '../../utils/socketRateLimit';
+import { retryWithBackoff } from '../../utils/retry';
 
 interface Message {
   message: string;
@@ -23,7 +26,40 @@ interface SmartSuggestion {
   suggestions: string[];
 }
 
-// Pre-defined questions for quick replies
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+// FAQ Questions and Answers
+const FAQ_ITEMS: FAQItem[] = [
+  {
+    question: "What are your shipping options?",
+    answer: "We offer various shipping options including standard shipping (5-7 business days), express shipping (2-3 business days), and overnight shipping. Shipping costs are calculated based on your order size and destination."
+  },
+  {
+    question: "How long does production take?",
+    answer: "Production time typically ranges from 7-14 business days depending on the complexity of your order and current production queue. Rush orders can be accommodated with expedited timelines."
+  },
+  {
+    question: "What is your minimum order quantity?",
+    answer: "Our minimum order quantity varies by product type. For custom boxes, the minimum is typically 100 units. For standard products, minimums may be lower. Contact us for specific requirements."
+  },
+  {
+    question: "Can I customize the box design?",
+    answer: "Yes! We offer full customization including size, material, printing, colors, and finishes. You can upload your design or work with our design team to create something unique."
+  },
+  {
+    question: "What payment methods do you accept?",
+    answer: "We accept all major credit cards, PayPal, bank transfers, and purchase orders for qualified businesses. Payment terms can be discussed for larger orders."
+  },
+  {
+    question: "Do you offer samples?",
+    answer: "Yes, we offer samples for most products. Sample costs vary by product type and can often be credited toward your first order. Contact us to request samples."
+  }
+];
+
+// Pre-defined questions for quick replies (used in agent chat)
 const QUICK_QUESTIONS = [
   "What are your shipping options?",
   "How long does production take?",
@@ -50,12 +86,20 @@ const SupportChat: React.FC = () => {
   const [isAdminTyping, setIsAdminTyping] = useState(false);
   const [smartSuggestions, setSmartSuggestions] = useState<string[]>([]);
   const [isAgentConnected, setIsAgentConnected] = useState(false);
+  const [showFAQ, setShowFAQ] = useState(true); // Show FAQ first
+  const [isConnectingToAgent, setIsConnectingToAgent] = useState(false); // Show connecting message
+  const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null); // Track which FAQ is expanded
+  const [showChatSummary, setShowChatSummary] = useState(false); // Show chat summary view
+  const [showCloseConfirmModal, setShowCloseConfirmModal] = useState(false); // Show close chat confirmation modal
+  const [pendingCloseAction, setPendingCloseAction] = useState<'chat' | 'popup' | null>(null); // Track what action is pending
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const agentConnectedRef = useRef<boolean>(false);
+  const connectingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Check if user is on admin route - hide chat widget only on admin routes
+  // Check if user is on admin route or agent route - hide chat widget on these routes
   const isAdminRoute = pathname?.startsWith('/admin') || false;
+  const isAgentRoute = pathname?.startsWith('/agent') || false;
 
   // Ensure component only renders on client and create dedicated container
   useEffect(() => {
@@ -122,17 +166,19 @@ const SupportChat: React.FC = () => {
     }
   }, [userName, userPhone, socket, isConnected, userId]);
 
-  // Initialize socket connection
+  // Initialize socket connection - only when user requests agent chat
   useEffect(() => {
-    // Don't initialize socket on admin routes
-    if (isAdminRoute) return;
+    // Don't initialize socket on admin routes or agent routes
+    if (isAdminRoute || isAgentRoute) return;
+    // Only connect if user has requested agent chat (showFAQ is false)
+    if (showFAQ) return;
     if (!userId || !mounted || typeof window === 'undefined') return;
 
     let newSocket: Socket | null = null;
 
     // Dynamically import socket.io-client to avoid SSR issues
     import('socket.io-client').then(({ io }) => {
-      const socketUrl = process.env.NEXT_PUBLIC_CHAT_SERVER_URL || 'http://localhost:5000';
+      const socketUrl = process.env.NEXT_PUBLIC_CHAT_SERVER_URL || 'http://localhost:5001';
       console.log('🔌 Connecting to chat server:', socketUrl);
 
       newSocket = io(socketUrl, {
@@ -160,6 +206,17 @@ const SupportChat: React.FC = () => {
         } else {
           newSocket?.emit('joinChat', userId);
         }
+        
+        // Clear timeout since we're connected
+        if (connectingTimeoutRef.current) {
+          clearTimeout(connectingTimeoutRef.current);
+          connectingTimeoutRef.current = null;
+        }
+        
+        // Hide connecting message after a short delay (even if agent not connected yet)
+        setTimeout(() => {
+          setIsConnectingToAgent(false);
+        }, 1000);
       });
 
       newSocket.on('connect_error', (error) => {
@@ -179,6 +236,8 @@ const SupportChat: React.FC = () => {
         });
         
         setIsConnected(false);
+        // Hide connecting message on error, show chat interface anyway
+        setIsConnectingToAgent(false);
         // The reconnection mechanism will handle retries automatically
       });
 
@@ -282,7 +341,28 @@ const SupportChat: React.FC = () => {
       newSocket.on('error', (error: { message: string } | Error) => {
         console.error('❌ Socket error:', error);
         const errorMsg = typeof error === 'object' && 'message' in error ? error.message : String(error);
-        alert('Chat error: ' + errorMsg);
+        
+        if (errorMsg.includes('closed') || errorMsg.includes('This chat has been closed')) {
+          const newUserId = `guest_${Math.random().toString(36).substr(2, 9)}`;
+          localStorage.setItem('chatUserId', newUserId);
+          setUserId(newUserId);
+          setMessages([]);
+          setShowFAQ(true);
+          setShowChatSummary(false);
+          setIsAgentConnected(false);
+          agentConnectedRef.current = false;
+          setSmartSuggestions([]);
+        } else if (errorMsg.includes('E11000') || errorMsg.includes('duplicate key')) {
+          const newUserId = `guest_${Math.random().toString(36).substr(2, 9)}`;
+          localStorage.setItem('chatUserId', newUserId);
+          setUserId(newUserId);
+          setMessages([]);
+          if (newSocket && newSocket.connected) {
+            newSocket.emit('joinChat', newUserId, { userName, userPhone });
+          }
+        } else if (!errorMsg.includes('Rate limit')) {
+          console.error('Chat error:', errorMsg);
+        }
         setIsConnected(false);
       });
 
@@ -301,6 +381,12 @@ const SupportChat: React.FC = () => {
         console.log('👨‍💼 Agent connected:', data);
         agentConnectedRef.current = true;
         setIsAgentConnected(true);
+        setIsConnectingToAgent(false); // Hide connecting message
+        // Clear timeout if agent connects
+        if (connectingTimeoutRef.current) {
+          clearTimeout(connectingTimeoutRef.current);
+          connectingTimeoutRef.current = null;
+        }
         // Clear smart suggestions when agent connects
         setSmartSuggestions([]);
       });
@@ -315,27 +401,67 @@ const SupportChat: React.FC = () => {
         }
       });
 
-      newSocket.on('chatClosed', (data: { reason: string }) => {
+      newSocket.on('chatClosed', (data: { reason?: string; userId?: string }) => {
         console.log('🔒 Chat closed:', data.reason);
         agentConnectedRef.current = false;
         setIsAgentConnected(false);
         setSmartSuggestions([]);
-        alert('Chat has been closed due to inactivity. You can start a new conversation anytime!');
+        setShowChatSummary(false);
+        setMessages([]);
+        setShowFAQ(true);
+        
+        if (data.reason && data.reason === 'closed by client') {
+          const newUserId = `guest_${Math.random().toString(36).substr(2, 9)}`;
+          localStorage.setItem('chatUserId', newUserId);
+          setUserId(newUserId);
+        } else if (data.reason) {
+          alert('Chat has been closed due to inactivity. You can start a new conversation anytime!');
+          const newUserId = `guest_${Math.random().toString(36).substr(2, 9)}`;
+          localStorage.setItem('chatUserId', newUserId);
+          setUserId(newUserId);
+        }
+      });
+
+      newSocket.on('chatStatusUpdated', (data: { userId: string; status: string }) => {
+        if (data.userId === userId && data.status === 'closed') {
+          agentConnectedRef.current = false;
+          setIsAgentConnected(false);
+          setSmartSuggestions([]);
+          setShowChatSummary(false);
+        }
       });
 
       setSocket(newSocket);
     }).catch((error) => {
       console.error('❌ Failed to load socket.io-client:', error);
+      setIsConnected(false);
+      setIsConnectingToAgent(false);
     });
 
     return () => {
-      console.log('🧹 Cleaning up socket connection');
       if (newSocket) {
-        newSocket.close();
+        try {
+          newSocket.removeAllListeners();
+          newSocket.close();
+          if (newSocket.id) {
+            socketRateLimiter.reset(newSocket.id);
+            socketMessageLimiter.reset(newSocket.id);
+            socketTypingLimiter.reset(newSocket.id);
+          }
+        } catch (error) {
+          console.error('Error cleaning up socket:', error);
+        }
+      }
+      if (typingTimeoutRef.current) {
+        clearTimeout(typingTimeoutRef.current);
+        typingTimeoutRef.current = null;
+      }
+      if (connectingTimeoutRef.current) {
+        clearTimeout(connectingTimeoutRef.current);
+        connectingTimeoutRef.current = null;
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userId, mounted]);
+  }, [userId, mounted, showFAQ, userName, userPhone]);
 
   // Scroll to bottom when new messages arrive or bot is thinking
   useEffect(() => {
@@ -347,24 +473,37 @@ const SupportChat: React.FC = () => {
     return () => clearTimeout(timeoutId);
   }, [messages, isBotThinking, isAdminTyping]);
 
-  // Handle typing indicator
-  const handleTyping = (isTyping: boolean) => {
+  const handleTyping = useCallback((isTyping: boolean) => {
     if (!socket || !userId || !isConnected) return;
     
-    // Clear existing timeout
+    if (!socketTypingLimiter.checkLimit(socket.id || 'unknown')) {
+      return;
+    }
+    
     if (typingTimeoutRef.current) {
       clearTimeout(typingTimeoutRef.current);
+      typingTimeoutRef.current = null;
     }
     
-    socket.emit('typing', { userId, isTyping, sender: 'client' });
+    try {
+      socket.emit('typing', { userId, isTyping, sender: 'client' });
+    } catch (error) {
+      console.error('Error emitting typing:', error);
+    }
     
-    // Auto-stop typing after 3 seconds
     if (isTyping) {
       typingTimeoutRef.current = setTimeout(() => {
-        socket.emit('typing', { userId, isTyping: false, sender: 'client' });
+        if (socket && socket.connected) {
+          try {
+            socket.emit('typing', { userId, isTyping: false, sender: 'client' });
+          } catch (error) {
+            console.error('Error emitting typing stop:', error);
+          }
+        }
+        typingTimeoutRef.current = null;
       }, 3000);
     }
-  };
+  }, [socket, userId, isConnected]);
 
 
   const sendMessage = (messageText?: string, attachments?: Message['attachments']) => {
@@ -481,6 +620,75 @@ const SupportChat: React.FC = () => {
     setShowUserInfoForm(false);
   };
 
+  const handleConnectToAgent = () => {
+    if (connectingTimeoutRef.current) {
+      clearTimeout(connectingTimeoutRef.current);
+    }
+    
+    setIsConnectingToAgent(true);
+    setShowFAQ(false);
+    setShowChatSummary(false);
+    
+    connectingTimeoutRef.current = setTimeout(() => {
+      setIsConnectingToAgent(false);
+    }, 10000);
+  };
+
+  const handleBackToSummary = () => {
+    setShowChatSummary(true);
+  };
+
+  const confirmCloseChat = () => {
+    if (socket && isConnected && userId) {
+      socket.emit('clientCloseChat', userId);
+    }
+    
+    const newUserId = `guest_${Math.random().toString(36).substr(2, 9)}`;
+    localStorage.setItem('chatUserId', newUserId);
+    setUserId(newUserId);
+    
+    setMessages([]);
+    setShowFAQ(true);
+    setShowChatSummary(false);
+    setIsAgentConnected(false);
+    agentConnectedRef.current = false;
+    setSmartSuggestions([]);
+    
+    if (socket) {
+      socket.emit('leaveChat', userId);
+    }
+    
+    if (pendingCloseAction === 'popup') {
+      setIsOpen(false);
+    }
+    
+    setShowCloseConfirmModal(false);
+    setPendingCloseAction(null);
+  };
+
+  const handleCloseChat = () => {
+    setPendingCloseAction('chat');
+    setShowCloseConfirmModal(true);
+  };
+
+  const handleClosePopup = () => {
+    if (!showFAQ && !showUserInfoForm && (isAgentConnected || messages.length > 0)) {
+      setPendingCloseAction('popup');
+      setShowCloseConfirmModal(true);
+    } else {
+      setIsOpen(false);
+    }
+  };
+
+  const handleCancelClose = () => {
+    setShowCloseConfirmModal(false);
+    setPendingCloseAction(null);
+  };
+
+  const toggleFAQ = (index: number) => {
+    setExpandedFAQ(expandedFAQ === index ? null : index);
+  };
+
   const formatTime = (timestamp: Date | string) => {
     const date = typeof timestamp === 'string' ? new Date(timestamp) : timestamp;
     return date.toLocaleTimeString('en-US', {
@@ -489,25 +697,67 @@ const SupportChat: React.FC = () => {
     });
   };
 
-  // Hide chat widget only on admin routes (check after all hooks)
-  if (!mounted || isAdminRoute || !isVisible) {
+  // Hide chat widget on admin routes and agent routes (check after all hooks)
+  if (!mounted || isAdminRoute || isAgentRoute || !isVisible) {
     return null;
   }
 
   const chatContent = (
-    <div 
-      id="chat-widget-root"
-      style={{
-        position: 'fixed',
-        bottom: '20px',
-        right: '20px',
-        zIndex: 99999,
-        pointerEvents: 'none',
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-        transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out',
-      }}
-    >
+    <>
+      {/* Close Chat Confirmation Modal */}
+      {showCloseConfirmModal && (
+        <div 
+          className="fixed inset-0 bg-black/50 flex items-center justify-center z-[100000]"
+          onClick={handleCancelClose}
+          style={{ pointerEvents: 'auto' }}
+        >
+          <div 
+            className="bg-white rounded-lg shadow-2xl p-6 max-w-md w-full mx-4"
+            onClick={(e) => e.stopPropagation()}
+            style={{ pointerEvents: 'auto' }}
+          >
+            <div className="flex items-center justify-center mb-4">
+              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center">
+                <MessageSquareX className="w-8 h-8 text-red-600" />
+              </div>
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 text-center mb-2">
+              Close Chat?
+            </h3>
+            <p className="text-gray-600 text-center mb-6">
+              Are you sure you want to close this chat? The chat will be closed, but you can start a new conversation anytime.
+            </p>
+            <div className="flex gap-3">
+              <button
+                onClick={handleCancelClose}
+                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors font-medium"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmCloseChat}
+                className="flex-1 px-4 py-2 bg-gradient-to-r from-[#0c6b76] to-[#0ca6c2] text-white rounded-lg hover:from-[#0ca6c2] hover:to-[#0c6b76] transition-all font-medium shadow-md hover:shadow-lg"
+              >
+                Close Chat
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div 
+        id="chat-widget-root"
+        style={{
+          position: 'fixed',
+          bottom: '20px',
+          right: '20px',
+          zIndex: 99999,
+          pointerEvents: 'none',
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+          transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out',
+        }}
+      >
       {/* Floating Chat Bubble - Always visible when closed */}
       {!isOpen && (
         <button
@@ -571,7 +821,7 @@ const SupportChat: React.FC = () => {
         >
           {/* Close Button - Outside top-left corner */}
           <button
-            onClick={() => setIsOpen(false)}
+            onClick={handleClosePopup}
             className="absolute bg-white hover:bg-gray-100 rounded-full p-2 shadow-lg border border-gray-200 transition-all duration-200 hover:scale-110 z-50"
             aria-label="Close chat"
             style={{
@@ -604,25 +854,47 @@ const SupportChat: React.FC = () => {
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-[#0c6b76] to-[#0ca6c2] text-white p-4 rounded-t-lg">
-              <div>
-                <h3 className="font-semibold text-lg">Support Chat</h3>
-                <p className="text-xs text-white/80">
-                  {isConnected ? (
-                    <span className="flex items-center gap-1">
-                      <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                      Connected
-                    </span>
-                  ) : (
-                    <span className="flex items-center gap-1">
-                      <span className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
-                      Connecting...
-                    </span>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3 flex-1">
+                  {!showUserInfoForm && !showFAQ && !isConnectingToAgent && !showChatSummary && messages.length > 0 && (
+                    <button
+                      onClick={handleBackToSummary}
+                      className="p-1.5 hover:bg-white/20 rounded-lg transition-colors"
+                      aria-label="View chat summary"
+                      title="View ongoing chat"
+                    >
+                      <ArrowLeft className="w-5 h-5" />
+                    </button>
                   )}
-                </p>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-lg">Support Chat</h3>
+                    <p className="text-xs text-white/80">
+                      {isConnected ? (
+                        <span className="flex items-center gap-1">
+                          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                          Connected
+                        </span>
+                      ) : (
+                        <span className="flex items-center gap-1">
+                        </span>
+                      )}
+                    </p>
+                  </div>
+                </div>
+                {!showUserInfoForm && !showFAQ && !isConnectingToAgent && !showChatSummary && messages.length > 0 && (
+                  <button
+                    onClick={handleCloseChat}
+                    className="p-1.5 hover:bg-white/20 rounded-lg transition-colors"
+                    aria-label="Close chat"
+                    title="Close chat"
+                  >
+                    <MessageSquareX className="w-5 h-5" />
+                  </button>
+                )}
               </div>
             </div>
 
-          {/* User Info Form - Show before chat if not filled */}
+          {/* User Info Form - Show before FAQ if not filled */}
           {showUserInfoForm && (
             <div className="flex-1 overflow-y-auto p-4 bg-gradient-to-b from-gray-50 to-white flex items-center justify-center">
               <div className="w-full max-w-sm">
@@ -665,7 +937,7 @@ const SupportChat: React.FC = () => {
                       type="submit"
                       className="w-full bg-gradient-to-r from-[#0c6b76] to-[#0ca6c2] text-white py-2 px-4 rounded-lg hover:from-[#0ca6c2] hover:to-[#0c6b76] transition-all duration-200 font-medium shadow-md hover:shadow-lg"
                     >
-                      Start Chatting Now
+                      Continue
                     </button>
                   </form>
                 </div>
@@ -673,8 +945,137 @@ const SupportChat: React.FC = () => {
             </div>
           )}
 
-          {/* Messages Area */}
-          {!showUserInfoForm && (
+          {/* FAQ Section - Show after user info form */}
+          {!showUserInfoForm && showFAQ && (
+            <div className="flex-1 overflow-y-auto p-4 bg-gradient-to-b from-gray-50 to-white">
+              <div className="flex flex-col items-center justify-start h-full">
+                <div className="text-center mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#0c6b76] to-[#0ca6c2] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <Image
+                      src="/favicon.png"
+                      alt="Boxypack"
+                      width={32}
+                      height={32}
+                      className="drop-shadow-lg"
+                    />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">How can we help you?</h3>
+                  <p className="text-sm text-gray-600 mb-1">Browse our frequently asked questions</p>
+                </div>
+                
+                <div className="w-full max-w-sm space-y-3 mb-6">
+                  {FAQ_ITEMS.map((faq, index) => (
+                    <div
+                      key={index}
+                      className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                    >
+                      <button
+                        onClick={() => toggleFAQ(index)}
+                        className="w-full text-left px-4 py-3 flex items-center justify-between hover:bg-gray-50 rounded-lg transition-colors"
+                      >
+                        <span className="text-sm font-medium text-gray-700 pr-2">{faq.question}</span>
+                        <span className="text-gray-500 text-lg flex-shrink-0">
+                          {expandedFAQ === index ? '−' : '+'}
+                        </span>
+                      </button>
+                      {expandedFAQ === index && (
+                        <div className="px-4 pb-3 pt-0">
+                          <p className="text-sm text-gray-600 leading-relaxed">{faq.answer}</p>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Connect to Agent Button */}
+                <div className="w-full max-w-sm mt-4">
+                  <button
+                    onClick={handleConnectToAgent}
+                    className="w-full bg-gradient-to-r from-[#0c6b76] to-[#0ca6c2] text-white py-3 px-4 rounded-lg hover:from-[#0ca6c2] hover:to-[#0c6b76] transition-all duration-200 font-medium shadow-md hover:shadow-lg"
+                  >
+                    Talk with an Agent Now
+                  </button>
+                  <p className="text-xs text-gray-500 text-center mt-2">
+                    Still have questions? Our support team is here to help
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Chat Summary View */}
+          {!showUserInfoForm && !showFAQ && !isConnectingToAgent && showChatSummary && (
+            <div className="flex-1 overflow-y-auto p-4 bg-gradient-to-b from-gray-50 to-white">
+              <div className="mb-4">
+                <button
+                  onClick={() => setShowChatSummary(false)}
+                  className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 mb-4"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  Back to chat
+                </button>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Ongoing Chat</h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  {messages.length} {messages.length === 1 ? 'message' : 'messages'} in this conversation
+                </p>
+              </div>
+              
+              <div className="space-y-3 max-h-[400px] overflow-y-auto">
+                {messages.map((msg, index) => (
+                  <div
+                    key={index}
+                    className={`flex ${
+                      msg.sender === 'client' ? 'justify-end' : 'justify-start'
+                    }`}
+                  >
+                    <div
+                      className={`max-w-[80%] rounded-lg px-3 py-2 text-sm ${
+                        msg.sender === 'client'
+                          ? 'bg-gradient-to-br from-[#0c6b76] to-[#0ca6c2] text-white'
+                          : 'bg-white text-gray-800 border border-gray-200'
+                      }`}
+                    >
+                      <p className="whitespace-pre-line">{msg.message}</p>
+                      <p
+                        className={`text-xs mt-1 ${
+                          msg.sender === 'client'
+                            ? 'text-white/80'
+                            : 'text-gray-500'
+                        }`}
+                      >
+                        {formatTime(msg.timestamp)}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="mt-4 pt-4 border-t border-gray-200">
+                <button
+                  onClick={handleCloseChat}
+                  className="w-full bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg transition-colors font-medium"
+                >
+                  Close Chat
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Connecting to Agent Message */}
+          {!showUserInfoForm && !showFAQ && !showChatSummary && isConnectingToAgent && (
+            <div className="flex-1 overflow-y-auto p-4 bg-gradient-to-b from-gray-50 to-white flex items-center justify-center">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#0c6b76] to-[#0ca6c2] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <div className="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Connecting you with our customer support</h3>
+                <p className="text-sm text-gray-600">Please wait while we connect you with an available agent...</p>
+              </div>
+            </div>
+          )}
+
+          {/* Messages Area - Only show when connected to agent */}
+          {!showUserInfoForm && !showFAQ && !isConnectingToAgent && !showChatSummary && (
             <div className="flex-1 overflow-y-auto p-4 bg-gradient-to-b from-gray-50 to-white">
               {messages.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full py-8">
@@ -821,8 +1222,8 @@ const SupportChat: React.FC = () => {
           </div>
           )}
 
-          {/* Input Area - Only show when form is not visible */}
-          {!showUserInfoForm && (
+          {/* Input Area - Only show when connected to agent */}
+          {!showUserInfoForm && !showFAQ && !isConnectingToAgent && !showChatSummary && (
             <div className="border-t border-gray-200 p-4 bg-white rounded-b-lg">
               <div className="flex gap-2">
               <input
@@ -852,7 +1253,8 @@ const SupportChat: React.FC = () => {
           </div>
         </div>
       )}
-    </div>
+      </div>
+    </>
   );
 
   // Render to dedicated container or documentElement to bypass body's transform

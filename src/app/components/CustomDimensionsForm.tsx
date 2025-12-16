@@ -18,13 +18,15 @@ interface CustomDimensionsFormProps {
   initialProductSlug?: string; // Add prop for initial product selection
   initialCategorySlug?: string; // Add prop for initial category selection
   productSlug?: string; // Product slug for getting custom title/description
+  isLandingPage?: boolean; // Flag to indicate if component is on landing page
 }
 
 const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
   onDesignNow,
   initialProductSlug,
   initialCategorySlug,
-  productSlug
+  productSlug,
+  isLandingPage = false
 }) => {
   // Get custom title and description based on product slug
   const getCustomDimensionsContent = () => {
@@ -39,7 +41,7 @@ const CustomDimensionsForm: React.FC<CustomDimensionsFormProps> = ({
 
   const dimensionsContent = getCustomDimensionsContent();
   const router = useRouter();
-  const [selectedMaterial, setSelectedMaterial] = useState('rigid-boxes');
+  const [selectedMaterial, setSelectedMaterial] = useState(isLandingPage ? '' : 'rigid-boxes');
   const [selectedProduct, setSelectedProduct] = useState('');
   const [productSearchQuery, setProductSearchQuery] = useState('');
   const [customLength, setCustomLength] = useState(9.5);

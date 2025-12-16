@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { CldImage } from 'next-cloudinary';
-import { LogOut, Settings, Package, MessageCircle } from 'lucide-react';
+import { LogOut } from 'lucide-react';
 import Link from 'next/link';
 
 interface AdminLayoutProps {
@@ -86,17 +86,6 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
 
             {/* Navigation */}
             <nav className="flex items-center space-x-4">
-              <Link
-                href="/admin/chat"
-                className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  pathname === '/admin/chat'
-                    ? 'text-blue-600 bg-blue-50'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                }`}
-              >
-                <MessageCircle className="w-4 h-4 mr-2" />
-                Chat Support
-              </Link>
               <button
                 onClick={handleLogout}
                 className="flex items-center px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"

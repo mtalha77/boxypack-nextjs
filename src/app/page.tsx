@@ -81,7 +81,7 @@ const HomePage = () => {
     <div className="relative">
       {/* <Hero /> */}
       <HeroVideoSection />
-      <CustomDimensionsForm />
+      <CustomDimensionsForm isLandingPage={true} />
       <ScrollVideoSection />
       <BoxDesignGallery />
       <HowItWorks />

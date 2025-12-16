@@ -170,7 +170,8 @@ export default function RootLayout({
             {children}
           </ConditionalLayout>
         </CartProvider>
-        <SupportChat />
+        {/* Only show SupportChat in development mode */}
+        {process.env.NODE_ENV === 'development' && <SupportChat />}
       </body>
     </html>
   );

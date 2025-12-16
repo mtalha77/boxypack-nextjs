@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import type { Socket } from 'socket.io-client';
-import { Send, Search, X, CheckCircle, RotateCcw, CheckCheck, Trash2 } from 'lucide-react';
+import { Send, Search, X, CheckCircle, RotateCcw, CheckCheck } from 'lucide-react';
 import Image from 'next/image';
 
 interface Message {
@@ -51,7 +51,7 @@ interface QueueStatus {
   availableAgents: number;
 }
 
-const AdminChatPage: React.FC = () => {
+const AgentDashboard: React.FC = () => {
   const [socket, setSocket] = useState<Socket | null>(null);
   const [chats, setChats] = useState<ChatSummary[]>([]);
   const [selectedChat, setSelectedChat] = useState<string | null>(null);
@@ -66,12 +66,14 @@ const AdminChatPage: React.FC = () => {
   const [agentId, setAgentId] = useState<string>('');
   const [assignedChats, setAssignedChats] = useState<string[]>([]);
   const [isAvailable, setIsAvailable] = useState<boolean>(true);
-  const [statusFilter, setStatusFilter] = useState<'all' | 'active' | 'closed' | 'inactive'>('all');
+  const [statusFilter, setStatusFilter] = useState<'all' | 'active' | 'closed' | 'inactive'>('active');
+  const [agentName, setAgentName] = useState<string>('Agent');
+  const [agentEmail, setAgentEmail] = useState<string>('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const selectedChatRef = useRef<string | null>(null);
 
-  const CHAT_SERVER_URL = process.env.NEXT_PUBLIC_CHAT_SERVER_URL || 'http://localhost:5000';
+  const CHAT_SERVER_URL = process.env.NEXT_PUBLIC_CHAT_SERVER_URL || 'http://localhost:5001';
   
   // Helper function to safely parse JSON responses
   const safeJsonParse = async (response: Response) => {
@@ -99,6 +101,8 @@ const AdminChatPage: React.FC = () => {
   // Check authentication and get agent ID
   useEffect(() => {
     // Check if agent is logged in
+    if (typeof window === 'undefined') return;
+    
     const agentData = localStorage.getItem('agentData');
     const storedAgentId = localStorage.getItem('agentId');
     
@@ -113,8 +117,14 @@ const AdminChatPage: React.FC = () => {
       if (agent && agent._id) {
         setAgentId(agent._id);
         // Store agent name and email for display
-        if (agent.name) localStorage.setItem('agentName', agent.name);
-        if (agent.email) localStorage.setItem('agentEmail', agent.email);
+        if (agent.name) {
+          localStorage.setItem('agentName', agent.name);
+          setAgentName(agent.name);
+        }
+        if (agent.email) {
+          localStorage.setItem('agentEmail', agent.email);
+          setAgentEmail(agent.email);
+        }
       } else {
         window.location.href = '/agent/login';
       }
@@ -150,7 +160,7 @@ const AdminChatPage: React.FC = () => {
       newSocket = newSocketInstance;
 
       newSocketInstance.on('connect', () => {
-        console.log('✅ Admin connected to chat server');
+        console.log('✅ Agent connected to chat server');
         setIsConnected(true);
         
         // Register as agent using the logged-in agent's ID
@@ -180,7 +190,7 @@ const AdminChatPage: React.FC = () => {
         const errorType = socketError?.type || 'unknown';
         const errorDescription = socketError?.description || '';
         
-        console.error('❌ Admin Socket.io Connection Error:', {
+        console.error('❌ Agent Socket.io Connection Error:', {
           message: errorMessage,
           type: errorType,
           description: errorDescription,
@@ -192,7 +202,7 @@ const AdminChatPage: React.FC = () => {
       });
 
       newSocketInstance.on('disconnect', (reason) => {
-        console.log('❌ Admin disconnected from chat server:', reason);
+        console.log('❌ Agent disconnected from chat server:', reason);
         setIsConnected(false);
         
         // Attempt to reconnect if not a manual disconnect
@@ -202,11 +212,15 @@ const AdminChatPage: React.FC = () => {
       });
 
       newSocketInstance.on('reconnect', (attemptNumber) => {
-        console.log('🔄 Admin reconnected after', attemptNumber, 'attempts');
+        console.log('🔄 Agent reconnected after', attemptNumber, 'attempts');
         setIsConnected(true);
         
         // Re-register as agent after reconnection
-        const storedAgentId = localStorage.getItem('adminAgentId') || `agent_${Math.random().toString(36).substr(2, 9)}`;
+        const storedAgentId = localStorage.getItem('agentId');
+        if (!storedAgentId) {
+          window.location.href = '/agent/login';
+          return;
+        }
         const storedAvailability = localStorage.getItem('agentAvailability') !== 'false';
         newSocketInstance.emit('agentRegister', { 
           agentId: storedAgentId,
@@ -342,11 +356,17 @@ const AdminChatPage: React.FC = () => {
 
       // Chat status updates
       newSocketInstance.on('chatStatusUpdated', (data: { userId: string; status: string; timestamp: Date }) => {
-        if (data.userId === selectedChat) {
-          fetchChats();
-          fetchChatMessages(data.userId);
+        if (data.status === 'closed') {
+          setChats(prevChats => prevChats.filter(chat => chat.userId !== data.userId));
+          if (data.userId === selectedChat) {
+            setSelectedChat(null);
+            setMessages([]);
+          }
         } else {
-          fetchChats();
+          fetchChatsWithRetry().catch(() => {});
+          if (data.userId === selectedChat) {
+            fetchChatMessages(data.userId).catch(() => {});
+          }
         }
       });
 
@@ -359,23 +379,25 @@ const AdminChatPage: React.FC = () => {
       });
 
       // Chat closed/reopened events
-      newSocketInstance.on('chatClosed', (data: { userId: string }) => {
+      newSocketInstance.on('chatClosed', (data: { userId: string; reason?: string }) => {
+        setChats(prevChats => prevChats.filter(chat => chat.userId !== data.userId));
         if (data.userId === selectedChat) {
-          fetchChats();
+          setSelectedChat(null);
+          setMessages([]);
         }
       });
 
       newSocketInstance.on('chatReopened', (data: { userId: string }) => {
         if (data.userId === selectedChat) {
-          fetchChats();
+          fetchChatsWithRetry().catch(() => {});
         }
       });
 
       // Chat reassigned
       newSocketInstance.on('chatReassigned', (data: { userId: string; oldAgentId: string; newAgentId: string }) => {
-        fetchChats();
+        fetchChatsWithRetry().catch(() => {});
         if (data.userId === selectedChat) {
-          fetchChatMessages(data.userId);
+          fetchChatMessages(data.userId).catch(() => {});
         }
       });
 
@@ -386,30 +408,56 @@ const AdminChatPage: React.FC = () => {
 
     return () => {
       if (selectedChat && newSocket) {
-        newSocket.emit('adminLeaveChat', selectedChat);
+        try {
+          newSocket.emit('adminLeaveChat', selectedChat);
+        } catch (error) {
+          console.error('Error leaving chat on cleanup:', error);
+        }
       }
       if (newSocket) {
+        newSocket.removeAllListeners();
         newSocket.close();
+      }
+      if (typingTimeoutRef.current) {
+        clearTimeout(typingTimeoutRef.current);
+        typingTimeoutRef.current = null;
       }
     };
   }, []);
 
-  // Fetch chats - only show chats assigned to the logged-in agent
+  const fetchChatsWithRetry = async (retries = 3): Promise<void> => {
+    for (let attempt = 0; attempt < retries; attempt++) {
+      try {
+        await fetchChats();
+        return;
+      } catch (error) {
+        if (attempt === retries - 1) {
+          console.error('Failed to fetch chats after retries:', error);
+          throw error;
+        }
+        await new Promise(resolve => setTimeout(resolve, 1000 * (attempt + 1)));
+      }
+    }
+  };
+
   const fetchChats = async () => {
     try {
-      // Get the logged-in agent's ID
       const loggedInAgentId = localStorage.getItem('agentId');
       
-      // Fetch chats filtered by agent ID (only assigned chats)
-      const url = loggedInAgentId 
-        ? `/api/chats?agentId=${loggedInAgentId}`
-        : '/api/chats';
+      const params = new URLSearchParams();
+      if (loggedInAgentId) {
+        params.append('agentId', loggedInAgentId);
+      }
+      if (statusFilter !== 'active') {
+        params.append('status', statusFilter);
+      }
+      
+      const url = `/api/chats${params.toString() ? '?' + params.toString() : ''}`;
       
       const response = await fetch(url);
       const data = await safeJsonParse(response);
       
       if (data.success) {
-        // Calculate unread counts (messages from client that are unread)
         const chatsWithUnread = data.chats.map((chat: ChatSummary & { messages?: Message[] }) => {
           const unreadCount = chat.messages?.filter(
             (m: Message) => m.sender === 'client' && !m.read
@@ -463,13 +511,12 @@ const AdminChatPage: React.FC = () => {
   useEffect(() => {
     fetchChats();
     fetchQueueStatus();
-    // Refresh chats and queue status every 5 seconds
     const interval = setInterval(() => {
       fetchChats();
       fetchQueueStatus();
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [statusFilter]);
 
   useEffect(() => {
     // Update ref whenever selectedChat changes
@@ -482,7 +529,7 @@ const AdminChatPage: React.FC = () => {
       // Join the chat room to receive real-time updates (like WhatsApp)
       socket.emit('joinChat', selectedChat);
       socket.emit('adminJoinChat', selectedChat);
-      console.log(`📥 Admin joined chat room for real-time messages: ${selectedChat}`);
+      console.log(`📥 Agent joined chat room for real-time messages: ${selectedChat}`);
       
       // Cleanup: leave chat when switching to another chat
       return () => {
@@ -569,11 +616,10 @@ const AdminChatPage: React.FC = () => {
     });
   };
 
-  // Filter chats by status and search term
   const filteredChats = chats.filter((chat) => {
-    const matchesSearch = chat.userId.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesStatus = statusFilter === 'all' || chat.status === statusFilter;
-    return matchesSearch && matchesStatus;
+    return chat.userId.toLowerCase().includes(searchTerm.toLowerCase()) ||
+           chat.userName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+           chat.userPhone?.toLowerCase().includes(searchTerm.toLowerCase());
   });
 
   // Sort chats: unread first, then by last activity
@@ -724,35 +770,6 @@ const AdminChatPage: React.FC = () => {
     }
   };
 
-  // Handle deleting a chat
-  const handleDeleteChat = async () => {
-    if (!selectedChat) return;
-    
-    if (!confirm('Are you sure you want to delete this chat permanently? This action cannot be undone.')) {
-      return;
-    }
-    
-    try {
-      const response = await fetch(`/api/chats/${selectedChat}/delete`, {
-        method: 'DELETE',
-      });
-      
-      const data = await safeJsonParse(response);
-      if (data.success) {
-        setSelectedChat(null);
-        setMessages([]);
-        await fetchChats();
-      } else {
-        console.error('Failed to delete chat:', data.error);
-        alert(data.error || 'Failed to delete chat');
-      }
-    } catch (error) {
-      console.error('Error deleting chat:', error);
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-      alert(`Error deleting chat: ${errorMessage}`);
-    }
-  };
-
   // Handle mark all as read
   const handleMarkAllAsRead = async () => {
     try {
@@ -849,10 +866,10 @@ const AdminChatPage: React.FC = () => {
               <div className="flex items-center gap-3 pl-4 border-l border-gray-300">
                 <div className="text-right">
                   <div className="text-sm font-medium text-gray-900">
-                    {localStorage.getItem('agentName') || 'Agent'}
+                    {agentName}
                   </div>
                   <div className="text-xs text-gray-500">
-                    {localStorage.getItem('agentEmail') || ''}
+                    {agentEmail}
                   </div>
                 </div>
                 <button
@@ -1098,16 +1115,6 @@ const AdminChatPage: React.FC = () => {
                           Close
                         </button>
                       )}
-                      
-                      {/* Delete Chat */}
-                      <button
-                        onClick={handleDeleteChat}
-                        className="px-3 py-1.5 bg-red-500 hover:bg-red-600 text-white text-xs rounded-lg transition-colors flex items-center gap-1"
-                        title="Delete chat permanently"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                        Delete
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -1263,4 +1270,5 @@ const AdminChatPage: React.FC = () => {
   );
 };
 
-export default AdminChatPage;
+export default AgentDashboard;
+
